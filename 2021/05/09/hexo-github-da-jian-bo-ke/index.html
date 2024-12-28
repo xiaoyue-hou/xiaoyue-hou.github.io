@@ -477,8 +477,20 @@ $ git config <span class="token operator">--</span>global user<span class="token
 <h2 id="五-更换主题"><a href="#五-更换主题" class="headerlink" title="五.更换主题"></a>五.更换主题</h2><p>参考链接中的修改主题部分，或者随便搜一下hexo更换主题</p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html#%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98">https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html#%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98</a></p>
 <h2 id="六-如何写文章"><a href="#六-如何写文章" class="headerlink" title="六.如何写文章"></a>六.如何写文章</h2><p>参考五中的写博客部分以及下面两个链接</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wsmrzx/article/details/81478945?utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control&amp;dist_request_id=1332049.8468.16193996158144771&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control">https://blog.csdn.net/wsmrzx/article/details/81478945?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control&amp;dist_request_id=1332049.8468.16193996158144771&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/191d1e21f7ed">https://www.jianshu.com/p/191d1e21f7ed</a></p>
+<p>1、<a target="_blank" rel="noopener" href="https://blog.csdn.net/wsmrzx/article/details/81478945?utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control&amp;dist_request_id=1332049.8468.16193996158144771&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control">https://blog.csdn.net/wsmrzx/article/details/81478945?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control&amp;dist_request_id=1332049.8468.16193996158144771&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control</a></p>
+<p>这里面说的站点文件夹是D:\APP\blog\hexo，在这个文件夹下 git bash，输入以下代码，就会在 <code>source/_post</code> 文件夹下创建一个文件，命名为：<code>title.md</code>，便可以写文字了</p>
+<pre><code>$ hexo new &quot;title&quot;
+</code></pre>
+<p>写完之后还在站点文件夹下，输入如下命令部署</p>
+<pre><code>$ hexo g
+</code></pre>
+<p>先试用以下命令运行本地站点，在浏览器输入地址 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> 检查是否有问题</p>
+<pre><code>$ hexo s
+</code></pre>
+<p>检查无误后，再用一下命令发布</p>
+<pre><code>$ hexo d
+</code></pre>
+<p>2、<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/191d1e21f7ed">https://www.jianshu.com/p/191d1e21f7ed</a></p>
 
                 
             </div>
@@ -586,18 +598,17 @@ $ git config <span class="token operator">--</span>global user<span class="token
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05/09/hexo-github-da-jian-bo-ke/">
+                <a href="/2024/12/28/docker-osrm/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="hexo+github搭建博客">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="docker-osrm">
                         
-                        <span class="card-title">hexo+github搭建博客</span>
+                        <span class="card-title">docker-osrm</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -607,22 +618,17 @@ $ git config <span class="token operator">--</span>global user<span class="token
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-09
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-12-28
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/hexo/" class="post-category">
-                                    hexo
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            猴猴猴
                             
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -854,7 +860,7 @@ $ git config <span class="token operator">--</span>global user<span class="token
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021-2022</span>
+                <span id="year">2021-2024</span>
             
             <span id="year">2021</span>
             <a href="/about" target="_blank">猴猴猴</a>
