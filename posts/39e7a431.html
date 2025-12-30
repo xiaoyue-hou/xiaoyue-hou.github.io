@@ -887,7 +887,7 @@
 
 
 
-<h3 id="11-20200828-Estimating-the-establishment-of-local-transmission-and-the-cryptic-phase-of-the-COVID-19-pandemic-in-the-USA"><a href="#11-20200828-Estimating-the-establishment-of-local-transmission-and-the-cryptic-phase-of-the-COVID-19-pandemic-in-the-USA" class="headerlink" title="11.20200828-Estimating the establishment of local transmission and the cryptic phase of the COVID-19 pandemic in the USA"></a><strong>11.20200828-Estimating the establishment of local transmission and the cryptic phase of the COVID-19 pandemic in the USA</strong></h3><p>在本文中，我们使用全球元群传播模型来研究COVID-19大流行在美国持续和未被发现的社区传播的建立。该模型根据来自中国大陆的国际病例输入进行校准，并考虑了往返国际目的地的旅行限制。我们估计2020年2月SARS-CoV-2将在社区广泛传播。建模结果表明，国际旅行是在西海岸和东海岸大都市地区引入SARS-CoV-2的关键驱动因素，这些地区最早可能在2019年12月底被播种。对于大多数大陆国家来说，输入性感染的最大贡献是通过国内旅行流来的。</p>
+<h3 id="11、20200828-Estimating-the-establishment-of-local-transmission-and-the-cryptic-phase-of-the-COVID-19-pandemic-in-the-USA"><a href="#11、20200828-Estimating-the-establishment-of-local-transmission-and-the-cryptic-phase-of-the-COVID-19-pandemic-in-the-USA" class="headerlink" title="11、20200828-Estimating the establishment of local transmission and the cryptic phase of the COVID-19 pandemic in the USA"></a><strong>11、20200828-Estimating the establishment of local transmission and the cryptic phase of the COVID-19 pandemic in the USA</strong></h3><p>在本文中，我们使用全球元群传播模型来研究COVID-19大流行在美国持续和未被发现的社区传播的建立。该模型根据来自中国大陆的国际病例输入进行校准，并考虑了往返国际目的地的旅行限制。我们估计2020年2月SARS-CoV-2将在社区广泛传播。建模结果表明，国际旅行是在西海岸和东海岸大都市地区引入SARS-CoV-2的关键驱动因素，这些地区最早可能在2019年12月底被播种。对于大多数大陆国家来说，输入性感染的最大贡献是通过国内旅行流来的。</p>
 <p>Figure 3:重要来源。</p>
 <div style="width: 50%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/39e7a431/11.png" class="" title="image-20210828095243792"></div>
 
@@ -1262,8 +1262,8 @@
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
+            collapseDepth: Number('-1'),
+            headingSelector: 'h2, h3, h4, h5'
         });
 
         // modify the toc link href to support Chinese.
@@ -1275,7 +1275,7 @@
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
+        $('#articleContent').children('h2, h3, h4, h5').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 

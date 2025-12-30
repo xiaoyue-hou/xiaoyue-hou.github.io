@@ -1,59 +1,115 @@
 /* =================================================== */
-/* 1. 目录卡片外层：固定位置 + 控制滚动条 */
+/* 1. 外层相框：只负责“哪里开始滚”和“最大多高” */
 /* =================================================== */
 .toc-widget {
-    /* 必须保留 sticky 才能吸顶 */
+    /* 必须保留 sticky */
     position: -webkit-sticky;
     position: sticky;
     top: 80px;
     
-    /* 限制高度：给底部留出一点空间，不要撑满全屏 */
+    /* 限制最大高度，给屏幕底部留点余地 */
     max-height: 85vh !important;
     
-    /* 关键：滚动条只加在这里 */
+    /* ⚠️ 强制开启滚动条，且必须是在外层开启 */
     overflow-y: auto !important;
     overflow-x: hidden;
     
-    /* 修正：去掉背景色，保留默认边距 */
+    /* 布局重置 */
+    display: block !important;
     padding: 0 !important;
+    z-index: 998;
 }
 
 /* =================================================== */
-/* 2. 内容区域：负责撑开底部，解决“切断”问题 */
+/* 2. 内层画布：解除封印，允许无限长 */
 /* =================================================== */
 #toc-content {
-    /* 高度自动，随内容变化 */
+    /* ⚠️ 核心：高度必须自动！ */
     height: auto !important;
+    max-height: none !important;
     
-    /* 关键点：给最底部加 120px 的透明垫片 */
-    /* 这样当你滚到底时，最后一条内容会被这块透明区域顶上来 */
-    padding-bottom: 120px !important;
-    
-    /* 内部不要滚动 */
+    /* 内部不许滚，防止双滚动条 */
     overflow: visible !important;
+    
+    /* 布局修复 */
+    display: block !important;
+    position: relative !important;
 }
 
 /* =================================================== */
-/* 3. 细节优化：恢复折叠功能 + 优化排版 */
+/* 3. 【关键修复】幽灵占位符 (The Ghost Spacer) */
+/* 我们不加 padding，因为 padding 容易被吞掉。 */
+/* 我们加一个实实在在的、高达 150px 的透明方块。 */
 /* =================================================== */
-/* 这里的 ol 绝对不能加 display: block !important，否则折叠会失效 */
-#toc-content ol {
-    /* 稍微调整缩进，让层级更清晰 */
-    padding-left: 15px; 
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-/* 防止长标题显示不全，强制换行 */
-#toc-content .toc-link {
-    display: inline-block; /* 让链接占据实体空间 */
+#toc-content::after {
+    content: "";          /* 必须有内容 */
+    display: block !important;
+    height: 150px;        /* ⚠️ 这里的 150px 就是你底部多出来的滚动空间 */
     width: 100%;
-    white-space: normal; /* 允许文字换行 */
-    line-height: 1.5;    /* 增加行高，看着不拥挤 */
+    clear: both;          /* 清除浮动，防塌陷 */
+    visibility: hidden;   /* 看不见，但真实存在 */
 }
 
-/* 选中状态的高亮颜色（可选，保持主题默认绿色） */
-#toc-content .is-active-link {
+/* =================================================== */
+/* 4. 列表逻辑：只保底，不干涉折叠 */
+/* =================================================== */
+#toc-content ol, 
+#toc-content ul {
+    /* 确保列表本身没有高度锁 */
+    height: auto !important;
+    max-height: none !important;
+    
+    /* ⚠️ 注意：这里千万不要写 display: block !important */
+    /* 否则点击折叠功能会失效。我们只控制高度，不控制显隐。 */
+    
+    margin: 0 !important;
+    padding-left: 10px !important; /* 稍微留点缩进 */
+}
+
+/* 链接样式防截断 */
+#toc-content .toc-link {
+    display: inline-block;
+    white-space: normal; /* 允许换行 */
+    width: 100%;
+    line-height: 1.4;
+    padding: 2px 0;
+}
+
+/* 优化目录显示：强制不换行，超出显示省略号 */
+.toc-body .toc-link {
+    white-space: nowrap;       /* 禁止文字换行 */
+    overflow: hidden;          /* 超出部分隐藏 */
+    text-overflow: ellipsis;   /* 超出部分显示省略号 ... */
+    display: block;            /* 确保占满整行 */
+    max-width: 100%;           /* 限制最大宽度 */
+    font-size: 0.9rem;         /* 稍微调小一点字体，显得精致些 */
+    line-height: 1.5rem;       /* 增加行高，防止挤在一起 */
+}
+
+/* 针对当前激活的目录项，可以稍微从视觉上区分一下（可选） */
+.toc-body .is-active-link {
     font-weight: bold;
-    color: #42b983; 
+    color: #42b983; /* 你的主题色 */
+}
+
+/* --- 修复目录无法收起的关键代码 --- */
+
+/* 1. 隐藏被 tocbot 标记为“折叠”的子列表 */
+.toc-list.is-collapsed {
+    display: none !important; /* 强制隐藏，不显示 */
+}
+
+/* 2. (可选) 给带有子菜单的父级加个小箭头，提示可以展开 */
+.toc-link.node-name--H2::before {
+    /* 这里可以加个小箭头符号，嫌麻烦可以不加 */
+    /* content: '▶ '; */ 
+    font-size: 0.8em;
+}
+
+/* 3. 防止目录文字太长换行（再次强调，配合使用效果最好） */
+.toc-link {
+    white-space: nowrap !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
 }
