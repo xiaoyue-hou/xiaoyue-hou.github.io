@@ -2138,3 +2138,10 @@ footer .copy-right {
     padding: 0;
     margin: 0;
 }
+
+/* --- 强制隐藏那些乱七八糟的文字 --- */
+.card .card-content .summary,
+.caption, .img-caption, .fancybox-caption {
+    display: none !important;
+}
+

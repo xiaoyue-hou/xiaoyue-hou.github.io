@@ -1,1 +1,59 @@
-/* Here is your custom css styles. */
+/* =================================================== */
+/* 1. 目录卡片外层：固定位置 + 控制滚动条 */
+/* =================================================== */
+.toc-widget {
+    /* 必须保留 sticky 才能吸顶 */
+    position: -webkit-sticky;
+    position: sticky;
+    top: 80px;
+    
+    /* 限制高度：给底部留出一点空间，不要撑满全屏 */
+    max-height: 85vh !important;
+    
+    /* 关键：滚动条只加在这里 */
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    
+    /* 修正：去掉背景色，保留默认边距 */
+    padding: 0 !important;
+}
+
+/* =================================================== */
+/* 2. 内容区域：负责撑开底部，解决“切断”问题 */
+/* =================================================== */
+#toc-content {
+    /* 高度自动，随内容变化 */
+    height: auto !important;
+    
+    /* 关键点：给最底部加 120px 的透明垫片 */
+    /* 这样当你滚到底时，最后一条内容会被这块透明区域顶上来 */
+    padding-bottom: 120px !important;
+    
+    /* 内部不要滚动 */
+    overflow: visible !important;
+}
+
+/* =================================================== */
+/* 3. 细节优化：恢复折叠功能 + 优化排版 */
+/* =================================================== */
+/* 这里的 ol 绝对不能加 display: block !important，否则折叠会失效 */
+#toc-content ol {
+    /* 稍微调整缩进，让层级更清晰 */
+    padding-left: 15px; 
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* 防止长标题显示不全，强制换行 */
+#toc-content .toc-link {
+    display: inline-block; /* 让链接占据实体空间 */
+    width: 100%;
+    white-space: normal; /* 允许文字换行 */
+    line-height: 1.5;    /* 增加行高，看着不拥挤 */
+}
+
+/* 选中状态的高亮颜色（可选，保持主题默认绿色） */
+#toc-content .is-active-link {
+    font-weight: bold;
+    color: #42b983; 
+}
