@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="画图, 猴猴猴">
+    <meta name="keywords" content="Docker-OSRM, 猴猴猴">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>画图 | 猴猴猴</title>
+    <title>Docker-OSRM | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -254,12 +254,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">画图</h1>
+                    <h1 class="description center-align post-title">Docker-OSRM</h1>
                 </div>
             </div>
         </div>
@@ -412,55 +412,21 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、画图基本代码"><a href="#一、画图基本代码" class="headerlink" title="一、画图基本代码"></a>一、画图基本代码</h1><h2 id="1、引入库"><a href="#1、引入库" class="headerlink" title="1、引入库"></a>1、引入库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line">plt.rcParams[<span class="string">&#x27;figure.dpi&#x27;</span>] = <span class="number">300</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;Microsoft YaHei&#x27;</span>]</span><br></pre></td></tr></table></figure>
-<h2 id="2、直方分布图"><a href="#2、直方分布图" class="headerlink" title="2、直方分布图"></a>2、直方分布图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">6</span>))</span><br><span class="line">data = [np.log10(a) <span class="keyword">for</span> a <span class="keyword">in</span> list_conformity_real]  <span class="comment"># 对数直方图，以10为底，np.log(a)默认以e为底</span></span><br><span class="line">min_val, max_val = np.<span class="built_in">min</span>(data), np.<span class="built_in">max</span>(data)</span><br><span class="line">bins1 = np.linspace(min_val, max_val, num=<span class="number">30</span>)</span><br><span class="line">sns.histplot(data, bins=bins1, color=<span class="string">&quot;red&quot;</span>, alpha=<span class="number">0.7</span>, label=<span class="string">&#x27;real_data&#x27;</span>)  <span class="comment"># stat=&#x27;count&#x27;默认是频数 , stat=&quot;density&quot;画概率密度</span></span><br><span class="line"><span class="comment"># plt.hist(l1, bins=30, range=(min_val, max_val), color=&#x27;red&#x27;, edgecolor=&#x27;black&#x27;, alpha=0.7)</span></span><br><span class="line"><span class="comment"># sns是升级的直方图，plt.hist是基础直方图</span></span><br></pre></td></tr></table></figure>
-<h2 id="3、互补累计分布图"><a href="#3、互补累计分布图" class="headerlink" title="3、互补累计分布图"></a>3、互补累计分布图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">6</span>))</span><br><span class="line">count = Counter(list_conformity_real)  <span class="comment"># 计算出现频次</span></span><br><span class="line">x = <span class="built_in">sorted</span>(count.keys())</span><br><span class="line">y = [count[key] <span class="keyword">for</span> key <span class="keyword">in</span> x]</span><br><span class="line">y_cu = []  <span class="comment"># 互补累积</span></span><br><span class="line">pro = <span class="number">1</span></span><br><span class="line">total = <span class="built_in">sum</span>(y)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(y)):</span><br><span class="line">    y_cu.append(pro)        </span><br><span class="line">    pro -= y[i]/total</span><br><span class="line">plt.scatter(x, y_cu, c=<span class="string">&#x27;red&#x27;</span>, label=<span class="string">&#x27;真实数据&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;从众性互补累积分布图&#x27;</span>, fontsize=<span class="number">16</span>)</span><br><span class="line">plt.xscale(<span class="string">&#x27;log&#x27;</span>, base=<span class="number">10</span>)  <span class="comment"># 默认底数为10,也可以设置base=np.e以e为底数</span></span><br><span class="line">plt.yscale(<span class="string">&#x27;log&#x27;</span>, base=<span class="number">10</span>)  </span><br><span class="line">plt.xlabel(<span class="string">&#x27;从众性&#x27;</span>, fontsize=<span class="number">14</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;概率&#x27;</span>, fontsize=<span class="number">14</span>)</span><br><span class="line"><span class="comment"># plt.ylim(bottom=1e-6)  # 设置y轴下限</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<h2 id="4、拟合正态分布并检验"><a href="#4、拟合正态分布并检验" class="headerlink" title="4、拟合正态分布并检验"></a>4、拟合正态分布并检验</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> norm</span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> shapiro, kstest</span><br><span class="line"><span class="keyword">import</span> statsmodels.api <span class="keyword">as</span> sm</span><br><span class="line"></span><br><span class="line">mean, std = norm.fit(data)  <span class="comment"># 正态分布拟合</span></span><br><span class="line">xn = np.linspace(<span class="built_in">min</span>(data), <span class="built_in">max</span>(data), <span class="number">1000</span>)</span><br><span class="line">pn = norm.pdf(xn, mean, std)</span><br><span class="line"><span class="comment"># plt.plot(xn, pn, &#x27;b-&#x27;, label=&#x27;Normal fit&#x27;)  # 概率密度拟合</span></span><br><span class="line"></span><br><span class="line">bin_width = bins1[<span class="number">1</span>] - bins1[<span class="number">0</span>]  <span class="comment"># 计算每个bin的宽度</span></span><br><span class="line">pn_scaled = pn * <span class="built_in">len</span>(data) * bin_width  <span class="comment"># 概率密度转为频数</span></span><br><span class="line">plt.plot(xn, pn_scaled, <span class="string">&#x27;b-&#x27;</span>, label=<span class="string">&#x27;Normal fit&#x27;</span>)  <span class="comment"># 频数拟合直方分布</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 可以用 Shapiro-Wilk 检验或 Kolmogorov-Smirnov 检验判断正态性：</span></span><br><span class="line">stat, p_value = shapiro(data)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Shapiro-Wilk test p-value:&#x27;</span>, p_value)</span><br><span class="line"><span class="comment"># 如果 p 值大于 0.05，则不能拒绝正态分布假设，说明对数数据近似正态</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用 statsmodels 画 Q-Q 图，直观判断数据与正态分布的吻合度：</span></span><br><span class="line">sm.qqplot(np.array(data), line=<span class="string">&#x27;45&#x27;</span>)</span><br><span class="line">plt.show()</span><br><span class="line"><span class="comment"># 点大致沿对角线分布说明近似正态</span></span><br></pre></td></tr></table></figure>
-<h1 id="二、ArcGIS操作"><a href="#二、ArcGIS操作" class="headerlink" title="二、ArcGIS操作"></a>二、ArcGIS操作</h1><h2 id="1、获得城市矢量底图的步骤"><a href="#1、获得城市矢量底图的步骤" class="headerlink" title="1、获得城市矢量底图的步骤"></a>1、获得城市矢量底图的步骤</h2><p>打开arcmap-添加数据-AddBasemap-选择一个合适的风格，然后选定自己想要的地区(查找-输入地区名称)-文件-导出地图-emp/emf</p>
-<h1 id="三、画图示例图"><a href="#三、画图示例图" class="headerlink" title="三、画图示例图"></a>三、画图示例图</h1><h2 id="1、折线图"><a href="#1、折线图" class="headerlink" title="1、折线图"></a><strong>1、折线图</strong></h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S026427512500705X?dgcid=rss_sd_all#f0040">https://www.sciencedirect.com/science/article/pii/S026427512500705X?dgcid=rss_sd_all#f0040</a></li>
-</ul>
-<img src="/posts/45331dc3.htm/45331dc3/image-20250917212139733.png" class title="image-20250917212139733">
-<img src="/posts/45331dc3.htm/45331dc3/image-20250917212148077.png" class title="image-20250917212148077">
-<h2 id="2、柱状图"><a href="#2、柱状图" class="headerlink" title="2、柱状图"></a>2、柱状图</h2><h2 id="3、饼图"><a href="#3、饼图" class="headerlink" title="3、饼图"></a>3、饼图</h2><h2 id="4、散点图"><a href="#4、散点图" class="headerlink" title="4、散点图"></a>4、散点图</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://echarts.apache.org/examples/zh/editor.html?c=scatter-jitter">https://echarts.apache.org/examples/zh/editor.html?c=scatter-jitter</a></li>
-</ul>
-<div style="width: 25%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/45331dc3.htm/45331dc3/image-20250917212221636.png" class title="image-20250917212221636"></div>
-
-<h2 id="5、地图"><a href="#5、地图" class="headerlink" title="5、地图"></a>5、地图</h2><h2 id="6、雷达图"><a href="#6、雷达图" class="headerlink" title="6、雷达图"></a>6、雷达图</h2><h2 id="7、箱线图"><a href="#7、箱线图" class="headerlink" title="7、箱线图"></a>7、箱线图</h2><h2 id="8、热力图"><a href="#8、热力图" class="headerlink" title="8、热力图"></a>8、热力图</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S026427512500705X?dgcid=rss_sd_all#f0040">https://www.sciencedirect.com/science/article/pii/S026427512500705X?dgcid=rss_sd_all#f0040</a></li>
-</ul>
-<img src="/posts/45331dc3.htm/45331dc3/image-20250917212303984.png" class title="image-20250917212303984">
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0264275125007358?dgcid=rss_sd_all#f0045">www.sciencedirect.com</a></li>
-</ul>
-<div style="width: 33%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/45331dc3.htm/45331dc3/image-20250917212325070.png" class title="image-20250917212325070"></div>
-
-<div style="width: 50%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/45331dc3.htm/45331dc3/image-20250917212357039.png" class title="image-20250917212357039"></div>
-
-<img src="/posts/45331dc3.htm/45331dc3/image-20250917212412592.png" class title="image-20250917212412592">
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0198971525000237?via%3Dihub#f0020">https://www.sciencedirect.com/science/article/pii/S0198971525000237?via%3Dihub#f0020</a></li>
-</ul>
-<div style="width: 30%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/45331dc3.htm/45331dc3/image-20251005213909810.png" class title="image-20251005213909810"></div>
-
-
-
-<h2 id="9、关系图"><a href="#9、关系图" class="headerlink" title="9、关系图"></a>9、关系图</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://echarts.apache.org/examples/zh/editor.html?c=graph-circular-layout">https://echarts.apache.org/examples/zh/editor.html?c=graph-circular-layout</a></li>
-</ul>
-<div style="width: 33%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/45331dc3.htm/45331dc3/image-20250917212434103.png" class title="image-20250917212434103"></div>
-
-<h2 id="10、桑基图"><a href="#10、桑基图" class="headerlink" title="10、桑基图"></a>10、桑基图</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://echarts.apache.org/examples/zh/editor.html?c=sankey-energy">https://echarts.apache.org/examples/zh/editor.html?c=sankey-energy</a></li>
-</ul>
-<div style="width: 33%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/45331dc3.htm/45331dc3/image-20250917212452072.png" class title="image-20250917212452072"></div>
-
+                <h1 id="1、安装docker并升级到最新版本"><a href="#1、安装docker并升级到最新版本" class="headerlink" title="1、安装docker并升级到最新版本"></a>1、安装docker并升级到最新版本</h1><p>安装时加入到环境变量</p>
+<h1 id="2、在docker中拉取osrm镜像"><a href="#2、在docker中拉取osrm镜像" class="headerlink" title="2、在docker中拉取osrm镜像"></a>2、在docker中拉取osrm镜像</h1><p>cmd中执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker pull osrm/osrm-backend  <span class="comment"># 在docker hub上下载旧版（https://hub.docker.com/r/osrm/osrm-backend/tags）  </span></span><br><span class="line">docker pull ghcr.io/project-osrm/osrm-backend:v5.27.1  <span class="comment"># 在github上下载新版（https://github.com/Project-OSRM/osrm-backend/releases）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 非必要命令</span></span><br><span class="line">docker run -it --<span class="built_in">rm</span> ghcr.io/project-osrm/osrm-backend:v5.27.1 /bin/bash  <span class="comment"># 进入</span></span><br><span class="line"><span class="built_in">ls</span> <span class="comment"># 进入查看配置文件</span></span><br></pre></td></tr></table></figure>
+<h1 id="3、下载OSM的地区文件"><a href="#3、下载OSM的地区文件" class="headerlink" title="3、下载OSM的地区文件"></a>3、下载OSM的地区文件</h1><p>.osm.pbf格式的，数据放在D:\APP\OSRM\osrm文件夹下，数据名称叫做sjz_car.osm.pbf</p>
+<h1 id="4、用osrm配置文件处理数据（共4步）"><a href="#4、用osrm配置文件处理数据（共4步）" class="headerlink" title="4、用osrm配置文件处理数据（共4步）"></a>4、用osrm配置文件处理数据（共4步）</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用不同交通方式提取数据，这里的car可以改成bicycle和foot，最后采用不同端口部署（本科5001:foot，5002:bicycle, 5003:car)</span></span><br><span class="line">docker run -t -v D:\APP\OSRM\osrm:/data ghcr.io/project-osrm/osrm-backend:v5<span class="number">.27</span><span class="number">.1</span> osrm-extract -p car.lua /data/sjz_car.osm.pbf  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 进行数据分区：OSRM使用多级分区技术（MLD）将路网划分为多个层级的区域，以加速路径查询。这种分区结构使得在大型路网中进行路径计算时，可以快速缩小搜索范围，提高查询效率。</span></span><br><span class="line">docker run -t -v D:\APP\OSRM\osrm:/data ghcr.io/project-osrm/osrm-backend:v5<span class="number">.27</span><span class="number">.1</span> osrm-partition /data/sjz_car.osrm  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据订制化，定制化过程根据特定的交通方式和用户需求，对预处理的数据进行调整。例如，针对不同的交通方式，可能需要应用不同的速度限制、道路优先级或其他约束条件。定制化确保了路由引擎能够根据实际需求提供最优的路线规划</span></span><br><span class="line">docker run -t -v D:\APP\OSRM\osrm:/data ghcr.io/project-osrm/osrm-backend:v5<span class="number">.27</span><span class="number">.1</span> osrm-customize /data/sjz_car.osrm  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 以不同的端口运行</span></span><br><span class="line">docker run -d -p <span class="number">5003</span>:<span class="number">5000</span> --name osrm_backend_car -v D:\APP\OSRM\osrm:/data ghcr.io/project-osrm/osrm-backend:v5<span class="number">.27</span><span class="number">.1</span> osrm-routed --algorithm mld /data/sjz_car.osrm  </span><br><span class="line"><span class="comment"># 检验, 端口决定交通方式，car位置可填任何字符串，都默认为该端口配置的</span></span><br><span class="line">http://localhost:<span class="number">5003</span>/route/v1/car/<span class="number">114.557077</span>,<span class="number">38.0156195</span>;<span class="number">114.169827</span>,<span class="number">37.618745</span>  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 其他命令</span></span><br><span class="line">docker ps -a 查看所有容器； docker stop 容器<span class="built_in">id</span> 中断对应容器； docker rm 容器<span class="built_in">id</span> 删除对应容器</span><br></pre></td></tr></table></figure>
+<h1 id="5、爬虫"><a href="#5、爬虫" class="headerlink" title="5、爬虫"></a>5、爬虫</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> polyline</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_walking_route</span>(<span class="params">start_coords, end_coords, osrm_url=<span class="string">&#x27;http://localhost:5001&#x27;</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    从 OSRM 获取步行路线的时间、距离和路径坐标</span></span><br><span class="line"><span class="string">    :param start_coords: 起点的经纬度元组 (纬度, 经度)</span></span><br><span class="line"><span class="string">    :param end_coords: 终点的经纬度元组 (纬度, 经度)</span></span><br><span class="line"><span class="string">    :param osrm_url: OSRM 服务的 URL 地址，默认本地服务</span></span><br><span class="line"><span class="string">    :return: None，直接打印结果</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 构建请求 URL</span></span><br><span class="line">    url = <span class="string">f&quot;<span class="subst">&#123;osrm_url&#125;</span>/route/v1/walking/<span class="subst">&#123;start_coords[<span class="number">1</span>]&#125;</span>,<span class="subst">&#123;start_coords[<span class="number">0</span>]&#125;</span>;<span class="subst">&#123;end_coords[<span class="number">1</span>]&#125;</span>,<span class="subst">&#123;end_coords[<span class="number">0</span>]&#125;</span>&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 请求参数：overview=full 表示返回完整路线，steps=true 返回每个步骤的详细信息，geometries=polyline 返回 polyline 格式的路径</span></span><br><span class="line">    params = &#123;</span><br><span class="line">        <span class="string">&#x27;overview&#x27;</span>: <span class="string">&#x27;full&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;steps&#x27;</span>: <span class="string">&#x27;true&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;geometries&#x27;</span>: <span class="string">&#x27;polyline&#x27;</span>  <span class="comment"># 返回路径的 polyline 编码</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 发起 GET 请求</span></span><br><span class="line">    response = requests.get(url, params=params)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> response.status_code == <span class="number">200</span>:</span><br><span class="line">        data = response.json()</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 获取第一个路径</span></span><br><span class="line">        route = data[<span class="string">&#x27;routes&#x27;</span>][<span class="number">0</span>]</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 路程和时间</span></span><br><span class="line">        duration = route[<span class="string">&#x27;duration&#x27;</span>] / <span class="number">60</span>  <span class="comment"># 转换为分钟</span></span><br><span class="line">        distance = route[<span class="string">&#x27;distance&#x27;</span>] / <span class="number">1000</span>  <span class="comment"># 转换为公里</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 获取路径的 polyline 编码，并解码为坐标</span></span><br><span class="line">        encoded_polyline = route[<span class="string">&#x27;geometry&#x27;</span>]</span><br><span class="line">        decoded_polyline = polyline.decode(encoded_polyline)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 输出路线信息</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;步行路线信息:&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;总路程: <span class="subst">&#123;distance:<span class="number">.2</span>f&#125;</span> 公里&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;预计时间: <span class="subst">&#123;duration:<span class="number">.2</span>f&#125;</span> 分钟&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;路径坐标 (Polyline 解码):&quot;</span>)</span><br><span class="line">        <span class="keyword">for</span> point <span class="keyword">in</span> decoded_polyline:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;(<span class="subst">&#123;point[<span class="number">0</span>]&#125;</span>, <span class="subst">&#123;point[<span class="number">1</span>]&#125;</span>)&quot;</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 输出详细的路线步骤</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;\n路线步骤:&quot;</span>)</span><br><span class="line">        <span class="keyword">for</span> step <span class="keyword">in</span> route[<span class="string">&#x27;legs&#x27;</span>][<span class="number">0</span>][<span class="string">&#x27;steps&#x27;</span>]:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;- <span class="subst">&#123;step[<span class="string">&#x27;instruction&#x27;</span>]&#125;</span> (距离: <span class="subst">&#123;step[<span class="string">&#x27;distance&#x27;</span>]&#125;</span> 米, 时间: <span class="subst">&#123;step[<span class="string">&#x27;duration&#x27;</span>] / <span class="number">60</span>:<span class="number">.2</span>f&#125;</span> 分钟)&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;请求失败: <span class="subst">&#123;response.status_code&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(response.text)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># 示例：起点和终点的经纬度（例如，柏林的两个位置）</span></span><br><span class="line">    start_coordinates = (<span class="number">52.517037</span>, <span class="number">13.388860</span>)  <span class="comment"># 起点：柏林</span></span><br><span class="line">    end_coordinates = (<span class="number">52.529407</span>, <span class="number">13.397634</span>)    <span class="comment"># 终点：柏林</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 调用函数获取步行路线信息</span></span><br><span class="line">    get_walking_route(start_coordinates, end_coordinates)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="6、服务的关闭与开启"><a href="#6、服务的关闭与开启" class="headerlink" title="6、服务的关闭与开启"></a>6、服务的关闭与开启</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动：docker start &lt;container_name&gt;</span></span><br><span class="line"><span class="comment"># 停止：docker stop &lt;container_name&gt;</span></span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -487,7 +453,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://xiaoyue-hou.github.io/posts/45331dc3.html">http://xiaoyue-hou.github.io/posts/45331dc3.html</a>
+                    <a href="http://xiaoyue-hou.github.io/posts/4ecd7bb4/">http://xiaoyue-hou.github.io/posts/4ecd7bb4/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -572,13 +538,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/7f5a32bc.html">
+                <a href="/posts/39e7a431/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="常用代码">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="COVID-19 and human mobility">
                         
-                        <span class="card-title">常用代码</span>
+                        <span class="card-title">COVID-19 and human mobility</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -589,14 +555,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-12-30
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-12-31
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A7%91%E7%A0%94%E6%8A%80%E8%83%BD/" class="post-category">
-                                    科研技能
+                            <a href="/categories/%E6%96%87%E7%8C%AE%E8%B0%83%E7%A0%94/" class="post-category">
+                                    文献调研
                                 </a>
                             
                             
@@ -613,13 +579,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/fc9d03e3.html">
+                <a href="/posts/ce3115a7/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="概率分布检验">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="远程桌面连接">
                         
-                        <span class="card-title">概率分布检验</span>
+                        <span class="card-title">远程桌面连接</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -636,8 +602,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A7%91%E7%A0%94%E6%96%B9%E6%B3%95/" class="post-category">
-                                    科研方法
+                            <a href="/categories/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%B0%8Ftips/" class="post-category">
+                                    奇奇怪怪的小tips
                                 </a>
                             
                             

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="远程桌面连接, 猴猴猴">
+    <meta name="keywords" content="递归问题算法（持续更新中）, 猴猴猴">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>远程桌面连接 | 猴猴猴</title>
+    <title>递归问题算法（持续更新中） | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">远程桌面连接</h1>
+                    <h1 class="description center-align post-title">递归问题算法（持续更新中）</h1>
                 </div>
             </div>
         </div>
@@ -383,8 +383,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%B0%8Ftips/" class="post-category">
-                                奇奇怪怪的小tips
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                数据结构
                             </a>
                         
                     </div>
@@ -396,7 +396,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2025-12-30
+                    2021-05-02
                 </div>
                 
 
@@ -412,14 +412,22 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="1、如何删除远程桌面的账号"><a href="#1、如何删除远程桌面的账号" class="headerlink" title="1、如何删除远程桌面的账号"></a>1、如何删除远程桌面的账号</h1><p>（1）win + R， 输入regedit，进入注册表</p>
-<p>（2）进入目录：计算机\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Terminal Server Client\Default，将对应的ip删掉即可</p>
-<img src="/posts/ce3115a7.htm/ce3115a7/image-20251230131933686.png" class title="image-20251230131933686">
+                <p>This article is mainly about my organization of the data structure.   If you get any problems，you can ask me on <a target="_blank" rel="noopener" href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io">GitHub</a>.</p>
+<h2 id="1-n"><a href="#1-n" class="headerlink" title="1 n!"></a>1 n!</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="title function_">fun</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">double</span> x;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">0</span>) x=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span>  x=n* fun(n<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">return</span>  x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-斐波那契数列第n项的值"><a href="#2-斐波那契数列第n项的值" class="headerlink" title="2 斐波那契数列第n项的值"></a>2 斐波那契数列第n项的值</h2><img src="/posts/3216493d/3216493d/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91.png" class title="斐波那契">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">long</span>  <span class="title function_">fun</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">1</span>||n==<span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> fun(n<span class="number">-1</span>)+fun(n<span class="number">-2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-n阶汉诺塔"><a href="#3-n阶汉诺塔" class="headerlink" title="3 n阶汉诺塔"></a>3 n阶汉诺塔</h2><img src="/posts/3216493d/3216493d/%E6%B1%89%E8%AF%BA%E5%A1%94.png" class title="汉诺塔">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> c=<span class="number">0</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">move</span><span class="params">(<span class="type">char</span> x,<span class="type">int</span> n,<span class="type">char</span> z)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d.move disk%d from %c to</span></span><br><span class="line"><span class="string">                      %c\n&quot;</span>,++c,n,x,z);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">hanoi</span><span class="params">(<span class="type">int</span> n,<span class="type">char</span> x,<span class="type">char</span> y,<span class="type">char</span> z)</span>&#123;  </span><br><span class="line">   <span class="keyword">if</span>(n==<span class="number">1</span>)</span><br><span class="line">      move(x,<span class="number">1</span>,z);</span><br><span class="line">   <span class="keyword">else</span> &#123;</span><br><span class="line">     hanoi(n<span class="number">-1</span>,x,z,y);</span><br><span class="line">     move(x,n,z);</span><br><span class="line">     hanoi(n<span class="number">-1</span>,y,x,z);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;   </span><br><span class="line">     hanoi(<span class="number">3</span> ,<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>);</span><br><span class="line">     <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;        </span><br></pre></td></tr></table></figure>
+<h2 id="4-分析fun函数"><a href="#4-分析fun函数" class="headerlink" title="4 分析fun函数"></a>4 分析fun函数</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//fun1函数功能：求前序遍历序列中第k个结点</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;my.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">char</span> TElemType;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span>&#123;</span></span><br><span class="line">  TElemType data;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span> *<span class="title">lchild</span>,*<span class="title">rchild</span>;</span></span><br><span class="line">&#125;BiTNode,*BiTree;</span><br><span class="line"></span><br><span class="line">Status <span class="title function_">CreateBiTree</span><span class="params">(BiTree *T,FILE *fp)</span>&#123;</span><br><span class="line">  <span class="type">char</span> ch;</span><br><span class="line"></span><br><span class="line">  ch=fgetc(fp);</span><br><span class="line">  <span class="keyword">if</span>(ch==<span class="string">&#x27;#&#x27;</span>) *T=<span class="literal">NULL</span>;</span><br><span class="line">  <span class="keyword">else</span>&#123;</span><br><span class="line">    *T=(BiTNode*) <span class="built_in">malloc</span> (<span class="keyword">sizeof</span>(BiTNode));</span><br><span class="line">    <span class="keyword">if</span>(!*T) <span class="built_in">exit</span>(OVERFLOW);</span><br><span class="line">    (*T)-&gt;data=ch;</span><br><span class="line">    CreateBiTree(&amp;(*T)-&gt;lchild,fp);</span><br><span class="line">    CreateBiTree(&amp;(*T)-&gt;rchild,fp);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Status <span class="title function_">PreOrderTraverse</span><span class="params">(BiTree T,Status (*visit)(TElemType e))</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(T)&#123;</span><br><span class="line">    (*visit)(T-&gt;data);</span><br><span class="line">    PreOrderTraverse(T-&gt;lchild,visit);</span><br><span class="line">    PreOrderTraverse(T-&gt;rchild,visit);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span>  <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Status <span class="title function_">PrintElement</span><span class="params">(TElemType e)</span>&#123;</span><br><span class="line">  <span class="built_in">putchar</span>(e);</span><br><span class="line">  <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">fun1</span><span class="params">(BiTree T,<span class="type">int</span> k,BiTree *p)</span>&#123;</span><br><span class="line">  <span class="type">static</span> <span class="type">int</span> n=<span class="number">0</span>;  </span><br><span class="line">  <span class="keyword">if</span>(T)&#123;</span><br><span class="line">    n++;   </span><br><span class="line">    <span class="keyword">if</span>(n==k) &#123;</span><br><span class="line">    	*p=T;     </span><br><span class="line">	&#125;	</span><br><span class="line">    fun1(T-&gt;lchild,k,p);    </span><br><span class="line">    fun1(T-&gt;rchild,k,p); 	 </span><br><span class="line">  &#125;   </span><br><span class="line">  <span class="keyword">if</span>(T)</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%c &quot;</span>,T-&gt;data);</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Null &quot;</span>);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">  BiTree T,p;</span><br><span class="line">  FILE* fp;</span><br><span class="line">  <span class="type">char</span> ch;  </span><br><span class="line"></span><br><span class="line">  fp=fopen(<span class="string">&quot;in.dat&quot;</span>,<span class="string">&quot;r&quot;</span>);</span><br><span class="line">  CreateBiTree(&amp;T,fp);</span><br><span class="line">  fclose(fp);</span><br><span class="line"></span><br><span class="line">  PreOrderTraverse(T,PrintElement);</span><br><span class="line">  <span class="built_in">putchar</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">  fun1(T,<span class="number">6</span>,&amp;p);</span><br><span class="line">  <span class="built_in">putchar</span>(p-&gt;data);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">   本题先创建了一个二叉树，然后通过先序遍历输出二叉树顺序为ABDEHCFIJKG，由顺序可知第六个结点对应的结点值应该是C。</span><br><span class="line">​  下面的思路就是在先序遍历过程中添加一个计数器n，若n等于k就将对应的结点地址传回去，在主函数中输出这个结点值。主要体现在fun1这个函数中。</span><br><span class="line">​  在fun1中，第一次执行就是先把根节点（A）传过来，（A）结点存在计数器加一(n=<span class="number">1</span>)且访问左孩子(B)，（B）结点存在计数器加一(n=<span class="number">2</span>)且访问左孩子(D),（D）结点存在计数器加一(n=<span class="number">3</span>)且访问左孩子（调用fun1），此时左孩子不存在，直接执行<span class="keyword">else</span>语句输出null并输出此时的n=<span class="number">3</span>。fun1函数第一次执行完。</span><br><span class="line">​  返回到调用处即（D）处访问他的右孩子（调用fun1），也不存在直接执行<span class="keyword">else</span>输出null并输出此时的n=<span class="number">3</span>。fun1函数第二次执行完。</span><br><span class="line">​  返回到调用处即（D）处，（D）结点存在输出结点值并输出此时的n=<span class="number">3</span>，fun1函数第三次执行完。</span><br><span class="line">​  返回到调用处即（B）处访问他的右孩子（E），（E）结点存在计数器加一(n=<span class="number">4</span>)且访问左孩子(H)，（H）结点存在计数器加一(n=<span class="number">5</span>)且访问左孩子（调用fun1），此时左孩子不存在，直接执行<span class="keyword">else</span>语句输出null并输出此时的n=<span class="number">5</span>。fun1函数第四次执行完。</span><br><span class="line">​  返回到调用处即（H）处访问他的右孩子（调用fun1），右孩子不存在直接执行<span class="keyword">else</span>输出null并输出此时的n=<span class="number">5</span>。fun1函数第五次执行完。</span><br><span class="line">​  返回到调用处即（H）处，（H）结点存在输出结点值并输出此时的n=<span class="number">5</span>，fun1函数第六次执行完。</span><br><span class="line">​  返回到调用处即（E）处访问他的右孩子（调用fun1），此时右孩子不存在，直接执行<span class="keyword">else</span>语句输出null并输出此时的n=<span class="number">5</span>。fun1函数第七次执行完。</span><br><span class="line">​  返回到调用处即（E）处，（E）结点存在输出结点值并输出此时的n=<span class="number">5</span>，fun1函数第八次执行完。</span><br><span class="line">​  返回到调用处即（B）处，（B）结点存在输出结点值并输出此时的n=<span class="number">5</span>，fun1函数第九次执行完。</span><br><span class="line">​  返回到调用处即（A）处，（A）结点存在开始访问右孩子.......像以上的顺序一样访问右子树，到访问（C）时n=<span class="number">6</span>=k，将（C）的地址通过形参传回主函数，最后在主函数中输出</span><br><span class="line">总结：</span><br><span class="line">​  <span class="number">1.</span>此过程n的值是先序序列的访问顺序</span><br><span class="line">​  <span class="number">2.</span>每当程序fun1执行完一次，便会有内容输出，且输出内容相当于后序遍历输出每个节点值（包含空结点），以及此时有效结点数（不包含空结点）</span><br><span class="line">​  <span class="number">3.</span>输出规律:每次从访问到一个空的结点开始（此时有效结点数即不为空的结点数是n），到访问到下一个不为空的结点（这个结点是先序遍历中的第n+<span class="number">1</span>个）或访问完 整个树（此情况是没有新结点可访问了）结束，中间fun1完成了几次执行，就输出几次n（n为第一个空的）。</span><br><span class="line">例如:</span><br><span class="line">​  <span class="number">1.</span>第一次访问到空结点，是（D）的左孩子（n=<span class="number">3</span>），下一个不为空的结点是（E），中间经过了<span class="number">3</span>次执行过程，所以输出了<span class="number">3</span>次<span class="number">3</span></span><br><span class="line">​  <span class="number">2.</span>接下来访问到空结点，是（H）的左孩子（n=<span class="number">5</span>）,下一个不为空的结点是（C）,中间经过了<span class="number">6</span>次执行过程，所以输出了<span class="number">6</span>次<span class="number">5</span></span><br><span class="line">​  <span class="number">3.</span>接下来访问到空结点，是（J）的左孩子（n=<span class="number">9</span>）,下一个不为空的结点是（K）,中间经过了<span class="number">3</span>次执行过程，所以输出了<span class="number">3</span>次<span class="number">9</span></span><br><span class="line">​  <span class="number">4.</span>接下来访问到空结点，是（K）的左孩子（n=<span class="number">10</span>）,下一个不为空的结点是（G）,中间经过了<span class="number">6</span>次执行过程，所以输出了<span class="number">6</span>次<span class="number">10</span></span><br><span class="line">​  <span class="number">5.</span>接下来访问到空结点，是（G）的左孩子（n=<span class="number">11</span>）,到访问完树结束,中间经过了<span class="number">5</span>次执行过程，所以输出了<span class="number">5</span>次<span class="number">11</span>。</span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -446,7 +454,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://xiaoyue-hou.github.io/posts/ce3115a7.html">http://xiaoyue-hou.github.io/posts/ce3115a7.html</a>
+                    <a href="http://xiaoyue-hou.github.io/posts/3216493d/">http://xiaoyue-hou.github.io/posts/3216493d/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -531,13 +539,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/4ecd7bb4.html">
+                <a href="/posts/845ae956/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Docker-OSRM">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="线性表（持续更新中）">
                         
-                        <span class="card-title">Docker-OSRM</span>
+                        <span class="card-title">线性表（持续更新中）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -548,14 +556,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-12-30
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-02
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A7%91%E7%A0%94%E6%8A%80%E8%83%BD/" class="post-category">
-                                    科研技能
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
                                 </a>
                             
                             
@@ -572,13 +580,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/3644d420.html">
+                <a href="/posts/a5b7098/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="写Paper">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="BASNet源码分析">
                         
-                        <span class="card-title">写Paper</span>
+                        <span class="card-title">BASNet源码分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -589,14 +597,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-12-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A7%91%E7%A0%94%E6%8A%80%E8%83%BD/" class="post-category">
-                                    科研技能
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
                                 </a>
                             
                             
@@ -730,13 +738,6 @@
 
 </main>
 
-
-<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="树和二叉树（持续更新中）, 猴猴猴">
+    <meta name="keywords" content="写Paper, 猴猴猴">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>树和二叉树（持续更新中） | 猴猴猴</title>
+    <title>写Paper | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -254,12 +254,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">树和二叉树（持续更新中）</h1>
+                    <h1 class="description center-align post-title">写Paper</h1>
                 </div>
             </div>
         </div>
@@ -383,8 +383,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
-                                数据结构
+                            <a href="/categories/%E7%A7%91%E7%A0%94%E6%8A%80%E8%83%BD/" class="post-category">
+                                科研技能
                             </a>
                         
                     </div>
@@ -396,7 +396,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-02
+                    2025-12-30
                 </div>
                 
 
@@ -412,115 +412,40 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>This article is mainly about my organization of the data structure.   If you get any problems，you can ask me on <a target="_blank" rel="noopener" href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io">GitHub</a>.</p>
-<h2 id="1-二叉树"><a href="#1-二叉树" class="headerlink" title="1 二叉树"></a>1 二叉树</h2><h3 id="1-1-二叉树的数学内容"><a href="#1-1-二叉树的数学内容" class="headerlink" title="1.1 二叉树的数学内容"></a>1.1 二叉树的数学内容</h3><h4 id="1-1-1-性质"><a href="#1-1-1-性质" class="headerlink" title="1.1.1 性质"></a>1.1.1 性质</h4><p>性质1： 在二叉树的第i层上至多有 $ _2 i$ -1个结点(i&gt;=1)。</p>
-<p>性质2：深度为k的二叉树至多有$ _2 k-1 $个结点（k&gt;=1)</p>
-<p>性质3： 对任何一棵二叉树，如果其终端结点数为n0，度为2的结点数为n2，则 n0＝n2＋1。</p>
-<p>完全二叉树的性质：</p>
-<p>性质4 ：具有 n 个结点的完全二叉树的深度为  $ \log_{2} n+1$</p>
-<p>性质5： 如果对一棵有n个结点的完全二叉树的所有结点按层序编号(自上向下，同层从左到右)，则对任一结点i (1&lt;=i&lt;=n)，有：</p>
-<p>（1）如果i＝1，则结点i无双亲，是二叉树的根；如果i&gt;1，则其双亲是结点 i/2向下取余。</p>
-<p>（2）如果2i&gt;n，则结点i为叶子结点，无左孩子；否则，其左孩子是结点2i。  </p>
-<p>（3）如果2i＋1&gt;n，则结点i无右孩子；否则，其右孩子是结点2i＋1。</p>
-<h4 id="1-1-2-三个推论"><a href="#1-1-2-三个推论" class="headerlink" title="1.1.2 三个推论"></a>1.1.2 三个推论</h4><p>推论1：具有n个结点的二叉树可能的形态数为C(2n,n)</p>
-<p>推论2：完全二叉树中1度结点的个数为0或1</p>
-<p>推论3：具有n个结点的二叉树，其二叉链表中空指针域的个数为n+1</p>
-<h4 id="1-1-3-两个定理"><a href="#1-1-3-两个定理" class="headerlink" title="1.1.3 两个定理"></a>1.1.3 两个定理</h4><p>定理1：n(n&gt;=0)个结点的二叉树，均可由它的中序序列和先序序列唯一确定。</p>
-<p>定理2：n(n&gt;=0)个结点的二叉树，均可由它的中序序列和后序序列唯一确定。</p>
-<h3 id="1-2-二叉树的存储结构"><a href="#1-2-二叉树的存储结构" class="headerlink" title="1.2 二叉树的存储结构"></a>1.2 二叉树的存储结构</h3><h4 id="1-2-1-顺序存储"><a href="#1-2-1-顺序存储" class="headerlink" title="1.2.1 顺序存储"></a>1.2.1 顺序存储</h4><img src="/posts/75d72b3e.htm/75d72b3e/%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8.png" class title="顺序存储">
-<p>只适用于完全二叉树，根据性质5可以判断双亲和孩子</p>
-<p>==建立顺序表*加代码==</p>
-<h4 id="1-2-2-链式存储（前2种重点）"><a href="#1-2-2-链式存储（前2种重点）" class="headerlink" title="1.2.2 链式存储（前2种重点）"></a>1.2.2 链式存储（前2种重点）</h4><h5 id="1-2-2-1-二叉链表"><a href="#1-2-2-1-二叉链表" class="headerlink" title="1.2.2.1 二叉链表"></a>1.2.2.1 二叉链表</h5><p>直观的表示出了某结点左右孩子的信息</p>
-<p>==建立二叉链表*加代码==</p>
-<h6 id="先根遍历"><a href="#先根遍历" class="headerlink" title="先根遍历"></a>先根遍历</h6><img src="/posts/75d72b3e.htm/75d72b3e/%E5%85%88%E6%A0%B9%E9%81%8D%E5%8E%86.png" class title="先根遍历">
-<p>递归算法</p>
-<p>==*加代码==</p>
-<p>非递归算法</p>
-<p>==*加代码==</p>
-<h6 id="中根遍历"><a href="#中根遍历" class="headerlink" title="中根遍历"></a>中根遍历</h6><img src="/posts/75d72b3e.htm/75d72b3e/%E4%B8%AD%E6%A0%B9%E9%81%8D%E5%8E%86.png" class title="中根遍历">
-<h6 id="后根遍历"><a href="#后根遍历" class="headerlink" title="后根遍历"></a>后根遍历</h6><img src="/posts/75d72b3e.htm/75d72b3e/%E5%90%8E%E6%A0%B9%E9%81%8D%E5%8E%86.png" class title="后根遍历">
-<h5 id="1-2-2-2-线索链表"><a href="#1-2-2-2-线索链表" class="headerlink" title="1.2.2.2 线索链表"></a>1.2.2.2 线索链表</h5><p>为了直观的表示出某结点的前驱和后继</p>
-<h6 id="先序线索化"><a href="#先序线索化" class="headerlink" title="先序线索化"></a>先序线索化</h6><p>==*加代码==</p>
-<h6 id="中序线索化"><a href="#中序线索化" class="headerlink" title="中序线索化"></a>中序线索化</h6><img src="/posts/75d72b3e.htm/75d72b3e/%E4%B8%AD%E5%BA%8F%E7%BA%BF%E7%B4%A2%E5%8C%96.png" class title="中序线索化">
-<p>==*加代码==</p>
-<h6 id="后序线索化"><a href="#后序线索化" class="headerlink" title="后序线索化"></a>后序线索化</h6><img src="/posts/75d72b3e.htm/75d72b3e/%E5%90%8E%E5%BA%8F%E7%BA%BF%E7%B4%A2%E5%8C%96.png" class title="后序线索化">
-<p>==*加代码==</p>
-<h5 id="1-2-2-3-三叉链表"><a href="#1-2-2-3-三叉链表" class="headerlink" title="1.2.2.3 三叉链表"></a>1.2.2.3 三叉链表</h5><h5 id="1-2-2-4-双亲链表"><a href="#1-2-2-4-双亲链表" class="headerlink" title="1.2.2.4 双亲链表"></a>1.2.2.4 双亲链表</h5><h2 id="2-树和森林"><a href="#2-树和森林" class="headerlink" title="2 树和森林"></a>2 树和森林</h2><h3 id="2-1-树的存储结构"><a href="#2-1-树的存储结构" class="headerlink" title="2.1 树的存储结构"></a>2.1 树的存储结构</h3><h4 id="2-1-1-双亲表示法"><a href="#2-1-1-双亲表示法" class="headerlink" title="2.1.1 双亲表示法"></a>2.1.1 双亲表示法</h4><img src="/posts/75d72b3e.htm/75d72b3e/%E5%8F%8C%E4%BA%B2%E8%A1%A8%E7%A4%BA%E6%B3%95.png" class title="双亲表示法">
-<p>==*加代码==</p>
-<h4 id="2-1-2-孩子表示法"><a href="#2-1-2-孩子表示法" class="headerlink" title="2.1.2 孩子表示法"></a>2.1.2 孩子表示法</h4><img src="/posts/75d72b3e.htm/75d72b3e/%E5%AD%A9%E5%AD%90%E8%A1%A8%E7%A4%BA%E6%B3%95.png" class title="孩子表示法">
-<p>==*加代码==</p>
-<h4 id="2-1-3-孩子兄弟表示法"><a href="#2-1-3-孩子兄弟表示法" class="headerlink" title="2.1.3 孩子兄弟表示法"></a>2.1.3 孩子兄弟表示法</h4><img src="/posts/75d72b3e.htm/75d72b3e/%E5%AD%A9%E5%AD%90%E5%85%84%E5%BC%9F%E8%A1%A8%E7%A4%BA%E6%B3%95.png" class title="孩子兄弟表示法">
-<p>==*加代码==</p>
-<h3 id="2-2-树和二叉树的转换"><a href="#2-2-树和二叉树的转换" class="headerlink" title="2.2 树和二叉树的转换"></a>2.2 树和二叉树的转换</h3><p>树和二叉树均可以使用二叉链表为存储结构，则通过二叉链表作为媒介，树和二叉树可以相互转换</p>
-<p>第一步：加线：在兄弟之间加一连线</p>
-<p>第二步：抹线：对每个结点，除了其左孩子外，去除其与其余孩子之间的关系</p>
-<p>第三步：旋转：横线顺时针旋转45°</p>
-<img src="/posts/75d72b3e.htm/75d72b3e/%E6%A0%91%E5%92%8C%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E8%BD%AC%E6%8D%A2.png" class title="树和二叉树的转换">
-<p>==*加代码==</p>
-<h3 id="2-3-森林和二叉树"><a href="#2-3-森林和二叉树" class="headerlink" title="2.3 森林和二叉树"></a>2.3 森林和二叉树</h3><p>树转换为二叉树后，右子树必为空。</p>
-<p>将森林中的每棵树依次转换为二叉树，并将第i棵二叉树的根作为第i-1棵二叉树根的右孩子(2&lt;=i&lt;=m)。</p>
-<p>如果F={T1,T2,…,Tm}是森林，则可按如下规则转换成一棵二叉树B=(root,LB,RB)</p>
-<p>1.若F为空，则B为空树</p>
-<p>2.若F非空，则B的根root即为森林中第一棵树的根ROOT(T1)；B的左子树LB是从T1中根结点的子树森林F1={T11,T12,…,T1m1}转换而成的二叉树；其右子树RB是从森林F’={T2,T3,…,Tm}转换而成的二叉树</p>
-<h3 id="2-4-赫夫曼树"><a href="#2-4-赫夫曼树" class="headerlink" title="2.4 赫夫曼树"></a>2.4 赫夫曼树</h3><p>带权路径长度最短的树(最优二叉树)</p>
-<p>树的路径长度：从树根到每一个结点的路径长度之和</p>
-<p>结点的带权路径长度：带权结点(叶子)到根的路径长度与权的乘积</p>
-<p>树的带权路径长度：树中所有结点的带权路径长度之和</p>
-<img src="/posts/75d72b3e.htm/75d72b3e/%E6%9E%84%E9%80%A0%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91.png" class title="构造赫夫曼树">
-<p>赫夫曼树的应用——赫夫曼编码</p>
-<img src="/posts/75d72b3e.htm/75d72b3e/%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81.png" class title="赫夫曼编码">
-<img src="/posts/75d72b3e.htm/75d72b3e/%E8%B5%AB%E5%A4%AB%E6%9B%BC%E8%AF%91%E7%A0%81.png" class title="赫夫曼译码">
-<h2 id="3-习题"><a href="#3-习题" class="headerlink" title="3 习题"></a>3 习题</h2><h3 id="例题1："><a href="#例题1：" class="headerlink" title="例题1："></a>例题1：</h3><p>假设一棵完全二叉树有700个结点，则其叶子结点有多少个？</p>
-<p>根据性质4，700个结点的完全二叉树为10层</p>
-<p>根据性质2，前9层有511个结点，则第10层结点数为189个，均为叶子结点</p>
-<p>根据性质1，第9层结点数为256个，其中前95个为第10层189个结点的双亲，因此第9层的叶子数为161个</p>
-<p>所以叶子结点总数为189+161=350个</p>
-<h3 id="例题2："><a href="#例题2：" class="headerlink" title="例题2："></a>例题2：</h3><p>1.若二叉树T，先序遍历序列为ABCDEF  ，中序遍历序列为CBAEDF ，则其后序遍历序列为？</p>
-<p>C B E F D A</p>
-<p>2.已知二叉树的先序序列为ABDEGCF，中序序列为DBGEACF，则后序序列为(     )</p>
-<p>要点：先序或后序确定根；中序确定左右子树</p>
-<h3 id="例题3："><a href="#例题3：" class="headerlink" title="例题3："></a>例题3：</h3><p>1.某二叉树的先序遍历和后序遍历的序列正好相反，则该二叉树一定是( )</p>
-<p>A 空树或只有一个结点　B 完全二叉树</p>
-<p>C 二叉排序树　D 高度与结点数相同</p>
-<p>要点：先序：根左右；后序：左右根</p>
-<p>2.一棵二叉树的先序遍历序列为abcdefg，它的中序遍历序列可能是( )</p>
-<p>A cabdefg      B abcdefg</p>
-<p>C dacefbg      D adcbgef</p>
-<p>要点：先序：根左右；中序：左根右</p>
-<p>3.如果二叉树结点的先序序列、中序序列和后序序列中，结点A、B的位置都是A在前B在后，则A B可能是兄弟么？A可能是B的双亲么？A可能是B的孩子么？</p>
-<p>要点：先序：根左右；中序：左根右；后序：左右根</p>
-<p>4.一棵二叉树的先序、中序和后序序列分别如下，其中一部分未显示出来。试求出空格处的内容，并画出该树</p>
-<p>先序：（）B（）F（）I  C  E  H（） G</p>
-<p>中序：  D（）K  F  I  A（）E  J  C （）</p>
-<p>后序：（）K（）F  B  H  J （）G（）A</p>
-<h3 id="例题4："><a href="#例题4：" class="headerlink" title="例题4："></a>例题4：</h3><p>==*加代码==</p>
-<p>1.假设二叉树采用二叉链表存储结构，设计一个算法，求前序遍历序列中第K个结点的结点值。</p>
-<p>2.假设二叉树采用二叉链表存储结构，设计一个算法，按层次遍历二叉树</p>
-<p>3.假设二叉树采用二叉链表存储结构，设计一个算法，求二叉树T的宽度(即结点数最多的层次上的结点个数)。</p>
-<p>4.假设二叉树采用二叉链表存储结构，设计一个算法，判断一棵二叉树是否为完全二叉树。</p>
-<p>5.设计一个递归算法，将一棵二叉树逆时针90度打印出来。如下图左的二叉树，以图右的形式打印</p>
-<p>6.设计在一棵中序线索二叉树中查找中序序列的最后一个结点和任一结点中序前驱结点的算法，并在此基础上设计非递归的中序反向遍历算法。</p>
-<img src="/posts/75d72b3e.htm/75d72b3e/%E7%AE%97%E6%B3%95%E4%B9%A0%E9%A2%98.png" class title="算法习题">
-<h3 id="例题5："><a href="#例题5：" class="headerlink" title="例题5："></a>例题5：</h3><p>1.引入线索二叉树的目的是（ ）</p>
-<p>  A 加快查找前驱和后继的速度</p>
-<p>  B 为了在二叉树中方便的插入和删除</p>
-<p>  C 为了方便的找到双亲</p>
-<p>  D 使二叉树的遍历结果唯一</p>
-<p>2.判断线索二叉树中*p结点有右孩子的条件是</p>
-<p>P-&gt;rtag==0</p>
-<p>3.在n个结点的线索二叉树上含有的线索数为</p>
-<p> n+1</p>
-<h3 id="例题6："><a href="#例题6：" class="headerlink" title="例题6："></a>例题6：</h3><p>1.给出在先序线索二叉树中查找*p的后继结点的过程。</p>
-<p>2.先序线索中，若*p的左孩子不空，则左孩子为后继；否则其后继为右孩子或右线索。</p>
-<p>3.给出在后序线索二叉树中查找*p的后继结点的过程。</p>
-<p>4.在后序线索中，若*p有右线索，则右线索为其后继；否则，其后继为其双亲结点右子树后序序列中的第一个结点，若双亲无右子树，则后继即为双亲。</p>
-<h2 id="4-附录——ADT定义"><a href="#4-附录——ADT定义" class="headerlink" title="4 附录——ADT定义"></a>4 附录——ADT定义</h2><h3 id="1-二叉树-1"><a href="#1-二叉树-1" class="headerlink" title="1.二叉树"></a>1.二叉树</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">ADT BinaryTree&#123;</span><br><span class="line">数据对象： D＝&#123;ai|ai∈ElemSet,i=<span class="number">1</span>,<span class="number">2</span>,...,n, n≥<span class="number">0</span> &#125;</span><br><span class="line">数据关系： R</span><br><span class="line">基本操作：</span><br><span class="line">InitBiTree(&amp;T);</span><br><span class="line">DestroyBiTree(&amp;T);</span><br><span class="line">CreateBiTree(&amp;T, definition);</span><br><span class="line">ClearBiTree(&amp;T);</span><br><span class="line">BiTreeEmpty(T);</span><br><span class="line">BiTreeDepth(T);</span><br><span class="line">Assign(T, &amp;e, value); </span><br><span class="line">Root(T); </span><br><span class="line">Value(T, e);</span><br><span class="line">Parent (T, e);</span><br><span class="line">LeftChild (T, e);</span><br><span class="line">RightChild (T, e);</span><br><span class="line">LeftSibling (T, e);</span><br><span class="line">RightSibling (T, e);</span><br><span class="line">PreOrderTraverse(T, Visit());</span><br><span class="line">InOrderTraverse(T, Visit());</span><br><span class="line">PostOrderTraverse(T, Visit());</span><br><span class="line">LevelOrderTraverse(T, Visit());</span><br><span class="line">InsertChild(T, p, LR, c); </span><br><span class="line">DeleteChild(T, p, LR);</span><br><span class="line">&#125; ADT BinaryTree</span><br></pre></td></tr></table></figure>
-
+                <h1 id="如何写文章"><a href="#如何写文章" class="headerlink" title="如何写文章"></a>如何写文章</h1><p>①introduction：大帽子 相关工作 however 我们的工作价值（极简总结 first second ）<br>② result：至少1张解释图illustration+4张框架图<br>③discussion ：总结提纯result 突出意义 不足 展望 in conclusion（领域内的意义、历史应用） introduction-》result-》abstract-》conclusion-》title</p>
+<p>不管是做哪个学科 哪个方向 在做好文献调研之后 准备做东西之前和过程基本都是这个套路：<br>①先做规模一个思路 如果不确定就是猜 当然不是乱猜的 你需要细致深入的了解之后再猜<br>②之后就是去一步一步完成 不断完善修改之前的思路 以及验证之前的猜测<br>③都验证完了 从头到尾的逻辑也就已经通了<br>④然后在算一些相关佐证的东西 作为锦上添花的 完善整个工作的意义和工作量<br>⑤最后想办法把结论与实际问题联系上提出一定解决方案 就算是圆了</p>
+<p>① 想<br>② 试 驳斥自己想的东西<br>③ 理解自己手里的东西，总结出核心的问题，围绕着自己的问题去做</p>
+<h1 id="AI模版"><a href="#AI模版" class="headerlink" title="AI模版"></a>AI模版</h1><p>你是一个杰出的科研文献翻译家，你能结合文段所涉及领域的专业知识将原文翻译得即准确又通顺。请你将所给的文本段落按照原文格式翻译为中文，注意不要输出除译文以外的任何额外内容。 以下是一些翻译要求： agent翻译为智能体，LLM不要翻译，文章独创的组合词不要翻译（例如RoleAgent）</p>
+<p>你是《Sustainable Cities and Society》《Computers, Environment and Urban Systems》《Cities》三个期刊的审稿人。你熟知城市科学、人类出行、疾病传播领域，是这些领域杰出的科研文献翻译家。请你协助我，帮我把文章文段将中文转换为英文，要保证准确和专业性，也要符合期刊的语言特色，不要太晦涩难懂，也不要太简单。注意语句之间的连贯性。专业词汇，脱标度化翻译成rescaled；防控措施翻译成interventions</p>
+<h1 id="城市科学期刊"><a href="#城市科学期刊" class="headerlink" title="城市科学期刊"></a>城市科学期刊</h1><img src="/posts/3644d420/3644d420/image-20250917210452039-17602390684663.png" class title="image-20250917210452039">
+<h1 id="投稿"><a href="#投稿" class="headerlink" title="投稿"></a>投稿</h1><h2 id="1、Sustainable-Cities-and-Society"><a href="#1、Sustainable-Cities-and-Society" class="headerlink" title="1、Sustainable Cities and Society"></a>1、Sustainable Cities and Society</h2><img src="/posts/3644d420/3644d420/image-20251012112058267.png" class title="image-20251012112058267">
+<img src="/posts/3644d420/3644d420/image-20251012112104881.png" class title="image-20251012112104881">
+<img src="/posts/3644d420/3644d420/image-20251012112111303.png" class title="image-20251012112111303">
+<p>这里要上传Latex的文件夹，文件夹里包括以下内容</p>
+<img src="/posts/3644d420/3644d420/image-20251012112125446.png" class title="image-20251012112125446">
+<p>上传完之后要在这里对应选内容</p>
+<img src="/posts/3644d420/3644d420/image-20251012112133019.png" class title="image-20251012112133019">
+<p>然后在下拉列表里把其他的文件也上传了</p>
+<img src="/posts/3644d420/3644d420/image-20251012112151700.png" class title="image-20251012112151700">
+<p>然后进入第三步，需要选择对应的领域，如下图，可以翻译快速寻找</p>
+<img src="/posts/3644d420/3644d420/image-20251012112203028.png" class title="image-20251012112203028">
+<img src="/posts/3644d420/3644d420/image-20251012112209877.png" class title="image-20251012112209877">
+<p>第五步不用写</p>
+<img src="/posts/3644d420/3644d420/image-20251012112223864.png" class title="image-20251012112223864">
+<p>第六步需要填一下，然后作者那添加完可以拖动调换顺序</p>
+<img src="/posts/3644d420/3644d420/image-20251012112236401.png" class title="image-20251012112236401">
+<img src="/posts/3644d420/3644d420/image-20251012112241857.png" class title="image-20251012112241857">
+<p>然后就可以点build PDF for Approval, 再然后出去会不停的刷新，刷新完了就可以检查pdf了。尤其要检查正文编译是否存在问题，如果没问题了，就可以提交了，提交之后就是下面这个页面。</p>
+<img src="/posts/3644d420/3644d420/image-20251012112253379.png" class title="image-20251012112253379">
+<img src="/posts/3644d420/3644d420/image-20251012112300579.png" class title="image-20251012112300579">
                 
             </div>
             <hr/>
@@ -546,7 +471,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://xiaoyue-hou.github.io/posts/75d72b3e.html">http://xiaoyue-hou.github.io/posts/75d72b3e.html</a>
+                    <a href="http://xiaoyue-hou.github.io/posts/3644d420/">http://xiaoyue-hou.github.io/posts/3644d420/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -631,13 +556,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/6a91c765.html">
+                <a href="/posts/ce3115a7/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="栈和队列（持续更新中）">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="远程桌面连接">
                         
-                        <span class="card-title">栈和队列（持续更新中）</span>
+                        <span class="card-title">远程桌面连接</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -648,14 +573,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-02
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-12-30
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
-                                    数据结构
+                            <a href="/categories/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%B0%8Ftips/" class="post-category">
+                                    奇奇怪怪的小tips
                                 </a>
                             
                             
@@ -672,13 +597,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/3216493d.html">
+                <a href="/posts/7f5a32bc/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="递归问题算法（持续更新中）">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="常用代码">
                         
-                        <span class="card-title">递归问题算法（持续更新中）</span>
+                        <span class="card-title">常用代码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -689,14 +614,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-12-30
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
-                                    数据结构
+                            <a href="/categories/%E7%A7%91%E7%A0%94%E6%8A%80%E8%83%BD/" class="post-category">
+                                    科研技能
                                 </a>
                             
                             
@@ -830,6 +755,13 @@
 
 </main>
 
+
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
