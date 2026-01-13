@@ -575,13 +575,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/7f5a32bc/">
+                <a href="/posts/3644d420/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="常用代码">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="写Paper">
                         
-                        <span class="card-title">常用代码</span>
+                        <span class="card-title">写Paper</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -661,7 +661,7 @@
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('-1'),
-            headingSelector: 'h2, h3, h4, h5'
+            headingSelector: 'h1, h2, h3, h4, h5'
         });
 
         // modify the toc link href to support Chinese.
@@ -673,7 +673,7 @@
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4, h5').each(function () {
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 

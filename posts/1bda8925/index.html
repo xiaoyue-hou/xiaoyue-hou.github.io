@@ -606,13 +606,13 @@ $ git config --global user.email  &quot;xxx@qq.com&quot;&#x2F;&#x2F; 填写你�
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/186e9376/">
+                <a href="/posts/9e1a0ec0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="聚类">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="识别热点/中心的方法">
                         
-                        <span class="card-title">聚类</span>
+                        <span class="card-title">识别热点/中心的方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -647,13 +647,13 @@ $ git config --global user.email  &quot;xxx@qq.com&quot;&#x2F;&#x2F; 填写你�
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/75d72b3e/">
+                <a href="/posts/6a91c765/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="树和二叉树（持续更新中）">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="栈和队列（持续更新中）">
                         
-                        <span class="card-title">树和二叉树（持续更新中）</span>
+                        <span class="card-title">栈和队列（持续更新中）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -733,7 +733,7 @@ $ git config --global user.email  &quot;xxx@qq.com&quot;&#x2F;&#x2F; 填写你�
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('-1'),
-            headingSelector: 'h2, h3, h4, h5'
+            headingSelector: 'h1, h2, h3, h4, h5'
         });
 
         // modify the toc link href to support Chinese.
@@ -745,7 +745,7 @@ $ git config --global user.email  &quot;xxx@qq.com&quot;&#x2F;&#x2F; 填写你�
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4, h5').each(function () {
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 

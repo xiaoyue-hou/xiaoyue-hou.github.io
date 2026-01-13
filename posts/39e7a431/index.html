@@ -825,13 +825,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/aa003cf/">
+                <a href="/posts/d456ed28/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="COVID-19精读文献记录">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="人类移动与城市科学">
                         
-                        <span class="card-title">COVID-19精读文献记录</span>
+                        <span class="card-title">人类移动与城市科学</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -952,7 +952,7 @@
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('-1'),
-            headingSelector: 'h2, h3, h4, h5'
+            headingSelector: 'h1, h2, h3, h4, h5'
         });
 
         // modify the toc link href to support Chinese.
@@ -964,7 +964,7 @@
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4, h5').each(function () {
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 

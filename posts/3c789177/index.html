@@ -872,7 +872,7 @@ chmod +x &#x2F;root&#x2F;fix_warpout.sh<span aria-hidden="true" class="line-numb
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('-1'),
-            headingSelector: 'h2, h3, h4, h5'
+            headingSelector: 'h1, h2, h3, h4, h5'
         });
 
         // modify the toc link href to support Chinese.
@@ -884,7 +884,7 @@ chmod +x &#x2F;root&#x2F;fix_warpout.sh<span aria-hidden="true" class="line-numb
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4, h5').each(function () {
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
