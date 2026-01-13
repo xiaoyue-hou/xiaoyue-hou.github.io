@@ -422,73 +422,73 @@
 <h3 id="3、看能否正常访问google-scholar"><a href="#3、看能否正常访问google-scholar" class="headerlink" title="3、看能否正常访问google scholar"></a>3、看能否正常访问google scholar</h3><p>curl -I <a target="_blank" rel="noopener" href="https://scholar.google.com/">https://scholar.google.com/</a></p>
 <h2 id="（二）-选看-CloudFlare-域名托管"><a href="#（二）-选看-CloudFlare-域名托管" class="headerlink" title="（二）(选看) CloudFlare 域名托管"></a>（二）(选看) CloudFlare 域名托管</h2><p><strong>(选看)：这部分不是必须步骤，只有配置argo专用通道时才会用到</strong></p>
 <h3 id="1、digitalplat注册账号"><a href="#1、digitalplat注册账号" class="headerlink" title="1、digitalplat注册账号"></a>1、digitalplat注册账号</h3><p>登录<a target="_blank" rel="noopener" href="https://dash.domain.digitalplat.org/auth/login?next=%2F">digitalplat</a>，进行注册（注册时除了邮箱其他的随意填，符合格式就行，记得最后要通过邮箱链接验证），然后登录通过Github验证，便可进入后台。</p>
-<img src="/posts/3c789177.htm/3c789177/image-20260110131025793.png" class title="image-20260110131025793">
+<img src="/posts/3c789177.htm/undefined/image-20260110131025793.png" class title="image-20260110131025793">
 <h3 id="2、digitalplat提升免费域名上限"><a href="#2、digitalplat提升免费域名上限" class="headerlink" title="2、digitalplat提升免费域名上限"></a>2、digitalplat提升免费域名上限</h3><p>初始每个账号仅可注册 1 个域名，可通过 <strong>Star 官方 GitHub 项目</strong>额外获得 1 个免费名额。进入<a target="_blank" rel="noopener" href="https://github.com/DigitalPlatDev/FreeDomain">Freedom</a>，点右上角star，便可注册2个域名。</p>
-<img src="/posts/3c789177.htm/3c789177/image-20260110131211403.png" class title="image-20260110131211403">
+<img src="/posts/3c789177.htm/undefined/image-20260110131211403.png" class title="image-20260110131211403">
 <h3 id="3、digitalplat注册域名"><a href="#3、digitalplat注册域名" class="headerlink" title="3、digitalplat注册域名"></a>3、digitalplat注册域名</h3><p>点击左侧注册域名，自己定义二级域名前缀，注意这里的.us.kg需要key，其他的都不需要，可以选其他的域名后缀。如果域名有效，系统会提示填写 DNS 服务器地址。</p>
-<img src="/posts/3c789177.htm/3c789177/image-20260110134610962.png" class title="image-20260110134610962">
-<img src="/posts/3c789177.htm/3c789177/image-20260110134813419.png" class title="image-20260110134813419">
+<img src="/posts/3c789177.htm/undefined/image-20260110134610962.png" class title="image-20260110134610962">
+<img src="/posts/3c789177.htm/undefined/image-20260110134813419.png" class title="image-20260110134813419">
 <h3 id="4、配置DNS"><a href="#4、配置DNS" class="headerlink" title="4、配置DNS"></a>4、配置DNS</h3><p>（1）登录 <a target="_blank" rel="noopener" href="https://dash.cloudflare.com/">Cloudflare</a>，添加新域名（刚申请的域名lisa.dpdns.org）。</p>
-<img src="/posts/3c789177.htm/3c789177/image-20260110133742180.png" class title="image-20260110133742180">
+<img src="/posts/3c789177.htm/undefined/image-20260110133742180.png" class title="image-20260110133742180">
 <p>（2）然后点免费计划</p>
-<img src="/posts/3c789177.htm/3c789177/image-20260110134420239.png" class title="image-20260110134420239">
+<img src="/posts/3c789177.htm/undefined/image-20260110134420239.png" class title="image-20260110134420239">
 <p>（3）后面什么都不用添加，直接前往激活</p>
-<img src="/posts/3c789177.htm/3c789177/image-20260110134435980.png" class title="image-20260110134435980">
-<p>（4）忽略添加DNS记录<img src="/posts/3c789177.htm/3c789177/image-20260110134518200.png" class title="image-20260110134518200"></p>
+<img src="/posts/3c789177.htm/undefined/image-20260110134435980.png" class title="image-20260110134435980">
+<p>（4）忽略添加DNS记录<img src="/posts/3c789177.htm/undefined/image-20260110134518200.png" class title="image-20260110134518200"></p>
 <p>（5）继续就出现了CF名称服务器的两个地址</p>
-<img src="/posts/3c789177.htm/3c789177/image-20260110135027246.png" class title="image-20260110135027246">
-<p>（6）复制到digitalplat中最后一个页面中的NS1和NS2中。然后两个页面都点继续或者注册<img src="/posts/3c789177.htm/3c789177/image-20260110135217488.png" class title="image-20260110135217488"></p>
+<img src="/posts/3c789177.htm/undefined/image-20260110135027246.png" class title="image-20260110135027246">
+<p>（6）复制到digitalplat中最后一个页面中的NS1和NS2中。然后两个页面都点继续或者注册<img src="/posts/3c789177.htm/undefined/image-20260110135217488.png" class title="image-20260110135217488"></p>
 <h3 id="5、CF完成域名托管："><a href="#5、CF完成域名托管：" class="headerlink" title="5、CF完成域名托管："></a>5、CF完成域名托管：</h3><p>（1）回到 Cloudflare，点击“立即检查名称服务器”，需要等一段时间到CF中状态显示活动就好了。</p>
-<img src="/posts/3c789177.htm/3c789177/image-20260110135411394.png" class title="image-20260110135411394">
+<img src="/posts/3c789177.htm/undefined/image-20260110135411394.png" class title="image-20260110135411394">
 <p>（2）点击域名地址，进去DNS记录，添加记录</p>
-<img src="/posts/3c789177.htm/3c789177/image-20260110135633829.png" class title="image-20260110135633829">
+<img src="/posts/3c789177.htm/undefined/image-20260110135633829.png" class title="image-20260110135633829">
 <p>（3）添加记录，这里的A是值ipv4，名称root用@，填入VPS的ip地址，后面的小黄云是是否开启代理，如果不开启就是VPS的真实ip，如果开启了可能就是代理地址。然后点保存</p>
-<img src="/posts/3c789177.htm/3c789177/image-20260110135738246.png" class title="image-20260110135738246">
+<img src="/posts/3c789177.htm/undefined/image-20260110135738246.png" class title="image-20260110135738246">
 <p>然后可以去itdog中DNS查询，输入刚刚的域名，可以解析VPS的ip地址，刚开始解析正确的比例比较低，需要等一段时间，当比例高了就可以正常用了。</p>
 <h3 id="6、-选看-配置H-UI，并配置CF域名登录"><a href="#6、-选看-配置H-UI，并配置CF域名登录" class="headerlink" title="6、(选看) 配置H-UI，并配置CF域名登录"></a>6、(选看) 配置H-UI，并配置CF域名登录</h3><p>（1）配置H-UI<a target="_blank" rel="noopener" href="https://github.com/jonssonyan/h-ui/blob/main/README_ZH.md">教程</a></p>
 <p>（2）配置CF域名登录H-UI<a target="_blank" rel="noopener" href="https://blog.csdn.net/u010522887/article/details/140786338">教程</a></p>
 <h2 id="（三）-选看-常用小网站"><a href="#（三）-选看-常用小网站" class="headerlink" title="（三）(选看) 常用小网站"></a>（三）(选看) 常用小网站</h2><h3 id="1、网站一致性"><a href="#1、网站一致性" class="headerlink" title="1、网站一致性"></a>1、<a target="_blank" rel="noopener" href="https://ip111.cn/">网站一致性</a></h3><h3 id="2、IP分数"><a href="#2、IP分数" class="headerlink" title="2、IP分数"></a>2、<a href="测试ip分数">IP分数</a></h3><h3 id="3、DNS查询"><a href="#3、DNS查询" class="headerlink" title="3、DNS查询"></a>3、<a target="_blank" rel="noopener" href="https://www.itdog.cn/">DNS查询</a></h3><h3 id="4、IP地址"><a href="#4、IP地址" class="headerlink" title="4、IP地址"></a>4、<a target="_blank" rel="noopener" href="https://whatismyipaddress.com/">IP地址</a></h3><h1 id="二、s-singbox搭建VPN"><a href="#二、s-singbox搭建VPN" class="headerlink" title="二、s-singbox搭建VPN"></a>二、s-singbox搭建VPN</h1><h2 id="（一）安装s-singbox"><a href="#（一）安装s-singbox" class="headerlink" title="（一）安装s-singbox"></a>（一）安装s-singbox</h2><h3 id="1、用命令行安装"><a href="#1、用命令行安装" class="headerlink" title="1、用命令行安装"></a>1、用命令行安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -fsSL https://raw.githubusercontent.com/sindricn/s-singbox/main/install.sh)</span><br></pre></td></tr></table></figure>
-<img src="/posts/3c789177.htm/3c789177/image-20260110152628088.png" class title="image-20260110152628088">
+<img src="/posts/3c789177.htm/undefined/image-20260110152628088.png" class title="image-20260110152628088">
 <h3 id="2、进入s-singbox，安装内核运行"><a href="#2、进入s-singbox，安装内核运行" class="headerlink" title="2、进入s-singbox，安装内核运行"></a>2、进入s-singbox，安装内核运行</h3><p>（1） 进入s-singbox，可以看到内核未安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s-singbox</span><br></pre></td></tr></table></figure>
-<img src="/posts/3c789177.htm/3c789177/image-20260110152830184.png" class title="image-20260110152830184">
+<img src="/posts/3c789177.htm/undefined/image-20260110152830184.png" class title="image-20260110152830184">
 <p>（2）进入1.sing-box管理，1. 安装 sing-box（默认安装最新稳定版就可以），返回到主页面就已经在运行了。</p>
-<img src="/posts/3c789177.htm/3c789177/image-20260110153052260.png" class title="image-20260110153052260">
+<img src="/posts/3c789177.htm/undefined/image-20260110153052260.png" class title="image-20260110153052260">
 <h2 id="（二）-选看-Argo伪装入站"><a href="#（二）-选看-Argo伪装入站" class="headerlink" title="（二）(选看) Argo伪装入站"></a>（二）(选看) Argo伪装入站</h2><p>Argo通道是为了伪装入站IP，这样可以让你的客户端防火墙不会拦截你发出的流量，它分临时通道和专用通道，临时通道的稳定性差，是CF的一项测试服务，会导致域名经常变化，前面我们用CF域名托管，就是为了给它配置专用通道。</p>
-<div style="width: 67%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/3c789177.htm/3c789177/image-20260110173851358.png" class title="image-20260110173851358"></div>
+<div style="width: 67%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/3c789177.htm/undefined/image-20260110173851358.png" class title="image-20260110173851358"></div>
 
 <h3 id="1、CF授权"><a href="#1、CF授权" class="headerlink" title="1、CF授权"></a>1、CF授权</h3><p>（1）进入9. CF隧道管理，1. Argo隧道管理 ，7.  CF授权管理。下面授权名称和备注自己命名就可以，授权顶级域名要填CF托管后的域名，然后就会出来一个网址，粘贴到浏览器中打开，选择对应的域名进行授权就可以了。</p>
-<img src="/posts/3c789177.htm/3c789177/image-20260110175907324.png" class title="image-20260110175907324">
-<img src="/posts/3c789177.htm/3c789177/image-20260110174754361.png" class title="image-20260110174754361">
-<div style="width: 50%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/3c789177.htm/3c789177/image-20260110174805447.png" class title="image-20260110174805447"></div>
+<img src="/posts/3c789177.htm/undefined/image-20260110175907324.png" class title="image-20260110175907324">
+<img src="/posts/3c789177.htm/undefined/image-20260110174754361.png" class title="image-20260110174754361">
+<div style="width: 50%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/3c789177.htm/undefined/image-20260110174805447.png" class title="image-20260110174805447"></div>
 
 <h3 id="2、创建专用隧道"><a href="#2、创建专用隧道" class="headerlink" title="2、创建专用隧道"></a>2、创建专用隧道</h3><p>可以在这里创建隧道，再加入节点，也可以在创建节点的时候一起加入创建隧道，我们采用后者在后面创建节点的时候展示。</p>
-<h2 id="（四）建立节点"><a href="#（四）建立节点" class="headerlink" title="（四）建立节点"></a>（四）建立节点</h2><h3 id="1、不同节点的区别"><a href="#1、不同节点的区别" class="headerlink" title="1、不同节点的区别"></a>1、不同节点的区别</h3><img src="/posts/3c789177.htm/3c789177/image-20260110171828118.png" class title="image-20260110171828118">
+<h2 id="（四）建立节点"><a href="#（四）建立节点" class="headerlink" title="（四）建立节点"></a>（四）建立节点</h2><h3 id="1、不同节点的区别"><a href="#1、不同节点的区别" class="headerlink" title="1、不同节点的区别"></a>1、不同节点的区别</h3><img src="/posts/3c789177.htm/undefined/image-20260110171828118.png" class title="image-20260110171828118">
 <h3 id="2、新建节点：VLESS-Reality"><a href="#2、新建节点：VLESS-Reality" class="headerlink" title="2、新建节点：VLESS + Reality"></a>2、新建节点：VLESS + Reality</h3><p>这个节点一般用大公司的域名伪装入站，可以防止被墙，但出站IP是不影响的，搭配开启的WARP分流，可以轻松访问google等网站。</p>
-<img src="/posts/3c789177.htm/3c789177/image-20260110172607370.png" class title="image-20260110172607370">
+<img src="/posts/3c789177.htm/undefined/image-20260110172607370.png" class title="image-20260110172607370">
 <p>（1）进入1.新建节点，q.快速搭建节点，1.  VLESS + Reality。端口不要设置冲突了，这里设置一下为6011，域名默认选最快的。</p>
-<img src="/posts/3c789177.htm/3c789177/image-20260110172857762.png" class title="image-20260110172857762">
+<img src="/posts/3c789177.htm/undefined/image-20260110172857762.png" class title="image-20260110172857762">
 <h3 id="2、新建节点：Hysteria2"><a href="#2、新建节点：Hysteria2" class="headerlink" title="2、新建节点：Hysteria2"></a>2、新建节点：Hysteria2</h3><p>这个节点没有入站伪装，特点是快速，当然也搭配分流WARP。</p>
 <p>（1）进入1.新建节点，q.快速搭建节点，2.  Hysteria2。端口不要设置冲突了，这里设置一下为6012，域名默认，下面的限速和跳跃端口也默认，直接回车。</p>
-<img src="/posts/3c789177.htm/3c789177/image-20260110173254294.png" class title="image-20260110173254294">
+<img src="/posts/3c789177.htm/undefined/image-20260110173254294.png" class title="image-20260110173254294">
 <h3 id="3、新建节点：Argo-VLESS-WS"><a href="#3、新建节点：Argo-VLESS-WS" class="headerlink" title="3、新建节点：Argo+VLESS+WS"></a>3、新建节点：Argo+VLESS+WS</h3><p>这个节点采用 Argo隧道（必须采用WS协议），再搭配WARP。</p>
 <p>（1）进入1.新建节点，q.快速搭建节点，3.  Argo+VLESS+WS。这里端口设置6013，默认WS协议，默认伪装域名，并配置专用通道。</p>
-<img src="/posts/3c789177.htm/3c789177/image-20260110203437316.png" class title="image-20260110203437316">
+<img src="/posts/3c789177.htm/undefined/image-20260110203437316.png" class title="image-20260110203437316">
 <p>（2）选择之前授权的CF凭证lisahou，然后设置隧道名称RackNerd1，绑定域名是RackNerd1.lisahou618.qzz.io（隧道名.之前的域名），然后配置6013这个节点加入这个隧道</p>
-<img src="/posts/3c789177.htm/3c789177/image-20260110203702428.png" class title="image-20260110203702428">
+<img src="/posts/3c789177.htm/undefined/image-20260110203702428.png" class title="image-20260110203702428">
 <p>（3）可以测试一次，用客户端ping一下这个域名</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping -4 RackNerd1.lisahou618.qzz.io</span><br></pre></td></tr></table></figure>
-<img src="/posts/3c789177.htm/3c789177/image-20260110220056429.png" class title="image-20260110220056429">
+<img src="/posts/3c789177.htm/undefined/image-20260110220056429.png" class title="image-20260110220056429">
 <h2 id="（五）生成订阅"><a href="#（五）生成订阅" class="headerlink" title="（五）生成订阅"></a>（五）生成订阅</h2><h3 id="1、通用订阅"><a href="#1、通用订阅" class="headerlink" title="1、通用订阅"></a>1、通用订阅</h3><p>（1）4. 订阅管理，1.生成订阅链接，名称随便设置，IP地址默认，订阅端口设置9618</p>
-<img src="/posts/3c789177.htm/3c789177/image-20260110205315789.png" class title="image-20260110205315789">
+<img src="/posts/3c789177.htm/undefined/image-20260110205315789.png" class title="image-20260110205315789">
 <p>（2）导入到v2ray中，可以看到采用Argo的入站地址是域名，说明入站伪装成功，测试速度和延迟发现它没法检测，这是由于进入了CF服务器，需要点击这个节点进行设置，指纹改成Chrome，跳过证书验证，再测试就好了。</p>
-<img src="/posts/3c789177.htm/3c789177/image-20260110210039402.png" class title="image-20260110210039402">
-<div style="width: 80%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/3c789177.htm/3c789177/image-20260110210311963.png" class title="image-20260110210311963"></div>
+<img src="/posts/3c789177.htm/undefined/image-20260110210039402.png" class title="image-20260110210039402">
+<div style="width: 80%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/3c789177.htm/undefined/image-20260110210311963.png" class title="image-20260110210311963"></div>
 
 
 
-<h3 id="2、clash订阅"><a href="#2、clash订阅" class="headerlink" title="2、clash订阅"></a>2、clash订阅</h3><img src="/posts/3c789177.htm/3c789177/image-20260110215145824.png" class title="image-20260110215145824">
-<h3 id="3、sing-box订阅"><a href="#3、sing-box订阅" class="headerlink" title="3、sing-box订阅"></a>3、sing-box订阅</h3><img src="/posts/3c789177.htm/3c789177/image-20260110215353444.png" class title="image-20260110215353444">
+<h3 id="2、clash订阅"><a href="#2、clash订阅" class="headerlink" title="2、clash订阅"></a>2、clash订阅</h3><img src="/posts/3c789177.htm/undefined/image-20260110215145824.png" class title="image-20260110215145824">
+<h3 id="3、sing-box订阅"><a href="#3、sing-box订阅" class="headerlink" title="3、sing-box订阅"></a>3、sing-box订阅</h3><img src="/posts/3c789177.htm/undefined/image-20260110215353444.png" class title="image-20260110215353444">
 <h2 id="（六）-选看-WARP伪装出站"><a href="#（六）-选看-WARP伪装出站" class="headerlink" title="（六） (选看) WARP伪装出站"></a>（六） (选看) WARP伪装出站</h2><p><strong>主要为了混淆身份，防止机房IP被Google/Netflix等网站拒绝</strong>。我们这里对部分流量采用WARP伪装，因为①WARP分配的IP地址是是很多人共享出口，甚至不如我们的机房IP，可能会被认为是机器人，而且会超级慢。②WARP全局会导致我们后面如果设置Argo入站隧道的流量也走这，会超时崩溃。<strong>所以我们在这里采用智能分流出站规则。</strong>如果不设置Argo入站伪装，想尝试让节点全局WARP可以进入9. CF隧道管理中进行WARP 把节点关联到就可以。</p>
 <p><strong>解释稳定性</strong>：</p>
 <p>①通过Cloudflare  WARP隧道，会分配一个免费匿名用户和证书（WARP 账户很稳定：这是 Cloudflare 的正式产品。脚本帮你注册的这个免费账户是永久有效的。只要 Cloudflare 不倒闭，这个账户就能一直连，不会出现“过段时间服务就没了”的情况。）</p>
@@ -496,14 +496,14 @@
 <p>③每次CF分配IP的时候一般是从离你的 VPS 最近的 Cloudflare 机房分配，这样就相当于你拿着手机在城市中出行，不会被google封号，而频繁的改VPS才可能被封号，最坏的情况是这个IP被其他滥用，此时可能会遇到频繁的人机验证。这时去重启一下s-singbox就会再分一个新的IP了。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart sing-box</span><br></pre></td></tr></table></figure>
 <h3 id="1、开启WARP-隧道管理"><a href="#1、开启WARP-隧道管理" class="headerlink" title="1、开启WARP 隧道管理"></a>1、开启WARP 隧道管理</h3><p>进入9. CF隧道管理，2. WARP 隧道管理，依次进行1.2.3.4.启动WARP连接，进入6.查看WARP状态，就没问题了。</p>
-<img src="/posts/3c789177.htm/3c789177/image-20260110162842035.png" class title="image-20260110162842035">
-<img src="/posts/3c789177.htm/3c789177/image-20260110162949220.png" class title="image-20260110162949220">
+<img src="/posts/3c789177.htm/undefined/image-20260110162842035.png" class title="image-20260110162842035">
+<img src="/posts/3c789177.htm/undefined/image-20260110162949220.png" class title="image-20260110162949220">
 <h3 id="2、设置分流WARP规则-手动"><a href="#2、设置分流WARP规则-手动" class="headerlink" title="2、设置分流WARP规则-手动"></a>2、设置分流WARP规则-手动</h3><p><strong>注意：因为s-singbox是自动修改配置文件不会读取当前文件内容，而我们是手动修改，所以如果当我们配置好分流WARP后，再用s-singbox进行过改动，可能需要重新执行（3）中的 ③ ④ 和（4）。可以去 <a target="_blank" rel="noopener" href="https://whatismyipaddress.com/">what is my ip</a> 上查看一下，如果变成了VPS的真IP，就需要执行一下。</strong></p>
 <p>（1）进入7.出站规则，可以看到现有的出站规则是直接出去的</p>
-<div style="width: 67%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/3c789177.htm/3c789177/image-20260110163224417.png" class title="image-20260110163224417"></div>
+<div style="width: 67%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/3c789177.htm/undefined/image-20260110163224417.png" class title="image-20260110163224417"></div>
 
 <p>（2）退出s-singbox，可以去到/etc/sing-box/config.json去看现在的配置文件。</p>
-<img src="/posts/3c789177.htm/3c789177/image-20260110164313078.png" class title="image-20260110164313078">
+<img src="/posts/3c789177.htm/undefined/image-20260110164313078.png" class title="image-20260110164313078">
 <p>（3）增加分流规则：</p>
 <p><strong>Outbounds (出站)：</strong> 在 <code>direct-out</code> 下面增加了一个 <code>warp-out</code> (绑定 <code>wgcf</code>)。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">      &quot;type&quot;: &quot;direct&quot;,</span><br><span class="line">      &quot;tag&quot;: &quot;warp-out&quot;,</span><br><span class="line">      &quot;bind_interface&quot;: &quot;wgcf&quot;</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
@@ -519,10 +519,10 @@
 <p>④ 然后重启s-singbox</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart sing-box</span><br></pre></td></tr></table></figure>
 <p>（4）然后重新进入s-singbox，进入7.出站规则，就可以看到识别到一个新的出站规则，选择1.同步到规则库，就变成3个出站规则了，这样分流伪装就好了。</p>
-<div style="width: 67%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/3c789177.htm/3c789177/image-20260110170700733.png" class title="image-20260110170700733"></div>
+<div style="width: 67%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/3c789177.htm/undefined/image-20260110170700733.png" class title="image-20260110170700733"></div>
 
 <p>然后就可以看到出站的IP已经伪装了</p>
-<img src="/posts/3c789177.htm/3c789177/image-20260110214531722.png" class title="image-20260110214531722">
+<img src="/posts/3c789177.htm/undefined/image-20260110214531722.png" class title="image-20260110214531722">
 
                 
             </div>
