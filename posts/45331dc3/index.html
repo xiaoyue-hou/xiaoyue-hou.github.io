@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 8.1.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <style>
     /* ----------------------------------------------------------- */
@@ -412,15 +412,66 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、画图基本代码"><a href="#一、画图基本代码" class="headerlink" title="一、画图基本代码"></a>一、画图基本代码</h1><h2 id="1、引入库"><a href="#1、引入库" class="headerlink" title="1、引入库"></a>1、引入库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line">plt.rcParams[<span class="string">&#x27;figure.dpi&#x27;</span>] = <span class="number">300</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;Microsoft YaHei&#x27;</span>]</span><br></pre></td></tr></table></figure>
-<h2 id="2、直方分布图"><a href="#2、直方分布图" class="headerlink" title="2、直方分布图"></a>2、直方分布图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">6</span>))</span><br><span class="line">data = [np.log10(a) <span class="keyword">for</span> a <span class="keyword">in</span> list_conformity_real]  <span class="comment"># 对数直方图，以10为底，np.log(a)默认以e为底</span></span><br><span class="line">min_val, max_val = np.<span class="built_in">min</span>(data), np.<span class="built_in">max</span>(data)</span><br><span class="line">bins1 = np.linspace(min_val, max_val, num=<span class="number">30</span>)</span><br><span class="line">sns.histplot(data, bins=bins1, color=<span class="string">&quot;red&quot;</span>, alpha=<span class="number">0.7</span>, label=<span class="string">&#x27;real_data&#x27;</span>)  <span class="comment"># stat=&#x27;count&#x27;默认是频数 , stat=&quot;density&quot;画概率密度</span></span><br><span class="line"><span class="comment"># plt.hist(l1, bins=30, range=(min_val, max_val), color=&#x27;red&#x27;, edgecolor=&#x27;black&#x27;, alpha=0.7)</span></span><br><span class="line"><span class="comment"># sns是升级的直方图，plt.hist是基础直方图</span></span><br></pre></td></tr></table></figure>
-<h2 id="3、互补累计分布图"><a href="#3、互补累计分布图" class="headerlink" title="3、互补累计分布图"></a>3、互补累计分布图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">6</span>))</span><br><span class="line">count = Counter(list_conformity_real)  <span class="comment"># 计算出现频次</span></span><br><span class="line">x = <span class="built_in">sorted</span>(count.keys())</span><br><span class="line">y = [count[key] <span class="keyword">for</span> key <span class="keyword">in</span> x]</span><br><span class="line">y_cu = []  <span class="comment"># 互补累积</span></span><br><span class="line">pro = <span class="number">1</span></span><br><span class="line">total = <span class="built_in">sum</span>(y)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(y)):</span><br><span class="line">    y_cu.append(pro)        </span><br><span class="line">    pro -= y[i]/total</span><br><span class="line">plt.scatter(x, y_cu, c=<span class="string">&#x27;red&#x27;</span>, label=<span class="string">&#x27;真实数据&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;从众性互补累积分布图&#x27;</span>, fontsize=<span class="number">16</span>)</span><br><span class="line">plt.xscale(<span class="string">&#x27;log&#x27;</span>, base=<span class="number">10</span>)  <span class="comment"># 默认底数为10,也可以设置base=np.e以e为底数</span></span><br><span class="line">plt.yscale(<span class="string">&#x27;log&#x27;</span>, base=<span class="number">10</span>)  </span><br><span class="line">plt.xlabel(<span class="string">&#x27;从众性&#x27;</span>, fontsize=<span class="number">14</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;概率&#x27;</span>, fontsize=<span class="number">14</span>)</span><br><span class="line"><span class="comment"># plt.ylim(bottom=1e-6)  # 设置y轴下限</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<h2 id="4、拟合正态分布并检验"><a href="#4、拟合正态分布并检验" class="headerlink" title="4、拟合正态分布并检验"></a>4、拟合正态分布并检验</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> norm</span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> shapiro, kstest</span><br><span class="line"><span class="keyword">import</span> statsmodels.api <span class="keyword">as</span> sm</span><br><span class="line"></span><br><span class="line">mean, std = norm.fit(data)  <span class="comment"># 正态分布拟合</span></span><br><span class="line">xn = np.linspace(<span class="built_in">min</span>(data), <span class="built_in">max</span>(data), <span class="number">1000</span>)</span><br><span class="line">pn = norm.pdf(xn, mean, std)</span><br><span class="line"><span class="comment"># plt.plot(xn, pn, &#x27;b-&#x27;, label=&#x27;Normal fit&#x27;)  # 概率密度拟合</span></span><br><span class="line"></span><br><span class="line">bin_width = bins1[<span class="number">1</span>] - bins1[<span class="number">0</span>]  <span class="comment"># 计算每个bin的宽度</span></span><br><span class="line">pn_scaled = pn * <span class="built_in">len</span>(data) * bin_width  <span class="comment"># 概率密度转为频数</span></span><br><span class="line">plt.plot(xn, pn_scaled, <span class="string">&#x27;b-&#x27;</span>, label=<span class="string">&#x27;Normal fit&#x27;</span>)  <span class="comment"># 频数拟合直方分布</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 可以用 Shapiro-Wilk 检验或 Kolmogorov-Smirnov 检验判断正态性：</span></span><br><span class="line">stat, p_value = shapiro(data)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Shapiro-Wilk test p-value:&#x27;</span>, p_value)</span><br><span class="line"><span class="comment"># 如果 p 值大于 0.05，则不能拒绝正态分布假设，说明对数数据近似正态</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用 statsmodels 画 Q-Q 图，直观判断数据与正态分布的吻合度：</span></span><br><span class="line">sm.qqplot(np.array(data), line=<span class="string">&#x27;45&#x27;</span>)</span><br><span class="line">plt.show()</span><br><span class="line"><span class="comment"># 点大致沿对角线分布说明近似正态</span></span><br></pre></td></tr></table></figure>
+                <h1 id="一、画图基本代码"><a href="#一、画图基本代码" class="headerlink" title="一、画图基本代码"></a>一、画图基本代码</h1><h2 id="1、引入库"><a href="#1、引入库" class="headerlink" title="1、引入库"></a>1、引入库</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">import matplotlib.pyplot as plt
+import seaborn as sns
+plt.rcParams[&#39;figure.dpi&#39;] &#x3D; 300
+plt.rcParams[&#39;font.sans-serif&#39;] &#x3D; [&#39;Microsoft YaHei&#39;]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2、直方分布图"><a href="#2、直方分布图" class="headerlink" title="2、直方分布图"></a>2、直方分布图</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">plt.figure(figsize&#x3D;(10, 6))
+data &#x3D; [np.log10(a) for a in list_conformity_real]  # 对数直方图，以10为底，np.log(a)默认以e为底
+min_val, max_val &#x3D; np.min(data), np.max(data)
+bins1 &#x3D; np.linspace(min_val, max_val, num&#x3D;30)
+sns.histplot(data, bins&#x3D;bins1, color&#x3D;&quot;red&quot;, alpha&#x3D;0.7, label&#x3D;&#39;real_data&#39;)  # stat&#x3D;&#39;count&#39;默认是频数 , stat&#x3D;&quot;density&quot;画概率密度
+# plt.hist(l1, bins&#x3D;30, range&#x3D;(min_val, max_val), color&#x3D;&#39;red&#39;, edgecolor&#x3D;&#39;black&#39;, alpha&#x3D;0.7)
+# sns是升级的直方图，plt.hist是基础直方图<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3、互补累计分布图"><a href="#3、互补累计分布图" class="headerlink" title="3、互补累计分布图"></a>3、互补累计分布图</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">from collections import Counter
+plt.figure(figsize&#x3D;(10, 6))
+count &#x3D; Counter(list_conformity_real)  # 计算出现频次
+x &#x3D; sorted(count.keys())
+y &#x3D; [count[key] for key in x]
+y_cu &#x3D; []  # 互补累积
+pro &#x3D; 1
+total &#x3D; sum(y)
+for i in range(len(y)):
+    y_cu.append(pro)        
+    pro -&#x3D; y[i]&#x2F;total
+plt.scatter(x, y_cu, c&#x3D;&#39;red&#39;, label&#x3D;&#39;真实数据&#39;)
+plt.title(&#39;从众性互补累积分布图&#39;, fontsize&#x3D;16)
+plt.xscale(&#39;log&#39;, base&#x3D;10)  # 默认底数为10,也可以设置base&#x3D;np.e以e为底数
+plt.yscale(&#39;log&#39;, base&#x3D;10)  
+plt.xlabel(&#39;从众性&#39;, fontsize&#x3D;14)
+plt.ylabel(&#39;概率&#39;, fontsize&#x3D;14)
+# plt.ylim(bottom&#x3D;1e-6)  # 设置y轴下限
+plt.show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="4、拟合正态分布并检验"><a href="#4、拟合正态分布并检验" class="headerlink" title="4、拟合正态分布并检验"></a>4、拟合正态分布并检验</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">from scipy.stats import norm
+from scipy.stats import shapiro, kstest
+import statsmodels.api as sm
+
+mean, std &#x3D; norm.fit(data)  # 正态分布拟合
+xn &#x3D; np.linspace(min(data), max(data), 1000)
+pn &#x3D; norm.pdf(xn, mean, std)
+# plt.plot(xn, pn, &#39;b-&#39;, label&#x3D;&#39;Normal fit&#39;)  # 概率密度拟合
+
+bin_width &#x3D; bins1[1] - bins1[0]  # 计算每个bin的宽度
+pn_scaled &#x3D; pn * len(data) * bin_width  # 概率密度转为频数
+plt.plot(xn, pn_scaled, &#39;b-&#39;, label&#x3D;&#39;Normal fit&#39;)  # 频数拟合直方分布
+
+# 可以用 Shapiro-Wilk 检验或 Kolmogorov-Smirnov 检验判断正态性：
+stat, p_value &#x3D; shapiro(data)
+print(&#39;Shapiro-Wilk test p-value:&#39;, p_value)
+# 如果 p 值大于 0.05，则不能拒绝正态分布假设，说明对数数据近似正态
+
+# 用 statsmodels 画 Q-Q 图，直观判断数据与正态分布的吻合度：
+sm.qqplot(np.array(data), line&#x3D;&#39;45&#39;)
+plt.show()
+# 点大致沿对角线分布说明近似正态<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="二、ArcGIS操作"><a href="#二、ArcGIS操作" class="headerlink" title="二、ArcGIS操作"></a>二、ArcGIS操作</h1><h2 id="1、获得城市矢量底图的步骤"><a href="#1、获得城市矢量底图的步骤" class="headerlink" title="1、获得城市矢量底图的步骤"></a>1、获得城市矢量底图的步骤</h2><p>打开arcmap-添加数据-AddBasemap-选择一个合适的风格，然后选定自己想要的地区(查找-输入地区名称)-文件-导出地图-emp/emf</p>
 <h1 id="三、画图示例图"><a href="#三、画图示例图" class="headerlink" title="三、画图示例图"></a>三、画图示例图</h1><h2 id="1、折线图"><a href="#1、折线图" class="headerlink" title="1、折线图"></a><strong>1、折线图</strong></h2><ul>
 <li><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S026427512500705X?dgcid=rss_sd_all#f0040">https://www.sciencedirect.com/science/article/pii/S026427512500705X?dgcid=rss_sd_all#f0040</a></li>
@@ -605,13 +656,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/9e1a0ec0/">
+                <a href="/posts/fc9d03e3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="识别热点/中心的方法">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="概率分布检验">
                         
-                        <span class="card-title">识别热点/中心的方法</span>
+                        <span class="card-title">概率分布检验</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

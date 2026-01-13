@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 8.1.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <style>
     /* ----------------------------------------------------------- */
@@ -412,6 +412,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -519,7 +522,31 @@
 <p>2.先序线索中，若*p的左孩子不空，则左孩子为后继；否则其后继为右孩子或右线索。</p>
 <p>3.给出在后序线索二叉树中查找*p的后继结点的过程。</p>
 <p>4.在后序线索中，若*p有右线索，则右线索为其后继；否则，其后继为其双亲结点右子树后序序列中的第一个结点，若双亲无右子树，则后继即为双亲。</p>
-<h2 id="4-附录——ADT定义"><a href="#4-附录——ADT定义" class="headerlink" title="4 附录——ADT定义"></a>4 附录——ADT定义</h2><h3 id="1-二叉树-1"><a href="#1-二叉树-1" class="headerlink" title="1.二叉树"></a>1.二叉树</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">ADT BinaryTree&#123;</span><br><span class="line">数据对象： D＝&#123;ai|ai∈ElemSet,i=<span class="number">1</span>,<span class="number">2</span>,...,n, n≥<span class="number">0</span> &#125;</span><br><span class="line">数据关系： R</span><br><span class="line">基本操作：</span><br><span class="line">InitBiTree(&amp;T);</span><br><span class="line">DestroyBiTree(&amp;T);</span><br><span class="line">CreateBiTree(&amp;T, definition);</span><br><span class="line">ClearBiTree(&amp;T);</span><br><span class="line">BiTreeEmpty(T);</span><br><span class="line">BiTreeDepth(T);</span><br><span class="line">Assign(T, &amp;e, value); </span><br><span class="line">Root(T); </span><br><span class="line">Value(T, e);</span><br><span class="line">Parent (T, e);</span><br><span class="line">LeftChild (T, e);</span><br><span class="line">RightChild (T, e);</span><br><span class="line">LeftSibling (T, e);</span><br><span class="line">RightSibling (T, e);</span><br><span class="line">PreOrderTraverse(T, Visit());</span><br><span class="line">InOrderTraverse(T, Visit());</span><br><span class="line">PostOrderTraverse(T, Visit());</span><br><span class="line">LevelOrderTraverse(T, Visit());</span><br><span class="line">InsertChild(T, p, LR, c); </span><br><span class="line">DeleteChild(T, p, LR);</span><br><span class="line">&#125; ADT BinaryTree</span><br></pre></td></tr></table></figure>
+<h2 id="4-附录——ADT定义"><a href="#4-附录——ADT定义" class="headerlink" title="4 附录——ADT定义"></a>4 附录——ADT定义</h2><h3 id="1-二叉树-1"><a href="#1-二叉树-1" class="headerlink" title="1.二叉树"></a>1.二叉树</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">ADT BinaryTree&#123;
+数据对象： D＝&#123;ai|ai∈ElemSet,i&#x3D;1,2,...,n, n≥0 &#125;
+数据关系： R
+基本操作：
+InitBiTree(&amp;T);
+DestroyBiTree(&amp;T);
+CreateBiTree(&amp;T, definition);
+ClearBiTree(&amp;T);
+BiTreeEmpty(T);
+BiTreeDepth(T);
+Assign(T, &amp;e, value); 
+Root(T); 
+Value(T, e);
+Parent (T, e);
+LeftChild (T, e);
+RightChild (T, e);
+LeftSibling (T, e);
+RightSibling (T, e);
+PreOrderTraverse(T, Visit());
+InOrderTraverse(T, Visit());
+PostOrderTraverse(T, Visit());
+LevelOrderTraverse(T, Visit());
+InsertChild(T, p, LR, c); 
+DeleteChild(T, p, LR);
+&#125; ADT BinaryTree<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -631,13 +658,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/845ae956/">
+                <a href="/posts/1bda8925/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="线性表（持续更新中）">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="hexo+github搭建博客">
                         
-                        <span class="card-title">线性表（持续更新中）</span>
+                        <span class="card-title">hexo+github搭建博客</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -648,14 +675,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-02
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-09
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
-                                    数据结构
+                            <a href="/categories/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%B0%8Ftips/" class="post-category">
+                                    奇奇怪怪的小tips
                                 </a>
                             
                             
@@ -672,13 +699,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/3216493d/">
+                <a href="/posts/6a91c765/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="递归问题算法（持续更新中）">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="栈和队列（持续更新中）">
                         
-                        <span class="card-title">递归问题算法（持续更新中）</span>
+                        <span class="card-title">栈和队列（持续更新中）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

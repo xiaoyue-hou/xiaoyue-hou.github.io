@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 8.1.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <style>
     /* ----------------------------------------------------------- */
@@ -412,6 +412,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -440,7 +443,19 @@
 <li>异常检测：可以通过观察聚类结果中的离群点来检测异常值。</li>
 <li>数据预处理：在某些机器学习任务中，可以使用聚合聚类作为预处理步骤来简化数据或提取特征。</li>
 </ul>
-<h3 id="4、代码"><a href="#4、代码" class="headerlink" title="4、代码"></a>4、代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> AgglomerativeClustering <span class="comment"># 导入AgglomerativeClustering类 </span></span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets <span class="comment"># 导入datasets用于生成样本数据 </span></span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler <span class="comment"># 导入StandardScaler进行标准化处理 </span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt <span class="comment"># 导入绘图库</span></span><br><span class="line">iris = datasets.load_iris() <span class="comment"># 生成样本数据 </span></span><br><span class="line">X = iris[<span class="string">&quot;data&quot;</span>]  <span class="comment"># 使用Iris数据集作为示例 # 提取特征矩阵</span></span><br><span class="line">scaler = StandardScaler()  <span class="comment"># 数据标准化 </span></span><br><span class="line">X = scaler.fit_transform(X) <span class="comment"># 对数据进行标准化处理 # 设置聚类数 </span></span><br><span class="line">n_clusters = <span class="number">2</span> <span class="comment"># 根据需求设置聚类数 </span></span><br><span class="line">clustering = AgglomerativeClustering(n_clusters=n_clusters) <span class="comment"># 创建AgglomerativeClustering对象并拟合数据 </span></span><br><span class="line">labels = clustering.fit_predict(X) <span class="comment"># 获取每个样本点的聚类标签 </span></span><br><span class="line">plt.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], c=labels, cmap=<span class="string">&#x27;viridis&#x27;</span>) <span class="comment"># 使用viridis色彩映射绘制结果图 </span></span><br><span class="line">plt.show() <span class="comment"># 显示结果图 ```</span></span><br></pre></td></tr></table></figure>
+<h3 id="4、代码"><a href="#4、代码" class="headerlink" title="4、代码"></a>4、代码</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">from sklearn.cluster import AgglomerativeClustering # 导入AgglomerativeClustering类 
+from sklearn import datasets # 导入datasets用于生成样本数据 
+from sklearn.preprocessing import StandardScaler # 导入StandardScaler进行标准化处理 
+import matplotlib.pyplot as plt # 导入绘图库
+iris &#x3D; datasets.load_iris() # 生成样本数据 
+X &#x3D; iris[&quot;data&quot;]  # 使用Iris数据集作为示例 # 提取特征矩阵
+scaler &#x3D; StandardScaler()  # 数据标准化 
+X &#x3D; scaler.fit_transform(X) # 对数据进行标准化处理 # 设置聚类数 
+n_clusters &#x3D; 2 # 根据需求设置聚类数 
+clustering &#x3D; AgglomerativeClustering(n_clusters&#x3D;n_clusters) # 创建AgglomerativeClustering对象并拟合数据 
+labels &#x3D; clustering.fit_predict(X) # 获取每个样本点的聚类标签 
+plt.scatter(X[:, 0], X[:, 1], c&#x3D;labels, cmap&#x3D;&#39;viridis&#39;) # 使用viridis色彩映射绘制结果图 
+plt.show() # 显示结果图 &#96;&#96;&#96;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="（二）DBSCAN-聚类"><a href="#（二）DBSCAN-聚类" class="headerlink" title="（二）DBSCAN 聚类"></a>（二）DBSCAN 聚类</h2><p>Density-Based Spatial Clustering of Applications with Noise是一种基于密度的聚类方法。它的主要思想是：一个簇是由一个密度足够大的区域所组成的，并且这个区域是核心对象所连接的稠密区域。DBSCAN将簇定义为具有足够高密度的区域，并且通过噪声点将簇与相邻的密度区域分开。</p>
 <p><img src="/posts/186e9376/image-20251015230101612.png" alt="image-20251015230101612" style="width:50%; max-width: 100%; display: block; margin: 0 auto;"></p>
 <h3 id="1、步骤-1"><a href="#1、步骤-1" class="headerlink" title="1、步骤"></a>1、步骤</h3><ol>
@@ -465,7 +480,15 @@
 <li>任意形状的簇：对于需要发现任意形状的簇的应用，如社交网络分析、图像分割等，DBSCAN是一个很好的选择。</li>
 <li>数据预处理：在某些机器学习任务中，可以使用DBSCAN对数据进行预处理，以便进一步的分析或分类。</li>
 </ul>
-<h3 id="4、代码-1"><a href="#4、代码-1" class="headerlink" title="4、代码"></a>4、代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> DBSCAN <span class="comment"># 导入DBSCAN聚类算法 </span></span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets <span class="comment"># 导入datasets用于生成样本数据 </span></span><br><span class="line">importmatplotlib.pyplotasplt <span class="comment">#导入绘图库</span></span><br><span class="line">iris = datasets.load_iris() <span class="comment"># 使用Iris数据集作为示例 </span></span><br><span class="line">X = iris[<span class="string">&quot;data&quot;</span>] <span class="comment"># 提取特征矩阵  </span></span><br><span class="line">dbscan = DBSCAN(eps=<span class="number">0.3</span>, min_samples=<span class="number">5</span>) <span class="comment"># 创建DBSCAN对象并拟合数据 eps是邻域半径，min_samples是形成核心对象的最小点数 </span></span><br><span class="line">labels = dbscan.fit_predict(X) <span class="comment"># 获取每个样本点的聚类标签 # 可视化结果 </span></span><br><span class="line">plt.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], c=labels, cmap=<span class="string">&#x27;viridis&#x27;</span>) <span class="comment"># 使用viridis色彩映射绘制结果图 </span></span><br><span class="line">plt.show() <span class="comment"># 显示结果图 ```</span></span><br></pre></td></tr></table></figure>
+<h3 id="4、代码-1"><a href="#4、代码-1" class="headerlink" title="4、代码"></a>4、代码</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">from sklearn.cluster import DBSCAN # 导入DBSCAN聚类算法 
+from sklearn import datasets # 导入datasets用于生成样本数据 
+importmatplotlib.pyplotasplt #导入绘图库
+iris &#x3D; datasets.load_iris() # 使用Iris数据集作为示例 
+X &#x3D; iris[&quot;data&quot;] # 提取特征矩阵  
+dbscan &#x3D; DBSCAN(eps&#x3D;0.3, min_samples&#x3D;5) # 创建DBSCAN对象并拟合数据 eps是邻域半径，min_samples是形成核心对象的最小点数 
+labels &#x3D; dbscan.fit_predict(X) # 获取每个样本点的聚类标签 # 可视化结果 
+plt.scatter(X[:, 0], X[:, 1], c&#x3D;labels, cmap&#x3D;&#39;viridis&#39;) # 使用viridis色彩映射绘制结果图 
+plt.show() # 显示结果图 &#96;&#96;&#96;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="三）OPTICS聚类"><a href="#三）OPTICS聚类" class="headerlink" title="(三）OPTICS聚类"></a>(三）OPTICS聚类</h2><p>OPTICS（Ordering Points To Identify the Clustering Structure）是一种基于密度的聚类算法，它是为了优化DBSCAN算法而提出的。与DBSCAN类似，OPTICS算法的核心思想是通过分析样本点的密度分布来识别出数据集中的聚类结构。然而，OPTICS算法在处理过程中不直接产生聚类结果，而是生成一个有序的样本点列表，这个列表可以用来构建一个决策图，进而为DBSCAN算法选择合适的邻域半径参数。</p>
 <p>OPTICS算法引入了两个新的距离概念，即<strong>核心距离</strong>和<strong>可达距离</strong>：<br><strong>核心距离</strong>：对于一个给定的核心对象X，使得X成为核心对象的最小邻域距离 r 就是X的核心距离。这句话乍一看有点绕，其实仔细读两遍就明白了，假如在DBSCAN中我们定义 eps = 1.2 和  min_samples=5，X在eps = 1.2的邻域内有8个样本点，则X是核心对象，但是我们发现距离X最近的第5个点和X的距离是0.8，那么核心对象 X 的核心距离就是 0.8，显然每个核心对象的核心距离并不都是相同的。参考图1，注意在计算 min_samples 的时候，一般也包括样本点自身，所以只需在P点eps邻域内找到7个点，那么P点就是核心点。<br><strong>可达距离</strong>：如果X是核心对象，则对象 Y 到对象 X 的可达距离就是Y到X的欧氏距离和X的核心距离的最大值，如果X不是核心对象，则Y和X之间的可达距离就没有意义（不存在可达距离），显然，数据集中有多少核心对象，那么 Y 就有多少个可达距离。在下文介绍 API 的时候，我们会介绍在OPTICS中，一般默认设置 eps 为无穷大，即只要数据集的样本数不少于 min_samples，那么任意一个样本点都是核心对象，即都有核心距离，且任意两个对象之间都存在可达距离。</p>
 <p><img src="/posts/186e9376/image-20251017112141817.png" alt="image-20251017112141817" style="width:50%; max-width: 100%; display: block; margin: 0 auto;"></p>
@@ -495,7 +518,17 @@
 <li>复杂、有噪声、密度不均的数据（如时序数据、地理数据、图像分割）。</li>
 <li>无法预先确定簇数时的实际聚类分析。</li>
 </ul>
-<h3 id="4、代码-2"><a href="#4、代码-2" class="headerlink" title="4、代码"></a>4、代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> OPTICS</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># 定义样本数据集</span></span><br><span class="line">X = np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">2</span>, <span class="number">5</span>], [<span class="number">8</span>, <span class="number">7</span>], [<span class="number">3</span>, <span class="number">6</span>], [<span class="number">8</span>, <span class="number">8</span>], [<span class="number">7</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>]])</span><br><span class="line"><span class="comment"># 执行OPTICS算法</span></span><br><span class="line">clustering = OPTICS(min_samples=<span class="number">2</span>).fit(X)</span><br><span class="line"><span class="comment"># 输出核心距离、样本点的排序、可达距离和聚类标签</span></span><br><span class="line"><span class="built_in">print</span>(clustering.core_distances_)</span><br><span class="line"><span class="built_in">print</span>(clustering.ordering_)</span><br><span class="line"><span class="built_in">print</span>(clustering.reachability_)</span><br><span class="line"><span class="built_in">print</span>(clustering.labels_)</span><br></pre></td></tr></table></figure>
+<h3 id="4、代码-2"><a href="#4、代码-2" class="headerlink" title="4、代码"></a>4、代码</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">from sklearn.cluster import OPTICS
+import numpy as np
+# 定义样本数据集
+X &#x3D; np.array([[1, 2], [2, 5], [8, 7], [3, 6], [8, 8], [7, 3], [4, 5]])
+# 执行OPTICS算法
+clustering &#x3D; OPTICS(min_samples&#x3D;2).fit(X)
+# 输出核心距离、样本点的排序、可达距离和聚类标签
+print(clustering.core_distances_)
+print(clustering.ordering_)
+print(clustering.reachability_)
+print(clustering.labels_)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="四）K-Means-聚类模型"><a href="#四）K-Means-聚类模型" class="headerlink" title="(四）K-Means 聚类模型"></a>(四）<strong>K-Means 聚类模型</strong></h2><p>K-Means聚类是一种基于距离的聚类方法，通过最小化每个数据点到其所属簇中心点的距离之和，将数据点划分为K个簇。算法的主要思想是：每个簇有一个中心点，数据点被分配到最近的中心点所在的簇中。通过迭代更新每个簇的中心点，使得所有数据点到其所属簇的中心点的距离之和最小</p>
 <p><img src="/posts/186e9376/image-20251015230458282.png" alt="image-20251015230458282"></p>
 <h3 id="1、步骤-3"><a href="#1、步骤-3" class="headerlink" title="1、步骤"></a>1、步骤</h3><ol>
@@ -524,7 +557,15 @@
 <li>图像分割：在图像处理中，可以使用K-Means聚类进行图像分割，将图像划分为多个区域或对象。</li>
 <li>特征提取：通过K-Means聚类可以提取数据的内在结构特征，用于分类或预测任务。</li>
 </ul>
-<h3 id="4、代码-3"><a href="#4、代码-3" class="headerlink" title="4、代码"></a>4、代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans <span class="comment"># 导入K-Means聚类算法 </span></span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets <span class="comment"># 导入datasets用于生成样本数据 </span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt <span class="comment"># 导入绘图库 </span></span><br><span class="line">iris = datasets.load_iris() <span class="comment"># 使用Iris数据集作为示例 </span></span><br><span class="line">X = iris[<span class="string">&quot;data&quot;</span>] <span class="comment"># 提取特征矩阵 </span></span><br><span class="line">kmeans = KMeans(n_clusters=<span class="number">3</span>) <span class="comment"># 假设有3个簇 </span></span><br><span class="line">labels = kmeans.fit_predict(X) <span class="comment"># 获取每个样本点的聚类标签 </span></span><br><span class="line">plt.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], c=labels, cmap=<span class="string">&#x27;viridis&#x27;</span>) <span class="comment"># 使用viridis色彩映射绘制结果图 </span></span><br><span class="line">plt.show() <span class="comment"># 显示结果图 ```</span></span><br></pre></td></tr></table></figure>
+<h3 id="4、代码-3"><a href="#4、代码-3" class="headerlink" title="4、代码"></a>4、代码</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">from sklearn.cluster import KMeans # 导入K-Means聚类算法 
+from sklearn import datasets # 导入datasets用于生成样本数据 
+import matplotlib.pyplot as plt # 导入绘图库 
+iris &#x3D; datasets.load_iris() # 使用Iris数据集作为示例 
+X &#x3D; iris[&quot;data&quot;] # 提取特征矩阵 
+kmeans &#x3D; KMeans(n_clusters&#x3D;3) # 假设有3个簇 
+labels &#x3D; kmeans.fit_predict(X) # 获取每个样本点的聚类标签 
+plt.scatter(X[:, 0], X[:, 1], c&#x3D;labels, cmap&#x3D;&#39;viridis&#39;) # 使用viridis色彩映射绘制结果图 
+plt.show() # 显示结果图 &#96;&#96;&#96;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="二、评价指标"><a href="#二、评价指标" class="headerlink" title="二、评价指标"></a>二、评价指标</h1><p>常用评估指标包括外部评价指标和内部评价指标。外部评价指标是在已知真实标签的情况下评估聚类结果的准确性，而内部评价指标则是在不知道真实标签的情况下评估聚类结果的质量。</p>
 <h2 id="一）外部指标"><a href="#一）外部指标" class="headerlink" title="(一）外部指标"></a>(一）外部指标</h2><p><img src="/posts/186e9376/image-20251017131122615.png" alt="image-20251017131122615" style="width:50%; max-width: 100%; display: block; margin: 0 auto;"></p>
 <h2 id="二）内部指标"><a href="#二）内部指标" class="headerlink" title="(二）内部指标"></a>(二）内部指标</h2><p><img src="/posts/186e9376/image-20251017131242527.png" alt="image-20251017131242527" style="width:50%; max-width: 100%; display: block; margin: 0 auto;"></p>
@@ -641,13 +682,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/fc9d03e3/">
+                <a href="/posts/9e1a0ec0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="概率分布检验">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="识别热点/中心的方法">
                         
-                        <span class="card-title">概率分布检验</span>
+                        <span class="card-title">识别热点/中心的方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

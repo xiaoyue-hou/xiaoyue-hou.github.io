@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 8.1.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <style>
     /* ----------------------------------------------------------- */
@@ -412,6 +412,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -447,10 +450,10 @@
 <p>然后可以去itdog中DNS查询，输入刚刚的域名，可以解析VPS的ip地址，刚开始解析正确的比例比较低，需要等一段时间，当比例高了就可以正常用了。</p>
 <h3 id="6、-选看-配置H-UI，并配置CF域名登录"><a href="#6、-选看-配置H-UI，并配置CF域名登录" class="headerlink" title="6、(选看) 配置H-UI，并配置CF域名登录"></a>6、(选看) 配置H-UI，并配置CF域名登录</h3><p>（1）配置H-UI<a target="_blank" rel="noopener" href="https://github.com/jonssonyan/h-ui/blob/main/README_ZH.md">教程</a></p>
 <p>（2）配置CF域名登录H-UI<a target="_blank" rel="noopener" href="https://blog.csdn.net/u010522887/article/details/140786338">教程</a></p>
-<h2 id="（三）-选看-常用小网站"><a href="#（三）-选看-常用小网站" class="headerlink" title="（三）(选看) 常用小网站"></a>（三）(选看) 常用小网站</h2><h3 id="1、网站一致性"><a href="#1、网站一致性" class="headerlink" title="1、网站一致性"></a>1、<a target="_blank" rel="noopener" href="https://ip111.cn/">网站一致性</a></h3><h3 id="2、IP分数"><a href="#2、IP分数" class="headerlink" title="2、IP分数"></a>2、<a href="测试ip分数">IP分数</a></h3><h3 id="3、DNS查询"><a href="#3、DNS查询" class="headerlink" title="3、DNS查询"></a>3、<a target="_blank" rel="noopener" href="https://www.itdog.cn/">DNS查询</a></h3><h3 id="4、IP地址"><a href="#4、IP地址" class="headerlink" title="4、IP地址"></a>4、<a target="_blank" rel="noopener" href="https://whatismyipaddress.com/">IP地址</a></h3><h1 id="二、s-singbox搭建VPN"><a href="#二、s-singbox搭建VPN" class="headerlink" title="二、s-singbox搭建VPN"></a>二、s-singbox搭建VPN</h1><h2 id="（一）安装s-singbox"><a href="#（一）安装s-singbox" class="headerlink" title="（一）安装s-singbox"></a>（一）安装s-singbox</h2><h3 id="1、用命令行安装"><a href="#1、用命令行安装" class="headerlink" title="1、用命令行安装"></a>1、用命令行安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -fsSL https://raw.githubusercontent.com/sindricn/s-singbox/main/install.sh)</span><br></pre></td></tr></table></figure>
+<h2 id="（三）-选看-常用小网站"><a href="#（三）-选看-常用小网站" class="headerlink" title="（三）(选看) 常用小网站"></a>（三）(选看) 常用小网站</h2><h3 id="1、网站一致性"><a href="#1、网站一致性" class="headerlink" title="1、网站一致性"></a>1、<a target="_blank" rel="noopener" href="https://ip111.cn/">网站一致性</a></h3><h3 id="2、IP分数"><a href="#2、IP分数" class="headerlink" title="2、IP分数"></a>2、<a href="测试ip分数">IP分数</a></h3><h3 id="3、DNS查询"><a href="#3、DNS查询" class="headerlink" title="3、DNS查询"></a>3、<a target="_blank" rel="noopener" href="https://www.itdog.cn/">DNS查询</a></h3><h3 id="4、IP地址"><a href="#4、IP地址" class="headerlink" title="4、IP地址"></a>4、<a target="_blank" rel="noopener" href="https://whatismyipaddress.com/">IP地址</a></h3><h1 id="二、s-singbox搭建VPN"><a href="#二、s-singbox搭建VPN" class="headerlink" title="二、s-singbox搭建VPN"></a>二、s-singbox搭建VPN</h1><h2 id="（一）安装s-singbox"><a href="#（一）安装s-singbox" class="headerlink" title="（一）安装s-singbox"></a>（一）安装s-singbox</h2><h3 id="1、用命令行安装"><a href="#1、用命令行安装" class="headerlink" title="1、用命令行安装"></a>1、用命令行安装</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">bash &lt;(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;sindricn&#x2F;s-singbox&#x2F;main&#x2F;install.sh)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="/posts/3c789177/image-20260110152628088.png" alt="image-20260110152628088"></p>
 <h3 id="2、进入s-singbox，安装内核运行"><a href="#2、进入s-singbox，安装内核运行" class="headerlink" title="2、进入s-singbox，安装内核运行"></a>2、进入s-singbox，安装内核运行</h3><p>（1） 进入s-singbox，可以看到内核未安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s-singbox</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">s-singbox<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="/posts/3c789177/image-20260110152830184.png" alt="image-20260110152830184"></p>
 <p>（2）进入1.sing-box管理，1. 安装 sing-box（默认安装最新稳定版就可以），返回到主页面就已经在运行了。</p>
 <p><img src="/posts/3c789177/image-20260110153052260.png" alt="image-20260110153052260"></p>
@@ -475,7 +478,7 @@
 <p>（2）选择之前授权的CF凭证lisahou，然后设置隧道名称RackNerd1，绑定域名是RackNerd1.lisahou618.qzz.io（隧道名.之前的域名），然后配置6013这个节点加入这个隧道</p>
 <p><img src="/posts/3c789177/image-20260110203702428.png" alt="image-20260110203702428"></p>
 <p>（3）可以测试一次，用客户端ping一下这个域名</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping -4 RackNerd1.lisahou618.qzz.io</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">ping -4 RackNerd1.lisahou618.qzz.io<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="/posts/3c789177/image-20260110220056429.png" alt="image-20260110220056429"></p>
 <h2 id="（五）生成订阅"><a href="#（五）生成订阅" class="headerlink" title="（五）生成订阅"></a>（五）生成订阅</h2><h3 id="1、通用订阅"><a href="#1、通用订阅" class="headerlink" title="1、通用订阅"></a>1、通用订阅</h3><p>（1）4. 订阅管理，1.生成订阅链接，名称随便设置，IP地址默认，订阅端口设置9618</p>
 <p><img src="/posts/3c789177/image-20260110205315789.png" alt="image-20260110205315789"></p>
@@ -489,7 +492,7 @@
 <p>①通过Cloudflare  WARP隧道，会分配一个免费匿名用户和证书（WARP 账户很稳定：这是 Cloudflare 的正式产品。脚本帮你注册的这个免费账户是永久有效的。只要 Cloudflare 不倒闭，这个账户就能一直连，不会出现“过段时间服务就没了”的情况。）</p>
 <p>②每次 Sing-box 启动，它就拿着这个证书去连接 Cloudflare 的机房。Cloudflare 看到证书有效，就从它的机房里随机拿一个空闲的 IP 借给你用。（这个IP地址是会变的，这可能而是好事：IP 越常变，隐匿性越好。 因为Google 无法锁定“就是这个人”，它只知道“这是 Cloudflare 的用户”）</p>
 <p>③每次CF分配IP的时候一般是从离你的 VPS 最近的 Cloudflare 机房分配，这样就相当于你拿着手机在城市中出行，不会被google封号，而频繁的改VPS才可能被封号，最坏的情况是这个IP被其他滥用，此时可能会遇到频繁的人机验证。这时去重启一下s-singbox就会再分一个新的IP了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart sing-box</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl restart sing-box<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="1、开启WARP-隧道管理"><a href="#1、开启WARP-隧道管理" class="headerlink" title="1、开启WARP 隧道管理"></a>1、开启WARP 隧道管理</h3><p>进入9. CF隧道管理，2. WARP 隧道管理，依次进行1.2.3.4.启动WARP连接，进入6.查看WARP状态，就没问题了。</p>
 <p><img src="/posts/3c789177/image-20260110162842035.png" alt="image-20260110162842035"></p>
 <p><img src="/posts/3c789177/image-20260110162949220.png" alt="image-20260110162949220"></p>
@@ -500,18 +503,131 @@
 <p><img src="/posts/3c789177/image-20260110164313078.png" alt="image-20260110164313078"></p>
 <p>（3）增加分流规则：</p>
 <p><strong>Outbounds (出站)：</strong> 在 <code>direct-out</code> 下面增加了一个 <code>warp-out</code> (绑定 <code>wgcf</code>)。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">      &quot;type&quot;: &quot;direct&quot;,</span><br><span class="line">      &quot;tag&quot;: &quot;warp-out&quot;,</span><br><span class="line">      &quot;bind_interface&quot;: &quot;wgcf&quot;</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#123;
+      &quot;type&quot;: &quot;direct&quot;,
+      &quot;tag&quot;: &quot;warp-out&quot;,
+      &quot;bind_interface&quot;: &quot;wgcf&quot;
+    &#125;,<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>Route (路由)：</strong> 增加了规则列表，把 Google/AI/Netflix 等域名的流量指向 <code>warp-out</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">        &quot;domain_suffix&quot;: [</span><br><span class="line">          &quot;scholar.google.com&quot;,</span><br><span class="line">          &quot;scholar.google.cn&quot;,</span><br><span class="line">          &quot;scholar.google.com.hk&quot;,</span><br><span class="line">          &quot;gemini.google.com&quot;,</span><br><span class="line">          &quot;google.com&quot;,</span><br><span class="line">          &quot;youtube.com&quot;,</span><br><span class="line">          &quot;google.dev&quot;,</span><br><span class="line">          &quot;openai.com&quot;,</span><br><span class="line">          &quot;claude.ai&quot;,</span><br><span class="line">          &quot;anthropic.com&quot;,</span><br><span class="line">          &quot;netflix.com&quot;,</span><br><span class="line">          &quot;googleapis.com&quot;,</span><br><span class="line">          &quot;gstatic.com&quot;,</span><br><span class="line">          &quot;googleusercontent.com&quot;,</span><br><span class="line">          &quot;ggpht.com&quot;,</span><br><span class="line">          &quot;ytimg.com&quot;,</span><br><span class="line">          &quot;recaptcha.net&quot;,</span><br><span class="line">          &quot;whatismyipaddress.com&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;outbound&quot;: &quot;warp-out&quot;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#123;
+        &quot;domain_suffix&quot;: [
+          &quot;scholar.google.com&quot;,
+          &quot;scholar.google.cn&quot;,
+          &quot;scholar.google.com.hk&quot;,
+          &quot;gemini.google.com&quot;,
+          &quot;google.com&quot;,
+          &quot;youtube.com&quot;,
+          &quot;google.dev&quot;,
+          &quot;openai.com&quot;,
+          &quot;claude.ai&quot;,
+          &quot;anthropic.com&quot;,
+          &quot;netflix.com&quot;,
+          &quot;googleapis.com&quot;,
+          &quot;gstatic.com&quot;,
+          &quot;googleusercontent.com&quot;,
+          &quot;ggpht.com&quot;,
+          &quot;ytimg.com&quot;,
+          &quot;recaptcha.net&quot;,
+          &quot;whatismyipaddress.com&quot;
+        ],
+        &quot;outbound&quot;: &quot;warp-out&quot;
+      &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>① 手动添加太麻烦了，所以写了一个固定的脚本</p>
 <p>先安装执行命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get update &amp;&amp; apt-get install -y jq</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">apt-get update &amp;&amp; apt-get install -y jq<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>② 写入脚本</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; /root/fix_warpout.sh &lt;&lt; &#x27;EOF&#x27;</span><br><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line"># 配置文件路径</span><br><span class="line">CONFIG_FILE=&quot;/etc/sing-box/config.json&quot;</span><br><span class="line"></span><br><span class="line"># 检查 jq 是否安装</span><br><span class="line">if ! command -v jq &amp;&gt; /dev/null; then</span><br><span class="line">    echo &quot;❌ 错误: 未安装 jq，正在自动安装...&quot;</span><br><span class="line">    apt-get update &amp;&amp; apt-get install -y jq</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">echo &quot;🔄 正在读取当前的节点信息 (Inbounds)...&quot;</span><br><span class="line"></span><br><span class="line"># 1. 定义你的完美出站规则 (Outbounds)</span><br><span class="line">#    包含 Direct, WARP(wgcf), Block</span><br><span class="line">OUTBOUNDS=&#x27;[</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;type&quot;: &quot;direct&quot;,</span><br><span class="line">    &quot;tag&quot;: &quot;direct-out&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;type&quot;: &quot;direct&quot;,</span><br><span class="line">    &quot;tag&quot;: &quot;warp-out&quot;,</span><br><span class="line">    &quot;bind_interface&quot;: &quot;wgcf&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;type&quot;: &quot;block&quot;,</span><br><span class="line">    &quot;tag&quot;: &quot;block-out&quot;</span><br><span class="line">  &#125;</span><br><span class="line">]&#x27;</span><br><span class="line"></span><br><span class="line"># 2. 定义你的完美路由规则 (Route)</span><br><span class="line">#    包含 Google全家桶、AI、Netflix 等分流</span><br><span class="line">ROUTE=&#x27;&#123;</span><br><span class="line">  &quot;default_domain_resolver&quot;: &quot;dns-local&quot;,</span><br><span class="line">  &quot;rules&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;protocol&quot;: &quot;dns&quot;,</span><br><span class="line">      &quot;action&quot;: &quot;route&quot;,</span><br><span class="line">      &quot;outbound&quot;: &quot;direct-out&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;domain_suffix&quot;: [</span><br><span class="line">         &quot;scholar.google.com&quot;,</span><br><span class="line">         &quot;scholar.google.cn&quot;,</span><br><span class="line">         &quot;scholar.google.com.hk&quot;,</span><br><span class="line">         &quot;gemini.google.com&quot;,	</span><br><span class="line">         &quot;google.com&quot;,</span><br><span class="line">         &quot;youtube.com&quot;,</span><br><span class="line">         &quot;google.dev&quot;,</span><br><span class="line">         &quot;openai.com&quot;,</span><br><span class="line">         &quot;claude.ai&quot;,</span><br><span class="line">         &quot;anthropic.com&quot;,</span><br><span class="line">         &quot;netflix.com&quot;,</span><br><span class="line">         &quot;googleapis.com&quot;,</span><br><span class="line">         &quot;gstatic.com&quot;,</span><br><span class="line">         &quot;googleusercontent.com&quot;,</span><br><span class="line">         &quot;ggpht.com&quot;,</span><br><span class="line">         &quot;ytimg.com&quot;,</span><br><span class="line">         &quot;recaptcha.net&quot;,</span><br><span class="line">         &quot;whatismyipaddress.com&quot;</span><br><span class="line">      ],</span><br><span class="line">      &quot;outbound&quot;: &quot;warp-out&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;final&quot;: &quot;direct-out&quot;,</span><br><span class="line">  &quot;auto_detect_interface&quot;: true</span><br><span class="line">&#125;&#x27;</span><br><span class="line"></span><br><span class="line"># 3. 核心魔法：用 jq 把你的规则“缝合”进配置文件</span><br><span class="line">#    逻辑：保留原文件的 .inbounds，替换掉 .outbounds 和 .route</span><br><span class="line">jq --argjson new_out &quot;$OUTBOUNDS&quot; --argjson new_route &quot;$ROUTE&quot; \</span><br><span class="line">   &#x27;.outbounds = $new_out | .route = $new_route&#x27; \</span><br><span class="line">   &quot;$CONFIG_FILE&quot; &gt; &quot;$CONFIG_FILE.tmp&quot; &amp;&amp; mv &quot;$CONFIG_FILE.tmp&quot; &quot;$CONFIG_FILE&quot;</span><br><span class="line"></span><br><span class="line">if [ $? -eq 0 ]; then</span><br><span class="line">    echo &quot;✅ 配置文件修改成功！已注入 WARP 分流规则。&quot;</span><br><span class="line">    echo &quot;🚀 正在重启 sing-box 服务...&quot;</span><br><span class="line">    systemctl restart sing-box</span><br><span class="line">    echo &quot;🎉 搞定！现在你的节点既是最新的，又有 WARP 分流了。&quot;</span><br><span class="line">else</span><br><span class="line">    echo &quot;❌ 修改失败，请检查配置文件格式。&quot;</span><br><span class="line">fi</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"># 给脚本添加执行权限</span><br><span class="line">chmod +x /root/fix_warpout.sh</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">cat &gt; &#x2F;root&#x2F;fix_warpout.sh &lt;&lt; &#39;EOF&#39;
+#!&#x2F;bin&#x2F;bash
+
+# 配置文件路径
+CONFIG_FILE&#x3D;&quot;&#x2F;etc&#x2F;sing-box&#x2F;config.json&quot;
+
+# 检查 jq 是否安装
+if ! command -v jq &amp;&gt; &#x2F;dev&#x2F;null; then
+    echo &quot;❌ 错误: 未安装 jq，正在自动安装...&quot;
+    apt-get update &amp;&amp; apt-get install -y jq
+fi
+
+echo &quot;🔄 正在读取当前的节点信息 (Inbounds)...&quot;
+
+# 1. 定义你的完美出站规则 (Outbounds)
+#    包含 Direct, WARP(wgcf), Block
+OUTBOUNDS&#x3D;&#39;[
+  &#123;
+    &quot;type&quot;: &quot;direct&quot;,
+    &quot;tag&quot;: &quot;direct-out&quot;
+  &#125;,
+  &#123;
+    &quot;type&quot;: &quot;direct&quot;,
+    &quot;tag&quot;: &quot;warp-out&quot;,
+    &quot;bind_interface&quot;: &quot;wgcf&quot;
+  &#125;,
+  &#123;
+    &quot;type&quot;: &quot;block&quot;,
+    &quot;tag&quot;: &quot;block-out&quot;
+  &#125;
+]&#39;
+
+# 2. 定义你的完美路由规则 (Route)
+#    包含 Google全家桶、AI、Netflix 等分流
+ROUTE&#x3D;&#39;&#123;
+  &quot;default_domain_resolver&quot;: &quot;dns-local&quot;,
+  &quot;rules&quot;: [
+    &#123;
+      &quot;protocol&quot;: &quot;dns&quot;,
+      &quot;action&quot;: &quot;route&quot;,
+      &quot;outbound&quot;: &quot;direct-out&quot;
+    &#125;,
+    &#123;
+      &quot;domain_suffix&quot;: [
+         &quot;scholar.google.com&quot;,
+         &quot;scholar.google.cn&quot;,
+         &quot;scholar.google.com.hk&quot;,
+         &quot;gemini.google.com&quot;,	
+         &quot;google.com&quot;,
+         &quot;youtube.com&quot;,
+         &quot;google.dev&quot;,
+         &quot;openai.com&quot;,
+         &quot;claude.ai&quot;,
+         &quot;anthropic.com&quot;,
+         &quot;netflix.com&quot;,
+         &quot;googleapis.com&quot;,
+         &quot;gstatic.com&quot;,
+         &quot;googleusercontent.com&quot;,
+         &quot;ggpht.com&quot;,
+         &quot;ytimg.com&quot;,
+         &quot;recaptcha.net&quot;,
+         &quot;whatismyipaddress.com&quot;
+      ],
+      &quot;outbound&quot;: &quot;warp-out&quot;
+    &#125;
+  ],
+  &quot;final&quot;: &quot;direct-out&quot;,
+  &quot;auto_detect_interface&quot;: true
+&#125;&#39;
+
+# 3. 核心魔法：用 jq 把你的规则“缝合”进配置文件
+#    逻辑：保留原文件的 .inbounds，替换掉 .outbounds 和 .route
+jq --argjson new_out &quot;$OUTBOUNDS&quot; --argjson new_route &quot;$ROUTE&quot; \
+   &#39;.outbounds &#x3D; $new_out | .route &#x3D; $new_route&#39; \
+   &quot;$CONFIG_FILE&quot; &gt; &quot;$CONFIG_FILE.tmp&quot; &amp;&amp; mv &quot;$CONFIG_FILE.tmp&quot; &quot;$CONFIG_FILE&quot;
+
+if [ $? -eq 0 ]; then
+    echo &quot;✅ 配置文件修改成功！已注入 WARP 分流规则。&quot;
+    echo &quot;🚀 正在重启 sing-box 服务...&quot;
+    systemctl restart sing-box
+    echo &quot;🎉 搞定！现在你的节点既是最新的，又有 WARP 分流了。&quot;
+else
+    echo &quot;❌ 修改失败，请检查配置文件格式。&quot;
+fi
+EOF
+
+# 给脚本添加执行权限
+chmod +x &#x2F;root&#x2F;fix_warpout.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>③ 执行脚本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./fix_warpout.sh</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">.&#x2F;fix_warpout.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>④ 然后重启s-singbox</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart sing-box</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl restart sing-box<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>（4）然后重新进入s-singbox，进入7.出站规则，就可以看到识别到一个新的出站规则，选择1.同步到规则库，就变成3个出站规则了，这样分流伪装就好了。</p>
 <p><img src="/posts/3c789177/image-20260110170700733.png" alt="image-20260110170700733" style="width:67%; max-width: 100%; display: block; margin: 0 auto;"></p>
 <p>然后就可以看到出站的IP已经伪装了</p>

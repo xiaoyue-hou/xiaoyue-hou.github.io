@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 8.1.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <style>
     /* ----------------------------------------------------------- */
@@ -412,6 +412,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -424,7 +427,147 @@
 <p>栈是仅在表尾进行插入、删除操作的线性表。表尾称为栈顶(Top)，表头称为栈底(Base)。</p>
 <h3 id="1-2-数学内容"><a href="#1-2-数学内容" class="headerlink" title="1.2 数学内容"></a>1.2 数学内容</h3><p>若n个元素顺序入栈，则可能的出栈顺序为C(2n,n)/(n+1)=(2n)!/((n+1)!n!)</p>
 <h3 id="1-3-顺序表示"><a href="#1-3-顺序表示" class="headerlink" title="1.3 顺序表示"></a>1.3 顺序表示</h3><p>==*加代码==</p>
-<h3 id="1-4-链式表示"><a href="#1-4-链式表示" class="headerlink" title="1.4 链式表示"></a>1.4 链式表示</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试样例是PPT中十进制转八进制  1348</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ok 1</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> overflow 0</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> <span class="keyword">error</span> 0</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> status;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> selemtype;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">snode</span>&#123;</span></span><br><span class="line">	selemtype date;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">snode</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;lsnode,*slnode;</span><br><span class="line"></span><br><span class="line">status <span class="title function_">InitStack</span><span class="params">(slnode *h)</span><span class="comment">//初始化 </span></span><br><span class="line">&#123;</span><br><span class="line">	*h=(slnode)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(lsnode));</span><br><span class="line">	<span class="keyword">if</span>(!*h) <span class="built_in">exit</span>(overflow);</span><br><span class="line">	(*h)-&gt;next=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> ok; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">status <span class="title function_">Push</span><span class="params">(slnode *h,selemtype e)</span><span class="comment">//入栈 </span></span><br><span class="line">&#123;</span><br><span class="line">	slnode r;</span><br><span class="line">	r=(slnode)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(lsnode));</span><br><span class="line">	<span class="keyword">if</span>(!r) <span class="built_in">exit</span>(overflow);</span><br><span class="line">	r-&gt;date=e;</span><br><span class="line">	r-&gt;next=(*h)-&gt;next;</span><br><span class="line">	(*h)-&gt;next=r;</span><br><span class="line">	<span class="keyword">return</span> ok;	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">status <span class="title function_">Pop</span><span class="params">(slnode *h,selemtype *e)</span><span class="comment">//出栈 </span></span><br><span class="line">&#123;</span><br><span class="line">	*h=(*h)-&gt;next;</span><br><span class="line">	*e=(*h)-&gt;date;</span><br><span class="line">	<span class="keyword">return</span> ok;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">status <span class="title function_">GetTop</span><span class="params">(slnode h, selemtype *e)</span><span class="comment">//读栈顶 </span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(h-&gt;next==<span class="number">0</span>) <span class="keyword">return</span> error;</span><br><span class="line">	*e=h-&gt;next-&gt;date;</span><br><span class="line">	<span class="keyword">return</span> ok; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">status <span class="title function_">StackEmpty</span><span class="params">(slnode h)</span><span class="comment">//判断栈空 </span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(h-&gt;next==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">fun1</span><span class="params">(selemtype n)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">status <span class="title function_">StackTravers</span><span class="params">(slnode h, <span class="type">void</span> (*fun1)(selemtype n))</span><span class="comment">//遍历栈 </span></span><br><span class="line">&#123;</span><br><span class="line">	slnode r=h-&gt;next;</span><br><span class="line">	<span class="keyword">while</span>(r!=<span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		(*fun1)(r-&gt;date);</span><br><span class="line">		r=r-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ok;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">status <span class="title function_">DestroyStack</span><span class="params">(slnode *h)</span><span class="comment">//销毁栈 </span></span><br><span class="line">&#123;</span><br><span class="line">	slnode r;</span><br><span class="line">	<span class="keyword">while</span>(*h)</span><br><span class="line">	&#123;</span><br><span class="line">		r=*h;</span><br><span class="line">		*h=(*h)-&gt;next;</span><br><span class="line">		<span class="built_in">free</span>(r);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">free</span>(*h); </span><br><span class="line">	<span class="keyword">return</span> ok;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">status <span class="title function_">StackLength</span><span class="params">(slnode h,<span class="type">int</span> *i)</span><span class="comment">//求栈长度 </span></span><br><span class="line">&#123;</span><br><span class="line">	(*i)=<span class="number">0</span>;</span><br><span class="line">	slnode r=h-&gt;next;</span><br><span class="line">	<span class="keyword">while</span>(r)</span><br><span class="line">	&#123;</span><br><span class="line">		(*i)++;</span><br><span class="line">		r=r-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ok;</span><br><span class="line"> &#125; </span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> m,i=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;m);</span><br><span class="line">	slnode h;</span><br><span class="line">	selemtype e;</span><br><span class="line">	</span><br><span class="line">	InitStack(&amp;h);<span class="comment">//初始化栈 </span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;验证初始化栈：%d\n&quot;</span>,h);</span><br><span class="line">	DestroyStack(&amp;h);<span class="comment">//销毁栈  </span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;验证毁灭栈：%d\n&quot;</span>,h);</span><br><span class="line">	</span><br><span class="line">	InitStack(&amp;h);<span class="comment">//初始化栈 </span></span><br><span class="line">	<span class="keyword">while</span>(m!=<span class="number">0</span>)<span class="comment">//入栈 </span></span><br><span class="line">	&#123;</span><br><span class="line">		Push(&amp;h,m%<span class="number">8</span>);</span><br><span class="line">		m=m/<span class="number">8</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(!StackEmpty(h))<span class="comment">//判断栈空 </span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;遍历栈：&quot;</span>) ;</span><br><span class="line">		StackTravers(h,fun1);<span class="comment">//遍历栈</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>); </span><br><span class="line">	</span><br><span class="line">		GetTop(h,&amp;e);<span class="comment">//读栈顶</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;读栈顶：%d\n&quot;</span>,e); </span><br><span class="line">		</span><br><span class="line">		StackLength(h,&amp;i);<span class="comment">//求栈长度 </span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;求栈长：%d\n&quot;</span>,i);	</span><br><span class="line">	 &#125; </span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)<span class="comment">//出栈 </span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(!StackEmpty(h))</span><br><span class="line">		&#123;</span><br><span class="line">			Pop(&amp;h,&amp;e);</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;出栈：%d &quot;</span>,e);</span><br><span class="line">				</span><br><span class="line">			StackLength(h,&amp;i);<span class="comment">//求栈长度 </span></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;目前栈长：%d\n&quot;</span>,i);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">	 &#125; </span><br><span class="line">	</span><br><span class="line">	DestroyStack(&amp;h);<span class="comment">//销毁栈</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-链式表示"><a href="#1-4-链式表示" class="headerlink" title="1.4 链式表示"></a>1.4 链式表示</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">&#x2F;&#x2F;测试样例是PPT中十进制转八进制  1348
+#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+#define ok 1
+#define overflow 0
+#define error 0
+typedef int status;
+typedef int selemtype;
+typedef struct snode&#123;
+	selemtype date;
+	struct snode *next;
+&#125;lsnode,*slnode;
+
+status InitStack(slnode *h)&#x2F;&#x2F;初始化 
+&#123;
+	*h&#x3D;(slnode)malloc(sizeof(lsnode));
+	if(!*h) exit(overflow);
+	(*h)-&gt;next&#x3D;0;
+	return ok; 
+&#125;
+
+status Push(slnode *h,selemtype e)&#x2F;&#x2F;入栈 
+&#123;
+	slnode r;
+	r&#x3D;(slnode)malloc(sizeof(lsnode));
+	if(!r) exit(overflow);
+	r-&gt;date&#x3D;e;
+	r-&gt;next&#x3D;(*h)-&gt;next;
+	(*h)-&gt;next&#x3D;r;
+	return ok;	
+&#125;
+
+status Pop(slnode *h,selemtype *e)&#x2F;&#x2F;出栈 
+&#123;
+	*h&#x3D;(*h)-&gt;next;
+	*e&#x3D;(*h)-&gt;date;
+	return ok;
+&#125;
+
+status GetTop(slnode h, selemtype *e)&#x2F;&#x2F;读栈顶 
+&#123;
+	if(h-&gt;next&#x3D;&#x3D;0) return error;
+	*e&#x3D;h-&gt;next-&gt;date;
+	return ok; 
+&#125;
+
+status StackEmpty(slnode h)&#x2F;&#x2F;判断栈空 
+&#123;
+	if(h-&gt;next&#x3D;&#x3D;0) return 1;
+	else return 0;
+&#125;
+
+void fun1(selemtype n)
+&#123;
+	printf(&quot;%d&quot;,n);
+&#125;
+
+status StackTravers(slnode h, void (*fun1)(selemtype n))&#x2F;&#x2F;遍历栈 
+&#123;
+	slnode r&#x3D;h-&gt;next;
+	while(r!&#x3D;0)
+	&#123;
+		(*fun1)(r-&gt;date);
+		r&#x3D;r-&gt;next;
+	&#125;
+	return ok;
+&#125;
+
+status DestroyStack(slnode *h)&#x2F;&#x2F;销毁栈 
+&#123;
+	slnode r;
+	while(*h)
+	&#123;
+		r&#x3D;*h;
+		*h&#x3D;(*h)-&gt;next;
+		free(r);
+	&#125;
+	free(*h); 
+	return ok;
+&#125;
+
+status StackLength(slnode h,int *i)&#x2F;&#x2F;求栈长度 
+&#123;
+	(*i)&#x3D;0;
+	slnode r&#x3D;h-&gt;next;
+	while(r)
+	&#123;
+		(*i)++;
+		r&#x3D;r-&gt;next;
+	&#125;
+	return ok;
+ &#125; 
+
+int main()
+&#123;
+	int m,i&#x3D;0;
+	scanf(&quot;%d&quot;,&amp;m);
+	slnode h;
+	selemtype e;
+	
+	InitStack(&amp;h);&#x2F;&#x2F;初始化栈 
+	printf(&quot;验证初始化栈：%d\n&quot;,h);
+	DestroyStack(&amp;h);&#x2F;&#x2F;销毁栈  
+	printf(&quot;验证毁灭栈：%d\n&quot;,h);
+	
+	InitStack(&amp;h);&#x2F;&#x2F;初始化栈 
+	while(m!&#x3D;0)&#x2F;&#x2F;入栈 
+	&#123;
+		Push(&amp;h,m%8);
+		m&#x3D;m&#x2F;8;
+	&#125;
+	
+	if(!StackEmpty(h))&#x2F;&#x2F;判断栈空 
+	&#123;
+		printf(&quot;遍历栈：&quot;) ;
+		StackTravers(h,fun1);&#x2F;&#x2F;遍历栈
+		printf(&quot;\n&quot;); 
+	
+		GetTop(h,&amp;e);&#x2F;&#x2F;读栈顶
+		printf(&quot;读栈顶：%d\n&quot;,e); 
+		
+		StackLength(h,&amp;i);&#x2F;&#x2F;求栈长度 
+		printf(&quot;求栈长：%d\n&quot;,i);	
+	 &#125; 
+	
+	while(1)&#x2F;&#x2F;出栈 
+	&#123;
+		if(!StackEmpty(h))
+		&#123;
+			Pop(&amp;h,&amp;e);
+			printf(&quot;出栈：%d &quot;,e);
+				
+			StackLength(h,&amp;i);&#x2F;&#x2F;求栈长度 
+			printf(&quot;目前栈长：%d\n&quot;,i);
+		&#125;
+		else break;
+	 &#125; 
+	
+	DestroyStack(&amp;h);&#x2F;&#x2F;销毁栈
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="1-5-应用"><a href="#1-5-应用" class="headerlink" title="1.5 应用"></a>1.5 应用</h3><h4 id="1-5-1-数制转换"><a href="#1-5-1-数制转换" class="headerlink" title="1.5.1 数制转换"></a>1.5.1 数制转换</h4><p>例题：设计算法，将十进制整数转换为八进制，在函数中输入数据并输出结果。</p>
 <p>见链表表示</p>
 <h4 id="1-5-2-括号匹配"><a href="#1-5-2-括号匹配" class="headerlink" title="1.5.2 括号匹配"></a>1.5.2 括号匹配</h4><p>例题：假设通过键盘输入的一个表达式中只出现()和[]并允许任意顺序的嵌套，设计算法，检测括号是否匹配。</p>
@@ -432,7 +575,209 @@
 <h4 id="1-5-3-迷宫求解"><a href="#1-5-3-迷宫求解" class="headerlink" title="1.5.3 迷宫求解"></a>1.5.3 迷宫求解</h4><p><img src="/posts/6a91c765/迷宫.png" alt="迷宫"></p>
 <p><img src="/posts/6a91c765/迷宫求解1.png" alt="迷宫求解1"></p>
 <p><img src="/posts/6a91c765/迷宫求解2.png" alt="迷宫求解2"></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ok 1</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> overflow 0</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> <span class="keyword">error</span> 0</span></span><br><span class="line"><span class="type">int</span> maze[<span class="number">10</span>][<span class="number">10</span>]=&#123;</span><br><span class="line">           &#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;,</span><br><span class="line">	       &#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>&#125;,</span><br><span class="line">	       &#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>&#125;,</span><br><span class="line">	       &#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>&#125;,</span><br><span class="line">	       &#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>&#125;,</span><br><span class="line">	       &#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>&#125;,</span><br><span class="line">	       &#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>&#125;,</span><br><span class="line">	       &#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>&#125;,</span><br><span class="line">	       &#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>&#125;,</span><br><span class="line">	       &#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> status;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">	<span class="type">int</span> x;</span><br><span class="line">	<span class="type">int</span> y;</span><br><span class="line">&#125;postype; </span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">	<span class="type">int</span> di;</span><br><span class="line">	<span class="type">int</span> step;</span><br><span class="line">	postype	seat; </span><br><span class="line">&#125;selemtype;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">snode</span>&#123;</span></span><br><span class="line">	selemtype date;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">snode</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;lsnode,*slnode;</span><br><span class="line"></span><br><span class="line">status <span class="title function_">InitStack</span><span class="params">(slnode *h)</span><span class="comment">//初始化 </span></span><br><span class="line">&#123;</span><br><span class="line">	*h=(slnode)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(lsnode));</span><br><span class="line">	<span class="keyword">if</span>(!*h) <span class="built_in">exit</span>(overflow);</span><br><span class="line">	(*h)-&gt;next=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> ok; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">status <span class="title function_">Push</span><span class="params">(slnode *h,selemtype e)</span><span class="comment">//入栈 </span></span><br><span class="line">&#123;</span><br><span class="line">	slnode r;</span><br><span class="line">	r=(slnode)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(lsnode));</span><br><span class="line">	<span class="keyword">if</span>(!r) <span class="built_in">exit</span>(overflow);</span><br><span class="line">	r-&gt;date=e;</span><br><span class="line">	r-&gt;next=(*h)-&gt;next;</span><br><span class="line">	(*h)-&gt;next=r;</span><br><span class="line">	<span class="keyword">return</span> ok;	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">status <span class="title function_">Pop</span><span class="params">(slnode *h,selemtype *e)</span><span class="comment">//出栈 </span></span><br><span class="line">&#123;</span><br><span class="line">	*h=(*h)-&gt;next;</span><br><span class="line">	*e=(*h)-&gt;date;</span><br><span class="line">	<span class="keyword">return</span> ok;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">status <span class="title function_">GetTop</span><span class="params">(slnode h, selemtype *e)</span><span class="comment">//读栈顶 </span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(h-&gt;next==<span class="number">0</span>) <span class="keyword">return</span> error;</span><br><span class="line">	*e=h-&gt;next-&gt;date;</span><br><span class="line">	<span class="keyword">return</span> ok; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">status <span class="title function_">StackEmpty</span><span class="params">(slnode h)</span><span class="comment">//判断栈空 </span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(h-&gt;next==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">fun1</span><span class="params">(selemtype n)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">status <span class="title function_">StackTravers</span><span class="params">(slnode h, <span class="type">void</span> (*fun1)(selemtype n))</span><span class="comment">//遍历栈 </span></span><br><span class="line">&#123;</span><br><span class="line">	slnode r=h-&gt;next;</span><br><span class="line">	<span class="keyword">while</span>(r!=<span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		(*fun1)(r-&gt;date);</span><br><span class="line">		r=r-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ok;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">status <span class="title function_">DestroyStack</span><span class="params">(slnode *h)</span><span class="comment">//销毁栈 </span></span><br><span class="line">&#123;</span><br><span class="line">	slnode r;</span><br><span class="line">	<span class="keyword">while</span>(*h)</span><br><span class="line">	&#123;</span><br><span class="line">		r=*h;</span><br><span class="line">		*h=(*h)-&gt;next;</span><br><span class="line">		<span class="built_in">free</span>(r);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">free</span>(*h); </span><br><span class="line">	<span class="keyword">return</span> ok;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">status <span class="title function_">StackLength</span><span class="params">(slnode h,<span class="type">int</span> *i)</span><span class="comment">//求栈长度 </span></span><br><span class="line">&#123;</span><br><span class="line">	(*i)=<span class="number">0</span>;</span><br><span class="line">	slnode r=h-&gt;next;</span><br><span class="line">	<span class="keyword">while</span>(r)</span><br><span class="line">	&#123;</span><br><span class="line">		(*i)++;</span><br><span class="line">		r=r-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ok;</span><br><span class="line"> &#125; </span><br><span class="line"></span><br><span class="line">status <span class="title function_">pass</span><span class="params">(postype pos)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(maze[pos.x][pos.y]==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125; </span><br><span class="line"> </span><br><span class="line">postype <span class="title function_">nextpos</span><span class="params">(postype pos,<span class="type">int</span> di)</span></span><br><span class="line"> &#123;</span><br><span class="line"> 	<span class="keyword">switch</span>(di)</span><br><span class="line"> 	&#123;</span><br><span class="line"> 		<span class="keyword">case</span> <span class="number">1</span>:pos.x++;<span class="keyword">break</span>;</span><br><span class="line"> 		<span class="keyword">case</span> <span class="number">2</span>:pos.y++;<span class="keyword">break</span>;</span><br><span class="line"> 		<span class="keyword">case</span> <span class="number">3</span>:pos.x--;<span class="keyword">break</span>;</span><br><span class="line">    	<span class="keyword">case</span> <span class="number">4</span>:pos.y--;<span class="keyword">break</span>;</span><br><span class="line">	 &#125;</span><br><span class="line">	 <span class="keyword">return</span> pos;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">status <span class="title function_">mazepath</span><span class="params">(<span class="type">int</span> maze[<span class="number">10</span>][<span class="number">10</span>],postype start,postype end)</span></span><br><span class="line">&#123;</span><br><span class="line">	slnode h;</span><br><span class="line">	InitStack(&amp;h);<span class="comment">//初始化栈</span></span><br><span class="line">	selemtype e;</span><br><span class="line">	postype curpos=start;</span><br><span class="line">	<span class="type">int</span> curstep=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(pass(curpos))</span><br><span class="line">		&#123;</span><br><span class="line">			maze[curpos.x][curpos.y]=curstep;</span><br><span class="line">			e.step=curstep;</span><br><span class="line">			e.di=<span class="number">1</span>;</span><br><span class="line">			e.seat=curpos;</span><br><span class="line">			Push(&amp;h,e);</span><br><span class="line">			<span class="keyword">if</span>(curpos.x==end.x&amp;&amp;curpos.y==end.y) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">			curpos=nextpos(curpos,<span class="number">1</span>);</span><br><span class="line">			curstep++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(!StackEmpty(h)) </span><br><span class="line">			&#123;</span><br><span class="line">				Pop(&amp;h,&amp;e);</span><br><span class="line">				<span class="keyword">while</span>(e.di==<span class="number">4</span>&amp;&amp;!StackEmpty(h))</span><br><span class="line">				&#123;</span><br><span class="line">					maze[e.seat.x][e.seat.y]=<span class="number">-1</span>;</span><br><span class="line">					Pop(&amp;h,&amp;e);</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				<span class="keyword">if</span>(e.di&lt;<span class="number">4</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					e.di++;</span><br><span class="line">					Push(&amp;h,e);</span><br><span class="line">					curpos=nextpos(e.seat,e.di);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">	&#125;<span class="keyword">while</span>(!StackEmpty(h));</span><br><span class="line">	<span class="keyword">return</span> error;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> i,j;</span><br><span class="line">	postype start=&#123;<span class="number">1</span>,<span class="number">1</span>&#125;,end=&#123;<span class="number">8</span>,<span class="number">8</span>&#125;;</span><br><span class="line">	 <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">   &#123;</span><br><span class="line">     <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">10</span>;j++)</span><br><span class="line">       <span class="built_in">printf</span>(<span class="string">&quot;%3d&quot;</span>,maze[i][j]);</span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">if</span>(!mazepath(maze,start,end))</span><br><span class="line">	   <span class="built_in">printf</span>(<span class="string">&quot;无解！\n&quot;</span>);</span><br><span class="line">	   </span><br><span class="line">   <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">   &#123;</span><br><span class="line">     <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">10</span>;j++)</span><br><span class="line">       <span class="built_in">printf</span>(<span class="string">&quot;%3d&quot;</span>,maze[i][j]);</span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;	</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+#define ok 1
+#define overflow 0
+#define error 0
+int maze[10][10]&#x3D;&#123;
+           &#123;1,1,1,1,1,1,1,1,1,1&#125;,
+	       &#123;1,0,0,1,0,0,0,1,0,1&#125;,
+	       &#123;1,0,0,1,0,0,0,1,0,1&#125;,
+	       &#123;1,0,0,0,0,1,1,0,0,1&#125;,
+	       &#123;1,0,1,1,1,0,0,0,0,1&#125;,
+	       &#123;1,0,0,0,1,0,0,0,0,1&#125;,
+	       &#123;1,0,1,0,0,0,1,0,0,1&#125;,
+	       &#123;1,0,1,1,1,0,1,1,0,1&#125;,
+	       &#123;1,1,0,0,0,0,0,0,0,1&#125;,
+	       &#123;1,1,1,1,1,1,1,1,1,1&#125;&#125;;
+
+typedef int status;
+typedef struct&#123;
+	int x;
+	int y;
+&#125;postype; 
+
+typedef struct&#123;
+	int di;
+	int step;
+	postype	seat; 
+&#125;selemtype;
+
+
+
+typedef struct snode&#123;
+	selemtype date;
+	struct snode *next;
+&#125;lsnode,*slnode;
+
+status InitStack(slnode *h)&#x2F;&#x2F;初始化 
+&#123;
+	*h&#x3D;(slnode)malloc(sizeof(lsnode));
+	if(!*h) exit(overflow);
+	(*h)-&gt;next&#x3D;0;
+	return ok; 
+&#125;
+
+status Push(slnode *h,selemtype e)&#x2F;&#x2F;入栈 
+&#123;
+	slnode r;
+	r&#x3D;(slnode)malloc(sizeof(lsnode));
+	if(!r) exit(overflow);
+	r-&gt;date&#x3D;e;
+	r-&gt;next&#x3D;(*h)-&gt;next;
+	(*h)-&gt;next&#x3D;r;
+	return ok;	
+&#125;
+
+status Pop(slnode *h,selemtype *e)&#x2F;&#x2F;出栈 
+&#123;
+	*h&#x3D;(*h)-&gt;next;
+	*e&#x3D;(*h)-&gt;date;
+	return ok;
+&#125;
+
+status GetTop(slnode h, selemtype *e)&#x2F;&#x2F;读栈顶 
+&#123;
+	if(h-&gt;next&#x3D;&#x3D;0) return error;
+	*e&#x3D;h-&gt;next-&gt;date;
+	return ok; 
+&#125;
+
+status StackEmpty(slnode h)&#x2F;&#x2F;判断栈空 
+&#123;
+	if(h-&gt;next&#x3D;&#x3D;0) return 1;
+	else return 0;
+&#125;
+
+void fun1(selemtype n)
+&#123;
+	printf(&quot;%d&quot;,n);
+&#125;
+
+status StackTravers(slnode h, void (*fun1)(selemtype n))&#x2F;&#x2F;遍历栈 
+&#123;
+	slnode r&#x3D;h-&gt;next;
+	while(r!&#x3D;0)
+	&#123;
+		(*fun1)(r-&gt;date);
+		r&#x3D;r-&gt;next;
+	&#125;
+	return ok;
+&#125;
+
+status DestroyStack(slnode *h)&#x2F;&#x2F;销毁栈 
+&#123;
+	slnode r;
+	while(*h)
+	&#123;
+		r&#x3D;*h;
+		*h&#x3D;(*h)-&gt;next;
+		free(r);
+	&#125;
+	free(*h); 
+	return ok;
+&#125;
+
+status StackLength(slnode h,int *i)&#x2F;&#x2F;求栈长度 
+&#123;
+	(*i)&#x3D;0;
+	slnode r&#x3D;h-&gt;next;
+	while(r)
+	&#123;
+		(*i)++;
+		r&#x3D;r-&gt;next;
+	&#125;
+	return ok;
+ &#125; 
+
+status pass(postype pos)
+&#123;
+	if(maze[pos.x][pos.y]&#x3D;&#x3D;0) return 1;
+	else return 0;
+ &#125; 
+ 
+postype nextpos(postype pos,int di)
+ &#123;
+ 	switch(di)
+ 	&#123;
+ 		case 1:pos.x++;break;
+ 		case 2:pos.y++;break;
+ 		case 3:pos.x--;break;
+    	case 4:pos.y--;break;
+	 &#125;
+	 return pos;
+ &#125;
+ 
+
+status mazepath(int maze[10][10],postype start,postype end)
+&#123;
+	slnode h;
+	InitStack(&amp;h);&#x2F;&#x2F;初始化栈
+	selemtype e;
+	postype curpos&#x3D;start;
+	int curstep&#x3D;1;
+	do
+	&#123;
+		if(pass(curpos))
+		&#123;
+			maze[curpos.x][curpos.y]&#x3D;curstep;
+			e.step&#x3D;curstep;
+			e.di&#x3D;1;
+			e.seat&#x3D;curpos;
+			Push(&amp;h,e);
+			if(curpos.x&#x3D;&#x3D;end.x&amp;&amp;curpos.y&#x3D;&#x3D;end.y) return 1;
+			curpos&#x3D;nextpos(curpos,1);
+			curstep++;
+		&#125;
+		else
+		&#123;
+			if(!StackEmpty(h)) 
+			&#123;
+				Pop(&amp;h,&amp;e);
+				while(e.di&#x3D;&#x3D;4&amp;&amp;!StackEmpty(h))
+				&#123;
+					maze[e.seat.x][e.seat.y]&#x3D;-1;
+					Pop(&amp;h,&amp;e);
+				&#125;
+				
+				if(e.di&lt;4)
+				&#123;
+					e.di++;
+					Push(&amp;h,e);
+					curpos&#x3D;nextpos(e.seat,e.di);
+				&#125;
+			&#125;
+		&#125;
+	
+	&#125;while(!StackEmpty(h));
+	return error;
+&#125;
+
+int main()
+&#123;
+	int i,j;
+	postype start&#x3D;&#123;1,1&#125;,end&#x3D;&#123;8,8&#125;;
+	 for(i&#x3D;0;i&lt;10;i++)
+   &#123;
+     for(j&#x3D;0;j&lt;10;j++)
+       printf(&quot;%3d&quot;,maze[i][j]);
+     printf(&quot;\n&quot;);
+   &#125;
+   printf(&quot;\n&quot;);
+   
+   if(!mazepath(maze,start,end))
+	   printf(&quot;无解！\n&quot;);
+	   
+   for(i&#x3D;0;i&lt;10;i++)
+   &#123;
+     for(j&#x3D;0;j&lt;10;j++)
+       printf(&quot;%3d&quot;,maze[i][j]);
+     printf(&quot;\n&quot;);
+   &#125;
+	return 0;	
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-队列"><a href="#2-队列" class="headerlink" title="2 队列"></a>2 队列</h2><h3 id="2-1-基本概念："><a href="#2-1-基本概念：" class="headerlink" title="2.1 基本概念："></a>2.1 基本概念：</h3><p>队列是运算受限的线性表</p>
 <p>限制：一端插入，另一端删除</p>
 <p>特点：先进先出(FIFO)</p>
@@ -452,8 +797,67 @@
 <p>⑤ 1、2、3入，3、2、1出， 即321；</p>
 <h3 id="例题2："><a href="#例题2：" class="headerlink" title="例题2："></a>例题2：</h3><p>假设一个栈的输入序列是12345，若在入栈的过程中允许出栈，则栈的输出序列12345可能实现吗？ 43512的输出呢？</p>
 <p>12345 可能；43512 不可能</p>
-<h2 id="4-附录——ADT定义"><a href="#4-附录——ADT定义" class="headerlink" title="4 附录——ADT定义"></a>4 附录——ADT定义</h2><h3 id="1-栈-1"><a href="#1-栈-1" class="headerlink" title="1.栈"></a>1.栈</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">ADT Stack &#123;</span><br><span class="line">数据对象：D＝&#123; ai | ai ∈ElemSet, i=<span class="number">1</span>,<span class="number">2</span>,...,n, n≥<span class="number">0</span> &#125;</span><br><span class="line">数据关系：R1＝&#123; &lt;ai<span class="number">-1</span>, ai &gt;| ai<span class="number">-1</span>, ai∈D, i=<span class="number">2</span>,...,n &#125;</span><br><span class="line">                      约定an 端为栈顶，a1 端为栈底。</span><br><span class="line">基本操作：</span><br><span class="line">InitStack(&amp;S)</span><br><span class="line">    操作结果：构造一个空栈S</span><br><span class="line">DestroyStack(&amp;S)</span><br><span class="line">    初始条件：栈 S 已存在。</span><br><span class="line">    操作结果：栈 S 被销毁。</span><br><span class="line">ClearStack(&amp;S)</span><br><span class="line">    初始条件：栈 S 已存在。</span><br><span class="line">    操作结果：将 S 清为空栈。</span><br><span class="line">StackEmpty(s)</span><br><span class="line">    初始条件：栈 S 已存在。</span><br><span class="line">    操作结果：若栈 S 为空栈，返回 TRUE，否则返回 FALSE。</span><br><span class="line">StackLength(S)</span><br><span class="line">    初始条件：栈 S 已存在。</span><br><span class="line">    操作结果：返回 S 的元素个数，即栈的长度</span><br><span class="line">GetTop(S, &amp;e)</span><br><span class="line">    初始条件：栈 S 已存在且非空。</span><br><span class="line">    操作结果：用 e 返回 S 的栈顶元素。</span><br><span class="line">Push(&amp;S, e)</span><br><span class="line">    初始条件：栈 S 已存在。</span><br><span class="line">    操作结果：插入元素 e 为新的栈顶元素。</span><br><span class="line">Pop(&amp;S, &amp;e)</span><br><span class="line">    初始条件：栈 S 已存在且非空。</span><br><span class="line">    操作结果：删除栈顶元素，并用 e 返回其值。</span><br><span class="line">StackTravers(S, visit())</span><br><span class="line">    初始条件：栈 S 已存在且非空。</span><br><span class="line">    操作结果：从栈底开始遍历栈。</span><br><span class="line">&#125; ADT Stack</span><br></pre></td></tr></table></figure>
-<h3 id="2-队列-1"><a href="#2-队列-1" class="headerlink" title="2.队列"></a>2.队列</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">ADT Queue &#123;</span><br><span class="line">数据对象：D＝&#123; ai | ai ∈ElemSet, i=<span class="number">1</span>,<span class="number">2</span>,...,n, n≥<span class="number">0</span> &#125;</span><br><span class="line">数据关系：R1＝&#123; &lt;ai<span class="number">-1</span>, ai &gt;| ai<span class="number">-1</span>, ai∈D, i=<span class="number">2</span>,...,n &#125;</span><br><span class="line">                      约定an 端为队尾，a1 端为队头。</span><br><span class="line">基本操作：</span><br><span class="line">InitQueue(&amp;Q)</span><br><span class="line">    操作结果：构造一个空队列Q。</span><br><span class="line">DestroyQueue(&amp;Q)</span><br><span class="line">    初始条件：队列Q已存在。</span><br><span class="line">    操作结果：队列Q被销毁， 不再存在。</span><br><span class="line">ClearQueue(&amp;Q)</span><br><span class="line">    初始条件：队列Q已存在。</span><br><span class="line">    操作结果：将Q清为空队列。</span><br><span class="line">QueueEmpty(Q)</span><br><span class="line">    初始条件：队列Q已存在。</span><br><span class="line">    操作结果：若Q为空队列，则返回TRUE，否则返回FALSE。</span><br><span class="line">QueueLength(Q)</span><br><span class="line">    初始条件：队列Q已存在。</span><br><span class="line">    操作结果：返回Q的元素个数，即队列的长度</span><br><span class="line">GetHead(Q, &amp;e)</span><br><span class="line">    初始条件：Q为非空队列。</span><br><span class="line">    操作结果：用e返回Q的队头元素。</span><br><span class="line">EnQueue(&amp;Q, e)</span><br><span class="line">    初始条件：队列Q已存在。</span><br><span class="line">    操作结果：插入元素e为Q的新的队尾元素。</span><br><span class="line">DeQueue(&amp;Q, &amp;e)</span><br><span class="line">    初始条件：Q为非空队列。</span><br><span class="line">    操作结果：删除Q的队头元素，并用e返回其值</span><br><span class="line">&#125;ADT Queue</span><br></pre></td></tr></table></figure>
+<h2 id="4-附录——ADT定义"><a href="#4-附录——ADT定义" class="headerlink" title="4 附录——ADT定义"></a>4 附录——ADT定义</h2><h3 id="1-栈-1"><a href="#1-栈-1" class="headerlink" title="1.栈"></a>1.栈</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">ADT Stack &#123;
+数据对象：D＝&#123; ai | ai ∈ElemSet, i&#x3D;1,2,...,n, n≥0 &#125;
+数据关系：R1＝&#123; &lt;ai-1, ai &gt;| ai-1, ai∈D, i&#x3D;2,...,n &#125;
+                      约定an 端为栈顶，a1 端为栈底。
+基本操作：
+InitStack(&amp;S)
+    操作结果：构造一个空栈S
+DestroyStack(&amp;S)
+    初始条件：栈 S 已存在。
+    操作结果：栈 S 被销毁。
+ClearStack(&amp;S)
+    初始条件：栈 S 已存在。
+    操作结果：将 S 清为空栈。
+StackEmpty(s)
+    初始条件：栈 S 已存在。
+    操作结果：若栈 S 为空栈，返回 TRUE，否则返回 FALSE。
+StackLength(S)
+    初始条件：栈 S 已存在。
+    操作结果：返回 S 的元素个数，即栈的长度
+GetTop(S, &amp;e)
+    初始条件：栈 S 已存在且非空。
+    操作结果：用 e 返回 S 的栈顶元素。
+Push(&amp;S, e)
+    初始条件：栈 S 已存在。
+    操作结果：插入元素 e 为新的栈顶元素。
+Pop(&amp;S, &amp;e)
+    初始条件：栈 S 已存在且非空。
+    操作结果：删除栈顶元素，并用 e 返回其值。
+StackTravers(S, visit())
+    初始条件：栈 S 已存在且非空。
+    操作结果：从栈底开始遍历栈。
+&#125; ADT Stack<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-队列-1"><a href="#2-队列-1" class="headerlink" title="2.队列"></a>2.队列</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">ADT Queue &#123;
+数据对象：D＝&#123; ai | ai ∈ElemSet, i&#x3D;1,2,...,n, n≥0 &#125;
+数据关系：R1＝&#123; &lt;ai-1, ai &gt;| ai-1, ai∈D, i&#x3D;2,...,n &#125;
+                      约定an 端为队尾，a1 端为队头。
+基本操作：
+InitQueue(&amp;Q)
+    操作结果：构造一个空队列Q。
+DestroyQueue(&amp;Q)
+    初始条件：队列Q已存在。
+    操作结果：队列Q被销毁， 不再存在。
+ClearQueue(&amp;Q)
+    初始条件：队列Q已存在。
+    操作结果：将Q清为空队列。
+QueueEmpty(Q)
+    初始条件：队列Q已存在。
+    操作结果：若Q为空队列，则返回TRUE，否则返回FALSE。
+QueueLength(Q)
+    初始条件：队列Q已存在。
+    操作结果：返回Q的元素个数，即队列的长度
+GetHead(Q, &amp;e)
+    初始条件：Q为非空队列。
+    操作结果：用e返回Q的队头元素。
+EnQueue(&amp;Q, e)
+    初始条件：队列Q已存在。
+    操作结果：插入元素e为Q的新的队尾元素。
+DeQueue(&amp;Q, &amp;e)
+    初始条件：Q为非空队列。
+    操作结果：删除Q的队头元素，并用e返回其值
+&#125;ADT Queue<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -565,13 +969,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/1bda8925/">
+                <a href="/posts/75d72b3e/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="hexo+github搭建博客">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="树和二叉树（持续更新中）">
                         
-                        <span class="card-title">hexo+github搭建博客</span>
+                        <span class="card-title">树和二叉树（持续更新中）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -582,14 +986,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-09
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-02
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%B0%8Ftips/" class="post-category">
-                                    奇奇怪怪的小tips
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
                                 </a>
                             
                             
