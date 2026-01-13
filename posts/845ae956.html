@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 8.1.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <style>
     /* ----------------------------------------------------------- */
@@ -418,445 +418,17 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>This article is mainly about my organization of the data structure.   If you get any problems，you can ask me on <a target="_blank" rel="noopener" href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io">GitHub</a>.</p>
-<h2 id="1-存储方式"><a href="#1-存储方式" class="headerlink" title="1 存储方式"></a>1 存储方式</h2><h3 id="1-1-顺序表示"><a href="#1-1-顺序表示" class="headerlink" title="1.1 顺序表示"></a>1.1 顺序表示</h3><pre class=" language-lang-c"><code class="language-lang-c">#include<stdio.h>
-#include<stdlib.h>
-#define addsize 10
-#define initsize 100
-#define ok 1
-#define OVERFLOW 0
-#define ERROR 0
-typedef int elemtype;
-typedef int status;
-typedef struct list
-&#123;
-    elemtype *elem;
-    int length;
-    int size;
-&#125;sqlist;
-
-
-status InitList(sqlist *l)
- &#123;
-    l->elem=(elemtype *)malloc(initsize*sizeof(elemtype));
-    if(!(l->elem)) exit(OVERFLOW) ;
-    l->length=0;
-    l->size=initsize;
-    return 0;
-&#125;
-
-status ListInsert(sqlist *l,int i,elemtype e)
-&#123;
-    elemtype *newelem,*p,*q;
-    if((i>l->length+1)||(i<1)) return ERROR;
-    if((l->length)>=(l->size))  
-    &#123;
-        newelem=(elemtype *)realloc(l->elem,(l->size+addsize)*sizeof(elemtype));
-        if(!newelem) exit(OVERFLOW);
-        l->elem=newelem;
-        l->size+=addsize;            
-    &#125;
-    q=&(l->elem[i-1]);
-    p=&(l->elem[l->length]);
-    for(p;p>q;p--)
-    *p=*(p-1);
-    *p=e;
-    l->length+=1;
-    return 0;
- &#125; 
-
-status fun1(elemtype p,elemtype e)
- &#123;
-     if(p%10==e) return 1;
-     else return 0;
-  &#125; 
-
- status LocateElem(sqlist l,elemtype e,status (*fun1)(elemtype,elemtype)) 
- &#123;
-     int i=1;
-     elemtype *p=(l.elem);
-     while((i<=l.length)&&!(*fun1)(*p++,e)) ++i;
-     if(i<=l.length) return i;
-     else return 0;
- &#125;
-
- status ListDelete(sqlist *l,int i,elemtype *e)
- &#123;
-     elemtype *p,*q;
-     if(i<1||i>l->length) return ERROR;
-    if((!(l->length))||((l->elem[i-1]%2)!=0)) return 0;
-    p=&(l->elem[l->length-1]);
-    q=&(l->elem[i-1]);
-    *e=*q;
-    for(++q;q<=p;q++)
-    *(q-1)=*q;
-    l->length--;
-    return ok;
- &#125;
-
- status fun2(elemtype m) 
- &#123;
-     printf("%d ",m);
-    return ok;
- &#125;
-
- status    ListTraverse(sqlist l, status (*fun2) (elemtype m))
- &#123;
-    if(!(l.length)) return ERROR;
-    elemtype *p=l.elem;
-    int i=1;
-    printf("遍历检验：") ;
-    while(i<=l.length&&(*fun2)(*p++))     i++;
-    printf("\n\n") ;
-    return ok; 
- &#125;
-
-int main()
-&#123;
-    sqlist l;
-    int i,e,location,m,j=30;
-    InitList(&l);//操作A 
-    ListTraverse(l, fun2);
-    printf("B测试: \n"); //操作B 
-    for(i=1;i<=30;i++)
-    &#123;
-        e=rand()%100+1;
-        ListInsert(&l,i,e); 
-     &#125; 
-    ListTraverse(l, fun2);
-
-
-    printf("C测试: \n");    //操作C
-    location=LocateElem(l,5,fun1);
-    printf("第一个个位5的位置：%d\n",location);
-    ListTraverse(l, fun2);
-
-    printf("D测试: \n");    //操作D
-    printf("删除的偶数："); 
-    for(i=1;i<=j;i++)
-     &#123;
-         e=0;
-         m=ListDelete(&l, i, &e);
-         if(m)
-         &#123;
-             i--;j--;
-            printf("%d ",e);
-         &#125;
-    &#125;
-    printf("\n");
-    ListTraverse(l, fun2);
-    return 0;
- &#125;
-</code></pre>
-<h3 id="1-2-链式表示"><a href="#1-2-链式表示" class="headerlink" title="1.2 链式表示"></a>1.2 链式表示</h3><h4 id="1-2-1-单链表"><a href="#1-2-1-单链表" class="headerlink" title="1.2.1 单链表"></a>1.2.1 单链表</h4><h5 id="练习1-逆序插入"><a href="#练习1-逆序插入" class="headerlink" title="练习1 逆序插入"></a>练习1 逆序插入</h5><pre class=" language-lang-c"><code class="language-lang-c">#include<stdio.h>
-#include<stdlib.h>
-typedef struct node&#123;
-    int data;
-    struct node *next; 
-&#125;Node,*linklist;
-
-linklist create()
-&#123;
-    printf("请输入测试数据：");
-    linklist h,r,s;
-    int x;
-    h=(linklist)malloc(sizeof(Node));
-    r=h;
-    r->next=0;
-    scanf("%d",&x);
-    while(x!=-1)
-    &#123;
-        s=(linklist)malloc(sizeof(Node));
-        s->data=x;
-        s->next=r->next;
-        r->next=s;
-        scanf("%d",&x);
-    &#125;
-
-    return h; 
-&#125;
-void funa(linklist head)
-&#123;
-    printf("A:请输出链表结点值："); 
-    linklist p;
-    p=head->next;
-    while(p)
-    &#123;
-        printf("%d ",p->data);
-        p=p->next;
-    &#125;
-    printf("\n"); 
-&#125;
-
-void funb(linklist head)
-&#123;
-    printf("B:请输出链表结点值：");
-    linklist p,q,s;
-    p=head->next;
-    q=head;
-    while(p)
-    &#123;
-        if((p->data)%2==0)
-        &#123;
-            s=(linklist)malloc(sizeof(Node));
-            s->data=3*(p->data);
-            s->next=q->next;
-            q->next=s;
-            printf("%d ",s->data);
-         &#125; 
-
-             q=p;
-             p=p->next;
-             printf("%d ",q->data);
-     &#125; 
-     printf("\n");
-&#125;
-
-void func(linklist head)
-&#123;
-    printf("C:请输出链表结点值：");
-    linklist p,q,s;
-    p=head->next;
-    q=head;    
-    while(p)
-    &#123;
-        if((p->data)%10==2)
-        &#123;
-            s=p;
-            p=p->next;
-            q->next=p;
-            free(s);
-        &#125;
-        else
-        &#123;
-            q=p;
-            p=p->next;    
-        &#125;
-
-     &#125;    
-     p=head->next;
-     while(p)
-    &#123;
-     printf("%d ",p->data); 
-     p=p->next;
-    &#125;
-&#125;
-int main()
-&#123;
-    linklist head;
-    head=create();
-    funa(head);
-    funb(head);
-    func(head);
-    return 0;
- &#125; 
- /*1 2 3 4 5 -1*/
-</code></pre>
-<h5 id="练习2-求最值"><a href="#练习2-求最值" class="headerlink" title="练习2 求最值"></a>练习2 求最值</h5><pre class=" language-lang-c"><code class="language-lang-c">#include<stdio.h>
-#include<stdlib.h>
-typedef struct node&#123;
-    int data;
-    struct node *next;
-
-&#125;Node,*Linklist;
-
-
-Linklist create()//创建链表 
-&#123;
-    Linklist h,r,s;
-    h=(Linklist)malloc(sizeof(Node));
-    r=h;
-    for(int m=1;m!=-1;m=s->data)//以-1作结束标志 
-    &#123;
-        s=(Linklist)malloc(sizeof(Node));
-        scanf("%d",&s->data);
-        r->next=s;
-        r=s;
-    &#125;
-    r->next=0;
-    return h;
- &#125; 
-
-void find(Linklist listhead,int *big,int *small)//求最值并输出 
-&#123;
-    Linklist p;
-    p=listhead->next;
-    *big=p->data;
-    *small=p->data;
-    for(;p->next!=0;)
-    &#123;
-        if(p->data>*big) *big=p->data;
-        if(p->data<*small) *small=p->data;
-        p=p->next;    
-     &#125; 
-
-&#125;
-
-int main()//主函数 
-&#123;
-    int max,min;
-    printf("请输入测试数据："); 
-    Linklist head;
-    head=create();
-    find(head,&max,&min);    
-    printf("请输出最值：min=%d max=%d\n",min,max) ;    
-    return 0;
- &#125; 
- /*测试样例 4 25 90 34 17 86 63 48 51 15 -1*/
-</code></pre>
-<h4 id="1-2-2-静态链表"><a href="#1-2-2-静态链表" class="headerlink" title="1.2.2 静态链表"></a>1.2.2 静态链表</h4><pre class=" language-lang-c"><code class="language-lang-c">#include<stdio.h>
-#define maxsize 100
-typedef char elemtype; 
-typedef struct&#123;
-    elemtype data;
-    int cur;
-&#125;component,sqlinklist[maxsize];
-
-void init_list(sqlinklist space)
-&#123;
-    for(int i=0;i<maxsize-1;i++)
-    &#123;
-        space[i].cur=i+1;
-    &#125;
-    space[maxsize-1].cur=0;
-&#125;
-
-int malloc_list(sqlinklist space)
-&#123;
-    int i=space[0].cur;
-    if(i!=0)
-    space[0].cur=space[i].cur;
-    return i;    
- &#125; 
-
-void free_list(sqlinklist space,int a)
-&#123;
-    space[a].cur=space[0].cur;
-    space[0].cur=a;
-&#125;
-
-int create_list(sqlinklist space,int m)
-&#123;
-    int s,r,i;
-    s=malloc_list(space);
-    r=s;
-    for(int j=0;j<m;j++)
-    &#123;
-        i=malloc_list(space);
-        scanf("%c",&space[i].data);
-        space[r].cur=i;
-        r=i;
-    &#125;
-    space[r].cur=0;
-    return s;
-&#125;
-
-void insert_list(sqlinklist space,int r,elemtype b)
-&#123;
-
-    int i=malloc_list(space);
-    space[i].data=b;
-    space[i].cur=space[r].cur;
-    space[r].cur=i;
-&#125;
-
-void delete_list(sqlinklist space,int s,elemtype c)
-&#123;
-    int p,q;
-    q=s;
-    while(q)
-    &#123;
-        p=q;
-        q=space[q].cur;
-        if(space[q].data==c) break;    
-    &#125; 
-    space[p].cur=space[q].cur;
-    free_list(space,q);
-&#125;
-
-int locate_list(sqlinklist space,int s,elemtype c)
-&#123;
-
-    int q;
-    q=s;
-    while(q)
-    &#123;
-        q=space[q].cur;
-        if(space[q].data==c) break;    
-    &#125;
-    if(q) return 1;
-    else return 0;
-&#125;
-
-void traverse_list(sqlinklist space,int s)
-&#123;
-
-    int q=space[s].cur;
-    while(q)
-    &#123;
-        printf("%c",space[q].data);
-        q=space[q].cur;
-    &#125;
-&#125;
-
-int main()
-&#123;
-    sqlinklist space;
-    init_list(space);
-    int m,n,s;
-    char c;
-    scanf("%d%d",&m,&n);
-    getchar();
-    s=create_list(space,m);
-
-    getchar();
-    int r=s;
-    while(r)
-    &#123;
-        r=space[r].cur;
-        if(space[r].cur==0) break;
-    &#125;
-    for(int j=0;j<n;j++)
-    &#123;
-        scanf("%c",&c);
-        if(locate_list(space,s,c)) delete_list(space,s,c);
-        else insert_list(space,r,c);
-    &#125;
-    traverse_list(space,s);
-    return 0;
- &#125;
-</code></pre>
+<h2 id="1-存储方式"><a href="#1-存储方式" class="headerlink" title="1 存储方式"></a>1 存储方式</h2><h3 id="1-1-顺序表示"><a href="#1-1-顺序表示" class="headerlink" title="1.1 顺序表示"></a>1.1 顺序表示</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> addsize 10</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> initsize 100</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ok 1</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> OVERFLOW 0</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ERROR 0</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> elemtype;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> status;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">list</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	elemtype *elem;</span><br><span class="line">	<span class="type">int</span> length;</span><br><span class="line">	<span class="type">int</span> size;</span><br><span class="line">&#125;sqlist;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">status <span class="title function_">InitList</span><span class="params">(sqlist *l)</span></span><br><span class="line"> &#123;</span><br><span class="line">	l-&gt;elem=(elemtype *)<span class="built_in">malloc</span>(initsize*<span class="keyword">sizeof</span>(elemtype));</span><br><span class="line">	<span class="keyword">if</span>(!(l-&gt;elem)) <span class="built_in">exit</span>(OVERFLOW) ;</span><br><span class="line">	l-&gt;length=<span class="number">0</span>;</span><br><span class="line">	l-&gt;size=initsize;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">status <span class="title function_">ListInsert</span><span class="params">(sqlist *l,<span class="type">int</span> i,elemtype e)</span></span><br><span class="line">&#123;</span><br><span class="line">	elemtype *newelem,*p,*q;</span><br><span class="line">	<span class="keyword">if</span>((i&gt;l-&gt;length+<span class="number">1</span>)||(i&lt;<span class="number">1</span>)) <span class="keyword">return</span> ERROR;</span><br><span class="line">	<span class="keyword">if</span>((l-&gt;length)&gt;=(l-&gt;size))  </span><br><span class="line">	&#123;</span><br><span class="line">		newelem=(elemtype *)<span class="built_in">realloc</span>(l-&gt;elem,(l-&gt;size+addsize)*<span class="keyword">sizeof</span>(elemtype));</span><br><span class="line">		<span class="keyword">if</span>(!newelem) <span class="built_in">exit</span>(OVERFLOW);</span><br><span class="line">		l-&gt;elem=newelem;</span><br><span class="line">		l-&gt;size+=addsize;			</span><br><span class="line">	&#125;</span><br><span class="line">	q=&amp;(l-&gt;elem[i<span class="number">-1</span>]);</span><br><span class="line">	p=&amp;(l-&gt;elem[l-&gt;length]);</span><br><span class="line">	<span class="keyword">for</span>(p;p&gt;q;p--)</span><br><span class="line">	*p=*(p<span class="number">-1</span>);</span><br><span class="line">	*p=e;</span><br><span class="line">	l-&gt;length+=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125; </span><br><span class="line"></span><br><span class="line">status <span class="title function_">fun1</span><span class="params">(elemtype p,elemtype e)</span></span><br><span class="line"> &#123;</span><br><span class="line"> 	<span class="keyword">if</span>(p%<span class="number">10</span>==e) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"> 	<span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125; </span><br><span class="line"> </span><br><span class="line"> status <span class="title function_">LocateElem</span><span class="params">(sqlist l,elemtype e,status (*fun1)(elemtype,elemtype))</span> </span><br><span class="line"> &#123;</span><br><span class="line"> 	<span class="type">int</span> i=<span class="number">1</span>;</span><br><span class="line"> 	elemtype *p=(l.elem);</span><br><span class="line"> 	<span class="keyword">while</span>((i&lt;=l.length)&amp;&amp;!(*fun1)(*p++,e)) ++i;</span><br><span class="line"> 	<span class="keyword">if</span>(i&lt;=l.length) <span class="keyword">return</span> i;</span><br><span class="line"> 	<span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> status <span class="title function_">ListDelete</span><span class="params">(sqlist *l,<span class="type">int</span> i,elemtype *e)</span></span><br><span class="line"> &#123;</span><br><span class="line"> 	elemtype *p,*q;</span><br><span class="line"> 	<span class="keyword">if</span>(i&lt;<span class="number">1</span>||i&gt;l-&gt;length) <span class="keyword">return</span> ERROR;</span><br><span class="line">	<span class="keyword">if</span>((!(l-&gt;length))||((l-&gt;elem[i<span class="number">-1</span>]%<span class="number">2</span>)!=<span class="number">0</span>)) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	p=&amp;(l-&gt;elem[l-&gt;length<span class="number">-1</span>]);</span><br><span class="line">	q=&amp;(l-&gt;elem[i<span class="number">-1</span>]);</span><br><span class="line">	*e=*q;</span><br><span class="line">	<span class="keyword">for</span>(++q;q&lt;=p;q++)</span><br><span class="line">	*(q<span class="number">-1</span>)=*q;</span><br><span class="line">	l-&gt;length--;</span><br><span class="line">	<span class="keyword">return</span> ok;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> status <span class="title function_">fun2</span><span class="params">(elemtype m)</span> </span><br><span class="line"> &#123;</span><br><span class="line"> 	<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,m);</span><br><span class="line">	<span class="keyword">return</span> ok;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> status	<span class="title function_">ListTraverse</span><span class="params">(sqlist l, status (*fun2) (elemtype m))</span></span><br><span class="line"> &#123;</span><br><span class="line">	<span class="keyword">if</span>(!(l.length)) <span class="keyword">return</span> ERROR;</span><br><span class="line">	elemtype *p=l.elem;</span><br><span class="line">	<span class="type">int</span> i=<span class="number">1</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;遍历检验：&quot;</span>) ;</span><br><span class="line">	<span class="keyword">while</span>(i&lt;=l.length&amp;&amp;(*fun2)(*p++)) 	i++;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n\n&quot;</span>) ;</span><br><span class="line">	<span class="keyword">return</span> ok; </span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	sqlist l;</span><br><span class="line">	<span class="type">int</span> i,e,location,m,j=<span class="number">30</span>;</span><br><span class="line">	InitList(&amp;l);<span class="comment">//操作A </span></span><br><span class="line">	ListTraverse(l, fun2);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;B测试: \n&quot;</span>); <span class="comment">//操作B </span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">30</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		e=rand()%<span class="number">100</span>+<span class="number">1</span>;</span><br><span class="line">		ListInsert(&amp;l,i,e); </span><br><span class="line">	 &#125; </span><br><span class="line">	ListTraverse(l, fun2);</span><br><span class="line">	 </span><br><span class="line">	 </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;C测试: \n&quot;</span>);	<span class="comment">//操作C</span></span><br><span class="line">	location=LocateElem(l,<span class="number">5</span>,fun1);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;第一个个位5的位置：%d\n&quot;</span>,location);</span><br><span class="line">	ListTraverse(l, fun2);</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;D测试: \n&quot;</span>);	<span class="comment">//操作D</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;删除的偶数：&quot;</span>); </span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=j;i++)</span><br><span class="line">	 &#123;</span><br><span class="line">	 	e=<span class="number">0</span>;</span><br><span class="line">	 	m=ListDelete(&amp;l, i, &amp;e);</span><br><span class="line">	 	<span class="keyword">if</span>(m)</span><br><span class="line">	 	&#123;</span><br><span class="line">	 		i--;j--;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,e);</span><br><span class="line">		 &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">	ListTraverse(l, fun2);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125; </span><br></pre></td></tr></table></figure>
+<h3 id="1-2-链式表示"><a href="#1-2-链式表示" class="headerlink" title="1.2 链式表示"></a>1.2 链式表示</h3><h4 id="1-2-1-单链表"><a href="#1-2-1-单链表" class="headerlink" title="1.2.1 单链表"></a>1.2.1 单链表</h4><h5 id="练习1-逆序插入"><a href="#练习1-逆序插入" class="headerlink" title="练习1 逆序插入"></a>练习1 逆序插入</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">	<span class="type">int</span> data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">next</span>;</span> </span><br><span class="line">&#125;Node,*linklist;</span><br><span class="line"></span><br><span class="line">linklist <span class="title function_">create</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;请输入测试数据：&quot;</span>);</span><br><span class="line">	linklist h,r,s;</span><br><span class="line">	<span class="type">int</span> x;</span><br><span class="line">	h=(linklist)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">	r=h;</span><br><span class="line">	r-&gt;next=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;x);</span><br><span class="line">	<span class="keyword">while</span>(x!=<span class="number">-1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		s=(linklist)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">		s-&gt;data=x;</span><br><span class="line">		s-&gt;next=r-&gt;next;</span><br><span class="line">		r-&gt;next=s;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;x);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> h; </span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">funa</span><span class="params">(linklist head)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;A:请输出链表结点值：&quot;</span>); </span><br><span class="line">	linklist p;</span><br><span class="line">	p=head-&gt;next;</span><br><span class="line">	<span class="keyword">while</span>(p)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,p-&gt;data);</span><br><span class="line">		p=p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">funb</span><span class="params">(linklist head)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;B:请输出链表结点值：&quot;</span>);</span><br><span class="line">	linklist p,q,s;</span><br><span class="line">	p=head-&gt;next;</span><br><span class="line">	q=head;</span><br><span class="line">	<span class="keyword">while</span>(p)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>((p-&gt;data)%<span class="number">2</span>==<span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			s=(linklist)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">			s-&gt;data=<span class="number">3</span>*(p-&gt;data);</span><br><span class="line">			s-&gt;next=q-&gt;next;</span><br><span class="line">			q-&gt;next=s;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,s-&gt;data);</span><br><span class="line">		 &#125; </span><br><span class="line">		</span><br><span class="line">		 	q=p;</span><br><span class="line">		 	p=p-&gt;next;</span><br><span class="line">		 	<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,q-&gt;data);</span><br><span class="line">	 &#125; </span><br><span class="line">	 <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">func</span><span class="params">(linklist head)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;C:请输出链表结点值：&quot;</span>);</span><br><span class="line">	linklist p,q,s;</span><br><span class="line">	p=head-&gt;next;</span><br><span class="line">	q=head;	</span><br><span class="line">	<span class="keyword">while</span>(p)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>((p-&gt;data)%<span class="number">10</span>==<span class="number">2</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			s=p;</span><br><span class="line">			p=p-&gt;next;</span><br><span class="line">			q-&gt;next=p;</span><br><span class="line">			<span class="built_in">free</span>(s);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			q=p;</span><br><span class="line">			p=p-&gt;next;	</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	 &#125;	</span><br><span class="line">	 p=head-&gt;next;</span><br><span class="line">	 <span class="keyword">while</span>(p)</span><br><span class="line">	&#123;</span><br><span class="line">	 <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,p-&gt;data); </span><br><span class="line">	 p=p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	linklist head;</span><br><span class="line">	head=create();</span><br><span class="line">	funa(head);</span><br><span class="line">	funb(head);</span><br><span class="line">	func(head);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125; </span><br><span class="line"> <span class="comment">/*1 2 3 4 5 -1*/</span> </span><br></pre></td></tr></table></figure>
+<h5 id="练习2-求最值"><a href="#练习2-求最值" class="headerlink" title="练习2 求最值"></a>练习2 求最值</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">	<span class="type">int</span> data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">next</span>;</span></span><br><span class="line">	</span><br><span class="line">&#125;Node,*Linklist;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Linklist <span class="title function_">create</span><span class="params">()</span><span class="comment">//创建链表 </span></span><br><span class="line">&#123;</span><br><span class="line">	Linklist h,r,s;</span><br><span class="line">	h=(Linklist)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">	r=h;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> m=<span class="number">1</span>;m!=<span class="number">-1</span>;m=s-&gt;data)<span class="comment">//以-1作结束标志 </span></span><br><span class="line">	&#123;</span><br><span class="line">		s=(Linklist)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;s-&gt;data);</span><br><span class="line">		r-&gt;next=s;</span><br><span class="line">		r=s;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> h;</span><br><span class="line"> &#125; </span><br><span class="line"> </span><br><span class="line"><span class="type">void</span> <span class="title function_">find</span><span class="params">(Linklist listhead,<span class="type">int</span> *big,<span class="type">int</span> *small)</span><span class="comment">//求最值并输出 </span></span><br><span class="line">&#123;</span><br><span class="line">	Linklist p;</span><br><span class="line">	p=listhead-&gt;next;</span><br><span class="line">	*big=p-&gt;data;</span><br><span class="line">	*small=p-&gt;data;</span><br><span class="line">	<span class="keyword">for</span>(;p-&gt;next!=<span class="number">0</span>;)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(p-&gt;data&gt;*big) *big=p-&gt;data;</span><br><span class="line">		<span class="keyword">if</span>(p-&gt;data&lt;*small) *small=p-&gt;data;</span><br><span class="line">		p=p-&gt;next;	</span><br><span class="line">	 &#125; </span><br><span class="line">	 </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span><span class="comment">//主函数 </span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> max,min;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;请输入测试数据：&quot;</span>); </span><br><span class="line">	Linklist head;</span><br><span class="line">	head=create();</span><br><span class="line">	find(head,&amp;max,&amp;min);	</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;请输出最值：min=%d max=%d\n&quot;</span>,min,max) ;	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125; </span><br><span class="line"> <span class="comment">/*测试样例 4 25 90 34 17 86 63 48 51 15 -1*/</span></span><br></pre></td></tr></table></figure>
+<h4 id="1-2-2-静态链表"><a href="#1-2-2-静态链表" class="headerlink" title="1.2.2 静态链表"></a>1.2.2 静态链表</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxsize 100</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">char</span> elemtype; </span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">	elemtype data;</span><br><span class="line">	<span class="type">int</span> cur;</span><br><span class="line">&#125;component,sqlinklist[maxsize];</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">init_list</span><span class="params">(sqlinklist space)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;maxsize<span class="number">-1</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		space[i].cur=i+<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	space[maxsize<span class="number">-1</span>].cur=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">malloc_list</span><span class="params">(sqlinklist space)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> i=space[<span class="number">0</span>].cur;</span><br><span class="line">	<span class="keyword">if</span>(i!=<span class="number">0</span>)</span><br><span class="line">	space[<span class="number">0</span>].cur=space[i].cur;</span><br><span class="line">	<span class="keyword">return</span> i;	</span><br><span class="line"> &#125; </span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">free_list</span><span class="params">(sqlinklist space,<span class="type">int</span> a)</span></span><br><span class="line">&#123;</span><br><span class="line">	space[a].cur=space[<span class="number">0</span>].cur;</span><br><span class="line">	space[<span class="number">0</span>].cur=a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">create_list</span><span class="params">(sqlinklist space,<span class="type">int</span> m)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> s,r,i;</span><br><span class="line">	s=malloc_list(space);</span><br><span class="line">	r=s;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;m;j++)</span><br><span class="line">	&#123;</span><br><span class="line">		i=malloc_list(space);</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%c&quot;</span>,&amp;space[i].data);</span><br><span class="line">		space[r].cur=i;</span><br><span class="line">		r=i;</span><br><span class="line">	&#125;</span><br><span class="line">	space[r].cur=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">insert_list</span><span class="params">(sqlinklist space,<span class="type">int</span> r,elemtype b)</span></span><br><span class="line">&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> i=malloc_list(space);</span><br><span class="line">	space[i].data=b;</span><br><span class="line">	space[i].cur=space[r].cur;</span><br><span class="line">	space[r].cur=i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">delete_list</span><span class="params">(sqlinklist space,<span class="type">int</span> s,elemtype c)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> p,q;</span><br><span class="line">	q=s;</span><br><span class="line">	<span class="keyword">while</span>(q)</span><br><span class="line">	&#123;</span><br><span class="line">		p=q;</span><br><span class="line">		q=space[q].cur;</span><br><span class="line">		<span class="keyword">if</span>(space[q].data==c) <span class="keyword">break</span>;	</span><br><span class="line">	&#125; </span><br><span class="line">	space[p].cur=space[q].cur;</span><br><span class="line">	free_list(space,q);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">locate_list</span><span class="params">(sqlinklist space,<span class="type">int</span> s,elemtype c)</span></span><br><span class="line">&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> q;</span><br><span class="line">	q=s;</span><br><span class="line">	<span class="keyword">while</span>(q)</span><br><span class="line">	&#123;</span><br><span class="line">		q=space[q].cur;</span><br><span class="line">		<span class="keyword">if</span>(space[q].data==c) <span class="keyword">break</span>;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(q) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">traverse_list</span><span class="params">(sqlinklist space,<span class="type">int</span> s)</span></span><br><span class="line">&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> q=space[s].cur;</span><br><span class="line">	<span class="keyword">while</span>(q)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,space[q].data);</span><br><span class="line">		q=space[q].cur;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	sqlinklist space;</span><br><span class="line">	init_list(space);</span><br><span class="line">	<span class="type">int</span> m,n,s;</span><br><span class="line">	<span class="type">char</span> c;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;m,&amp;n);</span><br><span class="line">	getchar();</span><br><span class="line">	s=create_list(space,m);</span><br><span class="line"></span><br><span class="line">	getchar();</span><br><span class="line">	<span class="type">int</span> r=s;</span><br><span class="line">	<span class="keyword">while</span>(r)</span><br><span class="line">	&#123;</span><br><span class="line">		r=space[r].cur;</span><br><span class="line">		<span class="keyword">if</span>(space[r].cur==<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%c&quot;</span>,&amp;c);</span><br><span class="line">		<span class="keyword">if</span>(locate_list(space,s,c)) delete_list(space,s,c);</span><br><span class="line">		<span class="keyword">else</span> insert_list(space,r,c);</span><br><span class="line">	&#125;</span><br><span class="line">	traverse_list(space,s);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125; </span><br></pre></td></tr></table></figure>
 <h4 id="1-2-3-循环链表"><a href="#1-2-3-循环链表" class="headerlink" title="1.2.3 循环链表"></a>1.2.3 循环链表</h4><p>将链表的最后一个结点与第一个结点连接起来，可从任意结点出发访问其它结点</p>
 <h4 id="1-2-4-双向链表"><a href="#1-2-4-双向链表" class="headerlink" title="1.2.4 双向链表"></a>1.2.4 双向链表</h4><p>每个结点中有两个指针，一个指向其后继结点，另一个指向其前趋结点</p>
 <h2 id="2-习题"><a href="#2-习题" class="headerlink" title="2 习题"></a>2 习题</h2><p>1.假设:有两个集合 A 和 B 分别用两个线性表 LA 和 LB 表示，设计算法，求一个新的集合A＝A∪B</p>
 <p>==*加代码==</p>
 <p>2.已知线性表LA和LB中的数据元素按值非递减有序排列，现要求将LA和LB归并为一个新的线性表LC，且LC中的数据元素仍按值非递减有序排列。</p>
 <p>==*加代码==</p>
-<h2 id="3-附录——ADT定义"><a href="#3-附录——ADT定义" class="headerlink" title="3 附录——ADT定义"></a>3 附录——ADT定义</h2><pre class=" language-lang-c"><code class="language-lang-c">ADT List &#123;
-数据对象：D＝&#123;ai|ai∈ElemSet,i=1,2,...,n, n≥0 &#125;
-数据关系：R1＝&#123;<ai-1 ,ai>|ai-1 ,ai∈D, i=2,...,n &#125;
-基本操作：
-InitList(&L)
-    操作结果：构造一个空的线性表L。
-ListLength(L)
-    初始条件：线性表L已存在。
-    操作结果：返回L中元素个数。
-GetElem(L, i, &e)
-    初始条件：线性表L已存在， 1≤i≤ListLength(L)
-    操作结果：用e返回L中第i个元素的值
-LocateElem(L, e, compare( ))
-    初始条件：线性表L已存在.
-    操作结果：返回L中第1个与e满足关系compare( )的元素的位序，不存在则返回0。重要：ADT中compare()这种形式，语言级别对应为函数指针！
-ListInsert(&L, i, e)
-    初始条件：L已存在，1≤i≤ListLength(L)+1
-    操作结果：在L的第i个位置插入新的元素e，L的长度增1
-ListDelete(&L, i, &e)
-    初始条件：L已存在且非空，1≤i≤ListLength(L)
-    操作结果：删除L的第i个元素，并用e返回其值，L的长度减1
-ListTraverse(L, visit( ))
-    初始条件：线性表L已存在
-    操作结果：依次对L的每个数据元素调用visit()函数，若visit()失败则操作失败
-&#125;ADT  List
-</code></pre>
+<h2 id="3-附录——ADT定义"><a href="#3-附录——ADT定义" class="headerlink" title="3 附录——ADT定义"></a>3 附录——ADT定义</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">ADT List &#123;</span><br><span class="line">数据对象：D＝&#123;ai|ai∈ElemSet,i=<span class="number">1</span>,<span class="number">2</span>,...,n, n≥<span class="number">0</span> &#125;</span><br><span class="line">数据关系：R1＝&#123;&lt;ai<span class="number">-1</span> ,ai&gt;|ai<span class="number">-1</span> ,ai∈D, i=<span class="number">2</span>,...,n &#125;</span><br><span class="line">基本操作：</span><br><span class="line">InitList(&amp;L)</span><br><span class="line">    操作结果：构造一个空的线性表L。</span><br><span class="line">ListLength(L)</span><br><span class="line">    初始条件：线性表L已存在。</span><br><span class="line">    操作结果：返回L中元素个数。</span><br><span class="line">GetElem(L, i, &amp;e)</span><br><span class="line">    初始条件：线性表L已存在， <span class="number">1</span>≤i≤ListLength(L)</span><br><span class="line">    操作结果：用e返回L中第i个元素的值</span><br><span class="line">LocateElem(L, e, compare( ))</span><br><span class="line">    初始条件：线性表L已存在.</span><br><span class="line">    操作结果：返回L中第<span class="number">1</span>个与e满足关系compare( )的元素的位序，不存在则返回<span class="number">0</span>。重要：ADT中compare()这种形式，语言级别对应为函数指针！</span><br><span class="line">ListInsert(&amp;L, i, e)</span><br><span class="line">    初始条件：L已存在，<span class="number">1</span>≤i≤ListLength(L)+<span class="number">1</span></span><br><span class="line">    操作结果：在L的第i个位置插入新的元素e，L的长度增<span class="number">1</span></span><br><span class="line">ListDelete(&amp;L, i, &amp;e)</span><br><span class="line">    初始条件：L已存在且非空，<span class="number">1</span>≤i≤ListLength(L)</span><br><span class="line">    操作结果：删除L的第i个元素，并用e返回其值，L的长度减<span class="number">1</span></span><br><span class="line">ListTraverse(L, visit( ))</span><br><span class="line">    初始条件：线性表L已存在</span><br><span class="line">    操作结果：依次对L的每个数据元素调用visit()函数，若visit()失败则操作失败</span><br><span class="line">&#125;ADT  List</span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -968,13 +540,13 @@ ListTraverse(L, visit( ))
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/6a91c765.html">
+                <a href="/posts/3216493d.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="栈和队列（持续更新中）">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="递归问题算法（持续更新中）">
                         
-                        <span class="card-title">栈和队列（持续更新中）</span>
+                        <span class="card-title">递归问题算法（持续更新中）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1009,13 +581,13 @@ ListTraverse(L, visit( ))
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/3216493d.html">
+                <a href="/posts/a5b7098.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="递归问题算法（持续更新中）">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="BASNet源码分析">
                         
-                        <span class="card-title">递归问题算法（持续更新中）</span>
+                        <span class="card-title">BASNet源码分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1026,7 +598,7 @@ ListTraverse(L, visit( ))
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-28
                             </span>
                         <span class="publish-author">
                             

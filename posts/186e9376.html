@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 8.1.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <style>
     /* ----------------------------------------------------------- */
@@ -422,7 +422,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="一、聚类算法"><a href="#一、聚类算法" class="headerlink" title="一、聚类算法"></a>一、聚类算法</h1><h2 id="（一）聚合聚类"><a href="#（一）聚合聚类" class="headerlink" title="（一）聚合聚类"></a>（一）聚合聚类</h2><p>聚合聚类(Agglomerative Clustering)是一种自底向上的聚类方法。它从数据点（或称为观测值）的集合开始，然后将这些点视为初始的簇。接着，算法逐步合并这些簇，直到满足某个停止条件，如达到预设的簇数量或达到某个特定的簇大小。在这个过程中，算法通过计算簇之间的距离来确定哪些簇应该被合并。</p>
-<div style="width: 50%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/186e9376/image-20251015225342314.png" class="" title="image-20251015225342314"></div>
+<div style="width: 50%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/186e9376.htm/186e9376/image-20251015225342314.png" class title="image-20251015225342314"></div>
 
 <h3 id="1、步骤"><a href="#1、步骤" class="headerlink" title="1、步骤"></a>1、步骤</h3><ol>
 <li>初始化：每个数据点被视为一个簇。</li>
@@ -445,134 +445,74 @@
 <li>异常检测：可以通过观察聚类结果中的离群点来检测异常值。</li>
 <li>数据预处理：在某些机器学习任务中，可以使用聚合聚类作为预处理步骤来简化数据或提取特征。</li>
 </ul>
-<h3 id="4、代码"><a href="#4、代码" class="headerlink" title="4、代码"></a>4、代码</h3><pre class=" language-lang-python"><code class="language-lang-python">from sklearn.cluster import AgglomerativeClustering # 导入AgglomerativeClustering类 
-from sklearn import datasets # 导入datasets用于生成样本数据 
-from sklearn.preprocessing import StandardScaler # 导入StandardScaler进行标准化处理 
-import matplotlib.pyplot as plt # 导入绘图库
-iris = datasets.load_iris() # 生成样本数据 
-X = iris["data"]  # 使用Iris数据集作为示例 # 提取特征矩阵
-scaler = StandardScaler()  # 数据标准化 
-X = scaler.fit_transform(X) # 对数据进行标准化处理 # 设置聚类数 
-n_clusters = 2 # 根据需求设置聚类数 
-clustering = AgglomerativeClustering(n_clusters=n_clusters) # 创建AgglomerativeClustering对象并拟合数据 
-labels = clustering.fit_predict(X) # 获取每个样本点的聚类标签 
-plt.scatter(X[:, 0], X[:, 1], c=labels, cmap='viridis') # 使用viridis色彩映射绘制结果图 
-plt.show() # 显示结果图
-</code></pre>
-<pre><code>
+<h3 id="4、代码"><a href="#4、代码" class="headerlink" title="4、代码"></a>4、代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> AgglomerativeClustering <span class="comment"># 导入AgglomerativeClustering类 </span></span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets <span class="comment"># 导入datasets用于生成样本数据 </span></span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler <span class="comment"># 导入StandardScaler进行标准化处理 </span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt <span class="comment"># 导入绘图库</span></span><br><span class="line">iris = datasets.load_iris() <span class="comment"># 生成样本数据 </span></span><br><span class="line">X = iris[<span class="string">&quot;data&quot;</span>]  <span class="comment"># 使用Iris数据集作为示例 # 提取特征矩阵</span></span><br><span class="line">scaler = StandardScaler()  <span class="comment"># 数据标准化 </span></span><br><span class="line">X = scaler.fit_transform(X) <span class="comment"># 对数据进行标准化处理 # 设置聚类数 </span></span><br><span class="line">n_clusters = <span class="number">2</span> <span class="comment"># 根据需求设置聚类数 </span></span><br><span class="line">clustering = AgglomerativeClustering(n_clusters=n_clusters) <span class="comment"># 创建AgglomerativeClustering对象并拟合数据 </span></span><br><span class="line">labels = clustering.fit_predict(X) <span class="comment"># 获取每个样本点的聚类标签 </span></span><br><span class="line">plt.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], c=labels, cmap=<span class="string">&#x27;viridis&#x27;</span>) <span class="comment"># 使用viridis色彩映射绘制结果图 </span></span><br><span class="line">plt.show() <span class="comment"># 显示结果图 ```</span></span><br></pre></td></tr></table></figure>
+<h2 id="（二）DBSCAN-聚类"><a href="#（二）DBSCAN-聚类" class="headerlink" title="（二）DBSCAN 聚类"></a>（二）DBSCAN 聚类</h2><p>Density-Based Spatial Clustering of Applications with Noise是一种基于密度的聚类方法。它的主要思想是：一个簇是由一个密度足够大的区域所组成的，并且这个区域是核心对象所连接的稠密区域。DBSCAN将簇定义为具有足够高密度的区域，并且通过噪声点将簇与相邻的密度区域分开。</p>
+<div style="width: 50%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/186e9376.htm/186e9376/image-20251015230101612.png" class title="image-20251015230101612"></div>
 
-
-## （二）DBSCAN 聚类
-
-Density-Based Spatial Clustering of Applications with Noise是一种基于密度的聚类方法。它的主要思想是：一个簇是由一个密度足够大的区域所组成的，并且这个区域是核心对象所连接的稠密区域。DBSCAN将簇定义为具有足够高密度的区域，并且通过噪声点将簇与相邻的密度区域分开。
-
-&lt;div style=&quot;width: 50%; max-width: 100%; display: block; margin: 0 auto;&quot;&gt;&#123;% asset_img image-20251015230101612.png image-20251015230101612 %&#125;&lt;/div&gt;
-
-### 1、步骤
-
-1. 初始化：选择一个未被访问过的点作为当前点。
-2. 密度估计：如果当前点的ε-邻域内的点数量大于等于MinPts，则当前点为核心点。否则，当前点为噪声点。
-3. 扩展簇：从核心点开始，将其标记为簇的一部分，并递归地访问其ε-邻域内的所有点。如果某个点的ε-邻域内的点数量大于等于MinPts，则该点为核心点，并将其标记为已访问。
-4. 重复：重复步骤2和3，直到所有点都被访问。
-5. 输出：返回所有簇的结果。
-
-### 2、优缺点
-
-- 密度敏感：能够发现任何形状的簇，并处理异常值和噪声。
-- 可扩展性：对于大规模数据集，DBSCAN具有较好的可扩展性。
-- 无需预设簇数量：与其他基于距离的聚类方法相比，DBSCAN不需要预设簇的数量。
-
-
-
-- 参数敏感：对参数ε和MinPts的选择较为敏感，不同的参数值可能会导致不同的聚类结果。
-- 计算量大：对于高维数据，DBSCAN的计算量可能会很大。
-- 对噪声和异常值敏感：如果数据集中存在大量噪声或异常值，可能会影响聚类的效果。
-
-### 3、使用场景
-
-- 异常检测：由于DBSCAN对噪声和异常值敏感，因此可以用于异常检测任务。
-- 任意形状的簇：对于需要发现任意形状的簇的应用，如社交网络分析、图像分割等，DBSCAN是一个很好的选择。
-- 数据预处理：在某些机器学习任务中，可以使用DBSCAN对数据进行预处理，以便进一步的分析或分类。
-
-### 4、代码
-
-```python
-from sklearn.cluster import DBSCAN # 导入DBSCAN聚类算法 
-from sklearn import datasets # 导入datasets用于生成样本数据 
-importmatplotlib.pyplotasplt #导入绘图库
-iris = datasets.load_iris() # 使用Iris数据集作为示例 
-X = iris[&quot;data&quot;] # 提取特征矩阵  
-dbscan = DBSCAN(eps=0.3, min_samples=5) # 创建DBSCAN对象并拟合数据 eps是邻域半径，min_samples是形成核心对象的最小点数 
-labels = dbscan.fit_predict(X) # 获取每个样本点的聚类标签 # 可视化结果 
-plt.scatter(X[:, 0], X[:, 1], c=labels, cmap=&#39;viridis&#39;) # 使用viridis色彩映射绘制结果图 
-plt.show() # 显示结果图
-</code></pre><pre><code>
-
-
-## (三）OPTICS聚类
-
-OPTICS（Ordering Points To Identify the Clustering Structure）是一种基于密度的聚类算法，它是为了优化DBSCAN算法而提出的。与DBSCAN类似，OPTICS算法的核心思想是通过分析样本点的密度分布来识别出数据集中的聚类结构。然而，OPTICS算法在处理过程中不直接产生聚类结果，而是生成一个有序的样本点列表，这个列表可以用来构建一个决策图，进而为DBSCAN算法选择合适的邻域半径参数。
-
-OPTICS算法引入了两个新的距离概念，即**核心距离**和**可达距离**：
-**核心距离**：对于一个给定的核心对象X，使得X成为核心对象的最小邻域距离 r 就是X的核心距离。这句话乍一看有点绕，其实仔细读两遍就明白了，假如在DBSCAN中我们定义 eps = 1.2 和  min_samples=5，X在eps = 1.2的邻域内有8个样本点，则X是核心对象，但是我们发现距离X最近的第5个点和X的距离是0.8，那么核心对象 X 的核心距离就是 0.8，显然每个核心对象的核心距离并不都是相同的。参考图1，注意在计算 min_samples 的时候，一般也包括样本点自身，所以只需在P点eps邻域内找到7个点，那么P点就是核心点。
-**可达距离**：如果X是核心对象，则对象 Y 到对象 X 的可达距离就是Y到X的欧氏距离和X的核心距离的最大值，如果X不是核心对象，则Y和X之间的可达距离就没有意义（不存在可达距离），显然，数据集中有多少核心对象，那么 Y 就有多少个可达距离。在下文介绍 API 的时候，我们会介绍在OPTICS中，一般默认设置 eps 为无穷大，即只要数据集的样本数不少于 min_samples，那么任意一个样本点都是核心对象，即都有核心距离，且任意两个对象之间都存在可达距离。
-
-&lt;div style=&quot;width: 50%; max-width: 100%; display: block; margin: 0 auto;&quot;&gt;&#123;% asset_img image-20251017112141817.png image-20251017112141817 %&#125;&lt;/div&gt;
-
-### 1、步骤
-
-1. 已知数据集 D，创建两个队列，有序队列O和结果队列R（有序队列用来存储核心对象及其该核心对象的密度直达对象，并按可达距离升序排列；结果队列用来存储样本点的输出次序。可以把有序队列里面放的理解为待处理的数据，而结果队列里放的是已经处理完的数据）。
-
-2. 如果D中所有点都处理完毕或者不存在核心点，则算法结束。否则，选择一个未处理（即不在结果队列R中）且为核心对象的样本点 p，首先将 p 放入结果队列R中，并从D中删除 p。然后找到 D 中 p 的所有密度直达样本点 x，计算 x 到 p 的可达距离，如果 x 不在有序队列 O 中，则将 x 以及可达距离放入 O 中，若 x 在 O 中，则如果 x 新的可达距离更小，则更新 x 的可达距离，最后对 O 中数据按可达距离从小到大重新排序。
-
-3. 如果有序队列 O 为空，则回到步骤2，否则取出 O 中第一个样本点 y（即可达距离最小的样本点），放入 R 中，并从 D 和 O 中删除 y。如果 y 不是核心对象，则重复步骤 3（即找 O 中剩余数据可达距离最小的样本点）；如果 y 是核心对象，则找到 y 在 D 中的所有密度直达样本点，并计算到 y 的可达距离，然后按照步骤2将所有 y 的密度直达样本点更新到 O 中。
-
-4. 重复步骤2、3，直到算法结束。最终可以得到一个有序的输出结果，以及相应的可达距离。
-
-5. 通过上述流程，OPTICS算法最终会得到一个有序的输出结果和相应的可达距离。这个有序的结果可以用来绘制一个可达距离图，通过这个图可以观察到数据的聚类结构。
-
-   &#123;% asset_img image-20251017124214008.png image-20251017124214008 %&#125;
-
-### 2、优缺点
-
-- 无需预设聚类簇数，可发现不同密度和形状的簇。
-- 对参数不敏感，鲁棒性强。
-- 能自然发现噪声点和孤立点。
-
-
-
-- 计算复杂度较高，训练大规模数据集时间较长。
-- 聚类结构需结合可达距离图分析，理解与参数调整较为复杂。
-
-### 3、使用场景
-
-- 复杂、有噪声、密度不均的数据（如时序数据、地理数据、图像分割）。
-- 无法预先确定簇数时的实际聚类分析。
-
-### 4、代码
-
-```python
-from sklearn.cluster import OPTICS
-import numpy as np
-# 定义样本数据集
-X = np.array([[1, 2], [2, 5], [8, 7], [3, 6], [8, 8], [7, 3], [4, 5]])
-# 执行OPTICS算法
-clustering = OPTICS(min_samples=2).fit(X)
-# 输出核心距离、样本点的排序、可达距离和聚类标签
-print(clustering.core_distances_)
-print(clustering.ordering_)
-print(clustering.reachability_)
-print(clustering.labels_)
-</code></pre><h2 id="四）K-Means-聚类模型"><a href="#四）K-Means-聚类模型" class="headerlink" title="(四）K-Means 聚类模型"></a>(四）<strong>K-Means 聚类模型</strong></h2><p>K-Means聚类是一种基于距离的聚类方法，通过最小化每个数据点到其所属簇中心点的距离之和，将数据点划分为K个簇。算法的主要思想是：每个簇有一个中心点，数据点被分配到最近的中心点所在的簇中。通过迭代更新每个簇的中心点，使得所有数据点到其所属簇的中心点的距离之和最小</p>
-<img src="/posts/186e9376/image-20251015230458282.png" class="" title="image-20251015230458282">
 <h3 id="1、步骤-1"><a href="#1、步骤-1" class="headerlink" title="1、步骤"></a>1、步骤</h3><ol>
+<li>初始化：选择一个未被访问过的点作为当前点。</li>
+<li>密度估计：如果当前点的ε-邻域内的点数量大于等于MinPts，则当前点为核心点。否则，当前点为噪声点。</li>
+<li>扩展簇：从核心点开始，将其标记为簇的一部分，并递归地访问其ε-邻域内的所有点。如果某个点的ε-邻域内的点数量大于等于MinPts，则该点为核心点，并将其标记为已访问。</li>
+<li>重复：重复步骤2和3，直到所有点都被访问。</li>
+<li>输出：返回所有簇的结果。</li>
+</ol>
+<h3 id="2、优缺点-1"><a href="#2、优缺点-1" class="headerlink" title="2、优缺点"></a>2、优缺点</h3><ul>
+<li>密度敏感：能够发现任何形状的簇，并处理异常值和噪声。</li>
+<li>可扩展性：对于大规模数据集，DBSCAN具有较好的可扩展性。</li>
+<li>无需预设簇数量：与其他基于距离的聚类方法相比，DBSCAN不需要预设簇的数量。</li>
+</ul>
+<ul>
+<li>参数敏感：对参数ε和MinPts的选择较为敏感，不同的参数值可能会导致不同的聚类结果。</li>
+<li>计算量大：对于高维数据，DBSCAN的计算量可能会很大。</li>
+<li>对噪声和异常值敏感：如果数据集中存在大量噪声或异常值，可能会影响聚类的效果。</li>
+</ul>
+<h3 id="3、使用场景-1"><a href="#3、使用场景-1" class="headerlink" title="3、使用场景"></a>3、使用场景</h3><ul>
+<li>异常检测：由于DBSCAN对噪声和异常值敏感，因此可以用于异常检测任务。</li>
+<li>任意形状的簇：对于需要发现任意形状的簇的应用，如社交网络分析、图像分割等，DBSCAN是一个很好的选择。</li>
+<li>数据预处理：在某些机器学习任务中，可以使用DBSCAN对数据进行预处理，以便进一步的分析或分类。</li>
+</ul>
+<h3 id="4、代码-1"><a href="#4、代码-1" class="headerlink" title="4、代码"></a>4、代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> DBSCAN <span class="comment"># 导入DBSCAN聚类算法 </span></span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets <span class="comment"># 导入datasets用于生成样本数据 </span></span><br><span class="line">importmatplotlib.pyplotasplt <span class="comment">#导入绘图库</span></span><br><span class="line">iris = datasets.load_iris() <span class="comment"># 使用Iris数据集作为示例 </span></span><br><span class="line">X = iris[<span class="string">&quot;data&quot;</span>] <span class="comment"># 提取特征矩阵  </span></span><br><span class="line">dbscan = DBSCAN(eps=<span class="number">0.3</span>, min_samples=<span class="number">5</span>) <span class="comment"># 创建DBSCAN对象并拟合数据 eps是邻域半径，min_samples是形成核心对象的最小点数 </span></span><br><span class="line">labels = dbscan.fit_predict(X) <span class="comment"># 获取每个样本点的聚类标签 # 可视化结果 </span></span><br><span class="line">plt.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], c=labels, cmap=<span class="string">&#x27;viridis&#x27;</span>) <span class="comment"># 使用viridis色彩映射绘制结果图 </span></span><br><span class="line">plt.show() <span class="comment"># 显示结果图 ```</span></span><br></pre></td></tr></table></figure>
+<h2 id="三）OPTICS聚类"><a href="#三）OPTICS聚类" class="headerlink" title="(三）OPTICS聚类"></a>(三）OPTICS聚类</h2><p>OPTICS（Ordering Points To Identify the Clustering Structure）是一种基于密度的聚类算法，它是为了优化DBSCAN算法而提出的。与DBSCAN类似，OPTICS算法的核心思想是通过分析样本点的密度分布来识别出数据集中的聚类结构。然而，OPTICS算法在处理过程中不直接产生聚类结果，而是生成一个有序的样本点列表，这个列表可以用来构建一个决策图，进而为DBSCAN算法选择合适的邻域半径参数。</p>
+<p>OPTICS算法引入了两个新的距离概念，即<strong>核心距离</strong>和<strong>可达距离</strong>：<br><strong>核心距离</strong>：对于一个给定的核心对象X，使得X成为核心对象的最小邻域距离 r 就是X的核心距离。这句话乍一看有点绕，其实仔细读两遍就明白了，假如在DBSCAN中我们定义 eps = 1.2 和  min_samples=5，X在eps = 1.2的邻域内有8个样本点，则X是核心对象，但是我们发现距离X最近的第5个点和X的距离是0.8，那么核心对象 X 的核心距离就是 0.8，显然每个核心对象的核心距离并不都是相同的。参考图1，注意在计算 min_samples 的时候，一般也包括样本点自身，所以只需在P点eps邻域内找到7个点，那么P点就是核心点。<br><strong>可达距离</strong>：如果X是核心对象，则对象 Y 到对象 X 的可达距离就是Y到X的欧氏距离和X的核心距离的最大值，如果X不是核心对象，则Y和X之间的可达距离就没有意义（不存在可达距离），显然，数据集中有多少核心对象，那么 Y 就有多少个可达距离。在下文介绍 API 的时候，我们会介绍在OPTICS中，一般默认设置 eps 为无穷大，即只要数据集的样本数不少于 min_samples，那么任意一个样本点都是核心对象，即都有核心距离，且任意两个对象之间都存在可达距离。</p>
+<div style="width: 50%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/186e9376.htm/186e9376/image-20251017112141817.png" class title="image-20251017112141817"></div>
+
+<h3 id="1、步骤-2"><a href="#1、步骤-2" class="headerlink" title="1、步骤"></a>1、步骤</h3><ol>
+<li><p>已知数据集 D，创建两个队列，有序队列O和结果队列R（有序队列用来存储核心对象及其该核心对象的密度直达对象，并按可达距离升序排列；结果队列用来存储样本点的输出次序。可以把有序队列里面放的理解为待处理的数据，而结果队列里放的是已经处理完的数据）。</p>
+</li>
+<li><p>如果D中所有点都处理完毕或者不存在核心点，则算法结束。否则，选择一个未处理（即不在结果队列R中）且为核心对象的样本点 p，首先将 p 放入结果队列R中，并从D中删除 p。然后找到 D 中 p 的所有密度直达样本点 x，计算 x 到 p 的可达距离，如果 x 不在有序队列 O 中，则将 x 以及可达距离放入 O 中，若 x 在 O 中，则如果 x 新的可达距离更小，则更新 x 的可达距离，最后对 O 中数据按可达距离从小到大重新排序。</p>
+</li>
+<li><p>如果有序队列 O 为空，则回到步骤2，否则取出 O 中第一个样本点 y（即可达距离最小的样本点），放入 R 中，并从 D 和 O 中删除 y。如果 y 不是核心对象，则重复步骤 3（即找 O 中剩余数据可达距离最小的样本点）；如果 y 是核心对象，则找到 y 在 D 中的所有密度直达样本点，并计算到 y 的可达距离，然后按照步骤2将所有 y 的密度直达样本点更新到 O 中。</p>
+</li>
+<li><p>重复步骤2、3，直到算法结束。最终可以得到一个有序的输出结果，以及相应的可达距离。</p>
+</li>
+<li><p>通过上述流程，OPTICS算法最终会得到一个有序的输出结果和相应的可达距离。这个有序的结果可以用来绘制一个可达距离图，通过这个图可以观察到数据的聚类结构。</p>
+<img src="/posts/186e9376.htm/186e9376/image-20251017124214008.png" class title="image-20251017124214008">
+</li>
+</ol>
+<h3 id="2、优缺点-2"><a href="#2、优缺点-2" class="headerlink" title="2、优缺点"></a>2、优缺点</h3><ul>
+<li>无需预设聚类簇数，可发现不同密度和形状的簇。</li>
+<li>对参数不敏感，鲁棒性强。</li>
+<li>能自然发现噪声点和孤立点。</li>
+</ul>
+<ul>
+<li>计算复杂度较高，训练大规模数据集时间较长。</li>
+<li>聚类结构需结合可达距离图分析，理解与参数调整较为复杂。</li>
+</ul>
+<h3 id="3、使用场景-2"><a href="#3、使用场景-2" class="headerlink" title="3、使用场景"></a>3、使用场景</h3><ul>
+<li>复杂、有噪声、密度不均的数据（如时序数据、地理数据、图像分割）。</li>
+<li>无法预先确定簇数时的实际聚类分析。</li>
+</ul>
+<h3 id="4、代码-2"><a href="#4、代码-2" class="headerlink" title="4、代码"></a>4、代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> OPTICS</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># 定义样本数据集</span></span><br><span class="line">X = np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">2</span>, <span class="number">5</span>], [<span class="number">8</span>, <span class="number">7</span>], [<span class="number">3</span>, <span class="number">6</span>], [<span class="number">8</span>, <span class="number">8</span>], [<span class="number">7</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>]])</span><br><span class="line"><span class="comment"># 执行OPTICS算法</span></span><br><span class="line">clustering = OPTICS(min_samples=<span class="number">2</span>).fit(X)</span><br><span class="line"><span class="comment"># 输出核心距离、样本点的排序、可达距离和聚类标签</span></span><br><span class="line"><span class="built_in">print</span>(clustering.core_distances_)</span><br><span class="line"><span class="built_in">print</span>(clustering.ordering_)</span><br><span class="line"><span class="built_in">print</span>(clustering.reachability_)</span><br><span class="line"><span class="built_in">print</span>(clustering.labels_)</span><br></pre></td></tr></table></figure>
+<h2 id="四）K-Means-聚类模型"><a href="#四）K-Means-聚类模型" class="headerlink" title="(四）K-Means 聚类模型"></a>(四）<strong>K-Means 聚类模型</strong></h2><p>K-Means聚类是一种基于距离的聚类方法，通过最小化每个数据点到其所属簇中心点的距离之和，将数据点划分为K个簇。算法的主要思想是：每个簇有一个中心点，数据点被分配到最近的中心点所在的簇中。通过迭代更新每个簇的中心点，使得所有数据点到其所属簇的中心点的距离之和最小</p>
+<img src="/posts/186e9376.htm/186e9376/image-20251015230458282.png" class title="image-20251015230458282">
+<h3 id="1、步骤-3"><a href="#1、步骤-3" class="headerlink" title="1、步骤"></a>1、步骤</h3><ol>
 <li>初始化：随机选择K个中心点。</li>
 <li>分配数据点：将每个数据点分配到最近的中心点所在的簇中。</li>
 <li>更新中心点：重新计算每个簇的中心点，即簇中所有数据点的均值。</li>
 <li>重复：重复步骤2和3，直到中心点不再发生显著变化或达到预设的迭代次数。</li>
 <li>输出：返回K个簇的结果</li>
 </ol>
-<div style="width: 50%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/186e9376/image-20251015230532638.png" class="" title="image-20251015230532638"></div>
+<div style="width: 50%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/186e9376.htm/186e9376/image-20251015230532638.png" class title="image-20251015230532638"></div>
 
 <h3 id="2、优点"><a href="#2、优点" class="headerlink" title="2、优点"></a>2、优点</h3><ul>
 <li>简单易理解：K-Means聚类模型简单直观，易于理解。</li>
@@ -586,29 +526,19 @@ print(clustering.labels_)
 <li>形状限制：只能发现球形簇，对于非球形簇的形状可能无法准确识别。</li>
 <li>计算量大：对于高维数据，计算量较大。</li>
 </ul>
-<h3 id="3、使用场景-1"><a href="#3、使用场景-1" class="headerlink" title="3、使用场景"></a>3、使用场景</h3><ul>
+<h3 id="3、使用场景-3"><a href="#3、使用场景-3" class="headerlink" title="3、使用场景"></a>3、使用场景</h3><ul>
 <li>异常检测：K-Means聚类可以用于异常检测，将异常值识别为与其它数据点距离较远的簇。</li>
 <li>市场细分：在市场营销领域，可以使用K-Means聚类将客户划分为不同的细分市场。</li>
 <li>图像分割：在图像处理中，可以使用K-Means聚类进行图像分割，将图像划分为多个区域或对象。</li>
 <li>特征提取：通过K-Means聚类可以提取数据的内在结构特征，用于分类或预测任务。</li>
 </ul>
-<h3 id="4、代码-1"><a href="#4、代码-1" class="headerlink" title="4、代码"></a>4、代码</h3><pre class=" language-lang-python"><code class="language-lang-python">from sklearn.cluster import KMeans # 导入K-Means聚类算法 
-from sklearn import datasets # 导入datasets用于生成样本数据 
-import matplotlib.pyplot as plt # 导入绘图库 
-iris = datasets.load_iris() # 使用Iris数据集作为示例 
-X = iris["data"] # 提取特征矩阵 
-kmeans = KMeans(n_clusters=3) # 假设有3个簇 
-labels = kmeans.fit_predict(X) # 获取每个样本点的聚类标签 
-plt.scatter(X[:, 0], X[:, 1], c=labels, cmap='viridis') # 使用viridis色彩映射绘制结果图 
-plt.show() # 显示结果图
-</code></pre>
-<p>```</p>
+<h3 id="4、代码-3"><a href="#4、代码-3" class="headerlink" title="4、代码"></a>4、代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans <span class="comment"># 导入K-Means聚类算法 </span></span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets <span class="comment"># 导入datasets用于生成样本数据 </span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt <span class="comment"># 导入绘图库 </span></span><br><span class="line">iris = datasets.load_iris() <span class="comment"># 使用Iris数据集作为示例 </span></span><br><span class="line">X = iris[<span class="string">&quot;data&quot;</span>] <span class="comment"># 提取特征矩阵 </span></span><br><span class="line">kmeans = KMeans(n_clusters=<span class="number">3</span>) <span class="comment"># 假设有3个簇 </span></span><br><span class="line">labels = kmeans.fit_predict(X) <span class="comment"># 获取每个样本点的聚类标签 </span></span><br><span class="line">plt.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], c=labels, cmap=<span class="string">&#x27;viridis&#x27;</span>) <span class="comment"># 使用viridis色彩映射绘制结果图 </span></span><br><span class="line">plt.show() <span class="comment"># 显示结果图 ```</span></span><br></pre></td></tr></table></figure>
 <h1 id="二、评价指标"><a href="#二、评价指标" class="headerlink" title="二、评价指标"></a>二、评价指标</h1><p>常用评估指标包括外部评价指标和内部评价指标。外部评价指标是在已知真实标签的情况下评估聚类结果的准确性，而内部评价指标则是在不知道真实标签的情况下评估聚类结果的质量。</p>
-<h2 id="一）外部指标"><a href="#一）外部指标" class="headerlink" title="(一）外部指标"></a>(一）外部指标</h2><div style="width: 50%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/186e9376/image-20251017131122615.png" class="" title="image-20251017131122615"></div>
+<h2 id="一）外部指标"><a href="#一）外部指标" class="headerlink" title="(一）外部指标"></a>(一）外部指标</h2><div style="width: 50%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/186e9376.htm/186e9376/image-20251017131122615.png" class title="image-20251017131122615"></div>
 
 
 
-<h2 id="二）内部指标"><a href="#二）内部指标" class="headerlink" title="(二）内部指标"></a>(二）内部指标</h2><div style="width: 50%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/186e9376/image-20251017131242527.png" class="" title="image-20251017131242527"></div>
+<h2 id="二）内部指标"><a href="#二）内部指标" class="headerlink" title="(二）内部指标"></a>(二）内部指标</h2><div style="width: 50%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/186e9376.htm/186e9376/image-20251017131242527.png" class title="image-20251017131242527"></div>
 
 
 <p>.jpg)</p>
@@ -727,13 +657,13 @@ plt.show() # 显示结果图
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/fc9d03e3.html">
+                <a href="/posts/45331dc3.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="概率分布检验">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="画图">
                         
-                        <span class="card-title">概率分布检验</span>
+                        <span class="card-title">画图</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -750,8 +680,8 @@ plt.show() # 显示结果图
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A7%91%E7%A0%94%E6%96%B9%E6%B3%95/" class="post-category">
-                                    科研方法
+                            <a href="/categories/%E7%A7%91%E7%A0%94%E6%8A%80%E8%83%BD/" class="post-category">
+                                    科研技能
                                 </a>
                             
                             
@@ -761,8 +691,8 @@ plt.show() # 显示结果图
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%A7%91%E7%A0%94%E6%96%B9%E6%B3%95/">
-                        <span class="chip bg-color">科研方法</span>
+                    <a href="/tags/%E7%A7%91%E7%A0%94%E6%8A%80%E8%83%BD/">
+                        <span class="chip bg-color">科研技能</span>
                     </a>
                     
                 </div>
@@ -776,13 +706,13 @@ plt.show() # 显示结果图
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/9e1a0ec0.html">
+                <a href="/posts/1bda8925.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="识别热点/中心的方法">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="hexo+github搭建博客">
                         
-                        <span class="card-title">识别热点/中心的方法</span>
+                        <span class="card-title">hexo+github搭建博客</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -793,27 +723,19 @@ plt.show() # 显示结果图
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-12-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-09
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A7%91%E7%A0%94%E6%96%B9%E6%B3%95/" class="post-category">
-                                    科研方法
+                            <a href="/categories/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%B0%8Ftips/" class="post-category">
+                                    奇奇怪怪的小tips
                                 </a>
                             
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%A7%91%E7%A0%94%E6%96%B9%E6%B3%95/">
-                        <span class="chip bg-color">科研方法</span>
-                    </a>
-                    
                 </div>
                 
             </div>
