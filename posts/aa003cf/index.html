@@ -412,9 +412,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
 
         
 
@@ -433,11 +430,11 @@
 <p> coverage、sensitivity、speed影响因素</p>
 <p> 总结不能作为唯一的控制因素，可结合k</p>
 <p>重点 ：pre-symptomatic period</p>
-
+<p><img src="/posts/aa003cf/image-20211112220359795.png" alt="image-20211112220359795"></p>
 <h2 id="（二）复合种群"><a href="#（二）复合种群" class="headerlink" title="（二）复合种群"></a>（二）复合种群</h2><h3 id="1、Modelling-and-predicting-the-effect-of-social-distancing-and-travel-restrictions-on-COVID-19-spreading"><a href="#1、Modelling-and-predicting-the-effect-of-social-distancing-and-travel-restrictions-on-COVID-19-spreading" class="headerlink" title="1、Modelling and predicting the effect of social distancing and travel restrictions on COVID-19 spreading"></a>1、Modelling and predicting the effect of social distancing and travel restrictions on COVID-19 spreading</h3><p>通过一个复合种群（融入活动驱动网络ADNS）模型来研究实行社交距离（更侧重于接触网络）和旅行限制（更侧重于社区之间的流动模式）的效力，结果表明，流动限制很大程度上取决于及时实施NPI的可能性，而在疫情爆发后优先考虑减少活动。</p>
 <p>（1）模型：</p>
-
-
+<p><img src="/posts/aa003cf/image-20211114162614569-16403221948065.png" alt="image-20211114162614569"></p>
+<p><img src="/posts/aa003cf/image-20211114162639988-16403221921974.png" alt="image-20211114162639988"></p>
 <p>（2）校准：</p>
 <p>在校准模型时，用死亡人数校准，以致死率f<del>1</del>=0.045%和f<del>2</del>=5.6%；初始E、I定位6月24日观察到病例总数的k<del>1</del>、k<del>2</del>部分；补全2.24日前20天的0死亡数，修正2.20-23中7例死亡数</p>
 <p>（3）方法：</p>
@@ -478,23 +475,23 @@
 <p>图中比较了联合接种和同等剂量的单独大规模对比，联合接种中考虑触发反应疫苗接种的阈值分别为1、5、10人。在基准模型中 发现1例就执行TTI，比大规模接种的发病率降低了10%，当随着干预开始时间的退后，发病率有一定的上升，而且加强的TTI策略以及反应疫苗的摄入量增加都会使发病率有明显性的降低。</p>
 <p>所以在初始疫苗覆盖率较低时，引入反应性疫苗接种策略的效果比较明显。但当初始疫苗覆盖率较高时，纳入大规模疫苗和反应性疫苗的结合，并融入增强TTI政策和增加疫苗摄入量，首次发现变种病例后尽早执行反应性疫苗策略，会达到很好的效果。</p>
 <h2 id="（三）局部个体传播"><a href="#（三）局部个体传播" class="headerlink" title="（三）局部个体传播"></a>（三）局部个体传播</h2><h3 id="1、20210609-Tracing-contacts-to-evaluate-the-transmission-of-COVID-19-from-highly-exposed-individuals-in-public-transportation"><a href="#1、20210609-Tracing-contacts-to-evaluate-the-transmission-of-COVID-19-from-highly-exposed-individuals-in-public-transportation" class="headerlink" title="1、20210609-Tracing contacts to evaluate the transmission of COVID-19 from highly exposed individuals in public transportation"></a>1、20210609-Tracing contacts to evaluate the transmission of COVID-19 from highly exposed individuals in public transportation</h3><p>在这项工作中使用了两个流行病学模型，以了解巴西福塔莱萨 COVID-19疫情期间的公共交通传播。采用接触追踪模型估计城市公交车内部传播(微观尺度)，再采用分室模型（SEIIR）评估整个城市(宏观尺度)内传播，结果显示，除了第一波和第二波每日病例之间的三个月，$Re^{bus}$在当地COVID-19暴发期间一直跟踪$Re^{city}$。此外，直到7月底，由公共汽车内医护人员传播的$Re^{health}$值持续大于$Re^{bus}$值。医护人员等其他高度暴露人群也可能以类似方式影响病毒传播动态。因此必须提出特殊政策来支持(或避免)高度暴露人群的流离失所</p>
-
+<p><img src="/posts/aa003cf/image-20210813142725646-16403221871903.png" alt="image-20210813142725646"></p>
 <h3 id="2、Using-high-resolution-contact-networks-to-evaluate-SARS-CoV-2-transmission-and-control-in-large-scale-multi-day-events"><a href="#2、Using-high-resolution-contact-networks-to-evaluate-SARS-CoV-2-transmission-and-control-in-large-scale-multi-day-events" class="headerlink" title="2、Using high-resolution contact networks to evaluate SARS-CoV-2 transmission and control in large-scale multi-day events"></a>2、Using high-resolution contact networks to evaluate SARS-CoV-2 transmission and control in large-scale multi-day events</h3><p>abstract：采用邮轮上乘客与船员之间接触的高分辨率数据，与网络传播模型相结合，进行真实接触及模拟传播，平均每乘客每天接触次数为20次，发现疫苗覆盖率和高速抗原检测比单独戴口罩有很大的效果，揭示联合干预措施的效果。</p>
 <p>data：20年11月-21年2月，多次航行平均1000船员和1300乘客的联系数据（共5216乘客和4197船员），由此产生社交网络。抽取3天4次航行，37小时数据手机到1846312独特联系对的联系事件，邮轮50%载客量，乘客船员1:1。</p>
 <p>model：接触数据生成无向网络，节点和边缘分布代表个体和他们之间的接触。扩展社区网络传播模型，模拟7天内delta的传播，考虑4种干预措施：(i)起航前一天的一次性PCR检测(以留出检测时间)，(ii)在活动开始和中途进行快速抗原检测，(iii)在可行的环境中佩戴口罩(iv)参与者的疫苗接种覆盖率影响。假设呈阳性立即隔离，抗原检测随病毒载量变化，乘客和船员接触均带口罩，乘客和船员组内接触遵循。90% 在事件发生后才出现症状，症状前传播占传播的25%，因此在该事件中有时可能发生两代以上的感染</p>
 <p>calculate：船员平均每天10个接触次数，乘客20个；71%发生在餐饮地，其中23%和38%发生在自助餐厅和包容性餐厅，16%发生在娱乐场所，8%发生在体育场所。通过引入一个一次性的PCR测试巡航的开始之前的一天,该指数是孤立在49%的时间,而5%的剩余的模拟结果不传播由于早期疾病传播的随机性质和社交网络的结构(图4 b)。结果，超过一半的模拟没有二次病例。通过PCR干预，10例以上爆发的风险降低到22%。然而，在事件开始和中途进行快速抗原检测，只有3%的模拟结果导致大规模爆发。</p>
 <p>problem：大型事件在真实世界网络传播动态还有待探索；了解传播对接触网络的属性进行分析；邮轮接触率较高</p>
-<h2 id="（四）个体数据分析"><a href="#（四）个体数据分析" class="headerlink" title="（四）个体数据分析"></a>（四）个体数据分析</h2><h3 id="1、A-data-driven-agent-based-model-that-recommends-non-pharmaceutical-interventions-to-suppress-Coronavirus-disease-2019-resurgence-in-megacities"><a href="#1、A-data-driven-agent-based-model-that-recommends-non-pharmaceutical-interventions-to-suppress-Coronavirus-disease-2019-resurgence-in-megacities" class="headerlink" title="1、A data driven agent-based model that recommends non-pharmaceutical interventions to suppress Coronavirus disease 2019 resurgence in megacities"></a>1、A data driven agent-based model that recommends non-pharmaceutical interventions to suppress Coronavirus disease 2019 resurgence in megacities</h3>
+<h2 id="（四）个体数据分析"><a href="#（四）个体数据分析" class="headerlink" title="（四）个体数据分析"></a>（四）个体数据分析</h2><h3 id="1、A-data-driven-agent-based-model-that-recommends-non-pharmaceutical-interventions-to-suppress-Coronavirus-disease-2019-resurgence-in-megacities"><a href="#1、A-data-driven-agent-based-model-that-recommends-non-pharmaceutical-interventions-to-suppress-Coronavirus-disease-2019-resurgence-in-megacities" class="headerlink" title="1、A data driven agent-based model that recommends non-pharmaceutical interventions to suppress Coronavirus disease 2019 resurgence in megacities"></a>1、A data driven agent-based model that recommends non-pharmaceutical interventions to suppress Coronavirus disease 2019 resurgence in megacities</h3><p><img src="/posts/aa003cf/扫描全能王 2022-10-08 23.37.jpg" alt="扫描全能王 2022-10-08 23.37"></p>
 <h2 id="（五）群体——区域流动数据"><a href="#（五）群体——区域流动数据" class="headerlink" title="（五）群体——区域流动数据"></a>（五）群体——区域流动数据</h2><h3 id="干预措施的影响"><a href="#干预措施的影响" class="headerlink" title="干预措施的影响"></a>干预措施的影响</h3><h4 id="1、20200912-Mobile-device-data-reveal-the-dynamics-in-a-positive-relationship-between-human-mobility-and-COVID-19-infections"><a href="#1、20200912-Mobile-device-data-reveal-the-dynamics-in-a-positive-relationship-between-human-mobility-and-COVID-19-infections" class="headerlink" title="1、20200912-Mobile device data reveal the dynamics in a positive relationship between human mobility and COVID-19 infections"></a>1、20200912-Mobile device data reveal the dynamics in a positive relationship between human mobility and COVID-19 infections</h4><p>使用移动设备定位数据，每日更新美国3141个县的OD旅行需求分析和流动流量，通过一个时变系数的联立方程建模过程，刻画了人口流入和感染人数之间的量化的正关系，在整个研究期间，锁定组的系数始终高于重新开放组的系数，表明锁定县的流动流入存在更高的风险。全国平均系数为0.243，表明如果今天观察到的流入人口增加了10%，在其他条件相同的情况下，预计一周后感染人数将增加2.34%(即模型滞后= 7)。这种正相关关系在COVID-19发病期间急剧增加，然后在国家逐渐进入锁定状态时减弱。在重新开放发布大约两周后，它开始反弹。</p>
-
+<p><img src="/posts/aa003cf/image-20210803094609632-16403221817592.png" alt="image-20210803094609632"></p>
 <h4 id="2、20200331-An-investigation-of-transmission-control-measures-during-the-first-50-days-of-the-COVID-19-epidemic-in-China"><a href="#2、20200331-An-investigation-of-transmission-control-measures-during-the-first-50-days-of-the-COVID-19-epidemic-in-China" class="headerlink" title="2、20200331-An investigation of transmission control measures during the first 50 days of the COVID-19 epidemic in China"></a>2、20200331-An investigation of transmission control measures during the first 50 days of the COVID-19 epidemic in China</h4><p>采用武汉到其他城市的流动量，发现武汉停运与其他城市新冠肺炎疫情延误2.91天有关。与较晚开始控制的城市(20.6)相比，提前实施控制措施的城市在疫情爆发的第一周报告的病例平均较少(13.0例)。模拟如果不实行应急措施和武汉禁行的命令（实行武汉禁令影响流动性），在2月19日(第50天)预估会产生74.4万例，与实际相比避免了几十万例病例。</p>
-
-<h4 id="3、The-impact-of-relaxing-interventions-on-human-contact-patterns-and-SARS-Cov-2-transmission-in-China"><a href="#3、The-impact-of-relaxing-interventions-on-human-contact-patterns-and-SARS-Cov-2-transmission-in-China" class="headerlink" title="3、The impact of relaxing interventions on human contact patterns and SARS-Cov-2 transmission in China"></a>3、The impact of relaxing interventions on human contact patterns and SARS-Cov-2 transmission in China</h4>
-
-<h2 id="（六）经济制衡"><a href="#（六）经济制衡" class="headerlink" title="（六）经济制衡"></a>（六）经济制衡</h2><h3 id="1、optimizing-social-and-economic-activity-while-containing-SARS-Cov-2-transmission-using-DAEDALUS"><a href="#1、optimizing-social-and-economic-activity-while-containing-SARS-Cov-2-transmission-using-DAEDALUS" class="headerlink" title="1、optimizing social and economic activity while containing SARS-Cov-2 transmission using DAEDALUS"></a>1、optimizing social and economic activity while containing SARS-Cov-2 transmission using DAEDALUS</h3>
-
-
-<h2 id="（七）综述"><a href="#（七）综述" class="headerlink" title="（七）综述"></a>（七）综述</h2><h3 id="1、What-human-mobility-data-tell-us-about-COVID-19-spread"><a href="#1、What-human-mobility-data-tell-us-about-COVID-19-spread" class="headerlink" title="1、What human mobility data tell us about COVID-19 spread?"></a>1、What human mobility data tell us about COVID-19 spread?</h3>
+<p><img src="/posts/aa003cf/image-20210803094315316-16403221716261.png" alt="image-20210803094315316"></p>
+<h4 id="3、The-impact-of-relaxing-interventions-on-human-contact-patterns-and-SARS-Cov-2-transmission-in-China"><a href="#3、The-impact-of-relaxing-interventions-on-human-contact-patterns-and-SARS-Cov-2-transmission-in-China" class="headerlink" title="3、The impact of relaxing interventions on human contact patterns and SARS-Cov-2 transmission in China"></a>3、The impact of relaxing interventions on human contact patterns and SARS-Cov-2 transmission in China</h4><p><img src="/posts/aa003cf/扫描全能王 2022-10-12 16.57_1.jpg" alt="扫描全能王 2022-10-12 16.57\_1"></p>
+<p><img src="/posts/aa003cf/扫描全能王 2022-10-12 16.57_4.jpg" alt="扫描全能王 2022-10-12 16.57\_4"></p>
+<h2 id="（六）经济制衡"><a href="#（六）经济制衡" class="headerlink" title="（六）经济制衡"></a>（六）经济制衡</h2><h3 id="1、optimizing-social-and-economic-activity-while-containing-SARS-Cov-2-transmission-using-DAEDALUS"><a href="#1、optimizing-social-and-economic-activity-while-containing-SARS-Cov-2-transmission-using-DAEDALUS" class="headerlink" title="1、optimizing social and economic activity while containing SARS-Cov-2 transmission using DAEDALUS"></a>1、optimizing social and economic activity while containing SARS-Cov-2 transmission using DAEDALUS</h3><p><img src="/posts/aa003cf/扫描全能王 2022-10-27 10.38_1.jpg" alt="扫描全能王 2022-10-27 10.38\_1"></p>
+<p><img src="/posts/aa003cf/扫描全能王 2022-10-27 10.38_2.jpg" alt="扫描全能王 2022-10-27 10.38\_2"></p>
+<p><img src="/posts/aa003cf/扫描全能王 2022-10-27 10.38_3.jpg" alt="扫描全能王 2022-10-27 10.38\_3"></p>
+<h2 id="（七）综述"><a href="#（七）综述" class="headerlink" title="（七）综述"></a>（七）综述</h2><h3 id="1、What-human-mobility-data-tell-us-about-COVID-19-spread"><a href="#1、What-human-mobility-data-tell-us-about-COVID-19-spread" class="headerlink" title="1、What human mobility data tell us about COVID-19 spread?"></a>1、What human mobility data tell us about COVID-19 spread?</h3><p><img src="/posts/aa003cf/image-20211224130119720.png" alt="image-20211224130119720"></p>
 <h3 id="2、-Human-behavior-and-disease-dynamics"><a href="#2、-Human-behavior-and-disease-dynamics" class="headerlink" title="2、#####Human behavior and disease dynamics"></a>2、#####Human behavior and disease dynamics</h3><p>不同传染病线性基本都是前期缓慢增长，迅速到达峰值，然后再迅速下降。典型的SIR模型研究的线性会导致这样的线性，但实际中可能受季节性因素等原因出现不同结果。</p>
 <p>新冠传染和其它有明显的不同，这在于新冠流行会影响人们的行为习惯（对npi的遵从性），而人的行为又会影响新冠的传播。经典的SIR模型考虑到人的接触概率，但又忽视了人们行为的变化，这可能会导致很多npi不被严格遵守而没有起到效果，《Dynamics in a behavioral–epidemiological model for individual adherence to a nonpharmaceutical intervention》证明了人类行为将影响大流行中感染的平均人数。</p>
 <h1 id="二、Urban-complexity"><a href="#二、Urban-complexity" class="headerlink" title="二、Urban complexity"></a>二、Urban complexity</h1><h2 id="1、Sequences-of-purchases-in-credit-card-data-reveal-lifestyles-in-urban-populations"><a href="#1、Sequences-of-purchases-in-credit-card-data-reveal-lifestyles-in-urban-populations" class="headerlink" title="1、Sequences of purchases in credit card data reveal lifestyles in urban populations"></a>1、Sequences of purchases in credit card data reveal lifestyles in urban populations</h2><p>交易类型的不均匀分布与个人选择购买方式有关，本文采用文本压缩技术分析信用卡购买序列以检测普遍存在的集体行为模式，对购买序列相似性进行聚类，检测出5个有显著性特征的消费群体，对他们的社会学人口特征进行分析，解释对人类集体行为的见解。</p>
@@ -521,14 +518,14 @@
 <p>②zipf分布：最先在语料库中分析单词出现的频率与其排名呈反比，只有极少的单词被经常使用，大多数单词很少被使用。最常用的是第2常用的2倍，是第n常用的n倍。</p>
 <p>③louvain：</p>
 <p>④Sequitur algorithm：</p>
-<h1 id="三、human-mobility"><a href="#三、human-mobility" class="headerlink" title="三、human mobility"></a>三、human mobility</h1><h2 id="1、Ranking-location-in-a-city-via-the-collective-home-work-relations-in-human-mobility-data"><a href="#1、Ranking-location-in-a-city-via-the-collective-home-work-relations-in-human-mobility-data" class="headerlink" title="1、Ranking location in a city via the collective home-work relations in human mobility data"></a>1、Ranking location in a city via the collective home-work relations in human mobility data</h2>
-
-<h2 id="2、Bursty-visitation-of-locations-in-human-mobility"><a href="#2、Bursty-visitation-of-locations-in-human-mobility" class="headerlink" title="2、Bursty visitation of locations in human mobility"></a>2、Bursty visitation of locations in human mobility</h2>
-<h2 id="3、-Effects-of-mobility-restrictions-during-COVID19-in-Italy"><a href="#3、-Effects-of-mobility-restrictions-during-COVID19-in-Italy" class="headerlink" title="3、 Effects of mobility restrictions during COVID19 in Italy"></a>3、 Effects of mobility restrictions during COVID19 in Italy</h2>
-
-
-
-
+<h1 id="三、human-mobility"><a href="#三、human-mobility" class="headerlink" title="三、human mobility"></a>三、human mobility</h1><h2 id="1、Ranking-location-in-a-city-via-the-collective-home-work-relations-in-human-mobility-data"><a href="#1、Ranking-location-in-a-city-via-the-collective-home-work-relations-in-human-mobility-data" class="headerlink" title="1、Ranking location in a city via the collective home-work relations in human mobility data"></a>1、Ranking location in a city via the collective home-work relations in human mobility data</h2><p><img src="/posts/aa003cf/扫描全能王 2022-10-06 14.52_1.jpg" alt="1"></p>
+<p><img src="/posts/aa003cf/扫描全能王 2022-10-06 14.52_2.jpg" alt="2"></p>
+<h2 id="2、Bursty-visitation-of-locations-in-human-mobility"><a href="#2、Bursty-visitation-of-locations-in-human-mobility" class="headerlink" title="2、Bursty visitation of locations in human mobility"></a>2、Bursty visitation of locations in human mobility</h2><p><img src="/posts/aa003cf/扫描全能王 2022-10-07 22.34.jpg" alt="扫描全能王 2022-10-07 22.34"></p>
+<h2 id="3、-Effects-of-mobility-restrictions-during-COVID19-in-Italy"><a href="#3、-Effects-of-mobility-restrictions-during-COVID19-in-Italy" class="headerlink" title="3、 Effects of mobility restrictions during COVID19 in Italy"></a>3、 Effects of mobility restrictions during COVID19 in Italy</h2><p><img src="/posts/aa003cf/扫描全能王 2022-10-26 22.00_1.jpg" alt="扫描全能王 2022-10-26 22.00\_1"></p>
+<p><img src="/posts/aa003cf/扫描全能王 2022-10-26 22.00_2.jpg" alt="扫描全能王 2022-10-26 22.00\_2"></p>
+<p><img src="/posts/aa003cf/扫描全能王 2022-10-26 22.00_3.jpg" alt="扫描全能王 2022-10-26 22.00\_3"></p>
+<p><img src="/posts/aa003cf/扫描全能王 2022-10-26 22.00_5.jpg" alt="扫描全能王 2022-10-26 22.00\_5"></p>
+<p><img src="/posts/aa003cf/扫描全能王 2022-10-26 22.00_8.jpg" alt="扫描全能王 2022-10-26 22.00\_8"></p>
 <p>本文分析意大利封锁前中后对移动的影响，使用Facebook提供了300多万意大利人在子城市水平每天的流动，构建跨区域的人类移动网络，基于网络科学和渗透理论的方法框架探索意大利2020年大流行前COVID-19对人类移动的影响，衡量封锁对经济造成的影响。</p>
 <p>封锁前和封锁期间的网络架构：将意大利整个国家连续空间划分为7*7公里的的栅格，由于栅格不代表实际的行政区域，后续的分析会将栅格聚合为8000市、100省、20地区不同级别，当在给定时间窗口（8h）两个位置人数差N大于10个则会形成一条连边，边权则为流动人数N（连边除携带边权外还携带地理距离信息），在聚合时过程中将边权累加，可能会导致自环现象，但本文关注的是不同位置的连通性，所以所有的自环都不考虑。</p>
 <p>在本文中考虑四个时间段：1、封锁前作为基线模型，2020年2月底到3月8日；2、全面封锁时期，从3月9日到5月18日；3、部分限制，从5月19日到6月3日；4、移除所有限制，6月4日到7月中旬</p>
@@ -548,8 +545,8 @@
 <p>Fig7：图7a显示了意大利各省的国内生产总值(GDP)与其流动加权度之间的相关性。一个省的流动与GDP之间存在着密切的关系，其相关性（皮尔逊相关系数）超过60%:corr(GDP, Kw) = 0.64，这意味着流动性是经济的一个合理指标。</p>
 <p>我们进一步比较 OECD的数据和我们的流动性指标，该数据基于多个可获得的来源在国家层面上计算经济活动可得出估计的GDP (EGDP)，且与官方公布的季度GDP相近。图7b显示了平均加权度(蓝绿色，左轴)与相关评估的GDP(红色，右轴)的密切程度。这里的相关性甚至更高达到ρ(EGDP， \<Kw,p>)= 0.89，每周更新的德塔EGDP = EGDP(i)−EGDP(i−1)，德塔Kw= \<Kw(i)>−\<Kw(i−1)>关系也很紧密，ρ(德塔EGDP，德塔Kw)= 0.58。</Kw(i−1)></Kw(i)></Kw,p></p>
 <p>虽然受影响的流动性和经济影响之间的因果关系可能远非如此，但我们现在这种方法，可以对地区或地方的经济影响进行估计。图5显著的线性关系可以帮助我们粗略估计统一的各省gdp，从每个省份的流动模式中可以看出这种线性关系的偏差，再加上GDP和流动之间的密切关系，可以进行细粒度的、对特定省份的分析，并从观察到的流动动态中对不同的地方经济影响作出深入的预期。图7c-f显示了对几个省份的GDP的预测。</p>
-<p>省-基于GDP的预测。为了生成每个省份的GDP预测，我们结合了流动和GDP之间的密切关系，包括静态(图7a)和动态(图7b)。为此，我们将一个地区随时间变化的GDP重写为(2)</p>
-<p>其中是初始水平(这里将其作为2017年的值作为各省最新发布的数据点，但可以用更近期的估计来替代)，每周更新的使用动态关系进行估计。现在我们将每周GDP变化与流动性进行回归(3)作为初始估计。然后根据GDPi与之间的相关性，从后者生成相关随机变量，将3代入2。完成最后一部分是为了能够围绕平均水平生成统计数据，这可以通过将相关省份的插入3直接得到。现在我们有了计算预期GDPt和它可能需要的范围的所有组件。</p>
+<p>省-基于GDP的预测。为了生成每个省份的GDP预测，我们结合了流动和GDP之间的密切关系，包括静态(图7a)和动态(图7b)。为此，我们将一个地区随时间变化的GDP重写为<img src="/posts/aa003cf/clip_image002.jpg" alt="img">(2)</p>
+<p>其中<img src="/posts/aa003cf/clip_image004.jpg" alt="img">是初始水平(这里将其作为2017年的值作为各省最新发布的数据点，但可以用更近期的估计来替代)，每周更新的<img src="/posts/aa003cf/clip_image006.jpg" alt="img">使用动态关系进行估计。现在我们将每周GDP变化与流动性进行回归<img src="/posts/aa003cf/clip_image008.jpg" alt="img">(3)作为初始估计。然后根据GDPi与<img src="/posts/aa003cf/clip_image010.jpg" alt="img">之间的相关性，从后者生成相关随机变量，将3代入2。完成最后一部分是为了能够围绕平均水平生成统计数据，这可以通过将相关省份的插入3直接得到。现在我们有了计算预期GDPt和它可能需要的范围的所有组件。</p>
 <p>但是为了揭示意大利流动限制对不同领土的异质反应（可能标志着地方经济系统的竞争经济轨迹），在图8中展示了意大利流动网络与平均收入水平的关系。即使在实行限制的情况下经济仍保持联系，且保持相对的经济实力。我们考虑的是在市一级构建的流动网络和人均收入。</p>
 <p>在大流行爆发之前，意大利的流动网络是由一个主要连接的城市集团组成的，平均而言这些城市的人均收入水平高于网络中较次要的城市。在实施封锁限制后，我们注意到GCC的规模显著缩小，而从人均收入却有所增加。因此，为遏制病毒传播而实施的流动限制的一个相关影响是出现了强制的经济隔离，即人口高收入的城市往往相互联系，而人口经济条件较差的城市则被排除在意大利流动网络的主要组成部分之外。一旦解除流动性限制，这种影响就会消失，并迅速恢复到封锁前的水平。此外，渗透过程可以提供信息，以确定哪些城市可能在网络开始恶化时脱离GCC。如图6所示，封锁限制决定了参数q的急剧下降。因此，图8强调了在封锁期间，GCC消散之前达到的平均节点数与q = 0时的非常相似。然而在封锁前阶段或取消封锁限制后，逐步脱离的节点的人均收入低于留在GCC中的节点。而且GCC的核心似乎指向高度连接节点的存在，这些节点的平均经济条件也比其它的更好。</p>
 
