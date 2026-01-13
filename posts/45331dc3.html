@@ -373,9 +373,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%A7%91%E7%A0%94%E6%8A%80%E8%83%BD/">
+                                <span class="chip bg-color">科研技能</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -417,12 +421,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="画图"><a href="#画图" class="headerlink" title="画图"></a>画图</h1><h2 id="一、画图基本代码"><a href="#一、画图基本代码" class="headerlink" title="一、画图基本代码"></a>一、画图基本代码</h2><h3 id="1、引入库"><a href="#1、引入库" class="headerlink" title="1、引入库"></a>1、引入库</h3><pre class=" language-lang-python"><code class="language-lang-python">import matplotlib.pyplot as plt
+                <h1 id="一、画图基本代码"><a href="#一、画图基本代码" class="headerlink" title="一、画图基本代码"></a>一、画图基本代码</h1><h2 id="1、引入库"><a href="#1、引入库" class="headerlink" title="1、引入库"></a>1、引入库</h2><pre class=" language-lang-python"><code class="language-lang-python">import matplotlib.pyplot as plt
 import seaborn as sns
 plt.rcParams['figure.dpi'] = 300
 plt.rcParams['font.sans-serif'] = ['Microsoft YaHei']
 </code></pre>
-<h3 id="2、直方分布图"><a href="#2、直方分布图" class="headerlink" title="2、直方分布图"></a>2、直方分布图</h3><pre class=" language-lang-python"><code class="language-lang-python">plt.figure(figsize=(10, 6))
+<h2 id="2、直方分布图"><a href="#2、直方分布图" class="headerlink" title="2、直方分布图"></a>2、直方分布图</h2><pre class=" language-lang-python"><code class="language-lang-python">plt.figure(figsize=(10, 6))
 data = [np.log10(a) for a in list_conformity_real]  # 对数直方图，以10为底，np.log(a)默认以e为底
 min_val, max_val = np.min(data), np.max(data)
 bins1 = np.linspace(min_val, max_val, num=30)
@@ -430,7 +434,7 @@ sns.histplot(data, bins=bins1, color="red", alpha=0.7, label='real_data')  # sta
 # plt.hist(l1, bins=30, range=(min_val, max_val), color='red', edgecolor='black', alpha=0.7)
 # sns是升级的直方图，plt.hist是基础直方图
 </code></pre>
-<h3 id="3、互补累计分布图"><a href="#3、互补累计分布图" class="headerlink" title="3、互补累计分布图"></a>3、互补累计分布图</h3><pre class=" language-lang-python"><code class="language-lang-python">from collections import Counter
+<h2 id="3、互补累计分布图"><a href="#3、互补累计分布图" class="headerlink" title="3、互补累计分布图"></a>3、互补累计分布图</h2><pre class=" language-lang-python"><code class="language-lang-python">from collections import Counter
 plt.figure(figsize=(10, 6))
 count = Counter(list_conformity_real)  # 计算出现频次
 x = sorted(count.keys())
@@ -450,7 +454,7 @@ plt.ylabel('概率', fontsize=14)
 # plt.ylim(bottom=1e-6)  # 设置y轴下限
 plt.show()
 </code></pre>
-<h3 id="4、拟合正态分布并检验"><a href="#4、拟合正态分布并检验" class="headerlink" title="4、拟合正态分布并检验"></a>4、拟合正态分布并检验</h3><pre class=" language-lang-python"><code class="language-lang-python">from scipy.stats import norm
+<h2 id="4、拟合正态分布并检验"><a href="#4、拟合正态分布并检验" class="headerlink" title="4、拟合正态分布并检验"></a>4、拟合正态分布并检验</h2><pre class=" language-lang-python"><code class="language-lang-python">from scipy.stats import norm
 from scipy.stats import shapiro, kstest
 import statsmodels.api as sm
 
@@ -473,18 +477,18 @@ sm.qqplot(np.array(data), line='45')
 plt.show()
 # 点大致沿对角线分布说明近似正态
 </code></pre>
-<h2 id="二、ArcGIS操作"><a href="#二、ArcGIS操作" class="headerlink" title="二、ArcGIS操作"></a>二、ArcGIS操作</h2><h3 id="1、获得城市矢量底图的步骤"><a href="#1、获得城市矢量底图的步骤" class="headerlink" title="1、获得城市矢量底图的步骤"></a>1、获得城市矢量底图的步骤</h3><p>打开arcmap-添加数据-AddBasemap-选择一个合适的风格，然后选定自己想要的地区(查找-输入地区名称)-文件-导出地图-emp/emf</p>
-<h2 id="三、画图示例图"><a href="#三、画图示例图" class="headerlink" title="三、画图示例图"></a>三、画图示例图</h2><h3 id="1、折线图"><a href="#1、折线图" class="headerlink" title="1、折线图"></a><strong>1、折线图</strong></h3><ul>
+<h1 id="二、ArcGIS操作"><a href="#二、ArcGIS操作" class="headerlink" title="二、ArcGIS操作"></a>二、ArcGIS操作</h1><h2 id="1、获得城市矢量底图的步骤"><a href="#1、获得城市矢量底图的步骤" class="headerlink" title="1、获得城市矢量底图的步骤"></a>1、获得城市矢量底图的步骤</h2><p>打开arcmap-添加数据-AddBasemap-选择一个合适的风格，然后选定自己想要的地区(查找-输入地区名称)-文件-导出地图-emp/emf</p>
+<h1 id="三、画图示例图"><a href="#三、画图示例图" class="headerlink" title="三、画图示例图"></a>三、画图示例图</h1><h2 id="1、折线图"><a href="#1、折线图" class="headerlink" title="1、折线图"></a><strong>1、折线图</strong></h2><ul>
 <li><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S026427512500705X?dgcid=rss_sd_all#f0040">https://www.sciencedirect.com/science/article/pii/S026427512500705X?dgcid=rss_sd_all#f0040</a></li>
 </ul>
 <img src="/posts/45331dc3/image-20250917212139733.png" class="" title="image-20250917212139733">
 <img src="/posts/45331dc3/image-20250917212148077.png" class="" title="image-20250917212148077">
-<h3 id="2、柱状图"><a href="#2、柱状图" class="headerlink" title="2、柱状图"></a>2、柱状图</h3><h3 id="3、饼图"><a href="#3、饼图" class="headerlink" title="3、饼图"></a>3、饼图</h3><h3 id="4、散点图"><a href="#4、散点图" class="headerlink" title="4、散点图"></a>4、散点图</h3><ul>
+<h2 id="2、柱状图"><a href="#2、柱状图" class="headerlink" title="2、柱状图"></a>2、柱状图</h2><h2 id="3、饼图"><a href="#3、饼图" class="headerlink" title="3、饼图"></a>3、饼图</h2><h2 id="4、散点图"><a href="#4、散点图" class="headerlink" title="4、散点图"></a>4、散点图</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://echarts.apache.org/examples/zh/editor.html?c=scatter-jitter">https://echarts.apache.org/examples/zh/editor.html?c=scatter-jitter</a></li>
 </ul>
 <div style="width: 25%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/45331dc3/image-20250917212221636.png" class="" title="image-20250917212221636"></div>
 
-<h3 id="5、地图"><a href="#5、地图" class="headerlink" title="5、地图"></a>5、地图</h3><h3 id="6、雷达图"><a href="#6、雷达图" class="headerlink" title="6、雷达图"></a>6、雷达图</h3><h3 id="7、箱线图"><a href="#7、箱线图" class="headerlink" title="7、箱线图"></a>7、箱线图</h3><h3 id="8、热力图"><a href="#8、热力图" class="headerlink" title="8、热力图"></a>8、热力图</h3><ul>
+<h2 id="5、地图"><a href="#5、地图" class="headerlink" title="5、地图"></a>5、地图</h2><h2 id="6、雷达图"><a href="#6、雷达图" class="headerlink" title="6、雷达图"></a>6、雷达图</h2><h2 id="7、箱线图"><a href="#7、箱线图" class="headerlink" title="7、箱线图"></a>7、箱线图</h2><h2 id="8、热力图"><a href="#8、热力图" class="headerlink" title="8、热力图"></a>8、热力图</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S026427512500705X?dgcid=rss_sd_all#f0040">https://www.sciencedirect.com/science/article/pii/S026427512500705X?dgcid=rss_sd_all#f0040</a></li>
 </ul>
 <img src="/posts/45331dc3/image-20250917212303984.png" class="" title="image-20250917212303984">
@@ -503,12 +507,12 @@ plt.show()
 
 
 
-<h3 id="9、关系图"><a href="#9、关系图" class="headerlink" title="9、关系图"></a>9、关系图</h3><ul>
+<h2 id="9、关系图"><a href="#9、关系图" class="headerlink" title="9、关系图"></a>9、关系图</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://echarts.apache.org/examples/zh/editor.html?c=graph-circular-layout">https://echarts.apache.org/examples/zh/editor.html?c=graph-circular-layout</a></li>
 </ul>
 <div style="width: 33%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/45331dc3/image-20250917212434103.png" class="" title="image-20250917212434103"></div>
 
-<h3 id="10、桑基图"><a href="#10、桑基图" class="headerlink" title="10、桑基图"></a>10、桑基图</h3><ul>
+<h2 id="10、桑基图"><a href="#10、桑基图" class="headerlink" title="10、桑基图"></a>10、桑基图</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://echarts.apache.org/examples/zh/editor.html?c=sankey-energy">https://echarts.apache.org/examples/zh/editor.html?c=sankey-energy</a></li>
 </ul>
 <div style="width: 33%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/45331dc3/image-20250917212452072.png" class="" title="image-20250917212452072"></div>
@@ -576,7 +580,11 @@ plt.show()
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E7%A7%91%E7%A0%94%E6%8A%80%E8%83%BD/">
+                                    <span class="chip bg-color">科研技能</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -624,13 +632,13 @@ plt.show()
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/7f5a32bc.html">
+                <a href="/posts/3644d420.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="常用代码">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="写Paper">
                         
-                        <span class="card-title">常用代码</span>
+                        <span class="card-title">写Paper</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -656,6 +664,14 @@ plt.show()
                     </div>
                 </div>
                 
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%A7%91%E7%A0%94%E6%8A%80%E8%83%BD/">
+                        <span class="chip bg-color">科研技能</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
@@ -665,13 +681,13 @@ plt.show()
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/fc9d03e3.html">
+                <a href="/posts/7f5a32bc.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="概率分布检验">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="常用代码">
                         
-                        <span class="card-title">概率分布检验</span>
+                        <span class="card-title">常用代码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -688,13 +704,21 @@ plt.show()
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A7%91%E7%A0%94%E6%96%B9%E6%B3%95/" class="post-category">
-                                    科研方法
+                            <a href="/categories/%E7%A7%91%E7%A0%94%E6%8A%80%E8%83%BD/" class="post-category">
+                                    科研技能
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%A7%91%E7%A0%94%E6%8A%80%E8%83%BD/">
+                        <span class="chip bg-color">科研技能</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -824,6 +848,13 @@ plt.show()
 </main>
 
 
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
@@ -886,7 +917,7 @@ plt.show()
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021-2025</span>
+                <span id="year">2021-2026</span>
             
             <span id="year">2021</span>
             <a href="/about" target="_blank">猴猴猴</a>

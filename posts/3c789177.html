@@ -1,0 +1,1297 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="s-singbox搭建VPN, 猴猴猴">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>s-singbox搭建VPN | 猴猴猴</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<style>
+    /* ----------------------------------------------------------- */
+    /* 1. 基础清理：隐藏不需要的文字 */
+    /* ----------------------------------------------------------- */
+    .card .card-content .summary, 
+    .caption, .img-caption, .fancybox-caption, 
+    .img-item .caption { 
+        display: none !important; 
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">猴猴猴</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">猴猴猴</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">s-singbox搭建VPN</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%B0%8Ftips/" class="post-category">
+                                奇奇怪怪的小tips
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-01-10
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="一、前期准备"><a href="#一、前期准备" class="headerlink" title="一、前期准备"></a>一、前期准备</h1><h2 id="（一）VPS常用命令"><a href="#（一）VPS常用命令" class="headerlink" title="（一）VPS常用命令"></a>（一）VPS常用命令</h2><h3 id="1、登录"><a href="#1、登录" class="headerlink" title="1、登录"></a>1、登录</h3><p>ssh root@ip地址 -p 端口号； 然后输入密码就登录了</p>
+<h3 id="2、看当前IP地址"><a href="#2、看当前IP地址" class="headerlink" title="2、看当前IP地址"></a>2、看当前IP地址</h3><p>curl ip.p3terx.com</p>
+<h3 id="3、看能否正常访问google-scholar"><a href="#3、看能否正常访问google-scholar" class="headerlink" title="3、看能否正常访问google scholar"></a>3、看能否正常访问google scholar</h3><p>curl -I <a target="_blank" rel="noopener" href="https://scholar.google.com/">https://scholar.google.com/</a></p>
+<h2 id="（二）-选看-CloudFlare-域名托管"><a href="#（二）-选看-CloudFlare-域名托管" class="headerlink" title="（二）(选看) CloudFlare 域名托管"></a>（二）(选看) CloudFlare 域名托管</h2><p><strong>(选看)：这部分不是必须步骤，只有配置argo专用通道时才会用到</strong></p>
+<h3 id="1、digitalplat注册账号"><a href="#1、digitalplat注册账号" class="headerlink" title="1、digitalplat注册账号"></a>1、digitalplat注册账号</h3><p>登录<a target="_blank" rel="noopener" href="https://dash.domain.digitalplat.org/auth/login?next=%2F">digitalplat</a>，进行注册（注册时除了邮箱其他的随意填，符合格式就行，记得最后要通过邮箱链接验证），然后登录通过Github验证，便可进入后台。</p>
+<img src="/posts/undefined/image-20260110131025793.png" class="" title="image-20260110131025793">
+<h3 id="2、digitalplat提升免费域名上限"><a href="#2、digitalplat提升免费域名上限" class="headerlink" title="2、digitalplat提升免费域名上限"></a>2、digitalplat提升免费域名上限</h3><p>初始每个账号仅可注册 1 个域名，可通过 <strong>Star 官方 GitHub 项目</strong>额外获得 1 个免费名额。进入<a target="_blank" rel="noopener" href="https://github.com/DigitalPlatDev/FreeDomain">Freedom</a>，点右上角star，便可注册2个域名。</p>
+<img src="/posts/undefined/image-20260110131211403.png" class="" title="image-20260110131211403">
+<h3 id="3、digitalplat注册域名"><a href="#3、digitalplat注册域名" class="headerlink" title="3、digitalplat注册域名"></a>3、digitalplat注册域名</h3><p>点击左侧注册域名，自己定义二级域名前缀，注意这里的.us.kg需要key，其他的都不需要，可以选其他的域名后缀。如果域名有效，系统会提示填写 DNS 服务器地址。</p>
+<img src="/posts/undefined/image-20260110134610962.png" class="" title="image-20260110134610962">
+<img src="/posts/undefined/image-20260110134813419.png" class="" title="image-20260110134813419">
+<h3 id="4、配置DNS"><a href="#4、配置DNS" class="headerlink" title="4、配置DNS"></a>4、配置DNS</h3><p>（1）登录 <a target="_blank" rel="noopener" href="https://dash.cloudflare.com/">Cloudflare</a>，添加新域名（刚申请的域名lisa.dpdns.org）。</p>
+<img src="/posts/undefined/image-20260110133742180.png" class="" title="image-20260110133742180">
+<p>（2）然后点免费计划</p>
+<img src="/posts/undefined/image-20260110134420239.png" class="" title="image-20260110134420239">
+<p>（3）后面什么都不用添加，直接前往激活</p>
+<img src="/posts/undefined/image-20260110134435980.png" class="" title="image-20260110134435980">
+<p>（4）忽略添加DNS记录<img src="/posts/undefined/image-20260110134518200.png" class="" title="image-20260110134518200"></p>
+<p>（5）继续就出现了CF名称服务器的两个地址</p>
+<img src="/posts/undefined/image-20260110135027246.png" class="" title="image-20260110135027246">
+<p>（6）复制到digitalplat中最后一个页面中的NS1和NS2中。然后两个页面都点继续或者注册<img src="/posts/undefined/image-20260110135217488.png" class="" title="image-20260110135217488"></p>
+<h3 id="5、CF完成域名托管："><a href="#5、CF完成域名托管：" class="headerlink" title="5、CF完成域名托管："></a>5、CF完成域名托管：</h3><p>（1）回到 Cloudflare，点击“立即检查名称服务器”，需要等一段时间到CF中状态显示活动就好了。</p>
+<img src="/posts/undefined/image-20260110135411394.png" class="" title="image-20260110135411394">
+<p>（2）点击域名地址，进去DNS记录，添加记录</p>
+<img src="/posts/undefined/image-20260110135633829.png" class="" title="image-20260110135633829">
+<p>（3）添加记录，这里的A是值ipv4，名称root用@，填入VPS的ip地址，后面的小黄云是是否开启代理，如果不开启就是VPS的真实ip，如果开启了可能就是代理地址。然后点保存</p>
+<img src="/posts/undefined/image-20260110135738246.png" class="" title="image-20260110135738246">
+<p>然后可以去itdog中DNS查询，输入刚刚的域名，可以解析VPS的ip地址，刚开始解析正确的比例比较低，需要等一段时间，当比例高了就可以正常用了。</p>
+<h3 id="6、-选看-配置H-UI，并配置CF域名登录"><a href="#6、-选看-配置H-UI，并配置CF域名登录" class="headerlink" title="6、(选看) 配置H-UI，并配置CF域名登录"></a>6、(选看) 配置H-UI，并配置CF域名登录</h3><p>（1）配置H-UI<a target="_blank" rel="noopener" href="https://github.com/jonssonyan/h-ui/blob/main/README_ZH.md">教程</a></p>
+<p>（2）配置CF域名登录H-UI<a target="_blank" rel="noopener" href="https://blog.csdn.net/u010522887/article/details/140786338">教程</a></p>
+<h2 id="（三）-选看-常用小网站"><a href="#（三）-选看-常用小网站" class="headerlink" title="（三）(选看) 常用小网站"></a>（三）(选看) 常用小网站</h2><h3 id="1、网站一致性"><a href="#1、网站一致性" class="headerlink" title="1、网站一致性"></a>1、<a target="_blank" rel="noopener" href="https://ip111.cn/">网站一致性</a></h3><h3 id="2、IP分数"><a href="#2、IP分数" class="headerlink" title="2、IP分数"></a>2、<a href="测试ip分数">IP分数</a></h3><h3 id="3、DNS查询"><a href="#3、DNS查询" class="headerlink" title="3、DNS查询"></a>3、<a target="_blank" rel="noopener" href="https://www.itdog.cn/">DNS查询</a></h3><h3 id="4、IP地址"><a href="#4、IP地址" class="headerlink" title="4、IP地址"></a>4、<a target="_blank" rel="noopener" href="https://whatismyipaddress.com/">IP地址</a></h3><h1 id="二、s-singbox搭建VPN"><a href="#二、s-singbox搭建VPN" class="headerlink" title="二、s-singbox搭建VPN"></a>二、s-singbox搭建VPN</h1><h2 id="（一）安装s-singbox"><a href="#（一）安装s-singbox" class="headerlink" title="（一）安装s-singbox"></a>（一）安装s-singbox</h2><h3 id="1、用命令行安装"><a href="#1、用命令行安装" class="headerlink" title="1、用命令行安装"></a>1、用命令行安装</h3><pre class=" language-lang-bash"><code class="language-lang-bash">bash <(curl -fsSL https://raw.githubusercontent.com/sindricn/s-singbox/main/install.sh)
+</code></pre>
+<img src="/posts/undefined/image-20260110152628088.png" class="" title="image-20260110152628088">
+<h3 id="2、进入s-singbox，安装内核运行"><a href="#2、进入s-singbox，安装内核运行" class="headerlink" title="2、进入s-singbox，安装内核运行"></a>2、进入s-singbox，安装内核运行</h3><p>（1） 进入s-singbox，可以看到内核未安装</p>
+<pre class=" language-lang-bash"><code class="language-lang-bash">s-singbox
+</code></pre>
+<img src="/posts/undefined/image-20260110152830184.png" class="" title="image-20260110152830184">
+<p>（2）进入1.sing-box管理，1. 安装 sing-box（默认安装最新稳定版就可以），返回到主页面就已经在运行了。</p>
+<img src="/posts/undefined/image-20260110153052260.png" class="" title="image-20260110153052260">
+<h2 id="（二）-选看-Argo伪装入站"><a href="#（二）-选看-Argo伪装入站" class="headerlink" title="（二）(选看) Argo伪装入站"></a>（二）(选看) Argo伪装入站</h2><p>Argo通道是为了伪装入站IP，这样可以让你的客户端防火墙不会拦截你发出的流量，它分临时通道和专用通道，临时通道的稳定性差，是CF的一项测试服务，会导致域名经常变化，前面我们用CF域名托管，就是为了给它配置专用通道。</p>
+<div style="width: 67%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/undefined/image-20260110173851358.png" class="" title="image-20260110173851358"></div>
+
+<h3 id="1、CF授权"><a href="#1、CF授权" class="headerlink" title="1、CF授权"></a>1、CF授权</h3><p>（1）进入9. CF隧道管理，1. Argo隧道管理 ，7.  CF授权管理。下面授权名称和备注自己命名就可以，授权顶级域名要填CF托管后的域名，然后就会出来一个网址，粘贴到浏览器中打开，选择对应的域名进行授权就可以了。</p>
+<img src="/posts/undefined/image-20260110175907324.png" class="" title="image-20260110175907324">
+<img src="/posts/undefined/image-20260110174754361.png" class="" title="image-20260110174754361">
+<div style="width: 50%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/undefined/image-20260110174805447.png" class="" title="image-20260110174805447"></div>
+
+<h3 id="2、创建专用隧道"><a href="#2、创建专用隧道" class="headerlink" title="2、创建专用隧道"></a>2、创建专用隧道</h3><p>可以在这里创建隧道，再加入节点，也可以在创建节点的时候一起加入创建隧道，我们采用后者在后面创建节点的时候展示。</p>
+<h2 id="（四）建立节点"><a href="#（四）建立节点" class="headerlink" title="（四）建立节点"></a>（四）建立节点</h2><h3 id="1、不同节点的区别"><a href="#1、不同节点的区别" class="headerlink" title="1、不同节点的区别"></a>1、不同节点的区别</h3><img src="/posts/undefined/image-20260110171828118.png" class="" title="image-20260110171828118">
+<h3 id="2、新建节点：VLESS-Reality"><a href="#2、新建节点：VLESS-Reality" class="headerlink" title="2、新建节点：VLESS + Reality"></a>2、新建节点：VLESS + Reality</h3><p>这个节点一般用大公司的域名伪装入站，可以防止被墙，但出站IP是不影响的，搭配开启的WARP分流，可以轻松访问google等网站。</p>
+<img src="/posts/undefined/image-20260110172607370.png" class="" title="image-20260110172607370">
+<p>（1）进入1.新建节点，q.快速搭建节点，1.  VLESS + Reality。端口不要设置冲突了，这里设置一下为6011，域名默认选最快的。</p>
+<img src="/posts/undefined/image-20260110172857762.png" class="" title="image-20260110172857762">
+<h3 id="2、新建节点：Hysteria2"><a href="#2、新建节点：Hysteria2" class="headerlink" title="2、新建节点：Hysteria2"></a>2、新建节点：Hysteria2</h3><p>这个节点没有入站伪装，特点是快速，当然也搭配分流WARP。</p>
+<p>（1）进入1.新建节点，q.快速搭建节点，2.  Hysteria2。端口不要设置冲突了，这里设置一下为6012，域名默认，下面的限速和跳跃端口也默认，直接回车。</p>
+<img src="/posts/undefined/image-20260110173254294.png" class="" title="image-20260110173254294">
+<h3 id="3、新建节点：Argo-VLESS-WS"><a href="#3、新建节点：Argo-VLESS-WS" class="headerlink" title="3、新建节点：Argo+VLESS+WS"></a>3、新建节点：Argo+VLESS+WS</h3><p>这个节点采用 Argo隧道（必须采用WS协议），再搭配WARP。</p>
+<p>（1）进入1.新建节点，q.快速搭建节点，3.  Argo+VLESS+WS。这里端口设置6013，默认WS协议，默认伪装域名，并配置专用通道。</p>
+<img src="/posts/undefined/image-20260110203437316.png" class="" title="image-20260110203437316">
+<p>（2）选择之前授权的CF凭证lisahou，然后设置隧道名称RackNerd1，绑定域名是RackNerd1.lisahou618.qzz.io（隧道名.之前的域名），然后配置6013这个节点加入这个隧道</p>
+<img src="/posts/undefined/image-20260110203702428.png" class="" title="image-20260110203702428">
+<p>（3）可以测试一次，用客户端ping一下这个域名</p>
+<pre><code>ping -4 RackNerd1.lisahou618.qzz.io
+</code></pre><img src="/posts/undefined/image-20260110220056429.png" class="" title="image-20260110220056429">
+<h2 id="（五）生成订阅"><a href="#（五）生成订阅" class="headerlink" title="（五）生成订阅"></a>（五）生成订阅</h2><h3 id="1、通用订阅"><a href="#1、通用订阅" class="headerlink" title="1、通用订阅"></a>1、通用订阅</h3><p>（1）4. 订阅管理，1.生成订阅链接，名称随便设置，IP地址默认，订阅端口设置9618</p>
+<img src="/posts/undefined/image-20260110205315789.png" class="" title="image-20260110205315789">
+<p>（2）导入到v2ray中，可以看到采用Argo的入站地址是域名，说明入站伪装成功，测试速度和延迟发现它没法检测，这是由于进入了CF服务器，需要点击这个节点进行设置，指纹改成Chrome，跳过证书验证，再测试就好了。</p>
+<img src="/posts/undefined/image-20260110210039402.png" class="" title="image-20260110210039402">
+<div style="width: 80%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/undefined/image-20260110210311963.png" class="" title="image-20260110210311963"></div>
+
+
+
+<h3 id="2、clash订阅"><a href="#2、clash订阅" class="headerlink" title="2、clash订阅"></a>2、clash订阅</h3><img src="/posts/undefined/image-20260110215145824.png" class="" title="image-20260110215145824">
+<h3 id="3、sing-box订阅"><a href="#3、sing-box订阅" class="headerlink" title="3、sing-box订阅"></a>3、sing-box订阅</h3><img src="/posts/undefined/image-20260110215353444.png" class="" title="image-20260110215353444">
+<h2 id="（六）-选看-WARP伪装出站"><a href="#（六）-选看-WARP伪装出站" class="headerlink" title="（六） (选看) WARP伪装出站"></a>（六） (选看) WARP伪装出站</h2><p><strong>主要为了混淆身份，防止机房IP被Google/Netflix等网站拒绝</strong>。我们这里对部分流量采用WARP伪装，因为①WARP分配的IP地址是是很多人共享出口，甚至不如我们的机房IP，可能会被认为是机器人，而且会超级慢。②WARP全局会导致我们后面如果设置Argo入站隧道的流量也走这，会超时崩溃。<strong>所以我们在这里采用智能分流出站规则。</strong>如果不设置Argo入站伪装，想尝试让节点全局WARP可以进入9. CF隧道管理中进行WARP 把节点关联到就可以。</p>
+<p><strong>解释稳定性</strong>：</p>
+<p>①通过Cloudflare  WARP隧道，会分配一个免费匿名用户和证书（WARP 账户很稳定：这是 Cloudflare 的正式产品。脚本帮你注册的这个免费账户是永久有效的。只要 Cloudflare 不倒闭，这个账户就能一直连，不会出现“过段时间服务就没了”的情况。）</p>
+<p>②每次 Sing-box 启动，它就拿着这个证书去连接 Cloudflare 的机房。Cloudflare 看到证书有效，就从它的机房里随机拿一个空闲的 IP 借给你用。（这个IP地址是会变的，这可能而是好事：IP 越常变，隐匿性越好。 因为Google 无法锁定“就是这个人”，它只知道“这是 Cloudflare 的用户”）</p>
+<p>③每次CF分配IP的时候一般是从离你的 VPS 最近的 Cloudflare 机房分配，这样就相当于你拿着手机在城市中出行，不会被google封号，而频繁的改VPS才可能被封号，最坏的情况是这个IP被其他滥用，此时可能会遇到频繁的人机验证。这时去重启一下s-singbox就会再分一个新的IP了。</p>
+<pre class=" language-lang-bash"><code class="language-lang-bash">systemctl restart sing-box
+</code></pre>
+<h3 id="1、开启WARP-隧道管理"><a href="#1、开启WARP-隧道管理" class="headerlink" title="1、开启WARP 隧道管理"></a>1、开启WARP 隧道管理</h3><p>进入9. CF隧道管理，2. WARP 隧道管理，依次进行1.2.3.4.启动WARP连接，进入6.查看WARP状态，就没问题了。</p>
+<img src="/posts/undefined/image-20260110162842035.png" class="" title="image-20260110162842035">
+<img src="/posts/undefined/image-20260110162949220.png" class="" title="image-20260110162949220">
+<h3 id="2、设置分流WARP规则-手动"><a href="#2、设置分流WARP规则-手动" class="headerlink" title="2、设置分流WARP规则-手动"></a>2、设置分流WARP规则-手动</h3><p><strong>注意：因为s-singbox是自动修改配置文件不会读取当前文件内容，而我们是手动修改，所以如果当我们配置好分流WARP后，再用s-singbox进行过改动，可能需要重新执行（3）中的 ③ ④ 和（4）。可以去 <a target="_blank" rel="noopener" href="https://whatismyipaddress.com/">what is my ip</a> 上查看一下，如果变成了VPS的真IP，就需要执行一下。</strong></p>
+<p>（1）进入7.出站规则，可以看到现有的出站规则是直接出去的</p>
+<div style="width: 67%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/undefined/image-20260110163224417.png" class="" title="image-20260110163224417"></div>
+
+<p>（2）退出s-singbox，可以去到/etc/sing-box/config.json去看现在的配置文件。</p>
+<img src="/posts/undefined/image-20260110164313078.png" class="" title="image-20260110164313078">
+<p>（3）增加分流规则：</p>
+<p><strong>Outbounds (出站)：</strong> 在 <code>direct-out</code> 下面增加了一个 <code>warp-out</code> (绑定 <code>wgcf</code>)。</p>
+<pre><code>&#123;
+      &quot;type&quot;: &quot;direct&quot;,
+      &quot;tag&quot;: &quot;warp-out&quot;,
+      &quot;bind_interface&quot;: &quot;wgcf&quot;
+    &#125;,
+</code></pre><p><strong>Route (路由)：</strong> 增加了规则列表，把 Google/AI/Netflix 等域名的流量指向 <code>warp-out</code></p>
+<pre><code>&#123;
+        &quot;domain_suffix&quot;: [
+          &quot;scholar.google.com&quot;,
+          &quot;scholar.google.cn&quot;,
+          &quot;scholar.google.com.hk&quot;,
+          &quot;gemini.google.com&quot;,
+          &quot;google.com&quot;,
+          &quot;youtube.com&quot;,
+          &quot;google.dev&quot;,
+          &quot;openai.com&quot;,
+          &quot;claude.ai&quot;,
+          &quot;anthropic.com&quot;,
+          &quot;netflix.com&quot;,
+          &quot;googleapis.com&quot;,
+          &quot;gstatic.com&quot;,
+          &quot;googleusercontent.com&quot;,
+          &quot;ggpht.com&quot;,
+          &quot;ytimg.com&quot;,
+          &quot;recaptcha.net&quot;,
+          &quot;whatismyipaddress.com&quot;
+        ],
+        &quot;outbound&quot;: &quot;warp-out&quot;
+      &#125;
+</code></pre><p>① 手动添加太麻烦了，所以写了一个固定的脚本</p>
+<p>先安装执行命令</p>
+<pre class=" language-lang-bash"><code class="language-lang-bash">apt-get update && apt-get install -y jq
+</code></pre>
+<p>② 写入脚本</p>
+<pre><code>cat &gt; /root/fix_warpout.sh &lt;&lt; &#39;EOF&#39;
+#!/bin/bash
+
+# 配置文件路径
+CONFIG_FILE=&quot;/etc/sing-box/config.json&quot;
+
+# 检查 jq 是否安装
+if ! command -v jq &amp;&gt; /dev/null; then
+    echo &quot;❌ 错误: 未安装 jq，正在自动安装...&quot;
+    apt-get update &amp;&amp; apt-get install -y jq
+fi
+
+echo &quot;🔄 正在读取当前的节点信息 (Inbounds)...&quot;
+
+# 1. 定义你的完美出站规则 (Outbounds)
+#    包含 Direct, WARP(wgcf), Block
+OUTBOUNDS=&#39;[
+  &#123;
+    &quot;type&quot;: &quot;direct&quot;,
+    &quot;tag&quot;: &quot;direct-out&quot;
+  &#125;,
+  &#123;
+    &quot;type&quot;: &quot;direct&quot;,
+    &quot;tag&quot;: &quot;warp-out&quot;,
+    &quot;bind_interface&quot;: &quot;wgcf&quot;
+  &#125;,
+  &#123;
+    &quot;type&quot;: &quot;block&quot;,
+    &quot;tag&quot;: &quot;block-out&quot;
+  &#125;
+]&#39;
+
+# 2. 定义你的完美路由规则 (Route)
+#    包含 Google全家桶、AI、Netflix 等分流
+ROUTE=&#39;&#123;
+  &quot;default_domain_resolver&quot;: &quot;dns-local&quot;,
+  &quot;rules&quot;: [
+    &#123;
+      &quot;protocol&quot;: &quot;dns&quot;,
+      &quot;action&quot;: &quot;route&quot;,
+      &quot;outbound&quot;: &quot;direct-out&quot;
+    &#125;,
+    &#123;
+      &quot;domain_suffix&quot;: [
+         &quot;scholar.google.com&quot;,
+         &quot;scholar.google.cn&quot;,
+         &quot;scholar.google.com.hk&quot;,
+         &quot;gemini.google.com&quot;,    
+         &quot;google.com&quot;,
+         &quot;youtube.com&quot;,
+         &quot;google.dev&quot;,
+         &quot;openai.com&quot;,
+         &quot;claude.ai&quot;,
+         &quot;anthropic.com&quot;,
+         &quot;netflix.com&quot;,
+         &quot;googleapis.com&quot;,
+         &quot;gstatic.com&quot;,
+         &quot;googleusercontent.com&quot;,
+         &quot;ggpht.com&quot;,
+         &quot;ytimg.com&quot;,
+         &quot;recaptcha.net&quot;,
+         &quot;whatismyipaddress.com&quot;
+      ],
+      &quot;outbound&quot;: &quot;warp-out&quot;
+    &#125;
+  ],
+  &quot;final&quot;: &quot;direct-out&quot;,
+  &quot;auto_detect_interface&quot;: true
+&#125;&#39;
+
+# 3. 核心魔法：用 jq 把你的规则“缝合”进配置文件
+#    逻辑：保留原文件的 .inbounds，替换掉 .outbounds 和 .route
+jq --argjson new_out &quot;$OUTBOUNDS&quot; --argjson new_route &quot;$ROUTE&quot; \
+   &#39;.outbounds = $new_out | .route = $new_route&#39; \
+   &quot;$CONFIG_FILE&quot; &gt; &quot;$CONFIG_FILE.tmp&quot; &amp;&amp; mv &quot;$CONFIG_FILE.tmp&quot; &quot;$CONFIG_FILE&quot;
+
+if [ $? -eq 0 ]; then
+    echo &quot;✅ 配置文件修改成功！已注入 WARP 分流规则。&quot;
+    echo &quot;🚀 正在重启 sing-box 服务...&quot;
+    systemctl restart sing-box
+    echo &quot;🎉 搞定！现在你的节点既是最新的，又有 WARP 分流了。&quot;
+else
+    echo &quot;❌ 修改失败，请检查配置文件格式。&quot;
+fi
+EOF
+
+# 给脚本添加执行权限
+chmod +x /root/fix_warpout.sh
+</code></pre><p>③ 执行脚本</p>
+<pre class=" language-lang-bash"><code class="language-lang-bash">./fix_warpout.sh
+</code></pre>
+<p>④ 然后重启s-singbox</p>
+<pre class=" language-lang-bash"><code class="language-lang-bash">systemctl restart sing-box
+</code></pre>
+<p>（4）然后重新进入s-singbox，进入7.出站规则，就可以看到识别到一个新的出站规则，选择1.同步到规则库，就变成3个出站规则了，这样分流伪装就好了。</p>
+<div style="width: 67%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/undefined/image-20260110170700733.png" class="" title="image-20260110170700733"></div>
+
+<p>然后就可以看到出站的IP已经伪装了</p>
+<img src="/posts/undefined/image-20260110214531722.png" class="" title="image-20260110214531722">
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">猴猴猴</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://xiaoyue-hou.github.io/posts/3c789177.html">http://xiaoyue-hou.github.io/posts/3c789177.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">猴猴猴</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/posts/3c789177.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="s-singbox搭建VPN">
+                        
+                        <span class="card-title">s-singbox搭建VPN</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-01-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%B0%8Ftips/" class="post-category">
+                                    奇奇怪怪的小tips
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/8fbede65.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Zotero">
+                        
+                        <span class="card-title">Zotero</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-12-31
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%B0%8Ftips/" class="post-category">
+                                    奇奇怪怪的小tips
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%B0%8Ftips/">
+                        <span class="chip bg-color">奇奇怪怪的小tips</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('-1'),
+            headingSelector: 'h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2026</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">猴猴猴</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "4";
+                    var startDate = "26";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiaoyue-hou" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1396567029@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1396567029" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1396567029" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

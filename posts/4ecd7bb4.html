@@ -373,9 +373,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%B0%8Ftips/">
+                                <span class="chip bg-color">奇奇怪怪的小tips</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -417,18 +421,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Docker-OSRM"><a href="#Docker-OSRM" class="headerlink" title="Docker-OSRM"></a>Docker-OSRM</h1><p>1、安装docker并升级到最新版本，安装时加入到环境变量</p>
-<p>2、在docker中拉取osrm镜像，cmd中执行</p>
-<pre class=" language-lang-python"><code class="language-lang-python">docker pull osrm/osrm-backend  # 在docker hub上下载旧版（https://hub.docker.com/r/osrm/osrm-backend/tags）  
+                <h1 id="1、安装docker并升级到最新版本"><a href="#1、安装docker并升级到最新版本" class="headerlink" title="1、安装docker并升级到最新版本"></a>1、安装docker并升级到最新版本</h1><p>安装时加入到环境变量</p>
+<h1 id="2、在docker中拉取osrm镜像"><a href="#2、在docker中拉取osrm镜像" class="headerlink" title="2、在docker中拉取osrm镜像"></a>2、在docker中拉取osrm镜像</h1><p>cmd中执行</p>
+<pre class=" language-lang-bash"><code class="language-lang-bash">docker pull osrm/osrm-backend  # 在docker hub上下载旧版（https://hub.docker.com/r/osrm/osrm-backend/tags）  
 docker pull ghcr.io/project-osrm/osrm-backend:v5.27.1  # 在github上下载新版（https://github.com/Project-OSRM/osrm-backend/releases）
 
 # 非必要命令
 docker run -it --rm ghcr.io/project-osrm/osrm-backend:v5.27.1 /bin/bash  # 进入
 ls # 进入查看配置文件
 </code></pre>
-<p>3、下载OSM的地区文件，.osm.pbf格式的，数据放在D:\APP\OSRM\osrm文件夹下，数据名称叫做sjz_car.osm.pbf</p>
-<p>4、用osrm配置文件处理数据（共4步）</p>
-<pre class=" language-lang-python"><code class="language-lang-python"># 用不同交通方式提取数据，这里的car可以改成bicycle和foot，最后采用不同端口部署（本科5001:foot，5002:bicycle, 5003:car)
+<h1 id="3、下载OSM的地区文件"><a href="#3、下载OSM的地区文件" class="headerlink" title="3、下载OSM的地区文件"></a>3、下载OSM的地区文件</h1><p>.osm.pbf格式的，数据放在D:\APP\OSRM\osrm文件夹下，数据名称叫做sjz_car.osm.pbf</p>
+<h1 id="4、用osrm配置文件处理数据（共4步）"><a href="#4、用osrm配置文件处理数据（共4步）" class="headerlink" title="4、用osrm配置文件处理数据（共4步）"></a>4、用osrm配置文件处理数据（共4步）</h1><pre class=" language-lang-python"><code class="language-lang-python"># 用不同交通方式提取数据，这里的car可以改成bicycle和foot，最后采用不同端口部署（本科5001:foot，5002:bicycle, 5003:car)
 docker run -t -v D:\APP\OSRM\osrm:/data ghcr.io/project-osrm/osrm-backend:v5.27.1 osrm-extract -p car.lua /data/sjz_car.osm.pbf  
 
 # 进行数据分区：OSRM使用多级分区技术（MLD）将路网划分为多个层级的区域，以加速路径查询。这种分区结构使得在大型路网中进行路径计算时，可以快速缩小搜索范围，提高查询效率。
@@ -445,8 +448,7 @@ http://localhost:5003/route/v1/car/114.557077,38.0156195;114.169827,37.618745
 # 其他命令
 docker ps -a 查看所有容器； docker stop 容器id 中断对应容器； docker rm 容器id 删除对应容器
 </code></pre>
-<p>5、爬虫</p>
-<pre class=" language-lang-python"><code class="language-lang-python">import requests
+<h1 id="5、爬虫"><a href="#5、爬虫" class="headerlink" title="5、爬虫"></a>5、爬虫</h1><pre class=" language-lang-python"><code class="language-lang-python">import requests
 import polyline
 
 def get_walking_route(start_coords, end_coords, osrm_url='http://localhost:5001'):
@@ -509,8 +511,7 @@ if __name__ == "__main__":
     # 调用函数获取步行路线信息
     get_walking_route(start_coordinates, end_coordinates)
 </code></pre>
-<p>6、服务的关闭与开启</p>
-<pre class=" language-lang-python"><code class="language-lang-python"># 启动：docker start <container_name>
+<h1 id="6、服务的关闭与开启"><a href="#6、服务的关闭与开启" class="headerlink" title="6、服务的关闭与开启"></a>6、服务的关闭与开启</h1><pre class=" language-lang-python"><code class="language-lang-python"># 启动：docker start <container_name>
 # 停止：docker stop <container_name>
 </code></pre>
 
@@ -576,7 +577,11 @@ if __name__ == "__main__":
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%B0%8Ftips/">
+                                    <span class="chip bg-color">奇奇怪怪的小tips</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -624,6 +629,55 @@ if __name__ == "__main__":
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/posts/39e7a431.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="COVID-19 and human mobility">
+                        
+                        <span class="card-title">COVID-19 and human mobility</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-12-31
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%96%87%E7%8C%AE%E8%B0%83%E7%A0%94/" class="post-category">
+                                    文献调研
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%96%87%E7%8C%AE%E8%B0%83%E7%A0%94/">
+                        <span class="chip bg-color">文献调研</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/posts/ce3115a7.html">
                     <div class="card-image">
                         
@@ -640,9 +694,9 @@ if __name__ == "__main__":
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-12-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-12-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -656,45 +710,12 @@ if __name__ == "__main__":
                     </div>
                 </div>
                 
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/3644d420.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="写Paper">
-                        
-                        <span class="card-title">写Paper</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-12-30
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%A7%91%E7%A0%94%E6%8A%80%E8%83%BD/" class="post-category">
-                                    科研技能
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%B0%8Ftips/">
+                        <span class="chip bg-color">奇奇怪怪的小tips</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -824,6 +845,13 @@ if __name__ == "__main__":
 </main>
 
 
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
@@ -886,7 +914,7 @@ if __name__ == "__main__":
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021-2025</span>
+                <span id="year">2021-2026</span>
             
             <span id="year">2021</span>
             <a href="/about" target="_blank">猴猴猴</a>

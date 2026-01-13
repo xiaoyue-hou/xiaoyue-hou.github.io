@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Zotero配置, 猴猴猴">
+    <meta name="keywords" content="Zotero, 猴猴猴">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Zotero配置 | 猴猴猴</title>
+    <title>Zotero | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -254,12 +254,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Zotero配置</h1>
+                    <h1 class="description center-align post-title">Zotero</h1>
                 </div>
             </div>
         </div>
@@ -373,9 +373,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%B0%8Ftips/">
+                                <span class="chip bg-color">奇奇怪怪的小tips</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -417,8 +421,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Zotero"><a href="#Zotero" class="headerlink" title="Zotero"></a>Zotero</h1><h2 id="一、常规设置"><a href="#一、常规设置" class="headerlink" title="一、常规设置"></a>一、常规设置</h2><h3 id="1、Zotero与Onedrive联动"><a href="#1、Zotero与Onedrive联动" class="headerlink" title="1、Zotero与Onedrive联动"></a>1、Zotero与Onedrive联动</h3><p>mklink /j “C:\Users\Lenovo\Zotero\storage” “F:\OneDrive\Zotero\storage”</p>
-<h3 id="2、常规中自定义文件名格式："><a href="#2、常规中自定义文件名格式：" class="headerlink" title="2、常规中自定义文件名格式："></a>2、常规中自定义文件名格式：</h3><h4 id="（1）规范ISO日期——脚本"><a href="#（1）规范ISO日期——脚本" class="headerlink" title="（1）规范ISO日期——脚本"></a>（1）规范ISO日期——脚本</h4><p>规范化所有日期为ISO格式：2010-08-06。需要在工具→开发者→执行Java script中的&gt;下输入以下脚本执行。</p>
+                <h1 id="一、常规设置"><a href="#一、常规设置" class="headerlink" title="一、常规设置"></a>一、常规设置</h1><h2 id="1、Zotero与Onedrive联动"><a href="#1、Zotero与Onedrive联动" class="headerlink" title="1、Zotero与Onedrive联动"></a>1、Zotero与Onedrive联动</h2><p>mklink /j “C:\Users\Lenovo\Zotero\storage” “F:\OneDrive\Zotero\storage”</p>
+<h2 id="2、常规中自定义文件名格式："><a href="#2、常规中自定义文件名格式：" class="headerlink" title="2、常规中自定义文件名格式："></a>2、常规中自定义文件名格式：</h2><h3 id="（1）规范ISO日期——脚本"><a href="#（1）规范ISO日期——脚本" class="headerlink" title="（1）规范ISO日期——脚本"></a>（1）规范ISO日期——脚本</h3><p>规范化所有日期为ISO格式：2010-08-06。需要在工具→开发者→执行Java script中的&gt;下输入以下脚本执行。</p>
 <pre class=" language-lang-javascript"><code class="language-lang-javascript">var items = ZoteroPane.getSelectedItems();
 var count = 0;
 
@@ -463,7 +467,7 @@ for (let item of items) &#123;
 &#125;
 return "【执行完毕】\n共扫描条目：" + items.length + " 条\n成功格式化：" + count + " 条凌乱日期";
 </code></pre>
-<h4 id="（2）命名加评级——脚本"><a href="#（2）命名加评级——脚本" class="headerlink" title="（2）命名加评级——脚本"></a>（2）命名加评级——脚本</h4><p>若想加上评级，需要在工具→开发者→error console中的&gt;下输入以下脚本，并回车</p>
+<h3 id="（2）命名加评级——脚本"><a href="#（2）命名加评级——脚本" class="headerlink" title="（2）命名加评级——脚本"></a>（2）命名加评级——脚本</h3><p>若想加上评级，需要在工具→开发者→error console中的&gt;下输入以下脚本，并回车</p>
 <pre class=" language-lang-javascript"><code class="language-lang-javascript">(async () => &#123;
     let items = await Zotero.Items.getAll(Zotero.Libraries.userLibraryID);
     let changedCount = 0;
@@ -493,7 +497,7 @@ return "【执行完毕】\n共扫描条目：" + items.length + " 条\n成功�
 &#125;)();
 </code></pre>
 <p>⭐：非常一般<br>⭐⭐：还行，基本用不上<br>⭐⭐⭐：还行的工作，可能能用上<br>⭐⭐⭐⭐：很有意义的工作，值得借鉴学习<br>⭐⭐⭐⭐⭐：和我做的非常相关</p>
-<h4 id="（3）命名格式"><a href="#（3）命名格式" class="headerlink" title="（3）命名格式"></a>（3）命名格式</h4><p>这样所有的评级都会写入父条目的seriesText字段，这样的Zotero命名格式要设置成以下:</p>
+<h3 id="（3）命名格式"><a href="#（3）命名格式" class="headerlink" title="（3）命名格式"></a>（3）命名格式</h3><p>这样所有的评级都会写入父条目的seriesText字段，这样的Zotero命名格式要设置成以下:</p>
 <img src="/posts/8fbede65/image-20251229143607604.png" class="" title="image-20251229143607604">
 <pre class=" language-lang-javascript"><code class="language-lang-javascript">&#123;&#123;seriesText&#125;&#125;
 &#123;&#123; year suffix="_"&#125;&#125;
@@ -507,44 +511,44 @@ return "【执行完毕】\n共扫描条目：" + items.length + " 条\n成功�
 </code></pre>
 <p>评级修改后本来是应该选中子条目，然后按父级元数据命名，但是这样很麻烦，所以可以尝试全选父条目，右击Zotmoov移动到预设目录，这样应该也可以一起改名</p>
 <p>tips:{ date suffix=”_”  replaceFrom=”,”  replaceTo=”-“  regexOpts=”g” }</p>
-<h3 id="3、基础设置"><a href="#3、基础设置" class="headerlink" title="3、基础设置"></a>3、基础设置</h3><h4 id="（1）常规"><a href="#（1）常规" class="headerlink" title="（1）常规"></a>（1）常规</h4><img src="/posts/8fbede65/image-20251229143758179.png" class="" title="image-20251229143758179">
-<h4 id="（2）同步"><a href="#（2）同步" class="headerlink" title="（2）同步"></a>（2）同步</h4><img src="/posts/8fbede65/image-20251229144649055.png" class="" title="image-20251229144649055">
-<h4 id="（3）引用"><a href="#（3）引用" class="headerlink" title="（3）引用"></a>（3）引用</h4><p>选好格式在写初稿的时候插入word</p>
+<h2 id="3、基础设置"><a href="#3、基础设置" class="headerlink" title="3、基础设置"></a>3、基础设置</h2><h3 id="（1）常规"><a href="#（1）常规" class="headerlink" title="（1）常规"></a>（1）常规</h3><img src="/posts/8fbede65/image-20251229143758179.png" class="" title="image-20251229143758179">
+<h3 id="（2）同步"><a href="#（2）同步" class="headerlink" title="（2）同步"></a>（2）同步</h3><img src="/posts/8fbede65/image-20251229144649055.png" class="" title="image-20251229144649055">
+<h3 id="（3）引用"><a href="#（3）引用" class="headerlink" title="（3）引用"></a>（3）引用</h3><p>选好格式在写初稿的时候插入word</p>
 
-<h4 id="（4）高级"><a href="#（4）高级" class="headerlink" title="（4）高级"></a>（4）高级</h4><img src="/posts/8fbede65/image-20251229155245681.png" class="" title="image-20251229155245681">
-<h4 id="（5）订阅"><a href="#（5）订阅" class="headerlink" title="（5）订阅"></a>（5）订阅</h4><h5 id="①-Cities"><a href="#①-Cities" class="headerlink" title="① Cities"></a>① Cities</h5><p><a target="_blank" rel="noopener" href="https://rss.sciencedirect.com/publication/science/02642751">https://rss.sciencedirect.com/publication/science/02642751</a></p>
-<h5 id="②-Computers-Environment-and-Urban-Systems"><a href="#②-Computers-Environment-and-Urban-Systems" class="headerlink" title="② Computers, Environment and Urban Systems"></a>② Computers, Environment and Urban Systems</h5><p><a target="_blank" rel="noopener" href="https://rss.sciencedirect.com/publication/science/01989715">https://rss.sciencedirect.com/publication/science/01989715</a></p>
-<h5 id="③-Habitat-International"><a href="#③-Habitat-International" class="headerlink" title="③ Habitat International"></a>③ Habitat International</h5><p><a target="_blank" rel="noopener" href="https://rss.sciencedirect.com/publication/science/01973975">https://rss.sciencedirect.com/publication/science/01973975</a></p>
-<h5 id="④-Interface"><a href="#④-Interface" class="headerlink" title="④ Interface"></a>④ Interface</h5><p><a target="_blank" rel="noopener" href="https://royalsocietypublishing.org/rss/site_1000019/1000012.xml">https://royalsocietypublishing.org/rss/site_1000019/1000012.xml</a></p>
-<h5 id="⑤-Nature"><a href="#⑤-Nature" class="headerlink" title="⑤ Nature"></a>⑤ Nature</h5><p><a target="_blank" rel="noopener" href="https://www.nature.com/nature.rss">https://www.nature.com/nature.rss</a></p>
-<h5 id="⑥-Nature-Cities"><a href="#⑥-Nature-Cities" class="headerlink" title="⑥ Nature Cities"></a>⑥ Nature Cities</h5><p><a target="_blank" rel="noopener" href="https://www.nature.com/natcities.rss">https://www.nature.com/natcities.rss</a></p>
-<h5 id="⑦-Nature-Communications"><a href="#⑦-Nature-Communications" class="headerlink" title="⑦ Nature Communications"></a>⑦ Nature Communications</h5><p><a target="_blank" rel="noopener" href="http://feeds.nature.com/ncomms/rss/current">http://feeds.nature.com/ncomms/rss/current</a></p>
-<h5 id="⑧-Nature-Computational-Science"><a href="#⑧-Nature-Computational-Science" class="headerlink" title="⑧ Nature Computational Science"></a>⑧ Nature Computational Science</h5><p><a target="_blank" rel="noopener" href="https://www.nature.com/natcomputsci.rss">https://www.nature.com/natcomputsci.rss</a></p>
-<h5 id="⑨-Nature-Human-Behaviour"><a href="#⑨-Nature-Human-Behaviour" class="headerlink" title="⑨ Nature Human Behaviour"></a>⑨ Nature Human Behaviour</h5><p><a target="_blank" rel="noopener" href="http://feeds.nature.com/nathumbehav/rss/current">http://feeds.nature.com/nathumbehav/rss/current</a></p>
-<h5 id="⑩-Nature-Physics"><a href="#⑩-Nature-Physics" class="headerlink" title="⑩ Nature Physics"></a>⑩ Nature Physics</h5><p><a target="_blank" rel="noopener" href="https://www.nature.com/nphys.rss">https://www.nature.com/nphys.rss</a></p>
-<h5 id="⑪Nature-Scientific-Data"><a href="#⑪Nature-Scientific-Data" class="headerlink" title="⑪Nature Scientific Data"></a>⑪Nature Scientific Data</h5><p><a target="_blank" rel="noopener" href="https://www.nature.com/sdata.rss">https://www.nature.com/sdata.rss</a></p>
-<h5 id="⑫-Nature-Sustainability"><a href="#⑫-Nature-Sustainability" class="headerlink" title="⑫ Nature Sustainability"></a>⑫ Nature Sustainability</h5><p><a target="_blank" rel="noopener" href="https://www.nature.com/natsustain.rss">https://www.nature.com/natsustain.rss</a></p>
-<h5 id="⑬-npj-Urban-Sustainability"><a href="#⑬-npj-Urban-Sustainability" class="headerlink" title="⑬ npj Urban Sustainability"></a>⑬ npj Urban Sustainability</h5><p><a target="_blank" rel="noopener" href="https://www.nature.com/npjurbansustain.rss">https://www.nature.com/npjurbansustain.rss</a></p>
-<h5 id="⑭-PNAS-Physical-Sciences"><a href="#⑭-PNAS-Physical-Sciences" class="headerlink" title="⑭ PNAS: Physical Sciences"></a>⑭ PNAS: Physical Sciences</h5><p><a target="_blank" rel="noopener" href="https://www.pnas.org/action/showFeed?type=searchTopic&amp;taxonomyCode=topic&amp;tagCode=phys-sci">https://www.pnas.org/action/showFeed?type=searchTopic&amp;taxonomyCode=topic&amp;tagCode=phys-sci</a></p>
-<h5 id="⑮-PNAS-Social-Sciences"><a href="#⑮-PNAS-Social-Sciences" class="headerlink" title="⑮ PNAS: Social Sciences"></a>⑮ PNAS: Social Sciences</h5><p><a target="_blank" rel="noopener" href="https://www.pnas.org/action/showFeed?type=searchTopic&amp;taxonomyCode=topic&amp;tagCode=soc-sci">https://www.pnas.org/action/showFeed?type=searchTopic&amp;taxonomyCode=topic&amp;tagCode=soc-sci</a></p>
-<h5 id="⑯-Science-Advances"><a href="#⑯-Science-Advances" class="headerlink" title="⑯ Science Advances"></a>⑯ Science Advances</h5><p><a target="_blank" rel="noopener" href="https://www.science.org/action/showFeed?type=etoc&amp;feed=rss&amp;jc=sciadv">https://www.science.org/action/showFeed?type=etoc&amp;feed=rss&amp;jc=sciadv</a></p>
-<h5 id="⑰-Scientific-Reports"><a href="#⑰-Scientific-Reports" class="headerlink" title="⑰ Scientific Reports"></a>⑰ Scientific Reports</h5><p><a target="_blank" rel="noopener" href="https://www.nature.com/srep.rss">https://www.nature.com/srep.rss</a></p>
-<h5 id="⑱-Sustainable-Cities-and-Society"><a href="#⑱-Sustainable-Cities-and-Society" class="headerlink" title="⑱ Sustainable Cities and Society"></a>⑱ Sustainable Cities and Society</h5><p><a target="_blank" rel="noopener" href="https://rss.sciencedirect.com/publication/science/22106707">https://rss.sciencedirect.com/publication/science/22106707</a></p>
-<h5 id="⑲Travel-Behaviour-and-Society"><a href="#⑲Travel-Behaviour-and-Society" class="headerlink" title="⑲Travel Behaviour and Society"></a>⑲Travel Behaviour and Society</h5><p><a target="_blank" rel="noopener" href="https://rss.sciencedirect.com/publication/science/2214367X">https://rss.sciencedirect.com/publication/science/2214367X</a></p>
-<h2 id="二、Zotero插件"><a href="#二、Zotero插件" class="headerlink" title="二、Zotero插件"></a>二、Zotero插件</h2><img src="/posts/8fbede65/image-20251229162352635.png" class="" title="image-20251229162352635">
-<h3 id="1、翻译"><a href="#1、翻译" class="headerlink" title="1、翻译"></a>1、翻译</h3><img src="/posts/8fbede65/image-20251229161216188.png" class="" title="image-20251229161216188">
-<h3 id="2、绿青蛙"><a href="#2、绿青蛙" class="headerlink" title="2、绿青蛙"></a>2、绿青蛙</h3><img src="/posts/8fbede65/image-20251229161319981.png" class="" title="image-20251229161319981">
+<h3 id="（4）高级"><a href="#（4）高级" class="headerlink" title="（4）高级"></a>（4）高级</h3><img src="/posts/8fbede65/image-20251229155245681.png" class="" title="image-20251229155245681">
+<h3 id="（5）订阅"><a href="#（5）订阅" class="headerlink" title="（5）订阅"></a>（5）订阅</h3><h4 id="①-Cities"><a href="#①-Cities" class="headerlink" title="① Cities"></a>① Cities</h4><p><a target="_blank" rel="noopener" href="https://rss.sciencedirect.com/publication/science/02642751">https://rss.sciencedirect.com/publication/science/02642751</a></p>
+<h4 id="②-Computers-Environment-and-Urban-Systems"><a href="#②-Computers-Environment-and-Urban-Systems" class="headerlink" title="② Computers, Environment and Urban Systems"></a>② Computers, Environment and Urban Systems</h4><p><a target="_blank" rel="noopener" href="https://rss.sciencedirect.com/publication/science/01989715">https://rss.sciencedirect.com/publication/science/01989715</a></p>
+<h4 id="③-Habitat-International"><a href="#③-Habitat-International" class="headerlink" title="③ Habitat International"></a>③ Habitat International</h4><p><a target="_blank" rel="noopener" href="https://rss.sciencedirect.com/publication/science/01973975">https://rss.sciencedirect.com/publication/science/01973975</a></p>
+<h4 id="④-Interface"><a href="#④-Interface" class="headerlink" title="④ Interface"></a>④ Interface</h4><p><a target="_blank" rel="noopener" href="https://royalsocietypublishing.org/rss/site_1000019/1000012.xml">https://royalsocietypublishing.org/rss/site_1000019/1000012.xml</a></p>
+<h4 id="⑤-Nature"><a href="#⑤-Nature" class="headerlink" title="⑤ Nature"></a>⑤ Nature</h4><p><a target="_blank" rel="noopener" href="https://www.nature.com/nature.rss">https://www.nature.com/nature.rss</a></p>
+<h4 id="⑥-Nature-Cities"><a href="#⑥-Nature-Cities" class="headerlink" title="⑥ Nature Cities"></a>⑥ Nature Cities</h4><p><a target="_blank" rel="noopener" href="https://www.nature.com/natcities.rss">https://www.nature.com/natcities.rss</a></p>
+<h4 id="⑦-Nature-Communications"><a href="#⑦-Nature-Communications" class="headerlink" title="⑦ Nature Communications"></a>⑦ Nature Communications</h4><p><a target="_blank" rel="noopener" href="http://feeds.nature.com/ncomms/rss/current">http://feeds.nature.com/ncomms/rss/current</a></p>
+<h4 id="⑧-Nature-Computational-Science"><a href="#⑧-Nature-Computational-Science" class="headerlink" title="⑧ Nature Computational Science"></a>⑧ Nature Computational Science</h4><p><a target="_blank" rel="noopener" href="https://www.nature.com/natcomputsci.rss">https://www.nature.com/natcomputsci.rss</a></p>
+<h4 id="⑨-Nature-Human-Behaviour"><a href="#⑨-Nature-Human-Behaviour" class="headerlink" title="⑨ Nature Human Behaviour"></a>⑨ Nature Human Behaviour</h4><p><a target="_blank" rel="noopener" href="http://feeds.nature.com/nathumbehav/rss/current">http://feeds.nature.com/nathumbehav/rss/current</a></p>
+<h4 id="⑩-Nature-Physics"><a href="#⑩-Nature-Physics" class="headerlink" title="⑩ Nature Physics"></a>⑩ Nature Physics</h4><p><a target="_blank" rel="noopener" href="https://www.nature.com/nphys.rss">https://www.nature.com/nphys.rss</a></p>
+<h4 id="⑪Nature-Scientific-Data"><a href="#⑪Nature-Scientific-Data" class="headerlink" title="⑪Nature Scientific Data"></a>⑪Nature Scientific Data</h4><p><a target="_blank" rel="noopener" href="https://www.nature.com/sdata.rss">https://www.nature.com/sdata.rss</a></p>
+<h4 id="⑫-Nature-Sustainability"><a href="#⑫-Nature-Sustainability" class="headerlink" title="⑫ Nature Sustainability"></a>⑫ Nature Sustainability</h4><p><a target="_blank" rel="noopener" href="https://www.nature.com/natsustain.rss">https://www.nature.com/natsustain.rss</a></p>
+<h4 id="⑬-npj-Urban-Sustainability"><a href="#⑬-npj-Urban-Sustainability" class="headerlink" title="⑬ npj Urban Sustainability"></a>⑬ npj Urban Sustainability</h4><p><a target="_blank" rel="noopener" href="https://www.nature.com/npjurbansustain.rss">https://www.nature.com/npjurbansustain.rss</a></p>
+<h4 id="⑭-PNAS-Physical-Sciences"><a href="#⑭-PNAS-Physical-Sciences" class="headerlink" title="⑭ PNAS: Physical Sciences"></a>⑭ PNAS: Physical Sciences</h4><p><a target="_blank" rel="noopener" href="https://www.pnas.org/action/showFeed?type=searchTopic&amp;taxonomyCode=topic&amp;tagCode=phys-sci">https://www.pnas.org/action/showFeed?type=searchTopic&amp;taxonomyCode=topic&amp;tagCode=phys-sci</a></p>
+<h4 id="⑮-PNAS-Social-Sciences"><a href="#⑮-PNAS-Social-Sciences" class="headerlink" title="⑮ PNAS: Social Sciences"></a>⑮ PNAS: Social Sciences</h4><p><a target="_blank" rel="noopener" href="https://www.pnas.org/action/showFeed?type=searchTopic&amp;taxonomyCode=topic&amp;tagCode=soc-sci">https://www.pnas.org/action/showFeed?type=searchTopic&amp;taxonomyCode=topic&amp;tagCode=soc-sci</a></p>
+<h4 id="⑯-Science-Advances"><a href="#⑯-Science-Advances" class="headerlink" title="⑯ Science Advances"></a>⑯ Science Advances</h4><p><a target="_blank" rel="noopener" href="https://www.science.org/action/showFeed?type=etoc&amp;feed=rss&amp;jc=sciadv">https://www.science.org/action/showFeed?type=etoc&amp;feed=rss&amp;jc=sciadv</a></p>
+<h4 id="⑰-Scientific-Reports"><a href="#⑰-Scientific-Reports" class="headerlink" title="⑰ Scientific Reports"></a>⑰ Scientific Reports</h4><p><a target="_blank" rel="noopener" href="https://www.nature.com/srep.rss">https://www.nature.com/srep.rss</a></p>
+<h4 id="⑱-Sustainable-Cities-and-Society"><a href="#⑱-Sustainable-Cities-and-Society" class="headerlink" title="⑱ Sustainable Cities and Society"></a>⑱ Sustainable Cities and Society</h4><p><a target="_blank" rel="noopener" href="https://rss.sciencedirect.com/publication/science/22106707">https://rss.sciencedirect.com/publication/science/22106707</a></p>
+<h4 id="⑲Travel-Behaviour-and-Society"><a href="#⑲Travel-Behaviour-and-Society" class="headerlink" title="⑲Travel Behaviour and Society"></a>⑲Travel Behaviour and Society</h4><p><a target="_blank" rel="noopener" href="https://rss.sciencedirect.com/publication/science/2214367X">https://rss.sciencedirect.com/publication/science/2214367X</a></p>
+<h1 id="二、Zotero插件"><a href="#二、Zotero插件" class="headerlink" title="二、Zotero插件"></a>二、Zotero插件</h1><img src="/posts/8fbede65/image-20251229162352635.png" class="" title="image-20251229162352635">
+<h2 id="1、翻译"><a href="#1、翻译" class="headerlink" title="1、翻译"></a>1、翻译</h2><img src="/posts/8fbede65/image-20251229161216188.png" class="" title="image-20251229161216188">
+<h2 id="2、绿青蛙"><a href="#2、绿青蛙" class="headerlink" title="2、绿青蛙"></a>2、绿青蛙</h2><img src="/posts/8fbede65/image-20251229161319981.png" class="" title="image-20251229161319981">
 <p>easyscholar网址：[<a target="_blank" rel="noopener" href="https://www.easyscholar.cc/">https://www.easyscholar.cc/</a></p>
 
-<h3 id="3、茉莉花"><a href="#3、茉莉花" class="headerlink" title="3、茉莉花"></a>3、茉莉花</h3><img src="/posts/8fbede65/image-20251229161349429.png" class="" title="image-20251229161349429">
-<h3 id="4、arXiv工作流"><a href="#4、arXiv工作流" class="headerlink" title="4、arXiv工作流"></a>4、arXiv工作流</h3><img src="/posts/8fbede65/image-20251229161407482.png" class="" title="image-20251229161407482">
-<h3 id="5、Better-Notes"><a href="#5、Better-Notes" class="headerlink" title="5、Better Notes"></a>5、Better Notes</h3><img src="/posts/8fbede65/image-20251229161434919.png" class="" title="image-20251229161434919">
-<h3 id="6、Linter"><a href="#6、Linter" class="headerlink" title="6、Linter"></a>6、Linter</h3><img src="/posts/8fbede65/image-20251229161723025.png" class="" title="image-20251229161723025">
-<h3 id="7、PDF下载"><a href="#7、PDF下载" class="headerlink" title="7、PDF下载"></a>7、PDF下载</h3><img src="/posts/8fbede65/image-20251229161855622.png" class="" title="image-20251229161855622">
+<h2 id="3、茉莉花"><a href="#3、茉莉花" class="headerlink" title="3、茉莉花"></a>3、茉莉花</h2><img src="/posts/8fbede65/image-20251229161349429.png" class="" title="image-20251229161349429">
+<h2 id="4、arXiv工作流"><a href="#4、arXiv工作流" class="headerlink" title="4、arXiv工作流"></a>4、arXiv工作流</h2><img src="/posts/8fbede65/image-20251229161407482.png" class="" title="image-20251229161407482">
+<h2 id="5、Better-Notes"><a href="#5、Better-Notes" class="headerlink" title="5、Better Notes"></a>5、Better Notes</h2><img src="/posts/8fbede65/image-20251229161434919.png" class="" title="image-20251229161434919">
+<h2 id="6、Linter"><a href="#6、Linter" class="headerlink" title="6、Linter"></a>6、Linter</h2><img src="/posts/8fbede65/image-20251229161723025.png" class="" title="image-20251229161723025">
+<h2 id="7、PDF下载"><a href="#7、PDF下载" class="headerlink" title="7、PDF下载"></a>7、PDF下载</h2><img src="/posts/8fbede65/image-20251229161855622.png" class="" title="image-20251229161855622">
 <p><a target="_blank" rel="noopener" href="https://sci-hub.se/{doi};https://sci-hub.st/{doi};https://sci-hub.ru/{doi};https://sci-hub.ren/{doi};https://sci-hub.wf/{doi};https://sci-hub.ee/{doi}">https://sci-hub.se/{doi};https://sci-hub.st/{doi};https://sci-hub.ru/{doi};https://sci-hub.ren/{doi};https://sci-hub.wf/{doi};https://sci-hub.ee/{doi}</a></p>
-<h3 id="7、Reference"><a href="#7、Reference" class="headerlink" title="7、Reference"></a>7、Reference</h3><img src="/posts/8fbede65/image-20251229161942449.png" class="" title="image-20251229161942449">
-<h3 id="8、Style"><a href="#8、Style" class="headerlink" title="8、Style"></a>8、Style</h3><img src="/posts/8fbede65/image-20251229162034877.png" class="" title="image-20251229162034877">
-<h4 id="1-视图"><a href="#1-视图" class="headerlink" title="(1) 视图"></a>(1) 视图</h4><img src="/posts/8fbede65/image-20251229142327022.png" class="" title="image-20251229142327022">
+<h2 id="7、Reference"><a href="#7、Reference" class="headerlink" title="7、Reference"></a>7、Reference</h2><img src="/posts/8fbede65/image-20251229161942449.png" class="" title="image-20251229161942449">
+<h2 id="8、Style"><a href="#8、Style" class="headerlink" title="8、Style"></a>8、Style</h2><img src="/posts/8fbede65/image-20251229162034877.png" class="" title="image-20251229162034877">
+<h3 id="1-视图"><a href="#1-视图" class="headerlink" title="(1) 视图"></a>(1) 视图</h3><img src="/posts/8fbede65/image-20251229142327022.png" class="" title="image-20251229142327022">
 <img src="/posts/8fbede65/image-20251229142335016.png" class="" title="image-20251229142335016">
 <img src="/posts/8fbede65/image-20251229142339944.png" class="" title="image-20251229142339944">
 <img src="/posts/8fbede65/image-20251229142346305.png" class="" title="image-20251229142346305">
@@ -552,11 +556,11 @@ return "【执行完毕】\n共扫描条目：" + items.length + " 条\n成功�
 <p>在阅读页面按shift+p，标注所有颜色的label</p>
 <img src="/posts/8fbede65/image-20251229142412875.png" class="" title="image-20251229142412875">
 <img src="/posts/8fbede65/image-20251229142510745.png" class="" title="image-20251229142510745">
-<h3 id="9、Zotero-IF"><a href="#9、Zotero-IF" class="headerlink" title="9、Zotero IF"></a>9、Zotero IF</h3><img src="/posts/8fbede65/image-20251229162201787.png" class="" title="image-20251229162201787">
-<h3 id="10、ZotMoov"><a href="#10、ZotMoov" class="headerlink" title="10、ZotMoov"></a>10、ZotMoov</h3><img src="/posts/8fbede65/image-20251229162234754.png" class="" title="image-20251229162234754">
+<h2 id="9、Zotero-IF"><a href="#9、Zotero-IF" class="headerlink" title="9、Zotero IF"></a>9、Zotero IF</h2><img src="/posts/8fbede65/image-20251229162201787.png" class="" title="image-20251229162201787">
+<h2 id="10、ZotMoov"><a href="#10、ZotMoov" class="headerlink" title="10、ZotMoov"></a>10、ZotMoov</h2><img src="/posts/8fbede65/image-20251229162234754.png" class="" title="image-20251229162234754">
 <p>注意：这里的添加格式：pdf、epub、docx、doc、djvu、html、xlsx、mp4、pptx</p>
-<h3 id="11、笔记模板——进去新建条目"><a href="#11、笔记模板——进去新建条目" class="headerlink" title="11、笔记模板——进去新建条目"></a>11、笔记模板——进去新建条目</h3>
-<h4 id="（1）PaperNote"><a href="#（1）PaperNote" class="headerlink" title="（1）PaperNote"></a>（1）PaperNote</h4><pre class=" language-lang-jsx"><code class="language-lang-jsx">
+<h2 id="11、笔记模板——进去新建条目"><a href="#11、笔记模板——进去新建条目" class="headerlink" title="11、笔记模板——进去新建条目"></a>11、笔记模板——进去新建条目</h2>
+<h3 id="（1）PaperNote"><a href="#（1）PaperNote" class="headerlink" title="（1）PaperNote"></a>（1）PaperNote</h3><pre class=" language-lang-jsx"><code class="language-lang-jsx">
 <!-- Title -->
 <h1 style="color:#193c47; background-color:#eef9fd; padding:8px;">
   $&#123;(() => &#123;
@@ -734,7 +738,7 @@ return "【执行完毕】\n共扫描条目：" + items.length + " 条\n成功�
 <h3>💭 Thought Inspiration</h3>
 <p></p>
 </code></pre>
-<h4 id="（2）PaperItem"><a href="#（2）PaperItem" class="headerlink" title="（2）PaperItem"></a>（2）PaperItem</h4><pre class=" language-lang-jsx"><code class="language-lang-jsx"><!-- Meta Data -->
+<h3 id="（2）PaperItem"><a href="#（2）PaperItem" class="headerlink" title="（2）PaperItem"></a>（2）PaperItem</h3><pre class=" language-lang-jsx"><code class="language-lang-jsx"><!-- Meta Data -->
 <table>
   <!-- Title -->
   <tr>
@@ -922,7 +926,11 @@ return "【执行完毕】\n共扫描条目：" + items.length + " 条\n成功�
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%B0%8Ftips/">
+                                    <span class="chip bg-color">奇奇怪怪的小tips</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -966,18 +974,17 @@ return "【执行完毕】\n共扫描条目：" + items.length + " 条\n成功�
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/8fbede65.html">
+                <a href="/posts/3c789177.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Zotero配置">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="s-singbox搭建VPN">
                         
-                        <span class="card-title">Zotero配置</span>
+                        <span class="card-title">s-singbox搭建VPN</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -987,9 +994,9 @@ return "【执行完毕】\n共扫描条目：" + items.length + " 条\n成功�
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-12-31
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-01-10
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1002,7 +1009,6 @@ return "【执行完毕】\n共扫描条目：" + items.length + " 条\n成功�
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -1043,6 +1049,14 @@ return "【执行完毕】\n共扫描条目：" + items.length + " 条\n成功�
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%B0%8Ftips/">
+                        <span class="chip bg-color">奇奇怪怪的小tips</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1172,6 +1186,13 @@ return "【执行完毕】\n共扫描条目：" + items.length + " 条\n成功�
 </main>
 
 
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
@@ -1234,7 +1255,7 @@ return "【执行完毕】\n共扫描条目：" + items.length + " 条\n成功�
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021-2025</span>
+                <span id="year">2021-2026</span>
             
             <span id="year">2021</span>
             <a href="/about" target="_blank">猴猴猴</a>

@@ -373,9 +373,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%A7%91%E7%A0%94%E6%96%B9%E6%B3%95/">
+                                <span class="chip bg-color">科研方法</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -417,16 +421,16 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h1><h2 id="（一）聚类算法"><a href="#（一）聚类算法" class="headerlink" title="（一）聚类算法"></a>（一）聚类算法</h2><h3 id="一、聚合聚类"><a href="#一、聚合聚类" class="headerlink" title="一、聚合聚类"></a>一、聚合聚类</h3><p>聚合聚类(Agglomerative Clustering)是一种自底向上的聚类方法。它从数据点（或称为观测值）的集合开始，然后将这些点视为初始的簇。接着，算法逐步合并这些簇，直到满足某个停止条件，如达到预设的簇数量或达到某个特定的簇大小。在这个过程中，算法通过计算簇之间的距离来确定哪些簇应该被合并。</p>
+                <h1 id="一、聚类算法"><a href="#一、聚类算法" class="headerlink" title="一、聚类算法"></a>一、聚类算法</h1><h2 id="（一）聚合聚类"><a href="#（一）聚合聚类" class="headerlink" title="（一）聚合聚类"></a>（一）聚合聚类</h2><p>聚合聚类(Agglomerative Clustering)是一种自底向上的聚类方法。它从数据点（或称为观测值）的集合开始，然后将这些点视为初始的簇。接着，算法逐步合并这些簇，直到满足某个停止条件，如达到预设的簇数量或达到某个特定的簇大小。在这个过程中，算法通过计算簇之间的距离来确定哪些簇应该被合并。</p>
 <div style="width: 50%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/186e9376/image-20251015225342314.png" class="" title="image-20251015225342314"></div>
 
-<h4 id="1、步骤"><a href="#1、步骤" class="headerlink" title="1、步骤"></a>1、步骤</h4><ol>
+<h3 id="1、步骤"><a href="#1、步骤" class="headerlink" title="1、步骤"></a>1、步骤</h3><ol>
 <li>初始化：每个数据点被视为一个簇。</li>
 <li>合并：根据某种距离度量（如欧氏距离、余弦相似度等），将最近的簇合并为一个新的簇。</li>
 <li>重复：重复步骤2，直到满足停止条件。</li>
 <li>输出：返回合并后的簇结果。</li>
 </ol>
-<h4 id="2、优缺点"><a href="#2、优缺点" class="headerlink" title="2、优缺点"></a>2、优缺点</h4><ul>
+<h3 id="2、优缺点"><a href="#2、优缺点" class="headerlink" title="2、优缺点"></a>2、优缺点</h3><ul>
 <li>层次结构：能够生成数据的层次结构或嵌套聚类，这在某些应用中非常有用。</li>
 <li>可解释性：由于是自底向上的方法，可以更容易地解释和可视化结果。</li>
 <li>处理大型数据集：由于不需要一次性处理所有数据，因此可以有效地处理大型数据集。</li>
@@ -436,12 +440,12 @@
 <li>不平衡簇：可能产生不平衡的簇，即某些簇包含大量数据点，而其他簇则包含很少的数据点。</li>
 <li>初始化敏感：对初始化的选择敏感，可能会导致不同的聚类结果。</li>
 </ul>
-<h4 id="3、使用场景"><a href="#3、使用场景" class="headerlink" title="3、使用场景"></a>3、使用场景</h4><ul>
+<h3 id="3、使用场景"><a href="#3、使用场景" class="headerlink" title="3、使用场景"></a>3、使用场景</h3><ul>
 <li>层次聚类：适用于需要层次结构的聚类任务，如市场细分或社交网络分析。</li>
 <li>异常检测：可以通过观察聚类结果中的离群点来检测异常值。</li>
 <li>数据预处理：在某些机器学习任务中，可以使用聚合聚类作为预处理步骤来简化数据或提取特征。</li>
 </ul>
-<h4 id="4、代码"><a href="#4、代码" class="headerlink" title="4、代码"></a>4、代码</h4><pre class=" language-lang-python"><code class="language-lang-python">from sklearn.cluster import AgglomerativeClustering # 导入AgglomerativeClustering类 
+<h3 id="4、代码"><a href="#4、代码" class="headerlink" title="4、代码"></a>4、代码</h3><pre class=" language-lang-python"><code class="language-lang-python">from sklearn.cluster import AgglomerativeClustering # 导入AgglomerativeClustering类 
 from sklearn import datasets # 导入datasets用于生成样本数据 
 from sklearn.preprocessing import StandardScaler # 导入StandardScaler进行标准化处理 
 import matplotlib.pyplot as plt # 导入绘图库
@@ -458,13 +462,13 @@ plt.show() # 显示结果图
 <pre><code>
 
 
-### 二、DBSCAN 聚类
+## （二）DBSCAN 聚类
 
 Density-Based Spatial Clustering of Applications with Noise是一种基于密度的聚类方法。它的主要思想是：一个簇是由一个密度足够大的区域所组成的，并且这个区域是核心对象所连接的稠密区域。DBSCAN将簇定义为具有足够高密度的区域，并且通过噪声点将簇与相邻的密度区域分开。
 
 &lt;div style=&quot;width: 50%; max-width: 100%; display: block; margin: 0 auto;&quot;&gt;&#123;% asset_img image-20251015230101612.png image-20251015230101612 %&#125;&lt;/div&gt;
 
-#### 1、步骤
+### 1、步骤
 
 1. 初始化：选择一个未被访问过的点作为当前点。
 2. 密度估计：如果当前点的ε-邻域内的点数量大于等于MinPts，则当前点为核心点。否则，当前点为噪声点。
@@ -472,7 +476,7 @@ Density-Based Spatial Clustering of Applications with Noise是一种基于密度
 4. 重复：重复步骤2和3，直到所有点都被访问。
 5. 输出：返回所有簇的结果。
 
-#### 2、优缺点
+### 2、优缺点
 
 - 密度敏感：能够发现任何形状的簇，并处理异常值和噪声。
 - 可扩展性：对于大规模数据集，DBSCAN具有较好的可扩展性。
@@ -484,13 +488,13 @@ Density-Based Spatial Clustering of Applications with Noise是一种基于密度
 - 计算量大：对于高维数据，DBSCAN的计算量可能会很大。
 - 对噪声和异常值敏感：如果数据集中存在大量噪声或异常值，可能会影响聚类的效果。
 
-#### 3、使用场景
+### 3、使用场景
 
 - 异常检测：由于DBSCAN对噪声和异常值敏感，因此可以用于异常检测任务。
 - 任意形状的簇：对于需要发现任意形状的簇的应用，如社交网络分析、图像分割等，DBSCAN是一个很好的选择。
 - 数据预处理：在某些机器学习任务中，可以使用DBSCAN对数据进行预处理，以便进一步的分析或分类。
 
-#### 4、代码
+### 4、代码
 
 ```python
 from sklearn.cluster import DBSCAN # 导入DBSCAN聚类算法 
@@ -505,7 +509,7 @@ plt.show() # 显示结果图
 </code></pre><pre><code>
 
 
-### 三、OPTICS聚类
+## (三）OPTICS聚类
 
 OPTICS（Ordering Points To Identify the Clustering Structure）是一种基于密度的聚类算法，它是为了优化DBSCAN算法而提出的。与DBSCAN类似，OPTICS算法的核心思想是通过分析样本点的密度分布来识别出数据集中的聚类结构。然而，OPTICS算法在处理过程中不直接产生聚类结果，而是生成一个有序的样本点列表，这个列表可以用来构建一个决策图，进而为DBSCAN算法选择合适的邻域半径参数。
 
@@ -515,7 +519,7 @@ OPTICS算法引入了两个新的距离概念，即**核心距离**和**可达�
 
 &lt;div style=&quot;width: 50%; max-width: 100%; display: block; margin: 0 auto;&quot;&gt;&#123;% asset_img image-20251017112141817.png image-20251017112141817 %&#125;&lt;/div&gt;
 
-#### 1、步骤
+### 1、步骤
 
 1. 已知数据集 D，创建两个队列，有序队列O和结果队列R（有序队列用来存储核心对象及其该核心对象的密度直达对象，并按可达距离升序排列；结果队列用来存储样本点的输出次序。可以把有序队列里面放的理解为待处理的数据，而结果队列里放的是已经处理完的数据）。
 
@@ -529,7 +533,7 @@ OPTICS算法引入了两个新的距离概念，即**核心距离**和**可达�
 
    &#123;% asset_img image-20251017124214008.png image-20251017124214008 %&#125;
 
-#### 2、优缺点
+### 2、优缺点
 
 - 无需预设聚类簇数，可发现不同密度和形状的簇。
 - 对参数不敏感，鲁棒性强。
@@ -540,12 +544,12 @@ OPTICS算法引入了两个新的距离概念，即**核心距离**和**可达�
 - 计算复杂度较高，训练大规模数据集时间较长。
 - 聚类结构需结合可达距离图分析，理解与参数调整较为复杂。
 
-#### 3、使用场景
+### 3、使用场景
 
 - 复杂、有噪声、密度不均的数据（如时序数据、地理数据、图像分割）。
 - 无法预先确定簇数时的实际聚类分析。
 
-#### 4、代码
+### 4、代码
 
 ```python
 from sklearn.cluster import OPTICS
@@ -559,9 +563,9 @@ print(clustering.core_distances_)
 print(clustering.ordering_)
 print(clustering.reachability_)
 print(clustering.labels_)
-</code></pre><h3 id="四、K-Means-聚类模型"><a href="#四、K-Means-聚类模型" class="headerlink" title="四、K-Means 聚类模型"></a>四、<strong>K-Means 聚类模型</strong></h3><p>K-Means聚类是一种基于距离的聚类方法，通过最小化每个数据点到其所属簇中心点的距离之和，将数据点划分为K个簇。算法的主要思想是：每个簇有一个中心点，数据点被分配到最近的中心点所在的簇中。通过迭代更新每个簇的中心点，使得所有数据点到其所属簇的中心点的距离之和最小</p>
+</code></pre><h2 id="四）K-Means-聚类模型"><a href="#四）K-Means-聚类模型" class="headerlink" title="(四）K-Means 聚类模型"></a>(四）<strong>K-Means 聚类模型</strong></h2><p>K-Means聚类是一种基于距离的聚类方法，通过最小化每个数据点到其所属簇中心点的距离之和，将数据点划分为K个簇。算法的主要思想是：每个簇有一个中心点，数据点被分配到最近的中心点所在的簇中。通过迭代更新每个簇的中心点，使得所有数据点到其所属簇的中心点的距离之和最小</p>
 <img src="/posts/186e9376/image-20251015230458282.png" class="" title="image-20251015230458282">
-<h4 id="1、步骤-1"><a href="#1、步骤-1" class="headerlink" title="1、步骤"></a>1、步骤</h4><ol>
+<h3 id="1、步骤-1"><a href="#1、步骤-1" class="headerlink" title="1、步骤"></a>1、步骤</h3><ol>
 <li>初始化：随机选择K个中心点。</li>
 <li>分配数据点：将每个数据点分配到最近的中心点所在的簇中。</li>
 <li>更新中心点：重新计算每个簇的中心点，即簇中所有数据点的均值。</li>
@@ -570,7 +574,7 @@ print(clustering.labels_)
 </ol>
 <div style="width: 50%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/186e9376/image-20251015230532638.png" class="" title="image-20251015230532638"></div>
 
-<h4 id="2、优点"><a href="#2、优点" class="headerlink" title="2、优点"></a>2、优点</h4><ul>
+<h3 id="2、优点"><a href="#2、优点" class="headerlink" title="2、优点"></a>2、优点</h3><ul>
 <li>简单易理解：K-Means聚类模型简单直观，易于理解。</li>
 <li>可扩展性：对于大规模数据集，K-Means算法具有较好的可扩展性。</li>
 <li>无监督学习：K-Means是一种无监督学习方法，适用于未标记的数据集。</li>
@@ -582,13 +586,13 @@ print(clustering.labels_)
 <li>形状限制：只能发现球形簇，对于非球形簇的形状可能无法准确识别。</li>
 <li>计算量大：对于高维数据，计算量较大。</li>
 </ul>
-<h4 id="3、使用场景-1"><a href="#3、使用场景-1" class="headerlink" title="3、使用场景"></a>3、使用场景</h4><ul>
+<h3 id="3、使用场景-1"><a href="#3、使用场景-1" class="headerlink" title="3、使用场景"></a>3、使用场景</h3><ul>
 <li>异常检测：K-Means聚类可以用于异常检测，将异常值识别为与其它数据点距离较远的簇。</li>
 <li>市场细分：在市场营销领域，可以使用K-Means聚类将客户划分为不同的细分市场。</li>
 <li>图像分割：在图像处理中，可以使用K-Means聚类进行图像分割，将图像划分为多个区域或对象。</li>
 <li>特征提取：通过K-Means聚类可以提取数据的内在结构特征，用于分类或预测任务。</li>
 </ul>
-<h4 id="4、代码-1"><a href="#4、代码-1" class="headerlink" title="4、代码"></a>4、代码</h4><pre class=" language-lang-python"><code class="language-lang-python">from sklearn.cluster import KMeans # 导入K-Means聚类算法 
+<h3 id="4、代码-1"><a href="#4、代码-1" class="headerlink" title="4、代码"></a>4、代码</h3><pre class=" language-lang-python"><code class="language-lang-python">from sklearn.cluster import KMeans # 导入K-Means聚类算法 
 from sklearn import datasets # 导入datasets用于生成样本数据 
 import matplotlib.pyplot as plt # 导入绘图库 
 iris = datasets.load_iris() # 使用Iris数据集作为示例 
@@ -599,12 +603,12 @@ plt.scatter(X[:, 0], X[:, 1], c=labels, cmap='viridis') # 使用viridis色彩映
 plt.show() # 显示结果图
 </code></pre>
 <p>```</p>
-<h2 id="（二）评价指标"><a href="#（二）评价指标" class="headerlink" title="（二）评价指标"></a>（二）评价指标</h2><p>常用评估指标包括外部评价指标和内部评价指标。外部评价指标是在已知真实标签的情况下评估聚类结果的准确性，而内部评价指标则是在不知道真实标签的情况下评估聚类结果的质量。</p>
-<h3 id="一、外部指标"><a href="#一、外部指标" class="headerlink" title="一、外部指标"></a>一、外部指标</h3><div style="width: 50%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/186e9376/image-20251017131122615.png" class="" title="image-20251017131122615"></div>
+<h1 id="二、评价指标"><a href="#二、评价指标" class="headerlink" title="二、评价指标"></a>二、评价指标</h1><p>常用评估指标包括外部评价指标和内部评价指标。外部评价指标是在已知真实标签的情况下评估聚类结果的准确性，而内部评价指标则是在不知道真实标签的情况下评估聚类结果的质量。</p>
+<h2 id="一）外部指标"><a href="#一）外部指标" class="headerlink" title="(一）外部指标"></a>(一）外部指标</h2><div style="width: 50%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/186e9376/image-20251017131122615.png" class="" title="image-20251017131122615"></div>
 
 
 
-<h3 id="二、内部指标"><a href="#二、内部指标" class="headerlink" title="二、内部指标"></a>二、内部指标</h3><div style="width: 50%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/186e9376/image-20251017131242527.png" class="" title="image-20251017131242527"></div>
+<h2 id="二）内部指标"><a href="#二）内部指标" class="headerlink" title="(二）内部指标"></a>(二）内部指标</h2><div style="width: 50%; max-width: 100%; display: block; margin: 0 auto;"><img src="/posts/186e9376/image-20251017131242527.png" class="" title="image-20251017131242527"></div>
 
 
 <p>.jpg)</p>
@@ -671,7 +675,11 @@ plt.show() # 显示结果图
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E7%A7%91%E7%A0%94%E6%96%B9%E6%B3%95/">
+                                    <span class="chip bg-color">科研方法</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -751,6 +759,14 @@ plt.show() # 显示结果图
                     </div>
                 </div>
                 
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%A7%91%E7%A0%94%E6%96%B9%E6%B3%95/">
+                        <span class="chip bg-color">科研方法</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
@@ -790,6 +806,14 @@ plt.show() # 显示结果图
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%A7%91%E7%A0%94%E6%96%B9%E6%B3%95/">
+                        <span class="chip bg-color">科研方法</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -919,6 +943,13 @@ plt.show() # 显示结果图
 </main>
 
 
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
@@ -981,7 +1012,7 @@ plt.show() # 显示结果图
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021-2025</span>
+                <span id="year">2021-2026</span>
             
             <span id="year">2021</span>
             <a href="/about" target="_blank">猴猴猴</a>
