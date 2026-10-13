@@ -491,7 +491,8 @@
 <p>首先，<strong>空间单元一改，ρ 就可能改</strong>。CBG 大小在不同城市不一样；换成普查区、规则网格或道路网络，同一城市的数值、甚至城市排序都可能变化。论文在日本四座都市圈的网格数据中也检验到模型形式仍有用，但 ρ 的大小和离散程度随网格分辨率变化。因此它适合在相同空间划分与邻接规则下比较，尤其适合同城前后比较；不能拿一个 0.42 就宣称发现全球通用的城市常数。</p>
 <p>其次，SafeGraph 覆盖的是设备样本的聚合轨迹，不是所有居民的完整出行；按周观察会抹平一天内和工作日、周末的差别。灾害期 ρ 的变化虽常超过日常波动，但绝对幅度不大，距离可用于实时预警还有距离。疫情相关图不能识别因果，SIR 图也不能当预测。这些边界不削弱论文提出新视角的价值，却决定了这把尺子该用在什么地方。</p>
 <h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>城市受冲击时，不仅可能是出行总量变少，原本在空间上相互呼应的街区活动也会变得更局部；ρ 提供了一种量这种变化的方法，但它量的是<strong>选定空间划分下的关联范围</strong>，不是人均出行距离。</p>
-<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p><strong>图片来源与权属</strong>：文中 14 张研究图来自<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s44284-026-00531-y">原论文 Fig. 1—4</a>。图片版权归原权利人，本站的转载许可不适用于这些图片；再次使用请另行确认授权。</p>
+<ul>
 <li>Li, W., Han, Y., Batty, M., Gao, J. &amp; Wang, Q. R. (2026). <a target="_blank" rel="noopener" href="https://doi.org/10.1038/s44284-026-00531-y">The spatial reach of mobility interactions in urban systems</a>. <em>Nature Cities</em>. DOI: 10.1038/s44284-026-00531-y。文中数据图均源自该论文 Fig. 1—4。</li>
 <li><a target="_blank" rel="noopener" href="https://github.com/weiyli/spatial_sldr">研究公开的处理后数据与代码</a>。原始 SafeGraph 出行数据受许可限制，不在仓库中公开。</li>
 </ul>
@@ -515,40 +516,10 @@
 
     <div class="reprint" id="reprint-statement">
         
-            <div class="reprint__author">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-user">
-                        文章作者:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">猴猴猴</a>
-                </span>
-            </div>
-            <div class="reprint__type">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-link">
-                        文章链接:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="http://xiaoyue-hou.github.io/posts/2bdc3ce1/">http://xiaoyue-hou.github.io/posts/2bdc3ce1/</a>
-                </span>
-            </div>
-            <div class="reprint__notice">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-copyright">
-                        版权声明:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    本博客所有文章除特別声明外，均采用
-                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    许可协议。转载请注明来源
-                    <a href="/about" target="_blank">猴猴猴</a>
-                    !
-                </span>
-            </div>
+            <i class="fas fa-exclamation-circle"></i>
+            <span>
+                本文不允许转载。
+            </span>
         
     </div>
 
@@ -622,105 +593,7 @@
 
     
 
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
-        
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
-            <div class="card">
-                <a href="/posts/2bdc3ce1/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="一座城市的出行联系，能延伸到几个街区之外？">
-                        
-                        <span class="card-title">一座城市的出行联系，能延伸到几个街区之外？</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-10-13
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Paper/" class="post-category">
-                                    Paper
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
 
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%9F%8E%E5%B8%82%E7%A7%91%E5%AD%A6/">
-                        <span class="chip bg-color">城市科学</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
-                        <span class="chip bg-color">人类移动性</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%A9%BA%E9%97%B4%E5%85%B3%E8%81%94/">
-                        <span class="chip bg-color">空间关联</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/0/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
-                        
-                        <span class="card-title"></span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-04-07
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            猴猴猴
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-    </div>
-</article>
 
 </div>
 
