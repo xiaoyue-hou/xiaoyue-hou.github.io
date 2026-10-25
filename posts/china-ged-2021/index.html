@@ -1,0 +1,1154 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="A gridded establishment dataset as a proxy for economic activity in China, 猴猴猴">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>A gridded establishment dataset as a proxy for economic activity in China | 猴猴猴</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<style>
+    /* ----------------------------------------------------------- */
+    /* 1. 基础清理：隐藏不需要的文字 */
+    /* ----------------------------------------------------------- */
+    .card .card-content .summary, 
+    .caption, .img-caption, .fancybox-caption, 
+    .img-item .caption { 
+        display: none !important; 
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">猴猴猴</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">猴猴猴</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">A gridded establishment dataset as a proxy for economic activity in China</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%9F%8E%E5%B8%82%E7%A7%91%E5%AD%A6/">
+                                <span class="chip bg-color">城市科学</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE/">
+                                <span class="chip bg-color">开放数据</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%BB%8F%E6%B5%8E%E6%B4%BB%E5%8A%A8/">
+                                <span class="chip bg-color">经济活动</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper/" class="post-category">
+                                Paper
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-10-25
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+
+<h2 id="一座城的经济活动，能用新注册企业画出来吗？"><a href="#一座城的经济活动，能用新注册企业画出来吗？" class="headerlink" title="一座城的经济活动，能用新注册企业画出来吗？"></a>一座城的经济活动，能用新注册企业画出来吗？</h2><p>论文名片｜Lei Dong、Xiaohui Yuan、Meng Li、Carlo Ratti、Yu Liu，<em>A gridded establishment dataset as a proxy for economic activity in China</em>，<em>Scientific Data</em> 8, 5（2021）。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-020-00792-9">原论文</a> · 数据描述论文。</p>
+<p>想象你正在比较两个街区：夜间灯光一样亮，一个是制造业园区，另一个是商务办公区。灯光可以告诉你哪里有人造照明，却很难告诉你经济活动的类型，也很难区分亮度已经饱和的市中心街区。城市统计年鉴又太粗，往往只给全市一个数。</p>
+<p>这篇论文换了一种观察对象：把企业注册记录放到地图上，看看每年哪里有新企业、属于什么行业。得到的不是每个街区的 GDP，而是一套可以长时间比较、细到城市内部的企业新设活动代理指标。</p>
+<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
+<li>GED 覆盖中国大陆 2005—2015 年约 2555 万条企业新设记录，以经纬各 0.01°的网格汇总，并区分三次产业。</li>
+<li>在 2015 年城市尺度的回归中，企业数量对 GDP、财政收入和就业的拟合均优于夜间灯光；与灯光结合还能提高拟合。但这不等于已经验证每个网格的经济产出。</li>
+<li>注册地址不必然是经营地址。地图的精细程度也不等于每条地址的定位精度：小城市匹配到门牌或兴趣点的比例明显较低。</li>
+<li>数据中的年份是注册年份，企业状态则取自 2018 年。它不能直接用于逐年还原企业注销数量或每年存续企业总数。</li>
+</ul>
+<h2 id="把企业放进地图，先要决定数的是什么"><a href="#把企业放进地图，先要决定数的是什么" class="headerlink" title="把企业放进地图，先要决定数的是什么"></a>把企业放进地图，先要决定数的是什么</h2><p>原始数据来自国家企业信用信息公示系统，企业名称目录来自天眼查。研究收集了 8370 万条注册记录，先去掉 5780 万条个体工商户记录。这类记录不仅经营规模通常较小，注册地址也常只到村镇，难以可靠定位。清洗后保留 25,545,850 条企业记录。</p>
+<p>这里的 establishment 被操作化为企业注册记录，不能机械理解成每一个实体门店，也不能理解成每个工作岗位。大公司与小公司都各计一条；员工数和营业额在原始数据里没有记录。</p>
+<p>论文表 1 把行业归为第一、第二、第三产业。企业还按 2018 年采集时的状态区分为存续、注销和其他。这个状态标签没有改变企业归属的注册年份。例如，一家 2010 年注册、2017 年注销的企业仍归入 2010 年的新设记录，不能把它当成 2010 年的注销事件。</p>
+<p>为了避免重名街道被定位到别的城市，流程先从地址、登记机关等字段推断城市，再调用高德地图做地理编码（geocoding，即把地址转换成坐标）。约 3%的记录无法识别对应城市或区县。坐标从 GCJ-02 转成 WGS84 后，再汇入经纬各 0.01°的网格。</p>
+<p><img src="/posts/china-ged-2021/fig1.png" alt="企业注册信息生成网格数据的完整流程"></p>
+<p>图 1｜一份企业名录怎样变成可比较的空间数据？</p>
+<p>本图没有字母子图。上排依次为收集注册信息、排除个体工商户、添加行业及经营状态标签；沿箭头进入下排，先提取城市与地址，再做地理编码、坐标转换和网格汇总。底部标出减少地址歧义、验证定位、交叉验证三个质量环节。来源：原论文 Fig. 1。</p>
+<h2 id="数量对得上，是否就说明记录完整？"><a href="#数量对得上，是否就说明记录完整？" class="headerlink" title="数量对得上，是否就说明记录完整？"></a>数量对得上，是否就说明记录完整？</h2><p>2015 年数据中有约 485 万家新设企业，官方报告折算全年约 445 万家，数据与官方之比为 109.2%。作者提出，官方可能扣除了当年注册又注销的企业，而本数据保留了注册事件。这个超过 100%的比例提醒我们：所谓覆盖率同时受到统计口径影响，不能读成超额发现了真实企业。</p>
+<p><img src="/posts/china-ged-2021/fig2.png" alt="企业新设总量、相对官方数量与网格分布"></p>
+<p>图 2｜这套数据在时间和网格尺度上呈现什么分布？</p>
+<p>（a）横轴为年份，纵轴为当年新设企业数，单位为百万；彩线区分三次产业，黑线为总量，虚线为官方报告，总量增长主要伴随第三产业增长。</p>
+<p>（b）横轴为年份，纵轴为 GED 与官方报告的数量比，曲线围绕 1 以上波动；它比较的是两个统计来源，不能独自证明逐条记录无遗漏。</p>
+<p>（c）横轴为网格企业数的常用对数，纵轴为累积分布的常用对数；红、蓝分别对应 2015、2005 年，并给出对数正态拟合。少数企业极密集的网格处于尾部，后续微观分析需要留意。来源：原论文 Fig. 2。</p>
+<p>2015 年的空间分布显示，企业新设集中在东部沿海及主要城市群。和一片亮到顶的夜间灯光相比，直接计数仍能区分市内网格。但企业注册集中可能也来自注册优惠政策，而非同等强度的现场生产和就业。</p>
+<p><img src="/posts/china-ged-2021/fig3.png" alt="中国大陆及两个城市群的企业空间分布"></p>
+<p>图 3｜全国分布之外，能否看到城市内部差异？</p>
+<p>（a）中国大陆总体分布；颜色图例对应网格企业数，暖色表示更多。</p>
+<p>（b）京津冀局部放大，展示城市群内集聚及网格差异。</p>
+<p>（c）珠三角局部放大，揭示不同城市及其内部的密集区。三幅图都是 2015 年新设企业记录的地理汇总，不是 GDP 热力图。来源：原论文 Fig. 3。</p>
+<h2 id="网格画得细，地址真的定得准吗？"><a href="#网格画得细，地址真的定得准吗？" class="headerlink" title="网格画得细，地址真的定得准吗？"></a>网格画得细，地址真的定得准吗？</h2><p>研究选取北京、长沙和鞍山，分别抽样 10,000 条地址检查定位。高德返回的匹配层级中，达到门牌或兴趣点（POI）的比例，北京约 88%、长沙约 77%、鞍山约 48%；若把村、镇层级也算进去，比例升为约 96%、95%、84%（表 4）。后一个标准更宽松，不能把两个比例都称为同样的定位准确率。</p>
+<p>另一项检查用百度地图重新编码同一批地址。按照其置信指标所对应的规则，误差小于 1000 米的比例分别为 93.1%、92.2%、74.1%。这仍是地图服务返回指标的检验，并非逐家实地核查；北京优于鞍山的差异也说明，误差不能在全国一概而论。</p>
+<h2 id="能代表经济活动，证据在哪个尺度上成立？"><a href="#能代表经济活动，证据在哪个尺度上成立？" class="headerlink" title="能代表经济活动，证据在哪个尺度上成立？"></a>能代表经济活动，证据在哪个尺度上成立？</h2><p>研究把 2015 年新设企业数汇总到城市，与同年的 GDP、财政收入和就业人数比较，并排除年鉴数据缺失的城市。模型 1 用企业总数解释各指标；模型 2 把三次产业的数量分别放入回归，两者均采用对数。作为基线，夜间灯光也在城市边界内汇总。</p>
+<p>拟合优度采用调整后的 R²：数值越高，表示这组城市数据中回归能够解释的差异越多。企业总数模型对 GDP、财政收入、就业的调整后 R² 分别为 0.782、0.817、0.761；灯光单独模型分别为 0.749、0.710、0.708。进一步区分产业，前者提高到 0.812、0.860、0.787。把产业分项与灯光结合，三项分别达到 0.847、0.868、0.813。</p>
+<p>这支持两类数据提供互补信息，不能解释成企业注册增加必然引起财政收入增加，也不是对未见城市进行预测的准确率。</p>
+<p><img src="/posts/china-ged-2021/fig4.png" alt="企业数与夜间灯光对城市经济指标的回归比较"></p>
+<p>图 4｜企业注册和灯光，分别解释了哪些城市差异？</p>
+<p>（a、b、c）横轴为新设企业数的常用对数，纵轴依次为 GDP、财政收入、就业的常用对数；散点是城市，图中同时报告企业总数与三次产业分项模型的调整后 R²。</p>
+<p>（d、e、f）横轴改为夜间灯光的常用对数，纵轴依次对应同三项指标；图内列出灯光单独、加入企业总数、加入三次产业企业数的拟合结果。不能只凭散点线条，把三种多变量模型误读成同一个一元回归。来源：原论文 Fig. 4。</p>
+<p>市级相关还留下一个问题：网格尺度也有合理结构吗？研究将北京企业网格与手机数据估计的人口网格匹配，只分析人口密度不低于每平方公里 1000 人的区域。人口与企业数呈超线性关系，幂律指数约为 1.16：在这组空间比较中，人口较多的网格，企业数平均增加得更快。</p>
+<p>这是一项与城市标度理论相容的有效性检查，并非证明每个网格的真实产值，也不是北京人口增长 1%必定带来企业增长 1.16%的时间因果关系。</p>
+<p><img src="/posts/china-ged-2021/fig5.png" alt="北京人口与企业网格及标度关系"></p>
+<p>图 5｜人口较密集的城市网格，是否也汇集更多企业？</p>
+<p>（a）北京人口空间分布，颜色图例单位为千人。</p>
+<p>（b）企业空间分布，颜色图例单位为千家；横纵轴仍为经纬度，不能把两幅图的颜色数值直接等同。</p>
+<p>（c）横轴为人口、纵轴为企业数，均取常用对数；拟合斜率为 1.16，括号中报告 0.027。点之间的空间关联支持超线性模式，不能识别其成因。来源：原论文 Fig. 5。</p>
+<h2 id="真正使用时，还要守住哪些口径？"><a href="#真正使用时，还要守住哪些口径？" class="headerlink" title="真正使用时，还要守住哪些口径？"></a>真正使用时，还要守住哪些口径？</h2><p>主文件一行是一个网格在某注册年份的汇总，含网格中心坐标、企业总数、行业分项及状态分项（表 2）。没有注册记录的网格—年份组合不写入文件。用作完整空间面板前，应先建立所需网格与年份集合，区分缺行与其他来源的数据缺失。论文还提供 2005、2010、2015 年未聚合数据，便于改变分析尺度。</p>
+<p>省级汇总表 3 描述的是全期企业数量及网格分布，不能把其网格均值当作全省任一地方的典型经营密度。行政区名称对应 2019 年边界，和其他年份统计资料连接时需处理区划变化。经纬网格也不等面积：赤道附近约为 1.1 × 1.1 公里，北京约为 0.85 × 1.1 公里；跨纬度比较密度时必须用实际面积。</p>
+<p>最难靠技术消除的误差来自注册地址与经营地址分离。税收优惠区可能吸纳大量注册企业，部分网格超过一万家。作者建议微观分析可考虑上限截断或对数变换，但这些处理只能减弱极端值影响，无法自动找回企业真正经营的位置。历史地名变更、没有企业规模信息，以及被排除的个体工商户，也共同限定了 GED 能回答的问题。</p>
+<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>企业注册能把经济新设活动画得更细、追得更久，但这张图测的是企业登记的空间分布，不能直接替代每个街区的产出、就业或真实经营现场。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li>Dong, L., Yuan, X., Li, M., Ratti, C. &amp; Liu, Y.（2021）<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-020-00792-9">原论文及完整图表</a>，<em>Scientific Data</em> 8, 5。本文图 1—5 均源自该论文。</li>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.6084/m9.figshare.c.5000618">GED 数据集</a>。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/quanturban/firm">论文所列预处理与验证代码</a>。</li>
+</ul>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><ul>
+<li>Lei Dong：论文署名单位为北京大学遥感与地理信息系统研究所、MIT Senseable City Laboratory 和 QuantUrban；承担研究实施、数据分析和论文写作。</li>
+<li>Xiaohui Yuan：署名 QuantUrban，参与研究设计。论文披露其与 Lei Dong 为该公司共同创始人。</li>
+<li>Meng Li：署名 QuantUrban，参与数据分析。</li>
+<li>Carlo Ratti：署名 MIT Senseable City Laboratory，参与研究设计。</li>
+<li>Yu Liu：署名北京大学遥感与地理信息系统研究所，参与研究设计并为通讯作者之一。</li>
+</ul>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
+<p>如果一个园区的企业注册迅速增长，手机估计的工作人口却没有同步增长，这不应立即被归为其中一份数据错误。它也可能揭示注册地与经营地正在分离。可以把企业注册、工作日白天人口、夜间灯光三种信号对齐：只在注册上突增的网格，先检查注册地址政策；三种信号共同变化的网格，再研究实际开发和就业变化。</p>
+<p>这里需要额外区分时间顺序。企业注册往往早于正式经营，人口和用电变化可能滞后。若用注册当年的同步相关筛选异常，就可能把正在建设的真实新园区误判成空壳集聚。一个更可检验的问题是：注册增加之后的几年内，哪些地方出现了持续的工作人口增长，哪些地方始终只有名录变长？</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <i class="fas fa-exclamation-circle"></i>
+            <span>
+                本文不允许转载。
+            </span>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%9F%8E%E5%B8%82%E7%A7%91%E5%AD%A6/">
+                                    <span class="chip bg-color">城市科学</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE/">
+                                    <span class="chip bg-color">开放数据</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BB%8F%E6%B5%8E%E6%B4%BB%E5%8A%A8/">
+                                    <span class="chip bg-color">经济活动</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/covid19dh-2022/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="A worldwide epidemiological database for COVID-19 at fine-grained spatial resolution">
+                        
+                        <span class="card-title">A worldwide epidemiological database for COVID-19 at fine-grained spatial resolution</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-10-25
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">开放数据</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%96%AB%E6%83%85/">
+                        <span class="chip bg-color">疫情</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E9%87%8D%E5%A4%8D%E6%80%A7/">
+                        <span class="chip bg-color">数据可重复性</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/e8000002/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="T-Drive: Driving Directions Based on Taxi Trajectories">
+                        
+                        <span class="card-title">T-Drive: Driving Directions Based on Taxi Trajectories</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-10-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                        <span class="chip bg-color">人类移动性</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%87%BA%E7%A7%9F%E8%BD%A6%E8%BD%A8%E8%BF%B9/">
+                        <span class="chip bg-color">出租车轨迹</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92/">
+                        <span class="chip bg-color">路径规划</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('-1'),
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2026</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">猴猴猴</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "4";
+                    var startDate = "26";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiaoyue-hou" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1396567029@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1396567029" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1396567029" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
