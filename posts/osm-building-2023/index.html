@@ -1,0 +1,1169 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="A spatio-temporal analysis investigating completeness and inequalities of global urban building data in OpenStreetMap, 猴猴猴">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>A spatio-temporal analysis investigating completeness and inequalities of global urban building data in OpenStreetMap | 猴猴猴</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<style>
+    /* ----------------------------------------------------------- */
+    /* 1. 基础清理：隐藏不需要的文字 */
+    /* ----------------------------------------------------------- */
+    .card .card-content .summary, 
+    .caption, .img-caption, .fancybox-caption, 
+    .img-item .caption { 
+        display: none !important; 
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">猴猴猴</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">猴猴猴</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">A spatio-temporal analysis investigating completeness and inequalities of global urban building data in OpenStreetMap</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%9F%8E%E5%B8%82%E7%A7%91%E5%AD%A6/">
+                                <span class="chip bg-color">城市科学</span>
+                            </a>
+                        
+                            <a href="/tags/OpenStreetMap/">
+                                <span class="chip bg-color">OpenStreetMap</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E4%B8%8D%E5%B9%B3%E7%AD%89/">
+                                <span class="chip bg-color">数据不平等</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper/" class="post-category">
+                                Paper
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-10-25
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+
+<h2 id="地图上没有房子，是那里没人住，还是还没人画？"><a href="#地图上没有房子，是那里没人住，还是还没人画？" class="headerlink" title="地图上没有房子，是那里没人住，还是还没人画？"></a>地图上没有房子，是那里没人住，还是还没人画？</h2><p>论文名片｜Benjamin Herfort、Sven Lautenbach、João Porto de Albuquerque、Jennings Anderson、Alexander Zipf，<em>A spatio-temporal analysis investigating completeness and inequalities of global urban building data in OpenStreetMap</em>，<em>Nature Communications</em> 14, 3985（2023）。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41467-023-39698-6">原论文</a>。</p>
+<p>想象一支救援队要根据建筑地图估计受灾家庭。地图上，一片街区满是建筑轮廓，另一片几乎空白。若空白来自尚未完成的制图，而你把它当成没有房屋，最需要帮助的人就可能在计算中消失。</p>
+<p>OpenStreetMap（OSM）是一份由公众协作维护的开放地图。它的建筑数据可用于人口分配、交通可达性与灾害暴露分析，但各地绘制程度不同。这篇论文研究的正是地图的空白：哪些城市缺得最多，缺失是否在地理上成片，又会不会藏在一个看似完整的城市内部。</p>
+<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
+<li>在全球 13,189 个城市中心中，估计建筑完整性超过 80%的有 1848 个；低于 20%的有 9163 个，约占所分析城市的 69%。</li>
+<li>各城市完整性的算术平均约为 24%。它是按城市平均的面积覆盖指标，不能读成全球所有建筑只有 24%被逐栋登记。</li>
+<li>差距既存在于地区之间，也存在于城市内部：一座城市可以整体达到中等覆盖，同时整片街区仍然缺失。</li>
+<li>人道主义制图与部分低人类发展水平地区的覆盖提高相伴，但这种观察性分解并不能识别制图行动的净因果效果。</li>
+</ul>
+<h2 id="没有全球建筑普查，怎样知道缺了多少？"><a href="#没有全球建筑普查，怎样知道缺了多少？" class="headerlink" title="没有全球建筑普查，怎样知道缺了多少？"></a>没有全球建筑普查，怎样知道缺了多少？</h2><p>研究对象是欧盟全球人类住区层定义的城市中心：连续高密度网格组成的聚集区，基本门槛为每平方公里至少 1500 人、总人口至少 5 万。城市不是直接按各国行政市边界划定，结论也不覆盖全部农村。</p>
+<p>研究将城市拆成一平方公里的等面积网格，共得到 665,641 个格。OSM 部分来自完整编辑历史，提取带 <code>building=*</code> 标签的建筑多边形，可以还原 2008 年初至 2023 年初的地图内容。这里的建筑面积指建筑轮廓在地面的投影面积，不是把楼层相加后的总建筑面积。</p>
+<p>外部参考来自政府及商业开放建筑数据，覆盖 162 个国家的 6633 个城市中心、404,982 个网格；同地若同时有官方和微软数据，优先采用官方数据。随机森林（random forest）用这些参考训练，结合人口、夜间灯光、土地覆盖、次国家级人类发展指数及道路网络，预测每格应有多少建筑占地面积。</p>
+<p>完整性再由 OSM 已绘建筑占地面积除以预测建筑占地面积得到。采用面积而非栋数，是为了降低表达方式不同带来的偏差：一排联排住宅在一个来源里是一个多边形，在另一个来源里却可能拆成多栋。</p>
+<p>分母因此是模型预测，不是全球逐栋实查。模型若把真实建筑总面积估得太低，OSM 完整性就会被高估。</p>
+<h2 id="这个分母，至少经过了哪些检验？"><a href="#这个分母，至少经过了哪些检验？" class="headerlink" title="这个分母，至少经过了哪些检验？"></a>这个分母，至少经过了哪些检验？</h2><p>直接随机抽取训练和测试网格，可能让隔壁街区同时出现在两边，从而高估模型推广能力。研究采用基于空间分组的 20 折交叉验证，把地理相近的观测划在一起，减少这种空间泄漏。</p>
+<p>表 3 报告，网格建筑面积预测的全球 R² 为 0.74，平均绝对误差为 0.034 平方公里；城市尺度完整性比较的 R² 为 0.90，平均绝对误差为 0.055，即完整性比例上的约 5.5 个百分点。城市汇总后的表现不能当作每格都达到同样精度。论文方法段另报过一组不同汇总数值，因此不应脱离表 3 的尺度与口径，笼统宣称模型有 90%准确率。</p>
+<p>补充表 1 用 Geo-Wiki 影像判读样本检验微软建筑参考数据，在研究所涉城市样本中，各地区召回率约为 81.2%—86.4%；它并非无误差真值。补充表 3 还显示部分国家、包括中国，缺少训练参考，这些地方的预测不确定性无法由同地验证充分约束。</p>
+<p>补充图 4 的分地区预测—参考散点与残差分布显示，部分地区仍有误差结构：东亚与太平洋、撒哈拉以南非洲的一些高完整性估计，其残差更大。所谓完整性地图，应该连同这样的不确定性使用。</p>
+<h2 id="地图越来越丰富，为什么仍有那么多空白？"><a href="#地图越来越丰富，为什么仍有那么多空白？" class="headerlink" title="地图越来越丰富，为什么仍有那么多空白？"></a>地图越来越丰富，为什么仍有那么多空白？</h2><p>截至 2023 年 1 月 1 日，完整性超过 80%的 1848 个城市约占样本城市的 14%；低于 20%的 9163 个约占 69%。表 2 中按城市平均，欧洲与中亚为 71%、北美为 64%、撒哈拉以南非洲为 30%、南亚为 9%。这些值不是按建筑总量或人口加权后的全球份额。</p>
+<p>很高人类发展水平地区总体覆盖最好，但关系不是简单的越富越完整。低人类发展水平组平均完整性为 28%，反而高于中等组的 15%与高组的 17%。论文将其与 2015 年以来人道主义制图在低、中发展水平地区的贡献联系起来。</p>
+<p><img src="/posts/osm-building-2023/fig1.png" alt="分地区和人类发展水平的完整性历史曲线"></p>
+<p>图 1｜制图增长是否缩小了地区差距？</p>
+<p>（a）横轴为年份、纵轴为城市平均建筑完整性，曲线区分世界地区；欧洲与中亚、北美的水平高于多数地区。</p>
+<p>（b）相同坐标下按次国家级人类发展指数（SHDI）分组，很高发展组最高，低发展组近年来又高于中、高组。阴影为各线的 95%置信区间，但没有涵盖固定建筑基准所带来的全部历史不确定性。来源：原论文 Fig. 1。</p>
+<p>历史曲线还有一个重要边界：模型主要使用 2020 年的解释变量估计建筑存量，再与各年 OSM 数据比较。它不能完整恢复过去真实建筑存量的变化。快速城市化地区 2020 年后的完整性可能被高估，较早年份则可能被低估；地图数据的增长也不能直接等同于真实城市建筑的增长。</p>
+<p><img src="/posts/osm-building-2023/fig2.png" alt="全球城市建筑完整性地图"></p>
+<p>图 2｜低覆盖是零散出现，还是在空间上成片？</p>
+<p>本图没有字母子图。每个圆代表一个城市中心，圆大小对应人口，颜色对应完整性分档，图例方括号为各档城市数。深蓝与浅色都有明显区域聚集，同一区域内部也有差异；它画的是建筑被收入 OSM 的程度，并不是城市发展程度排名。来源：原论文 Fig. 2。</p>
+<h2 id="不平等变小，为什么地图还可能更分裂？"><a href="#不平等变小，为什么地图还可能更分裂？" class="headerlink" title="不平等变小，为什么地图还可能更分裂？"></a>不平等变小，为什么地图还可能更分裂？</h2><p>研究用两个指标区分这个问题。基尼系数（Gini coefficient）衡量已绘与缺失建筑面积分布的不均衡程度，不告诉我们缺失地区彼此是否挨着。莫兰指数（Moran’s I）则衡量空间聚集：一个覆盖较好的城市周围，是否也大多是覆盖较好的城市。</p>
+<p>全球空间聚集在 2008—2014 年增强，意味着制图更集中于已有覆盖城市的邻近地区；2014 年以后，全球 Moran’s I 从约 0.71 降至 2023 年的 0.56。也就是说，差距和聚集是两种不同的结构，不能用一条平均增长曲线替代。</p>
+<p><img src="/posts/osm-building-2023/fig3.png" alt="建筑完整性的不均衡程度和空间聚集历史"></p>
+<p>图 3｜数量分布与地理位置，怎样讲出不同的故事？</p>
+<p>（a）横轴为年份，纵轴为基尼系数；数值较高意味着更不均衡，黑色全球线在下降后仍保持较高水平。</p>
+<p>（b）横轴相同，纵轴改为 Moran’s I；正值越大表示同类完整性在空间上聚得更紧。全球聚集先增强后减弱，各地区走势并不相同。来源：原论文 Fig. 3。</p>
+<p>全局改善还可能掩盖区域内部的聚集。欧洲与中亚的 Moran’s I 从 2010 年的 0.23 增至 2023 年的 0.65；撒哈拉以南非洲的比较也显示高、低覆盖各自形成成片区域。不能把全球跨区域结构与某一区域内部结构混为一谈。</p>
+<p><img src="/posts/osm-building-2023/fig4.png" alt="两个地区不同时点的局部空间自相关"></p>
+<p>图 4｜周围城市的制图水平，与自己有什么关系？</p>
+<p>（a、b）分别为欧洲与中亚在 2010 年和 2023 年的局部空间自相关；（c、d）分别为撒哈拉以南非洲在 2014 年和 2023 年的结果。</p>
+<p>红色高—高表示城市与邻居均为较高完整性，蓝色低—低表示共同较低；高—低与低—高表示与邻居不同的空间异常，黑点表示未达显著。判别采用相对全局均值的高低，并对多重检验调整，不能把不显著区域当作没有问题。来源：原论文 Fig. 4。</p>
+<h2 id="全市覆盖七成，是否就可以放心分析每个街区？"><a href="#全市覆盖七成，是否就可以放心分析每个街区？" class="headerlink" title="全市覆盖七成，是否就可以放心分析每个街区？"></a>全市覆盖七成，是否就可以放心分析每个街区？</h2><p>城市内部分析只纳入足够大的城市，以一平方公里网格估计完整性、基尼系数和空间聚集。图示聚类分析最终包含 4647 个城市，面积至少为 25 平方公里，以免网格太少导致不均衡指标不稳定。这个分母与全球 13,189 个城市不同。</p>
+<p>聚类同时使用整体完整性、均衡程度和空间聚集，归为三个主类，并把前两类再细分。补充表 7 的聚类评价支持两类或三类较为清楚的分组；这些类别是帮助阅读数据的经验分类，不是城市必然依次经过的发展阶段。</p>
+<p><img src="/posts/osm-building-2023/fig5.png" alt="五种城市内部制图类型的聚类变量分布"></p>
+<p>图 5｜整体覆盖相似，街区之间的缺失也相似吗？</p>
+<p>原图按 1a、1b、2a、2b、3a 五列展示，上排横轴为完整性、纵轴为基尼系数，下排横轴仍为完整性、纵轴为 Moran’s I。每个浅点是一座城市，深点为所选代表城市。由几乎空白、局部热点、成片分裂到接近完整，区别不仅在覆盖多少，也在覆盖怎样分布。来源：原论文 Fig. 5。</p>
+<p><img src="/posts/osm-building-2023/fig6.png" alt="代表城市的完整街区地图及聚类树"></p>
+<p>图 6｜一个城市平均数，能藏住怎样的空白？</p>
+<p>（a）费萨拉巴德：整体完整性约 2%，仅有少量分散记录。</p>
+<p>（b）瓜达拉哈拉：约 10%，少数较完整网格聚成热点，周围仍缺失。</p>
+<p>（c）聚类树：展示类型之间的合并层次及各组城市数量，不是时间演化树。</p>
+<p>（d）拉斯维加斯：约 26%，局部已绘区域与大片缺失区域分裂共存。</p>
+<p>（e）阿比让：约 71%，较大连续区域已经较完整，但仍有整片街区缺失。</p>
+<p>（f）巴黎：约 95%，大部分地区接近完整，余下缺失更少。地图都采用一平方公里格、共用完整性色标，但城市空间范围不同。来源：原论文 Fig. 6。</p>
+<p>阿比让的例子尤其关键：若用全市 71%给每个街区都打七折，仍可能误导，因为缺失不是随机撒开的。建筑数据支撑的暴露人口、服务覆盖和城市形态指标，都可能系统性忽略特定街区。</p>
+<p><img src="/posts/osm-building-2023/fig7.png" alt="不同制图类型城市的历史轨迹"></p>
+<p>图 7｜今天相似的完整性，是否由同样的过程形成？</p>
+<p>（a）1a 组及费萨拉巴德；（b）1b 组及瓜达拉哈拉；（c）2a 组及拉斯维加斯；（d）2b 组及阿比让；（e）3a 组及巴黎。横轴均为年份，纵轴为完整性，浅线为同组城市，深线为代表城市。巴黎在 2010—2013 年快速补绘，阿比让则出现明显阶跃；不能据此认定所有城市都会复制这些轨迹。来源：原论文 Fig. 7。</p>
+<h2 id="是谁补上了空白，怎样理解他们的贡献？"><a href="#是谁补上了空白，怎样理解他们的贡献？" class="headerlink" title="是谁补上了空白，怎样理解他们的贡献？"></a>是谁补上了空白，怎样理解他们的贡献？</h2><p>研究将编辑者分为人道主义、企业与其他制图活动，依据 HOT Tasking Manager 记录及企业编辑者自报身份识别，再按新增建筑面积统计贡献。表 2 显示，全球约 10%的城市建筑制图贡献与有组织人道主义活动有关，在撒哈拉以南非洲这一比例为 51.1%；企业在城市建筑制图中的对应份额约为 0.1%。这些是可识别活动的贡献分解，不是所有商业建筑数据的市场份额，也不代表企业没有在 OSM 外制作建筑图。</p>
+<p>人道主义组织把注意力带到原本被忽视的地区，是结果的一种合理解释。但行动可能本来就优先选择数据稀缺或灾害发生地，本文没有随机分派制图行动，无法从占比推出没有这类行动时会怎样。</p>
+<p>表 1 罗列的公共卫生、灾害风险与可持续发展应用，说明缺失会进入哪些现实决策，并非逐项验证了这些应用已经从本文获得效果改善。</p>
+<h2 id="完整地图，还不等于准确地图"><a href="#完整地图，还不等于准确地图" class="headerlink" title="完整地图，还不等于准确地图"></a>完整地图，还不等于准确地图</h2><p>本文只评估建筑占地覆盖，不检验每栋房屋的用途、层数、几何边界和更新时效。大量轮廓被补齐，不保证可以直接识别学校、住宅或医院。</p>
+<p>自动识别的微软建筑与人工维护的 OSM 也不能简单互认。补充图 3、表 2 直接比较两者面积，部分地区 OSM/微软之比甚至超过 1；这不是完整性超过 100%的证明，而是两套数据覆盖、来源与误差各异。论文建议探索融合，同时保留人工审核与本地参与。</p>
+<p>城市中的训练参考本身有遗漏，模型也会继承其偏差；固定 2020 年基准使历史变化带有不确定性；未覆盖农村又限制了推广范围。这些边界不会抹去空间缺失的发现，却要求每个具体研究在使用前回答：我关心的城市、街区和指标，究竟会被哪些空白影响？</p>
+<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>地图空白不是城市空白；比较城市之前，要同时检查建筑数据缺了多少、缺在哪里，以及这些缺失会把哪些人排除在分析之外。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li>Herfort, B. et al.（2023）<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41467-023-39698-6">原论文</a>，<em>Nature Communications</em> 14, 3985。本文图 1—7 均源自原论文，补充图表在相关段落中讨论。</li>
+<li><a target="_blank" rel="noopener" href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-023-39698-6/MediaObjects/41467_2023_39698_MOESM1_ESM.pdf">原论文补充材料</a>。</li>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.6084/m9.figshare.22217038">研究数据</a> · <a target="_blank" rel="noopener" href="https://doi.org/10.6084/m9.figshare.22241776">分析代码</a>。</li>
+</ul>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><ul>
+<li>Benjamin Herfort：署名海德堡地理信息技术研究所与海德堡大学地理研究所 GIScience 团队；参与设计、分析和图表制作，为通讯作者并承担论文主要写作。</li>
+<li>Sven Lautenbach：署名海德堡地理信息技术研究所，参与研究构思、分析及图表制作。</li>
+<li>João Porto de Albuquerque：署名格拉斯哥大学 Urban Big Data Centre，参与研究构思与论文写作。论文披露其与 Herfort 均为 HOT 无报酬投票成员。</li>
+<li>Jennings Anderson：署名 Meta Platforms，参与实验、分析及论文写作。</li>
+<li>Alexander Zipf：署名海德堡地理信息技术研究所与海德堡大学 GIScience 团队，参与论文写作。</li>
+</ul>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
+<p>如果只选完整性高的城市做全球比较，确实能减少一部分数据误差，却可能把研究对象换成更容易被画出来的地方。若制图参与、数字基础设施和公共服务本身相关，那么完整城市样本里的关系，未必适用于被剔除的城市。</p>
+<p>一个更可检验的办法，是先在少数完整城市中模拟不同缺失方式：随机删建筑、整片删街区、优先删小型住宅，再重算可达性或灾害暴露。若同样删掉 20%的建筑面积会造成截然不同的偏差，就能说明修正不能只依赖一个全市完整性比例。与此同时，模拟只能揭示敏感性，仍需要本地影像与社区知识确认真实缺失发生在哪里。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <i class="fas fa-exclamation-circle"></i>
+            <span>
+                本文不允许转载。
+            </span>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%9F%8E%E5%B8%82%E7%A7%91%E5%AD%A6/">
+                                    <span class="chip bg-color">城市科学</span>
+                                </a>
+                            
+                                <a href="/tags/OpenStreetMap/">
+                                    <span class="chip bg-color">OpenStreetMap</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E4%B8%8D%E5%B9%B3%E7%AD%89/">
+                                    <span class="chip bg-color">数据不平等</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/china-bus-2024/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="A Comprehensive Vector Dataset of Bus Networks Across China for the Year 2024">
+                        
+                        <span class="card-title">A Comprehensive Vector Dataset of Bus Networks Across China for the Year 2024</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-10-25
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">开放数据</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%85%AC%E5%85%B1%E4%BA%A4%E9%80%9A/">
+                        <span class="chip bg-color">公共交通</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9F%8E%E5%B8%82%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">城市网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/china-pop2018/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Fine-scale population spatialization data of China in 2018 based on real location-based big data">
+                        
+                        <span class="card-title">Fine-scale population spatialization data of China in 2018 based on real location-based big data</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-10-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">开放数据</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BA%BA%E5%8F%A3%E7%A9%BA%E9%97%B4%E5%8C%96/">
+                        <span class="chip bg-color">人口空间化</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BD%8D%E7%BD%AE%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">位置大数据</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('-1'),
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2026</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">猴猴猴</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "4";
+                    var startDate = "26";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiaoyue-hou" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1396567029@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1396567029" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1396567029" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
