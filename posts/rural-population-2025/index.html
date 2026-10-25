@@ -1,0 +1,1164 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Global gridded population datasets systematically underrepresent rural population, 猴猴猴">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Global gridded population datasets systematically underrepresent rural population | 猴猴猴</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<style>
+    /* ----------------------------------------------------------- */
+    /* 1. 基础清理：隐藏不需要的文字 */
+    /* ----------------------------------------------------------- */
+    .card .card-content .summary, 
+    .caption, .img-caption, .fancybox-caption, 
+    .img-item .caption { 
+        display: none !important; 
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">猴猴猴</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">猴猴猴</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Global gridded population datasets systematically underrepresent rural population</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E4%BA%BA%E5%8F%A3%E7%A9%BA%E9%97%B4%E5%8C%96/">
+                                <span class="chip bg-color">人口空间化</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%86%9C%E6%9D%91/">
+                                <span class="chip bg-color">农村</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/">
+                                <span class="chip bg-color">数据验证</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper/" class="post-category">
+                                Paper
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-10-25
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+
+<h2 id="一片将被水库淹没的村庄，人口地图为什么数不齐人？"><a href="#一片将被水库淹没的村庄，人口地图为什么数不齐人？" class="headerlink" title="一片将被水库淹没的村庄，人口地图为什么数不齐人？"></a>一片将被水库淹没的村庄，人口地图为什么数不齐人？</h2><p>论文名片｜Josias Láng-Ritter、Marko Keskinen、Henrikki Tenkanen，<em>Global gridded population datasets systematically underrepresent rural population</em>，<em>Nature Communications</em> 16, 2170（2025）。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41467-025-56906-7">原论文</a>。</p>
+<p>要估计洪水会影响多少人，常见方法是把危险范围叠到人口网格上，再把格内人数相加。但地图中一块颜色很淡的土地，可能真的人少，也可能只是村庄没有被可靠识别。后一种情况会把数据误差带进救灾、医疗和基础设施的需求判断。</p>
+<p>这篇论文找到了一种特殊的外部参照：大坝建设时报告的搬迁人数，以及建成后水库覆盖的范围。把蓄水前的人口地图与这些记录比较，就能检验地图有没有在这些农村地区漏分人口。研究发现明显的局部低估，但不能把这一结果直接外推成全球总人口漏算了多少。</p>
+<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
+<li>研究选出 35 个国家的 307 个水库影响区，评估人口地图参考年份 1975—2010 年。它不是全球农村的随机代表样本，也没有检验 2015、2020 年及之后的人口层。</li>
+<li>五类产品在各自可用样本上的总量偏差均为负，从 WorldPop 的 −53.4%到 GHS-POP 的 −83.8%；不同产品的样本数和年份并不一致。</li>
+<li>2000 年共有的 33 个地区提供同年比较，显示同一地点在不同产品中的估计有时相差多个数量级。</li>
+<li>去掉中国样本、改变参考年份等检验仍提示低估风险，但具体幅度和产品排序会变化。局部空间分配误差不等于全国或全球人口总量漏计。</li>
+</ul>
+<h2 id="五张地图画的是同一个地方，为何差这么远？"><a href="#五张地图画的是同一个地方，为何差这么远？" class="headerlink" title="五张地图画的是同一个地方，为何差这么远？"></a>五张地图画的是同一个地方，为何差这么远？</h2><p>原文以越南 Na Hang 水库附近为例，展示 2000 年五种人口图。该水库在 2008 年建成，记录搬迁 4000 人。各图对应相同地理位置，却给出不同的人口分布：有的较平滑，有的依赖聚落识别，把人集中在少数格。</p>
+<p><img src="/posts/rural-population-2025/fig1.webp" alt="越南同一农村地区的五种人口网格"></p>
+<p>图 1｜同一片将被淹没的土地，人口图是否讲着同一个故事？</p>
+<p>（a）GWP，原论文采用这一缩写指 Gridded Population of the World，通常也称 GPW；（b）GRUMP；（c）GHS-POP；（d）LandScan；（e）WorldPop。颜色均表示每平方公里人口，灰色多边形为后来的水库，三角符号为坝址。共同图例使空间差异可见，但视觉差异本身不能判断谁对，需要外部人口参照。来源：原论文 Fig. 1。</p>
+<p>表 1 说明纳入产品的空间与时间区别：GWP、GRUMP、LandScan 主要采用约 1 公里网格，GHS-POP、WorldPop 采用约 100 米网格。研究选择能匹配历史验证期的五类产品，WorldPop 使用非约束版本；对于可选产品，正文使用经联合国全国人口总量调整的版本。未纳入的 HYDE、HRSL、Kontur 是因分辨率、时段或地理覆盖不满足这项设计，不能据此认定它们更好或更差。</p>
+<h2 id="大坝搬迁记录，为什么能用来查人口图？"><a href="#大坝搬迁记录，为什么能用来查人口图？" class="headerlink" title="大坝搬迁记录，为什么能用来查人口图？"></a>大坝搬迁记录，为什么能用来查人口图？</h2><p>人口图通常把普查行政区总量重新分配到网格。如果再用相同普查区总量验证，就可能只证明模型遵守了输入约束，无法检验县内村庄是否被分对。</p>
+<p>水库淹没区通常跨越或切开行政区，搬迁记录又来自大坝项目报告，因此提供另一种范围和计数来源。研究从 ICOLD 大坝记录取得搬迁人数、最大库区面积和完工年份，再与 GeoDAR 水库多边形匹配。</p>
+<p>筛选要求包括：有搬迁数据，水面面积大于一平方公里，1980 年及以后建成，影响区人口密度低于每平方公里 1500 人。研究还排除跨国水坝和原地已有库区的改建等模糊案例，最终得到 307 个区域，面积合计约 22,489 平方公里。</p>
+<p><img src="/posts/rural-population-2025/fig2.webp" alt="307个库区验证点的全球分布"></p>
+<p>图 2｜验证样本分布在哪里？</p>
+<p>本图没有字母子图。圆大小对应报告人口，颜色对应人口地图参考年。中国有 203 个库区，巴西有 30 个，其他多数国家较少，北美没有样本。点遍布多个地区，并不意味着构成统计代表性的全球农村样本。来源：原论文 Fig. 2。</p>
+<p>时间也必须对齐。水坝完工时居民通常已迁出，不能拿完工后人口与搬迁前人数比较。主分析选取完工前 5—9 年的五年整数间隔人口层，尽量对应搬迁前状态。具体搬迁可能早于或晚于这个统一窗口，所以它是一条工作假设，而非每个项目都已查明的搬迁日期。</p>
+<p><img src="/posts/rural-population-2025/fig3.webp" alt="验证地区参考年份与产品覆盖期"></p>
+<p>图 3｜比较时是否真的用了同一时期、同一批地方？</p>
+<p>（a）各参考年份的样本数，深浅区分全部国家与中国；晚近年份可用验证样本更少。</p>
+<p>（b）各产品的时间覆盖与大致模型复杂程度。只有 2000 年同时被五种产品覆盖，因此同年共同样本比较与跨年全样本比较要分开看。来源：原论文 Fig. 3。</p>
+<h2 id="库区边界少画了一部分，会不会制造低估？"><a href="#库区边界少画了一部分，会不会制造低估？" class="headerlink" title="库区边界少画了一部分，会不会制造低估？"></a>库区边界少画了一部分，会不会制造低估？</h2><p>研究将原网格人口均匀细分到 10 米格，再累加中心落在水库多边形内的格。这个细分主要改善边界截取，并没有凭空创造 10 米人口信息；原格内部的人口仍被假设均匀分布。</p>
+<p>卫星提取的水面又可能低于最大蓄水范围。研究比较 6095 个库区的几何面积与 ICOLD 报告面积，排除极端面积比后，得到多边形面积平均偏低 18.8%，于是把每个库区提取人口统一乘以约 1.23。</p>
+<p><img src="/posts/rural-population-2025/fig9.webp" alt="水库多边形面积与报告面积的验证"></p>
+<p>图 9｜人口计算的空间边界，本身差了多少？</p>
+<p>本图没有字母子图。横轴为 ICOLD 报告库区面积，纵轴为三类来源多边形面积，均为对数尺度；颜色区分 GRanD、HydroLAKES 与 UCLA Circa 2015 来源，虚线为一比一。总体几何面积偏小是统一人口修正系数的依据，但不能证明每个库区都应补同样比例。来源：原论文 Fig. 9。</p>
+<p>这道修正已经提高了人口图估计，使低估幅度比不修正时减轻。不过它还假设缺失部分与已画部分人口密度相同。岸边村庄可能恰好集中在遗漏区域，也可能相反，因此平均面积修正不能替代逐项目的边界核对。</p>
+<h2 id="低估一半，分母到底是什么？"><a href="#低估一半，分母到底是什么？" class="headerlink" title="低估一半，分母到底是什么？"></a>低估一半，分母到底是什么？</h2><p>总量偏差的定义是：全部预测人口之和减去全部报告人口之和，再除以报告人口之和。−53.4%意味着在 WorldPop 所含样本中，预测总量约为报告总量的 46.6%；不是每个地方都漏掉 53.4%，也不是全球农村人口有 53.4%从普查中消失。</p>
+<p>另一指标为对称平均绝对百分比误差（sMAPE）。本文逐点计算预测与报告的绝对差，除以二者之和，再取平均，取值在 0—1；它衡量相对差异而不区分高估低估，且采用了没有乘 2 的定义。它不同于用报告人口作分母的普通百分比误差。</p>
+<p><img src="/posts/rural-population-2025/fig4.webp" alt="2000年共同样本的五种产品比较"></p>
+<p>图 4｜控制参考年份后，产品之间仍有明显差异吗？</p>
+<p>本图没有字母子图。横轴为报告人口，纵轴为产品预测人口，均为对数尺度；一组竖直排列的五个点对应同一库区，虚线为一比一。33 个共同地区中，多数预测位于虚线下方，GHS-POP 在这组地区中估计最低；同一横坐标上的竖向距离显示产品差异。来源：原论文 Fig. 4。</p>
+<p>跨所有可用年份后，GWP、GRUMP、GHS-POP、LandScan、WorldPop 的总量偏差分别为 −65.0%、−66.9%、−83.8%、−68.4%、−53.4%。图 5 中样本数分别为 63、112、307、63、63。尤其 GHS-POP 覆盖更多早期年份，不能把这组总体排序完全归因于算法差别；图 4 的共同样本才更接近控制时期的产品比较。</p>
+<p><img src="/posts/rural-population-2025/fig5.webp" alt="按年份和国家收入分组的完整验证散点"></p>
+<p>图 5｜负偏差集中在某些年份或收入组吗？</p>
+<p>（a、f）GWP；（b、g）GRUMP；（c、h）GHS-POP；（d、i）LandScan；（e、j）WorldPop。各图横轴为报告人口、纵轴为预测人口，虚线为一比一，均采用对数坐标。</p>
+<p>（a—e）点色区分参考年份；（f—j）点色区分国家收入组。每点是一处在相应产品中可比较的库区，面板内给出该产品的 N、偏差和 sMAPE。大量点位于一比一下方，但每种产品的可用年份与样本量不同。来源：原论文 Fig. 5。</p>
+<h2 id="年份更近、国家更富，估计就更可靠吗？"><a href="#年份更近、国家更富，估计就更可靠吗？" class="headerlink" title="年份更近、国家更富，估计就更可靠吗？"></a>年份更近、国家更富，估计就更可靠吗？</h2><p>WorldPop 的偏差从 2000 年约 −80%减轻至 2010 年约 −32%，但其他产品没有显示同样清晰的偏差趋势。年份间比较也不是在同一批不变地区上追踪质量，样本与项目背景会变化。</p>
+<p>收入比较为了减少时期混杂，只分析参考年份 2000—2010 年的 63 个区域。原样本中高收入国家的 22 个案例都在 2000 年以前，因此这项较晚时期比较主要覆盖低、中低和中高收入组，不能据此断言高收入国家农村同样失准或收入永远没有作用。</p>
+<p><img src="/posts/rural-population-2025/fig6.webp" alt="时期与国家收入的偏差及误差趋势"></p>
+<p>图 6｜两个常见解释，是否得到支持？</p>
+<p>（a）各参考年份的总量偏差；（b）各参考年份的 sMAPE，数值越接近零越好。</p>
+<p>（c）2000—2010 年样本按国家收入组的偏差；（d）相同分组的 sMAPE。黑虚线表示产品均值，其他颜色对应各产品；样本中的组间差异不足以支持简单的收入越高就越准规律，但也不证明所有收入组在统计上相同。来源：原论文 Fig. 6。</p>
+<h2 id="一张国家地图，不能替代每个国家的验证规模"><a href="#一张国家地图，不能替代每个国家的验证规模" class="headerlink" title="一张国家地图，不能替代每个国家的验证规模"></a>一张国家地图，不能替代每个国家的验证规模</h2><p>中国、巴西等样本相对多的国家，在各可比产品上都呈负偏差。一些接近零或为正的国家仅有一两个项目，可能被特定地点主导。全国涂色必须与项目数、参考年份和产品可用性一起读。</p>
+<p><img src="/posts/rural-population-2025/fig7.webp" alt="按国家汇总的平均人口偏差地图"></p>
+<p>图 7｜哪些国家的被检验库区呈现低估？</p>
+<p>本图没有字母子图。颜色表示该国可用产品偏差的平均，红色为低估，蓝色为高估，黄色较接近零，灰色表示未纳入。不同国家未必拥有同样五种产品或同样年份，因此颜色不能直接当成国家普查完整率。来源：原论文 Fig. 7。</p>
+<p><img src="/posts/rural-population-2025/fig8.webp" alt="35国逐产品偏差与项目样本数"></p>
+<p>图 8｜国家平均背后，各产品和样本数怎样不同？</p>
+<p>本图没有字母子图。每个小圆对应一个国家，中心为 ISO3 国家代码及库区总样本数；各色圆弧对应五种人口产品，左右方向区分低估与高估，叉号表示缺乏可比参考年份。左上示意解释圆弧读法；样本很少的国家即使弧线很长，也不足以推出全国农村同等幅度偏差。来源：原论文 Fig. 8。</p>
+<h2 id="稳健性检验保住了什么，又改变了什么？"><a href="#稳健性检验保住了什么，又改变了什么？" class="headerlink" title="稳健性检验保住了什么，又改变了什么？"></a>稳健性检验保住了什么，又改变了什么？</h2><p>补充图 3、4 比较 WorldPop 分辨率与联合国总量调整，未消除负偏差。更有分量的是补充图 5：去掉中国后，GRUMP 偏差由 −66.9%变为 −12.2%，WorldPop 则由 −53.4%变为 −71.2%。补充图 7 将参照提前到完工前 10—14 年，LandScan 偏差由 −68.4%变为 −41.9%。这些结果仍有低估，却说明幅度和排序受样本与时间影响。<a target="_blank" rel="noopener" href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-025-56906-7/MediaObjects/41467_2025_56906_MOESM1_ESM.pdf">补充材料</a></p>
+<h2 id="从局部漏分，到全球漏计，还隔着什么证据？"><a href="#从局部漏分，到全球漏计，还隔着什么证据？" class="headerlink" title="从局部漏分，到全球漏计，还隔着什么证据？"></a>从局部漏分，到全球漏计，还隔着什么证据？</h2><p>原论文提出，普查遗漏可能是多产品共同低估的来源之一；遥感难以识别分散村落、建筑掩膜过严、辅助数据不足也可能造成空间分配偏差。但这项设计没有把普查总量不足、网格重分配错误、库区边界误差与搬迁时间不齐分别识别出来，因而不能用一个局部偏差率直接修正全球总人口。</p>
+<p>2026 年 Koebe 等人的回应预印本也对搬迁时间、统一面积修正与样本代表性提出质疑，并强调局部错分不能推出全球人口漏计。它是后续学术争论的一部分，不是已撤回原论文或已完成最终裁决的证据。<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2602.09248">回应预印本</a></p>
+<p>此外，搬迁人数本身可能是估计、登记范围也可能不完全一致；样本集中在水库影响区，不是所有农村地形和生计类型；最新验证年份仅到 2010 年，无法据此宣布当前版本仍保持同等偏差。若把原论文的政策风险讨论写成过去医疗或救灾政策已经造成某一确定损失，也超过本文实际测量。</p>
+<p>最稳妥的实际启示是，在目标地区做外部验证，并对不同人口层、空间边界和时间匹配做敏感性分析。一个较少偏差的总体结果，也不能保证某个村庄恰好被估对。</p>
+<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>这些历史库区样本揭示了农村人口网格的严重局部低估风险，但风险幅度依赖样本、时空匹配与产品版本，不能直接改写成全球人口漏计比例。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li>Láng-Ritter, J., Keskinen, M. &amp; Tenkanen, H.（2025）<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41467-025-56906-7">原论文</a>，<em>Nature Communications</em> 16, 2170。本文图 1—9 均源自原论文。</li>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.5281/zenodo.14637154">原研究数据与代码归档</a> · <a target="_blank" rel="noopener" href="https://github.com/josiasritter/population_grid_assessment">代码仓库</a>。</li>
+<li>Koebe, T. et al.（2026）<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2602.09248">相关回应预印本</a>，用于区分原论文发现与后续质疑。</li>
+</ul>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><ul>
+<li>Josias Láng-Ritter：署名阿尔托大学建成环境系 Water and Development Research Group 及 GIScience for Sustainability Transitions Lab，为通讯作者；提出研究构思、开发分析与可视化代码、撰写初稿。</li>
+<li>Marko Keskinen：署名阿尔托大学上述水与发展研究组，参与研究构思、正式分析及稿件修改。</li>
+<li>Henrikki Tenkanen：署名阿尔托大学上述 GIScience 实验室，参与研究构思、正式分析及稿件修改。</li>
+</ul>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
+<p>一项服务规划最怕的，可能不只是人数算少，而是人口被放错到另一处。即使县级总人口完全正确，把山谷村庄的人分到县城，也可能让附近道路或医疗点看起来没有需求。因此，验证应同时区分总量有没有错、位置有没有错，以及错误发生在哪种空间尺度。</p>
+<p>可以选取已有村级名册的区域，分别检查村内人口、村周围一定缓冲区人口与整个乡镇人口。如果误差随范围扩大而快速消失，主要问题可能是局部错分；若在更大独立区域仍持续偏低，才更接近总量不足。这样的多尺度诊断能帮助决定应该改人口输入、改空间分配，还是先修正验证边界。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <i class="fas fa-exclamation-circle"></i>
+            <span>
+                本文不允许转载。
+            </span>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E4%BA%BA%E5%8F%A3%E7%A9%BA%E9%97%B4%E5%8C%96/">
+                                    <span class="chip bg-color">人口空间化</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%86%9C%E6%9D%91/">
+                                    <span class="chip bg-color">农村</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/">
+                                    <span class="chip bg-color">数据验证</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/93b49e81/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="A multi-source dataset of urban life in the city of Milan and the Province of Trentino">
+                        
+                        <span class="card-title">A multi-source dataset of urban life in the city of Milan and the Province of Trentino</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-10-25
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%9F%8E%E5%B8%82%E7%A7%91%E5%AD%A6/">
+                        <span class="chip bg-color">城市科学</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">开放数据</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%89%8B%E6%9C%BA%E4%BF%A1%E4%BB%A4/">
+                        <span class="chip bg-color">手机信令</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/4a7d82ec/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="A Large-Scale Residential Load Dataset in a Southern Province of China">
+                        
+                        <span class="card-title">A Large-Scale Residential Load Dataset in a Southern Province of China</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-10-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">开放数据</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BD%8F%E5%AE%85%E7%94%A8%E7%94%B5/">
+                        <span class="chip bg-color">住宅用电</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9E%81%E7%AB%AF%E5%A4%A9%E6%B0%94/">
+                        <span class="chip bg-color">极端天气</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('-1'),
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2026</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">猴猴猴</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "4";
+                    var startDate = "26";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiaoyue-hou" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1396567029@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1396567029" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1396567029" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
