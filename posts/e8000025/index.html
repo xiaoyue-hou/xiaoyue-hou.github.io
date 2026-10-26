@@ -1,0 +1,1221 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="UrbanEV: An Open Benchmark Dataset for Urban Electric Vehicle Charging Demand Prediction, 猴猴猴">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>UrbanEV: An Open Benchmark Dataset for Urban Electric Vehicle Charging Demand Prediction | 猴猴猴</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<style>
+    /* ----------------------------------------------------------- */
+    /* 1. 基础清理：隐藏不需要的文字 */
+    /* ----------------------------------------------------------- */
+    .card .card-content .summary, 
+    .caption, .img-caption, .fancybox-caption, 
+    .img-item .caption { 
+        display: none !important; 
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">猴猴猴</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">猴猴猴</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">UrbanEV: An Open Benchmark Dataset for Urban Electric Vehicle Charging Demand Prediction</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE/">
+                                <span class="chip bg-color">开放数据</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%94%B5%E5%8A%A8%E6%B1%BD%E8%BD%A6/">
+                                <span class="chip bg-color">电动汽车</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%85%85%E7%94%B5%E9%9C%80%E6%B1%82/">
+                                <span class="chip bg-color">充电需求</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper/" class="post-category">
+                                Paper
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-10-26
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+
+<h2 id="充电桩被占着，究竟意味着多少用电需求？"><a href="#充电桩被占着，究竟意味着多少用电需求？" class="headerlink" title="充电桩被占着，究竟意味着多少用电需求？"></a>充电桩被占着，究竟意味着多少用电需求？</h2><p>论文名片｜Han Li、Haohao Qu、Xiaojun Tan、Linlin You、Rui Zhu、Wenqi Fan，<em>UrbanEV: An Open Benchmark Dataset for Urban Electric Vehicle Charging Demand Prediction</em>，<em>Scientific Data</em>，2025，12：523，2025 年 3 月 28 日发表。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-025-04874-4">论文原文</a> · <a target="_blank" rel="noopener" href="https://doi.org/10.5061/dryad.np5hqc04z">数据</a> · <a target="_blank" rel="noopener" href="https://github.com/IntelligentSystemsLab/UrbanEV">代码与说明</a>。</p>
+<p>假设你正为下一小时的充电服务做准备。司机想知道哪里有空桩，运营者想知道哪些区域会拥挤，电网则更关心会消耗多少电。三个问题看起来都叫充电需求，却不能用同一个数字回答：一个桩显示忙碌，不代表它始终按额定功率输电。</p>
+<p>UrbanEV 把深圳公共充电平台的信息整理成可用于预测的城市数据。它同时提供占用、累计使用时长、估计电量、价格、天气和空间关系。理解这份基准的关键，是分清直接记录的状态、根据状态推算的使用，以及模型可以预测的对象。</p>
+<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
+<li>原始范围为 1,682 座公共充电站、24,798 个充电桩；清洗并筛选后，主要预测数据保留 275 个交通小区、1,362 座站和 17,532 个桩。站与桩不能混称。</li>
+<li>数据覆盖 2022 年 9 月至 2023 年 2 月，共六个月；五分钟状态记录被整理为小时级区域序列，共 4,344 个时间点。</li>
+<li>电量主要由使用时长乘以桩额定功率估计，并非电表实测。另一个固定 11 kW 的版本也是替代估计，不能当作已验证的真实电量。</li>
+<li>复杂模型在若干指标上表现较好，但并非所有指标都获胜；加入天气和价格也不必然提高预测，更不能据此证明价格对用户行为的因果效应。</li>
+</ul>
+<h2 id="数据里的站、桩和区域，分别是什么？"><a href="#数据里的站、桩和区域，分别是什么？" class="headerlink" title="数据里的站、桩和区域，分别是什么？"></a>数据里的站、桩和区域，分别是什么？</h2><p>研究通过供司机查找公共充电设施的移动平台，每五分钟记录可用状态、额定功率、费用与位置。一个站点可以包含多个桩；交通小区则把同一区域的站和桩汇总，便于研究相邻区域之间的联系。</p>
+<p><img src="/posts/e8000025/fig1.webp" alt="图 1：深圳公共充电设施的初始覆盖"></p>
+<p>图 1｜这些记录来自城市的哪些地方？</p>
+<p>这张图没有字母子图。底图呈现深圳空间单元，颜色为初始 24,798 个桩的核密度，单位是每平方公里桩数，颜色更深表示设施更密集。它展示的是采集覆盖与设施密度，不是该时刻的充电负荷，也不是最终 275 个区域的筛选结果。来源：原论文 Fig. 1。</p>
+<p>其他资料包括两处气象站的温度、气压和相对湿度，以及兴趣点（point of interest，POI）、区域面积、道路长度、中心点距离和邻接关系。天气序列对所有区域共享，不能据此精确表示每个充电点自己的微气候。</p>
+<p>原论文表 1 把 UrbanEV 与其他充电数据比较，突出城市尺度、较多桩位以及价格和空间背景的组合。这个贡献是增加研究条件，不意味着平台覆盖了深圳所有公共与私人充电设施。</p>
+<h2 id="一个忙碌状态，怎样变成时长和电量？"><a href="#一个忙碌状态，怎样变成时长和电量？" class="headerlink" title="一个忙碌状态，怎样变成时长和电量？"></a>一个忙碌状态，怎样变成时长和电量？</h2><p>论文的规则是，两次相邻记录都为忙碌时，将相应片段视作活跃充电；累加使用桩数与五分钟间隔得到时长，再乘额定功率估计电量。区域内多个桩同时使用，因此一个小时里累计桩时可以超过一小时：十个桩各用半小时就是五桩时，不能读成某一辆车充了五小时。</p>
+<p>小时聚合也分两类。时长和电量是累计量，在一小时内相加；占用率和价格则取指定时刻的瞬时值，不是这一小时全部五分钟记录的均值。因此，用占用率直接推算平均利用率时，要先核对采样口径。</p>
+<p>作者仓库说明进一步区分：占用从可用性出发，包含不可用或忙碌的桩；时长与电量则从使用角度统计活跃充电。占用、时长、电量相关，却不是可以互换的字段。</p>
+<p>电量的边界尤其重要。车辆实际功率可能受电量状态、车型、充电曲线和设施限制影响；平台忙碌状态乘额定功率，可能高估真实供电。<code>volume-11kW.csv</code> 用固定 11 kW 替换部分功率作为另一种估计，它不是逐车测量或对全部直流充电功率的事实描述。</p>
+<h2 id="为什么只保留部分区域，又怎样处理错误？"><a href="#为什么只保留部分区域，又怎样处理错误？" class="headerlink" title="为什么只保留部分区域，又怎样处理错误？"></a>为什么只保留部分区域，又怎样处理错误？</h2><p>研究删除负收费、忙闲数量与总桩数不一致等异常记录，将其视为缺失；先向前填充，再用向后填充处理序列开端缺口。对部分指标使用四倍四分位距阈值识别离群点，再以相邻有效值均值替换。与常见的 1.5 倍阈值相比，四倍设置保留了更多原始极值，但仍可能改变真实峰值。</p>
+<p>初始空间聚合得到 331 个区域，再排除占用率方差低于 0.001，或零值比例超过 30% 的区域，最终保留 275 个。这使预测基准更集中于有明显变化和使用活动的区域，也意味着不能把结果直接推广到低使用率或长期闲置区域。</p>
+<p><img src="/posts/e8000025/fig2.webp" alt="图 2：筛选区域及其空间关系"></p>
+<p>图 2｜怎样把一座城市变成可学习的空间网络？</p>
+<p>（a）区域级充电桩数量分布，绿色深浅表示桩数，标记指出存在分时定价的区域；这不是预测误差地图。</p>
+<p>（b）中心商务区局部放大，显示相邻交通小区及其编号。</p>
+<p>（c）把局部区域转成节点图，一跳与两跳表示沿邻接关系跨过一个或两个区域，不是开车一公里或两公里。</p>
+<p>（d）部分邻近区域中心点的距离矩阵，单位为米；数值为欧氏距离，不是道路行程时间。全部四个面板共同解释聚合与空间特征，不能把区域编号当作站点编号。来源：原论文 Fig. 2。</p>
+<p>原论文表 2 给出区域指标的分布。占用字段的数值在 0–1 范围内，即比例；表中虽用百分号标记，0.24 应先理解为 24%，而不是 0.24%。价格字段也需留意：正文数据说明曾写每小时，作者仓库则明确电价与服务费单位为元／kWh。复用时应以具体文件说明统一单位，不能把时间分辨率误当计价单位。</p>
+<h2 id="模型预测得好，证明了哪些事情？"><a href="#模型预测得好，证明了哪些事情？" class="headerlink" title="模型预测得好，证明了哪些事情？"></a>模型预测得好，证明了哪些事情？</h2><p>论文以小时数据做预测评测，采用按月份扩展的时间序列交叉验证：逐折增加月份，在各折中以 80% 训练、10% 验证、10% 测试。评估指标包括均方根误差（RMSE）、平均绝对误差（MAE）、平均绝对百分比误差（MAPE）和相对绝对误差（RAE）。不同指标对低值和极值的重视不同，排名可能变化。</p>
+<p>区域占用预测比较了直接沿用最近值、AR、ARIMA、全连接网络、LSTM、图模型及两种较新的时间序列模型。原论文表 3 的四个预测长度为 3、6、9、12 小时，下面列出跨长度平均结果；占用比例的误差均还原到 0–1 尺度。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>平均 RMSE</th>
+<th>平均 MAE</th>
+<th>平均 MAPE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>最近值 LO</td>
+<td>0.1309</td>
+<td>0.0783</td>
+<td>43.02%</td>
+</tr>
+<tr>
+<td>LSTM</td>
+<td>0.1028</td>
+<td>0.0679</td>
+<td>43.99%</td>
+</tr>
+<tr>
+<td>GCN-LSTM</td>
+<td>0.0953</td>
+<td>0.0658</td>
+<td>43.59%</td>
+</tr>
+<tr>
+<td>TimesNet</td>
+<td>0.0954</td>
+<td>0.0599</td>
+<td>35.20%</td>
+</tr>
+<tr>
+<td>TimeXer</td>
+<td>0.0924</td>
+<td>0.0561</td>
+<td>32.74%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>例如，TimeXer 的平均 MAE 为 0.0561，表示占用比例的绝对误差约 5.61 个百分点，不是总体预测准确率为 94.39%。它相对 LO 改善了表中这些平均指标，但短期 MAPE 上，LO 的 3 小时结果 25.39% 仍低于 TimeXer 的 26.13%。</p>
+<p>这些结果支持数据中存在可学习的时间与空间结构，也提供统一比较任务。不过，模型能更好预测由状态规则和功率假设生成的序列，并不反过来证明估计电量已等于电表真值。</p>
+<h2 id="单个节点的预测，所有指标都是同一个赢家吗？"><a href="#单个节点的预测，所有指标都是同一个赢家吗？" class="headerlink" title="单个节点的预测，所有指标都是同一个赢家吗？"></a>单个节点的预测，所有指标都是同一个赢家吗？</h2><p>原论文表 4 比较单节点上的占用、时长与电量预测。TimeXer 的 RMSE 分别为 0.07、2.73 小时、43.66 kWh，MAE 分别为 0.05、2.04 小时、33.81 kWh，多个指标较好；时长仍应按节点累计使用量理解。</p>
+<p>但表内存在明确反例：占用 MAPE 中 AR 为 0.11、TimeXer 为 0.29；电量 MAPE 中 LO 为 0.58、TimeXer 为 0.66。在这些小数比例指标下，值越小越好。因而，不能照搬正文对 TimeXer 在所有指标上都最优的概括。选模型应对照实际任务的误差代价，也应核对零值附近 MAPE 的实现方式。</p>
+<h2 id="把天气和费用都加进去，就会预测得更好吗？"><a href="#把天气和费用都加进去，就会预测得更好吗？" class="headerlink" title="把天气和费用都加进去，就会预测得更好吗？"></a>把天气和费用都加进去，就会预测得更好吗？</h2><p>表 5 做的是预测特征组合试验：比较气压、温度、湿度、电价和服务费单独或组合加入后的表现。它并没有随机改变价格或天气，因此不是价格弹性或用户行为的因果实验。</p>
+<p>在四个模型的平均 RMSE 上，不加外部特征为 0.0899，加入温度与电价的组合为 0.0888；五项全加则为 0.0902。改善幅度不大，也没有因此证明所有模型都受益。具体到 TimeXer，不加特征的 RMSE 为 0.0795，全加为 0.0863，反而变差。</p>
+<p>这也提醒我们，表 3 与表 5 的基线数值并不完全相同，不能未经实验设置核对，就拿其中一行拼成新的统一排行榜。没有误差区间与重复运行的完整信息时，细小差别应作为该设置下的结果描述，而不是某种特征永远有用的结论。</p>
+<p>作者把价格组合表现较好解释为用户关注总费用，把温度影响解释为出行和充电需求变化。这些解释具有行为直觉，但预测增益本身不足以排除分时价格、日周期、季节和其他共同变化因素。</p>
+<h2 id="这份基准适合怎样使用？"><a href="#这份基准适合怎样使用？" class="headerlink" title="这份基准适合怎样使用？"></a>这份基准适合怎样使用？</h2><p>UrbanEV 适合检验区域充电序列预测、空间邻接建模与外部特征融合。它同时提供小时和五分钟版本、区域几何、背景变量及代码；读者可以对照研究目标选择占用或使用量，而不是把所有任务统称为电网负荷预测。</p>
+<p>有三项边界尤其实际。首先，六个月覆盖的是深圳公共平台的一段时期，并非完整全年或其他城市的分布。其次，前后向填充和相邻均值替换会改变突变，预测评估应核查预处理是否跨过训练测试分界；面向实时预测时不能使用当时尚未发生的数据填补过去。最后，区域筛选移除了大量低变化和高零值单元，因此难点可能与全市新建、低利用率站点不同。</p>
+<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>UrbanEV 为城市充电预测提供了丰富且可复用的共同基准，而占用、累计使用与估计电量的区别，决定了预测结果究竟能服务什么问题。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li>Li, H., Qu, H., Tan, X., You, L., Zhu, R., &amp; Fan, W. (2025). <em>UrbanEV: An Open Benchmark Dataset for Urban Electric Vehicle Charging Demand Prediction</em>. <em>Scientific Data</em>, 12, 523. <a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-025-04874-4">DOI: 10.1038/s41597-025-04874-4</a>。两张完整主图与表内比较数值均来自该论文。</li>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.5061/dryad.np5hqc04z">Dryad 数据</a>及<a target="_blank" rel="noopener" href="https://github.com/IntelligentSystemsLab/UrbanEV">作者仓库说明</a>：另核对价格单位、占用与使用量区别及替代电量文件。</li>
+</ul>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><ul>
+<li>Han Li：共同第一作者，署名中山大学智能工程学院；贡献声明列出实验实施与结果分析。</li>
+<li>Haohao Qu：共同第一作者，署名香港理工大学计算学系；参与研究构思与结果分析。</li>
+<li>Xiaojun Tan：署名中山大学智能工程学院，参与论文审阅与编辑。</li>
+<li>Linlin You：通讯作者，署名中山大学智能工程学院，参与研究构思。</li>
+<li>Rui Zhu：署名新加坡科技研究局高性能计算研究所，参与论文审阅与编辑。</li>
+<li>Wenqi Fan：署名香港理工大学计算学系，为本文共同作者；论文未单独列出其具体实验分工。</li>
+</ul>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
+<p>同一座充电站可能同时出现两个看似矛盾的情况：司机觉得没有位置，而电网测得的功率并不高。因为不可用的桩不一定都在高功率充电，单纯提高电量预测精度，也未必解决寻找空桩的问题。</p>
+<p>后续可以分别验证三个目标：到站时有没有可用位置，接下来会累计多少使用时间，以及电表实际会增加多少电量。再观察同一个模型是否在三个目标上都稳定。如果仅在额定功率推算的序列上表现好，就应把贡献表述为该代理序列的预测改善，而不要提前承诺解决排队或电网峰值。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">猴猴猴</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://xiaoyue-hou.github.io/posts/e8000025/">http://xiaoyue-hou.github.io/posts/e8000025/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">猴猴猴</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE/">
+                                    <span class="chip bg-color">开放数据</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%94%B5%E5%8A%A8%E6%B1%BD%E8%BD%A6/">
+                                    <span class="chip bg-color">电动汽车</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%85%85%E7%94%B5%E9%9C%80%E6%B1%82/">
+                                    <span class="chip bg-color">充电需求</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/encounters-opportunistic-2012/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Predicting Encounters in Opportunistic Networks">
+                        
+                        <span class="card-title">Predicting Encounters in Opportunistic Networks</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-10-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                        <span class="chip bg-color">人类移动性</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%BA%E4%BC%9A%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">机会网络</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8E%A5%E8%A7%A6%E9%A2%84%E6%B5%8B/">
+                        <span class="chip bg-color">接触预测</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/e8000028/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Impact of Human Mobility on Opportunistic Forwarding Algorithms">
+                        
+                        <span class="card-title">Impact of Human Mobility on Opportunistic Forwarding Algorithms</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-10-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                        <span class="chip bg-color">人类移动性</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%BA%E4%BC%9A%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">机会网络</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%87%8D%E5%B0%BE%E5%88%86%E5%B8%83/">
+                        <span class="chip bg-color">重尾分布</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('-1'),
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2026</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">猴猴猴</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "4";
+                    var startDate = "26";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiaoyue-hou" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1396567029@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1396567029" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1396567029" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
