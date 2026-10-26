@@ -420,6 +420,39 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
+<style id="mobility-literature-image-layout">
+#articleContent img {
+  display: block !important;
+  width: 100% !important;
+  max-width: 760px !important;
+  height: auto !important;
+  max-height: none !important;
+  margin: 24px auto !important;
+  float: none !important;
+  clear: both !important;
+  position: static !important;
+  zoom: 1 !important;
+  object-fit: contain;
+  box-sizing: border-box;
+}
+#articleContent table {
+  display: table !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  table-layout: fixed;
+}
+#articleContent th, #articleContent td {
+  overflow-wrap: anywhere;
+  vertical-align: top;
+}
+#articleContent td img, #articleContent th img {
+  max-width: min(100%, 760px) !important;
+}
+@media (max-width: 600px) {
+  #articleContent img { margin: 18px auto !important; }
+}
+</style>
+
                 <h1 id="一、个体"><a href="#一、个体" class="headerlink" title="一、个体"></a>一、个体</h1><h2 id="1、20210223-Scaling-of-contact-networks-for-epidemic-spreading-in-urban-transit-systems"><a href="#1、20210223-Scaling-of-contact-networks-for-epidemic-spreading-in-urban-transit-systems" class="headerlink" title="1、20210223-Scaling of contact networks for epidemic spreading in urban transit systems"></a>1、20210223-Scaling of contact networks for epidemic spreading in urban transit systems</h2><p>利用中国三个特大城市（广州上海深圳）的地铁智能卡数据构建了个人层面的接触网络，并在此基础上建立了疾病传播的模型和研究。尽管三个城市的城市形式、网络布局和移动模式不同，但绘制地铁乘客接触次数和接触时间的度分布，发现三个城市的地铁系统有着相似的联系网络结构。但随着接触次数和接触时间的增加，节点度分布的尾部呈指数衰减，这与地铁出行模式的观测结果相似，衰变率随时间而变化，各城市之间存在差异。在个体层面构建接触网络，同时考虑非加权和加权接触网络。对于未加权的MCN，每个节点代表一个出行者，一对节点之间的链接表示这两个出行者有正的概率在同一列地铁上。该模型解释了地铁接触网络的结构特性与传染病风险水平之间的关系。</p>
 <p><img src="/posts/39e7a431/image-20210804103453565.png" alt="image-20210804103453565" style="width:67%; max-width: 100%; display: block; margin: 0 auto;"></p>
 <h2 id="2、20210609-Tracing-contacts-to-evaluate-the-transmission-of-COVID-19-from-highly-exposed-individuals-in-public-transportation"><a href="#2、20210609-Tracing-contacts-to-evaluate-the-transmission-of-COVID-19-from-highly-exposed-individuals-in-public-transportation" class="headerlink" title="2、20210609-Tracing contacts to evaluate the transmission of COVID-19 from highly exposed individuals in public transportation"></a>2、20210609-Tracing contacts to evaluate the transmission of COVID-19 from highly exposed individuals in public transportation</h2><p>在这项工作中使用了两个流行病学模型，以了解巴西福塔莱萨 COVID-19疫情期间的公共交通传播。采用接触追踪模型估计城市公交车内部传播(微观尺度)，再采用分室模型（SEIIR）评估整个城市(宏观尺度)内传播，结果显示，除了第一波和第二波每日病例之间的三个月，$Re^{bus}$在当地COVID-19爆发期间一直跟踪$Re^{city}$。此外，直到7月底，由公共汽车内医护人员传播的$Re^{health}$值持续大于$Re^{bus}$值。医护人员等其他高度暴露人群也可能以类似方式影响病毒传播动态。因此必须提出特殊政策来支持(或避免)高度暴露人群的流离失所</p>
