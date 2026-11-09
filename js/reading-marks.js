@@ -37,6 +37,10 @@
         var images = document.querySelectorAll('.card-image img');
         for (var i = 0; i < images.length; i++) {
             var img = images[i];
+            if (img.dataset.coverFixed === '1') {
+                continue;
+            }
+            img.dataset.coverFixed = '1';
             img.alt = '';
             img.addEventListener('error', function () {
                 this.style.visibility = 'hidden';
@@ -333,7 +337,10 @@
 
     function ensureFilter(pageStats) {
         var list = document.getElementById('articles') || document.getElementById('cd-timeline');
-        if (!list || !list.querySelector('.card')) {
+        if (!list) {
+            return;
+        }
+        if (!list.querySelector('.card') && !(pageStats && pageStats.total)) {
             return;
         }
         var bar = document.getElementById('readingFilter');
@@ -370,10 +377,214 @@
         });
         var empty = bar.querySelector('.reading-filter-empty');
         empty.hidden = !(filter !== 'all' && pageStats.visible === 0);
-        empty.textContent = '这一页没有符合条件的文章。';
+        empty.textContent = '没有符合条件的文章。';
+    }
+
+    function listRoot() {
+        return document.getElementById('articles') || document.getElementById('cd-timeline');
+    }
+
+    function samePath(left, right) {
+        function normalize(value) {
+            var text = value || '';
+            try {
+                text = decodeURIComponent(text);
+            } catch (err) {
+                text = value || '';
+            }
+            if (text.charAt(0) !== '/') {
+                text = '/' + text;
+            }
+            return text.replace(/\/+$/, '') + '/';
+        }
+        return normalize(left) === normalize(right);
+    }
+
+    function scopePosts(posts) {
+        var path = window.location.pathname;
+        var category = path.match(/^\/categories\/([^/]+)/);
+        if (category) {
+            var categoryPath = '/categories/' + category[1] + '/';
+            return posts.filter(function (post) {
+                return post.category && samePath(post.category.href, categoryPath);
+            });
+        }
+        var tag = path.match(/^\/tags\/([^/]+)/);
+        if (tag) {
+            var tagPath = '/tags/' + tag[1] + '/';
+            return posts.filter(function (post) {
+                return (post.tags || []).some(function (item) {
+                    return samePath(item.href, tagPath);
+                });
+            });
+        }
+        var archive = path.match(/^\/archives\/(\d{4})(?:\/(\d{2}))?/);
+        if (archive) {
+            return posts.filter(function (post) {
+                var date = post.date || '';
+                if (archive[2]) {
+                    return date.slice(0, 7) === archive[1] + '-' + archive[2];
+                }
+                return date.slice(0, 4) === archive[1];
+            });
+        }
+        if (path === '/' || /^\/page\/\d+\/?$/.test(path) || /^\/archives\/(?:page\/\d+\/)?$/.test(path)) {
+            return posts;
+        }
+        return null;
+    }
+
+    function catalogGrid() {
+        var grid = document.getElementById('articles');
+        if (grid) {
+            return grid;
+        }
+        var timeline = document.getElementById('cd-timeline');
+        if (!timeline) {
+            return null;
+        }
+        grid = document.createElement('article');
+        grid.id = 'articles';
+        grid.className = 'container articles';
+        timeline.parentNode.insertBefore(grid, timeline);
+        timeline.style.display = 'none';
+        return grid;
+    }
+
+    function buildCard(post) {
+        var article = document.createElement('div');
+        article.className = 'article col s12 m6 l4';
+        var card = document.createElement('div');
+        card.className = 'card';
+        var link = document.createElement('a');
+        link.href = post.path;
+        var image = document.createElement('div');
+        image.className = 'card-image';
+        if (post.img) {
+            var img = document.createElement('img');
+            img.src = post.img;
+            img.className = 'responsive-img';
+            img.alt = '';
+            image.appendChild(img);
+        }
+        var title = document.createElement('span');
+        title.className = 'card-title';
+        title.textContent = post.title;
+        image.appendChild(title);
+        link.appendChild(image);
+        card.appendChild(link);
+
+        var content = document.createElement('div');
+        content.className = 'card-content article-content';
+        var info = document.createElement('div');
+        info.className = 'publish-info';
+        var date = document.createElement('span');
+        date.className = 'publish-date';
+        date.innerHTML = '<i class="far fa-clock fa-fw icon-date"></i>';
+        date.appendChild(document.createTextNode(post.date));
+        info.appendChild(date);
+        if (post.category) {
+            var author = document.createElement('span');
+            author.className = 'publish-author';
+            author.innerHTML = '<i class="fas fa-bookmark fa-fw icon-category"></i>';
+            var category = document.createElement('a');
+            category.href = post.category.href;
+            category.className = 'post-category';
+            category.textContent = post.category.name;
+            author.appendChild(category);
+            info.appendChild(author);
+        }
+        content.appendChild(info);
+        card.appendChild(content);
+
+        if (post.tags && post.tags.length) {
+            var tags = document.createElement('div');
+            tags.className = 'card-action article-tags';
+            post.tags.forEach(function (item) {
+                var tagLink = document.createElement('a');
+                tagLink.href = item.href;
+                var chip = document.createElement('span');
+                chip.className = 'chip bg-color';
+                chip.textContent = item.name;
+                tagLink.appendChild(chip);
+                tags.appendChild(tagLink);
+            });
+            card.appendChild(tags);
+        }
+        article.appendChild(card);
+        return article;
+    }
+
+    function renderCatalog(posts) {
+        var scope = scopePosts(posts);
+        var grid = catalogGrid();
+        if (!scope || !grid) {
+            return false;
+        }
+        var store = readStore();
+        var filter = currentFilter();
+        var stats = { total: scope.length, read: 0, like: 0, visible: 0 };
+        var visiblePosts = [];
+        scope.forEach(function (post) {
+            var mark = markOf(store, post.path);
+            if (mark.read) {
+                stats.read += 1;
+            }
+            if (mark.like) {
+                stats.like += 1;
+            }
+            if (matches(mark, filter)) {
+                stats.visible += 1;
+                visiblePosts.push(post);
+            }
+        });
+
+        if (window.jQuery && jQuery(grid).data('masonry')) {
+            jQuery(grid).masonry('destroy');
+        }
+        grid.innerHTML = '';
+        var row = document.createElement('div');
+        row.className = 'row article-row';
+        visiblePosts.forEach(function (post) {
+            row.appendChild(buildCard(post));
+        });
+        grid.appendChild(row);
+        document.querySelectorAll('.paging').forEach(function (paging) {
+            paging.style.display = 'none';
+        });
+        fixCovers();
+        listCards().forEach(function (card) {
+            var key = postLink(card);
+            if (!key) {
+                return;
+            }
+            ensureCardActions(card, key, markOf(store, key));
+        });
+        if (window.jQuery && visiblePosts.length) {
+            var $grid = jQuery(grid);
+            $grid.masonry({
+                itemSelector: '.article',
+                percentPosition: true
+            });
+            if (jQuery.fn.imagesLoaded) {
+                $grid.imagesLoaded().progress(function () {
+                    $grid.masonry('layout');
+                });
+            }
+        }
+        ensureFilter(stats);
+        var empty = document.querySelector('.reading-filter-empty');
+        if (empty) {
+            empty.hidden = stats.visible !== 0;
+        }
+        return true;
     }
 
     function paint() {
+        if (window.__readingPosts && renderCatalog(window.__readingPosts)) {
+            ensurePostBar(readStore());
+            return;
+        }
         var store = readStore();
         var filter = currentFilter();
         var masonryItems = { show: [], hide: [] };
@@ -416,12 +627,33 @@
         ensureFilter(pageStats);
     }
 
+    function start() {
+        if (!listRoot()) {
+            paint();
+            return;
+        }
+        fetch('/reading-posts.json')
+            .then(function (response) {
+                if (!response.ok) {
+                    throw new Error(response.status);
+                }
+                return response.json();
+            })
+            .then(function (posts) {
+                window.__readingPosts = posts;
+                paint();
+            })
+            .catch(function () {
+                paint();
+            });
+    }
+
     if (window.jQuery) {
-        jQuery(paint);
+        jQuery(start);
     } else if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', paint);
+        document.addEventListener('DOMContentLoaded', start);
     } else {
-        paint();
+        start();
     }
 
     window.addEventListener('pageshow', function (event) {
