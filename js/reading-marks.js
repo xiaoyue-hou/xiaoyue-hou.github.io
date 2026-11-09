@@ -8,6 +8,29 @@
         { id: 'like', label: '喜欢' }
     ];
 
+    var style = document.createElement('style');
+    style.textContent = [
+        'article .card-image img{color:transparent !important;font-size:0 !important;}',
+        'article .card-image a,article .card-image a:hover{text-decoration:none !important;font-weight:500;}',
+        'article .card .card-image .card-title{color:#fff !important;}',
+        '.reading-filter{margin:18px auto 6px;}',
+        '.reading-filter-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;}',
+        '.reading-filter-row button,.reading-marks-btn,.reading-card-actions button{',
+        'appearance:none;-webkit-appearance:none;border:0;margin:0;box-shadow:none;',
+        'background:rgba(15,157,88,.08);color:#3d4f46;border-radius:999px;',
+        'padding:5px 14px;font-size:13px;line-height:1.5;cursor:pointer;}',
+        '.reading-filter-row button.is-active{background:linear-gradient(to right,#4cbf30 0%,#0f9d58 100%);color:#fff;}',
+        '.reading-marks-bar{clear:both;display:flex;flex-wrap:wrap;align-items:center;gap:8px;width:100%;margin:10px 0 4px;}',
+        '.reading-marks-btn.is-read,.reading-card-actions button.is-read{background:#0f9d58;color:#fff;}',
+        '.reading-marks-btn.is-like,.reading-card-actions button.is-like{background:#e25b6a;color:#fff;}',
+        '.reading-marks-note,.reading-filter-empty{color:#78909c;font-size:13px;}',
+        '.reading-filter-empty{margin:8px 0 0;}',
+        '.reading-card-actions{position:absolute;top:12px;right:12px;z-index:5;display:flex;gap:6px;padding:0;}',
+        '.reading-card-actions button{padding:3px 10px;font-size:12px;background:rgba(0,0,0,.42);color:#fff;}',
+        'article .card,.recommend .post-card{position:relative;}'
+    ].join('');
+    document.head.appendChild(style);
+
     function readStore() {
         try {
             var raw = localStorage.getItem(STORE_KEY);
@@ -83,7 +106,6 @@
             store[key] = mark;
         }
         writeStore(store);
-        return mark;
     }
 
     function currentFilter() {
@@ -104,21 +126,6 @@
         } catch (err) {
             return;
         }
-    }
-
-    function counts(store) {
-        var keys = Object.keys(store);
-        var read = 0;
-        var like = 0;
-        keys.forEach(function (key) {
-            if (store[key] && store[key].read) {
-                read += 1;
-            }
-            if (store[key] && store[key].like) {
-                like += 1;
-            }
-        });
-        return { read: read, like: like };
     }
 
     function matches(mark, filter) {
@@ -177,8 +184,7 @@
                 return;
             }
             el.classList.toggle('reading-filtered', !visible);
-            var inGrid = el.closest && el.closest('#articles');
-            if (inGrid) {
+            if (el.closest && el.closest('#articles')) {
                 if (visible) {
                     masonryItems.show.push(el);
                 } else {
@@ -191,6 +197,9 @@
     }
 
     function relayout(masonryItems) {
+        if (!masonryItems.show.length && !masonryItems.hide.length) {
+            return;
+        }
         if (!window.jQuery) {
             masonryItems.hide.forEach(function (el) {
                 el.style.display = 'none';
@@ -228,36 +237,6 @@
         }
     }
 
-    function ensureBadge(card, mark) {
-        var host = card.querySelector('.card-image') || card;
-        var badge = host.querySelector(':scope > .reading-badge');
-        if (!mark.read && !mark.like) {
-            if (badge) {
-                badge.remove();
-            }
-            return;
-        }
-        if (!badge) {
-            badge = document.createElement('div');
-            badge.className = 'reading-badge';
-            host.appendChild(badge);
-        }
-        badge.textContent = '';
-        if (mark.read) {
-            badge.appendChild(pill('已读', 'is-read'));
-        }
-        if (mark.like) {
-            badge.appendChild(pill('喜欢', 'is-like'));
-        }
-    }
-
-    function pill(text, className) {
-        var span = document.createElement('span');
-        span.className = className;
-        span.textContent = text;
-        return span;
-    }
-
     function ensureCardActions(card, key, mark) {
         var box = card.querySelector(':scope > .reading-card-actions');
         if (!box) {
@@ -279,107 +258,14 @@
         }
         var readButton = box.querySelector('[data-act="read"]');
         var likeButton = box.querySelector('[data-act="like"]');
-        readButton.textContent = mark.read ? '已读' : '未读';
+        readButton.textContent = '已读';
         readButton.classList.toggle('is-read', mark.read);
         readButton.setAttribute('aria-pressed', mark.read ? 'true' : 'false');
         readButton.title = mark.read ? '取消已读' : '标为已读';
-        likeButton.textContent = mark.like ? '已喜欢' : '喜欢';
+        likeButton.textContent = '喜欢';
         likeButton.classList.toggle('is-like', mark.like);
         likeButton.setAttribute('aria-pressed', mark.like ? 'true' : 'false');
         likeButton.title = mark.like ? '取消喜欢' : '标为喜欢';
-    }
-
-    function statusText(mark) {
-        var parts = [];
-        if (mark.read && mark.readAt) {
-            parts.push('已读于 ' + formatTime(mark.readAt));
-        }
-        if (mark.like && mark.likeAt) {
-            parts.push('喜欢于 ' + formatTime(mark.likeAt));
-        }
-        if (!parts.length) {
-            return '还没标记。点一下，下次打开列表就能看到。';
-        }
-        return parts.join('，');
-    }
-
-    function backupBox() {
-        var wrap = document.createElement('div');
-        wrap.className = 'reading-marks-backup';
-        var exportButton = document.createElement('button');
-        exportButton.type = 'button';
-        exportButton.textContent = '导出标记';
-        exportButton.addEventListener('click', exportMarks);
-        var importLabel = document.createElement('label');
-        importLabel.className = 'reading-marks-import';
-        importLabel.textContent = '导入标记';
-        var input = document.createElement('input');
-        input.type = 'file';
-        input.accept = 'application/json,.json';
-        input.addEventListener('change', function () {
-            var file = input.files && input.files[0];
-            input.value = '';
-            if (file) {
-                importMarks(file);
-            }
-        });
-        importLabel.appendChild(input);
-        wrap.appendChild(exportButton);
-        wrap.appendChild(importLabel);
-        return wrap;
-    }
-
-    function exportMarks() {
-        var payload = {
-            version: 1,
-            exportedAt: new Date().toISOString(),
-            marks: readStore()
-        };
-        var blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
-        var link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = 'reading-marks.json';
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
-        URL.revokeObjectURL(link.href);
-    }
-
-    function importMarks(file) {
-        var reader = new FileReader();
-        reader.onload = function () {
-            try {
-                var payload = JSON.parse(String(reader.result || ''));
-                var incoming = payload.marks || payload;
-                if (!incoming || typeof incoming !== 'object' || Array.isArray(incoming)) {
-                    throw new Error('格式不对');
-                }
-                var store = readStore();
-                Object.keys(incoming).forEach(function (key) {
-                    var item = incoming[key];
-                    if (!item || typeof item !== 'object') {
-                        return;
-                    }
-                    var current = markOf(store, key);
-                    if (item.read) {
-                        current.read = true;
-                        current.readAt = item.readAt || current.readAt || new Date().toISOString();
-                    }
-                    if (item.like) {
-                        current.like = true;
-                        current.likeAt = item.likeAt || current.likeAt || new Date().toISOString();
-                    }
-                    if (current.read || current.like) {
-                        store[key] = current;
-                    }
-                });
-                writeStore(store);
-                paint();
-            } catch (err) {
-                window.alert('这个文件读不了，请选择之前导出的 reading-marks.json。');
-            }
-        };
-        reader.readAsText(file);
     }
 
     function ensurePostBar(store) {
@@ -399,37 +285,54 @@
             } else {
                 detail.insertBefore(bar, detail.firstChild);
             }
+            ['read', 'like'].forEach(function (field) {
+                var button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'reading-marks-btn';
+                button.dataset.act = field;
+                button.addEventListener('click', function () {
+                    toggleMark(key, field);
+                    paint();
+                });
+                bar.appendChild(button);
+            });
+            var note = document.createElement('span');
+            note.className = 'reading-marks-note';
+            bar.appendChild(note);
         }
         var mark = markOf(store, key);
-        bar.innerHTML = '';
-        var readButton = document.createElement('button');
-        readButton.type = 'button';
-        readButton.className = 'reading-marks-btn' + (mark.read ? ' is-read' : '');
-        readButton.textContent = mark.read ? '已读' : '标为已读';
+        var readButton = bar.querySelector('[data-act="read"]');
+        var likeButton = bar.querySelector('[data-act="like"]');
+        readButton.textContent = '已读';
+        readButton.classList.toggle('is-read', mark.read);
         readButton.setAttribute('aria-pressed', mark.read ? 'true' : 'false');
-        readButton.addEventListener('click', function () {
-            toggleMark(key, 'read');
-            paint();
-        });
-        var likeButton = document.createElement('button');
-        likeButton.type = 'button';
-        likeButton.className = 'reading-marks-btn' + (mark.like ? ' is-like' : '');
-        likeButton.textContent = mark.like ? '已喜欢' : '喜欢';
+        likeButton.textContent = '喜欢';
+        likeButton.classList.toggle('is-like', mark.like);
         likeButton.setAttribute('aria-pressed', mark.like ? 'true' : 'false');
-        likeButton.addEventListener('click', function () {
-            toggleMark(key, 'like');
-            paint();
-        });
-        var note = document.createElement('span');
-        note.className = 'reading-marks-note';
-        note.textContent = statusText(mark);
-        bar.appendChild(readButton);
-        bar.appendChild(likeButton);
-        bar.appendChild(note);
-        bar.appendChild(backupBox());
+        var parts = [];
+        if (mark.read && mark.readAt) {
+            parts.push('已读于 ' + formatTime(mark.readAt));
+        }
+        if (mark.like && mark.likeAt) {
+            parts.push('喜欢于 ' + formatTime(mark.likeAt));
+        }
+        bar.querySelector('.reading-marks-note').textContent = parts.join('，');
     }
 
-    function ensureFilter(store, pageStats) {
+    function countLabel(filter, pageStats) {
+        if (filter === 'unread') {
+            return pageStats.total - pageStats.read;
+        }
+        if (filter === 'read') {
+            return pageStats.read;
+        }
+        if (filter === 'like') {
+            return pageStats.like;
+        }
+        return pageStats.total;
+    }
+
+    function ensureFilter(pageStats) {
         var list = document.getElementById('articles') || document.getElementById('cd-timeline');
         if (!list || !list.querySelector('.card')) {
             return;
@@ -445,34 +348,30 @@
                 var button = document.createElement('button');
                 button.type = 'button';
                 button.dataset.filter = item.id;
-                button.textContent = item.label;
                 button.addEventListener('click', function () {
                     setFilter(item.id);
                     paint();
                 });
                 row.appendChild(button);
             });
-            var hint = document.createElement('p');
-            hint.className = 'reading-filter-note';
             var empty = document.createElement('p');
             empty.className = 'reading-filter-empty';
             empty.hidden = true;
             bar.appendChild(row);
-            bar.appendChild(hint);
-            bar.appendChild(backupBox());
             bar.appendChild(empty);
             list.parentNode.insertBefore(bar, list);
         }
         var filter = currentFilter();
         bar.querySelectorAll('[data-filter]').forEach(function (button) {
+            var item = FILTERS.filter(function (entry) {
+                return entry.id === button.dataset.filter;
+            })[0];
+            button.textContent = item.label + ' ' + countLabel(item.id, pageStats);
             button.classList.toggle('is-active', button.dataset.filter === filter);
         });
-        var total = counts(store);
-        bar.querySelector('.reading-filter-note').textContent =
-            '本页 ' + pageStats.total + ' 篇，已读 ' + pageStats.read + '，喜欢 ' + pageStats.like
-            + '。这台浏览器累计已读 ' + total.read + ' 篇，喜欢 ' + total.like + ' 篇。换电脑前先导出。';
-        bar.querySelector('.reading-filter-empty').hidden = !(filter !== 'all' && pageStats.visible === 0);
-        bar.querySelector('.reading-filter-empty').textContent = '这一页没有符合条件的文章。';
+        var empty = bar.querySelector('.reading-filter-empty');
+        empty.hidden = !(filter !== 'all' && pageStats.visible === 0);
+        empty.textContent = '这一页没有符合条件的文章。';
     }
 
     function paint() {
@@ -488,7 +387,10 @@
                 return;
             }
             var mark = markOf(store, key);
-            ensureBadge(card, mark);
+            var oldBadge = card.querySelector('.reading-badge');
+            if (oldBadge) {
+                oldBadge.remove();
+            }
             ensureCardActions(card, key, mark);
             var scope = card.closest('#articles, #cd-timeline');
             var targets = scope ? filterTargets(card) : [];
@@ -512,19 +414,15 @@
 
         relayout(masonryItems);
         ensurePostBar(store);
-        ensureFilter(store, pageStats);
-    }
-
-    function boot() {
-        paint();
+        ensureFilter(pageStats);
     }
 
     if (window.jQuery) {
-        jQuery(boot);
+        jQuery(paint);
     } else if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', boot);
+        document.addEventListener('DOMContentLoaded', paint);
     } else {
-        boot();
+        paint();
     }
 
     window.addEventListener('pageshow', function (event) {
