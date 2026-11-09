@@ -1,0 +1,1209 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Complete trajectory reconstruction from sparse mobile phone data, 猴猴猴">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Complete trajectory reconstruction from sparse mobile phone data | 猴猴猴</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<style>
+    /* ----------------------------------------------------------- */
+    /* 1. 基础清理：隐藏不需要的文字 */
+    /* ----------------------------------------------------------- */
+    .card .card-content .summary, 
+    .caption, .img-caption, .fancybox-caption, 
+    .img-item .caption { 
+        display: none !important; 
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">猴猴猴</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">猴猴猴</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Complete trajectory reconstruction from sparse mobile phone data</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%BD%A8%E8%BF%B9%E9%87%8D%E5%BB%BA/">
+                                <span class="chip bg-color">轨迹重建</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%89%8B%E6%9C%BA%E4%BF%A1%E4%BB%A4/">
+                                <span class="chip bg-color">手机信令</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%BC%A0%E9%87%8F%E5%88%86%E8%A7%A3/">
+                                <span class="chip bg-color">张量分解</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper/" class="post-category">
+                                Paper
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-10-26
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+
+<h2 id="没打电话的十几个小时，数据里的你去了哪里？"><a href="#没打电话的十几个小时，数据里的你去了哪里？" class="headerlink" title="没打电话的十几个小时，数据里的你去了哪里？"></a>没打电话的十几个小时，数据里的你去了哪里？</h2><p>论文名片｜Guangshuo Chen、Aline Carneiro Viana、Marco Fiore、Carlos Sarraute，<em>Complete trajectory reconstruction from sparse mobile phone data</em>，<em>EPJ Data Science</em> 8，30，2019 年 10 月 12 日发表。<a target="_blank" rel="noopener" href="https://doi.org/10.1140/epjds/s13688-019-0206-8">DOI</a>。</p>
+<p>早上在家打一通电话，晚上在另一处再打一通。运营商记录里，这一天可能只有两个位置。中间你待在办公室、去了商店，还是跨城出差？没有通信记录，既不能证明你没移动，也不能证明你一直停在上一个位置。</p>
+<p>用这样的数据研究人的规律，会遇到两种麻烦：轨迹不完整，或者只挑频繁通信的人留下，结果又不代表多数人。这篇论文提出上下文增强轨迹重建（Context-enhanced Trajectory Reconstruction，CTR），利用夜间停留、日常重复和张量分解，补出每小时的位置，再检验补全会怎样改变一些经典移动结论。</p>
+<p>主要发现有四点：</p>
+<ul>
+<li>在 180 万人的通话数据中，即使把时间划得很粗，完整轨迹也极少；仅靠筛选高活跃用户会丢掉大多数人。</li>
+<li>在 1,450 人、两周的高频通信参考轨迹上做缺失实验，CTR 的轨迹级误差中位数约为 1–2 个基站小区半径，即使只保留 1% 的小时位置。</li>
+<li>对约 170 万人补全后，移动距离的截断重尾形态仍存在，但尺度、唯一性与理论可预测性发生变化。</li>
+<li>补全结果仍是模型推断，不是 170 万人的连续观测真值；规律性先验、验证人群和缺失方式都会影响解释。</li>
+</ul>
+<h2 id="原始数据到底缺了多少？"><a href="#原始数据到底缺了多少？" class="headerlink" title="原始数据到底缺了多少？"></a>原始数据到底缺了多少？</h2><p>研究的主体数据来自拉丁美洲一家运营商：180 万预付费用户，连续 90 天，7.78 亿条语音通话记录，覆盖数千平方公里与 4,200 座基站。国家未在数据介绍中明确公开，不能根据地理或经济描述补写。</p>
+<p>论文表 1 展示了记录格式：用户和基站编码、事件时间、主被叫、方向与通话时长，并有基站坐标映射。记录所带位置是通信基站的代理位置，不是用户的精确 GPS。</p>
+<p>完整性定义得很具体：把观测期 T 按 τ 划成时间槽，有至少一次位置观测的槽数，除以全部槽数。比如一周按小时划分，共 168 槽，若只知道其中 80 槽，完整性约为 0.476。同一个小时有十条记录，也只覆盖一个槽。</p>
+<p><img src="/posts/e8000067/fig1.webp" alt="不同时间分辨率与观测期的完整性分布"></p>
+<p>图 1｜把一天切得更细，还能知道多少位置？原图四幅没有子图字母，左上、右上、左下、右下分别为 τ=15、30、60、120 分钟。横轴完整性，纵轴累计比例 F(x)，插图显示互补累计分布；颜色为 7、15、30、60、90 天观测期。即使只看 7 天、每 2 小时记一个位置，也没有一条完全连续的轨迹，完整性超过 0.5 的用户不足 1%。时间槽越短，缺失越严重。</p>
+<p>在 30 天观测期内，完整性超过 0.1 的用户比例，随着 τ 从 15、30、60 增至 120 分钟，分别约为 8%、26%、53%、75%。这不是更粗数据更准确，而是要求知道的位置变少了。</p>
+<p><img src="/posts/e8000067/fig2.webp" alt="完整性均值和中位数与时间槽长度的关系"></p>
+<p>图 2｜降低时间分辨率，能多覆盖多少？左图是全部用户的完整性均值，右图是中位数，原图均无字母。横轴 τ 为分钟，纵轴完整性，颜色区分观测期。两者随时间槽长度近似线性增加，报告的 Pearson 相关分别为 0.981、0.983。该关系描述这一数据的采样特征，不能把时间槽加大后覆盖更多，理解为找回了真实中间路径。</p>
+<h2 id="这种缺失能用一个分布描述吗？"><a href="#这种缺失能用一个分布描述吗？" class="headerlink" title="这种缺失能用一个分布描述吗？"></a>这种缺失能用一个分布描述吗？</h2><p>论文还比较 Weibull、对数正态、Gamma、Pareto、Lévy 与幂律六类分布，用决定系数 R² 和 KS 分布距离评价完整性分布拟合。表 2 覆盖五种观测期与四种分辨率，两个评价标准合计 40 项比较，Weibull 获得其中 32 项最佳结果。</p>
+<p><img src="/posts/e8000067/fig3.webp" alt="完整性分布拟合与参数变化的完整三面板"></p>
+<p>图 3｜完整性分布怎样随采样尺度变化？（a）T=60 天、τ=60 分钟时，浅蓝为经验密度，橙色 Weibull、绿色对数正态。（b）Weibull 形状参数 k，（c）尺度参数 λ，横轴均为时间槽分钟数，颜色表示观测期。两参数大体随 τ 增长，T 改变带来偏移。此处 λ 是分布尺度，后文张量目标中的正则化 λ 是另一个参数。</p>
+<p>例如 30 天、60 分钟条件下，Weibull 的 KS 距离为 0.0149、R² 为 0.9996。这个经验拟合可以帮助估计同类 CDR 数据的缺失程度，却不是人类移动本身的概率定律，也不宜不经检验移植到另一家运营商或更高频信令数据。</p>
+<h2 id="补齐轨迹，可以依靠哪些信息？"><a href="#补齐轨迹，可以依靠哪些信息？" class="headerlink" title="补齐轨迹，可以依靠哪些信息？"></a>补齐轨迹，可以依靠哪些信息？</h2><p>CTR 利用的是一个人的重复活动：长时间停在少数地点，很多夜晚在同一处，日常与每周存在重复。零散记录虽然不能完整描述某一天，若分散覆盖了很多天的不同小时，仍可能拼出典型模式。</p>
+<p><img src="/posts/e8000067/fig4.webp" alt="一个用户十五天的稀疏小时位置原图"></p>
+<p>图 4｜碎片里是否已经藏着重复？这张无子图字母的网格横轴为一天内小时，纵轴为天，展示 15 天、完整性 0.27 的单人轨迹。白格为缺失，颜色代表不同地点；粉色是最常见日间地点，蓝色是最常见夜间地点。相同颜色在相近时段反复出现，说明可以借助重复性补空，但白格不等于用户没有移动。</p>
+<p>它的目标是小时级代表位置，不是复原两次定位之间每一条街道。对于一小时内有多条记录的情况，研究选择关联事件最多的基站作为该小时位置，以减少相邻基站快速来回切换造成的假移动。这仍不能完全消除定位和采样误差。</p>
+<h2 id="第一步：什么时候可以把夜晚补成家？"><a href="#第一步：什么时候可以把夜晚补成家？" class="headerlink" title="第一步：什么时候可以把夜晚补成家？"></a>第一步：什么时候可以把夜晚补成家？</h2><p>研究按当地作息，把夜间定义为 22:00 至次日 09:00。对每个人寻找夜间最常出现的地点，只有它占已观测夜间位置至少 80%，才将其视为较可靠的家；否则跳过这一阶段。</p>
+<p>找到家后，还逐夜检查。只要该夜观测到其他地点，就不把整夜都补成家；只有未观测到异地位置的夜晚，才用家补缺失槽。主体数据约 72 万人被识别出符合要求的家，这些人的夜间槽平均有 82% 通过这一规则补齐。</p>
+<p>“没观测到在外”依然不等于“肯定在家”。这是一项有条件的插补规则，可能漏掉没有触发通信的夜间活动；夜班、旅行或不稳定居住者也未必适用。未被该步骤处理的人，仍可进入后续张量补全。</p>
+<h2 id="第二步：把很多周的日程放进同一个张量"><a href="#第二步：把很多周的日程放进同一个张量" class="headerlink" title="第二步：把很多周的日程放进同一个张量"></a>第二步：把很多周的日程放进同一个张量</h2><p>张量可以理解为多维数组。CTR 对每个用户单独建立“第几周 × 星期几 × 一天内的坐标序列”，让不同时段的重复结构成为补全依据，而不是把所有人的轨迹混成一条平均路线。</p>
+<p><img src="/posts/e8000067/fig5.webp" alt="单用户位置张量的完整结构图"></p>
+<p>图 5｜一天、一天之间和周之间，怎样放到一个结构里？这张无字母的立体图分别标出周、每周天数和一天内的时间槽，红色长块表示一天的子轨迹。每个小时含 x、y 两个坐标，因此实际第三维长度是 2Nτ，小时分辨率下为 48。已观测位置和第一步推断的夜间位置作为输入，其他位置保留待估计。</p>
+<p>模型用典范多元分解（canonical polyadic decomposition，CPD）将这个数组近似成若干低秩因子的组合。低秩的含义是：很多周、很多天的位置变化，可以用少量重复结构描述。论文设秩 R 为三个维度长度中的最小值；在两周、七天、48 坐标的验证中，这一规则对应 R=2。</p>
+<p>目标函数先要求重建值贴近已有坐标，再限制参数过大以防过拟合。但仅有低秩还不够，研究额外加入两种平滑惩罚：相邻天的同一小时不要差得过远；同一天相邻小时也不要随意跳动。</p>
+<p><img src="/posts/e8000067/fig6.webp" alt="用于相邻日期差分的Toeplitz矩阵完整原图"></p>
+<p>图 6｜怎样把“相近时段不要差太远”写进优化？这张无字母的 Toeplitz 差分矩阵以对角线 1、上邻对角线 −1 构造，红框突出重复系数。它作用于日维度，比较相邻天的同一小时；另一个按 x、y 坐标交错方式构造的差分算子比较相邻小时。它们约束的是坐标差异，不是证明用户每天都按同一日程生活。</p>
+<p>三个因子交替优化，使用交替最小二乘法求解，填出缺失坐标。原始观测位置最终保留，不被全部替换为平滑后的模型值。</p>
+<h2 id="第三步：连续坐标怎样回到基站口径？"><a href="#第三步：连续坐标怎样回到基站口径？" class="headerlink" title="第三步：连续坐标怎样回到基站口径？"></a>第三步：连续坐标怎样回到基站口径？</h2><p>张量分解输出实数坐标，不一定落在任何基站位置上。若直接用于后续研究，会与原始基站离散位置的统计口径不一致。因此 CTR 将推断坐标重新关联到实际基站。</p>
+<p><img src="/posts/e8000067/fig7.webp" alt="基站Voronoi半径和候选匹配的完整原图"></p>
+<p>图 7｜不是简单找最近基站，而是怎样选？这张无子图字母的图中，黑线是 Voronoi 分区，红点是基站，蓝箭头 rj 从基站指向该分区最远角点，虚线圆以此为半径。估计位置落在某座基站的半径圆内，该基站就成为候选；候选之间选择全体用户通信事件最多的基站。示例中三个估计点都可将 cj 作为候选，其中一个点可以位于 cj 的 Voronoi 多边形以外。</p>
+<p>这一步同时利用空间范围与基站热度，不是把估计点机械吸附到最近塔。Voronoi 半径是几何近似，不等同于真实无线覆盖；偏向热门基站也可能让最终轨迹更集中。后续关于规律性和唯一性的结果，需要与这类方法假设一起理解。</p>
+<h2 id="真值从哪里来，只剩-1-时又怎样验证？"><a href="#真值从哪里来，只剩-1-时又怎样验证？" class="headerlink" title="真值从哪里来，只剩 1% 时又怎样验证？"></a>真值从哪里来，只剩 1% 时又怎样验证？</h2><p>验证数据来自主体用户中的一小部分：结合手机上网会话与 CDR，获得 1,450 人连续两周、每小时均有观测的基站代表位置，共有每人 336 个小时槽。这里的“真值”仍是高频通信推得的小时基站轨迹，不是连续 GPS 或人工逐时确认的位置。</p>
+<p>研究按主体 CDR 的经验时段采样分布，故意删掉参考轨迹的一部分，保留完整性 0.01–0.5，生成约 30 万条不完整轨迹，再用 CTR 补齐。30 万是从 1,450 条参考轨迹反复构造的缺失样本，不是 30 万名独立受试者。</p>
+<p>按经验时段分布删除，比均匀随机删点更接近通话采样；但仍不能完整复现每个人“为什么恰好此时打电话”的机制，也未必覆盖真实长空白、临时旅行等情况。</p>
+<p><img src="/posts/e8000067/fig8.webp" alt="CTR误差随输入完整性变化的完整原图"></p>
+<p>图 8｜填出来的位置距离参考位置有多远？横轴为保留的原始完整性，纵轴为小区归一化位移。对每条重建轨迹，先只在原本缺失的小时计算“估计与参考坐标距离 ÷ 参考基站半径”，再对这些小时取平均；箱线汇总这些轨迹级误差。浅蓝为均值、深蓝为中位数，箱为第 25–75 百分位，须为第 10–90 百分位，红线为 1 个半径。中位数约在 1–2 之间，保留 5% 后已低于 1.5，更多已知位置继续改善结果。</p>
+<p>这个指标不是“最多错两座相邻基站”，也不是“每个点都在两个小区内”。它以距离和基站半径归一化，且图中存在较宽的误差分布；半径又因城市、郊区而异，不能统一换算成固定米数。</p>
+<p>已知位置不进入误差计算，因此不会靠把原始点原样保留就虚增成绩。这是验证设计的优点。但参考轨迹只有两周，不能直接证明三个月重建具有完全相同精度；论文也未给出系统的基线方法比较与各组件消融，不能据此声称 CTR 在所有稀疏条件下优于其他方法。</p>
+<h2 id="补齐后，经典的移动距离规律还在吗？"><a href="#补齐后，经典的移动距离规律还在吗？" class="headerlink" title="补齐后，经典的移动距离规律还在吗？"></a>补齐后，经典的移动距离规律还在吗？</h2><p>主体分析只重建原始完整性超过 1% 的用户，保留约 95% 人群，即约 170 万人，以小时为槽补齐 90 天。被保留多数人是覆盖范围上的进步，但这些“完整轨迹”主要包含模型插补，不能称为新增的直接观测。</p>
+<p>第一个复查对象是移动距离与回转半径。回转半径 rg 衡量一个人各次位置相对活动中心的分散程度；Δr 是相邻记录或相邻小时代表位置之间的距离。</p>
+<p><img src="/posts/e8000067/fig9.webp" alt="原始和补全轨迹的距离与回转半径完整四面板"></p>
+<p>图 9｜补全会改变移动距离的形态还是只改数字？原图四面板无字母。左上比较 Δr 的群体分布，右上比较 rg 分布，蓝色原始、橙色补全，灰线为截断幂律拟合。左下是原始轨迹、右下是补全轨迹在不同 rg 分组中的归一化距离分布，颜色代表活动范围组；参考斜率分别约 −1.8、−1.4。两者仍保留重尾后截断的结构，但截断与指数改变。</p>
+<p>论文将结果视为对 González 等 2008 年定性规律的支持，而非推翻。群体拟合指数与旧研究接近，例如补全后距离指数约 1.78、回转半径指数约 1.68；回转半径截断尺度却从本数据原始轨迹的约 340 公里，变为补全后的约 175 公里。</p>
+<p>比较时还改变了采样口径：原始 Δr 跨相邻通信事件，补全 Δr 跨相邻小时。差异既涉及补充位置，也涉及时间采样标准化，不能全部解释为发现了此前漏掉的真实长途出行。模型插补与数据地区差异都可能影响具体参数。</p>
+<h2 id="四个时空点能唯一识别人，是否依赖记录缺口？"><a href="#四个时空点能唯一识别人，是否依赖记录缺口？" class="headerlink" title="四个时空点能唯一识别人，是否依赖记录缺口？"></a>四个时空点能唯一识别人，是否依赖记录缺口？</h2><p>轨迹唯一性衡量：知道一个人若干时间—地点组合后，数据中是否只剩一条轨迹与之匹配。它与把轨迹连接到实名身份有关，但不等于已经完成实名重识别。</p>
+<p>经典研究中，少数随机时空点往往足以区分大量用户。CTR 论文提出，稀疏通信记录的“何时有记录”本身也会带来区分度，未必全来自真实路径不同。</p>
+<p><img src="/posts/e8000067/fig10.webp" alt="原始和补全轨迹唯一性随已知时空点数的变化"></p>
+<p>图 10｜知道同样数量的时空点，仍有多少轨迹唯一？无子图字母的成对柱图，横轴已知时空点数，纵轴唯一轨迹比例，蓝色原始 CDR、绿色 CTR 补全。在本数据中，4 点时原始柱约 0.83、补全柱约 0.16，低点数下差异很大；补全后随已知点数增大，唯一性仍明显上升，80 点时接近九成量级。</p>
+<p>这说明唯一性估计对采样缺失与数据处理很敏感。不过还应保留另一种解释：补全算法本身强调居家、日常重复和热门基站，也可能让轨迹更加相似。这部分并未用 170 万人的独立真实连续轨迹排除，所以“真实人类移动一定比过去认为的更不独特”仍需更多验证。</p>
+<p>唯一性下降也不表示隐私安全。若攻击者知道更多点，或有更强辅助信息，仍可能识别；本研究并没有给重建数据提供匿名保护保证。</p>
+<h2 id="更完整的人群，为什么反而更容易预测？"><a href="#更完整的人群，为什么反而更容易预测？" class="headerlink" title="更完整的人群，为什么反而更容易预测？"></a>更完整的人群，为什么反而更容易预测？</h2><p>最后一个复查对象是基于轨迹熵与 Fano 不等式推得的最大理论可预测性。它描述在给定统计与假设下的上界，不是某个算法已经达到的准确率。</p>
+<p>按照经典研究的高活跃筛选条件，主体数据只留下约 8,000 人，约占 180 万人的 0.44%。这些用户原始轨迹的平均理论可预测性约 81%，与另一研究数据的 93% 不同；跨地区、时期和数据源的差别不能自动归因于补全。</p>
+<p><img src="/posts/e8000067/fig11.webp" alt="三种人群与轨迹口径的熵和理论可预测性完整双面板"></p>
+<p>图 11｜变化来自填空，还是来自终于纳入了不同的人？左图横轴为熵 H、纵轴为其密度；右图横轴为最大理论可预测性、纵轴为密度。蓝色虚线是筛选后 8,000 人的原始轨迹，橙色是约 170 万人的补全轨迹，绿色是同一批 8,000 人补全后的轨迹。橙色更低熵、更高可预测性，右图峰值约 94%；绿色仍接近蓝色，为人群选择起重要作用提供了对照。</p>
+<p>作者解释为：频繁通信者往往更常移动，筛选他们会让样本偏向更难预测的人；扩大到多数较静态用户，整体上界就更高。匹配同一批人的对照比直接比较两种总样本更有说服力。</p>
+<p>但它仍不是对所有插补偏差的彻底排除。特别是补全本来就利用规律性，轨迹低熵也可能部分受到模型约束。重建使用整段历史来补空，也不是在当时只用过去信息预测未来。约 94% 应读作该处理后人群的理论分布峰值，不能说已实现 94% 下一地点预测准确率。</p>
+<h2 id="补全的意义，是让遗漏与假设都变得可检查"><a href="#补全的意义，是让遗漏与假设都变得可检查" class="headerlink" title="补全的意义，是让遗漏与假设都变得可检查"></a>补全的意义，是让遗漏与假设都变得可检查</h2><p>这项研究最重要的提醒是：CDR 观测到的是通信事件，不是完整生活。把缺失直接当停留，或者只留下高活跃用户，都可能改变移动规律、隐私风险与可预测性的估计。</p>
+<p>CTR 展示了一种可操作的补全框架和下采样验证。它保留更多用户，能在小时级、基站口径上产生相对接近参考轨迹的结果。但两周高频参考样本对三个月大人群的外推、居家与平滑假设、基站量化偏好，以及正则化参数选择，仍需要更完整的验证。原数据受保密协议限制未公开，也限制独立复现。</p>
+<p>“完整”只是每个槽都有值。面对研究结论，还要继续检查这些值有多少是观测、多少是推断，以及换一套合理假设后结论是否稳定。</p>
+<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>稀疏手机记录会同时遗漏位置和筛偏人群；CTR 能补出小时级轨迹并改变若干移动统计，但补全后的结果仍应作为带有模型假设的估计来检验。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ol>
+<li>Chen G, Viana AC, Fiore M, Sarraute C. <em>Complete trajectory reconstruction from sparse mobile phone data</em>. EPJ Data Science 8, 30 (2019).<a target="_blank" rel="noopener" href="https://link.springer.com/article/10.1140/epjds/s13688-019-0206-8">正式论文</a>，<a target="_blank" rel="noopener" href="https://doi.org/10.1140/epjds/s13688-019-0206-8">DOI</a>。全部图 1–11、表 1–2 与方法来自该文。</li>
+<li>González MC, Hidalgo CA, Barabási AL. <em>Understanding individual human mobility patterns</em>. Nature 453, 779–782 (2008).<a target="_blank" rel="noopener" href="https://doi.org/10.1038/nature06958">DOI</a>。</li>
+<li>de Montjoye YA et al. <em>Unique in the Crowd: The privacy bounds of human mobility</em>. Scientific Reports 3, 1376 (2013).<a target="_blank" rel="noopener" href="https://doi.org/10.1038/srep01376">DOI</a>。</li>
+<li>Song C et al. <em>Limits of Predictability in Human Mobility</em>. Science 327, 1018–1021 (2010).<a target="_blank" rel="noopener" href="https://doi.org/10.1126/science.1177170">DOI</a>。</li>
+</ol>
+<p>图源集中说明：全部配图为 Chen 等原论文完整 Fig. 1–11，中文讲解按对应面板解释；原文以 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> 许可发布。</p>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>以下采用论文发表时的署名与贡献说明。</p>
+<ul>
+<li>Guangshuo Chen：INRIA、Université Paris-Saclay，以及 École Polytechnique、Université Paris-Saclay 署名作者，本文通讯作者；参与设计、数据收集分析及写作。</li>
+<li>Aline Carneiro Viana：INRIA、Université Paris-Saclay 署名作者；参与研究设计及写作。</li>
+<li>Marco Fiore：意大利 CNR-IEIIT，Torino 署名作者；参与研究设计及写作。</li>
+<li>Carlos Sarraute：美国 Grandata Labs，San Francisco 署名作者；参与数据收集分析及写作。</li>
+</ul>
+<h2 id="延伸思考：把推断位置和观测位置分开保存"><a href="#延伸思考：把推断位置和观测位置分开保存" class="headerlink" title="延伸思考：把推断位置和观测位置分开保存"></a>延伸思考：把推断位置和观测位置分开保存</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
+<p>设想规划者用补全轨迹估计夜间公交需求。算法把许多没有通信记录的夜晚补成家，结果可能低估夜班人群；若随后又用这批补全结果证明夜间出行很少，假设就被当成了证据。</p>
+<p>一种值得采用的数据实践是，为每个位置保留来源标记：原始通信观测、规则补齐、张量估计，以及可用的不确定性信息。研究者可以分别报告只看观测、采用不同夜间规则、改变平滑强度后的结果，看看政策相关结论是否稳定。</p>
+<p>模型让原本被排除的人重新进入分析，是有价值的；让他们以被算法过度规律化的方式进入，又可能产生新的误差。真正需要争取的，是既不因数据稀疏抹掉少数人，也不因补全方便抹掉少数人的非典型生活。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">猴猴猴</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://xiaoyue-hou.github.io/posts/e8000067/">http://xiaoyue-hou.github.io/posts/e8000067/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">猴猴猴</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%BD%A8%E8%BF%B9%E9%87%8D%E5%BB%BA/">
+                                    <span class="chip bg-color">轨迹重建</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%89%8B%E6%9C%BA%E4%BF%A1%E4%BB%A4/">
+                                    <span class="chip bg-color">手机信令</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%BC%A0%E9%87%8F%E5%88%86%E8%A7%A3/">
+                                    <span class="chip bg-color">张量分解</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/9c62e4a7/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="A universal opportunity model for human mobility">
+                        
+                        <span class="card-title">A universal opportunity model for human mobility</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-10-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%A9%BA%E9%97%B4%E4%BA%A4%E4%BA%92/">
+                        <span class="chip bg-color">空间交互</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BB%8B%E5%85%A5%E6%9C%BA%E4%BC%9A/">
+                        <span class="chip bg-color">介入机会</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BA%BA%E5%8F%A3%E6%B5%81%E5%8A%A8/">
+                        <span class="chip bg-color">人口流动</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/weighted-epr-mobility-2019/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="An extended exploration and preferential return model for human mobility simulation at individual and collective levels">
+                        
+                        <span class="card-title">An extended exploration and preferential return model for human mobility simulation at individual and collective levels</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-10-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                        <span class="chip bg-color">人类移动性</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A9%BA%E9%97%B4%E4%BA%A4%E4%BA%92/">
+                        <span class="chip bg-color">空间交互</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8E%A2%E7%B4%A2%E4%B8%8E%E8%BF%94%E5%9B%9E/">
+                        <span class="chip bg-color">探索与返回</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('-1'),
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2026</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">猴猴猴</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "4";
+                    var startDate = "26";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiaoyue-hou" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1396567029@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1396567029" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1396567029" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
