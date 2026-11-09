@@ -10,6 +10,7 @@
 
     var style = document.createElement('style');
     style.textContent = [
+        'article .card .card-image .card-title{color:#fff !important;}',
         'article .card-image img{color:transparent !important;font-size:0 !important;}',
         'article .card-image a,article .card-image a:hover{text-decoration:none !important;font-weight:500;}',
         'article .card .card-image .card-title{color:#fff !important;}',
@@ -30,6 +31,22 @@
         'article .card,.recommend .post-card{position:relative;}'
     ].join('');
     document.head.appendChild(style);
+
+    function fixCovers() {
+        var images = document.querySelectorAll('.card-image img');
+        for (var i = 0; i < images.length; i++) {
+            var img = images[i];
+            img.alt = '';
+            var match = (img.getAttribute('src') || '').match(/\/medias\/featureimages\/(\d+)\.jpg(?:\?.*)?$/);
+            if (match && Number(match[1]) >= 24) {
+                img.src = '/medias/featureimages/' + (Number(match[1]) % 24) + '.jpg';
+            }
+            img.addEventListener('error', function () {
+                this.style.display = 'none';
+            });
+        }
+    }
+    fixCovers();
 
     function readStore() {
         try {
