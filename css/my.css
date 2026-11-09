@@ -113,3 +113,115 @@
     text-overflow: ellipsis;
     display: block;
 }
+
+/* 阅读标记：已读 / 喜欢，保存在本机浏览器 */
+.reading-filter {
+    margin: 1.2rem auto 0.4rem;
+}
+
+.reading-filter-row,
+.reading-marks-bar,
+.reading-card-actions,
+.reading-marks-backup {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.reading-filter-row button,
+.reading-marks-btn,
+.reading-card-actions button,
+.reading-marks-backup button,
+.reading-marks-import {
+    border: 1px solid #cfd8dc;
+    background: #fff;
+    color: #455a64;
+    border-radius: 999px;
+    padding: 4px 12px;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.reading-filter-row button.is-active {
+    background: #37474f;
+    border-color: #37474f;
+    color: #fff;
+}
+
+.reading-marks-btn.is-read,
+.reading-card-actions button.is-read,
+.reading-badge .is-read {
+    background: #e8f6ef;
+    border-color: #42b983;
+    color: #1b7a4e;
+}
+
+.reading-marks-btn.is-like,
+.reading-card-actions button.is-like,
+.reading-badge .is-like {
+    background: #fdecef;
+    border-color: #e57373;
+    color: #c62828;
+}
+
+.reading-filter-count,
+.reading-marks-note,
+.reading-filter-note,
+.reading-filter-empty {
+    color: #78909c;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.reading-filter-note,
+.reading-filter-empty {
+    margin: 6px 0 0;
+}
+
+.reading-marks-bar {
+    margin: 12px 0 2px;
+}
+
+.reading-card-actions {
+    padding: 0 16px 14px;
+}
+
+.reading-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 4;
+    display: flex;
+    gap: 6px;
+    pointer-events: none;
+}
+
+.reading-badge span {
+    border-radius: 999px;
+    padding: 2px 8px;
+    font-size: 12px;
+    line-height: 1.6;
+    background: #fff;
+}
+
+.card .card-image {
+    position: relative;
+}
+
+.recommend .post-card .reading-badge,
+.recommend .post-card .reading-card-actions {
+    z-index: 4;
+}
+
+.recommend .post-card .reading-card-actions {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    padding: 0;
+}
+
+.reading-marks-import input {
+    display: none;
+}
