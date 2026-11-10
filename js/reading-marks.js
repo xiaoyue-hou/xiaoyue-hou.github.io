@@ -515,12 +515,34 @@
         return article;
     }
 
+    function titleYear(title) {
+        var match = String(title || '').match(/^(\d{4})/);
+        if (!match) {
+            return 0;
+        }
+        var year = parseInt(match[1], 10);
+        return year >= 1900 && year <= 2100 ? year : 0;
+    }
+
+    function compareByTitleYear(a, b) {
+        var yearDiff = titleYear(b.title) - titleYear(a.title);
+        if (yearDiff) {
+            return yearDiff;
+        }
+        var dateDiff = String(b.date || '').localeCompare(String(a.date || ''));
+        if (dateDiff) {
+            return dateDiff;
+        }
+        return String(a.title || '').localeCompare(String(b.title || ''), 'zh');
+    }
+
     function renderCatalog(posts) {
         var scope = scopePosts(posts);
         var grid = catalogGrid();
         if (!scope || !grid) {
             return false;
         }
+        scope = scope.slice().sort(compareByTitleYear);
         var store = readStore();
         var filter = currentFilter();
         var stats = { total: scope.length, read: 0, like: 0, visible: 0 };
