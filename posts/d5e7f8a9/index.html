@@ -1,0 +1,1334 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="2018-Weather effects on human mobility: a study using multi-channel sequence analysis, 猴猴猴">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>2018-Weather effects on human mobility: a study using multi-channel sequence analysis | 猴猴猴</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<style>
+    /* ----------------------------------------------------------- */
+    /* 1. 基础清理：隐藏不需要的文字 */
+    /* ----------------------------------------------------------- */
+    .card .card-content .summary, 
+    .caption, .img-caption, .fancybox-caption, 
+    .img-item .caption { 
+        display: none !important; 
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">猴猴猴</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">猴猴猴</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">2018-Weather effects on human mobility: a study using multi-channel sequence analysis</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%A4%A9%E6%B0%94/">
+                                <span class="chip bg-color">天气</span>
+                            </a>
+                        
+                            <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8/">
+                                <span class="chip bg-color">人类移动</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%87%BA%E8%A1%8C%E8%A1%8C%E4%B8%BA/">
+                                <span class="chip bg-color">出行行为</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%BA%8F%E5%88%97%E5%88%86%E6%9E%90/">
+                                <span class="chip bg-color">序列分析</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper/" class="post-category">
+                                Paper
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-11-11
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+
+<h2 id="刮风下雨时，人是少出门，还是换一种方式出门？"><a href="#刮风下雨时，人是少出门，还是换一种方式出门？" class="headerlink" title="刮风下雨时，人是少出门，还是换一种方式出门？"></a>刮风下雨时，人是少出门，还是换一种方式出门？</h2><p>论文名片｜Vanessa S. Brum-Bastos、Jed A. Long、Urška Demšar，<em>Weather effects on human mobility: a study using multi-channel sequence analysis</em>，Computers, Environment and Urban Systems，2018，corrected proof，2018年1月31日收稿，5月15日修回并接受。<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.compenvurbsys.2018.05.004">DOI：10.1016/j.compenvurbsys.2018.05.004</a>。本文依据该 DOI 的校对稿；稿面仍标为 in press，未编卷期和页码。这是一项观察性研究：把天气状态和日常移动放进同一条序列后分组，用来描述哪些条件与哪些时间占比出现在一起。</p>
+<p>一月的邓弗姆林，下午不久天就黑了；九月底的同一个镇，傍晚仍有日光。论文写到，这一纬度从九月到一月，白昼长度大约相差 4.5 小时。若还要往爱丁堡或邓迪去，中间是福斯公路桥或泰桥。风大时，桥会限速、限车甚至关闭。很容易把这种早晨理解成一句话：天气一坏，人就不出门。</p>
+<p>人类移动（human mobility）在这里指日常活动中去了哪里、用什么方式走动。本文测量的是这些日常移动，没有测量居住地是否改变。这篇论文把问题拆开：在 GPS 仍在记录的那些分钟里，风、雨、日照、体感、湿度和气温，是和交通方式的变化放在一起，还是和待在家里、购物、社交的变化放在一起。工作日和周末也分开看。</p>
+<p>方向先放在这里。分组能够把一部分天气和一部分时间占比放在一起，风和雨最清楚，日照主要体现在地点上。差别常常只出现在出行方式或只出现在地点，工作日和周末的方向也不相同。最干和暴雨这两头，都可能对应更高的在家占比。年龄和性别分不开这些组。下面的数字都带着分母：一种分母是人日序列的条数，另一种是 GPS 开机的分钟。91 是志愿者人数。</p>
+<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
+<li>邓弗姆林有 91 名志愿者，每人在 2013 年 9 月 28 日至 2014 年 1 月 10 日之间被连续跟踪两周。后面箱线图上的 n 是人日序列条数。降雨、日照和气温的工作日类型加总是 485 条序列，远多于 91 人。</li>
+<li>每条序列有 58% 至 98% 的分钟没有 GPS。设备在人不动时关闭定位。后文的占比，分母是开机分钟，纵轴标成 proportion of GPS active time。</li>
+<li>工作日强降雨的一类只有 13 条序列，另外两类是 209 和 263。正文写这一类的公共交通占比显著更低；步行减少和机动车增加没有被称为显著。</li>
+<li>周末更大的风落在 63 条序列的 Type 2，另一类是 12 条。这一类公共交通更少、机动车更多。东北、西北、西南来风下，社交占比也更低。工作日的风没有把出行方式分成显著差异。</li>
+<li>行为组与年龄、性别的差异份额都低于 0.01，在 α = 0.1 下不显著。图 6 按性别画出的星期曲线是另一套描述，没有进入这个检验。</li>
+</ul>
+<h2 id="这-91-人的一天，留下了多少开机分钟？"><a href="#这-91-人的一天，留下了多少开机分钟？" class="headerlink" title="这 91 人的一天，留下了多少开机分钟？"></a>这 91 人的一天，留下了多少开机分钟？</h2><p>数据来自 GEOCROWD。研究者按邮编从选民登记中抽取法夫三个主要城镇的 6000 人，发信邀请。206 人接受并交出可用轨迹，每人在研究窗口内连续佩戴两周。GPS 约每 5 秒记一个位置，并与加速度计连在一起：人不动时，GPS 关闭。参与者要做的事是携带设备，两周后寄回。除选民登记上的性别、年龄和家庭地址外，没有活动日记。</p>
+<p>本文只用参与者最多的邓弗姆林，91 人。其中女性 23 人，男性 41 人，27 人没有申报性别。年龄上，21–34 岁 10 人，35–60 岁 46 人，61–65 岁 8 人，27 人没有申报年龄。四组人数都是 91 的划分。</p>
+<p>轨迹上的方式标签来自先前对同一批 GPS 的分类，包括步行、火车、公交、机动车、交通停、公交站停、火车停，以及家、工作、购物和未识别停留。论文写该分类对照记录中的家庭地址，在 200 米范围内核对“家”的位置，准确率为 85%。本文不再展开那套分段过程，只使用已经标好的方式，并在后续比较里把它们收成步行、公共交通、机动车，以及家、社交、购物。全天色带图里还能看见工作/上学、一般停留和交通停，这三者和未识别停留没有进入后面的天气箱线图。</p>
+<p><img src="/posts/d5e7f8a9/fig2.webp" alt="完整原论文图2"></p>
+<p>图 2｜这些轨迹位于哪一座城，天气又贴在哪一层空间上？</p>
+<p>（a）苏格兰东海岸。浅蓝色线是 GPS 轨迹，邓弗姆林位于法夫，爱丁堡和邓迪分在河口两侧。图注写绿色椭圆为泰桥、红色椭圆为福斯公路桥。讨论里把这两处椭圆写成图 1，位置实际标在本图。（b）一段出行方式叠在气象站的泰森多边形上，并给出一个 NIMROD 降雨像素；右上角是一小时降雨与方式的示意，图例含社交、步行和公共交通。来源：原论文 Fig. 2。</p>
+<h2 id="为什么要把天气和移动写成同一条序列？"><a href="#为什么要把天气和移动写成同一条序列？" class="headerlink" title="为什么要把天气和移动写成同一条序列？"></a>为什么要把天气和移动写成同一条序列？</h2><p>问卷可以问人觉得冷不冷，却很难对准某一分钟人正在走路还是坐在公交上。情境感知的移动分析（context-aware movement analysis，CAMA）把移动本身和周围环境放在一起看。多通道序列分析（multi-channel sequence analysis，MCSA）是具体做法：每个通道用一套字母，每一分钟写一个字母。通道沿时间对齐之后，两条人日序列的差别可以用最优匹配（optimal matching）来量，也就是把一条序列改写成另一条所需的替换、插入和删除成本。论文把这一比较称为情境感知的相似性分析（context-aware similarity analysis，CASA）。</p>
+<p>已有做法要么一次只看一种环境，要么要人为给环境变量加权，要么只接受成片的区域边界。MCSA 允许多个通道同时进入距离。不过，本文报告的分组并没有把八个通道一次都放进同一次聚类。风使用三个通道：移动方式、风速、风向。其余天气变量每次使用两个通道：方式或地点，加上一个天气变量。因此，后文的“类型”是某一种天气与行为的共同分组，不同天气的 Type 1 也不能互相替代。</p>
+<p><img src="/posts/d5e7f8a9/fig1.webp" alt="完整原论文图1"></p>
+<p>图 1｜方式和地点为什么要分成两条平行的分析？</p>
+<p>无字母子图。左列是出行方式，右列是地点。轨迹来自 Siła-Nowicka 等（2016）；降雨来自 NIMROD，气温、相对湿度、风速和风向来自 MIDAS，日照来自 Weather Cam。两列都经过轨迹注释、序列化、最优匹配距离、Ward 聚类，最后做组间统计比较。来源：原论文 Fig. 1。</p>
+<p>分开的理由来自目的地是否非去不可。去上班时，人更可能在大雨里改坐车或开车；购物这类安排则可能直接改期。工作日和周末也分开，因为工作日的出行更多受上班和上学约束，周末的选择更多。这是分组之前的设计理由，后面的图再逐项检验。</p>
+<p>注释使用线性动态轨迹注释：某个 GPS 时刻的天气，由该时刻前后的气象观测插值得到，以便对齐 5 秒一次的位置和 5 分钟或 1 小时一次的天气。MIDAS 的 109 个站点用泰森多边形贴到轨迹上。体感温度（apparent temperature，AT）把气温、湿度和风合在一起：</p>
+<p>AT = Ta + 0.33e − 0.70Ws − 4.00</p>
+<p>Ta 是气温（°C），e 是由相对湿度和气温算出的水汽压（hPa），Ws 是风速（m/s）。后面的“体感”或 comfort 用的就是这一个量，再按热感觉等级写成字母。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>来源</th>
+<th>变量</th>
+<th>时间分辨率</th>
+<th>空间形态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Weather Cam（UK Weather，2013）</td>
+<td>日照</td>
+<td>24 小时</td>
+<td>点，研究区中心位置</td>
+</tr>
+<tr>
+<td>NIMROD（Met Office，2003）</td>
+<td>降雨</td>
+<td>5 分钟</td>
+<td>栅格，1–5 公里</td>
+</tr>
+<tr>
+<td>MIDAS（Met Office，2012）</td>
+<td>气温、相对湿度、风速、风向</td>
+<td>1 小时</td>
+<td>点，109 站</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>序列按每名志愿者的每一天生成。5 秒的原始点先收成 1 分钟，这一分钟取天气和移动方式的众数。众数会滤掉秒级跳动，也会把这一分钟里较短的状态盖住。空缺分钟的插入和删除成本记为 0，因为那是没有记录的时间，不应该被算成一种天气或一种出行。方式、地点、风速和风向的替换成本来自状态之间的转移频率，F(i,j) = 1 − P(i,j) − P(j,i)。体感、气温、湿度、日照和降雨按强度排队，档位离得越远，替换成本越高。</p>
+<p><img src="/posts/d5e7f8a9/fig3.webp" alt="完整原论文图3"></p>
+<p>图 3｜一分钟怎样同时写下天气和移动方式？</p>
+<p>无字母子图。横轴是 10:00 到 10:05 的六分钟，每一列一分钟，每一行一个通道。图中能稳定读出的字母包括体感 CD/CL、风向 N/NE、日照 MT/DL、降雨 DR/VS，底行方式从 WK 转到 PT。这是结构示例，只说明通道如何并排。来源：原论文 Fig. 3。</p>
+<p>字母表决定了后文“大雨”和“极高气温”的含义。降雨按英国气象局的强度，单位是毫米/小时。风速是蒲福风级的改编，单位是米/秒。风向按八个方位。体感使用 VDI（2008）的热感觉区间。湿度和气温则按邓弗姆林 1991–2000 年的季节气候正常值来分档，所以这里的 Extremely high 气温是高于 13°C。体感字母里的 Very hot 才是高于 38°C。湿度最低一档在表中印成 Extremely how，范围是低于 70%；气温表里的 Extremely low 是另一个通道、另一套区间。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>通道</th>
+<th>字母与区间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>体感（°C）</td>
+<td>很冷 ≤ −39；冷 &gt; −39 至 −26；凉 &gt; −26 至 −13；微凉 &gt; −13 至 0；舒适 &gt; 0–20；微暖 &gt; 20–26；暖 &gt; 26–32；热 &gt; 32–38；很热 &gt; 38</td>
+</tr>
+<tr>
+<td>降雨（毫米/小时）</td>
+<td>干 0；极小 &gt; 0–0.5；小 &gt; 0.5–1；低中 &gt; 1–2；中 &gt; 2–4；大 &gt; 4–10；很大 &gt; 10–50；暴 &gt; 50</td>
+</tr>
+<tr>
+<td>风向（度）</td>
+<td>北 &gt; 337.5–22.5，跨过 0°；其余七个方位各 45°</td>
+</tr>
+<tr>
+<td>湿度（%）</td>
+<td>极高 &gt; 90；高于平均 &gt; 85–90；平均 &gt; 80–85；低于平均 &gt; 75–80；低 &gt; 70–75；极低一档印为 Extremely how，&lt; 70</td>
+</tr>
+<tr>
+<td>气温（°C）</td>
+<td>极低 ≤ 5；平均最低 &gt; 5–7；平均 &gt; 7–10；平均最高 &gt; 10–13；极高 &gt; 13</td>
+</tr>
+<tr>
+<td>风速（米/秒）</td>
+<td>静风 ≤ 3；微风 &gt; 3–14；大风 &gt; 14–24；风暴 &gt; 24</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>日照按研究区中心的民用晨昏时刻分成四档：黎明到日出为早晨曙暮光，日出到日落为白昼，日落到黄昏为傍晚曙暮光，黄昏到黎明为夜间。</p>
+<p>两条序列的多通道成本相加，得到全部序列两两之间的距离。Ward 聚类从“每条序列自成一类”开始合并，每次选择使组内平方和增加最少的合并。类的个数用 Calinski–Harabasz 指数选择：组间分散与组内分散之比越高，划分越清楚。作者从最多类搜到 1 类，取得分最高的个数；若最高分对应“每条序列一类”，就改用下一档。随后用 Kruskal–Wallis 检验比较组的位置，用 Levene 检验比较组的分散。论文写明，中位数或方差有一个显著，就当作两类行为不同的证据。方差显著只说明两组里的人日彼此差得更开或更齐，并不自动等于平均时间更高。</p>
+<p>图上的星号图例印为：三个星号 α = 0.001，两个星号 α = 0.01，一个星号 α = 0.5，圆点 α = 0.1。一个星号在稿面上对应 α = 0.5，与常用的 0.05 门槛不同。下文写“显著”时，只跟随正文的文字结论。</p>
+<h2 id="还没放进天气时，一周本身就不一样"><a href="#还没放进天气时，一周本身就不一样" class="headerlink" title="还没放进天气时，一周本身就不一样"></a>还没放进天气时，一周本身就不一样</h2><p>熵指数（entropy index，EI）看的是某一分钟里，方式字母在全体序列上有多分散。接近 0，表示这一分钟大多数序列落在同一种方式；接近 1，表示几种方式的比例更接近。它描述的是这一分钟全体序列的多样程度。</p>
+<p><img src="/posts/d5e7f8a9/fig4.webp" alt="完整原论文图4"></p>
+<p>图 4｜一天的方式色带从什么时候开始，缺了哪些分钟？</p>
+<p>无字母子图，七个面板为周一到周日。周一至周日七个面板结构相同。纵轴按当天序列长短排序；图注写明，不同天的同一行号可以对应不同的人。周一的刻度高于 91，符合两周里可以出现两个周一。横轴为 0–22 时。图例为步行、停留、交通停、社交、公共交通、家、购物、工作/上学、机动车，白色是记录中断。多数色带从早晨展开，周六和周日的彩色段落更分散，白色空档贯穿全天。来源：原论文 Fig. 4。</p>
+<p>正文给出的缺失范围是：每条序列最少 58%、最多 98% 的分钟没有记录。多数序列开始于早晨 6 点到 8 点。因此，一张色带图里的“在家”，只覆盖设备仍开着的那些分钟。</p>
+<p><img src="/posts/d5e7f8a9/fig5.webp" alt="完整原论文图5"></p>
+<p>图 5｜哪种多样程度属于星期几，哪种才可能属于天气？</p>
+<p>无字母子图，七个面板仍是周一到周日。纵轴 EI 从 0 到 1，横轴是小时。工作日约在 4:00–7:00 抬升，周末要到约 8:00–10:00 才抬升。周日全天最高；周六和周日在 15:00–18:00 先降后升。作者把周末相对工作日的错位概括为大约 3 小时。图上没有印出某一小时的精确 EI。来源：原论文 Fig. 5。</p>
+<p>这张图的用处是先记住星期几本身的节奏。后文若把某个低谷直接归到极端天气，就要先排除它只是周末或工作日的差别。作者也用这一点重新理解 Horanont 等（2013）：对方把类似的熵变化归因于极端天气，而本文认为更可能是工作日和周末混在了一起。这是对已有图形的另一种读法，本文没有重算那批手机 GPS。</p>
+<p><img src="/posts/d5e7f8a9/fig6.webp" alt="完整原论文图6"></p>
+<p>图 6｜不分组时，性别和星期几已经差在哪里？</p>
+<p>无字母子图。上排为女性，图注给出的样本量是 22 ≤ n ≤ 33；下排为男性，54 ≤ n ≤ 70。n 随星期几变化，并且高于相应性别的人数（女 23、男 41）。图注没有把这个 n 定义成唯一参与者人数。左半是地点，橙为家、红为社交、绿为购物；右半是方式，青绿为步行、蓝为公共交通、灰为机动车。纵轴印着 Mean time，刻度为 0、36、72、108、144、180，图上没有单位。方法文字写的是先按 1 分钟状态计时，再除以该人的 GPS 开机时间，然后按性别取平均。0–1 的比例和 180 的刻度对不上，因此这里只比较高低：两性都是周日在家最高、周三最低；步行各天相差不大；女性社交集中在周二、周三和周六，男性周二很低，周三到周一维持在更低的水平。来源：原论文 Fig. 6。</p>
+<h2 id="工作日更容易分成组，年龄和性别分不开这些组"><a href="#工作日更容易分成组，年龄和性别分不开这些组" class="headerlink" title="工作日更容易分成组，年龄和性别分不开这些组"></a>工作日更容易分成组，年龄和性别分不开这些组</h2><p>聚类好坏用 Calinski–Harabasz 指数比较。图 7 把这个指数除以 10 之后画成实线，虚线是选中的类数，绿线是出行方式，红线是地点。径向刻度标到 7。正文没有另给一张 CHI 原值表，所以不能从雷达图读出一个未经除以 10 的精确指数。</p>
+<p><img src="/posts/d5e7f8a9/fig7.webp" alt="完整原论文图7"></p>
+<p>图 7｜哪种天气让组与组之间分得更开？</p>
+<p>无字母子图，左为工作日，右为周末。六个角是风、气温、相对湿度、体感、日照和降雨。实线越靠外，表示该变量上的划分越清楚；虚线表示最终使用的类数。工作日的实线整体更靠外。相对湿度在工作日的方式实线大约是地点实线的两倍，这是正文的说法。方式在工作日分得最开的是湿度、降雨和体感；地点在周末分得最开的是气温、降雨和体感。周末的虚线通常更靠外，但风与地点是例外：工作日 5 类，周末 2 类。来源：原论文 Fig. 7。</p>
+<p>作者接着用差异分析，看这些行为组是否只是年龄或性别的另一种写法。差异份额 SD = SSB / SST。正文把 SSB 写成年龄组或性别组内部的平方距离和，把 SST 写成全部序列的平方距离总和。所有 SD 都低于 0.01，p 值在 α = 0.1 下不显著。无论分子的“组内” wording 是否与通常的解释份额互换，论文给出的结论是：分出来的天气—行为组与年龄、性别没有显著关联。图 6 里女性社交时间更高，仍然可以是星期几上的平均差别；它没有变成“女性更常落入某一个天气类型”。</p>
+<h2 id="风大的周末，公交少了，车多了"><a href="#风大的周末，公交少了，车多了" class="headerlink" title="风大的周末，公交少了，车多了"></a>风大的周末，公交少了，车多了</h2><p>风是唯一一次同时放入两个天气通道的分组。工作日的方式分成两类，序列数分别为 361 和 117，合计 478。周末是 12 和 63，合计 75。478 与前面若干变量的 485 差 7 条，论文没有说明这 7 条落在哪里。</p>
+<p><img src="/posts/d5e7f8a9/fig8.webp" alt="完整原论文图8"></p>
+<p>图 8｜周末的大风有没有对应更少的公交、更多的机动车？</p>
+<p>（A）工作日 Type 1 为 361 条序列，Type 2 为 117 条。上方是各风向、各风速占开机时间的比例，下方是步行、公共交通和机动车。正文写两类的方式占比没有显著差异。（B）周末 Type 1 为 12 条，Type 2 为 63 条。Type 2 对应东北、西北和西南来的更大风，公共交通更低、机动车更高，正文称为显著。箱线图虚线是平均数，实线是中位数，纵轴是占 GPS 开机时间的比例。来源：原论文 Fig. 8。</p>
+<p>地点的分组给出另一套类型。工作日五类的序列数是 134、182、101、54 和 7，合计仍是 478。周末两类是 25 和 50，合计 75。</p>
+<p><img src="/posts/d5e7f8a9/fig9.webp" alt="完整原论文图9"></p>
+<p>图 9｜同样的风，待在家里和出门办事会怎样变？</p>
+<p>（A）工作日五类。Type 1、Type 3 和 Type 4 的地点时间接近，风向和风力也没有稳定格局。Type 5 只有 7 条序列，正文不据此下结论。Type 2 在更大风下，在家占比更低、购物占比更高，家和购物的组间差异被正文称为显著。（B）周末 Type 1 为 25 条，没有主导风向，风力在静风和大风之间来回，这两档合计约占该组时间的 88%。Type 2 为 50 条，东北、西北、西南来的更大风下，社交占比显著更低。来源：原论文 Fig. 9。</p>
+<p>作者把周末的方式变化和桥联系起来：采样期间，泰桥和福斯公路桥至少有十次因为大风关闭或限制车种和车速，消息来自 Traffic Scotland 的公开交通帖。先前的数据论文认为这些参与者大多从法夫通勤到爱丁堡或邓迪，因而常常要过其中一座桥。本文的聚类没有记录每一条序列是否真的上了桥，所以桥是对周末风效应的一种可能解释。工作日的方式没有显著差别，也说明“有风就会少坐公交”不能从这批工作日序列里读出来。</p>
+<h2 id="最干和暴雨，为什么都有较高的在家占比？"><a href="#最干和暴雨，为什么都有较高的在家占比？" class="headerlink" title="最干和暴雨，为什么都有较高的在家占比？"></a>最干和暴雨，为什么都有较高的在家占比？</h2><p>工作日的降雨与方式分成三类，序列数 209、263 和 13，合计 485。13 条是强降雨的 Type 3。</p>
+<p><img src="/posts/d5e7f8a9/fig10.webp" alt="完整原论文图10"></p>
+<p>图 10｜强降雨减少的是公交，还是所有出门方式？</p>
+<p>（A）工作日。相对更干的 Type 1 和 Type 2，Type 3 的公共交通占比显著更低。步行更低、机动车更高与之同时出现，正文明确写这两项没有达到显著。（B）周末四类，其中有小类。不同降雨下的方式占比没有显著差异。纵轴仍是开机时间的比例。来源：原论文 Fig. 10。</p>
+<p>地点只在“家”这一项上，工作日和周末都有显著的组间差别。购物和社交没有被写成显著。</p>
+<p><img src="/posts/d5e7f8a9/fig11.webp" alt="完整原论文图11"></p>
+<p>图 11｜为什么最干和暴雨都可能对应更多时间在家？</p>
+<p>（A）工作日三类的序列数是 350、114 和 21，合计 485。Type 1 以干为主，Type 2 也偏干，但其余降雨档更均匀，Type 3 为暴雨。暴雨下在家占比更高；以干为主的 Type 1 也高于干湿混合的 Type 2。（B）周末六类的序列数是 13、36、16、11、5 和 1，合计 82，与其他变量周末大约 76 条的规模不完全相同。Type 5 和 Type 6 条数很少，正文当作离群值。强降雨的 Type 3 在家更高；Type 2 和 Type 4 偏干且其余时间摊在其他降雨档，在家更低；最干的 Type 1 又更高。来源：原论文 Fig. 11。</p>
+<p>这张图挡住一个过直的说法。若只记住“雨越大越宅”，就会漏掉最干的那一类同样有较高的在家占比。作者用义务出行来解释方式：工作日人仍得出门，所以更可能改交通工具；周末可以选择留在家里，方式反而不显著。这个解释和“周末方式不显著、工作日公交显著减少”相合，但它没有单独测量哪些行程是义务、哪些可以改期。</p>
+<h2 id="日照分得开人待在哪里，分不开人怎么走"><a href="#日照分得开人待在哪里，分不开人怎么走" class="headerlink" title="日照分得开人待在哪里，分不开人怎么走"></a>日照分得开人待在哪里，分不开人怎么走</h2><p>日照与方式在工作日是 150、307 和 28 条序列，合计 485；周末是 42 和 34，合计 76。</p>
+<p><img src="/posts/d5e7f8a9/fig12.webp" alt="完整原论文图12"></p>
+<p>图 12｜天更黑时，人会少走路、改开车吗？</p>
+<p>（A）工作日三类。正文描述 Type 3 的白昼更少，步行和公共交通的占比看起来更低、机动车更高，并与白昼更多的 Type 1、Type 2 对比。这些方式差异在工作日没有通过显著性检验。Type 3 只有 28 条序列。（B）周末方向反过来：夜间更多的 Type 2 里，步行和公共交通比机动车更突出；白昼更多的 Type 1 里机动车更突出。周末的方式差异同样不显著。来源：原论文 Fig. 12。</p>
+<p>地点则不同。正文写日照与家、购物、社交的差异，在工作日和周末都显著。</p>
+<p><img src="/posts/d5e7f8a9/fig13.webp" alt="完整原论文图13"></p>
+<p>图 13｜更长的夜晚对应更宅，还是只在工作日如此？</p>
+<p>（A）工作日 Type 1 为 423 条，白昼更多，在家占比低于夜晚更多的 Type 2；Type 2 只有 35 条，购物和社交也更少。Type 3 为 27 条，昼夜接近均分，在家占比却最低，作者写明不清楚原因。显著结论建立在 423 对 35、27 这样不均匀的类上。（B）周末 Type 1 为 32 条，光线更低，购物和社交更多；Type 2 为 44 条，更亮，在家更多。工作日“更黑则更宅”的方向，在周末对调。来源：原论文 Fig. 13。</p>
+<p>采样从九月进入一月，白昼、气温和参加研究的那两周是一起变化的。一个“夜晚更多”的类，也可能是更接近隆冬的那些天。图 13 能支持地点占比与日照类型有关，不能把白昼长度从季节里单独抽出来。</p>
+<h2 id="体感、湿度和气温只在少数比较上分开"><a href="#体感、湿度和气温只在少数比较上分开" class="headerlink" title="体感、湿度和气温只在少数比较上分开"></a>体感、湿度和气温只在少数比较上分开</h2><p>体感与方式的工作日两类是 465 和 18 条序列。周末是 75 和 1。</p>
+<p><img src="/posts/d5e7f8a9/fig14.webp" alt="完整原论文图14"></p>
+<p>图 14｜略不舒适时，多出来的是开车吗？</p>
+<p>（A）工作日。正文写唯一显著的方式差别是机动车：Type 2 被描述为略不舒适，机动车占比更高，步行和公共交通更低。表 2 没有一档就叫 slightly uncomfortable，Type 2 的具体体感字母要看图中的颜色，18 条序列是这一结论的分母一侧，另一侧是 465 条。（B）周末一类 75 条，另一类 1 条。正文认为单个序列限制了解释。来源：原论文 Fig. 14。</p>
+<p><img src="/posts/d5e7f8a9/fig15.webp" alt="完整原论文图15"></p>
+<p>图 15｜体感改变了待在家里和出门的时间吗？</p>
+<p>（A）工作日两类。（B）周末两类，其中一类只有 2 条序列。正文写工作日和周末都没有显著差别，也没有有意义的视觉格局。来源：原论文 Fig. 15。</p>
+<p>相对湿度与方式，在工作日分成 311 和 174 条，合计 485；周末是 49 和 27，合计 76。</p>
+<p><img src="/posts/d5e7f8a9/fig16.webp" alt="完整原论文图16"></p>
+<p>图 16｜更湿的空气对应更多走路吗？</p>
+<p>（A）工作日 Type 1 为 311 条，Type 2 为 174 条。唯一被称为显著的是步行：更湿的 Type 1，步行占比更高。（B）周末湿度较低的 Type 2，公共交通在图上看起来更高。正文把这项写成视觉差异，没有与工作日步行并列称为显著。作者推测，人可能把湿度当成降雨的提示来安排行程；这是解释，湿度分组本身没有测量这个判断。来源：原论文 Fig. 16。</p>
+<p><img src="/posts/d5e7f8a9/fig17.webp" alt="完整原论文图17"></p>
+<p>图 17｜湿度低的时候，人是更宅，还是只是更少社交？</p>
+<p>（A）工作日两类的序列数印为 303 和 26，合计 329，没有并入其他变量的 485。图中没有被正文单独写成显著的地点结论。（B）周末在家和社交显著。湿度更低的 Type 2，在家更多、社交更少；湿度更高的 Type 1 方向相反。作者认为这更像降雨的伴随现象，因为高湿度与下雨的可能紧密相关。来源：原论文 Fig. 17。</p>
+<p>气温的两张图需要先对齐面板。按版面顺序，图 18 的下排是家、购物和社交，图 19 的下排是步行、公共交通和机动车。图 18 的图注却写着 travel modes，正文也把“工作日步行、周末公共交通”的显著结果标成图 18。带有这些星号、并且周末含有 n 小于 9 的三类的，是图 19。图 19 的图注第一句同样写成 travel modes，后一句又写成 places。校对稿的图号、图注和面板没有完全对齐。下面按面板上的实际文字说明。</p>
+<p><img src="/posts/d5e7f8a9/fig18.webp" alt="完整原论文图18"></p>
+<p>图 18｜气温类型下，家、购物和社交的占比怎样分布？</p>
+<p>（A）工作日 Type 1 为 82 条序列，Type 2 为 403 条，合计 485。上方是极高、平均最高、平均、平均最低和极低气温占开机时间的比例，下方是家、购物、社交。（B）周末 Type 1 为 70 条，Type 2 为 6 条。地点面板的标题上没有印出检验星号，正文也没有单独声称气温改变了这三项地点占比。6 条序列的类型不足以单独解释。来源：原论文 Fig. 18。</p>
+<p><img src="/posts/d5e7f8a9/fig19.webp" alt="完整原论文图19"></p>
+<p>图 19｜更高的气温对应更多步行，这个“高”是多少度？</p>
+<p>（A）工作日 Type 1 为 72 条，Type 2 为 413 条，合计 485。步行标题带有 Kruskal–Wallis 星号。正文写工作日更高气温的 Type 1 步行占比显著更高，接近历史平均最高气温的 Type 2 公共交通略少；“略少”没有被写成显著。（B）周末五类为 41、25、8、1 和 1，合计 76。公共交通标题带有 Kruskal–Wallis 星号。正文写周末显著差别在公共交通，并另写极高气温的 Type 1 对应更多公共交通。Type 3、4、5 的序列数都小于 9，正文当作离群值，不由此下结论。这里的极高气温在字母表中是高于 13°C。来源：原论文 Fig. 19。</p>
+<p>作者引用既有研究说，升温通常增加步行，这在苏格兰的温带海洋性气候里容易理解，因为更暖的月份给了户外活动更多机会。他们同时指出，更热的地区可能方向相反。本文的采样停在一月，没有夏天，也不能用高于 13°C 的档位代表热浪。</p>
+<h2 id="这些组能说明天气改变了出行吗"><a href="#这些组能说明天气改变了出行吗" class="headerlink" title="这些组能说明天气改变了出行吗"></a>这些组能说明天气改变了出行吗</h2><p>分组对象是“方式或地点 + 天气”的联合序列。同一个 Type 既因为行为字母相近而聚在一起，也因为天气字母相近而聚在一起。随后看到的时间占比差别，是不同序列集合之间的差别。论文没有报告同一个人在雨天和晴天的配对比较，也没有把两周跟踪随机分到不同天气。每个人的两周落在九月到一月的不同位置，所以一个类型也可能是同一场风、同一段白昼或同一批参与者。</p>
+<p>开机分钟这个分母把结论再收紧一层。人停住时设备关闭，而家、工作和购物往往正是停住的时候。在家占比上升，表示开机记录里家的份额更高；它不直接等于时钟上多待了多少小时。58% 到 98% 的缺失分钟没有进入分母。</p>
+<p>检验的形状也不均匀。工作日强降雨的方式结论主要来自 13 条序列；体感与机动车的结论主要来自 18 对 465；日照与地点的工作日比较是 423 对 35 和 27。显著可以出现在很小的一类上，也可以因为类的大小悬殊而变得难解释。未显著的比较包括工作日的风与方式、周末的雨与方式，以及全部日照与方式。这些比较没有检出稳定的组间差别，两组仍可以保留较小的差别。</p>
+<p>最后，方式标签继承自先前分类，家的位置核对是 85%。火车、公交被收成公共交通，工作/上学出现在全天色带里，却没有成为天气箱线图中的单独结局。一个通勤日若主要变化发生在“工作”这一停留上，本文的地点三组接不住它。</p>
+<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>在邓弗姆林这个秋冬样本里，天气与开机分钟中的移动是成组出现的：工作日的强降雨更对应少坐公交，周末的大风更对应少公交、多机动车和少社交，日照更对应人待在哪里；最干和暴雨却都可能对应更高的在家占比，这些组记录的是天气与行为一同出现，证据等级停在观察性关联。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.compenvurbsys.2018.05.004">Computers, Environment and Urban Systems 校对稿</a>，核对题目、作者、2018 年引用年份与 DOI。正文图 1–13，附录图 14–19 都在这 22 页校对稿内。</li>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1080/13658816.2015.1100731">Siła-Nowicka 等（2016）</a>，邓弗姆林 GPS 及方式分类的来源论文，准确率 85% 的说明写在本文方法中。</li>
+<li><a target="_blank" rel="noopener" href="http://www.geocrowd.eu/wp-content/uploads/2015/01/D1.9_USTAN.pdf">Oshan 等（2014）GEOCROWD 报告</a>，采集过程的引用入口。</li>
+<li><a target="_blank" rel="noopener" href="http://viz.icaci.org/vcma2016/wp-content/uploads/2016/07/vcma_brumbastos-paper.pdf">Brum-Bastos、Long 与 Demšar（2016）</a>，动态轨迹注释方法。</li>
+<li>气象数据为英国气象局经 NERC 数据中心提供的 MIDAS 与 NIMROD。序列计算使用 R 的 TraMineR 1.8-9 与 cluster 1.14.4。校对稿没有给出公开代码或个人轨迹数据的下载地址。</li>
+</ul>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>三位作者在论文中的署名单位都是英国圣安德鲁斯大学地理与可持续发展学院（School of Geography &amp; Sustainable Development, University of St Andrews）。</p>
+<ul>
+<li>Vanessa S. Brum-Bastos：通讯作者。本文引用的动态轨迹注释方法由她与 Long、Demšar 共同提出。</li>
+<li>Jed A. Long：同单位。提供 GPS 的 Siła-Nowicka 等（2016）在本文参考文献中列出他为共同作者。</li>
+<li>Urška Demšar：同单位，同样出现在上述数据论文和轨迹注释论文的作者名单中。</li>
+</ul>
+<p>致谢写明研究期间得到巴西 CAPES“科学无国界”奖学金 BEX 13438/13-1 的资助。论文没有逐项列出三人的分工。</p>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
+<p>若周末少坐公交主要发生在桥被限行的那些小时，增加班次并不能补上一段已经关闭的桥。可以核验的下一步，是把作者统计的至少十次限行日期从 Type 2 里分开：同为东北、西北或西南大风，限行日和未限行日的公交占比是否还不同。本文只给出了十次这个总数，没有把聚类按这些日期拆开。</p>
+<p>另一个容易误用的结果是在家占比。最干和暴雨都更高，中间的混合降雨更低。若预测时只给降雨强度一个单向的“更宅”系数，干天的那一头会被写反。更值得先问的是，最干的那一类是不是也更冷、更接近一月，因为这项研究的两周样本沿着秋冬排列，干和暗可能是同一段季节。</p>
+<p>测量上也有一个直接的后果。设备在人停住时关闭，而家和商店恰恰是停住的地方。用开机分钟的份额去安排公交班次或估计室内停留，会漏掉那些完全没有被记下来的静止小时。若问题是钟表上的停留时长，记录器需要在人停住时继续计时。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">猴猴猴</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://xiaoyue-hou.github.io/posts/d5e7f8a9/">http://xiaoyue-hou.github.io/posts/d5e7f8a9/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">猴猴猴</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%A4%A9%E6%B0%94/">
+                                    <span class="chip bg-color">天气</span>
+                                </a>
+                            
+                                <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8/">
+                                    <span class="chip bg-color">人类移动</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%87%BA%E8%A1%8C%E8%A1%8C%E4%B8%BA/">
+                                    <span class="chip bg-color">出行行为</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%BA%8F%E5%88%97%E5%88%86%E6%9E%90/">
+                                    <span class="chip bg-color">序列分析</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/e6f8a9b0/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="2019-Using Twitter to Analyze the Effect of Hurricanes on Human Mobility Patterns">
+                        
+                        <span class="card-title">2019-Using Twitter to Analyze the Effect of Hurricanes on Human Mobility Patterns</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                        <span class="chip bg-color">人类移动性</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B4%BB%E5%8A%A8%E7%A9%BA%E9%97%B4/">
+                        <span class="chip bg-color">活动空间</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%A3%93%E9%A3%8E/">
+                        <span class="chip bg-color">飓风</span>
+                    </a>
+                    
+                    <a href="/tags/Twitter/">
+                        <span class="chip bg-color">Twitter</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%81%BE%E5%AE%B3/">
+                        <span class="chip bg-color">灾害</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/c4d6e7f8/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="2016-Exploring Spatial-Temporal Patterns of Urban Human Mobility Hotspots">
+                        
+                        <span class="card-title">2016-Exploring Spatial-Temporal Patterns of Urban Human Mobility Hotspots</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                        <span class="chip bg-color">人类移动性</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B7%B1%E5%9C%B3/">
+                        <span class="chip bg-color">深圳</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%83%AD%E7%82%B9/">
+                        <span class="chip bg-color">移动热点</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%89%8B%E6%9C%BA%E5%9F%BA%E7%AB%99/">
+                        <span class="chip bg-color">手机基站</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('-1'),
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2026</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">猴猴猴</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "4";
+                    var startDate = "26";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiaoyue-hou" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1396567029@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1396567029" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1396567029" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <script src="/js/reading-marks.js?v=7"></script>
+
+</body>
+
+</html>

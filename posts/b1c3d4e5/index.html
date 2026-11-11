@@ -1,0 +1,1259 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="2021-Transportation Scenario Planning with Graph Neural Networks, 猴猴猴">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>2021-Transportation Scenario Planning with Graph Neural Networks | 猴猴猴</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<style>
+    /* ----------------------------------------------------------- */
+    /* 1. 基础清理：隐藏不需要的文字 */
+    /* ----------------------------------------------------------- */
+    .card .card-content .summary, 
+    .caption, .img-caption, .fancybox-caption, 
+    .img-item .caption { 
+        display: none !important; 
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">猴猴猴</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">猴猴猴</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">2021-Transportation Scenario Planning with Graph Neural Networks</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">图神经网络</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%80%9A%E5%8B%A4%E6%B5%81%E9%87%8F/">
+                                <span class="chip bg-color">通勤流量</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%83%85%E6%99%AF%E8%A7%84%E5%88%92/">
+                                <span class="chip bg-color">情景规划</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%9C%9F%E5%9C%B0%E5%88%A9%E7%94%A8/">
+                                <span class="chip bg-color">土地利用</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper/" class="post-category">
+                                Paper
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-11-11
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+
+<h2 id="设施还在图纸上，通勤流量的预测会增加多少？"><a href="#设施还在图纸上，通勤流量的预测会增加多少？" class="headerlink" title="设施还在图纸上，通勤流量的预测会增加多少？"></a>设施还在图纸上，通勤流量的预测会增加多少？</h2><p>论文名片｜Ana Alice Peregrino、Soham Pradhan、Zhicheng Liu、Nivan Ferreira、Fabio Miranda，<em>Transportation Scenario Planning with Graph Neural Networks</em>，arXiv:2110.13202v1［cs.LG］，2021年10月25日。<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2110.13202v1">预印本</a>。这是一项把图神经网络用于通勤流量情景推演的方法与案例研究。</p>
+<p>累西腓的一个方案，是在四条大道上增加 24 公里自行车道。这四条路连接城市中的重要地点，日常机动车很多，目前没有自行车设施。另一项是市中心若泽·埃斯特利塔码头（José Estelita Pier）原址上的 13 座塔楼，层数从 13 层到 44 层。论文在新的流量观测到来之前，用模型估计这两项改造会怎样改变普查区之间的通勤人数。</p>
+<p>经典引力模型把两地流量写成两端规模的乘积，再让它随距离下降。自行车道周长、建筑年代和容积率要进入这种估计，就得有一种能改写这些指标、再重新出流量的做法。本文用地理情境多任务嵌入学习器（Geo-contextual Multitask Embedding Learner，GMEL）做这件事。GMEL 是 Liu 等人 2020 年提出的图神经网络，本文把它用到巴西两座城市的公开城市数据上。</p>
+<p>在留出的真实流量上，累西腓和库里蒂巴的共同通勤部分都是 0.73。两个假设情景只报告了累西腓：自行车道情景的平均相对增幅是 13%，标准差 0.59；塔楼情景是 12.5%（原文写作 12,5%），标准差 0.605。这些百分比是模型在指标被修改之后重新预测的结果。训练数据里没有交通方式，论文也没有施工前后的另一套清点可以对照。</p>
+<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
+<li>分析单位是普查区之间的通勤流量。累西腓保留 1,347 个普查区、23,336 名通勤者、15,945 条起讫点对；库里蒂巴保留 2,200 个普查区、45,365 名通勤者、32,988 条起讫点对。起讫点对按 60%、20%、20% 分成训练、测试和验证。</li>
+<li>测试集上，累西腓的均方根误差为 1.43、平均绝对误差为 0.73、共同通勤部分为 0.73；库里蒂巴依次为 1.08、0.70、0.73。误差的分母是测试集起讫点对。本文没有在这两座城市上列出引力模型或其他机器学习模型的对照误差。</li>
+<li>24 公里自行车道被映射到四条大道所在地带后，质心距这些地带不超过 2 公里的普查区之间，流量的平均相对增幅为 13%，标准差 0.59。论文没有给出参与平均的流量条数。</li>
+<li>13 座塔楼情景的平均相对增幅为 12.5%，标准差 0.605。正文另写，靠近项目、或原本流量已经很大的高密度单元，最显著的那些流量至少增加 25%。库里蒂巴没有对应的情景结果。</li>
+</ul>
+<h2 id="普查区之间的人数，是这里的分析单位"><a href="#普查区之间的人数，是这里的分析单位" class="headerlink" title="普查区之间的人数，是这里的分析单位"></a>普查区之间的人数，是这里的分析单位</h2><p>情景规划（scenario planning）在这里的意思是：按今天准备做的用地或设施改动，估计以后的通勤流量。通勤流量（commuting flows）在模型概述里定义为，报告居住在起点普查区、工作在终点普查区的人数，而且是按年汇总的静态值。一次分析对应一对普查区上的人数。</p>
+<p>两座城市都用 2020 年普查区（census tract）作地理单元，用开源路径引擎 OSRM 计算普查区质心之间的出行距离。累西腓的流量来自市政府 2018–2019 年调查，对象是在都市区居住、工作、就学或寻求服务的人的典型通勤。库里蒂巴的流量来自市政府 2017 年对都市区通勤格局的调查。模型概述中的“居住地—工作地”和这两次调查的对象范围并不完全是同一句话，论文没有再说明最终是否只保留了居住地到工作地。</p>
+<p>和流量拼在一起之后，累西腓得到 1,347 个普查区，覆盖该市一半以上；通勤者 23,336 人，起讫点对（origin–destination pair）15,945 条。库里蒂巴得到 2,200 个普查区，覆盖该市绝大部分；通勤者 45,365 人，起讫点对 32,988 条。论文没有写调查抽样率，也没有说这些人数已经扩成全市就业人口。23,336÷15,945≈1.46，45,365÷32,988≈1.38。这是全部保留起讫点对上的平均人数；测试集自己的平均流量，论文没有单列。</p>
+<p>15,945 条和 32,988 条都按 60%、20%、20% 分成训练集、测试集和验证集。论文没有报告验证集误差。表 2 只给测试集。</p>
+<p>用地和设施被收成三类指标。累西腓三类相加为 46 项：基础设施 30 项，包括 12 类建筑的数量、4 项居住单元密度、11 个建成年份上的建筑数量、自行车站点、自行车道周长和公交专用道周长；土地利用 14 项，包括 12 项零售/办公用地面积比，以及 2 项容积率；Speciality 2 项，是普查区是否含有地标，以及文化线路数量。库里蒂巴三类相加为 24 项：自行车道周长和 11 个分区各自的地块数量构成 12 项基础设施，11 项分区用地面积比构成土地利用，另有 1 项位于历史地区的地块数量。库里蒂巴的分区依据 2020 年新的分区法规，流量则来自 2017 年。论文没有写明累西腓各地块指标的统计年份，也没有列出 12 类建筑或 11 个年份各自的名称。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th style="text-align:right">累西腓特征数</th>
+<th style="text-align:right">库里蒂巴特征数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基础设施</td>
+<td style="text-align:right">30</td>
+<td style="text-align:right">12</td>
+</tr>
+<tr>
+<td>土地利用</td>
+<td style="text-align:right">14</td>
+<td style="text-align:right">11</td>
+</tr>
+<tr>
+<td>Speciality</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="同一块地，为什么分成起点和终点两套向量？"><a href="#同一块地，为什么分成起点和终点两套向量？" class="headerlink" title="同一块地，为什么分成起点和终点两套向量？"></a>同一块地，为什么分成起点和终点两套向量？</h2><p>GMEL 分两段。前一段学习每个普查区的嵌入（embedding），也就是一组用来代表该区的数值。后一段用这些数值预测流量。</p>
+<p>城市被做成一张地理邻接网络：节点是普查区，节点上挂着前面的用地和设施指标，边权表示区与区之间的联系强度。概述里举例的边权包括出行距离和行程时间。巴西实验明确写出的是质心之间的出行距离，没有另行报告行程时间是否进入了这两座城市的模型。</p>
+<p>同一普查区作为居住端和作为工作端，条件并不相同。模型因此用两套图注意力网络（graph attention network，GAT）：一套编码起点情境，一套编码终点情境。邻居节点的指标会参与这个编码，所以一处指标改动可以进入相邻普查区的向量。多任务学习对嵌入加上更强约束，使它们携带对流量预测有用的信息。</p>
+<p>流量预测器在概述里称为梯度提升机（gradient boosting machine，GBM）。它逐轮挑选信息增益大的数值特征并组合起来拟合流量。情景实验写得更具体：GMEL 用随机梯度下降端到端训练之后，把起点嵌入、终点嵌入和出行距离拼接起来，再训练梯度提升回归树（gradient boosting regression tree，GBRT），用留出的数据测试。</p>
+<p><img src="/posts/b1c3d4e5/fig1.webp" alt="完整原论文图1"></p>
+<p>图 1｜改指标之前，一个普查区怎样变成可用来预测流量的向量？</p>
+<p>无字母子图。左侧是地理邻接网络，以及通勤表中的起点、终点和流量。中间两套图注意力网络分别写入起点嵌入表和终点嵌入表，再按起讫点索引取出这一对的向量。右侧的多任务损失同时比较三条预测：起点总流出、终点总流入，以及这一对本身的流量。来源：原论文 Fig. 1；图注标明结构来自 2020 年的 GMEL 论文。</p>
+<p>图 1 解释的是嵌入如何被训练出来。本文情景部分实际用来重算流量的，是训练好的嵌入加上出行距离之后的 GBRT。论文没有在本文给出嵌入维度、学习率或树的棵数。</p>
+<p>先前的 GMEL 使用纽约地块级土地利用数据 PLUTO，年份覆盖 2008–2021。其中一次演示用 2013 年数据训练，再按 2015 年改动后的土地利用预测流量。本文只重述了这件事，没有附上那次演示的误差。本文新做的训练和测试覆盖累西腓与库里蒂巴，情景结果只给出累西腓。</p>
+<p>情景本身的步骤是：先在当前指标和当前流量上训练并测试；再按拟定改造修改城市指标，更新地理邻接网络，用已训练的模型生成新嵌入，然后预测新的通勤流量。论文报告这些新预测的相对变化。新情景下的真实流量还没有观测，因此这一步没有事后人数可以打分。论文也没有写出相对变化的减数，是修改前的模型预测，还是调查里的原始流量。</p>
+<h2 id="测试集上的-0-73，衡量的是哪一种重合？"><a href="#测试集上的-0-73，衡量的是哪一种重合？" class="headerlink" title="测试集上的 0.73，衡量的是哪一种重合？"></a>测试集上的 0.73，衡量的是哪一种重合？</h2><p>测试集使用三个指标。均方根误差（RMSE）是每条预测与真实流量之差的平方，在测试集上取平均后再开方。平均绝对误差（MAE）是每条绝对差的平均。两者的分母都是论文公式里的 |T|；表 2 的标题是测试集表现，因此这里的 |T| 是测试集起讫点对，论文没有另写这个集合的条数。</p>
+<p>共同通勤部分（Common Part of Commuters，CPC）先对每一对取预测人数和真实人数中较小的值，全部加总后乘以 2，再除以预测总人数与真实总人数之和。0 表示完全没有重合，1 表示每条都相同。它把大流量和小流量放进同一次求和，论文没有按距离或流量大小拆开。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>城市</th>
+<th style="text-align:right">RMSE</th>
+<th style="text-align:right">MAE</th>
+<th style="text-align:right">CPC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>累西腓</td>
+<td style="text-align:right">1.43</td>
+<td style="text-align:right">0.73</td>
+<td style="text-align:right">0.73</td>
+</tr>
+<tr>
+<td>库里蒂巴</td>
+<td style="text-align:right">1.08</td>
+<td style="text-align:right">0.70</td>
+<td style="text-align:right">0.73</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>CPC 越高越好。两座城市的 CPC 同为 0.73，MAE 为 0.73 和 0.70，RMSE 为 1.43 和 1.08。论文认为三者里 RMSE 的差别最大，但仍然不大，并把库里蒂巴更低的 RMSE 归因于它的通勤流量和普查区更多。</p>
+<p>RMSE 和 MAE 的单位是每条起讫点对的人数。累西腓测试集 MAE 为 0.73，分母是测试集起讫点对；全部 15,945 条的平均规模约为 1.46 人。两个数单位相同，可以用来感觉误差的量级，分母不同。论文没有把 RMSE 除以平均流量，也没有把它写成准确率。</p>
+<p>相关工作提到，GMEL 在先前研究中优于梯度提升回归树、随机森林、引力模型和 node2vec。那些比较的数值不在这篇预印本里。本文表 2 只报告 GMEL 自己在两座城市测试集上的误差。</p>
+<h2 id="24-公里自行车道，13-是哪些流量的平均？"><a href="#24-公里自行车道，13-是哪些流量的平均？" class="headerlink" title="24 公里自行车道，13% 是哪些流量的平均？"></a>24 公里自行车道，13% 是哪些流量的平均？</h2><p>自行车道情景选了累西腓四条尚未设自行车设施、机动车日流量高的大道，把 24 公里自行车道分配到这些大道，并映射到它们所在的地带。论文没有写出四条大道的名称。与自行车道直接对应的指标是自行车道周长，论文没有写明这 24 公里如何换算成每个普查区的周长数值。</p>
+<p>随后看的是这样一组流量：相关普查区的质心，距离“获得新自行车道的普查区”的质心不超过 2 公里。每一条流量计算一个相对变化。论文没有写出相对变化的除式，只报告这组流量的平均增幅为 13%，标准差 0.59。13% 写成了百分数，0.59 没有再写成百分数；它是相对变化的离散程度。论文没有给出这组流量的条数，因此 0.59 不能换成置信区间。</p>
+<p><img src="/posts/b1c3d4e5/fig2.webp" alt="完整原论文图2"></p>
+<p>图 2｜新自行车道附近的相对变化，是普遍上涨，还是少数流量把平均拉高？</p>
+<p>（a）深蓝表示写入新自行车道的普查区，浅蓝表示质心落在 2 公里范围内的普查区；虚线框标出（b）所覆盖的空间范围。底图上能看到奥林达、保利斯塔等地名，论文没有逐区说明它们是否都属于保留下来的 1,347 个普查区。（b）按相对变化给普查区上色。能读清的分界包括 -1.00 至 -0.01、-0.01 至 0.00、0.01 至 0.27、0.27 至 4.87，0 附近还有一档浅色。红色和青色同时出现。论文没有写明一个多边形代表相关流量的总和、平均还是最大值。（c）相对变化的直方图。横轴从 -1 标到 7，纵轴频数标到 3000。最高的柱在 0 附近，顶到 3000 刻度一线；-1 到 0 之间仍有一批流量，右尾在 3 之后已经很稀。频数是流量条数，总条数没有标出。来源：原论文 Fig. 2。</p>
+<p>直方图的高峰贴着 0，正文的平均值是 13%。右尾可以把平均抬高，最高的一档仍然集中在 0 附近。色标最高写到 4.87，直方图横轴画到 7，两套上限也不相同。</p>
+<p>训练所用的指标里没有交通方式。作者据此设想，这些流量变化可能代表附近骑行增加。该设想没有按自行车、公交或小汽车分开的计数。流量上升表示模型对自行车道指标的改写作出了响应；自行车道是否带来了新的出行，还需要分方式的观测。</p>
+<h2 id="塔楼的-12-5-，和“至少-25-”是同一句话吗？"><a href="#塔楼的-12-5-，和“至少-25-”是同一句话吗？" class="headerlink" title="塔楼的 12.5%，和“至少 25%”是同一句话吗？"></a>塔楼的 12.5%，和“至少 25%”是同一句话吗？</h2><p>第二个情景使用码头旧址上 13 座塔楼的真实方案，层数 13–44 层。写进模型的信息包括不同类型建筑的数量、密度、建成年份、用地面积比和容积率。论文没有给出每一项相对现状增加了多少。</p>
+<p>做法与自行车道情景相同，也是看指标修改所引起的通勤流量相对变化。结果是这些单元之间的流量平均增加 12.5%，标准差 0.605。这句话指向图 3(b、c)。图上呈现的是大范围的相对变化，正文接着写：模型预测的相对变化遍及全城。它没有像自行车道情景那样写明一个 2 公里口径，也没有给出 12.5% 的流量条数。</p>
+<p>最显著的变化出现在靠近新项目的单元，以及原本通勤流量已经很大的高密度单元。这些流量被预测为至少增加 25%。25% 是这一部分的下界，12.5% 是指向图 3(b、c) 的那批流量的平均。图 3 色标的最高档从 0.28 起，和 25% 接近，论文没有写明二者是同一条分界。</p>
+<p><img src="/posts/b1c3d4e5/fig3.webp" alt="完整原论文图3"></p>
+<p>图 3｜塔楼情景的平均增幅，对应全城分布的哪一部分？</p>
+<p>（a）深蓝色小块是纳入新建筑的普查区，虚线圈出位置；图注没有把大片浅蓝定义为第二类情景。（b）按相对变化给更大范围上色。正值分界包括 0.01 至 0.28 和 0.28 至 5.37，负值从 -1.00 起，0 附近同样有浅色档。北侧有成片偏负的颜色，中南部红色更多。多边形颜色的汇总方式同样没有写明。（c）直方图横轴从 0.0 标到 17.5，纵轴频数标到 2500。主体贴着 0，到 2.5 附近已接近横轴。色标最高只到 5.37，与横轴右端 17.5 不是同一个上限；（b）含有负值，而（c）的刻度从 0.0 标起，论文没有解释负值落在哪一柱。来源：原论文 Fig. 3。</p>
+<p>因此，12.5% 是一批流量的平均相对增幅，25% 是作者点出的显著部分的下界。全城图上同时有增加、减少和右尾。</p>
+<h2 id="这些增幅能直接写成即将发生的出行吗？"><a href="#这些增幅能直接写成即将发生的出行吗？" class="headerlink" title="这些增幅能直接写成即将发生的出行吗？"></a>这些增幅能直接写成即将发生的出行吗？</h2><p>测试集 CPC 为 0.73，说明模型在未改指标的留出流量上能收回相当一部分重合。情景增幅是另一项任务：指标被改写，真实结果尚未发生。0.73 不能自动变成对 13% 或 12.5% 的准确率。</p>
+<p>自行车道情景的 2 公里范围是正文写明的。塔楼情景的 12.5% 指向看起来覆盖全城的图，显著部分又被单独描述为靠近项目或原本高流量的高密度单元。两个百分比对应的空间范围不同。</p>
+<p>累西腓的 1,347 个普查区只覆盖该市一半以上，情景地图不能直接当成完整市域的普查。库里蒂巴完成了同样的训练和测试，CPC 也是 0.73，但正文的两个初始情景都是累西腓。方法部分提到两座城市都有正在讨论的改造，本文没有给出库里蒂巴的情景流量。</p>
+<p>流量年份和指标年份也不对齐：库里蒂巴流量是 2017 年，分区法规是 2020 年。模型依赖这些数据的质量。结论认为，公共部门需要提供准确数据，模型才适合协助规划决策；并准备以后加入分方式的通勤流量。当前结果还不能回答某种交通方式本身增加了多少人。</p>
+<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>在留出的真实起讫点流量上，两座城市的共同通勤部分都是 0.73；累西腓两项改造被同一模型预测为平均 13% 和 12.5% 的相对增幅。增幅来自指标改写后的重新预测，施工后的实际人数和分方式流量都还没有观测。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2110.13202v1">arXiv:2110.13202v1</a>，2021年10月25日。本文的图 1–3 和表 1–2 都来自这一版预印本。</li>
+<li>累西腓开放数据门户，见论文参考文献［22］：<a target="_blank" rel="noopener" href="http://dados.recife.pe.gov.br/">http://dados.recife.pe.gov.br/</a></li>
+<li>库里蒂巴城市规划与研究所，见论文参考文献［21］：<a target="_blank" rel="noopener" href="https://ippuc.org.br">https://ippuc.org.br</a></li>
+<li>Zhicheng Liu、Fabio Miranda、Weiting Xiong、Junyan Yang、Qiao Wang、Claudio T. Silva，<em>Learning Geo-Contextual Embeddings for Commuting Flow Prediction</em>，Proceedings of the Thirty-Fourth AAAI Conference on Artificial Intelligence，2020。GMEL 和图 1 的结构来自该文；这篇预印本没有重印它在其他城市上的误差表。</li>
+</ul>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>论文只列出五位作者的署名单位，没有个人贡献说明。</p>
+<ul>
+<li>Ana Alice Peregrino：署名巴西伯南布哥联邦大学。</li>
+<li>Soham Pradhan：署名美国伊利诺伊大学芝加哥分校。</li>
+<li>Zhicheng Liu：署名中国东南大学。本文使用的 GMEL 来自他与 Fabio Miranda、Weiting Xiong、Junyan Yang、Qiao Wang、Claudio T. Silva 2020 年发表、并被本文列为参考文献［16］的论文。</li>
+<li>Nivan Ferreira：署名伯南布哥联邦大学。</li>
+<li>Fabio Miranda：署名伊利诺伊大学芝加哥分校，同时也是上述 2020 年 GMEL 论文的作者。</li>
+</ul>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
+<p>若把 13% 交给一条大道的通行能力设计，等于把右尾很长的分布当成了均匀上浮。图 2 的高峰贴着相对变化 0，色标最高一档标到 4.87。可以单独问：平均里有多大份额来自相对变化超过 0.27 的那一档，这些流量的两端是否落在获得 24 公里车道的四条大道上。论文没有做这个分解。如果超额部分主要落在原本流量就大、只是与新车道普查区相邻的单元上，需要准备的是少数走廊的局部压力。图 2 的高峰靠近 0，读出来的是大量流量几乎不动，平均被右尾抬高。</p>
+<p>塔楼情景已经把靠近项目的单元，和原本高流量的高密度单元，并列写成最显著的部分。全城 12.5% 的平均里，因此可能混有项目周边的新增联系，以及模型对既有繁忙地区的放大。一个还没做的核对是：保持塔楼的层数和容积率不变，把同一组指标改写放到一个密度相近、当前流量不大的普查区，看至少 25% 的增幅是否还出现。若增幅明显变小，模型响应的就是项目与既有流量格局的组合。规划简报需要同时给出地点和百分比。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">猴猴猴</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://xiaoyue-hou.github.io/posts/b1c3d4e5/">http://xiaoyue-hou.github.io/posts/b1c3d4e5/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">猴猴猴</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">图神经网络</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%80%9A%E5%8B%A4%E6%B5%81%E9%87%8F/">
+                                    <span class="chip bg-color">通勤流量</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%83%85%E6%99%AF%E8%A7%84%E5%88%92/">
+                                    <span class="chip bg-color">情景规划</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%9C%9F%E5%9C%B0%E5%88%A9%E7%94%A8/">
+                                    <span class="chip bg-color">土地利用</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/c2d4e5f6/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="2022-Causal Learning Empowered OD Prediction for Urban Planning">
+                        
+                        <span class="card-title">2022-Causal Learning Empowered OD Prediction for Urban Planning</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%87%BA%E5%8F%91%E5%9C%B0%E7%9B%AE%E7%9A%84%E5%9C%B0%E6%B5%81%E9%87%8F/">
+                        <span class="chip bg-color">出发地目的地流量</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9F%8E%E5%B8%82%E8%A7%84%E5%88%92/">
+                        <span class="chip bg-color">城市规划</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%A4%96%E9%A2%84%E6%B5%8B/">
+                        <span class="chip bg-color">分布外预测</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9B%A0%E6%9E%9C%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">因果学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/a0b2c3d4/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="2016-Analyzing and modeling heterogeneous behavior">
+                        
+                        <span class="card-title">2016-Analyzing and modeling heterogeneous behavior</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E8%A1%8C%E4%B8%BA/">
+                        <span class="chip bg-color">人类行为</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%BC%82%E8%B4%A8%E6%80%A7/">
+                        <span class="chip bg-color">异质性</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%88%B0%E9%A6%86%E9%97%B4%E9%9A%94/">
+                        <span class="chip bg-color">到馆间隔</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8D%8A%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB/">
+                        <span class="chip bg-color">半马尔可夫</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('-1'),
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2026</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">猴猴猴</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "4";
+                    var startDate = "26";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiaoyue-hou" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1396567029@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1396567029" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1396567029" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <script src="/js/reading-marks.js?v=7"></script>
+
+</body>
+
+</html>

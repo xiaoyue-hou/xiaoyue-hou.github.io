@@ -1,0 +1,1460 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="2019-Deciphering Predictability Limits in Human Mobility, 猴猴猴">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>2019-Deciphering Predictability Limits in Human Mobility | 猴猴猴</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<style>
+    /* ----------------------------------------------------------- */
+    /* 1. 基础清理：隐藏不需要的文字 */
+    /* ----------------------------------------------------------- */
+    .card .card-content .summary, 
+    .caption, .img-caption, .fancybox-caption, 
+    .img-item .caption { 
+        display: none !important; 
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">猴猴猴</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">猴猴猴</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">2019-Deciphering Predictability Limits in Human Mobility</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                                <span class="chip bg-color">人类移动性</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8F%AF%E9%A2%84%E6%B5%8B%E6%80%A7/">
+                                <span class="chip bg-color">可预测性</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%86%B5/">
+                                <span class="chip bg-color">熵</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%83%85%E5%A2%83%E4%BF%A1%E6%81%AF/">
+                                <span class="chip bg-color">情境信息</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper/" class="post-category">
+                                Paper
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-11-11
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+
+<h2 id="猜下一条还在不在原地，和猜下一站去哪，上限是一回事吗？"><a href="#猜下一条还在不在原地，和猜下一站去哪，上限是一回事吗？" class="headerlink" title="猜下一条还在不在原地，和猜下一站去哪，上限是一回事吗？"></a>猜下一条还在不在原地，和猜下一站去哪，上限是一回事吗？</h2><p>论文名片｜Douglas do Couto Teixeira、Aline Carneiro Viana、Mário S. Alvim、Jussara M. Almeida，<em>Deciphering Predictability Limits in Human Mobility</em>，27th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems（SIGSPATIAL ’19），2019年11月5–8日，Chicago。ACM，New York，10页。<a target="_blank" rel="noopener" href="https://doi.org/10.1145/3347146.3359093">DOI：10.1145/3347146.3359093</a>。本文依据这一会议正式版本。</p>
+<p>手机每隔几分钟记下一个人所在的格子。夜里连续很多条都是同一个格子。题目若是猜下一条记录还在哪一格，答案常常就是原地不动。题目若改成猜下一次真正换地方会去哪，这些重复记录就不再算命中。前一种上限看起来很高，有一部分只是因为人还没离开。</p>
+<p>Song等人用地点序列的熵估计任何方法都越不过的命中率上限。那套算法靠压缩，读不出上限到底奖励了原地停留、地点种类少，还是星期和钟点。这篇论文把上限拆开：用规律度和停留性解释压缩熵的高低，再比较星期、一天中的小时和天气进入之后，下一格与下一地点两种题目的熵各降多少。比较的是比特，是序列里还有多少不确定；本文没有把每个用户的命中率上限解成百分比。</p>
+<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
+<li>规律度与熵的斯皮尔曼等级相关在GPS和呼叫详单（call detail records，CDR）上都是−0.84。停留性与熵的相关是GPS −0.79、CDR −0.83。两个量彼此的相关只有0.63和0.48，单独一个解释不完熵。</li>
+<li>用规律度和停留性拟合熵，同一批用户上回看的决定系数R²是GPS 0.76、CDR 0.94。格子变粗时，GPS的R²从0.76升到0.83。回归系数没有报告。</li>
+<li>GPS平均熵随采样变稀而上升：5分钟0.40比特/符号，60分钟1.05比特/符号。格子边长从300米增到1000米，平均熵从0.404降到0.264。停留性不是每一档都更高，600米的76.66低于500米的90.04。</li>
+<li>下一格、不加情境时，表3的Lempel-Ziv熵是GPS 0.40、CDR 1.01，低于同列的最大似然、Miller-Madow和SG。按小时把历史拆开后，这两格升到0.72和1.38。</li>
+<li>下一地点去掉连续停留后，Lempel-Ziv升到GPS 3.11、CDR 1.94。CDR上，带小时的最大似然熵降到0.59。正文说下一格的最大似然熵下降45%；这与CDR从1.45降到0.79的比例接近，和GPS表中从6.01降到1.18不是同一个比例。</li>
+</ul>
+<h2 id="上限卡的是命中率，后文却一直在比熵"><a href="#上限卡的是命中率，后文却一直在比熵" class="headerlink" title="上限卡的是命中率，后文却一直在比熵"></a>上限卡的是命中率，后文却一直在比熵</h2><p>可预测性在这里指一个理想方法在给定数据上最高能猜对多少，记为Πmax。它只由已经记录下来的序列决定，随具体预测器的参数而变的那一部分被拿掉了。因此它是这套数据里移动行为的上限，换一个神经网络不会自动把上限抬高。</p>
+<p>计算要先把地图切成互不重叠、等边长的方格，把时间切成等长的时间箱，地点序列就变成格子编号。本文比较两种题目。下一格预测猜下一个时间箱的格子，答案可以仍是当前这一格。下一地点预测猜下一次出现的另一个格子，连续停在原地的那些记录被去掉。后一种更难，因为停留本身不再提供正确答案。两种题目都来自已有定义，本文要补上的是情境信息会把上限改变多少。</p>
+<p>序列越难压缩，就越难预测。柯尔莫哥洛夫复杂度是能生成这条序列的最短程序的长度，真实值不可计算。若把地点看成随机过程产生的符号，熵是可压缩程度的下界，可以当作复杂度的近似。Song等人用三种熵：地点上均匀分布的香农熵，访问频率分布的熵，以及同时计入频率和先后顺序的熵。本文若未另作说明，用的是第三种。它不需要事先知道真实概率，适合真实分布未知的出行记录。</p>
+<p>设序列长度为n。从位置i出发，向后取一段地点，直到这段在位置1到i−1里从未出现，这段的最短长度记为Λi。熵估计写成</p>
+<p>H ≈ log2(n) / （各位置Λi的平均）。</p>
+<p>分母越大，熵越低。序列若大量重复，短片段早已出现，要碰到一段没见过的，Λi往往更长，熵就低。对遍历且过程平稳的来源，序列无限变长时，这个估计趋向熵率。出行记录长度有限，也不保证满足这些条件。论文写明，这样得到的上限是近似，Song等人的算法同样如此。不可再改进的硬边界对应柯尔莫哥洛夫复杂度，而该复杂度不可计算。</p>
+<p>熵S、不同地点数N和命中率上限Πmax由法诺不等式连在一起：</p>
+<p>S = −H(Πmax) + (1 − Πmax) log(N − 1)，</p>
+<p>H(Πmax) = Πmax log2(Πmax) + (1 − Πmax) log2(1 − Πmax)。</p>
+<p>这里的H(Πmax)由命中率构成，地点序列的熵记为S。论文在H(Πmax)里使用log2，在(1 − Πmax) log(N − 1)里把对数写成log。熵越高、不同格子越多，命中率上限越低。本文随后比较熵，是因为上限直接由熵决定；表里没有每个用户的地点数N，后文也就没有把0.40比特换算成百分之多少的命中率。</p>
+<h2 id="两套记录的人数、时长和颗粒度各是多少？"><a href="#两套记录的人数、时长和颗粒度各是多少？" class="headerlink" title="两套记录的人数、时长和颗粒度各是多少？"></a>两套记录的人数、时长和颗粒度各是多少？</h2><p>分析单位是一个人的地点序列。两套数据代表移动研究里常见的两类记录，时空颗粒度不同，上限会跟着变。</p>
+<p>GPS来自志愿者安装的安卓应用MACACOApp，记录上行与下行流量、网络连接和GPS位置，固定每5分钟一条。论文称手机GPS的定位精度使它成为高空间分辨率数据，没有给出米级误差。共45人，2014年7月10日到2016年2月4日，论文记为18个月。</p>
+<p>CDR来自中国一家大型蜂窝运营商，2015年里的两周，大约每小时一个位置，位置精度200米，记在最近的基站上。与常见的基站覆盖范围不同，数据方保证记录点是该时段用户位置的质心，落在200米半径内。有人并未覆盖整段时间，因此只保留平均至少每两小时有一个位置的用户，筛选标准与Song等人相同。筛选后2780人。筛选前有多少人、是哪家运营商、覆盖哪些城市，论文都没有写。</p>
+<p>若未另外说明，GPS用5分钟一个观测、边长300米的方格；CDR用边长200米的方格，并沿用上面的两小时筛选。CDR的格子边长和位置精度同为200米，相邻格子上的差别有可能混进记录误差，论文没有单独量化这一部分。</p>
+<p>45名自愿安装研究应用的人，不能代表一座城市的人口。两周、按小时聚合的通话位置，也不能和18个月、每5分钟的GPS直接比成同一种生活规律。后文的熵差同时包含行为、采样和筛选。</p>
+<h2 id="压缩熵很难读，于是改看两种数得出来的结构"><a href="#压缩熵很难读，于是改看两种数得出来的结构" class="headerlink" title="压缩熵很难读，于是改看两种数得出来的结构"></a>压缩熵很难读，于是改看两种数得出来的结构</h2><p>Lempel-Ziv类估计输出一个比特数，中间的压缩过程很难对应回某一次停留或某一个常去地点。本文改用两个更直接的量，当作理解这种熵的代理。选择来自对算法行为的观察。</p>
+<p>停留性（stationarity）是连续停在同一格子的观测次数的平均。序列(1, 2, 3, 4, 1, 2, 3, 4)的停留性是(1×8)/8 = 1，也就是平均每次只停一个观测。这里的停留性指自转移，也就是下一条仍是当前格子。它和前面说的过程平稳是两个概念：过程平稳说的是生成序列的统计机制不随时间改写，停留性说的是人在记录里有没有久留。</p>
+<p>停留性相同，熵仍可以不同。(1, 2, 3, 4, 1, 2, 3, 4)和(1, 2, 1, 2, 1, 2, 1, 2)长度相同、停留性同为1，后一条更易重复。规律度（regularity）定义为序列长度除以不重复符号数。前一条是8/4 = 2，后一条是8/2 = 4。另一条例子(1, 1, 1, 1, 2, 2, 3, 3, 4, 4)的规律度是10/4。规律度高，表示同样长度里地点种类少。钟点是否对齐，要等后文把小时放进条件熵之后才能看见。</p>
+<p>这两个例子是为了定义指标，是构造出来的序列。直觉上，规律度对应旧地点和新地点的比例，停留性对应每个地点上停留的观测数。Cuttone等人已经指出停留会抬高可预测性；把规律度一并用于解释，并在两套数据上检查，是本文的工作。</p>
+<p><img src="/posts/e8f0a1b2/fig1.webp" alt="完整原论文图1"></p>
+<p>图 1｜规律度或停留性升高时，熵会跟着下降吗？</p>
+<p>（a）横轴是熵，单位比特，大约从0到0.8；纵轴是规律度。蓝色空心点是GPS用户，每人用完整地点历史算一个点。大多数点的规律度在150以下，熵升高时规律度总体更低；有一个点明显高于300，对应的熵仍然较低。同一规律度上，熵可以差一截。（b）横轴同样是熵，纵轴是停留性，刻度到60附近。熵接近0处有一个停留性靠近60的点，多数点在30以下。关系向下，也不是一条直线。来源：原论文 Fig. 1。</p>
+<p>图1只画了GPS。论文写CDR上得到相似关系，散点没有给出。相关则两套数据都有：熵与规律度的斯皮尔曼相关ρ都是−0.84；熵与停留性是GPS −0.79、CDR −0.83。负号表示排序上熵更高的人，规律度或停留性往往更低。−0.84是等级相关，图里的弯曲和离群可以同时存在。每增加1个单位规律度对应多少比特，散点没有配出斜率。论文没有给这些相关的p值或置信区间。</p>
+<p>规律度与停留性彼此的相关是GPS 0.63、CDR 0.48。中等相关说明二者有重叠，又远不到可以互相替代。图1里，规律度相近的人熵仍可以差很多，差额常常对应停留性的差别，反过来也一样。</p>
+<p>于是把熵同时写成二者的函数。在试过的形式里，拟合最好的是</p>
+<p>H = α log(规律度) + β log(停留性) + γ [log(规律度) × log(停留性)] + ε。</p>
+<p>对数用来配合图1的非线性，乘积项用来处理两个量缠在一起的混杂。α、β、γ没有给出数值，log没有说明是自然对数还是常用对数，所以不能从公式判断哪一项贡献更大。</p>
+<p>这个拟合解释的变异比例是R² = 0.76（GPS）和R² = 0.94（CDR）。结论里的76%和94%就是这两个决定系数。它们表示这批用户的熵变异里，有多大比例能被该曲线跟上。R²等于0.76，表示这条曲线跟上了这批GPS用户熵变异的76%。命中次数占全部预测的比例要另由Πmax或实际预测结果计算，本文没有给出那个百分比。GPS只有45个点，又含交互项，回看自身时R²容易偏高。换空间分辨率时，GPS的R²从最高空间分辨率、更小格子时的0.76，变到最低空间分辨率、更大格子时的0.83。中间每个边长的R²没有列出。</p>
+<p><img src="/posts/e8f0a1b2/fig2.webp" alt="完整原论文图2"></p>
+<p>图 2｜两个结构指标合在一起，能把熵复原到多近？</p>
+<p>（a）GPS。横轴实际熵，纵轴回归给出的熵，单位都是比特，坐标大约0到1。红虚线是拟合关系，灰带是置信区间，论文没有写明置信水平。点围绕红线分散，灰带在右端更宽。（b）CDR，筛选后2780人。坐标大约画到2.5比特。大多数点贴着红线，灰带窄到几乎看不见；低熵处仍有一小团点，高熵处也有偏离。来源：原论文 Fig. 2。</p>
+<p>图2是用同一批用户拟合后再回看。论文没有把用户分成训练和测试，也没有按时间前半段拟合、后半段检验。CDR更贴对角线，和2780个点、两周序列的R² = 0.94一致；这同时反映短期、较粗的记录更容易被两个结构指标概括。它还不能推出同一个人若被跟踪18个月，熵的94%仍由这两项决定。</p>
+<h2 id="采样一放稀，平均熵就上升；格子一放大，猜中的区域也变大"><a href="#采样一放稀，平均熵就上升；格子一放大，猜中的区域也变大" class="headerlink" title="采样一放稀，平均熵就上升；格子一放大，猜中的区域也变大"></a>采样一放稀，平均熵就上升；格子一放大，猜中的区域也变大</h2><p>先前研究已经表明，时间分辨率变高（同一时段观测更多）或空间分辨率变低（格子更大），可预测性估计会升高。本文用规律度和停留性把这条经验再看一遍。时间箱能从5分钟改到60分钟，是因为GPS本来就密；CDR做不到同样的比较。每个时间箱里随机抽取一条观测。论文没有报告换一次随机抽取，平均值会晃动多少。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:right">时间分辨率（分钟）</th>
+<th style="text-align:right">平均规律度</th>
+<th style="text-align:right">平均停留性</th>
+<th style="text-align:right">平均熵（比特/符号）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">5</td>
+<td style="text-align:right">80.72</td>
+<td style="text-align:right">41.28</td>
+<td style="text-align:right">0.40</td>
+</tr>
+<tr>
+<td style="text-align:right">10</td>
+<td style="text-align:right">57.89</td>
+<td style="text-align:right">30.79</td>
+<td style="text-align:right">0.50</td>
+</tr>
+<tr>
+<td style="text-align:right">20</td>
+<td style="text-align:right">38.24</td>
+<td style="text-align:right">19.49</td>
+<td style="text-align:right">0.66</td>
+</tr>
+<tr>
+<td style="text-align:right">30</td>
+<td style="text-align:right">30.75</td>
+<td style="text-align:right">14.68</td>
+<td style="text-align:right">0.80</td>
+</tr>
+<tr>
+<td style="text-align:right">40</td>
+<td style="text-align:right">25.75</td>
+<td style="text-align:right">12.48</td>
+<td style="text-align:right">0.90</td>
+</tr>
+<tr>
+<td style="text-align:right">50</td>
+<td style="text-align:right">22.79</td>
+<td style="text-align:right">10.76</td>
+<td style="text-align:right">0.98</td>
+</tr>
+<tr>
+<td style="text-align:right">60</td>
+<td style="text-align:right">20.27</td>
+<td style="text-align:right">9.68</td>
+<td style="text-align:right">1.05</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>表1的三列都是GPS用户的平均。从5分钟到60分钟，平均停留性从41.28降到9.68：两次记录隔得越久，越可能已经不在同一格。平均规律度从80.72降到20.27，因为序列变短，而规律度的分子正是序列长度。平均熵从0.40升到1.05，比5分钟那一行高0.65比特。熵上升，对应可预测性上限下降。</p>
+<p>空间分辨率只能在GPS上改，因为它的坐标细到可以重划格子。格子变大，更多观测落进同一格，平均停留性总体上升，人走出格子的机会变少，平均规律度也上升。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:right">空间分辨率（米）</th>
+<th style="text-align:right">平均规律度</th>
+<th style="text-align:right">平均停留性</th>
+<th style="text-align:right">平均熵（比特/符号）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">300</td>
+<td style="text-align:right">129.76</td>
+<td style="text-align:right">41.65</td>
+<td style="text-align:right">0.404</td>
+</tr>
+<tr>
+<td style="text-align:right">400</td>
+<td style="text-align:right">140.37</td>
+<td style="text-align:right">71.16</td>
+<td style="text-align:right">0.389</td>
+</tr>
+<tr>
+<td style="text-align:right">500</td>
+<td style="text-align:right">165.66</td>
+<td style="text-align:right">90.04</td>
+<td style="text-align:right">0.379</td>
+</tr>
+<tr>
+<td style="text-align:right">600</td>
+<td style="text-align:right">168.60</td>
+<td style="text-align:right">76.66</td>
+<td style="text-align:right">0.351</td>
+</tr>
+<tr>
+<td style="text-align:right">700</td>
+<td style="text-align:right">184.58</td>
+<td style="text-align:right">94.82</td>
+<td style="text-align:right">0.285</td>
+</tr>
+<tr>
+<td style="text-align:right">800</td>
+<td style="text-align:right">194.21</td>
+<td style="text-align:right">96.32</td>
+<td style="text-align:right">0.286</td>
+</tr>
+<tr>
+<td style="text-align:right">900</td>
+<td style="text-align:right">202.66</td>
+<td style="text-align:right">96.29</td>
+<td style="text-align:right">0.284</td>
+</tr>
+<tr>
+<td style="text-align:right">1000</td>
+<td style="text-align:right">210.40</td>
+<td style="text-align:right">95.69</td>
+<td style="text-align:right">0.264</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>规律度从300米的129.76单调增到1000米的210.40。停留性大体上升，但500米的90.04到600米降为76.66，900米的96.29到1000米的95.69也略降。熵从0.404降到0.264，下降0.140比特，相当于300米那一行的34.7%；800米的0.286比700米的0.285略高。所以整体方向是格子越大、平均熵越低，相邻两档并不每一步都更低。</p>
+<p>熵下降、上限上升的代价是预测更空。格子越大，用户的活动越容易被少数格子罩住，猜中下一格更容易，猜中的那一块也越大、越不含信息。极端情形是整张地图只有一个格子：预测永远正确，也几乎没有用。更小的格子提高可用性，同时可能降低命中。</p>
+<p>表1在5分钟的平均熵0.40、停留性41.28，和表2在300米的0.404、41.65很接近，规律度却是80.72对129.76。论文没有写明表1固定用哪一种格子，也没有写明表2固定用哪一种时间箱，尽管全文默认是5分钟和300米。两行既然不是同一组平均数，就只能把表1读成时间分辨率的比较、表2读成空间分辨率的比较。</p>
+<p>作者还提到，停留性很高时，公开某一个时刻的格子，可能同时让人知道随后一段时间仍在这一格；因此规律度和停留性也可以作为汇总指标单独发布，而不发布整条轨迹。这是数据发布上的提醒。论文没有检验这些汇总会不会对应到具体的人。</p>
+<h2 id="钟点为什么不能直接塞进原来的压缩器？"><a href="#钟点为什么不能直接塞进原来的压缩器？" class="headerlink" title="钟点为什么不能直接塞进原来的压缩器？"></a>钟点为什么不能直接塞进原来的压缩器？</h2><p>规律度和停留性盖住了熵的大部分变异，星期、一天中的小时、天气，以及社会经济条件，仍可能参与一个人的移动。社会经济条件只出现在这段直觉里，后文没有对应的变量或结果。实际放进估计的，是星期、小时和天气。</p>
+<p>最大命中率是熵的函数，所以情境若能降低熵，上限就会提高。地点序列记为X，与每次访问对齐的情境序列记为Y。条件熵</p>
+<p>H(X | Y) = H(X) − I(X, Y)</p>
+<p>等于地点熵减去二者的互信息。互信息越大，已知情境之后剩下的不确定越少。这是两条已经观测到的序列共享了多少信息。天气是否促使人改道，这两套数据没有单独检验。</p>
+<p>Song等人的压缩算法不使用符号的概率分布，而条件熵恰好依赖这个分布，因此情境塞不进去。若把地点和情境捆成一对再压缩，估到的是联合熵H(X, Y)，也就是两条序列合在一起有多不确定。本文要的是条件熵：情境已知后，地点序列还剩多少不确定。Lempel-Ziv因此改为按情境取值把历史拆开。小时的例子是拆成24条序列，每条只含该小时到过的地点，分别估计再平均。论文说Lempel-Ziv的结果都用这一做法；星期和天气的分组数没有另给。</p>
+<p>另外三种估计直接在概率上计算，可以先算熵和互信息，再代入上面的条件熵。最大似然用经验频率，等价于样本的香农熵。Miller-Madow在香农熵上加偏差校正。SG用狄利克雷多项伪计数，参数a = 1/length(X)，在他们试过的同类狄利克雷估计里结果最好；另外几种的数值没有列出。除最大似然和Lempel-Ziv外，校正项使熵估计更保守，更不容易把一条短序列说成极低熵。情境被离散成编号，天气的例子包括雨、雪、云等，名单不完整，数据来自哪一次预报或哪一个观测网，论文没有写。</p>
+<h2 id="下一格：频率型的熵会降，压缩型拆短之后反而升"><a href="#下一格：频率型的熵会降，压缩型拆短之后反而升" class="headerlink" title="下一格：频率型的熵会降，压缩型拆短之后反而升"></a>下一格：频率型的熵会降，压缩型拆短之后反而升</h2><p>图3用最大似然、以小时为情境，看下一格的熵。正文写这样能把熵降低45%。图上没有画出45%这条线。</p>
+<p><img src="/posts/e8f0a1b2/fig3.webp" alt="完整原论文图3"></p>
+<p>图 3｜已知小时以后，下一格的最大似然熵是否更低？</p>
+<p>（a）GPS。（b）CDR。横轴都是无情境的最大似然熵，纵轴是加入小时后的最大似然熵，单位比特，坐标0到4。灰色虚线是对角线。点落在线的下方，表示该用户的熵下降。GPS的点较疏，从靠近原点一直散布到横轴4附近；CDR的点在对角线下方形成一条更密的云，低熵一端贴近对角线，高熵一端离线更远。来源：原论文 Fig. 3。</p>
+<p>图1写明每个点是一名用户。图3的图注没有再定义分析单位，坐标仍是按序列计算的熵。GPS子图看得见的点都在4比特以内。</p>
+<p>表3给出四种估计在两种题目、两套数据上的熵，单位是比特/符号。GPS没有天气列。每个格子只有一个数，论文没有写它是人均、中位数，还是把所有人拼成一条序列后的熵。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>题目</th>
+<th>估计</th>
+<th style="text-align:right">GPS无情境</th>
+<th style="text-align:right">GPS星期</th>
+<th style="text-align:right">GPS小时</th>
+<th style="text-align:right">CDR无情境</th>
+<th style="text-align:right">CDR星期</th>
+<th style="text-align:right">CDR小时</th>
+<th style="text-align:right">CDR天气</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>下一格</td>
+<td>最大似然</td>
+<td style="text-align:right">6.01</td>
+<td style="text-align:right">1.48</td>
+<td style="text-align:right">1.18</td>
+<td style="text-align:right">1.45</td>
+<td style="text-align:right">1.13</td>
+<td style="text-align:right">0.79</td>
+<td style="text-align:right">1.23</td>
+</tr>
+<tr>
+<td>下一格</td>
+<td>Miller-Madow</td>
+<td style="text-align:right">10.6</td>
+<td style="text-align:right">1.61</td>
+<td style="text-align:right">1.22</td>
+<td style="text-align:right">7.86</td>
+<td style="text-align:right">1.20</td>
+<td style="text-align:right">0.91</td>
+<td style="text-align:right">1.32</td>
+</tr>
+<tr>
+<td>下一格</td>
+<td>SG</td>
+<td style="text-align:right">4.62</td>
+<td style="text-align:right">1.48</td>
+<td style="text-align:right">1.19</td>
+<td style="text-align:right">2.66</td>
+<td style="text-align:right">1.17</td>
+<td style="text-align:right">0.84</td>
+<td style="text-align:right">1.27</td>
+</tr>
+<tr>
+<td>下一格</td>
+<td>Lempel-Ziv</td>
+<td style="text-align:right">0.40</td>
+<td style="text-align:right">0.39</td>
+<td style="text-align:right">0.72</td>
+<td style="text-align:right">1.01</td>
+<td style="text-align:right">1.34</td>
+<td style="text-align:right">1.38</td>
+<td style="text-align:right">1.30</td>
+</tr>
+<tr>
+<td>下一地点</td>
+<td>最大似然</td>
+<td style="text-align:right">4.82</td>
+<td style="text-align:right">3.80</td>
+<td style="text-align:right">2.98</td>
+<td style="text-align:right">2.39</td>
+<td style="text-align:right">1.74</td>
+<td style="text-align:right">0.59</td>
+<td style="text-align:right">1.72</td>
+</tr>
+<tr>
+<td>下一地点</td>
+<td>Miller-Madow</td>
+<td style="text-align:right">5.55</td>
+<td style="text-align:right">4.17</td>
+<td style="text-align:right">3.36</td>
+<td style="text-align:right">8.80</td>
+<td style="text-align:right">2.05</td>
+<td style="text-align:right">1.02</td>
+<td style="text-align:right">1.98</td>
+</tr>
+<tr>
+<td>下一地点</td>
+<td>SG</td>
+<td style="text-align:right">5.55</td>
+<td style="text-align:right">3.85</td>
+<td style="text-align:right">3.07</td>
+<td style="text-align:right">2.92</td>
+<td style="text-align:right">1.87</td>
+<td style="text-align:right">1.02</td>
+<td style="text-align:right">1.84</td>
+</tr>
+<tr>
+<td>下一地点</td>
+<td>Lempel-Ziv</td>
+<td style="text-align:right">3.11</td>
+<td style="text-align:right">2.80</td>
+<td style="text-align:right">2.14</td>
+<td style="text-align:right">1.94</td>
+<td style="text-align:right">1.50</td>
+<td style="text-align:right">0.64</td>
+<td style="text-align:right">1.21</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>先看和45%有关的两格。CDR下一格的最大似然从1.45降到0.79，下降(1.45 − 0.79) / 1.45 ≈ 45.5%，和正文的45%接近。GPS同一行从6.01降到1.18，下降(6.01 − 1.18) / 6.01 ≈ 80.4%。45%概括不了GPS这一行。再加上图3的横轴只到4，6.01也不可能是图3（a）那些点的算术平均。表3的6.01只能当作论文报告的汇总值。与此同时，GPS下一格、无情境的Lempel-Ziv是0.40，与表1里5分钟的平均熵相同，这一格和按人平均的口径接得上。读表时这两类数字不能合成一个平均数。</p>
+<p>再看情境有没有让所有估计都变低。最大似然、Miller-Madow和SG在表3的下一格各列里，加了星期、小时或天气之后都低于本数据集的无情境格。Lempel-Ziv相反：GPS从0.40升到小时条件下的0.72，CDR从1.01升到1.38；CDR的星期是1.34，天气是1.30，也都高于1.01。GPS的星期只从0.40降到0.39。拆成24条更短的序列之后，Lempel-Ziv更难靠近真实熵率，估计会偏高。GPS的序列长，小时条件下的0.72仍低于最大似然的1.18；CDR更短，小时条件下的最大似然0.79已经低于无情境Lempel-Ziv的1.01。</p>
+<p>因此，无情境的压缩熵在下一格上仍然很低：GPS 0.40，低于同列最大似然6.01、SG 4.62和Miller-Madow 10.6；CDR 1.01，低于1.45、2.66和7.86。顺序里的重复，尤其是连续停留，已经被压缩算法吃进去了。正文据此认为，下一格在长期更依赖常去地点的顺序，小时和天气会改熵，却不一定比这段历史更有信息。这个判断贴合GPS：无情境Lempel-Ziv的0.40，低于表中任何带情境的频率型估计。它盖不住CDR的小时列，因为那里最大似然、SG和Miller-Madow分别是0.79、0.84和0.91，都低于1.01。</p>
+<p>天气只出现在CDR。下一格最大似然从1.45降到1.23，降幅0.22比特，小于小时带来的0.66比特。论文举例说，人通常在大致固定的时间上班和回家，用天气去预测这种回家或上班，可能给估计添上噪声。例子没有配上这两套数据里的通勤观测。</p>
+<h2 id="下一地点：拿掉原地停留以后，小时才更明显"><a href="#下一地点：拿掉原地停留以后，小时才更明显" class="headerlink" title="下一地点：拿掉原地停留以后，小时才更明显"></a>下一地点：拿掉原地停留以后，小时才更明显</h2><p>下一地点只保留换格子的那一步，停留性按定义被去掉。高度停留的序列熵更低；把停留拿掉、情境留着，就能看情境还能不能把熵降下来。</p>
+<p><img src="/posts/e8f0a1b2/fig4.webp" alt="完整原论文图4"></p>
+<p>图 4｜去掉连续停留之后，小时还能让最大似然熵下降吗？</p>
+<p>（a）GPS，坐标大约0到9比特。多数点在灰色对角线下方，低熵一端有点贴着对角线，右端一个点接近横轴8、纵轴7，仍在线的下方。（b）CDR，坐标大约0到5比特。点的主体在对角线下方、纵轴2比特以内；还有一批点贴着纵轴0，这些用户在图中的条件熵落到0；其余点仍散在0以上。来源：原论文 Fig. 4。</p>
+<p>无情境的Lempel-Ziv从下一格的GPS 0.40、CDR 1.01，升到下一地点的3.11和1.94。GPS的升幅是2.71比特，CDR是0.93比特。5分钟采样更容易记下连续停留，拿掉这些停留之后熵上升更陡，和停留性的定义一致。两套数据的人数、时长和空间精度不同，差额不能全部算到采样间隔上。</p>
+<p>带小时之后，下一地点的熵继续低于各自的无情境格。最大似然从GPS的4.82降到2.98，相对下降(4.82 − 2.98) / 4.82 ≈ 38.2%；CDR从2.39降到0.59，相对下降(2.39 − 0.59) / 2.39 ≈ 75.3%。绝对差距分别是1.84比特和1.80比特。下一格的最大似然绝对差距则是GPS 4.83比特、CDR 0.66比特。所以按最大似然的绝对差距，CDR是下一地点更宽，1.80比特对下一格的0.66比特；GPS是下一格更宽，4.83比特对下一地点的1.84比特。正文说情境带来的缺口在下一地点更宽。Lempel-Ziv的小时行符合这个方向：下一地点从3.11降到2.14、从1.94降到0.64，下一格则从0.40升到0.72、从1.01升到1.38。</p>
+<p>CDR下一地点、小时条件下，最大似然0.59略低于Lempel-Ziv的0.64。这是论文指出的例外：序列被小时拆短以后，最大似然可以低于压缩估计。GPS的对应格仍是Lempel-Ziv更低，2.14对最大似然2.98。短历史、新用户，可以先用最大似然；历史长到压缩估计能用之后再换。这个长度随数据集变化，论文没有给出比特或天数的阈值。</p>
+<p>星期和天气在CDR下一地点上也低于无情境，但弱于小时。最大似然从2.39降到星期1.74、天气1.72，小时则到0.59。GPS没有天气列，无法做同一比较。</p>
+<p>还要分清两件事。条件熵仍然使用地点序列，只是多了一个已知的情境；情境没有替换掉这个人去过哪里。表3每一列还同时换了估计器。最大似然看频率，Lempel-Ziv看能否压缩出的顺序。0.59低于1.94，说明CDR下一地点上，带小时的最大似然条件熵低于不带情境的压缩熵。两列的估计器不同，差距里同时有情境和算法。</p>
+<h2 id="这些比特数停在哪里"><a href="#这些比特数停在哪里" class="headerlink" title="这些比特数停在哪里"></a>这些比特数停在哪里</h2><p>熵下降表示在当前格子、当前采样和当前估计下，序列的不确定变少，法诺关系允许的命中率上限可以更高。本文没有解出Πmax，也没有训练预测器去逼近它。论文把具体算法能否达到这些估计留作后续工作。表3里最低的比特数，仍然是一种熵估计。</p>
+<p>这些估计给出的是近似上限。柯尔莫哥洛夫复杂度对应的硬边界不可计算，论文写明熵估计到不了那个硬边界。序列越短，Lempel-Ziv越可能把熵估高，小时列已经出现这种情况。Miller-Madow和SG的校正把短样本的熵估得更保守。四种估计并排，才能看出最小的那个数依赖哪一种算法。</p>
+<p>R²、图1和图2说明规律度与停留性能够在样本内跟上压缩熵。系数缺失，留出检验也缺失。CDR散点被省略之后，仍有−0.84和−0.83两个相关可以核对，图上的离群长什么样则只在GPS里看得见。</p>
+<p>表1和表2的5分钟行与300米行不是同一组平均数。时间箱实验又是每个箱随机抽一条。空间上相邻档的停留性和熵也有小幅回升。把300米到1000米说成单调变好，越过了表2本身。</p>
+<p>天气的来源和完整类别没有给出，GPS表里没有天气。社会经济因素没有进入计算。两套数据不能互相代表，也不能代表未安装这个应用、或不在这家运营商两周样本里的人。</p>
+<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>人的移动有多可预测，先取决于题目是猜下一格还是猜下一地点，再取决于格子多大、采样多密、熵用哪种算法来估；连续停留让下一格很好压缩，拿掉停留之后，小时才更明显地降低熵。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1145/3347146.3359093">ACM SIGSPATIAL ’19正式论文</a>，DOI 10.1145/3347146.3359093。会议为2019年11月5–8日，Chicago，ACM出版，10页。正文证据是图1–4和表1–3。</li>
+<li>压缩熵沿用Song、Qu、Blumm与Barabási在Science 327卷5968期（2010）给出的框架；下一格与下一地点的题目划分沿用论文所引的Cuttone、Lehmann与González。法诺公式的展开论文指向Smith等人与Song等人的推导。</li>
+<li>图1的CDR散点在正文中写明省略。回归系数、每个用户的地点数、天气数据来源和CDR筛选前的人数，正文都没有给出。</li>
+</ul>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>以下只依据论文署名页上的单位，论文没有贡献声明，也没有标出通讯作者。</p>
+<ul>
+<li>Douglas do Couto Teixeira：署名第一作者，单位是巴西贝洛奥里藏特的米纳斯吉拉斯联邦大学。</li>
+<li>Aline Carneiro Viana：署名单位是法国帕莱索的Inria与巴黎-萨克雷大学。</li>
+<li>Mário S. Alvim：署名单位同为米纳斯吉拉斯联邦大学。</li>
+<li>Jussara M. Almeida：署名单位同为米纳斯吉拉斯联邦大学。</li>
+</ul>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
+<p>若一个城市看板只公布一个可预测性百分比，这个数至少还要带上题目和格子面积。在这套GPS上，边长从300米增到1000米，平均熵从0.404降到0.264比特/符号，上限看起来更高，猜中的区域也从边长300米变成1000米。把全城画成一个格子时，命中率会到顶，交通调度却得不到可执行的地点。并列报告熵和格子面积，才能看出准确率是用信息换来的，还是用放大格子换来的。</p>
+<p>另一个容易判反的地方是特征筛选。下一格任务里，按小时拆开历史后，表3的Lempel-Ziv从GPS的0.40升到0.72、从CDR的1.01升到1.38，最大似然的汇总值从6.01降到1.18、从1.45降到0.79。只盯着压缩熵的团队，可能删掉小时；只盯着最大似然的团队，会把小时留下。两周CDR再按24小时切开，每条序列更短，压缩估计向上偏的风险更大。比较应该在同一次拆分上同时看条件熵和压缩熵。论文说Lempel-Ziv开始靠拢的长度因数据而异，却没有给出这条分界，这正是下一步可以测量的数。</p>
+<p>第三，同一个人在两种题目下的名次可能不同。下一格熵很低，可能只是因为夜间长时间停在一个格子；下一地点熵把这些自转移拿掉，才更接近目的地是否规律。论文没有报告二者在45名或2780名用户中的等级相关。若推荐系统用低可预测性挑选更愿意接受新地点的人，用下一格还是下一地点，选中的会是两群人。这个相关一旦接近0，两种产品规则就不该共用一个上限。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">猴猴猴</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://xiaoyue-hou.github.io/posts/e8f0a1b2/">http://xiaoyue-hou.github.io/posts/e8f0a1b2/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">猴猴猴</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                                    <span class="chip bg-color">人类移动性</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%8F%AF%E9%A2%84%E6%B5%8B%E6%80%A7/">
+                                    <span class="chip bg-color">可预测性</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%86%B5/">
+                                    <span class="chip bg-color">熵</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%83%85%E5%A2%83%E4%BF%A1%E6%81%AF/">
+                                    <span class="chip bg-color">情境信息</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/f9a1b2c3/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="2020-Learning Geo-Contextual Embeddings for Commuting Flow Prediction">
+                        
+                        <span class="card-title">2020-Learning Geo-Contextual Embeddings for Commuting Flow Prediction</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%A9%BA%E9%97%B4%E4%BA%A4%E4%BA%92/">
+                        <span class="chip bg-color">空间交互</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9B%BE%E6%B3%A8%E6%84%8F%E5%8A%9B%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">图注意力网络</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BA%BD%E7%BA%A6/">
+                        <span class="chip bg-color">纽约</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%80%9A%E5%8B%A4%E6%B5%81%E9%87%8F/">
+                        <span class="chip bg-color">通勤流量</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/d7e9f0a1/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="2015-Spatially Heterogeneous Impact of Urban Form on Human Mobility: Evidence from Analysis of TAZ and Individual Scales in Beijing">
+                        
+                        <span class="card-title">2015-Spatially Heterogeneous Impact of Urban Form on Human Mobility: Evidence from Analysis of TAZ and Individual Scales in Beijing</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                        <span class="chip bg-color">人类移动性</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8C%97%E4%BA%AC/">
+                        <span class="chip bg-color">北京</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9C%B0%E7%90%86%E5%8A%A0%E6%9D%83%E5%9B%9E%E5%BD%92/">
+                        <span class="chip bg-color">地理加权回归</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9F%8E%E5%B8%82%E5%BD%A2%E6%80%81/">
+                        <span class="chip bg-color">城市形态</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('-1'),
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2026</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">猴猴猴</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "4";
+                    var startDate = "26";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiaoyue-hou" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1396567029@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1396567029" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1396567029" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <script src="/js/reading-marks.js?v=7"></script>
+
+</body>
+
+</html>

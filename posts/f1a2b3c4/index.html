@@ -1,0 +1,1421 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="2026-DynaOD: Dynamic Origin-Destination Flow Generation with Discrete-to-Continuous Temporal Semantic Modeling, 猴猴猴">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>2026-DynaOD: Dynamic Origin-Destination Flow Generation with Discrete-to-Continuous Temporal Semantic Modeling | 猴猴猴</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<style>
+    /* ----------------------------------------------------------- */
+    /* 1. 基础清理：隐藏不需要的文字 */
+    /* ----------------------------------------------------------- */
+    .card .card-content .summary, 
+    .caption, .img-caption, .fancybox-caption, 
+    .img-item .caption { 
+        display: none !important; 
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">猴猴猴</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">猴猴猴</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">2026-DynaOD: Dynamic Origin-Destination Flow Generation with Discrete-to-Continuous Temporal Semantic Modeling</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B/">
+                                <span class="chip bg-color">生成模型</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%B5%B7%E8%AE%AB%E6%B5%81%E9%87%8F/">
+                                <span class="chip bg-color">起讫流量</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%9F%8E%E5%B8%82%E7%A7%BB%E5%8A%A8/">
+                                <span class="chip bg-color">城市移动</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%97%B6%E9%97%B4%E8%AF%AD%E4%B9%89/">
+                                <span class="chip bg-color">时间语义</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper/" class="post-category">
+                                Paper
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-11-11
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+
+<h2 id="没见过的县、没见过的日期，只靠地区属性和日历，能生成出发地—目的地流量吗？"><a href="#没见过的县、没见过的日期，只靠地区属性和日历，能生成出发地—目的地流量吗？" class="headerlink" title="没见过的县、没见过的日期，只靠地区属性和日历，能生成出发地—目的地流量吗？"></a>没见过的县、没见过的日期，只靠地区属性和日历，能生成出发地—目的地流量吗？</h2><p>论文名片｜Jie Zhao、Xianqi Dai、Jie Feng、Huandong Wang、Yong Li，<em>DynaOD: Dynamic Origin-Destination Flow Generation with Discrete-to-Continuous Temporal Semantic Modeling</em>，Proceedings of the Thirty-Fifth International Joint Conference on Artificial Intelligence（IJCAI-26），2026年8月，第3259–3267页，Main Track。<a target="_blank" rel="noopener" href="https://doi.org/10.24963/ijcai.2026/362">DOI：10.24963/ijcai.2026/362</a>。图表数值按 arXiv:2606.09086v1（2026年6月8日）核对。</p>
+<p>设想要估计一个县在某个周一、各个普查区之间有多少人流。手头有各区的兴趣点构成和人口统计，也知道这一天是星期几、算不算假日，但生成时不再读取这个县以往的出发地—目的地流量表。DynaOD 把这件事做成条件生成：用地区属性和日历语境，合成随日期变化的流量矩阵。</p>
+<p>在 2019 年 1 月美国 500 个县的普查区日流量上，形状模块只在见过的县、见过的日期上训练，再到没见过的县、没见过的日期上测试。默认配置的流量重叠 CPC（Common Part of Commuting，通勤公共部分）为 0.492。该指标上最强基线是预训练 NetGAN 的 0.365，论文给出的相对提升为 34.7%。这是地区到地区的流量矩阵比较。训练仍然用过其他县的真实流量，绝对成绩也仍受底下那个冻结生成器的限制。</p>
+<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
+<li>测试设定是没见过的县加上没见过的日期。DynaOD 在 CPC、逐格误差 RMSE、按真实流量经验方差归一化的 NRMSE，以及流入、流出和整矩阵三种 JS 散度（Jensen–Shannon divergence，越低表示分布越接近）上同时优于表中八个基线。每一列的相对提升都除以该列自己的最强基线，六列的分母来自不同模型。</li>
+<li>方向控制拿掉之后，各指标都变差。把语言模型换成只靠下游流量监督的多层感知机后，CPC 从 0.492 降到 0.413，整矩阵 JS 散度从 0.220 升到 0.274。</li>
+<li>向相似普查区检索形状，在图 4 的六个指标上都优于直接用 ShapeNet 推断。表 1 的 0.492 落在直接推断那一档的刻度带里；检索档更好，但图上没有印出精确小数，而且纵轴被截断。</li>
+<li>1.5B 学生模型微调后，CPC 从 0.403 升到 0.476，教师模型 GPT-4o-mini 为 0.492。一次兴趣点方向查询平均 1.94 秒、约 0.00013 美元；一次人口属性方向查询平均 4.51 秒、约 0.00039 美元。</li>
+<li>同一套调制可以接到冻结的 NetGAN 或 WeDAN 上。NetGAN 的 CPC 从 0.365 升到 0.461，WeDAN 从 0.331 升到 0.492。插件抬高了两个生成器，最终高低仍跟着底层模型走。</li>
+</ul>
+<h2 id="要生成的是普查区之间的日流量"><a href="#要生成的是普查区之间的日流量" class="headerlink" title="要生成的是普查区之间的日流量"></a>要生成的是普查区之间的日流量</h2><p>研究对象是动态起讫流量（dynamic origin–destination flows）：一天里，从普查区 i 到普查区 j 的流量组成一张矩阵。论文把美国的县当作城市实例，把普查区当作空间单元。县与县之间互相比，是跨城；县内部的格子，才是出发地和目的地。</p>
+<p>数据把 Kang 等人 2020 年公开的美国移动流量，与 Rong 等人 2025 年通勤基准里的地区属性对齐，时间是 2019 年 1 月，覆盖 500 个县。每个普查区有 34 类兴趣点分布，以及 97 维人口与社会经济属性。每一天再配一个 8 维日历向量：星期的 7 维独热编码，加上 1 维假日指示。日流量矩阵和这些属性按同一套普查区对齐。</p>
+<p>论文没有给出普查区总数、见过与没见过的县数、日期如何划分，也没有定义矩阵每一格的物理单位。后文的 RMSE 是这套流量数值上的逐格误差。</p>
+<p>划分是两条轴同时切开：县分成见过和没见过，日期也分成见过和没见过。训练只用见过的县、见过的日期。报告的测试是没见过的县，并且日期也没见过。只优化 ShapeNet；预训练的流量生成器和方向控制信号在这一协议里保持固定。见过的县配没见过的日期、没见过的县配见过的日期，这两格结果正文没有单列。</p>
+<h2 id="生成时不读历史流量表，和训练时见过真实流量，是两件事"><a href="#生成时不读历史流量表，和训练时见过真实流量，是两件事" class="headerlink" title="生成时不读历史流量表，和训练时见过真实流量，是两件事"></a>生成时不读历史流量表，和训练时见过真实流量，是两件事</h2><p>图 1 把两种任务并排放在一起。预测是拿历史流量矩阵，外推之后某一天的矩阵。生成是拿地区特征和日历语境，直接合成当天的矩阵。DynaOD 站在生成这一侧。</p>
+<p><img src="/posts/f1a2b3c4/fig1.webp" alt="完整原论文图1"></p>
+<p>图 1｜历史流量外推，和按语境生成，输入差在哪里？</p>
+<p>（a）历史驱动的流量预测：多张历史起讫矩阵进入函数 f，输出当天矩阵。（b）语境条件的流量生成：地区特征与日历语境进入函数 g，输出当天矩阵。橙点表示矩阵格子里的流量。来源：原论文 Fig. 1。</p>
+<p>生成阶段的输入是地区属性和日历。ShapeNet 的训练损失仍然比较生成矩阵和真实矩阵，用的是见过的县、见过的日期上的流量。因此，新县在测试时可以不提供自己的历史流量表；系统在训练阶段已经从别的县学过流量长什么样。把摘要里的 minimal supervision 理解成全世界都没有任何流量标签，会把实验协议说大。</p>
+<p>基线也拿到了同样的 8 维日历，并在适用时拼到地区输入上，原架构不改。NetGAN 和 WeDAN 使用 Rong 等人 2025 年的预训练模型，推理时换日历，不再微调。DynaOD 额外训练了形状模块。比较的是同一套测试划分上的矩阵质量，训练中可更新的部件并不相同。</p>
+<h2 id="方向先分成三档，幅度再交给形状网络"><a href="#方向先分成三档，幅度再交给形状网络" class="headerlink" title="方向先分成三档，幅度再交给形状网络"></a>方向先分成三档，幅度再交给形状网络</h2><p>日历对流量的影响往往是间接的。工作日和假日先改变活动往哪边偏，流量数字是这种偏向经过空间汇总之后的结果。DynaOD 把这种偏向写成离散方向。对每个普查区、每个日期，语言模型给出两组控制向量，每一维只取 −1、0、1，表示该特征预期下降、持平或上升。兴趣点控制有 34 维，依据地区语境和日期；人口属性控制有 97 维，还要参考已经推断出的兴趣点方向和人口属性本身。这些方向没有人工标注的标准答案。</p>
+<p>ShapeNet 再把方向变成连续的逐日幅度。它为兴趣点和人口属性分别输出高斯分布的均值和对数方差，用重参数化采样，得到连续形状。静态地区特征只做弱条件，避免模型靠记住某个县的身份来拟合。时间平滑惩罚会压住不合理的逐日跳动；当方向控制本身是 0 时，惩罚更强。</p>
+<p>调制是逐元素的乘法。记原始特征为 x，形状为 s，方向为 c，调制后的特征是 x ⊙ (1 + s ⊙ c)。c 为 0 时，括号里是 1，静态特征原样进入生成器。c 为 1 或 −1 时，形状决定往上或往下拨多少。拨过的特征送进冻结的预训练静态流量生成器，一天一张矩阵。默认生成器是预训练 WeDAN。为了能反传，训练时梯度只经过最后若干步 DDIM 去噪，生成器参数不动。</p>
+<p><img src="/posts/f1a2b3c4/fig2.webp" alt="完整原论文图2"></p>
+<p>图 2｜从日历语境到一张动态流量矩阵，中间经过哪些模块？</p>
+<p>（1）在线语言模型把语境变成兴趣点和人口属性的离散正负号。（2）ShapeNet 把这些符号变成多日的连续形状。（3）形状去调整兴趣点和人口属性，再交给冻结的生成器；图中画出 NetGAN 的生成—判别结构，以及 WeDAN 的扩散式转移。（4）可选：按相似度检索记忆中的形状并加权融合，用于跨县。（5）可选：教师模型蒸馏到学生模型，换掉在线调用。图中的正负号和曲线是结构示意。来源：原论文 Fig. 2。</p>
+<p>跨县时可以不在测试阶段运行 ShapeNet。ShapeMem 先把 ShapeNet 的高斯形状按星期几汇总成先验，再用图表示学习得到地区嵌入。推理时按余弦相似度取最相近的 5 个普查区，用归一化相似度做加权平均，得到目标普查区在该星期几的形状，然后仍走同一步特征调制。检索模块和生成器分开，所以可以更换底层生成器。</p>
+<p>在线大模型要为很多普查区、很多天产生方向向量。论文用教师模型的离散决策作伪标签，监督学生模型。学生模型是 Qwen2.5-1.5B-Instruct，LoRA 只更新 query 和 value 投影；表 2 和图 5 把它写成 Qwen-2.5-1.5B 与 Qwen-2.5-1.5B-SFT。兴趣点和人口属性分成两种指令，输出仍是固定长度的 −1、0、1 向量。蒸馏之后，学生模型替换教师模型，ShapeNet 和流量生成器可以不动。</p>
+<h2 id="六个指标分别相对谁提高？"><a href="#六个指标分别相对谁提高？" class="headerlink" title="六个指标分别相对谁提高？"></a>六个指标分别相对谁提高？</h2><p>指标分三组。RMSE 是矩阵逐格误差。NRMSE 按论文的说法，用真实流量的经验方差做归一化，所以它和 RMSE 是同一批格子上的两种刻度，不能把 0.940 和 253.09 当成两种人次。CPC 衡量预测矩阵和真实矩阵的流量重叠，越高越好；论文没有写出计算公式。JS 散度分别算在流入分布、流出分布和整张流量分布上，越低越接近；论文没有给出对数底和分箱方式。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th style="text-align:right">CPC↑</th>
+<th style="text-align:right">RMSE↓</th>
+<th style="text-align:right">NRMSE↓</th>
+<th style="text-align:right">JSD-In↓</th>
+<th style="text-align:right">JSD-Out↓</th>
+<th style="text-align:right">JSD-OD↓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GM-P</td>
+<td style="text-align:right">0.181</td>
+<td style="text-align:right">317.11</td>
+<td style="text-align:right">1.161</td>
+<td style="text-align:right">0.722</td>
+<td style="text-align:right">0.834</td>
+<td style="text-align:right">0.662</td>
+</tr>
+<tr>
+<td>GM-E</td>
+<td style="text-align:right">0.179</td>
+<td style="text-align:right">309.23</td>
+<td style="text-align:right">1.163</td>
+<td style="text-align:right">0.731</td>
+<td style="text-align:right">0.838</td>
+<td style="text-align:right">0.671</td>
+</tr>
+<tr>
+<td>RF</td>
+<td style="text-align:right">0.219</td>
+<td style="text-align:right">304.35</td>
+<td style="text-align:right">1.106</td>
+<td style="text-align:right">0.691</td>
+<td style="text-align:right">0.798</td>
+<td style="text-align:right">0.513</td>
+</tr>
+<tr>
+<td>SVR</td>
+<td style="text-align:right">0.206</td>
+<td style="text-align:right">312.98</td>
+<td style="text-align:right">1.143</td>
+<td style="text-align:right">0.706</td>
+<td style="text-align:right">0.780</td>
+<td style="text-align:right">0.444</td>
+</tr>
+<tr>
+<td>GBRT</td>
+<td style="text-align:right">0.196</td>
+<td style="text-align:right">310.41</td>
+<td style="text-align:right">1.127</td>
+<td style="text-align:right">0.720</td>
+<td style="text-align:right">0.806</td>
+<td style="text-align:right">0.550</td>
+</tr>
+<tr>
+<td>DGM</td>
+<td style="text-align:right">0.214</td>
+<td style="text-align:right">312.29</td>
+<td style="text-align:right">1.133</td>
+<td style="text-align:right">0.747</td>
+<td style="text-align:right">0.827</td>
+<td style="text-align:right">0.502</td>
+</tr>
+<tr>
+<td>NetGAN 预训练</td>
+<td style="text-align:right">0.365</td>
+<td style="text-align:right">293.42</td>
+<td style="text-align:right">1.129</td>
+<td style="text-align:right">0.657</td>
+<td style="text-align:right">0.736</td>
+<td style="text-align:right">0.574</td>
+</tr>
+<tr>
+<td>WeDAN 预训练</td>
+<td style="text-align:right">0.331</td>
+<td style="text-align:right">286.51</td>
+<td style="text-align:right">1.056</td>
+<td style="text-align:right">0.502</td>
+<td style="text-align:right">0.741</td>
+<td style="text-align:right">0.333</td>
+</tr>
+<tr>
+<td>DynaOD</td>
+<td style="text-align:right">0.492</td>
+<td style="text-align:right">253.09</td>
+<td style="text-align:right">0.940</td>
+<td style="text-align:right">0.322</td>
+<td style="text-align:right">0.421</td>
+<td style="text-align:right">0.220</td>
+</tr>
+<tr>
+<td>表中相对提升</td>
+<td style="text-align:right">34.7%</td>
+<td style="text-align:right">11.7%</td>
+<td style="text-align:right">11.0%</td>
+<td style="text-align:right">35.9%</td>
+<td style="text-align:right">42.8%</td>
+<td style="text-align:right">33.9%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>表 1 的相对提升，分母是该列数值最好的基线。CPC 越高越好，最强基线是 NetGAN 的 0.365，(0.492 − 0.365) / 0.365 用表中已四舍五入的数字重算约为 34.8%，表内印的是 34.7%，差额来自展示精度。RMSE、NRMSE、JSD-In、JSD-OD 的最强基线是 WeDAN：286.51、1.056、0.502、0.333，对应降幅 11.7%、11.0%、35.9%、33.9%。JSD-Out 的最强基线是 NetGAN 的 0.736，WeDAN 是 0.741；(0.736 − 0.421) / 0.736 = 42.8%。正文说的分布差异最多降低 42.8%，指的就是这一列，分母是 0.736。</p>
+<p>两种引力模型 GM-P、GM-E 的 CPC 只有 0.179 和 0.181，是表中重叠最低的一档。论文引用 Zipf 1946，没有在正文展开 P 和 E 两个字母。随机森林、支持向量回归、梯度提升树和深度引力模型 DGM 的 CPC 落在 0.196 到 0.219。它们收到了日历特征，仍明显低于两个预训练图生成模型。NetGAN 的重叠 0.365 高于 WeDAN 的 0.331，但 WeDAN 的 RMSE 286.51 低于 NetGAN 的 293.42，整矩阵 JS 散度 0.333 也低于 0.574。静态基线谁更强，取决于看重叠还是看误差和分布。</p>
+<h2 id="方向控制拿掉以后，还剩什么？"><a href="#方向控制拿掉以后，还剩什么？" class="headerlink" title="方向控制拿掉以后，还剩什么？"></a>方向控制拿掉以后，还剩什么？</h2><p>图 3 比较四种方向设置：去掉全部控制、去掉兴趣点控制、去掉人口属性控制、两种都保留。星标打在两种都保留的柱上。六个纵轴都不从 0 起，柱高差距会被放大；柱顶没有数字。</p>
+<p><img src="/posts/f1a2b3c4/fig3.webp" alt="完整原论文图3"></p>
+<p>图 3｜方向控制是日历真的在起作用，还是多了一组可有可无的开关？</p>
+<p>（a）CPC，越高越好，纵轴大约从 0.3 到 0.5。（b）RMSE，越低越好，纵轴从 260 到 280 以上。（c）NRMSE，越低越好，纵轴从 0.95 到 1.05。（d）流入 JS 散度，（e）流出 JS 散度，（f）整矩阵 JS 散度，都是越低越好。黄点为去掉全部控制，绿斜线为去掉兴趣点控制，蓝格为去掉人口属性控制，粉格为两种都保留。星标在粉格上。来源：原论文 Fig. 3。</p>
+<p>去掉全部控制后，重叠更低，误差和三种分布差异都更高。只保留一种控制时，柱子落在全无和全有之间。论文的概括是：兴趣点控制主要改善重建精度，人口属性控制更利于缩小流入和流出的分布差异，两者一起时六个指标都最好。由于柱顶没有读数，这个主次分工不能从本图复核到具体差值。</p>
+<p>方向有用，还可能只是因为 −1、0、1 这种离散格式方便优化。论文用一个轻量多层感知机换掉语言模型，得到 DynaODCLS。CPC 从 0.492 降到 0.413，下降 0.079；整矩阵 JS 散度从 0.220 升到 0.274，上升 0.054。分类器只从下游流量监督里学方向，语言模型还带有语义先验。这一对比支持语义先验有贡献，同时说明 0.492 里有一部分来自控制模块的形式，不能全部记到语言模型上。</p>
+<h2 id="直接算形状，还是向相似普查区借？"><a href="#直接算形状，还是向相似普查区借？" class="headerlink" title="直接算形状，还是向相似普查区借？"></a>直接算形状，还是向相似普查区借？</h2><p>图 4 比较两条得到连续形状的路：测试时直接跑 ShapeNet，以及按相似地区检索后加权。六个面板里，检索一侧都带星标。纵轴同样被截断。CPC 只显示 0.49 到 0.51，RMSE 只显示 246 到 255，流入 JS 散度挤在 0.32 附近。</p>
+<p><img src="/posts/f1a2b3c4/fig4.webp" alt="完整原论文图4"></p>
+<p>图 4｜没见过的县上，现场计算形状和借用相似地区的形状，差多少？</p>
+<p>（a）CPC，纵轴 0.49–0.51。（b）RMSE，纵轴 246–255。（c）NRMSE，纵轴 0.93–0.94。（d）流入 JS 散度，刻度集中在 0.32–0.33。（e）流出 JS 散度，纵轴 0.41–0.42。（f）整矩阵 JS 散度，纵轴 0.21–0.22。绿斜线为直接推断，橙格为检索，星标在检索一侧。来源：原论文 Fig. 4。</p>
+<p>表 1 的 DynaOD 是 CPC 0.492、RMSE 253.09、NRMSE 0.940、流入 JS 散度 0.322、流出 0.421、整矩阵 0.220。这些数字落在图 4 直接推断那一档的刻度带里。检索在每个面板上更好，改进发生在已经较高的水平上。图上没有检索档的精确小数，不能把星标读成另一个 34.7%。检索的另一层含义是测试时不必再跑 ShapeNet，部署成本因此不同；图 4 本身只比较矩阵指标，没有给出耗时。</p>
+<h2 id="小模型接过方向判断后，还差教师多少？"><a href="#小模型接过方向判断后，还差教师多少？" class="headerlink" title="小模型接过方向判断后，还差教师多少？"></a>小模型接过方向判断后，还差教师多少？</h2><p>教师模型是 GPT-4o-mini。兴趣点方向查询平均 1.94 秒，输入约 415 个 token，输出约 110 个 token，费用约 0.00013 美元。人口属性方向查询平均 4.51 秒，输入约 1436 个 token，输出约 287 个 token，费用约 0.00039 美元。这是 gpt-4o-mini 的平均开销。论文认为地区级查询可以并行；蒸馏则是为了测试时不再调用在线教师。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>方向模型</th>
+<th style="text-align:right">CPC↑</th>
+<th style="text-align:right">RMSE↓</th>
+<th style="text-align:right">NRMSE↓</th>
+<th style="text-align:right">JSD-In↓</th>
+<th style="text-align:right">JSD-Out↓</th>
+<th style="text-align:right">JSD-OD↓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen-2.5-1.5B</td>
+<td style="text-align:right">0.403</td>
+<td style="text-align:right">274.43</td>
+<td style="text-align:right">1.010</td>
+<td style="text-align:right">0.411</td>
+<td style="text-align:right">0.637</td>
+<td style="text-align:right">0.276</td>
+</tr>
+<tr>
+<td>Qwen-2.5-1.5B-SFT</td>
+<td style="text-align:right">0.476</td>
+<td style="text-align:right">260.86</td>
+<td style="text-align:right">0.959</td>
+<td style="text-align:right">0.336</td>
+<td style="text-align:right">0.475</td>
+<td style="text-align:right">0.234</td>
+</tr>
+<tr>
+<td>GPT-4o-mini</td>
+<td style="text-align:right">0.492</td>
+<td style="text-align:right">253.09</td>
+<td style="text-align:right">0.940</td>
+<td style="text-align:right">0.322</td>
+<td style="text-align:right">0.421</td>
+<td style="text-align:right">0.220</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>其余模块固定，只换方向控制器。未微调的 1.5B 模型 CPC 为 0.403，比教师低 0.089。监督微调后升到 0.476，与教师还差 0.016。按这三个 CPC 计算，微调补上了 (0.476 − 0.403) / (0.492 − 0.403) = 82.0% 的差距。RMSE 从 274.43 降到 260.86，教师是 253.09。整矩阵 JS 散度从 0.276 降到 0.234，教师是 0.220。流出 JS 散度从 0.637 降到 0.475，教师是 0.421。六项都向教师靠拢，单项仍留有缺口。</p>
+<p><img src="/posts/f1a2b3c4/fig5.webp" alt="完整原论文图5"></p>
+<p>图 5｜模型参数量更大，是否就等于流量重叠更高？</p>
+<p>无字母子图。横轴是参数量的对数刻度，从 10⁰ 到 10¹。纵轴 CPC 从 0.38 到 0.52。蓝色圆点和箭头标出 Qwen-2.5-1.5B 微调后的位置，箭头起点标着未微调的 1.5B 模型。蓝色虚线是在线教师 GPT-4o-mini 的 CPC，画成水平参照，没有给出教师的参数量。来源：原论文 Fig. 5。</p>
+<p>图 5 的纵轴位置与表 2 一致：未微调约在 0.40，微调约在 0.48，教师虚线约在 0.49。它展示的是重叠和参数量的关系，费用和秒数在正文里，不在这张图上。</p>
+<h2 id="换一个冻结的生成器，插件还抬得动吗？"><a href="#换一个冻结的生成器，插件还抬得动吗？" class="headerlink" title="换一个冻结的生成器，插件还抬得动吗？"></a>换一个冻结的生成器，插件还抬得动吗？</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th style="text-align:right">CPC↑</th>
+<th style="text-align:right">RMSE↓</th>
+<th style="text-align:right">NRMSE↓</th>
+<th style="text-align:right">JSD-In↓</th>
+<th style="text-align:right">JSD-Out↓</th>
+<th style="text-align:right">JSD-OD↓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetGAN 预训练</td>
+<td style="text-align:right">0.365</td>
+<td style="text-align:right">293.42</td>
+<td style="text-align:right">1.129</td>
+<td style="text-align:right">0.657</td>
+<td style="text-align:right">0.736</td>
+<td style="text-align:right">0.574</td>
+</tr>
+<tr>
+<td>DynaOD + NetGAN</td>
+<td style="text-align:right">0.461</td>
+<td style="text-align:right">281.01</td>
+<td style="text-align:right">1.096</td>
+<td style="text-align:right">0.611</td>
+<td style="text-align:right">0.519</td>
+<td style="text-align:right">0.522</td>
+</tr>
+<tr>
+<td>WeDAN 预训练</td>
+<td style="text-align:right">0.331</td>
+<td style="text-align:right">286.51</td>
+<td style="text-align:right">1.056</td>
+<td style="text-align:right">0.502</td>
+<td style="text-align:right">0.741</td>
+<td style="text-align:right">0.333</td>
+</tr>
+<tr>
+<td>DynaOD + WeDAN</td>
+<td style="text-align:right">0.492</td>
+<td style="text-align:right">253.09</td>
+<td style="text-align:right">0.940</td>
+<td style="text-align:right">0.322</td>
+<td style="text-align:right">0.421</td>
+<td style="text-align:right">0.220</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>两组实验都保持生成器冻结，不改原架构和原训练过程。相对 NetGAN 自己的 0.365，加上 DynaOD 后 CPC 为 0.461，增加 0.096，相当于 0.365 的 26.3%。RMSE 从 293.42 降到 281.01，降幅是 293.42 的 4.2%。整矩阵 JS 散度从 0.574 降到 0.522，降幅是 0.574 的 9.1%。流出 JS 散度从 0.736 降到 0.519，降幅是 0.736 的 29.5%。</p>
+<p>相对 WeDAN 自己的 0.331，CPC 升到 0.492，增加 0.161，相当于 0.331 的 48.6%。48.6% 的分母是 WeDAN 自己的 0.331；表 1 的 34.7% 分母是 NetGAN 的 0.365。两个百分比来自两次不同的除法。WeDAN 版本的 RMSE 253.09 和整矩阵 JS 散度 0.220 仍是表中最好的一档。</p>
+<p>论文把 NetGAN 称为相对较弱的生成器。按 CPC，预训练 NetGAN 的 0.365 其实高于预训练 WeDAN 的 0.331；按 RMSE 和整矩阵分布，WeDAN 更好。接上 DynaOD 之后，WeDAN 版本的 0.492 高于 NetGAN 版本的 0.461。插件改变的是时间适应，底层生成器的上限还在。</p>
+<h2 id="一个普查区的一周，能看出什么？"><a href="#一个普查区的一周，能看出什么？" class="headerlink" title="一个普查区的一周，能看出什么？"></a>一个普查区的一周，能看出什么？</h2><p>图 6 抽了一个普查区，窗口是 2019 年 1 月 25 日到 31 日。方向来自 GPT-4o-mini，形状来自 ShapeNet。原图没有子图字母。</p>
+<p><img src="/posts/f1a2b3c4/fig6.webp" alt="完整原论文图6"></p>
+<p>图 6｜离散方向和连续形状，在同一个普查区的七天里各是什么样子？</p>
+<p>左上是兴趣点方向的原始控制，左下是人口属性方向的原始控制，纵轴写明数值加了抖动，因此线条的上下散布来自画图，横轴只有日期、没有标出星期几。右上、右下是对应的连续形状，每一维单独做了最小—最大归一化，纵轴从 0 到 1。每条彩线是一个特征维，图中没有给出类别名称。来源：原论文 Fig. 6。</p>
+<p>左列看起来是分段常数的横线，符合 −1、0、1 这种粗方向；右列则是随日期起伏的多条曲线。论文用这个例子说明：方向决定往哪边变，ShapeNet 决定变化怎样逐日展开，这一展示不读取该普查区的历史流量表。它是一个随机抽中的地区，归一化又抹掉了原始幅度，不能从彩线读出哪一类兴趣点在哪一天上升，也不能把这一周推广成 500 个县的平均周模式。</p>
+<h2 id="这些比较停在哪一步"><a href="#这些比较停在哪一步" class="headerlink" title="这些比较停在哪一步"></a>这些比较停在哪一步</h2><p>日历语境在实验里就是星期和假日，一共 8 维。暴雨、赛事、道路封闭没有进入输入，也就没有被这张测试表检验。方向质量取决于语言模型；地区描述稀疏或含糊时，论文自己预期控制会不稳。ShapeNet 固定在日尺度，更细的小时或不等间隔时段还是未做的题目。</p>
+<p>流量生成器保持冻结，所以 DynaOD 的上限跟着 WeDAN 或 NetGAN 走。表 3 已经给出同一个插件下 0.492 和 0.461 的差距。图 3 和图 4 的纵轴截断会让很小的绝对差看起来很大，读星标时要回到表 1 的原始刻度。</p>
+<p>测试范围是 2019 年 1 月的美国县和普查区。文中的跨城指这 500 个县里的未见县。论文没有按流量大小分层报告误差。CPC 0.492 说明仍有相当一部分流量没有重叠到同一格上。RMSE 相对 WeDAN 的 286.51 下降 11.7%，论文没有分开大走廊和小流量格子各自的贡献。</p>
+<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>只靠地区属性和星期、假日，DynaOD 能在没见过的县和日期上生成比静态基线更接近真实矩阵的普查区流量；生成时不必再喂入当地的历史流量表，训练仍用过其他县的真实流量，最终误差也仍取决于那个冻结的生成器。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://ijcai.org/proceedings/2026/362">IJCAI 2026 论文页面</a>，正式题目、作者与会议条目。官方书目给出 DOI <a target="_blank" rel="noopener" href="https://doi.org/10.24963/ijcai.2026/362">10.24963/ijcai.2026/362</a>，页码 3259–3267，2026 年 8 月，Main Track。</li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2606.09086v1">arXiv:2606.09086v1</a>，2026 年 6 月 8 日。本文图 1–6 与表中数字按这一版核对。该 PDF 首页印有 arXiv 编号，没有印 DOI。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/csjiezhao/DynaOD">作者代码仓库</a>。论文写明代码公开。仓库说明不能代替正文里没有写出的样本划分和流量单位。</li>
+<li>数据由论文指明为 Kang 等人 2020 年的美国公开移动流量，以及 Rong 等人 2025 年通勤起讫流量基准中的地区属性。本文只讨论已经汇总到普查区的出发地—目的地矩阵。</li>
+</ul>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>五位作者的单位以论文署名为准。正文没有贡献声明，下面不替他们分配实验分工。</p>
+<ul>
+<li>Jie Zhao：署名为清华大学电子工程系、北京信息科学与技术国家研究中心（BNRist）。其个人主页自述为该系博士后，2024 年于重庆大学获计算机科学博士学位，工作涉及城市移动与轨迹表示。</li>
+<li>Xianqi Dai：署名为清华大学深圳国际研究生院。论文没有另附个人履历。</li>
+<li>Jie Feng：通讯作者，署名为中关村学院，邮箱 fengjie@bza.edu.cn。本文参考文献中有他与同组作者关于交通预测和城市时空模型的工作。</li>
+<li>Huandong Wang：署名为清华大学电子工程系、BNRist。论文没有另附个人履历。</li>
+<li>Yong Li：署名为清华大学电子工程系、BNRist，邮箱 liyong07@tsinghua.edu.cn。清华大学电子系 FIB-LAB 组会页面记录，Jie Zhao 于 2026 年 1 月 24 日报告了本文。</li>
+</ul>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
+<p>这套日历只有星期和假日。若要生成暴雨日或大型活动日的普查区流量，需要在同一套未见县划分上增加这类语境，并检查方向向量是否真的改档、ShapeNet 的形状是否跟着移动。只把活动名称写进提示词，而测试表仍是普通星期，不能说明模型已经听懂了活动。</p>
+<p>检索用的是嵌入空间里最相近的 5 个普查区。若相近只反映人口规模，而兴趣点构成差得很远，借来的星期形状可能把工作日的通勤骨架套到一个旅游区上。一个直接的检查是：在余弦相似度之外，再看这 5 个邻居的 34 类兴趣点是否也接近，以及加权之后的 CPC 变化有多少来自这一个约束。论文没有报告这个检查，它仍是待测的问题。</p>
+<p>CPC 0.492 相对 NetGAN 的 0.365 是清楚的重叠提升，相对完整重合仍有距离。若规划关心的是小流量普查区对，而 RMSE 的 11.7% 主要来自大流量格子，县一级的平均改进可以和某一条联络的误差同时存在。按流量大小分层之后再报 CPC 和 RMSE，才能判断这张矩阵适合看走廊，还是也适合看单个街区之间的联系。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">猴猴猴</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://xiaoyue-hou.github.io/posts/f1a2b3c4/">http://xiaoyue-hou.github.io/posts/f1a2b3c4/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">猴猴猴</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B/">
+                                    <span class="chip bg-color">生成模型</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%B5%B7%E8%AE%AB%E6%B5%81%E9%87%8F/">
+                                    <span class="chip bg-color">起讫流量</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%9F%8E%E5%B8%82%E7%A7%BB%E5%8A%A8/">
+                                    <span class="chip bg-color">城市移动</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%97%B6%E9%97%B4%E8%AF%AD%E4%B9%89/">
+                                    <span class="chip bg-color">时间语义</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/a7c8e9f0/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="2026-OpFlow: Learning Opportunity-Conditioned Choice Potentials for Robust OD Flow Prediction">
+                        
+                        <span class="card-title">2026-OpFlow: Learning Opportunity-Conditioned Choice Potentials for Robust OD Flow Prediction</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%80%9A%E5%8B%A4/">
+                        <span class="chip bg-color">通勤</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A9%BA%E9%97%B4%E4%BA%A4%E4%BA%92/">
+                        <span class="chip bg-color">空间交互</span>
+                    </a>
+                    
+                    <a href="/tags/OD%E6%B5%81%E9%87%8F/">
+                        <span class="chip bg-color">OD流量</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%A4%96%E6%B3%9B%E5%8C%96/">
+                        <span class="chip bg-color">分布外泛化</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/e0f1a2b3/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="2014-Human mobility in opportunistic networks: Characteristics, models and prediction methods">
+                        
+                        <span class="card-title">2014-Human mobility in opportunistic networks: Characteristics, models and prediction methods</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                        <span class="chip bg-color">人类移动性</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%BA%E4%BC%9A%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">机会网络</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A7%BB%E5%8A%A8%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">移动模型</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A7%BB%E5%8A%A8%E9%A2%84%E6%B5%8B/">
+                        <span class="chip bg-color">移动预测</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('-1'),
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2026</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">猴猴猴</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "4";
+                    var startDate = "26";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiaoyue-hou" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1396567029@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1396567029" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1396567029" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <script src="/js/reading-marks.js?v=7"></script>
+
+</body>
+
+</html>

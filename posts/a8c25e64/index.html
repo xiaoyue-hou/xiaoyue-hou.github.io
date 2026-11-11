@@ -1,0 +1,1267 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="2026-Detecting hidden ping-pong records in mobile phone location data by considering daily activity patterns, 猴猴猴">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>2026-Detecting hidden ping-pong records in mobile phone location data by considering daily activity patterns | 猴猴猴</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<style>
+    /* ----------------------------------------------------------- */
+    /* 1. 基础清理：隐藏不需要的文字 */
+    /* ----------------------------------------------------------- */
+    .card .card-content .summary, 
+    .caption, .img-caption, .fancybox-caption, 
+    .img-item .caption { 
+        display: none !important; 
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">猴猴猴</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">猴猴猴</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">2026-Detecting hidden ping-pong records in mobile phone location data by considering daily activity patterns</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                                <span class="chip bg-color">人类移动性</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%89%8B%E6%9C%BA%E4%BF%A1%E4%BB%A4/">
+                                <span class="chip bg-color">手机信令</span>
+                            </a>
+                        
+                            <a href="/tags/%E4%B9%92%E4%B9%93%E6%95%88%E5%BA%94/">
+                                <span class="chip bg-color">乒乓效应</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E8%B4%A8%E9%87%8F/">
+                                <span class="chip bg-color">数据质量</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper/" class="post-category">
+                                Paper
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-11-11
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+
+<h2 id="人没动，轨迹为什么还在两个基站之间来回弹？"><a href="#人没动，轨迹为什么还在两个基站之间来回弹？" class="headerlink" title="人没动，轨迹为什么还在两个基站之间来回弹？"></a>人没动，轨迹为什么还在两个基站之间来回弹？</h2><p>论文名片｜Zhiyuan Zhao（赵志远）、Qinyi Lin、Wenting Zhang、Zhixiang Fang（方志祥）、Xiping Yang（杨喜平）、Sheng Wu（吴升），<em>Detecting hidden ping-pong records in mobile phone location data by considering daily activity patterns</em>，Travel Behaviour and Society，2026，45：101350，2026年7月8日在线发表。<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.tbs.2026.101350">DOI：10.1016/j.tbs.2026.101350</a>。收稿日期 2025年6月28日，修回 2026年5月8日，接受 2026年6月30日。这是一篇方法论文：用日常活动里少见的重复往返和急转弯，去找手机定位里的乒乓记录。</p>
+<p>人可以站在原地。手机却可能在两座信号重叠的基站之间来回切换，轨迹上就像刚跑了一个来回。这种被基站切换制造出来的假移动，叫乒乓效应（ping-pong effect）。以往常用速度来抓它：相邻两点算出来的速度超过 200 km/h，就当异常。手机定位往往几十分钟才记一个点。两点相距 2 公里、间隔 30 分钟，速度只有 4 km/h，规则完全看不见。</p>
+<p>这篇论文换了一个不那么依赖时间间隔的办法。人很少在半小时里出门 6 次，也很少在一天里于两个地点之间走 12 趟；这两个次数是作者根据 2010 年深圳居民出行调查给出的参照，不是西宁样本里统计出来的。若轨迹在短时间里反复走同一对基站，或连续走出很大的折返角，就更像信号在弹，而不像一次日常出行。</p>
+<p>方向性结论：在西宁 2018 年 8 月 6 日这批手机定位里，速度规则只能标出大约 1% 的记录；把重复往返、急转弯和速度合在一起，大约标出 14% 的记录，并涉及大约 45% 的用户。这些多出来的记录会把日出行距离和移动熵抬高，回转半径稳得多。检出比例不是准确率。论文没有一份事先标好真假的对照集，真实的高频往返，例如快递员，也可能被同一条规则碰到。</p>
+<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
+<li>速度阈值已经放到 120 km/h，仍只标出大约 1% 的记录。多规则大约标出 14% 的记录、45% 的用户。分母分别是抽样子集里的定位记录和用户，不是有真值的乒乓记录。</li>
+<li>采样间隔拉到 5 分钟以上后，速度规则几乎不再检出；重复往返和急转弯在间隔超过 40 分钟时仍有检出，多规则最多。纵轴是条数，变稀以后点本身也变少。</li>
+<li>易发性白天高于夜间。多规则下，超过 500 米的跳跃大约占七成；速度规则超过九成，重复往返只有大约四分之一。</li>
+<li>在 1 万名用户的前后对比里，日出行距离相对变化落在 ±5% 以内的用户占 64.79%，移动熵占 83.47%，回转半径占 91.05%。距离的其余用户几乎都在负偏差一侧，对应处理前的距离更大。</li>
+<li>上海、西宁、深圳的柱高并不是正文所说的“用户比例相差不超过 3 个百分点、记录比例不超过 5 个百分点”。深圳各柱都贴近横轴。</li>
+</ul>
+<h2 id="半小时才记一个点，速度规则还看得到来回弹吗？"><a href="#半小时才记一个点，速度规则还看得到来回弹吗？" class="headerlink" title="半小时才记一个点，速度规则还看得到来回弹吗？"></a>半小时才记一个点，速度规则还看得到来回弹吗？</h2><p>手机定位被用来估计活动范围、下一次会去哪、以及城市里的起讫流量。乒乓记录把一次停留拆成许多短段，出行次数和短距离比例都会被抬高。基站侧已经用信号强度和滞后阈值减少不必要的切换，天线朝向、小区负荷和高楼阴影仍会让手机快速换塔。</p>
+<p>速度规则因而成为常见清洗手段。它要求相邻记录算出的速度超过一个上限。文献里这个上限常取 200 km/h。间隔一长，同样的空间跳动除以更长的时间，速度就掉到阈值下面。重复出现在同一对基站之间、以及连续走出很尖的折返，这两件事不需要用那么密的时间戳才能看见。</p>
+<p><img src="/posts/a8c25e64/fig1.webp" alt="从原始手机定位到检测、易发性和移动指标的流程"></p>
+<p>图 1｜整篇检验分成哪几步？</p>
+<p>原始话单和信令先清洗成 D0。加密子集 D_resample 用来看采样间隔的影响；D1、D2、D3 是从原始数据随机抽出的测试集，正文记作 DT1、DT2、DT3。随后依次做乒乓检测、时空易发性，以及三个移动指标的前后对比。这张图是流程示意，没有数据结果。来源：原论文 Fig. 1。</p>
+<h2 id="怎样才把一条记录判成乒乓？"><a href="#怎样才把一条记录判成乒乓？" class="headerlink" title="怎样才把一条记录判成乒乓？"></a>怎样才把一条记录判成乒乓？</h2><p>单看一个点，无法知道它是停留还是弹跳。论文先标乒乓移动（ping-pong move），也就是相邻两点之间那段被规则看成异常的位移；再决定中间那条记录算不算乒乓记录（ping-pong record）。</p>
+<p><img src="/posts/a8c25e64/fig2.webp" alt="一条记录前后都是乒乓移动才标成乒乓记录"></p>
+<p>图 2｜为什么不能看见一次跳动就把点删掉？</p>
+<p>（a）记录 B 前后两段都是乒乓移动，B 标成乒乓记录；A 和 C 只挨着一段，仍算正常记录。（b）轨迹只是路过一段乒乓移动，A、B、C、D 都保持正常。（c）只有一段乒乓移动时，A 和 B 仍算正常。灰线是正常路径，橙线是乒乓移动，白点是正常记录，黄点是乒乓记录。来源：原论文 Fig. 2。</p>
+<p>三条规则可以单独用，也可以取并集。</p>
+<p>速度规则：相邻记录的速度超过 120 km/h，这段位移算乒乓移动。作者提到城市道路限速多在 80 km/h 以下，因而没有沿用文献里的 200 km/h。阈值放低，本应标出更多段；后面会看到，标出的记录仍然很少。</p>
+<p>重复移动（repeat move pattern，RMP）：把基站对看成无方向的，从甲到乙和从乙到甲算同一次往返。以某条记录的时间为中心开一个时间窗，窗内这对基站的移动次数超过阈值，窗里对应的移动都算乒乓移动。</p>
+<p><img src="/posts/a8c25e64/fig3.webp" alt="重复移动规则示意"></p>
+<p>图 3｜短时间里同一对基站来回太多次，怎样被标出来？</p>
+<p>左图是原始轨迹，右图把时间窗里超过次数的移动标成乒乓。示意里的时间窗是 0.5 小时，阈值是 4 次，例子里实际数到 5 次。这是讲规则的例子，不是后文实验使用的 1 小时、8 小时和 24 小时阈值。来源：原论文 Fig. 3。</p>
+<p>急转弯（frequent sharp turn pattern，FSTP）：连续三个点构成一个转角，角度取 0 到 π。角度大于 150° 算一次急转弯。时间窗内急转弯次数超过阈值，这些转角对应的移动算乒乓移动。作者的理由是，日常出行很少连续走这种绕远的尖角。</p>
+<p><img src="/posts/a8c25e64/fig4.webp" alt="正常转角与急转弯的几何定义"></p>
+<p>图 4｜多大的折返才算急转弯？</p>
+<p>连续三点的夹角小于等于 150° 时，图中画成正常转弯；大于 150° 时画成急转弯。实验统一用 150°。来源：原论文 Fig. 4。</p>
+<p><img src="/posts/a8c25e64/fig5.webp" alt="频繁急转弯规则示意"></p>
+<p>图 5｜急转弯要密到什么程度才整段标出？</p>
+<p>示意同样用 0.5 小时的窗，阈值是 3 次急转弯，例子里数到 4 次，于是窗内对应移动被标出。正式实验不用这组 0.5 小时参数。来源：原论文 Fig. 5。</p>
+<p>多规则（MULTI）是并集：速度、若干个时间窗下的重复移动、若干个时间窗下的急转弯，满足任何一条，这段移动就算乒乓移动。实验实际使用的三档是：</p>
+<ul>
+<li>Th1：1 小时窗，次数超过 4。</li>
+<li>Th2：8 小时窗，次数超过 6。</li>
+<li>Th3：24 小时窗，次数超过 12。</li>
+</ul>
+<p>正文主体用 Th2。1 小时里超过 4 次，针对的是短促连跳；24 小时里超过 12 次，针对的是全天都在同一对基站之间折返。西宁居民日均出行大约 2.65 到 3.15 次，作者还引用既有结果说一个人一天通常走 2 到 6 次、一般少于 6 次。8 小时内同一对地点超过 6 次，已经高于他们给出的日常水平。这个对照来自出行调查和既有文献，不是从这批手机记录里估计出来的真实出行次数。</p>
+<p><img src="/posts/a8c25e64/fig6.webp" alt="删除乒乓记录与替换成最近邻点的差别"></p>
+<p>图 6｜检出之后，为什么不直接删点？</p>
+<p>（a）原始轨迹里，B 和 D 是夹在异常移动之间的乒乓记录。（b）直接删掉 B 和 D，时间轴上会少掉这些时刻。（c）保留时刻，把 B、D 的位置改成时间上最近的邻点，轨迹改走处理后的路径。后文的指标对比用的是这种替换，不是删除。来源：原论文 Fig. 6。</p>
+<h2 id="西宁这一天的记录有多密？"><a href="#西宁这一天的记录有多密？" class="headerlink" title="西宁这一天的记录有多密？"></a>西宁这一天的记录有多密？</h2><p>数据来自一家运营商，日期是 2018 年 8 月 6 日，星期一。内容是通话详单和手机信令的混合，字段为匿名用户号、时间和基站经纬度。去掉重复、异常和缺字段之后，数据集 DT0 有 4269 万条定位、近 39 万名用户，人均 109 条。基站大约 2600 座，与最近邻基站的平均距离是 192 米。</p>
+<p><img src="/posts/a8c25e64/fig8.webp" alt="用户采样间隔的累计分布和西宁基站密度"></p>
+<p>图 8｜这批记录的时间间隔和基站分布各是什么样子？</p>
+<p>（a）横轴是采样间隔，纵轴是累计百分比。蓝线是用户平均采样间隔，橙线是采样间隔的标准差。图中标出均值 37.64 分钟、中位数 13.86 分钟、标准差 81.91 分钟。平均间隔曲线从左到右标出的五个点是 71.82%、83.57%、88.81%、92.17%、94.39%，标准差曲线是 48.70%、68.27%、79.21%、86.28%、90.24%。最左边的 71.82% 与正文一致：超过 70% 的用户，平均采样间隔小于 30 分钟。正文另写平均采样间隔小于 15 分钟，这个说法贴近中位数 13.86 分钟，不是图中的均值 37.64 分钟。分布右偏，少数很长的间隔把均值拉高。（b）西宁基站密度，颜色从少到多；中心城区更密，四周更稀。比例尺为 4 公里。来源：原论文 Fig. 8。</p>
+<p>为了看规则在不同疏密下的表现，作者先从原始数据里抽出一份更密的子集 DTresample，条件是：单用户跨度超过 16 小时，记录数超过 96 条，相邻记录的最大间隔小于 1 小时。得到约 377 万条记录、11,097 名用户。11,097 人约占近 39 万用户的 2.8%；377 万除以 11,097，大约是每人 340 条，密于全体用户的人均 109 条。这个子集里，90% 用户的采样间隔小于 10 分钟。</p>
+<p><img src="/posts/a8c25e64/fig9.webp" alt="按时间窗随机抽一个点来重采样"></p>
+<p>图 9｜更稀的轨迹是怎样造出来的？</p>
+<p>在原始密轨迹上按固定窗宽切开，每个窗随机留一个点，拼成新轨迹。窗宽从 5 分钟加到 60 分钟，步长 5 分钟。这是抽样实验，不是运营商又采集了一遍。来源：原论文 Fig. 9。</p>
+<h2 id="多标出来的，是全部记录的百分之几？"><a href="#多标出来的，是全部记录的百分之几？" class="headerlink" title="多标出来的，是全部记录的百分之几？"></a>多标出来的，是全部记录的百分之几？</h2><p>比较对象是速度规则。从 DT0 随机抽三个子集：DT1 为 1 万名用户、952,913 条记录；DT2 为 5,000 名用户、481,178 条记录；DT3 为 1,000 名用户、90,519 条记录。这里没有人工标好的真乒乓，柱高是被规则标中的比例。标得更多，只说明规则更松或更敏感，不能直接换成准确率。</p>
+<p><img src="/posts/a8c25e64/fig10.webp" alt="四种规则在三个样本量下标出的记录比例和用户比例"></p>
+<p>图 10｜速度规则漏掉的那些记录，多规则能多标出多少？</p>
+<p>（a）纵轴是被标成乒乓的记录占该子集全部记录的百分比。速度规则大约 1%。重复移动、急转弯、多规则依次升高，多规则大约 14%。1 万、5,000 和 1,000 名用户三组柱高接近。（b）纵轴是至少有一条乒乓记录的用户占比。多规则大约 45%，速度规则只有很小一截。正文说这是相对速度规则十倍以上的检出能力；14% 对 1%，倍数确实超过十倍，但分母是全部记录，不是已知的真乒乓记录。来源：原论文 Fig. 10。</p>
+<p>附录换了阈值，样本量仍是这三档。Th1 把短窗放宽到 1 小时超过 4 次，Th3 要求 24 小时超过 12 次。</p>
+<p><img src="/posts/a8c25e64/figA1.webp" alt="Th1 和 Th3 下的记录比例与用户比例"></p>
+<p>图 A1｜换成 1 小时或 24 小时的次数阈值，排序还在吗？</p>
+<p>（A、C）记录占比，纵轴 0 到 14%。（B、D）用户占比。（A、B）是 Th1，（C、D）是 Th3。两种阈值下都是速度规则最低、多规则最高，三种样本量接近。Th3 的重复移动明显矮于 Th1：全天要累计超过 12 次才触发，短促连跳不一定够得到。来源：原论文 Fig. A1。</p>
+<h2 id="换到上海和深圳，三座城市真的差不多吗？"><a href="#换到上海和深圳，三座城市真的差不多吗？" class="headerlink" title="换到上海和深圳，三座城市真的差不多吗？"></a>换到上海和深圳，三座城市真的差不多吗？</h2><p>西宁之外，作者又拿了上海和深圳。深圳采样间隔大约 1 小时，上海大约 24 分钟。基站最近邻平均距离，上海 0.21 公里，深圳 0.19 公里，西宁是 192 米。论文没有给出这两座城市的用户数和记录数。</p>
+<p>正文写：三座城市检出的乒乓记录比例波动不超过 5 个百分点，有乒乓记录的用户比例波动不超过 3 个百分点，因此方法稳定、可推广。图 11 的柱高不是这个图案。</p>
+<p><img src="/posts/a8c25e64/fig11.webp" alt="上海、西宁、深圳三种规则的用户比例和记录比例"></p>
+<p>图 11｜三座城市的检出比例差了多少？</p>
+<p>图中没有逐柱标数字，下面是按柱顶相对刻度读出的近似值。（A）纵轴是有乒乓记录的用户占比，刻度到 100%。速度规则大约是上海 63%、西宁 49%，深圳的柱贴着横轴；重复移动大约是 68%、61%、7%；急转弯大约是 83%、76%、8%。（B）纵轴是乒乓记录占比，刻度只到 30%。速度规则大约是上海 5%、西宁 1%、深圳接近 0；重复移动大约是 22%、13%、2%；急转弯大约是 27%、15%、2%。深圳重复移动的误差线可以伸到大约 5%。上海和西宁远高于深圳，差距是几十个百分点，不是正文说的 3 个或 5 个百分点。同一座西宁，图 10 的多规则大约影响 45% 的用户，图 11 的急转弯已经大约 76%。正文没有说明两张图是否用了同一阈值、同一批用户。来源：原论文 Fig. 11。</p>
+<p>深圳大约 1 小时才一个点，120 km/h 的速度规则很难触发，这能解释（B）里深圳速度柱接近 0。它解释不了为什么深圳的重复移动和急转弯也贴在横轴上，更解释不了正文中的“3 个百分点”和“5 个百分点”。</p>
+<h2 id="记录变稀以后，谁还检得出来？"><a href="#记录变稀以后，谁还检得出来？" class="headerlink" title="记录变稀以后，谁还检得出来？"></a>记录变稀以后，谁还检得出来？</h2><p>把密子集按 5 到 60 分钟重采样之后，检出条数随间隔变长而下降。纵轴单位是 10^4 条，也就是万条。间隔变长时，每个窗只留一个点，轨迹上的点本来就变少，所以条数下降不全是规则失灵。</p>
+<p><img src="/posts/a8c25e64/fig13.webp" alt="重复移动和急转弯在不同阈值、不同采样间隔下的检出条数"></p>
+<p>图 13｜1 小时规则为什么先失效？</p>
+<p>（a）重复移动。（b）急转弯。横轴是采样间隔，纵轴是检出条数，单位万条。Th1 在间隔大于 15 分钟后贴近 0。Th2 与多规则接近，并且高于 Th3 和 Th1。急转弯图里 Th1 下降更快，大约 15 分钟以后就不再有可观的条数。来源：原论文 Fig. 13。</p>
+<p><img src="/posts/a8c25e64/fig14.webp" alt="速度、重复移动、急转弯和多规则随采样间隔变化的检出条数"></p>
+<p>图 14｜速度规则在 5 分钟以后还剩什么？</p>
+<p>四条线都用 Th2，多规则是各规则的并集。速度曲线贴着 0；图上在最密处标了 37，即这一档只检出 37 条。另外三条在 5 分钟附近达到数万到十余万条，随后下降。插图把 40 到 60 分钟放大：速度仍是 0，多规则高于急转弯，急转弯高于重复移动，60 分钟时多规则仍有大约一两千条的量级。正文据此说，间隔大于 5 分钟后速度规则不再检出，而另外三种在超过 40 分钟时仍然有效。来源：原论文 Fig. 14。</p>
+<h2 id="这些记录偏爱白天，也偏爱市中心吗？"><a href="#这些记录偏爱白天，也偏爱市中心吗？" class="headerlink" title="这些记录偏爱白天，也偏爱市中心吗？"></a>这些记录偏爱白天，也偏爱市中心吗？</h2><p>时空分析用的是 DT1 和 Th2。易发性比较的是“乒乓记录在各时段或各区域的份额”与“全部记录的份额”。时间指数写成：</p>
+<p>Rt =（该小时乒乓记录数 / 全部乒乓记录数）÷（该小时全部记录数 / 全部记录数）− 1</p>
+<p>Rt 大于 0，表示这个小时在乒乓记录里的占比，高于它在全部记录里的占比。它不是该小时的乒乓发生率，也不能当成因果上的“这个小时制造了乒乓”。</p>
+<p><img src="/posts/a8c25e64/fig15.webp" alt="多规则下 24 小时乒乓易发性"></p>
+<p>图 15｜一天里哪些小时更容易出现乒乓记录？</p>
+<p>横轴是 0 到 23 时，纵轴是 Rt，大约从 −0.5 到 0.5。0 时最低，夜间到清晨多为负；9 时到 12 时转正，13 时接近 0，15 时前后再次升高，21 时以后又转为负。这与正文一致：9 时到 20 时较高，21 时到次日 6 时以及清晨较低，正午低于相邻的早晚高峰。作者给出两种可能：白天出行和换塔更多；午间和深夜手机姿态更稳、连接的基站更少换。两种都是解释，不是这张图单独能证明的机制。来源：原论文 Fig. 15。</p>
+<p>另外三种规则的 24 小时图放在附录。重复移动和急转弯仍是夜间为负、白天为正。速度规则不是同一形状，傍晚有一截正值，并不简单重复“日出而作”的曲线。所以“乒乓偏爱白天”主要是重复移动、急转弯和多规则的结果，不是速度规则的结果。</p>
+<p><img src="/posts/a8c25e64/figB1.webp" alt="速度、重复移动和急转弯各自的 24 小时易发性"></p>
+<p>图 B1｜白天更高，是不是每种规则都如此？</p>
+<p>（A）速度规则，夜间为负，但 6 时附近和 17 时到 22 时为正，形状不同于图 15。（B）重复移动，夜间为负，午后为正。（C）急转弯，同样是夜间为负、白天为正，22 时和 23 时又降到 0 以下。纵轴都是 Rt。来源：原论文 Fig. B1。</p>
+<p>跳跃距离是乒乓记录前后两段位移的平均长度，用基站之间的直线距离，不是沿路里程。</p>
+<p><img src="/posts/a8c25e64/fig7.webp" alt="乒乓记录跳跃距离取前后两段的平均"></p>
+<p>图 7｜一个乒乓点的跳跃距离怎么量？</p>
+<p>记录 B 的跳跃距离是段 1 和段 2 的平均长度。黄点是被标出的异常记录，橙线是异常移动。来源：原论文 Fig. 7。</p>
+<p><img src="/posts/a8c25e64/fig16.webp" alt="四种规则检出跳跃的距离累计分布"></p>
+<p>图 16｜被标出的跳动，有多少超过了 500 米？</p>
+<p>横轴是跳跃距离，单位公里，虚线在 0.5 公里。纵轴是小于该距离的累计比例。正文给出的读数与曲线一致：速度规则超过 500 米的跳跃多于 90%，所以它的累计曲线在 0.5 公里处只有大约一成；重复移动超过 500 米的大约 25%，累计曲线在虚线处大约七成五；急转弯和多规则超过 500 米的大约 70%，累计曲线在虚线处大约三成。速度曲线到 5 公里仍只有大约四成，意味着大约六成速度规则跳跃长于 5 公里。作者提醒，停留识别若把 500 米以内的点聚成一次停留，超过 500 米的乒乓就会把停留拆开。来源：原论文 Fig. 16。</p>
+<p>空间易发性用同样的份额比，分析单元可以是行政区或交通小区。图 17 画的是多规则、Rs 大于 0.05 和小于 0.05 的基站。正文把分界写成小于等于 0.05，图例写成小于 0.05。</p>
+<p><img src="/posts/a8c25e64/fig17.webp" alt="西宁四城区高易发和低易发基站分布"></p>
+<p>图 17｜城西是不是比其他城区更容易弹？</p>
+<p>（a）橙点为 Rs 大于 0.05。图上四个城区的标注是城西 56.05%、城北 53.29%、城中 50.00%、城东 44.61%。（b）蓝点为 Rs 小于 0.05，标注是城东 48.71%、城北 42.86%、城中 42.39%、城西 37.51%。两组百分数加起来不是 100%，图也没有写明分母是基站数还是记录数，不能读成同一批基站的互补比例。城西在高易发图上最高、在低易发图上最低，和正文“四个城区大体均衡、城西略高”相符。点的疏密同时显示，中心比外围更密。作者把它归因于中心基站更密、覆盖重叠更大，并认为这种重叠使重复移动和急转弯更难检。后半句是解释。来源：原论文 Fig. 17。</p>
+<h2 id="清掉以后，距离、熵和活动范围各变多少？"><a href="#清掉以后，距离、熵和活动范围各变多少？" class="headerlink" title="清掉以后，距离、熵和活动范围各变多少？"></a>清掉以后，距离、熵和活动范围各变多少？</h2><p>仍用前面的检测设置，比较处理前和处理后。三个指标都在个人、这一天的尺度上计算。</p>
+<p>日出行距离是相邻点直线距离之和。移动熵是 −Σ p_n log2(p_n)，p_n 是该用户落在地点 n 的记录占比，地点越分散，熵越大。回转半径是各点到全部点重心的直线距离的均方根，表示活动范围摊开的程度。替换乒乓点的位置以后，时间点还在，只是坐标变了。</p>
+<p>偏差定义成（处理后 − 处理前）/ 处理前。按这个式子，偏差为负表示处理后变小，也就是处理前偏大。正文有一处把偏差大于 0 说成“乒乓造成高估”，符号和公式相反。图的坐标能把方向核对清楚。</p>
+<p><img src="/posts/a8c25e64/fig18.webp" alt="处理前后日出行距离、移动熵和回转半径的散点"></p>
+<p>图 18｜处理前的指标，是更大还是更小？</p>
+<p>横轴都是处理后，纵轴都是处理前。点在对角线上方，表示处理前更大。（a）日出行距离，多数点在对角线上方，原始距离被算高了；坐标没有写单位。（b）移动熵，点更贴着对角线。熵较小的一侧，上方的点更明显；正文说熵超过 1 以后，偏高和偏低的差别不大。（c）回转半径，点最贴对角线，两侧都有，整体比距离稳。正文另有一句写“落在对角线下方代表高估”。按图上的坐标，高估对应的是上方。来源：原论文 Fig. 18。</p>
+<p><img src="/posts/a8c25e64/fig19.webp" alt="三个指标相对偏差的用户分布"></p>
+<p>图 19｜有多少用户的指标几乎没变？</p>
+<p>横轴是相对偏差，纵轴是用户占比。落在 −0.05 到 0.05、也就是相对变化不超过 5% 的用户，回转半径占 91.05%，移动熵占 83.47%，日出行距离占 64.79%。分母是做了前后比较的用户；正文没有说明处理前指标为 0 时怎样处理。距离剩下的大约 35 个百分点几乎都在负偏差一侧，其中小于 −0.25 和 −0.25 到 −0.05 各有大约不到两成的用户。熵在 −0.25 到 −0.05 还有一小截，正偏差一侧很低。回转半径在中段以外只剩不到一成，左右都有一点。负偏差按公式意味着处理前更大。摘要说日出行距离和移动熵被明显高估、回转半径影响有限，和这两张图一致。正文另一处写三个指标“更可能被低估”，与图 18、图 19 和摘要不一致。来源：原论文 Fig. 19。</p>
+<p>一个用户的例子用来看规则实际碰到了什么。</p>
+<p><img src="/posts/a8c25e64/fig12.webp" alt="一名用户处理前后的时空轨迹"></p>
+<p>图 12｜替换位置以后，一个人的一天变成什么样？</p>
+<p>（a）原始轨迹，横轴是经纬度，竖轴是时刻。（b）红点是多规则、Th2 标出的乒乓记录，集中在午前和午后的来回上。（c）把这些点的位置换成时间上最近的邻点之后，短促折返减少。作者同时写明，16 时到 18 时的跳跃没有满足规则，所以没有被标成乒乓。这是一名用户的示意，不能当成 1 万名用户的平均路径。来源：原论文 Fig. 12。</p>
+<h2 id="规则也会漏，而且算得慢"><a href="#规则也会漏，而且算得慢" class="headerlink" title="规则也会漏，而且算得慢"></a>规则也会漏，而且算得慢</h2><p>速度规则最快，另外三条慢两个数量级。测试从原始数据随机抽 2,000 名用户、194,459 条记录，平均采样间隔大约 28 分钟，每种方法跑 30 次。机器是 Intel i7-8700 3.20 GHz、8 GB 内存、Windows 10、Python 3.6。表 2 没有标明时间单位。若把表中的均值当成同一种单位，速度规则 1.856，重复移动 206.429，急转弯 256.236，多规则 451.652。后两者相对速度规则大约是 111 倍和 138 倍，多规则大约是急转弯的 1.8 倍。正文写重复移动和急转弯接近速度规则的 200 倍、多规则大约再翻一倍。200 倍和表内均值对不上；“再翻一倍”和 1.8 倍接近。</p>
+<p>漏检也有固定形状。转角都小于 150°，而且每次跳动的间隔又大于时间窗时，轨迹仍可能在几座基站之间绕圈，规则却不会标。</p>
+<p><img src="/posts/a8c25e64/fig20.webp" alt="转角不够大且间隔超过时间窗时的漏检示意"></p>
+<p>图 20｜什么样的异常轨迹会整段漏过？</p>
+<p>A、B、C、D 四座基站围着手机，转角 α、β、γ、δ 都不够大，时间间隔又超过窗口。作者指出立交和环岛一类复杂道路更容易出现这种情况。这是示意，不是西宁实测的漏检比例。来源：原论文 Fig. 20。</p>
+<p>因此，这套规则的边界可以收成几句。它没有真值，检出比例不能当成精度或召回率。阈值按西宁的出行次数经验设定，换城市应重设；固定阈值会碰到快递员这类真实的高频往返。只分析了一个工作日、一家运营商，上海和深圳的图也不支持“三城只差几个百分点”。算法在文中的实现偏慢，转角小而间隔大的绕行会漏掉。相关的下游说法，例如疾病传播会因为熵被高估而失真、拥堵收费会因为距离被高估而失准，是作者的应用推断，不是这篇论文做了流行病模型或收费评估。</p>
+<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>人站着不动时，粗采样的手机定位仍会在重叠基站之间来回弹；用重复往返和急转弯能把速度规则看不见的记录找出来，它们主要抬高这一天的出行距离和移动熵，很少改变回转半径，但更高的检出比例还不是一份有真值的准确率。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p>Zhao, Z., Lin, Q., Zhang, W., Fang, Z., Yang, X., &amp; Wu, S. (2026). Detecting hidden ping-pong records in mobile phone location data by considering daily activity patterns. <em>Travel Behaviour and Society</em>, 45, 101350. <a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.tbs.2026.101350">https://doi.org/10.1016/j.tbs.2026.101350</a></p>
+<p>赵志远，署名单位是福州大学数字中国研究院（福建），以及地理空间信息技术国家地方联合工程研究中心。论文中的贡献是写作、调查和获取资助。本文参考文献里他的前期工作讨论通话详单偏差、停留识别和时间采样间隔。中文姓名见于其访学单位公开成员名单，与福州大学的去向一致。</p>
+<p>Qinyi Lin，署名单位是福州大学数字中国研究院（福建），贡献是审阅和调查。论文没有给出可与机构页面核对的中文姓名，这里保留署名原文。</p>
+<p>Wenting Zhang，同一研究院，贡献是起草、方法、调查和数据整理，是方法与数据部分的主要执笔者。中文姓名同样未在可核对的机构页面上确认。</p>
+<p>方志祥，署名单位是武汉大学测绘遥感信息工程国家重点实验室，贡献是审阅。杨喜平在陕西师范大学的论文列表中，与他、赵志远有多篇手机定位与人群聚散的合作论文。</p>
+<p>杨喜平，通讯作者，署名单位是陕西师范大学地理科学与旅游学院。学校主页列出其学科为地图学与地理信息系统，研究方向包括时空轨迹大数据、交通 GIS，以及城市居民和游客的时空行为。</p>
+<p>吴升，署名单位是福州大学数字中国研究院（福建）和空间数据挖掘与信息共享教育部重点实验室，贡献是审阅。该实验室公开名单中有同名研究人员，方向包括网络地理信息共享服务。</p>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
+<p>停留识别若先按 500 米把点聚成一次停留，重复移动规则找到的跳动大约有四分之三短于这个距离，很可能会被聚进同一次停留；多规则和速度规则找到的跳动则大多长于 500 米，聚类消不掉。清洗和聚类谁先谁后，会决定短跳和长跳哪一种还留在出行距离里。只报告“已经做了停留识别”而不写顺序，距离偏差的来源就说不清。</p>
+<p>8 小时内同一对基站超过 6 次就整段替换，也会碰到真实的快递员和网约车司机。他们的轨迹被换成邻近点之后，城市尺度的就业空间、夜间配送和低收人通勤都会少一截。若后续研究关心的是这几类人，阈值应把沿路前进的往返和原地弹跳分开，而不是全城共用一个次数。</p>
+<p>图 11 已经表明，大约 1 小时一个点的深圳和大约 24 分钟一个点的上海，不能共用西宁的检出比例。把西宁这一天的 14% 和 45% 写成手机数据的普遍噪声水平，会高估小时级数据里的乒乓，也会低估密采样城市里的短跳。换城市之前，至少要重新看采样间隔和基站间距，而不是只改一个速度阈值。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">猴猴猴</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://xiaoyue-hou.github.io/posts/a8c25e64/">http://xiaoyue-hou.github.io/posts/a8c25e64/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">猴猴猴</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                                    <span class="chip bg-color">人类移动性</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%89%8B%E6%9C%BA%E4%BF%A1%E4%BB%A4/">
+                                    <span class="chip bg-color">手机信令</span>
+                                </a>
+                            
+                                <a href="/tags/%E4%B9%92%E4%B9%93%E6%95%88%E5%BA%94/">
+                                    <span class="chip bg-color">乒乓效应</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E8%B4%A8%E9%87%8F/">
+                                    <span class="chip bg-color">数据质量</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/b2d17f90/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="2026-Block-fitness modeling of the global air mobility network">
+                        
+                        <span class="card-title">2026-Block-fitness modeling of the global air mobility network</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%88%AA%E7%A9%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">航空网络</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%B5%B7%E8%AE%AB%E6%B5%81/">
+                        <span class="chip bg-color">起讫流</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%91%E7%BB%9C%E9%87%8D%E6%9E%84/">
+                        <span class="chip bg-color">网络重构</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%80%E5%A4%A7%E7%86%B5/">
+                        <span class="chip bg-color">最大熵</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B5%81%E8%A1%8C%E7%97%85%E6%A8%A1%E6%8B%9F/">
+                        <span class="chip bg-color">流行病模拟</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/f7b39d28/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="2026-A prompt tuning approach based on pre-trained cross-city graph neural networks for zero-shot flow generation">
+                        
+                        <span class="card-title">2026-A prompt tuning approach based on pre-trained cross-city graph neural networks for zero-shot flow generation</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                        <span class="chip bg-color">人类移动性</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">图神经网络</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%9B%B6%E6%A0%B7%E6%9C%AC/">
+                        <span class="chip bg-color">零样本</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BA%BA%E6%B5%81%E7%94%9F%E6%88%90/">
+                        <span class="chip bg-color">人流生成</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('-1'),
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2026</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">猴猴猴</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "4";
+                    var startDate = "26";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiaoyue-hou" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1396567029@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1396567029" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1396567029" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <script src="/js/reading-marks.js?v=7"></script>
+
+</body>
+
+</html>

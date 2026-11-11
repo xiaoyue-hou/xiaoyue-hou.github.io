@@ -1,0 +1,1490 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="2014-Exploiting Heterogeneous Human Mobility Patterns for Intelligent Bus Routing, 猴猴猴">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>2014-Exploiting Heterogeneous Human Mobility Patterns for Intelligent Bus Routing | 猴猴猴</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<style>
+    /* ----------------------------------------------------------- */
+    /* 1. 基础清理：隐藏不需要的文字 */
+    /* ----------------------------------------------------------- */
+    .card .card-content .summary, 
+    .caption, .img-caption, .fancybox-caption, 
+    .img-item .caption { 
+        display: none !important; 
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">猴猴猴</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">猴猴猴</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">2014-Exploiting Heterogeneous Human Mobility Patterns for Intelligent Bus Routing</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                                <span class="chip bg-color">人类移动性</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8C%97%E4%BA%AC/">
+                                <span class="chip bg-color">北京</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%85%AC%E4%BA%A4%E7%BA%BF%E8%B7%AF/">
+                                <span class="chip bg-color">公交线路</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%87%BA%E8%A1%8C%E6%96%B9%E5%BC%8F/">
+                                <span class="chip bg-color">出行方式</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper/" class="post-category">
+                                Paper
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-11-11
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+
+<h2 id="出租车抄了近路，公交要不要改道把人接回来？"><a href="#出租车抄了近路，公交要不要改道把人接回来？" class="headerlink" title="出租车抄了近路，公交要不要改道把人接回来？"></a>出租车抄了近路，公交要不要改道把人接回来？</h2><p>论文名片｜Yanchi Liu、Chuanren Liu、Nicholas Jing Yuan、Lian Duan、Yanjie Fu、Hui Xiong、Songhua Xu、Junjie Wu，<em>Exploiting Heterogeneous Human Mobility Patterns for Intelligent Bus Routing</em>，2014 IEEE International Conference on Data Mining，2014：360–369。<a target="_blank" rel="noopener" href="https://doi.org/10.1109/ICDM.2014.138">DOI：10.1109/ICDM.2014.138</a>。版本为这次会议论文，含图1–14与表I–V。</p>
+<p>一个人站在家门口，去同一栋楼可以坐绕路、多站的公交，也可以坐少停几站的公交，还可以花更多钱坐出租车直达。图1把这三句话画在同一张示意图上：1美元符号、1.5小时、5站；1美元符号、1小时、3站，并打了勾；20美元符号、30分钟、中途不停。这是帮助理解的图画，上面的价钱和分钟数不是北京某条线路的账单。</p>
+<p>真正要分清的是另一件事。2012年北京已经有公交刷卡和出租车载客轨迹。有些区域之间，出租车走得比较顺，公交却绕路、多停，甚至没有直达。论文把出租车走过的路当作公交线路的参照上限，估计如果公交更接近这条路，群体里选择公交的比例会升多少，再在预算里挑选要改的起讫点对（origin–destination pair，OD pair，从一个站点区域到另一个站点区域）。下面的乘客增量是方式选择模型算出来的期望，总行程保持为观察到的公交加出租，不是改线落地后重新清点的人数。</p>
+<p><img src="/posts/e4f5a6b7/fig1.webp" alt="完整原论文图1"></p>
+<p>图 1｜同样的起终点，绕路公交、少停公交和直达出租车怎么被画成一个选择？</p>
+<p>无字母子图。左侧是住宅和正在犹豫的人，右侧是楼。上方黑线绕得更远，标注为1美元符号、1.5小时、5站；中间绿色虚线标注为1美元符号、1小时、3站，并有勾；下方直线标注为20美元符号、30分钟、中途不停。美元符号和分钟数属于这张示意图。来源：原论文 Fig. 1。</p>
+<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
+<li>表3的原始规模是29,964辆出租车、1,900万次载客行程，以及1,000万次公交行程、701,250个持卡人。进入模型前，论文把公交与出租的行程比抽样调到约3.5:1。按这个比换算，抽样行程里公交约占77.8%，即3.5除以4.5。图5至图8的纵轴是各起讫点对内部的公交占比，分母是该对的公交加出租，不能读成全北京出行的八成坐公交。</li>
+<li>全部起讫点对上，分时段做10折交叉验证再对7个时段取平均，时空功能加权逻辑回归的AUC是0.82，不加时段的逻辑回归是0.67。七个时段单独的AUC为0.81、0.84、0.81、0.82、0.80、0.83、0.81，算术平均0.817，与0.82在两位小数上一致。正类是一次出行还是一个起讫点对，正文没有写明，所以AUC没有可报告的样本分母。</li>
+<li>用出租车路线替换现有公交后，论文写全体起讫点对的公交概率平均提高5%。图12的概率差曲线在大部分位置靠近0.05，纵轴刻度到0.10。图中没有同时画出提高前的概率，因此这5%对应的是概率差，不能再换成相对历史概率的增幅。客流增量集中在横轴右端的少数点对。</li>
+<li>前100个缺陷起讫点对上，最大乘客的逻辑回归给出平均预测增量731.2，最短距离法是445.6，最短时间法是467.2。表中各列是每个起讫点对的平均值，731.2相对445.6高出285.6，约是445.6的1.64倍。历史公交乘客数本身没有单列，总行程量也保持不变。</li>
+<li>小红门到前门、沙子口到前门被合成一条线。论文写这条线与北京公交集团2013年3月新开的93路有相同子路径，没有给出93路的客流。</li>
+</ul>
+<h2 id="两套记录，先落到同一批站点区域"><a href="#两套记录，先落到同一批站点区域" class="headerlink" title="两套记录，先落到同一批站点区域"></a>两套记录，先落到同一批站点区域</h2><p>这里的人类移动性（human mobility）是人在城市里的日常移动，具体只包括公交刷卡和出租车载客，不包括搬家，也不包括地铁和私家车。公交记录来自北京市政交通一卡通，字段有卡号、线路号、上车站、下车站、时间和票价。出租车只用载客轨迹，从上车点到下车点；空驶没有进入行程。</p>
+<p>表3给出的口径是2012年8月至11月。出租车有29,964辆、有效114天，其中工作日77天、周末37天，载客GPS点3.33亿个，载客行程1,900万次，总里程1.56亿公里。公交刷卡有7,810个站点、701,250个持卡人、1,000万次行程。引言里的评估句另写了2012年8月至10月，并把车辆数写成约3万辆。114天更接近8月至11月这四个自然月，两处月份在论文内部并不相同。摘要和结论中的1,900万次出租、1,000万次公交，与表3一致。</p>
+<p>站点还有三套数，不能混用。刷卡数据里出现7,810个站。城区公交线路数据是2,427个站、1,058条线。同名站，或像明光桥北、明光桥南这种实际共用一处的站，被合并后剩下1,250个站。城市按这些站做维诺划分，每个站对应一块区域，出租车上下车点归到最近的站。路网有196,307个路段，1,250个区域节点之间连出3,855条不含中间站的直接边。</p>
+<p><img src="/posts/e4f5a6b7/fig2.webp" alt="完整原论文图2"></p>
+<p>图 2｜公交、出租车和路网怎样接到同一套改线流程？</p>
+<p>无字母子图。左侧从地图、出租车轨迹和公交交易得到区域，再抽出两类移动；右侧用方式选择模型找出有缺陷的起讫点对，并在优化后给出改进线路。这是流程示意，不是客流大小。来源：原论文 Fig. 2。</p>
+<p><img src="/posts/e4f5a6b7/fig3.webp" alt="完整原论文图3"></p>
+<p>图 3｜1,250个站点区域和既有公交线在北京城区长什么样？</p>
+<p>（a）颜色区分合并站点后的区域，白线是道路，没有人数图例。（b）蓝线是城区既有公交线路。两张图都没有把7,810个刷卡站点再画一遍。来源：原论文 Fig. 3。</p>
+<p>分析前还有一次抽样。论文写用随机抽样恢复公交行程，使公交与出租的行程比约为3.5:1，脚注指向北京市交通委员会网站，正文没有给出抽样前后的行程对照表。原始的1,000万对1,900万约是0.53:1，和3.5:1不是同一个比例。后文的公交占比都建立在抽样后的分析集上。</p>
+<p><img src="/posts/e4f5a6b7/fig4.webp" alt="完整原论文图4"></p>
+<p>图 4｜公交起点和出租车起点是否铺在同一片城区？</p>
+<p>（a）绿点是公交行程起点，点越大行程越多，沿路网铺得比较开。（b）橙点是出租车载客起点，较大的点更集中在中心城区，南侧也能看到大点。图注写点的大小与行程数成正比，没有印出每个点的次数。来源：原论文 Fig. 4。</p>
+<p>行程再按出发时间切成7段，因为论文认为工作日通勤和周末、白天办事的方式偏好不一样。公交分析只保留5:00至23:00，理由是23:00至次日5:00很少有人规律地坐公交。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th>星期</th>
+<th>钟点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>工作日</td>
+<td>5:00–10:30</td>
+</tr>
+<tr>
+<td>2</td>
+<td>工作日</td>
+<td>10:30–16:00</td>
+</tr>
+<tr>
+<td>3</td>
+<td>工作日</td>
+<td>16:00–19:30</td>
+</tr>
+<tr>
+<td>4</td>
+<td>工作日</td>
+<td>19:30–23:00</td>
+</tr>
+<tr>
+<td>5</td>
+<td>周末</td>
+<td>5:00–12:30</td>
+</tr>
+<tr>
+<td>6</td>
+<td>周末</td>
+<td>12:30–19:30</td>
+</tr>
+<tr>
+<td>7</td>
+<td>周末</td>
+<td>19:30–23:00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>时段1被写成每周5天、每天5.5小时。后面计算线路供给时会用到这个时间跨度。每个时段、每个起讫点对分别统计公交与出租的行程量、平均时间、里程、速度、票价和站数。出租车站数记为0。出租车里程按连续GPS点的道路距离相加，公交里程按连续站点的道路距离相加，两条里程的测量方式并不相同。</p>
+<h2 id="里程、时间、票价和站距，各自把公交占比拉向哪边？"><a href="#里程、时间、票价和站距，各自把公交占比拉向哪边？" class="headerlink" title="里程、时间、票价和站距，各自把公交占比拉向哪边？"></a>里程、时间、票价和站距，各自把公交占比拉向哪边？</h2><p>方式选择在这里是群体比例：某时段、某起讫点对上，公交行程除以公交加出租的行程。论文明确写的是起讫点对的群体行为，不是一个人的选择记录。他们还假定可达性和可靠性不变，只看与线路有关的因素。</p>
+<p>七个特征是：出租车里程，公交里程除以出租车里程，出租车时间，公交时间除以出租车时间，出租车票价，公交票价除以出租车票价，以及公交站数除以出租车里程。出租车里程被用来代表有经验司机走出的较短道路距离。比值大于1，表示公交比出租车更远或更慢。</p>
+<p>图5至图8都是箱线图。每一档汇总该档起讫点对的公交占比，红线是中位数，红色加号是离群点。中位数没有印成数字，只能读升降方向。纵轴分母是该起讫点对在分析集中的公交加出租。</p>
+<p><img src="/posts/e4f5a6b7/fig5.webp" alt="完整原论文图5"></p>
+<p>图 5｜公交占比怎样随距离和绕路程度变化？</p>
+<p>（a）横轴是出租车里程，单位公里，刻度从1.12到19，相邻刻度大约间隔2公里。中位数随里程升高。（b）横轴是公交里程除以出租车里程，刻度从1.09到2.7，各档都大于1，中位数随这个比值下降。来源：原论文 Fig. 5。</p>
+<p><img src="/posts/e4f5a6b7/fig6.webp" alt="完整原论文图6"></p>
+<p>图 6｜时间变长以后，公交占比还升吗？</p>
+<p>（a）横轴标为TimeT，刻度从0.0779到1.4，图上没有写单位；后文线路时间表用的是小时。中位数随出租车时间升高。（b）横轴是公交时间除以出租车时间，刻度从1.3到6.73，都大于1；右侧最末一档的箱体明显下移。纵轴（b）从0.1起画。来源：原论文 Fig. 6。</p>
+<p><img src="/posts/e4f5a6b7/fig7.webp" alt="完整原论文图7"></p>
+<p>图 7｜票价升高时，上车的人是更多还是更少？</p>
+<p>（a）横轴标为FareT，刻度从15.3到93.1，图上没有货币单位；线路结果表里的票价单位是元。中位数随出租车票价升高，论文解释为长距离时出租比公交贵得多。（b）横轴是公交票价除以出租车票价，刻度从0.0144到0.0927，都低于0.1；中位数整体偏高，并随比值有所下降。纵轴（b）从0.1起画。来源：原论文 Fig. 7。</p>
+<p><img src="/posts/e4f5a6b7/fig8.webp" alt="完整原论文图8"></p>
+<p>图 8｜每公里停靠越密，公交占比掉得有多快？</p>
+<p>无字母子图。横轴是公交站数除以出租车里程，刻度从0.351到6.66。中位数从左侧接近1降到最右一档的箱体中部，论文称之为下降很快。各档中位数没有印出。来源：原论文 Fig. 8。</p>
+<p>这四张图描述的是同时观察到的线路条件和选择比例。距离长的地方公交占比高，也可能因为长距离本身更少有人叫车，而不只是因为线路设计。它们还不能单独证明把站距拉开就一定会增加乘客。</p>
+<h2 id="邻近、功能相近的点对，能否互相借用选择？"><a href="#邻近、功能相近的点对，能否互相借用选择？" class="headerlink" title="邻近、功能相近的点对，能否互相借用选择？"></a>邻近、功能相近的点对，能否互相借用选择？</h2><p>若每个起讫点对完全单独拟合，邻居的信息就用不上。论文的理由是：功能相近、位置相近的区域对，出行目的和偏好更可能接近；居住区到商业区，也可能不同于商业区返回居住区。因此每个目标点对在估计系数时，给其他点对一个权重：</p>
+<p>权重 = exp(−空间距离 / (2hα) − 功能距离 / (2hβ))。</p>
+<p>空间距离是起点之间、终点之间欧氏距离的平均，欧氏距离这里是站点的直线距离，不是沿路里程。功能距离是两个区域兴趣点数量向量的余弦距离的平均。2012年北京兴趣点分成10类，向量只数每类有多少个点。hα和hβ控制尺度，正文没有给出它们的数值。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>内容</th>
+<th style="text-align:right">个数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>居住</td>
+<td>公寓楼</td>
+<td style="text-align:right">29,246</td>
+</tr>
+<tr>
+<td>工作</td>
+<td>政府与办公楼</td>
+<td style="text-align:right">71,915</td>
+</tr>
+<tr>
+<td>教育</td>
+<td>学校、培训机构</td>
+<td style="text-align:right">15,489</td>
+</tr>
+<tr>
+<td>餐饮</td>
+<td>餐馆</td>
+<td style="text-align:right">36,723</td>
+</tr>
+<tr>
+<td>购物</td>
+<td>商店、商场、奥特莱斯</td>
+<td style="text-align:right">56,520</td>
+</tr>
+<tr>
+<td>娱乐</td>
+<td>博物馆、剧院、俱乐部</td>
+<td style="text-align:right">7,897</td>
+</tr>
+<tr>
+<td>户外</td>
+<td>公园、运动场</td>
+<td style="text-align:right">2,211</td>
+</tr>
+<tr>
+<td>交通</td>
+<td>机场、铁路与公交站</td>
+<td style="text-align:right">15,287</td>
+</tr>
+<tr>
+<td>医疗</td>
+<td>医院、医疗中心、药店</td>
+<td style="text-align:right">9,768</td>
+</tr>
+<tr>
+<td>汽车服务</td>
+<td>销售、维修、加油站</td>
+<td style="text-align:right">10,781</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>预测函数有两种。逻辑回归把内积z变成概率1 / (1 + e^(−z))，保证结果落在0到1之间。线性版本直接把内积当作预测，计算更快，但不再自动限制在0到1。模型按7个时段分别建立。对照方法是：全天不按时段的逻辑回归LoR，分时段逻辑回归TLoR，以及分时段线性支持向量机TLiSVM。</p>
+<p>评价用ROC曲线下面积AUC。阈值从0到1，每0.01取一次。灵敏度是真正例除以正类总数，特异度是真负例除以负类总数。10折在每个时段内分开做，再把各时段结果平均，作为图10(a)的总体分数。</p>
+<p><img src="/posts/e4f5a6b7/fig10.webp" alt="完整原论文图10"></p>
+<p>图 10｜加上位置和功能的权重以后，方式选择预测提高了多少？</p>
+<p>（a）横轴是1减特异度，纵轴是灵敏度。图例AUC为：LoR 0.67，TLoR 0.71，TLiSVM 0.74，线性加权SFWLiR 0.77，逻辑加权SFWLoR 0.82。这是7个时段平均后的结果。（b）只看SFWLoR：时段1至7的AUC为0.81、0.84、0.81、0.82、0.80、0.83、0.81。来源：原论文 Fig. 10。</p>
+<p>论文写工作日时段1至4好于周末时段5至7，原因是周末行程变化更大。把图例直接平均，工作日四段是0.820，周末三段是0.813，差距只有0.007。周末时段6是0.83，高于时段1、3、4。所以“工作日更好”作为四段对三段的平均可以成立，不能理解成每一个周末时段都更难预测。</p>
+<p>另有一次时间上分开的检验。2012年9月21日起，北京城区8条公交线发生调整，这个日期落在8月至11月的数据中间。9月21日之前用来训练，之后用来测试，并选出受线路变化影响的86个起讫点对。</p>
+<p><img src="/posts/e4f5a6b7/fig11.webp" alt="完整原论文图11"></p>
+<p>图 11｜线路真的改过以后，模型还能分出公交和出租车吗？</p>
+<p>（a）蓝圈标出调整过的公交线路，正文写明是8条，图上没有逐条写线路号。（b）86个起讫点对上的ROC。图例AUC为：LoR 0.64，TLoR 0.67，TLiSVM 0.71，SFWLiR 0.74，SFWLoR 0.76。来源：原论文 Fig. 11。</p>
+<p>0.82和0.76来自两套检验。前者是全部点对、分时段十折后再平均；后者是86个受影响点对、按9月21日前后分段。两者相差0.06，样本和划分方式都不相同。这张ROC评价的是方式选择还能不能被分对；优化器是否复现公交公司当天采用的新线，不在这86个点对的结果里。</p>
+<h2 id="概率只抬高约0-05，新增乘客却堆在少数点对"><a href="#概率只抬高约0-05，新增乘客却堆在少数点对" class="headerlink" title="概率只抬高约0.05，新增乘客却堆在少数点对"></a>概率只抬高约0.05，新增乘客却堆在少数点对</h2><p>要改现有线，先得指出哪些起讫点对的公交相对不便。论文把每个点对的出租车路线当作公交能达到的上限，因为出租路线被看成实际驾驶中较好的走法。再算：</p>
+<p>潜在新增公交乘客 = 各时段的（公交加出租行程量）×（出租车路线下的预测公交概率 − 历史公交概率）。</p>
+<p>总行程量不变，增加的公交乘客来自原来记在出租一边的那些行程。私家车不在数据里。论文写，若再考虑私家车，公交的实际影响还可以更大；这是作者对未观测方式的预期，数据里没有私家车行程可以核对。</p>
+<p><img src="/posts/e4f5a6b7/fig12.webp" alt="完整原论文图12"></p>
+<p>图 12｜把公交改到出租路线的上限后，概率和客流分别动多少？</p>
+<p>（a）横轴是起讫点对，刻度到5000。绿线delta_p是公交概率的变化，左轴到0.10，曲线在大部分位置靠近0.05，右端略抬。蓝线delta_vol是客流增量，右轴到1000，前段很低，接近5000时陡升。正文没有写出这张图的起讫点对总数，也没有给出齐夫定律的拟合指数。（b）前20个缺陷起讫点对画在北京地图上，连线覆盖西南并有伸向东南的长线，图上没有站名。来源：原论文 Fig. 12。</p>
+<p>论文据此写：线路改进后，全体起讫点对的公交概率平均提高5%；客流增量符合齐夫定律，大部分增量发生在少数点对上。图中绿线靠近0.05，和“5%”处于同一概率刻度。由于提高前的平均概率没有画出，不能把5%再解释成“在原概率上再增加5%”。前20对被用来对照图4：西南部公交需求存在，出租车行程多、公交行程少，因而有从出租接过乘客的可能。这是空间上的并存，还不是改线造成了出租减少。</p>
+<h2 id="预算没有写明时，模型仍给出每对多少新增乘客"><a href="#预算没有写明时，模型仍给出每对多少新增乘客" class="headerlink" title="预算没有写明时，模型仍给出每对多少新增乘客"></a>预算没有写明时，模型仍给出每对多少新增乘客</h2><p>多个缺陷点对一起改时，目标是各时段、各点对的行程量乘以新线路下的公交概率，再全部相加。成本不超过预算向量C，成本按线路长度和行驶时间计算，并用时段长度除以发车间隔，把“开出多少班”放进供给。发车间隔对所有线路都取15分钟，论文写自己不研究时刻表。时段1的时间跨度写成5×5.5小时；小时和15分钟如何换算后进入同一条成本，正文没有再演示。C的具体数字也没有给出。</p>
+<p>边上的公交时间另有两个设定：公交速度取出租车速度的0.7倍，每停一站再加1.5分钟。0.7和1.5分钟是为北京取的常数，不是这篇论文里带误差的估计结果。逻辑回归的目标非线性、非凸，分支定界得到局部意义下的整数解。线性版本把预测函数改成内积本身，变成带约束的线性规划。实验里线性结果被用来逼近逻辑回归。特征分解也说明，改线时出租车里程、时间、票价以及票价比放在不随新线变化的常数项里，随线路变的是公交里程、公交时间和站数。</p>
+<p><img src="/posts/e4f5a6b7/fig9.webp" alt="完整原论文图9"></p>
+<p>图 9｜两条需求各自修一条线，和合成一条线，差在哪里？</p>
+<p>（a）O1到D1、O2到D2各走一条蓝线。（b）两条需求合成一条蓝线，先过O1一侧再折向两个终点。这是预算示意：论文写（a）会超出预算，（b）能留在预算内。图上没有预算数字，也不是北京实测线路。来源：原论文 Fig. 9。</p>
+<p>对照线路不是随机线路，而是实践中常见的最短距离SD和最短时间ST。最大乘客目标记为MR，线性版是MR-LiR，逻辑回归版是MR-LoR。表5的每一列都是K个起讫点对的平均值。概率是新线路上的预测公交概率。ΔBVol是预测公交乘客相对历史公交乘客的变化。K从100增到500时，MR-LoR的平均增量从731.2降到342.3，符合按潜力排序后，后面的点对潜力更小，因此更能说明这一列是每对的平均，而不是K对的合计。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:right">K</th>
+<th>方法</th>
+<th style="text-align:right">公交里程（公里）</th>
+<th style="text-align:right">公交时间（小时）</th>
+<th style="text-align:right">站数</th>
+<th style="text-align:right">票价（元）</th>
+<th style="text-align:right">预测概率</th>
+<th style="text-align:right">平均ΔBVol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">100</td>
+<td>最短距离</td>
+<td style="text-align:right">3.63</td>
+<td style="text-align:right">0.28</td>
+<td style="text-align:right">3.71</td>
+<td style="text-align:right">0.44</td>
+<td style="text-align:right">0.83</td>
+<td style="text-align:right">445.6</td>
+</tr>
+<tr>
+<td style="text-align:right">100</td>
+<td>最短时间</td>
+<td style="text-align:right">3.84</td>
+<td style="text-align:right">0.27</td>
+<td style="text-align:right">4.02</td>
+<td style="text-align:right">0.44</td>
+<td style="text-align:right">0.83</td>
+<td style="text-align:right">467.2</td>
+</tr>
+<tr>
+<td style="text-align:right">100</td>
+<td>线性最大乘客</td>
+<td style="text-align:right">3.65</td>
+<td style="text-align:right">0.29</td>
+<td style="text-align:right">3.83</td>
+<td style="text-align:right">0.44</td>
+<td style="text-align:right">0.85</td>
+<td style="text-align:right">669.3</td>
+</tr>
+<tr>
+<td style="text-align:right">100</td>
+<td>逻辑最大乘客</td>
+<td style="text-align:right">3.45</td>
+<td style="text-align:right">0.28</td>
+<td style="text-align:right">3.67</td>
+<td style="text-align:right">0.44</td>
+<td style="text-align:right">0.86</td>
+<td style="text-align:right">731.2</td>
+</tr>
+<tr>
+<td style="text-align:right">200</td>
+<td>最短距离</td>
+<td style="text-align:right">4.23</td>
+<td style="text-align:right">0.33</td>
+<td style="text-align:right">4.56</td>
+<td style="text-align:right">0.48</td>
+<td style="text-align:right">0.81</td>
+<td style="text-align:right">247.8</td>
+</tr>
+<tr>
+<td style="text-align:right">200</td>
+<td>最短时间</td>
+<td style="text-align:right">4.30</td>
+<td style="text-align:right">0.30</td>
+<td style="text-align:right">4.52</td>
+<td style="text-align:right">0.49</td>
+<td style="text-align:right">0.82</td>
+<td style="text-align:right">301.1</td>
+</tr>
+<tr>
+<td style="text-align:right">200</td>
+<td>线性最大乘客</td>
+<td style="text-align:right">4.41</td>
+<td style="text-align:right">0.34</td>
+<td style="text-align:right">4.33</td>
+<td style="text-align:right">0.49</td>
+<td style="text-align:right">0.84</td>
+<td style="text-align:right">427.3</td>
+</tr>
+<tr>
+<td style="text-align:right">200</td>
+<td>逻辑最大乘客</td>
+<td style="text-align:right">4.52</td>
+<td style="text-align:right">0.35</td>
+<td style="text-align:right">4.40</td>
+<td style="text-align:right">0.49</td>
+<td style="text-align:right">0.85</td>
+<td style="text-align:right">481.2</td>
+</tr>
+<tr>
+<td style="text-align:right">500</td>
+<td>最短距离</td>
+<td style="text-align:right">4.31</td>
+<td style="text-align:right">0.34</td>
+<td style="text-align:right">4.77</td>
+<td style="text-align:right">0.48</td>
+<td style="text-align:right">0.79</td>
+<td style="text-align:right">184.4</td>
+</tr>
+<tr>
+<td style="text-align:right">500</td>
+<td>最短时间</td>
+<td style="text-align:right">4.51</td>
+<td style="text-align:right">0.32</td>
+<td style="text-align:right">4.78</td>
+<td style="text-align:right">0.49</td>
+<td style="text-align:right">0.81</td>
+<td style="text-align:right">225.8</td>
+</tr>
+<tr>
+<td style="text-align:right">500</td>
+<td>线性最大乘客</td>
+<td style="text-align:right">4.54</td>
+<td style="text-align:right">0.33</td>
+<td style="text-align:right">4.64</td>
+<td style="text-align:right">0.49</td>
+<td style="text-align:right">0.83</td>
+<td style="text-align:right">316.4</td>
+</tr>
+<tr>
+<td style="text-align:right">500</td>
+<td>逻辑最大乘客</td>
+<td style="text-align:right">4.58</td>
+<td style="text-align:right">0.34</td>
+<td style="text-align:right">4.71</td>
+<td style="text-align:right">0.49</td>
+<td style="text-align:right">0.84</td>
+<td style="text-align:right">342.3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>前100对里，逻辑最大乘客的预测概率0.86，比最短距离和最短时间的0.83高0.03；平均增量731.2比445.6高285.6。线性版本是669.3，为731.2的91.5%。这100对上，逻辑回归的平均里程3.45公里，短于最短距离的3.63公里和最短时间的3.84公里，时间都在0.27至0.29小时，票价都是0.44元。0.28小时合16.8分钟，这是单位换算。</p>
+<p>前200对和前500对的格局变了。逻辑回归的平均里程变成4.52公里和4.58公里，都长于同组最短距离的4.23公里和4.31公里，预测概率和平均增量仍然更高。最短时间的增量高于最短距离，论文据此认为时间比里程更受重视。票价在同一K内几乎不变，增益主要不来自把票价改低。历史乘客数没有列进表，所以不能从731.2反推出原来有多少人坐公交。</p>
+<p><img src="/posts/e4f5a6b7/fig13.webp" alt="完整原论文图13"></p>
+<p>图 13｜小红门、沙子口到前门，三种走法是两条线还是一条线？</p>
+<p>无字母子图。前门在北，沙子口在中部，小红门在东南。绿线是最短距离，红线是最短时间，蓝线是最大乘客。绿线和红线各自更像短的局部走法，蓝线把两个起点连进同一条通往前门的线。来源：原论文 Fig. 13。</p>
+<p>论文写，这条最大乘客线路与93路有相同子路径，93路由北京公交集团于2013年3月新开。数据停在2012年11月，93路出现在数据之后。相同子路径说明后来的实际线路与模型线路有重叠，没有报告重叠了多少站，也没有报告93路开通后的客流变化。</p>
+<p><img src="/posts/e4f5a6b7/fig14.webp" alt="完整原论文图14"></p>
+<p>图 14｜点对从100增到500，四种走法要算多久？</p>
+<p>无字母子图。横轴K为100、200、300、400、500，纵轴是秒，刻度到7000。最短距离和最短时间贴在底部。线性最大乘客在K=500时仍低于1000秒。逻辑回归上升最快，K=500时落在6000秒与7000秒之间。各点没有标出精确秒数。表5没有给出K=300和400的乘客结果。来源：原论文 Fig. 14。</p>
+<p>论文因此建议大规模时用线性版本，离线规划再用逻辑回归。图14的时间差支持“线性快很多”；表5里线性的平均增量仍低于逻辑回归，所以更快的那一版并没有给出相同的预测乘客数。</p>
+<h2 id="这些预测能说到哪一步"><a href="#这些预测能说到哪一步" class="headerlink" title="这些预测能说到哪一步"></a>这些预测能说到哪一步</h2><p>可以稳定说的是：在抽样成约3.5比1的2012年北京公交与出租行程上，分时段并按邻近程度、兴趣点构成加权的逻辑回归，比不分时段的逻辑回归有更高的AUC；按潜力排序后，前100对的模型预测增量高于最短距离和最短时间。9月21日的8条线变更，只检验了方式选择模型在86个点对上的排序，没有检验优化器。</p>
+<p>还不能说的是：731.2已经在路上发生；5%是相对原有公交概率的增幅；工作日每一段都比周末每一段更好预测；93路证明了最优线路被采纳。预算C、权重尺度hα和hβ、ROC的样本单位，正文都没有给出。兴趣点只按10类计数，区域功能因此是设施构成，不是实测的用地或岗位。公交速度系数0.7、停站1.5分钟和发车间隔15分钟是设定。总行程量被固定，诱增的新出行没有另估。</p>
+<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>把出租车路线当作公交上限后，模型预测2012年北京少数不便的起讫点对可以增加公交乘客；这个增加量是抽样行程、固定总行程和固定票价、15分钟间隔下的概率推算，还不是改线之后重新数到的人。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1109/ICDM.2014.138">IEEE Xplore会议论文页面</a>，DOI为10.1109/ICDM.2014.138，与PDF首页一致。会议为2014 IEEE International Conference on Data Mining，PDF页码360–369。</li>
+<li>正文图1–14、表I–V均来自这份会议论文。资助说明为国家高技术研究发展计划（863）课题SS2014AA012303。论文没有单独的作者贡献声明。</li>
+</ul>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>署名单位以论文首页和邮箱为准。论文没有提供个人履历，下面只写可核对的署名身份。</p>
+<ul>
+<li>Yanchi Liu：第一作者，署名为新泽西理工学院，邮箱域名为njit.edu。</li>
+<li>Chuanren Liu：署名为罗格斯大学，邮箱域名为rutgers.edu。</li>
+<li>Nicholas Jing Yuan：署名为微软研究院，邮箱域名为microsoft.com。</li>
+<li>Lian Duan：署名为新泽西理工学院，邮箱域名为njit.edu。</li>
+<li>Yanjie Fu：署名为罗格斯大学，邮箱域名为rutgers.edu。</li>
+<li>Hui Xiong：署名为罗格斯大学，邮箱域名为rutgers.edu。</li>
+<li>Songhua Xu：署名为新泽西理工学院，邮箱域名为njit.edu。</li>
+<li>Junjie Wu：署名为北京航空航天大学，邮箱域名为buaa.edu.cn。</li>
+</ul>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
+<p>规划若只报告抽样后的增量，容易把3.5:1分析集上的概率变化当成城市原始出行结构上的变化。原始出租行程是1,900万、公交是1,000万，和3.5:1方向相反。同一条新线至少可以并列给出两套数：一套按论文的抽样比，一套按表3的原始行程比重新加权。若两套数排序不同，先改哪一对就会变。</p>
+<p>另一个可检验的缺口是票价和发车间隔都被冻住了。表5里同一批点对的票价几乎不随最短距离、最短时间或最大乘客而变，15分钟间隔也适用于所有候选线。若允许票价或间隔随线路改变，前100对里里程更短的那条线未必仍然预测出731.2的平均增量。把票价或间隔放进随线路变化的特征后，再比较表5的四种方法，才能看出乘客增量有多少来自走线，有多少来自这两个被固定的运营选择。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">猴猴猴</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://xiaoyue-hou.github.io/posts/e4f5a6b7/">http://xiaoyue-hou.github.io/posts/e4f5a6b7/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">猴猴猴</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                                    <span class="chip bg-color">人类移动性</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%8C%97%E4%BA%AC/">
+                                    <span class="chip bg-color">北京</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%85%AC%E4%BA%A4%E7%BA%BF%E8%B7%AF/">
+                                    <span class="chip bg-color">公交线路</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%87%BA%E8%A1%8C%E6%96%B9%E5%BC%8F/">
+                                    <span class="chip bg-color">出行方式</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/f5a6b7c8/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="2017-A Temporally Heterogeneous Survival Framework with Application to Social Behavior Dynamics">
+                        
+                        <span class="card-title">2017-A Temporally Heterogeneous Survival Framework with Application to Social Behavior Dynamics</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%94%9F%E5%AD%98%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">生存分析</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9B%9E%E5%A4%8D%E6%97%B6%E9%95%BF/">
+                        <span class="chip bg-color">回复时长</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%98%BC%E5%A4%9C%E8%8A%82%E5%BE%8B/">
+                        <span class="chip bg-color">昼夜节律</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A4%BE%E4%BA%A4%E8%A1%8C%E4%B8%BA/">
+                        <span class="chip bg-color">社交行为</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/d3e4f5a6/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="2017-RCMC: Recognizing Crowd-Mobility Patterns in Cities Based on Location Based Social Networks Data">
+                        
+                        <span class="card-title">2017-RCMC: Recognizing Crowd-Mobility Patterns in Cities Based on Location Based Social Networks Data</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                        <span class="chip bg-color">人类移动性</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AD%BE%E5%88%B0%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">签到数据</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9F%8E%E5%B8%82%E8%AE%A1%E7%AE%97/">
+                        <span class="chip bg-color">城市计算</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8A%9F%E8%83%BD%E5%8C%BA/">
+                        <span class="chip bg-color">功能区</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('-1'),
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2026</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">猴猴猴</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "4";
+                    var startDate = "26";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiaoyue-hou" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1396567029@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1396567029" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1396567029" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <script src="/js/reading-marks.js?v=7"></script>
+
+</body>
+
+</html>

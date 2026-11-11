@@ -1,0 +1,1407 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="2018-Measurement-Driven Modeling for Connection Density and Traffic Distribution in Large-Scale Urban Mobile Networks, 猴猴猴">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>2018-Measurement-Driven Modeling for Connection Density and Traffic Distribution in Large-Scale Urban Mobile Networks | 猴猴猴</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<style>
+    /* ----------------------------------------------------------- */
+    /* 1. 基础清理：隐藏不需要的文字 */
+    /* ----------------------------------------------------------- */
+    .card .card-content .summary, 
+    .caption, .img-caption, .fancybox-caption, 
+    .img-item .caption { 
+        display: none !important; 
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">猴猴猴</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">猴猴猴</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">2018-Measurement-Driven Modeling for Connection Density and Traffic Distribution in Large-Scale Urban Mobile Networks</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%BF%9E%E6%8E%A5%E5%AF%86%E5%BA%A6/">
+                                <span class="chip bg-color">连接密度</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">移动网络</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%B5%81%E9%87%8F%E5%88%86%E5%B8%83/">
+                                <span class="chip bg-color">流量分布</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%9F%8E%E5%B8%82%E5%9F%BA%E7%AB%99/">
+                                <span class="chip bg-color">城市基站</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper/" class="post-category">
+                                Paper
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-11-11
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+
+<h2 id="市中心基站更挤，每个用户就更耗流量吗？"><a href="#市中心基站更挤，每个用户就更耗流量吗？" class="headerlink" title="市中心基站更挤，每个用户就更耗流量吗？"></a>市中心基站更挤，每个用户就更耗流量吗？</h2><p>论文名片｜Jingtao Ding、Rui Xu、Yong Li、Pan Hui、Depeng Jin，<em>Measurement-Driven Modeling for Connection Density and Traffic Distribution in Large-Scale Urban Mobile Networks</em>，IEEE Transactions on Mobile Computing，2018，17(5)：1105–1118。稿件 2016 年 12 月 17 日收到，2017 年 6 月 1 日修回，2017 年 8 月 2 日接收；网络发表日期 2017 年 9 月 14 日，本刊版本日期 2018 年 4 月 2 日，刊期为 2018 年 5 月。<a target="_blank" rel="noopener" href="https://doi.org/10.1109/TMC.2017.2752159">DOI：10.1109/TMC.2017.2752159</a>。</p>
+<p>晚高峰可以有两种忙法。地铁站口挤满人，每个人只刷新几页；城郊一排住宅人少得多，留下的人却在看视频。两种基站的总流量都可能很高。若规划只看总流量，这两种忙会被加成同一种负荷。</p>
+<p>这篇论文把一个基站在一小时里的负荷拆成两个数：每平方公里有多少接入用户，以及每个用户消耗多少字节。上海 2014 年 8 月的 3G 记录显示，前一个数堆在市中心，后一个数从市中心铺到外围。流量密度的地图更像人数地图。两个数的相关很弱，所以“人多”不能直接换成“每个人更耗流量”。</p>
+<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
+<li>上海每小时的用户密度、人均需求和二者相乘得到的流量密度，都可以用对数正态混合分布描述。在 5% 显著性水平下，K-S 检验没有拒绝这些拟合。用户密度的中位数约每平方公里 300 人，最高约 10^4 人；流量密度的中位数为 10^9 字节/（小时·平方公里），最高约 10^12。</li>
+<li>流量密度与用户密度的相关系数大于 0.9。人均需求与这两者的相关系数绝对值都小于 0.1。图上一个月的人均需求大约落在 36 到 180 MB。</li>
+<li>按高峰时段的两个数，上海交叉表里的 2,671 个基站分成 6 类，其中稀疏低需求占 1,312/2,671。昆明用同一套聚类得到 4 类。稀疏的界限是每平方公里 4,100 人以下，低需求是每小时 1.5 MB 以下，中需求和高需求大约以 4 MB 分开。</li>
+<li>输入功能区比例后，分类模型在上海同一批数据上的全城平均归一化 RMSE，用户密度、人均需求、流量密度分别为 0.0757、0.0579、0.0655。不分类时流量密度的 RMSE 为 0.1528，分类把它降低 57.1%。这个误差是拟合比较，个体误差还要按能力排序对齐后才计算。</li>
+</ul>
+<h2 id="总流量几乎贴着每平方公里有多少人"><a href="#总流量几乎贴着每平方公里有多少人" class="headerlink" title="总流量几乎贴着每平方公里有多少人"></a>总流量几乎贴着每平方公里有多少人</h2><p>要分开两种忙，先得把“连接有多密”和“流量堆在哪”写成可以相乘的两个量。论文用的是基站一小时的汇总，分析单位是基站，不是一条可以跟出去的个人路径。</p>
+<p>上海数据来自一家主要运营商商用 3G 网络的计费网关，2014 年 8 月共 31 天。记录超过 6.92×10^8 条，覆盖 70 万用户和 9,181 个基站。全月消耗 2.8×10^15 字节。按 31 天和 9,181 个基站平均，每个基站每天约 9.8×10^9 字节，与 2.8×10^15÷（31×9,181）一致。昆明是同一运营商、格式相近的另一个月记录，约 6,000 个基站、约 40 万用户；正文没有写出具体月份。</p>
+<p>记录里有匿名设备号、起止时间、基站编号、基站位置和字节数。后面的计算把这些记录收成每个基站、每个小时的用户数和字节数。本文沿这条汇总口径讲空间分布，不重建个人全天路径。</p>
+<p><img src="/posts/f3a5b6c7/fig1.webp" alt="完整原论文图1"></p>
+<p>图 1｜这批记录密不密、一个人一个月留下多少条？</p>
+<p>（a）横轴是相邻两条记录的间隔秒数，对数刻度；纵轴是累积分布。标出的点是（600，0.85）：间隔短于 600 秒的相邻记录占 85%。分母是相邻记录对，不是用户人数。（b）横轴是每个用户一个月的记录条数，对数刻度；纵轴是概率密度。分布集中在一千条附近，正文说大多数用户超过 1,000 条，没有给出精确百分数。6.92×10^8 条除以 70 万用户，平均约 989 条/人。来源：原论文 Fig. 1。</p>
+<p>基站的覆盖面积很难直接量。论文用基站位置画泰森多边形（Voronoi cell）：一个点归给离它最近的基站，该多边形的面积当作这小时的覆盖面积。用户密度等于这一小时的接入用户数除以这块面积，单位是人/平方公里。人均需求等于这一小时的字节数除以接入用户数。流量密度等于二者相乘，单位是字节/平方公里。31 天有 744 个小时，因为 24×31＝744。</p>
+<p>这套面积是几何近似。正文指出，多层网络里泰森多边形的边界会偏，模型按 3G 单层网络来做。可靠性讨论写在在线附录 A，正文没有另给一组实测覆盖面积作对照。</p>
+<p>基站有多密，和用户有多密，是两个密度。表 1 量的是基站。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>城市</th>
+<th style="text-align:right">相邻基站距离均值</th>
+<th style="text-align:right">距离偏差</th>
+<th style="text-align:right">全市基站密度</th>
+<th style="text-align:right">市中心基站密度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上海</td>
+<td style="text-align:right">0.88 km</td>
+<td style="text-align:right">1.20 km</td>
+<td style="text-align:right">0.65 个/km²</td>
+<td style="text-align:right">17.65 个/km²</td>
+</tr>
+<tr>
+<td>昆明</td>
+<td style="text-align:right">0.98 km</td>
+<td style="text-align:right">0.70 km</td>
+<td style="text-align:right">0.12 个/km²</td>
+<td style="text-align:right">7.90 个/km²</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>上海市中心的基站密度是全市的 17.65÷0.65＝27.2 倍。表中的偏差一列没有说明是标准差还是别的离差，这里只保留原表口径。后面的用户密度中位数约 300 人/平方公里，分母是人和面积，不能和这张表的“基站个数/平方公里”比大小。</p>
+<p><img src="/posts/f3a5b6c7/fig2.webp" alt="完整原论文图2"></p>
+<p>图 2｜人数、每人用多少、总流量，在上海地图上各长什么样？</p>
+<p>三行都是一个月的平均值，颜色是对数。左图是全市，右图放大市中心一小块；经纬度落在上海，正文没有给这块放大区域命名。</p>
+<p>（a）用户密度。市中心一块明显更深，外围更浅。色标大约从 3 画到 11，高于正文所说的最高约 10^4 人/平方公里，色标上限不等于观测最大值。（b）人均需求。色标大约从 17.4 到 19，正文对应每月约 36 到 180 MB。深色从市中心一直铺到外围，和（a）的单中心不一样。（c）流量密度。深色再次集中在市中心，空间形态更接近（a）。来源：原论文 Fig. 2。</p>
+<p>三个量之间的相关系数把这种眼缘变成了数字。流量密度和用户密度的相关大于 0.9。人均需求与用户密度、与流量密度的相关系数绝对值都小于 0.1。论文没有给出更细的小数，也没有写明是哪一种相关系数。相关大于 0.9 说明流量的空间起伏大部分跟着人数走；绝对值小于 0.1 说明每人用多少几乎不随人数同步升降。这是基站层面的同时变化，不是“多来一个人导致每个人少用一点”的因果。</p>
+<p>图 2 的 36 到 180 MB 是一个月的人均量。后面的分布拟合改到每一小时，两个时间尺度不能直接除成同一个“典型小时”。</p>
+<h2 id="三个对数正态叠起来，基站之间差在哪一档？"><a href="#三个对数正态叠起来，基站之间差在哪一档？" class="headerlink" title="三个对数正态叠起来，基站之间差在哪一档？"></a>三个对数正态叠起来，基站之间差在哪一档？</h2><p>既有研究已经用对数正态混合拟合过小区流量密度。这篇论文追问的是，混合从哪两个因素来。它先分别拟合每小时的用户密度和人均需求，再看乘积。</p>
+<p>对数正态混合是若干个对数正态按权重相加，权重合计为 1。每个成分有位置参数 μ 和尺度参数 σ。取了三个成分，用期望最大化估计参数。选择三个，是正文所说的精度和复杂度折中，不是检验出来的唯一成分数。</p>
+<p><img src="/posts/f3a5b6c7/fig3.webp" alt="完整原论文图3"></p>
+<p>图 3｜上海每小时的用户密度和人均需求，三条对数正态够不够贴住？</p>
+<p>红圈是经验分布，红线是三成分拟合。横轴都是对数刻度。</p>
+<p>（a）用户密度的累积分布，纵轴从 0 到 1。曲线在每平方公里大约数十人之前几乎贴着 0，然后在 10^2 到 10^4 之间爬升。（b）同一指标的互补累积分布，纵轴从 1 降到 10^-4，用来看右尾。拟合线跟着经验点走到 10^4 以上。（c）人均需求的累积分布，单位是字节/用户。上升集中在 10^6 字节附近，也就是约 1 MB 这一档。（d）人均需求的互补累积分布。右尾降到 10^-4 时，拟合仍贴着经验点。来源：原论文 Fig. 3。</p>
+<p>正文给出的中位数约每平方公里 300 人，最高约 10^4 人。表 2 的位置参数取 e^μ 之后，用户密度三个成分中心约是 165、224 和 3,714 人/平方公里，对应 μ 为 5.1033、5.4094 和 8.2199。人均需求三个中心约是 0.36、1.76 和 1.98 MB/用户·小时，与正文写的 {0.36, 1.76, 1.98} 一致；这里的 MB 按 10^6 字节理解，因为 e^14.5001÷10^6≈1.98。</p>
+<p>正文另把用户密度中心写成 {164, 221, 4,447}。164 接近 e^5.1033，221 与 e^5.4094≈223.5 只差约 2.5，4,447 则对不上 e^8.2199≈3,714。后文引用成分中心时用表 2。4,447 留在正文原句里，不把它当成已经由表算出的结果。</p>
+<p>权重也说明成分叠在一起。用户密度上，两个低中心的权重是 0.4075 和 0.3950，合计 0.8025；高中心权重 0.1975。低中心的 σ 分别是 1.5761 和 2.6085，散布很宽，所以中位数约 300 可以高于 165 和 224 这两个中心。人均需求上，1.76 MB 和 1.98 MB 的权重合计 0.4543＋0.4457＝0.9000，0.36 MB 的权重是 0.1000。权重是重叠成分的混合比例，不是互不重叠的基站份额。</p>
+<p>K-S 检验在 5% 显著性水平下，对一天中每个小时的拟合都没有拒绝对数正态混合。检验统计量和具体 p 值没有印在正文里。“没有拒绝”只说明这组数据和这个分布不冲突，并不证明它是唯一能拟合的分布。</p>
+<p><img src="/posts/f3a5b6c7/fig4.webp" alt="完整原论文图4"></p>
+<p>图 4｜居住、办公、娱乐三个功能区，还是同一类分布吗？</p>
+<p>只画了互补累积分布，红为居住、绿为办公、蓝为娱乐。交通区和综合区没有出现在这张图里。</p>
+<p>（a）用户密度。居住区的尾巴下降更快，办公和娱乐在高密度一端留有更高的比例。（b）人均需求。办公区的右尾更长，同样的高需求水平上，办公区剩下的比例高于居住区。三条线都能被各自的三成分混合跟上。正文没有按功能区分列 K-S 统计量。来源：原论文 Fig. 4。</p>
+<p>两个量还可以放进一个联合分布。表 3 用三个二维成分：权重 0.60、0.33、0.07。第二个成分的位置是（7.70，14.43），e^7.70≈2,208 人/平方公里，e^14.43÷10^6≈1.85 MB/用户·小时。这就是正文说的“接近 2,200 人、每小时接近 2 MB”。第一个成分的用户密度中心 e^4.74≈114 人/平方公里。第三个成分的需求中心 e^12.93÷10^6≈0.41 MB/用户·小时，权重只有 0.07；它的用户密度中心 e^1.59≈4.9 人/平方公里，尺度很大，不宜看成一团挤在 5 人附近的基站。</p>
+<p>因为人均需求和用户密度的相关很弱，正文假定二者独立，于是乘积仍是对数正态混合，成分数是 3×3＝9。命题 1 写在正文：两个独立的对数正态混合相乘，第 i 个和第 j 个成分的权重相乘，对数均值相加，对数方差相加。证明放在在线附录 B。这里的“独立”是相关绝对值小于 0.1 之后采用的模型假设。表 3 的联合成分本身带有非零协方差，后面的生成模型改用二维混合，就是为了把这点相关留住。弱相关支持“乘积大致可拆”，并不表示协方差在每个成分里都是 0。</p>
+<p><img src="/posts/f3a5b6c7/fig5.webp" alt="完整原论文图5"></p>
+<p>图 5｜流量密度的九成分曲线，是算出来的还是重新拟合的？</p>
+<p>圆点是上海每小时流量密度的经验分布，实线是用命题 1 和表 2 的参数算出的九成分混合，不是对流量密度单独再估一套参数。</p>
+<p>（a）累积分布。中位数在 10^9 字节/（小时·平方公里）附近，与正文一致；曲线在 10^8 到 10^11 之间完成大部分上升。（b）互补累积分布。右尾延伸到 10^12 以上，正文说最高约 10^12。5% 水平的 K-S 检验同样没有拒绝这条算出的分布。来源：原论文 Fig. 5。</p>
+<p>表 4 的九个权重从 0.1851 降到 0.0198，合计约 1。最大的四个成分权重合计 0.7223，位置参数在 19.49 到 19.91。e^19.8 约是 4×10^8 字节/（小时·平方公里），低于经验中位数 10^9，因为右尾把中位数往上推。成分中心和样本中位数回答的是不同的问题。</p>
+<p><img src="/posts/f3a5b6c7/fig6.webp" alt="完整原论文图6"></p>
+<p>图 6｜换到昆明，对数正态混合还成立吗？</p>
+<p>红圈对红线仍贴合。参数和上海不同，图里没有印出昆明的 μ、σ 和权重。</p>
+<p>（a）（b）是用户密度的累积分布和互补累积分布。横轴从 10^-2 画到 10^8 人/平方公里，上升主要发生在 10^2 到 10^5。（c）（d）是人均需求，单位字节/用户，累积曲线在 10^6 到 10^7 字节之间变陡。来源：原论文 Fig. 6。</p>
+<p>正文给出一个跨城的范围比较：用户密度落在每平方公里 1 到 10^4 人之间的，上海约 90%，昆明约 60%。分母是各自城市的用户密度取值，不是基站个数的同一张表。5% 水平的 K-S 检验对昆明这两个分布在每个小时也都没有拒绝。分布族可以沿用，具体参数要按城市重估。</p>
+<h2 id="高峰上的六个类型，分的是人数和每人用多少"><a href="#高峰上的六个类型，分的是人数和每人用多少" class="headerlink" title="高峰上的六个类型，分的是人数和每人用多少"></a>高峰上的六个类型，分的是人数和每人用多少</h2><p>分布说明基站之间差得很开。要做生成模型，还得知道差开之后有哪几档。聚类用的不是全部 744 个小时，而是各功能区的高峰小时。</p>
+<p>功能区来自作者此前的流量形态聚类，分成居住、交通、办公、娱乐和综合。本文直接使用这些标签，没有在正文里重做分类。一个功能区的高峰小时，定义成该区平均流量密度超过自身峰值 50% 的那些小时。每个基站再在自己的高峰小时上，对用户密度和人均需求取平均。</p>
+<p>两个轴的单位不同，正文没有先规定一个二维距离，而是分两轮做层次聚类，联结方式是类间平均距离。第一轮只按用户密度，分成低、高两类，最大轮廓系数 0.50。第二轮在每一类内部只按人均需求，各分成低、中、高三档，最大轮廓系数 0.55 和 0.52。轮廓系数的范围是 −1 到 1，0.5 上下表示分开了，离“类内很紧、类间很远”还有距离。阈值怎么扫描，写在在线附录 C。Calinski–Harabasz 和 Davies–Bouldin 两个指标也选出 6 类，正文没有列出这两个指标的数值。一次同时用两个轴聚类的对照同样在附录 C，正文没有给出那次对照的误差。</p>
+<p>合并两轮之后是六类：稀疏低需求 SL、稀疏中需求 SM、稀疏高需求 SH、密集低需求 DL、密集中需求 DM、密集高需求 DH。稀疏指高峰用户密度低于每平方公里 4,100 人。低需求指低于每小时 1.5 MB，中需求和高需求的分界约每小时 4 MB。</p>
+<p><img src="/posts/f3a5b6c7/fig7.webp" alt="完整原论文图7"></p>
+<p>图 7｜六类中心落在人数–需求平面的哪里？</p>
+<p>无字母子图。横轴是用户密度，人/平方公里；纵轴是人均需求，字节/用户，上方标着 7×10^6，所以刻度 2 约是 2×10^6 字节，也就是约 2 MB。颜色从深色到亮黄，表示该小格里的基站样本由少到多。白圈是六类中心：左侧大约在一两千人的位置上有三团，右侧大约在 6,000 到 7,000 人的位置上有三团。中心位置和“稀疏低于 4,100 人”这条边界不是同一个数。正文还提到（9000，2）附近有一块偏亮的区域，并说若有更多基站超过每平方公里 10,000 人，那里可能再分出一类。来源：原论文 Fig. 7。</p>
+<p><img src="/posts/f3a5b6c7/fig8.webp" alt="完整原论文图8"></p>
+<p>图 8｜上海六类在一天 24 小时里怎样升降？</p>
+<p>无字母子图，上中下三行分别是类内平均的用户密度、人均需求和流量密度。图例：SL 红实线，SM 绿虚线，SH 蓝点线，DL 黑虚线，DM 紫线，DH 橙线。横轴是小时，0 到 23。</p>
+<p>上图的三条密集类在大约 10 时到 15 时升到约 10,000 人/平方公里，纵轴画到 15,000。三条稀疏类留在低位，其中蓝点线的 SH 最低。中图里 SH 的人均需求白天升到约 5×10^6 字节/用户，约 5 MB/小时，高于约 4 MB 的中高分界；DH 大约在 4×10^6。这些曲线到了晚上仍维持在较高位置，不像用户密度那样在日落后明显回落。下图的流量密度由 DH 在大约 10 时到 14 时形成接近 4×10^10 字节/平方公里的高台，DM、DL 次之，稀疏三类贴近底部。来源：原论文 Fig. 8。</p>
+<p>正文写上海的流量高峰大约出现在 12AM，昆明则出现在夜间。图 8 的高台落在白天中段，不落在 0 时。若把 12AM 理解成午夜，就和图上的小时对不上。下面按图的小时轴说，正文原句仍保留为作者的概括。</p>
+<p>用户密度白天高、夜里低，人均需求升高后要到午夜前后才下来。于是夜里人数已经减少，每个还在线的用户仍消耗不少字节。流量密度是二者的乘积，它的回落会慢于人数的回落。这是类内平均曲线，不是每个基站都重复同一条轨迹。</p>
+<p><img src="/posts/f3a5b6c7/fig9.webp" alt="完整原论文图9"></p>
+<p>图 9｜昆明为什么只有四类，高峰又落在什么时候？</p>
+<p>无字母子图。图例只有 SL 红实线、SH 绿虚线、DL 蓝线、DH 黑线，没有中需求的 SM 和 DM。</p>
+<p>上图的密集两类从夜间约 500 人/平方公里升到白天约 1,400 到 1,500，并维持到傍晚；稀疏两类贴近底部。这与正文“昆明约 1,500、上海约 10,000”一致，分母都是类内平均的人/平方公里。中图的 SH 从清晨的低点一路升到一天的末尾，纵轴画到 2×10^7 字节/用户，明显高于另外三类。下图的 DH 在 16 时附近出现一个尖峰，DL 白天维持在较低的平台，SL 和 SH 的流量密度贴近底部。尖峰在 16 时，SH 的人均需求高点在一天后段。正文用“夜间”概括昆明高峰，图上可以同时看到傍晚的流量尖峰和后半夜仍在上升的人均需求。来源：原论文 Fig. 9。</p>
+<p>类型个数不能从上海搬到昆明。能搬的是“先按人数分，再按每人需求分”这套做法。昆明密集类的人数大约只有上海密集类的 1,500/10,000。把上海的 4,100 人直接当作昆明的稀疏界限，会把当地的密集基站划进稀疏。</p>
+<p>功能区和类型的交叉计数合计 2,671 个基站。摘要说约 9,000 个基站里存在六种基本能力形态，原始上海记录是 9,181 个基站。正文没有说明 9,181 与 2,671 的差额来自哪一步筛选。下面的比例一律以表中的 2,671 为分母。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>功能区</th>
+<th style="text-align:right">SL</th>
+<th style="text-align:right">SM</th>
+<th style="text-align:right">SH</th>
+<th style="text-align:right">DL</th>
+<th style="text-align:right">DM</th>
+<th style="text-align:right">DH</th>
+<th style="text-align:right">合计</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>居住</td>
+<td style="text-align:right">381</td>
+<td style="text-align:right">40</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">106</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">534</td>
+</tr>
+<tr>
+<td>交通</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">46</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">67</td>
+</tr>
+<tr>
+<td>办公</td>
+<td style="text-align:right">481</td>
+<td style="text-align:right">340</td>
+<td style="text-align:right">103</td>
+<td style="text-align:right">145</td>
+<td style="text-align:right">85</td>
+<td style="text-align:right">23</td>
+<td style="text-align:right">1,177</td>
+</tr>
+<tr>
+<td>娱乐</td>
+<td style="text-align:right">82</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">11</td>
+<td style="text-align:right">45</td>
+<td style="text-align:right">18</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">208</td>
+</tr>
+<tr>
+<td>综合</td>
+<td style="text-align:right">359</td>
+<td style="text-align:right">109</td>
+<td style="text-align:right">13</td>
+<td style="text-align:right">170</td>
+<td style="text-align:right">30</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">685</td>
+</tr>
+<tr>
+<td>合计</td>
+<td style="text-align:right">1,312</td>
+<td style="text-align:right">583</td>
+<td style="text-align:right">131</td>
+<td style="text-align:right">467</td>
+<td style="text-align:right">145</td>
+<td style="text-align:right">33</td>
+<td style="text-align:right">2,671</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>SL 有 1,312/2,671＝49.1%，接近正文说的几乎一半。DH 只有 33/2,671＝1.2%。办公区占 1,177/2,671＝44.1%，交通区只有 67 个基站。</p>
+<p>表 6 是每个功能区内部的类型份额，一行加总为 100%。居住区里 SL 占 381/534＝71.3%。交通区里 SM 占 46/67＝68.7%，这是六类里唯一由中需求稀疏类占多数的功能区；分母只有 67，少几个基站，百分比就会动。娱乐区里 SL 仍是 82/208＝39.4%，DL 是 45/208＝21.6%。所以“娱乐区人更密”不能读成“娱乐区大多数基站属于密集类”。</p>
+<p>另一套相对比例先问：某一类基站有多大比例落在这个功能区，再在该功能区的六个“类占比”之间重新归一。它扣掉了“SL 本来就占一半”这件事实。办公区的 SH 相对比例最高。算法很具体：SH 共 131 个，其中 103 个在办公区，103/131＝78.6%；这 78.6% 再和办公区在其他五类里的占比一起归一，得到表 7 的 23.61%。同一 103 个基站只占办公区 1,177 个基站的 8.75%。两句都对，问的问题不同。前一句是“高需求且人少的基站大多部署在办公区”，后一句是“办公区内部仍以 SL 和 SM 居多，481＋340＝821 个，占 821/1,177＝69.8%”。</p>
+<p>按这套相对比例，办公区更偏向 SH，其次是 DH；娱乐区更偏向 DL，其次是 DH；综合区更偏向 DM，其次是 SL。这些是扣除类型基数之后的偏向。功能区内部的人头份额仍以表 6 和上面的计数为准。</p>
+<h2 id="只给功能区比例，合成基站能像到哪一步？"><a href="#只给功能区比例，合成基站能像到哪一步？" class="headerlink" title="只给功能区比例，合成基站能像到哪一步？"></a>只给功能区比例，合成基站能像到哪一步？</h2><p>生成模型要同时凑对两件事：每一类有多少个基站，以及这一类在 24 小时里的两个能力数长什么样。输入是五个功能区的基站比例。某一类的比例，等于各功能区比例乘上该功能区里这一类的份额，再对五个功能区求和。份额用的就是表 6。</p>
+<p><img src="/posts/f3a5b6c7/fig10.webp" alt="完整原论文图10"></p>
+<p>图 10｜模型从功能区比例走到合成基站，中间经过什么？</p>
+<p>无字母子图，是流程图。输入是功能区比例。第一步算出六类基站的比例。第二步按类生成合成基站的用户密度和人均需求。输出有两层：每个合成基站的三个能力数，以及全城合计的三个能力数。流量密度由前两个数相乘得到。图本身没有误差。来源：原论文 Fig. 10。</p>
+<p>一天的曲线先对 31 天的同一小时取平均。再把 24 小时切成三段，阈值和前面的高峰定义不同：用户密度用该类平均曲线最大值的 80%，人均需求用最大值的 60%。两人都低于阈值的小时是空闲，两人都高于阈值的是繁忙。用户密度已经低于阈值、人均需求仍高于阈值的是拖尾。第四种组合在数据里没有出现，因为人均需求高于阈值的时段盖住了用户密度高于阈值的时段。拖尾正好对应图 8 里“人已经少了、每人仍用得不少”的那些小时。</p>
+<p>每一类、每一段用二维对数正态混合同时拟合两个数，以便留下它们的相关。合成时，每个小时先按该段的分布抽出许多对（用户密度，人均需求），乘出流量密度，再按流量密度排序。24 个小时都排好后，把同一名次连成一个合成基站。这样做是为了让能力高的合成基站在各小时都偏高。它构造的是排序上的时间相关，不是把一座真实基站的地址或一天里的偶然起伏复制下来。</p>
+<p><img src="/posts/f3a5b6c7/fig11.webp" alt="完整原论文图11"></p>
+<p>图 11｜分类之后，每类的平均流量密度曲线贴得住吗？</p>
+<p>无字母子图，六个面板共用纵轴数量级 10^10 字节/平方公里。蓝线是原始类内平均，红线是合成。竖线把一天分成空闲、繁忙、拖尾。每一类各生成 10,000 个合成基站来画这些平均曲线。</p>
+<p>左上 SL、右上 SM、左中 SH 在这个纵轴上几乎贴着 0，红蓝都如此。右中标题为 DL，繁忙段升到约 2×10^10。左下 DM 的繁忙段大约在 2×10^10 到 3×10^10。右下标题再次印成 DL，繁忙段接近 4×10^10，和上海日变化里密集高需求类的量级同一档。六个印刷标题里没有 DH。阅读时保留图上的标题，不用另一张图的曲线去改写它。来源：原论文 Fig. 11。</p>
+<p>平均曲线像，还要看分布像不像。论文用巴氏距离比较两个分布，距离为 0 表示两个分布相同。参照物是 31 天平均后的流量密度分布。合成日到这个平均的距离，去和 8 月每一天到这个平均的距离比。6 类、3 个时段、31 天，一共 558 组比较。合成日更近的比例超过 0.95。正文没有给出 0.95 之后的更多小数。</p>
+<p><img src="/posts/f3a5b6c7/fig12.webp" alt="完整原论文图12"></p>
+<p>图 12｜合成分布比“随便拿一天”更接近月均吗？</p>
+<p>18 个面板没有另加字母。行是空闲、繁忙、拖尾，列从左到右是 SL、SM、SH、DL、DM、DH。纵轴是巴氏距离，大约画到 0.6；横轴是 8 月的 31 天。红线是合成日相对月均的距离，蓝点是每一天相对月均的距离。</p>
+<p>SL、SM、SH 三列的蓝点大多低于 0.2，红线更低。繁忙行的 DM、DH 两列，蓝点可以升到 0.4 甚至 0.6 附近，红线仍留在大约 0.1。红线低于多数蓝点，和“558 组里超过 95%”一致；繁忙且密集的类型，单日之间的起伏本来就更大。距离小表示分布接近月均，不是每个基站、每个小时的字节数都预测对了。来源：原论文 Fig. 12。</p>
+<p>全城曲线是另一层检验。输入表 8 的功能区比例：居住 17.55%，交通 2.58%，办公 45.72%，娱乐 9.35%，综合 24.81%，合计 100.01%，应是四舍五入。这些百分比和表 5 的行合计对不上。表 5 里居住是 534/2,671＝20.0%，办公是 44.1%，娱乐是 7.8%。表 8 没有给出对应的基站个数。模型评价使用的是表 8 印刷的比例，不能反推成表 5 的 2,671。</p>
+<p><img src="/posts/f3a5b6c7/fig13.webp" alt="完整原论文图13"></p>
+<p>图 13｜把所有基站平均起来，一天的三条曲线还像吗？</p>
+<p>蓝实线是原始基站集合的全城平均，红虚线是合成集合。这是基站之间的平均，所以用户密度会远低于图 8 里密集类的约 10,000。</p>
+<p>（a）用户密度，人/平方公里。原始曲线夜间降到约 1,200，白天约 10 时到 15 时停在 3,500 上下，然后下降。合成曲线整体跟上，17 时前后掉得更深，深夜又高于原始曲线。（b）人均需求，字节/用户。两者都在清晨降到约 10^6 字节以下，上午升到约 2.3×10^6。原始曲线在 20 时到 21 时还有一处回升，合成曲线这段更平。（c）流量密度，字节/平方公里。夜间约 10^9，白天高台约 8×10^9，红线和蓝线最接近。来源：原论文 Fig. 13。</p>
+<p>个体误差的算法写在正文里：合成基站已经按能力排序，原始基站也按同样方式排序后再一对一对齐。比的是“从高到低排好的能力曲线是否接近”，不是“地图上这座基站和它的合成替身”。归一化时，三个指标都除以各自原始数据的最大值。因此 0.07 量级的 RMSE 是相对最大值的偏差，不是相对均值的百分比，小基站上的相对误差可以大得多。</p>
+<p><img src="/posts/f3a5b6c7/fig14.webp" alt="完整原论文图14"></p>
+<p>图 14｜排序对齐之后，单个基站的误差有多大？</p>
+<p>（a）箱线图。三列是归一化后的用户密度、人均需求和流量密度。箱体大约落在 0.12 到 0.26，中位线约 0.16 到 0.21，上方有延伸到 0.4 甚至 0.5 的离群点。正文给出下四分位数：三个指标分别有 25% 的基站，RMSE 低于 0.1487、0.1690 和 0.1205。分母是排序对齐后的基站，不是全城平均那一条曲线。（b）均值表。个体均值是 0.1852、0.2201、0.1603，聚合均值是 0.0757、0.0579、0.0655。三个聚合值的平均是 0.0664，三个个体值的平均是 0.1885。引言里的“聚合约 7%、个体约 19%”与这两个平均数对应。来源：原论文 Fig. 14。</p>
+<p>分类有没有用，要和不分类比。对照模型把所有基站的样本放进同一个分布，不再按六类分别拟合。</p>
+<p><img src="/posts/f3a5b6c7/fig15.webp" alt="完整原论文图15"></p>
+<p>图 15｜不分类时，全城平均曲线偏在哪里？</p>
+<p>蓝实线是原始全城平均，红虚线是分类后的合成，黑色点划线是不分类对照。纵轴与图 13 同一组量。</p>
+<p>（a）不分类的用户密度在大约 9 时到 17 时停在 3,700 上下，高于原始曲线的白天高台，18 时前后又掉得更陡。（b）不分类的人均需求在清晨没有降到原始曲线大约 0.8×10^6 字节的低谷，下午也保持更高。（c）不分类的流量密度白天抬到约 8×10^9 以上，并在下午保持平台，原始曲线则从大约 14 时开始下降。来源：原论文 Fig. 15。</p>
+<p>表 9 把这三张图收成归一化 RMSE。分类模型相对不分类模型的下降幅度，分母是不分类模型自己的 RMSE。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th style="text-align:right">分类模型</th>
+<th style="text-align:right">不分类模型</th>
+<th style="text-align:right">下降</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户密度</td>
+<td style="text-align:right">0.0757</td>
+<td style="text-align:right">0.1176</td>
+<td style="text-align:right">35.6%</td>
+</tr>
+<tr>
+<td>人均需求</td>
+<td style="text-align:right">0.0579</td>
+<td style="text-align:right">0.0838</td>
+<td style="text-align:right">30.9%</td>
+</tr>
+<tr>
+<td>流量密度</td>
+<td style="text-align:right">0.0655</td>
+<td style="text-align:right">0.1528</td>
+<td style="text-align:right">57.1%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>（0.1528－0.0655）÷0.1528＝57.1%。引言里的 57% 指的是流量密度这一行，不是三行的平均。35.6% 和 30.9% 同样可以由表内两列相减再除以对照列得到。分类带来的增益，主要是少把下午的全城流量密度抬高。</p>
+<h2 id="这些数可以带到下一座城市的哪一层"><a href="#这些数可以带到下一座城市的哪一层" class="headerlink" title="这些数可以带到下一座城市的哪一层"></a>这些数可以带到下一座城市的哪一层</h2><p>误差数字来自上海同一批 2014 年 8 月的数据：分布在这批数据上估计，合成样本再和这批数据比。昆明检验的是对数正态混合还能不能拟合、聚类流程还能不能跑完，以及密集类的人数大约差一个数量级。昆明没有做表 9 那种 RMSE。因此“降低 57.1%”是上海样本内、相对于不分类模型的拟合改进。</p>
+<p>个体层面的 19% 发生在按能力排序对齐之后。它说明高能力曲线和低能力曲线的形状可以被分层分布复现。它没有回答某一座指定基站下一小时的字节数。功能区比例本身也是输入。表 8 和表 5 的功能区构成并不相同，模型评价走的是表 8。</p>
+<p>人均需求是消耗字节除以用户数，用来近似用户体验到的数据速率。记录里没有无线电侧的瞬时速率，所以这个近似随“消耗了多少”变化，不随“信道当时给了多快”变化。连接密度在这里是每小时、每平方公里的接入用户数。引言引用的物联网场景“一个宏小区支持一万台低速率设备”，是文献里的需求设想，不是这套 3G 记录量到的并发连接数。图 7 里超过每平方公里 10,000 人的区域，只被描述成可能出现的新一类。</p>
+<p>泰森多边形把最近基站的几何范围当成覆盖。单层 3G 下，正文用它计算密度；多层网络里，同一地点可能由不同层的基站服务，面积会被划错。附录 A 讨论了这一点，正文的模型没有改成多层覆盖。</p>
+<p>独立性只用于解释流量密度为什么也是对数正态混合。生成步骤改用二维联合分布。两步的假设强度不同，不能用命题 1 的公式反过来宣称用户密度和人均需求在每个基站上都互不影响。</p>
+<p>K-S 检验没有拒绝，是在 5% 水平上对每个小时分别做的。混合成分数固定为 3，流量密度的 9 个成分是相乘规则带出来的。换一个成分数，或者换一个同样灵活的分布，正文没有做系统比较。</p>
+<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>一座城市的移动流量在空间上堆在哪里，主要由每平方公里有多少接入用户决定；每个用户用多少是另一张铺得更开的图，两类差别都算进去，基站能力才分得开。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1109/TMC.2017.2752159">IEEE Xplore 正式版本</a>，IEEE Transactions on Mobile Computing，2018，17(5)：1105–1118。本文图 1–15 与表 1–9 的数字都来自这一版本。</li>
+<li>在线附录 A、B、C 由论文指向计算机学会数字图书馆上的同一 DOI。附录 A 讨论泰森多边形，附录 B 是命题 1 的证明，附录 C 是聚类阈值和一次聚类的对照。正文已经给出命题公式、轮廓系数 0.50、0.55、0.52，以及六类边界。</li>
+<li>作者此前的会议版本见论文参考文献 [21]：Ding 等，IEEE MASS 2016。期刊版写明新增了另一座城市的数据，并补充了基站个体层面的检验。本文数字以 2018 年期刊版为准。</li>
+</ul>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>以下身份取自论文首页单位和末页作者说明，对应这篇 2018 年文章发表时的情况。</p>
+<ul>
+<li>Jingtao Ding：2015 年获清华大学电子工程学士，发表时在清华大学电子工程系攻读博士。作者说明中的研究方向为移动计算、移动数据挖掘和用户行为建模。</li>
+<li>Rui Xu：发表时在清华大学电子工程系攻读本科。作者说明中的研究方向为移动大数据挖掘和用户行为建模。</li>
+<li>Yong Li：本文通讯作者。2007 年获华中科技大学电子与信息工程学士，2012 年获清华大学电子工程博士，发表时在清华大学电子工程系任教，IEEE 高级会员。</li>
+<li>Pan Hui：香港大学电机电子工程学士与哲学硕士，剑桥大学计算机实验室博士。发表时任香港科技大学计算机科学及工程系教师、系统与媒体实验室负责人，同时任德国电信创新实验室杰出科学家和阿尔托大学兼职教授，IEEE 高级会员。</li>
+<li>Depeng Jin：1995 年、1999 年在清华大学分获电子工程学士和博士。发表时为清华大学副教授、电子工程系副主任，IEEE 会员。作者说明中的研究领域包括电信、高速网络和未来互联网体系结构。</li>
+</ul>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
+<p>容量规划可以把两个高峰错开记账。人数的高峰在白天中段，每人需求的高位会留到人数已经下降的拖尾时段。若只在总流量最高的小时加资源，拖尾时段“人少但每人仍在传大文件”的压力会被总流量的回落掩盖。一个可检验的做法，是分别给每平方公里接入人数和每人每小时字节数设容量，再看拖尾时段哪一个先碰到上限。论文没有做这样的资源分配实验。</p>
+<p>19% 的个体误差回答的是排序后的曲线像不像。若运营者想知道某条道路旁那座基站明天的负荷，还需要把类型放回地图坐标。现在的输入是功能区比例，而功能区又来自先前的流量形态。换用规划图纸上的用地分类之后，表 6 的份额是否还在，是另一项检验。如果份额变了，合成曲线会先在“每类有多少座基站”这一步就偏掉。</p>
+<p>上海密集类约 10,000 人/平方公里、六类，昆明密集类约 1,500 人/平方公里、四类。全国模型若固定 4,100 人和 1.5 MB 这两条上海界限，中等城市的相对密集区会被划进稀疏。更值得保留的是测量本身：每小时、每平方公里的接入人数，以及每人消耗的字节。界限和类型个数可以在当地高峰小时上重估，再看对数正态混合是否仍不被拒绝。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">猴猴猴</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://xiaoyue-hou.github.io/posts/f3a5b6c7/">http://xiaoyue-hou.github.io/posts/f3a5b6c7/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">猴猴猴</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%BF%9E%E6%8E%A5%E5%AF%86%E5%BA%A6/">
+                                    <span class="chip bg-color">连接密度</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">移动网络</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%B5%81%E9%87%8F%E5%88%86%E5%B8%83/">
+                                    <span class="chip bg-color">流量分布</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%9F%8E%E5%B8%82%E5%9F%BA%E7%AB%99/">
+                                    <span class="chip bg-color">城市基站</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/a4b6c7d8/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="2011-Human Mobility Models for Opportunistic Networks">
+                        
+                        <span class="card-title">2011-Human Mobility Models for Opportunistic Networks</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                        <span class="chip bg-color">人类移动性</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%BA%E4%BC%9A%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">机会网络</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A7%BB%E5%8A%A8%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">移动模型</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8E%A5%E8%A7%A6%E9%97%B4%E9%9A%94/">
+                        <span class="chip bg-color">接触间隔</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/e2f4a5b6/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="2026-Fusing Urban Structure and Semantics: A Conditional Diffusion Model for Cross-City OD Matrix Generation">
+                        
+                        <span class="card-title">2026-Fusing Urban Structure and Semantics: A Conditional Diffusion Model for Cross-City OD Matrix Generation</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%80%9A%E5%8B%A4/">
+                        <span class="chip bg-color">通勤</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">扩散模型</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%87%BA%E5%8F%91%E5%9C%B0%E7%9B%AE%E7%9A%84%E5%9C%B0%E7%9F%A9%E9%98%B5/">
+                        <span class="chip bg-color">出发地目的地矩阵</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%B7%A8%E5%9F%8E%E5%B8%82%E6%B3%9B%E5%8C%96/">
+                        <span class="chip bg-color">跨城市泛化</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('-1'),
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2026</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">猴猴猴</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "4";
+                    var startDate = "26";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiaoyue-hou" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1396567029@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1396567029" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1396567029" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <script src="/js/reading-marks.js?v=7"></script>
+
+</body>
+
+</html>

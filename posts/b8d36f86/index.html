@@ -1,0 +1,1284 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="2023-Resilience patterns of human mobility in response to extreme urban floods, 猴猴猴">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>2023-Resilience patterns of human mobility in response to extreme urban floods | 猴猴猴</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<style>
+    /* ----------------------------------------------------------- */
+    /* 1. 基础清理：隐藏不需要的文字 */
+    /* ----------------------------------------------------------- */
+    .card .card-content .summary, 
+    .caption, .img-caption, .fancybox-caption, 
+    .img-item .caption { 
+        display: none !important; 
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">猴猴猴</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">猴猴猴</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">2023-Resilience patterns of human mobility in response to extreme urban floods</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                                <span class="chip bg-color">人类移动性</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%89%8B%E6%9C%BA%E4%BF%A1%E4%BB%A4/">
+                                <span class="chip bg-color">手机信令</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%9F%8E%E5%B8%82%E5%86%85%E6%B6%9D/">
+                                <span class="chip bg-color">城市内涝</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%81%BE%E5%AE%B3%E9%9F%A7%E6%80%A7/">
+                                <span class="chip bg-color">灾害韧性</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper/" class="post-category">
+                                Paper
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-11-11
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+
+<h2 id="暴雨把全市人流压下去之后，每个地方都在先降后升吗？"><a href="#暴雨把全市人流压下去之后，每个地方都在先降后升吗？" class="headerlink" title="暴雨把全市人流压下去之后，每个地方都在先降后升吗？"></a>暴雨把全市人流压下去之后，每个地方都在先降后升吗？</h2><p>论文名片｜汤俊卿、赵鹏军、宫兆亚、赵宏波、黄沣爵、李嘉颖、陈至禾、余玲、陈军，<em>Resilience patterns of human mobility in response to extreme urban floods</em>，National Science Review，2023，10(8)：nwad097，2023年4月11日提前在线发表。<a target="_blank" rel="noopener" href="https://doi.org/10.1093/nsr/nwad097">DOI：10.1093/nsr/nwad097</a>。</p>
+<p>2021年7月20日，郑州遇上当地开始公开记录降雨灾害以来最强的一场暴雨。积水堵住道路之后，人还会不会出门、往哪里去，通常被画成一条浴缸曲线（bathtub curve）：灾前正常，灾中掉下去，灾后再抬回来。这条先降后升，是许多韧性研究默认的形状。</p>
+<p>这篇论文看的是郑州全市的手机信令。全市强连接上的人流在暴雨这三天确实少了，连接网络的胖尾还在。女性、18岁及以下和60岁以上的韧性分更低。把视线落到1公里格子上，大约一半格子并不走这条浴缸；格子属于哪一种曲线，又和性别、年龄对不上。</p>
+<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
+<li>观察窗是2021年7月13日至29日共17天。7月20日至22日这3天定义为灾中。边权大于100的网络里，总边权和边数在7月20日前后跌向图中最低一档刻度，度分布的幂律指数从灾前的−6.03变为灾中的−6.75，介数的指数停在−1.12附近。</li>
+<li>韧性分以各组自己的归一化曲线做面积比。男性0.71，女性0.62；六个年龄组从0–18岁到60岁以上依次是0.52、0.67、0.67、0.64、0.62、0.57。性别差异的Tukey检验 p 远小于0.001。</li>
+<li>双模式偏好依附模型里，全体群体的日均生成概率从灾前0.21降到灾中0.14。正文给出的较小 m1 是：0–18岁为10，60岁以上为45，女性为55。</li>
+<li>流入格子中，常规浴缸占51.56%，反浴缸占31.53%，持续下降占9.47%，持续上升占7.44%。流出一侧是50.46%、30.71%、11.16%和7.67%。四类之和为100%，分母是进入象限分类的格子。</li>
+<li>性别和年龄预测不了格子落在哪一象限。双变量莫兰指数的绝对值最大只有0.073；逐步回归的平均AUC是0.58，平均准确率分别是34%和30%。</li>
+</ul>
+<h2 id="这17天记的是格子之间的集体人流"><a href="#这17天记的是格子之间的集体人流" class="headerlink" title="这17天记的是格子之间的集体人流"></a>这17天记的是格子之间的集体人流</h2><p>研究区是郑州，论文给出的底数是面积7600平方公里、常住人口1270万、城镇化率79.1%。这里地处半干旱区，多年平均降水相对较低，2021年7月20日的降雨却打破了当地公开记录。论文援引官方通报：死亡380人，近200万人受影响。</p>
+<p>出行数据是第三方提供的手机信令，采集日期写的是7月13日至30日。正文实际分成三段来分析的，是7月13日至29日这17天：灾前7天（7月13–19日），灾中3天（7月20–22日），灾后7天（7月23–29日）。最强降雨在7月20日，21日和22日强度下降，所以这三天被划成灾中。</p>
+<p>信令共13.2亿条，来自435万名出行者的设备。435万占区域总人口的34.3%，分母是上文的1270万，分子是有记录的设备使用者，不是全部常住人口。每条记录不是一次出行。数据给到的是每个1公里格子、每个小时、分性别和年龄的集体人数，以及出行起点和终点的坐标。作者写明，这是单一运营商、单一城市的汇总表，看不出一个人全天的轨迹。</p>
+<p>格子取1公里×1公里，有两个操作理由：运营商基站间距大约1公里；这个尺度也接近中国城市里常被当作邻里范围的15分钟步行。后文的网络节点是这些格子，边是格子之间的出行，边权是流量。群体韧性分用的是某一性别或年龄组在全区域、逐小时的总流量。四类曲线用的是每个格子在三个阶段的日均流入或流出。两个分析单位不能混成同一种人。</p>
+<h2 id="人少了，很大的枢纽少了，胖尾还在"><a href="#人少了，很大的枢纽少了，胖尾还在" class="headerlink" title="人少了，很大的枢纽少了，胖尾还在"></a>人少了，很大的枢纽少了，胖尾还在</h2><p>图1先看较强的那些边：每个阶段先算日均起讫流量，再只保留边权 W &gt; 100 的边。100的单位是这条边上的出行次数。三张图是灾前、灾中、灾后的日均强连接网，阈值以下的弱联系不在图内。</p>
+<p><img src="/posts/b8d36f86/fig1.webp" alt="郑州行政区、高程与灾前灾中灾后的强连接出行网络"></p>
+<p>图 1｜强降雨这三天，全市的强连接少了多少，网络尾部还在不在？</p>
+<p>（a）郑州的行政区边界，包括中心城区、巩义、登封、新密、新郑、荥阳和中牟。（b）数字高程和洪涝受损热点。色标数字从61到1488，图中未另注单位；蓝色点是微博上救援活动较集中的位置，图上画成4公里缓冲区，用来提示基础设施受损较重的地段，不是积水深度。（c–e）边权大于100的日均网络，依次为灾前、灾中、灾后。颜色表示边上流量，色标从100到26600。（f）同一类网络在17天里的总边权（左轴，刻度6×10⁷到9×10⁷）和边数（右轴，刻度1.2×10⁵到1.8×10⁵）。两条曲线都在7月20日前后跌到最低一档刻度附近，之后回升，到7月28日仍低于7月中旬的高点。（g）度的超越概率。灾前、灾中、灾后的尾部指数 k 为−6.03、−6.75、−6.65。灾中那条线在最大度一端与另外两条分开，极大枢纽变少。（h）介数的超越概率，三个阶段的 k 为−1.12、−1.12和−1.10。来源：原论文 Fig. 1。</p>
+<p>度是一个格子连着多少个其他格子，介数衡量它有多像网络里的桥。超越概率表示度或介数大于某个数值的节点还剩多少。三条线在对数坐标上仍然拖着一条陡尾，所以作者认为无标度的结构形态还在。指数从−6.03变到−6.75，说明极大枢纽减少了，尾部形态仍在。这组指数不能推出每个格子的连接数保持不变。</p>
+<p>图1只报告边权大于100的网络。作者说更弱的两档网络有类似现象，检验放在补充材料，正文没有给出那两档的边数。</p>
+<h2 id="韧性分低，低在维持原有出行频率"><a href="#韧性分低，低在维持原有出行频率" class="headerlink" title="韧性分低，低在维持原有出行频率"></a>韧性分低，低在维持原有出行频率</h2><p>群体差异用的是另一条曲线。每个小时先算该群体网络的总边权，再和灾前基准比：</p>
+<p>百分比变化 = (xᵢ − x₀) / x₀ × 100%</p>
+<p>xᵢ 是某一天的逐小时总流量，x₀ 是7月16日至18日的逐小时平均流量。7月20日是星期二，所以这个基准覆盖星期五到星期日，里面含一个周末，不是三个工作日的均值。各组再按自己的最小值和最大值缩放到0和1之间。韧性分是实际表现曲线下的面积，除以预期表现曲线下的面积，因此落在0到1。分母是这条预期曲线的积分，不是灾前出行次数，也不是人口数。0.62的意思是归一化之后的面积比更低，不是女性保留了62%的行程。</p>
+<p><img src="/posts/b8d36f86/fig2.webp" alt="女性与60岁以上群体的逐小时流量变化和韧性分"></p>
+<p>图 2｜全区域的小时流量怎样跌下去，韧性分又是哪一个面积比？</p>
+<p>（a）女性，图上标注的韧性分是0.62。（b）年龄组6，也就是60岁以上，韧性分是0.57。蓝色柱是逐小时总流量相对7月16–18日基准的百分比变化，纵轴画到±150%。黑色虚线是窗宽24小时的移动平均，红色线是灾中和灾后的表现，灰色带是周末。两条平滑线都在7月20日前后降到0以下，灾后慢慢靠近0。来源：原论文 Fig. 2。</p>
+<p>正文给出的全套分数是：男性0.71，女性0.62；0–18岁、19–29岁、30–39岁、40–49岁、50–59岁、60岁以上依次为0.52、0.67、0.67、0.64、0.62、0.57。图2只画了女性和60岁以上，作为较低的两组示例。男性高于女性，Tukey检验在95%置信水平下 p 远小于0.001。19–29岁和30–39岁同分、并列最高，0–18岁和60岁以上处于低端。各年龄组两两比较的检验数字在补充材料，正文没有列出。</p>
+<p>0–18岁这一组要单独看。作者指出，中国10岁以下儿童通常没有自己的智能手机，他们名下的移动记录很可能是同行家长的轨迹。0.52因此不能直接当成儿童本人的出行韧性。</p>
+<h2 id="模型用什么数量解释这道差距"><a href="#模型用什么数量解释这道差距" class="headerlink" title="模型用什么数量解释这道差距"></a>模型用什么数量解释这道差距</h2><p>度分布有幂律尾，作者用双模式巴拉巴西–阿尔伯特模型（dual Barabási–Albert，DBA）去生成一张会扩张、也会收缩的网络。偏好依附的意思是：新边更倾向于连到已经有很多连接的节点。模型有 m1、m2 和 p 三个参数。p 是按这个原则一次生成 m1 条新起讫连接的概率；1−p 时，每次只生成一条新连接。m2 的完整设定在补充材料，正文没有展开。</p>
+<p>网络先按小时切开，再平均成3小时一段。p 越高，这一段越容易长出较多新连接。作者看到所有群体在灾中的 p 都明显下跌，并给出一个全体概括：日均 p 从灾前0.21降到灾中0.14，日最大 p 的平均从0.89降到0.56。这是跨群体的概括数字。图3只把女性和60岁以上的整条 p 序列画出来。</p>
+<p><img src="/posts/b8d36f86/fig3.webp" alt="女性和60岁以上群体的网络生成模型拟合"></p>
+<p>图 3｜低韧性群体在模型里少的是哪一个生成概率？</p>
+<p>（a–c）女性三个3小时切片的度分布。蓝点是实测，橙线是DBA生成结果。（a）7月19日9时至12时，p = 0.08；（b）7月22日12时至15时，p = 0.02；（c）7月28日18时至21时，p = 0.8。（d）女性的 p 序列。生成网络的节点数 n = 4000，m1 = 55；灾前、灾中、灾后的标准差是0.28、0.18、0.24。灰色带是周末。（e）60岁以上的 p 序列。n = 1000，m1 = 45；三段标准差是0.27、0.15、0.23。（f–h）该年龄组的三个拟合切片：（f）7月17日18时至21时，p = 0.84；（g）7月21日18时至21时，p = 0.46；（h）7月26日21时至24时，p = 0.28。来源：原论文 Fig. 3。</p>
+<p>n 是生成网络里的节点数，不是人数。m1 是以概率 p 去连接已有节点的边数。正文说，年轻、年长和女性群体的 m1 比其他群体小得多，并给出三组：0–18岁为10，60岁以上为45，女性为55。其余群体的 m1 在补充表S1，正文没有写出。</p>
+<p>图上的灾中标准差小于灾前。作者把低韧性联系到灾中较低的 p，以及较小的 m1：这些群体在暴雨期间维持灾前出行频率的概率更低，网络因此更稀疏，灾后也不容易回到原来的密度。这是生成模型对度分布的拟合。这样一组参数能够复现连接数的变化；模型没有直接观测每个人取消了哪一次出行。</p>
+<h2 id="先降后升盖不住一半格子"><a href="#先降后升盖不住一半格子" class="headerlink" title="先降后升盖不住一半格子"></a>先降后升盖不住一半格子</h2><p>浴缸曲线对两个差值有固定方向。下降段用灾前减灾中，常规情况下应该为正，因为灾前更高。回升段用灾中减灾后，常规情况下应该为负，因为灾后更高。作者对每一个1公里格子的日均流入、日均流出都做了这两个减法。</p>
+<p><img src="/posts/b8d36f86/fig4.webp" alt="下降段和回升段上与常规方向相反的格子"></p>
+<p>图 4｜哪些格子的流量差和浴缸方向相反？</p>
+<p>（a）下降段：纵轴是灾前减灾中的日均流出，横轴是灾前的日均边权。蓝色大于0，橙色等于0，红色小于0。常规浴缸应是蓝点；高流量一端出现大批红点，表示暴雨期间流出反而增加。（b）回升段：纵轴是灾中减灾后。常规回升应是红点（灾中低于灾后）。图的高流量一端同时堆着大量反向的点。流入有同样的形态，正文这张图画的是流出。来源：原论文 Fig. 4。</p>
+<p>红点更集中在灾前日均流量高的格子。一个地方灾前出发的人或到达的人越多，暴雨期间走出反常差值的机会越大。图上没有给出红点的个数，只能读分布形态。</p>
+<p>把两个差值画成横轴和纵轴，四个象限就是四种曲线。横轴是灾前减灾中，纵轴是灾中减灾后。</p>
+<ul>
+<li>第四象限：横轴为正、纵轴为负。灾中下降，灾后回升。这是常规浴缸。</li>
+<li>第二象限：横轴为负、纵轴为正。灾中上升，灾后回落。这是反浴缸（reversed bathtub）。</li>
+<li>第一象限：两轴都为正。灾中已经下降，灾后继续下降。这是持续下降（ever-decreasing）。</li>
+<li>第三象限：两轴都为负。灾中上升，灾后还在上升。这是持续上升（ever-increasing）。</li>
+</ul>
+<p><img src="/posts/b8d36f86/fig5.webp" alt="四种韧性曲线的象限份额和空间分布"></p>
+<p>图 5｜四种曲线各占多少格子，落在郑州的什么位置？</p>
+<p>（a）四种曲线的示意图。左上为反浴缸，右上为持续下降，左下为持续上升，右下为常规浴缸。（b）流入。第一至第四象限占9.47%、31.53%、7.44%、51.56%。（c）流出。对应份额为11.16%、30.71%、7.67%、50.46%。两张散点图的百分比各自相加都是100%。（d、e）流入和流出的空间分布。橙色是第一象限，红色是第二象限，绿色是第三象限，蓝色是第四象限，空白为无数据。来源：原论文 Fig. 5。</p>
+<p>以流入为例，常规浴缸51.56%，另外三类合计48.44%。流出是50.46%对49.54%。作者所说的大约1比1，就是这组份额：正常与异常各占分类格子的一半左右。无数据格子不在这100%里面，正文没有给出格子总数。作者还称，更小的子网络社区尺度上这个比例仍然接近；该项检验在补充材料，正文没有附数字。</p>
+<p>地图上，蓝色的常规浴缸因为这场雨覆盖范围大，在研究区里分布得比较散。红色的反浴缸更集中在南部，作者认为那里受影响较轻。持续上升和持续下降多贴在红色区域边缘，并在东、西两侧形成窄走廊和小团块。流入和流出的空间格局差别不大。</p>
+<p>作者对三种异常曲线各给了一种可能的行为读法，都还不是从轨迹里证出来的。反浴缸：暴雨时人们临时改道，聚集到某些新地点，雨后回到原来的路线。持续上升：新的通勤路线被保持下来，可能是主动绕开危险地点，也可能是积水长期封路造成的被动绕行。持续下降：这些地点的吸引力下降得更久，人们在雨后仍因安全和道路不通而避开。主文没有每个格子的积水深度，所以这三种读法是对流量差的解释，不是对路线选择的直接测量。</p>
+<p>作者另外推测，正常与异常大约对半，可能和受灾范围占研究区的比例有关。支持这一推测的图在补充材料，正文没有给出受灾面积占比。</p>
+<h2 id="性别和年龄分不开这四种格子"><a href="#性别和年龄分不开这四种格子" class="headerlink" title="性别和年龄分不开这四种格子"></a>性别和年龄分不开这四种格子</h2><p>群体韧性分已经显示出女性和年龄两端更低。下一步要问的是：异常曲线是不是就是这些群体所在的格子。作者先把各群体的流量换成相对比例，避免格子总人口不同把结果带走。</p>
+<p>空间上，他们做了双变量全局莫兰指数（bivariate Moran’s I）：一个格子的象限类型，是否和邻接格子的性别或年龄比例一起聚集。距离用欧氏距离，也就是平面上的直线距离。阈值取1719.68米，平均每个格子有13.51个邻居。表1是流入。32个系数里，绝对值最大的是0.073，对应19–29岁与第四象限；其次是−0.052，对应50–59岁与第四象限。作者给出的判断是这些相关在统计上不显著，p 远大于0.01。流出与流入的差别很小，所以后文只报告流入。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>象限</th>
+<th style="text-align:right">女性</th>
+<th style="text-align:right">男性</th>
+<th style="text-align:right">0–18岁</th>
+<th style="text-align:right">19–29岁</th>
+<th style="text-align:right">30–39岁</th>
+<th style="text-align:right">40–49岁</th>
+<th style="text-align:right">50–59岁</th>
+<th style="text-align:right">60岁以上</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一象限</td>
+<td style="text-align:right">−0.015</td>
+<td style="text-align:right">0.015</td>
+<td style="text-align:right">−0.003</td>
+<td style="text-align:right">−0.013</td>
+<td style="text-align:right">−0.019</td>
+<td style="text-align:right">0.001</td>
+<td style="text-align:right">0.022</td>
+<td style="text-align:right">0.014</td>
+</tr>
+<tr>
+<td>第二象限</td>
+<td style="text-align:right">0.013</td>
+<td style="text-align:right">−0.013</td>
+<td style="text-align:right">0.017</td>
+<td style="text-align:right">−0.043</td>
+<td style="text-align:right">−0.004</td>
+<td style="text-align:right">0.014</td>
+<td style="text-align:right">0.021</td>
+<td style="text-align:right">0.012</td>
+</tr>
+<tr>
+<td>第三象限</td>
+<td style="text-align:right">−0.005</td>
+<td style="text-align:right">0.005</td>
+<td style="text-align:right">−0.006</td>
+<td style="text-align:right">−0.049</td>
+<td style="text-align:right">−0.021</td>
+<td style="text-align:right">0.003</td>
+<td style="text-align:right">0.038</td>
+<td style="text-align:right">0.040</td>
+</tr>
+<tr>
+<td>第四象限</td>
+<td style="text-align:right">0.000</td>
+<td style="text-align:right">0.000</td>
+<td style="text-align:right">0.010</td>
+<td style="text-align:right">0.073</td>
+<td style="text-align:right">0.026</td>
+<td style="text-align:right">−0.015</td>
+<td style="text-align:right">−0.052</td>
+<td style="text-align:right">−0.040</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>表 1｜流入的四类曲线和八个人口属性之间的双变量莫兰指数。系数接近0。来源：原论文 Table 1。</p>
+<p>邻里溢出可以先放在一边，再用带惩罚权重的多项逻辑回归（multinomial logistic regression）看性别、年龄能不能预测四个象限。因为第四象限约占一半，稀少的象限会被模型忽略，所以按类别加权。权重 wᵢ = （各类样本量之和 / 类别数） / 该类样本量。正文给出的权重是：第一象限2.616，第二象限0.808，第三象限3.454，第四象限0.479。最少的第三象限权重最大。</p>
+<p>同一格子里的性别比例、年龄比例彼此受总量约束，方差膨胀因子（VIF）会很高。作者把 VIF 大于10视为共线性。逐步回归里，女性的VIF是11288.1，男性是7204.0；年龄组的平均VIF是999486.2，最小也有248.4。预测能力同时很弱：平均AUC是0.58；含性别的模型平均准确率34%，含年龄的模型是30%。这里的准确率是模型把格子分进正确象限的平均表现，分母是分类判断，不是人口占比。流入格子里仅常规浴缸就占51.56%。在这种不平衡下，30%多的准确率说明这些比例没有把四类曲线分开。</p>
+<p><img src="/posts/b8d36f86/fig6.webp" alt="性别和年龄预测四种韧性曲线的ROC与流入分布"></p>
+<p>图 6｜把性别或年龄放进分类模型，四类曲线能分开吗？</p>
+<p>（a）性别变量的正态性图，横轴是理论分位数，纵轴是样本值。点在两端偏离直线。（b）女性和男性一起入模的ROC。曲线贴近对角线，图例中的AUC集中在0.5到0.6出头。（c）只放入男性。（d）只放入女性。（e）六个年龄组的正态性图。（f）六个年龄组一起入模。（g–l）依次只用年龄组1到年龄组6，也就是0–18岁、19–29岁、30–39岁、40–49岁、50–59岁和60岁以上。各面板的ROC同样贴着对角线。（m）女性日均流入按四个象限展开，为了并排比较，显示高度乘了0.5。（n）60岁以上的日均流入，显示高度乘了5。因此（m）和（n）的柱高不能直接比大小。来源：原论文 Fig. 6。</p>
+<p>其他群体的空间对比放在补充材料，正文没有再给一套AUC。就正文这一组结果而言，正常曲线和三种异常曲线都没有落到某一个性别或年龄上。作者据此认为，洪涝期间改道、聚集或避开，是跨群体共同存在的避灾反应；性别和年龄可以改变一个人维持原频率的能力，却不能决定一整个格子走出哪一种曲线。这一共同机制来自属性预测的失败，再加上对流量方向的解释。数据里没有个人路线，也没有逐格水深。</p>
+<h2 id="这些数可以说到哪里"><a href="#这些数可以说到哪里" class="headerlink" title="这些数可以说到哪里"></a>这些数可以说到哪里</h2><p>手机信令只覆盖一部分持有该运营商设备的人，435万是1270万常住人口的34.3%。年龄标签不完整，10岁以下的记录还可能属于家长。汇总到格子之后，某一象限只说明该格日均流量差的方向，不能推出格内每位居民都改了道。</p>
+<p>韧性分经过各组自己的最小–最大缩放，用来比较曲线形状。0.71和0.62的差不能换算成两人群的行程倍数。DBA拟合的是连接数分布。参数变小，表示生成模型里的新连接变少；它没有逐条记录谁取消了哪一次出行。</p>
+<p>四类曲线来自三个阶段的日均流量差。一个格子只要灾中三日的日均高于灾前七日，就会进入横轴为负的象限，即使其中某一个小时曾经中断。7月23日至29日只有灾后一周，看得到短期回落或继续上升，看不到几个月后的搬迁。</p>
+<p>空间解释也停在流量和救援热点。微博热点是4公里示意缓冲，正文没有配套的淹没深度图。作者把反浴缸较集中的南部长读成受影响较轻的区域。讨论里提到的地铁停运来自对这次事件的报道，信令网络本身没有测量站台淹没深度。</p>
+<p>所以可以同时成立的是两件事。全城尺度上，女性和年龄两端更难在暴雨期间维持原来的出行频率，强连接的总量下降，极大枢纽变少。格子尺度上，大约一半的分类单元不走先降后升，而这一种几何差异不能靠性别和年龄比例来预测。</p>
+<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>郑州这场暴雨让边权大于100的全市连接明显变少，女性和年龄两端更难维持原来的出行频率；但在1公里格子上，大约一半单元并不先降后升，性别和年龄也分不出它们属于哪一种曲线。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p>汤俊卿、赵鹏军、宫兆亚、赵宏波、黄沣爵、李嘉颖、陈至禾、余玲、陈军，<em>Resilience patterns of human mobility in response to extreme urban floods</em>，National Science Review，2023，10(8)：nwad097。<a target="_blank" rel="noopener" href="https://doi.org/10.1093/nsr/nwad097">DOI：10.1093/nsr/nwad097</a>。手机信令不公开。作者写明，分析代码可从 GitHub 仓库 <a target="_blank" rel="noopener" href="https://github.com/Fe6ruAr9/Zhengzhou%20Project">Fe6ruAr9/Zhengzhou Project</a> 获取。</p>
+<p>汤俊卿是第一作者，署名单位为北京大学深圳研究生院城市规划与设计学院。学院教师页列其现为助理教授，研究城市韧性、防灾减灾与交通地理。他参与了设计、数据、分析、计算和写作。</p>
+<p>赵鹏军是通讯作者，署名为北京大学城市与环境学院和深圳研究生院城市规划与设计学院。学院页面列其现为博雅特聘教授、城市规划与设计学院院长，研究交通地理与城乡规划。他参与设计、数据采集和写作。</p>
+<p>宫兆亚署名于北京大学深圳研究生院城市规划与设计学院。学院2023年5月的发表说明称其为助理教授。作者贡献中，他参与研究设计与论文写作。</p>
+<p>赵宏波署名为河南大学黄河文明与可持续发展研究中心。河南大学地理科学与工程学部教师页列其为教授，研究城市韧性、时空大数据与黄河流域城乡发展。他参与设计、数据采集和分析。</p>
+<p>黄沣爵、李嘉颖署名为北京大学深圳研究生院城市规划与设计学院。学院2023年5月的说明称当时为研究生。两人参与完成研究、数据分析和写作。</p>
+<p>陈至禾同样署名于该学院，同一则说明把他和黄沣爵、李嘉颖并列为当时的研究生。作者贡献声明没有单独写出他的分工。</p>
+<p>余玲在该学院2023年5月的说明中为副研究员，论文中参与数据采集和分析。</p>
+<p>陈军署名为 Key National Geomatics Center of China（国家基础地理信息中心）。同一则学院说明称他为中国工程院院士。他参与研究设计与论文写作。</p>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
+<p>若应急看板上只有全市总出行一条线，7月20日的下跌和随后的回升会很像一条浴缸。流入格子里，反浴缸和持续上升合计38.97%（31.53% + 7.44%），这些格子在暴雨期间到达量是增加的。临时饮水、避雨和交通疏导若只投向脆弱人群比例最高的社区，未必落到这些流量上升的走廊上，因为象限类型本身不能由性别和年龄预测。</p>
+<p>0–18岁的韧性分0.52也不适合直接写成青少年防护指标。论文已经说明，10岁以下的信令可能记的是家长。用这一个分数给学校停课或校车绕行排队，会把家长的同行轨迹当成儿童独立出行。</p>
+<p>另外，这篇论文的灾后只看到7月29日。若换成持续数周、并且住房损毁的流域洪水，第三象限的持续上升可能来自投亲靠友，同一周内的绕路不足以解释它。没有逐格水深时，持续下降既可能是人们不愿去，也可能只是路还没通。两种原因要的恢复动作不同，这套日均流量差还不能替这个判断做决定。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">猴猴猴</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://xiaoyue-hou.github.io/posts/b8d36f86/">http://xiaoyue-hou.github.io/posts/b8d36f86/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">猴猴猴</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                                    <span class="chip bg-color">人类移动性</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%89%8B%E6%9C%BA%E4%BF%A1%E4%BB%A4/">
+                                    <span class="chip bg-color">手机信令</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%9F%8E%E5%B8%82%E5%86%85%E6%B6%9D/">
+                                    <span class="chip bg-color">城市内涝</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%81%BE%E5%AE%B3%E9%9F%A7%E6%80%A7/">
+                                    <span class="chip bg-color">灾害韧性</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/c9e47a97/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="2023-GODDAG: Generating Origin-Destination Flow for New Cities Via Domain Adversarial Training">
+                        
+                        <span class="card-title">2023-GODDAG: Generating Origin-Destination Flow for New Cities Via Domain Adversarial Training</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%80%9A%E5%8B%A4/">
+                        <span class="chip bg-color">通勤</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%B5%B7%E8%AE%AB%E6%B5%81%E9%87%8F/">
+                        <span class="chip bg-color">起讫流量</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">图神经网络</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%A2%86%E5%9F%9F%E8%87%AA%E9%80%82%E5%BA%94/">
+                        <span class="chip bg-color">领域自适应</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/a7c25e75/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="2023-Trackintel: An open-source Python library for human mobility analysis">
+                        
+                        <span class="card-title">2023-Trackintel: An open-source Python library for human mobility analysis</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                        <span class="chip bg-color">人类移动性</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%BD%A8%E8%BF%B9%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">轨迹数据</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/">
+                        <span class="chip bg-color">开源软件</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BA%A4%E9%80%9A%E8%A7%84%E5%88%92/">
+                        <span class="chip bg-color">交通规划</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('-1'),
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2026</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">猴猴猴</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "4";
+                    var startDate = "26";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiaoyue-hou" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1396567029@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1396567029" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1396567029" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <script src="/js/reading-marks.js?v=7"></script>
+
+</body>
+
+</html>

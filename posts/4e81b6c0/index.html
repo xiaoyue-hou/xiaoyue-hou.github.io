@@ -1,0 +1,1496 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="2026-TransGM: Transferable gravity models for cross-city policy transfer, 猴猴猴">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>2026-TransGM: Transferable gravity models for cross-city policy transfer | 猴猴猴</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<style>
+    /* ----------------------------------------------------------- */
+    /* 1. 基础清理：隐藏不需要的文字 */
+    /* ----------------------------------------------------------- */
+    .card .card-content .summary, 
+    .caption, .img-caption, .fancybox-caption, 
+    .img-item .caption { 
+        display: none !important; 
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">猴猴猴</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">猴猴猴</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">2026-TransGM: Transferable gravity models for cross-city policy transfer</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E9%80%9A%E5%8B%A4/">
+                                <span class="chip bg-color">通勤</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%BC%95%E5%8A%9B%E6%A8%A1%E5%9E%8B/">
+                                <span class="chip bg-color">引力模型</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">迁移学习</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%9F%8E%E5%B8%82%E6%94%BF%E7%AD%96/">
+                                <span class="chip bg-color">城市政策</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper/" class="post-category">
+                                Paper
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-11-10
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+
+<h2 id="把伯明翰的就业吸引力搬到考文垂，模型学到的是谁的优先级？"><a href="#把伯明翰的就业吸引力搬到考文垂，模型学到的是谁的优先级？" class="headerlink" title="把伯明翰的就业吸引力搬到考文垂，模型学到的是谁的优先级？"></a>把伯明翰的就业吸引力搬到考文垂，模型学到的是谁的优先级？</h2><p>论文名片｜Adham Enaya、Chen Zhong、Michael Batty、Robin Morphet、Fulvio D. Lopane，<em>TransGM: Transferable gravity models for cross-city policy transfer</em>，Computers, Environment and Urban Systems，2026，128：102455，2026年5月19日在线发表。2025年8月12日收稿，2026年4月24日修回，2026年5月4日接收。<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.compenvurbsys.2026.102455">DOI：10.1016/j.compenvurbsys.2026.102455</a>。本文依据这一正式发表版解读。</p>
+<p>考文垂若考虑学习伯明翰，在就业集中的地方多配基本服务，规划上要回答的是通勤会不会因此改道。TransGM 把这个问题做成一次可计算的迁移：先用伯明翰的通勤学会一组目的地吸引力参数，再拿考文垂的一部分起讫流量微调。起点一共有多少人出门，模型直接使用观测到的总数，只学习这些人流向哪些目的地。</p>
+<p>这次微调之后，考文垂流量方差被解释的比例高于考文垂单独估计的模型。设施权重和市中心流量对设施的反应，仍然更接近伯明翰单独估计的结果。流量拟合上升，与考文垂本地优先级被替换，是两份不同的证据。</p>
+<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
+<li>同样使用考文垂 25% 流量时，自适应迁移的流量 R² 为 0.547，考文垂本地模型为 0.472，增量为 0.075，相对本地模型为 0.075/0.472 = 15.9%。相对不加设施锚定的直接微调 0.529，增量为 0.018，即 0.018/0.529 = 3.4%。通勤重合比例从本地模型图上标注的 0.860 升到 0.875，与直接微调的 0.876 只差 0.001。</li>
+<li>两城是否相似，比的是各自内部“就业分布”与“超出就业预期的设施分布”相差多少，再取这两个市内差值的绝对差。物流与工业的绝对差为 0.003，锚定强度 Ω 为 0.950；办公设施的绝对差为 0.497，Ω 约为 0。</li>
+<li>Ω 接近 0，表示正则项不再把该设施的权重拴在伯明翰。基本服务的 Ω 为 0.003，自适应权重仍是 0.415，靠近伯明翰的 0.394，与考文垂单独估计的 0.022 分属不同量级。交通权重停在 0.037，考文垂单独估计为 0.218。</li>
+<li>市中心流入对设施残差的敏感度也更接近伯明翰。自适应模型中基本服务为 0.023，考文垂本地为 0.003；交通为 0.004，考文垂本地为 0.030。论文据此认为，迁移结果复现的是伯明翰的城市配置。</li>
+<li>案例是英国西米德兰兹两座相邻城市、统一统计区口径下的方法演示。就业数量由建筑面积乘密度系数估算，距离是统计区质心之间的直线距离。模拟没有观察一项真实政策落地后的通勤变化。</li>
+</ul>
+<h2 id="一座城市标定的系数，换到隔壁还代表什么？"><a href="#一座城市标定的系数，换到隔壁还代表什么？" class="headerlink" title="一座城市标定的系数，换到隔壁还代表什么？"></a>一座城市标定的系数，换到隔壁还代表什么？</h2><p>两地之间的人流，经典引力模型写成规模越大、距离越近，流量越高。生产约束形式还要求每个起点的预测流出加总之后，等于该起点实际观测到的总流出。形式可以跨城保留；每个设施前面的系数表示它在当地有多重要，则会随产业结构和土地使用改变。以往旅行需求模型的迁移，常用来源城市和目标城市的系数做平均、缩放或合并，一组系数共用同一种更新幅度。</p>
+<p>TransGM 想把“哪些设施可以共用、哪些必须重估”写进估计过程。它有四步：先把设施相对就业做成残差，再量每座城市内部就业与超额设施的空间错位，然后在来源城市估计生产约束引力模型，最后按错位程度决定目标城市的参数被来源城市拴住多少。论文把它同时当作流量预测和诊断工具：在目标城市流量较少时，看用来源城市的逻辑组织这些流量会留下哪些对不上的参数。</p>
+<p><img src="/posts/4e81b6c0/fig1.webp" alt="TransGM 从设施残差、空间签名到迁移正则的流程"></p>
+<p>图 1｜把伯明翰的引力模型迁到另一座城市，中间经过哪四步？</p>
+<p>图中没有子图字母，四列按模块排列。模块 1 从就业和设施出发，先把设施对就业回归，残差作为超出就业预期的吸引力，再与就业弹性合成总吸引力。模块 2 分别计算来源城市和目标城市内部的 KL 散度，取绝对差后变成每个设施的自适应权重，范围在 0 到 1。模块 3 用来源城市的特征和流量估计起点约束引力模型，损失包含流量拟合与终点流入对齐。模块 4 把来源城市权重送进目标城市，用这套权重调节正则，并配合目标城市特征得到目标模型。来源：原论文 Fig. 1。</p>
+<h2 id="伯明翰和考文垂，各自用什么当通勤的分母？"><a href="#伯明翰和考文垂，各自用什么当通勤的分母？" class="headerlink" title="伯明翰和考文垂，各自用什么当通勤的分母？"></a>伯明翰和考文垂，各自用什么当通勤的分母？</h2><p>两座城市都在英国西米德兰兹，规划体系和统计口径相同，便于把差异更多地放在空间结构和就业组成上。论文给出的部门结构来自 2022 年商业注册与就业调查：伯明翰服务业约 70%、制造业约 7%；考文垂服务业约 65%、制造业约 12%。就业空间熵为伯明翰 H = 4.0、考文垂 H = 3.2，正文用前者表示就业更集中，后者更分散。这是分布的集中程度，不是岗位总数。</p>
+<p><img src="/posts/4e81b6c0/fig2.webp" alt="英格兰位置示意及伯明翰与考文垂范围"></p>
+<p>图 2｜案例城市位于英国的什么位置，两城如何相邻？</p>
+<p>图中没有子图字母。左侧是英格兰及相邻地区的区划底图，小方框标出西米德兰兹，两条引线连到右侧放大图。右侧纵轴为北距、横轴为东距，单位都是公里；伯明翰范围涂在北侧，考文垂范围涂在东南侧。这张图只说明地理位置和城市范围，不包含流量或设施数量。来源：原论文 Fig. 2。</p>
+<p>空间单元是下层超级输出区（Lower Layer Super Output Area，LSOA），英格兰和威尔士用于发布小区域统计的分区，设计人口大约为 1,000–3,000 人。分析单位是 LSOA 之间的通勤起讫对。附录 C 列出的规模是：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th style="text-align:right">伯明翰</th>
+<th style="text-align:right">考文垂</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>人口</td>
+<td style="text-align:right">1,141,816</td>
+<td style="text-align:right">369,127</td>
+</tr>
+<tr>
+<td>LSOA 数</td>
+<td style="text-align:right">639</td>
+<td style="text-align:right">174</td>
+</tr>
+<tr>
+<td>起讫对</td>
+<td style="text-align:right">训练 4,355 对</td>
+<td style="text-align:right">合计 1,278 对；附录写训练 383 对、测试 895 对</td>
+</tr>
+<tr>
+<td>通勤出行次数</td>
+<td style="text-align:right">298,450</td>
+<td style="text-align:right">98,250</td>
+</tr>
+<tr>
+<td>平均行程距离</td>
+<td style="text-align:right">8.2 公里</td>
+<td style="text-align:right">6.8 公里</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>383 + 895 = 1,278，与考文垂起讫对总数一致；附录把这一划分写成 30% 与 70%。正文、表 3 和图 3 则把考文垂实验标为使用 25% 目标城市流量。论文没有说明 25% 对应其中多少对，也没有说明它是否就是这 383 对。后文的 R² 与 CPC 属于表 3 所标的 25% 设置。4,355 对分布在 639 个区、1,278 对分布在 174 个区，都远少于区与区的全部组合。论文没有写明零流量的区对是否进入模型。</p>
+<p>通勤来自匿名、汇总后的手机应用数据，文中引用 Zhong 等人 2025 年发布的英格兰位置数据。本文没有写出采集年份和应用名称。记录到的出行次数相对附录人口为 298,450/1,141,816 与 98,250/369,127。这两对比的是两套附录数字，不是论文单独报告的抽样率。</p>
+<p>模型里的就业也不是这批通勤人数。主文按建筑总楼面面积乘就业密度估算岗位：高密度办公 0.10、机构类 0.08、中等密度零售 0.07、低密度工业 0.01 个岗位每平方米，密度系数来自英国规划中的就业密度指引。表 2 因此给出伯明翰 806,739 个估算岗位、考文垂 398,695 个。其中机构类建筑为 566,838/806,739 与 306,488/398,695，办公类只有 24,814/806,739 与 19,001/398,695。结论写明，开放街道图的分类和覆盖不一致，岗位数应作为指示，不宜当成官方岗位统计。附录的特征清单又把岗位写成国家统计局商业注册册。与表 2 对得上的，是面积乘密度这一套总数。它和 298,450、98,250 次通勤记录也不是同一个量。</p>
+<p>距离取 LSOA 质心之间的欧氏直线距离，单位为公里。伯明翰的矩阵是 639×639，考文垂是 174×174。附录在距离上加入平均距离的 10%，避免距离为 0 时幂函数无法计算。直线距离不包含道路绕行、时刻表和费用。</p>
+<h2 id="设施要先去掉就业本身，才谈得上额外吸引力"><a href="#设施要先去掉就业本身，才谈得上额外吸引力" class="headerlink" title="设施要先去掉就业本身，才谈得上额外吸引力"></a>设施要先去掉就业本身，才谈得上额外吸引力</h2><p>六类设施是文化活力、基本服务、物流与工业、办公、零售与餐饮、交通可达性。就业密集的地方往往设施也多。若把原始设施和岗位一起放进吸引力，岗位的作用会被重复计算。论文对每一类设施做线性回归，残差表示相对于岗位数偏多或偏少的部分。形成空间分布时，负残差先截为 0，只保留超出预期的设施，再在本市各区之间归一化成概率。</p>
+<p><img src="/posts/4e81b6c0/fig7.webp" alt="考文垂与伯明翰就业估计和设施残差的相关矩阵"></p>
+<p>图 7｜残差化之后，设施和就业估计还缠在一起吗？</p>
+<p>附录 A 有上下两张热图，没有子图字母。上图为考文垂，下图为伯明翰。行列都是就业估计的对数，以及六类设施残差。颜色从蓝到红表示相关从负到正，对角线上的 1 是变量与自身的相关。两张图的就业列都接近 0，这与“残差已经对就业回归”的构造一致。设施残差之间仍有相关：伯明翰零售与交通为 0.335，文化与交通为 0.268；考文垂零售与交通为 0.260，基本服务与物流为 −0.176。因此，后文每个设施一个权重，并不表示这些设施在空间上相互独立。来源：原论文 Appendix A。</p>
+<h2 id="模型学习的是目的地份额，起点总数另有来源"><a href="#模型学习的是目的地份额，起点总数另有来源" class="headerlink" title="模型学习的是目的地份额，起点总数另有来源"></a>模型学习的是目的地份额，起点总数另有来源</h2><p>预测流量写成：</p>
+<p>预测的 i 到 j 流量 = 起点 i 的观测总流出 ×（j 的吸引力 × 距离衰减）÷ 该起点所有目的地的吸引力与距离衰减之和。</p>
+<p>分母的作用，是把已经观测到的出门总量分配出去。正文报告起点拟合的 R² 为 1.000，这是约束带来的结果。终点 R² 高、每一对起讫的 R² 低，可以同时成立：前者看一个区收到的通勤合计，后者看具体从哪个区来。</p>
+<p>目的地吸引力取对数后分成两项：岗位数的对数乘岗位弹性，加上六类残差对数的加权和，再套一个双曲正切。正切把设施残差的贡献限制在有界区间里，避免它盖过岗位。距离衰减比较了幂函数“距离的负 β 次方”和指数函数“e 的负 β 乘距离”。附录 I 中，幂函数的伯明翰交叉验证 R² 为 0.575，指数为 0.560，相差 0.015，即 0.015/0.575 = 2.6%。同一表的考文垂跨城一列为 0.211 与 0.205，论文记为大约 2.9%。幂函数因此被用作主要形式。0.211 与后文微调后的 0.547 相差很大，附录没有说明这列跨城结果是否使用了同样的 25% 考文垂流量，两套 R² 应分开读。</p>
+<p>估计时同时惩罚单对流量的误差和终点流入合计的误差，并给设施权重一个普通的 L2 惩罚，减轻吸引力与距离衰减缠在一起。流量部分采用泊松型损失。迁移阶段再增加一项：每个设施的目标城市权重与伯明翰权重之差的平方，乘上该设施自己的 Ω。参数由 L-BFGS-B 优化，梯度用自动微分。</p>
+<p>附录 B 写下的搜索边界是距离衰减 0.5 到 5.0、岗位弹性 0.01 到 0.50。表 5 的距离一列却是 0.11 与 0.21，落在 0.5 到 5.0 之外。附录 I 的文字又给出幂函数 β = 1.85、指数 β = 0.023。三处数字不能当成同一个参数的三次四舍五入。后文讨论距离谁更陡时，只使用表 5 那一列；附录 I 的 β 只用于它自己的函数比较。</p>
+<h2 id="空间错位怎样决定这条参数被拴多紧？"><a href="#空间错位怎样决定这条参数被拴多紧？" class="headerlink" title="空间错位怎样决定这条参数被拴多紧？"></a>空间错位怎样决定这条参数被拴多紧？</h2><p>每个设施先在城市内部计算 KL 散度：以就业分布为参照，看超额设施分布与它差多远。数值低，表示岗位多的区也集中了较多超额设施；数值高，表示两者在空间上分开。两座城市的分区不同，论文不把伯明翰某一区与考文垂某一区直接相减，而是比较两个市内 KL 的绝对差。绝对差小，表示两城的就业—设施搭配方式接近；绝对差大，表示搭配方式不同。分区面积不等时，正文还写了带面积的修正。表 4 没有注明所列 KL 用的是普通式还是面积修正式。</p>
+<p>设施 k 的锚定强度为 Ωₖ = exp(−τ × 绝对差ₖ)。绝对差趋于 0 时 Ω 趋于 1，惩罚把目标城市参数拉向伯明翰；绝对差很大时 Ω 趋于 0，这项惩罚消失。τ 控制绝对差要多大才松开。附录在 1、2、5、10、17、26 中选择，文字说预测表现在 17 达到高点后下降，没有列出每一档的 R²。迁移强度在 0.5、1、2、5 中取 2.0。表 4 的有效惩罚是 2.0 × Ω。固定迁移相当于每个设施的 Ω 都等于 1，大家都以 2.0 的强度锚向伯明翰。直接迁移使用同样的 25% 考文垂流量微调，但不加这套按设施区分的锚定。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>残差设施</th>
+<th style="text-align:right">伯明翰 KL</th>
+<th style="text-align:right">考文垂 KL</th>
+<th style="text-align:right">绝对差</th>
+<th style="text-align:right">Ω</th>
+<th style="text-align:right">有效惩罚</th>
+<th>表 4 的标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文化活力</td>
+<td style="text-align:right">1.447</td>
+<td style="text-align:right">1.258</td>
+<td style="text-align:right">0.188</td>
+<td style="text-align:right">0.041</td>
+<td style="text-align:right">0.081</td>
+<td>部分迁移</td>
+</tr>
+<tr>
+<td>基本服务</td>
+<td style="text-align:right">0.780</td>
+<td style="text-align:right">1.120</td>
+<td style="text-align:right">0.340</td>
+<td style="text-align:right">0.003</td>
+<td style="text-align:right">0.006</td>
+<td>不迁移</td>
+</tr>
+<tr>
+<td>物流与工业</td>
+<td style="text-align:right">0.867</td>
+<td style="text-align:right">0.863</td>
+<td style="text-align:right">0.003</td>
+<td style="text-align:right">0.950</td>
+<td style="text-align:right">1.900</td>
+<td>完全迁移</td>
+</tr>
+<tr>
+<td>办公</td>
+<td style="text-align:right">1.154</td>
+<td style="text-align:right">1.651</td>
+<td style="text-align:right">0.497</td>
+<td style="text-align:right">0.000</td>
+<td style="text-align:right">0.000</td>
+<td>不迁移</td>
+</tr>
+<tr>
+<td>零售与餐饮</td>
+<td style="text-align:right">0.987</td>
+<td style="text-align:right">1.156</td>
+<td style="text-align:right">0.169</td>
+<td style="text-align:right">0.056</td>
+<td style="text-align:right">0.113</td>
+<td>部分迁移</td>
+</tr>
+<tr>
+<td>交通可达性</td>
+<td style="text-align:right">0.622</td>
+<td style="text-align:right">0.732</td>
+<td style="text-align:right">0.111</td>
+<td style="text-align:right">0.151</td>
+<td style="text-align:right">0.303</td>
+<td>部分迁移</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>以 τ = 17 复核，exp(−17 × 0.003) 约为 0.950，exp(−17 × 0.497) 已经接近 0，与表中 Ω 一致。</p>
+<p><img src="/posts/4e81b6c0/fig4.webp" alt="六类设施的城际 KL 绝对差与迁移惩罚"></p>
+<p>图 4｜哪一类设施被紧紧锚在伯明翰，哪一类被放开？</p>
+<p>图中没有子图字母。横轴是六类设施。左轴是伯明翰与考文垂市内 KL 的差，柱高对应这一差值；右轴是有效惩罚。蓝色为部分迁移，红色为不迁移，绿色为完全迁移。绿色只有物流与工业，惩罚点标在 1.900，它的 KL 绝对差在表 4 中最小，为 0.003。红色的基本服务和办公惩罚点接近 0。交通的惩罚点标为 0.303，高于文化、零售和两类红色设施。表 4 的“不迁移”指锚定消失，权重可以由考文垂流量改写；它还不等于改写已经发生。来源：原论文 Fig. 4。</p>
+<h2 id="方差解释上升之后，权重停在哪里？"><a href="#方差解释上升之后，权重停在哪里？" class="headerlink" title="方差解释上升之后，权重停在哪里？"></a>方差解释上升之后，权重停在哪里？</h2><p>图 3 把五个模型放在同一组坐标里。浅色虚线是全量数据参照，深色实线是 25% 训练数据。伯明翰市内模型标在全量参照上，R² 为 0.575、CPC 为 0.951、终点 R² 为 0.973。它与考文垂各点之间的连线跨越了两种训练规模，不能据此说伯明翰比考文垂更容易预测。</p>
+<p><img src="/posts/4e81b6c0/fig3.webp" alt="五种模型的流量 R²、CPC 和终点 R²"></p>
+<p>图 3｜迁移是否提高了考文垂流量的拟合，提高的是哪一个指标？</p>
+<p>（a）流量 R²。考文垂本地 25% 训练为 0.472，直接迁移 0.529，固定迁移 0.516，自适应迁移 0.547。自适应高于直接迁移，固定迁移低于直接迁移。（b）通勤重合比例 CPC。25% 设置下的四点为 0.860、0.876、0.871、0.875。自适应与直接迁移几乎重合，都只略高于考文垂本地。（c）终点流入 R²。对应四点为 0.920、0.941、0.934、0.937。自适应的终点拟合低于直接迁移。三个面板的纵轴起点都不是 0，柱状高低不能跨面板比较。来源：原论文 Fig. 3。</p>
+<p>表 3 与图中标注对应：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>训练城市</th>
+<th>测试城市</th>
+<th style="text-align:right">流量 R²</th>
+<th style="text-align:right">CPC</th>
+<th style="text-align:right">终点 R²</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>市内，全量参照</td>
+<td>伯明翰</td>
+<td>伯明翰</td>
+<td style="text-align:right">0.575</td>
+<td style="text-align:right">0.951</td>
+<td style="text-align:right">0.973</td>
+</tr>
+<tr>
+<td>市内，25%</td>
+<td>考文垂</td>
+<td>考文垂</td>
+<td style="text-align:right">0.472</td>
+<td style="text-align:right">0.86</td>
+<td style="text-align:right">0.92</td>
+</tr>
+<tr>
+<td>直接迁移，25%</td>
+<td>伯明翰到考文垂</td>
+<td>考文垂</td>
+<td style="text-align:right">0.529</td>
+<td style="text-align:right">0.876</td>
+<td style="text-align:right">0.941</td>
+</tr>
+<tr>
+<td>固定迁移，λ = 2.0，25%</td>
+<td>伯明翰到考文垂</td>
+<td>考文垂</td>
+<td style="text-align:right">0.516</td>
+<td style="text-align:right">0.871</td>
+<td style="text-align:right">0.934</td>
+</tr>
+<tr>
+<td>自适应迁移，τ = 17.0，25%</td>
+<td>伯明翰到考文垂</td>
+<td>考文垂</td>
+<td style="text-align:right">0.547</td>
+<td style="text-align:right">0.875</td>
+<td style="text-align:right">0.937</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>表 3 把考文垂本地 CPC 和终点 R² 印成 0.86 与 0.92，图 3 标成 0.860 与 0.920。论文将各模型终点 R² 概括为 0.933 ± 0.008。按考文垂测试的四行计算，(0.92 + 0.941 + 0.934 + 0.937) / 4 = 0.933，伯明翰全量参照的 0.973 不在这四行之中。</p>
+<p>R² 是流量方差被模型解释的比例，分母是流量相对其均值的波动，不是通勤者人数，也不是 CPC。CPC 在文中称为 Common Part of Commuters，用来表示预测流量与观测流量的重合，正文没有列出计算公式。自适应模型在流量 R² 上最高；在 CPC 上比直接迁移低 0.001，在终点 R² 上低 0.004。均匀锚定的固定迁移，流量 R² 比直接迁移低 0.013。把所有设施都按伯明翰拴住，拟合差于允许参数自由微调。</p>
+<p>权重表把“拟合更好”和“优先级属于谁”分开。表 5 的六类设施也画在图 5 里；距离和岗位两列只出现在表中。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th style="text-align:right">距离</th>
+<th style="text-align:right">岗位</th>
+<th style="text-align:right">文化</th>
+<th style="text-align:right">基本服务</th>
+<th style="text-align:right">物流</th>
+<th style="text-align:right">办公</th>
+<th style="text-align:right">零售</th>
+<th style="text-align:right">交通</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>伯明翰</td>
+<td style="text-align:right">0.11</td>
+<td style="text-align:right">0.17</td>
+<td style="text-align:right">0.157</td>
+<td style="text-align:right">0.394</td>
+<td style="text-align:right">0.036</td>
+<td style="text-align:right">0.162</td>
+<td style="text-align:right">0.05</td>
+<td style="text-align:right">0.031</td>
+</tr>
+<tr>
+<td>考文垂</td>
+<td style="text-align:right">0.21</td>
+<td style="text-align:right">0.43</td>
+<td style="text-align:right">0.266</td>
+<td style="text-align:right">0.022</td>
+<td style="text-align:right">0.016</td>
+<td style="text-align:right">0.009</td>
+<td style="text-align:right">0.037</td>
+<td style="text-align:right">0.218</td>
+</tr>
+<tr>
+<td>固定迁移</td>
+<td style="text-align:right">0.11</td>
+<td style="text-align:right">0.093</td>
+<td style="text-align:right">0.18</td>
+<td style="text-align:right">0.418</td>
+<td style="text-align:right">0.042</td>
+<td style="text-align:right">0.173</td>
+<td style="text-align:right">0.057</td>
+<td style="text-align:right">0.036</td>
+</tr>
+<tr>
+<td>自适应迁移</td>
+<td style="text-align:right">0.11</td>
+<td style="text-align:right">0.095</td>
+<td style="text-align:right">0.184</td>
+<td style="text-align:right">0.415</td>
+<td style="text-align:right">0.043</td>
+<td style="text-align:right">0.168</td>
+<td style="text-align:right">0.058</td>
+<td style="text-align:right">0.037</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="/posts/4e81b6c0/fig5.webp" alt="四套模型的六类设施吸引力权重"></p>
+<p>图 5｜微调之后，六类设施的权重靠近哪一座城市？</p>
+<p>图中没有子图字母。横轴为文化、基本服务、物流、办公、零售、交通，纵轴为吸引力权重 γ。蓝色为伯明翰，黄色为考文垂，绿色为固定迁移，红色为自适应迁移。基本服务一列里，蓝、绿、红三柱都在 0.4 附近，黄柱接近 0。交通一列相反，黄柱超过 0.2，其余三柱都低于 0.05。文化一列中，绿柱和红柱位于蓝柱与黄柱之间，并更靠近蓝柱。图中没有距离和岗位弹性。来源：原论文 Fig. 5。</p>
+<p>单独估计时，伯明翰最大的设施权重是基本服务 0.394，文化为 0.157。考文垂最大的是文化 0.266 和交通 0.218，基本服务为 0.022。自适应迁移后，基本服务为 0.415，办公为 0.168，交通为 0.037，文化为 0.184。文化从 0.157 移到 0.184，方向朝向考文垂的 0.266，距离伯明翰仍更近。办公的 Ω 约为 0，公式允许它离开伯明翰，估计值仍是 0.168，考文垂单独估计只有 0.009。</p>
+<p>讨论认为，25% 的考文垂流量不足以把基本服务从伯明翰的高权重上移开；办公变化很小，是因为两座城市都认为办公在岗位之外贡献有限。后一句与表 5 的对照需要保留：考文垂的办公权重 0.009 很小，伯明翰的 0.162 是该模型中仅次于基本服务的设施权重。物流权重在四行中都位于 0.016 到 0.043，尽管它的空间锚定最强。位置搭配相似，与它对目的地选择重要，是两件事情。</p>
+<p>岗位弹性也没有向考文垂的 0.43 移动。自适应结果为 0.095，低于伯明翰的 0.17。距离一列在两种迁移里都保持 0.11，考文垂单独估计为 0.21。讨论把较大的距离参数读成更陡的衰减：伯明翰较平，对应就业集中、通勤可以拉得更远；考文垂较陡，对应外围工业区和中心服务分开之后，人们更依赖较短的联系。迁移模型留在 0.11。书面上的 Ω 惩罚按设施权重求和，没有写上距离参数和岗位弹性。这两列停在何处，不能单独算到设施锚定头上。参数从伯明翰的估计值出发再微调，也会使小样本下的结果不容易走远。</p>
+<h2 id="拨动市中心的设施，流入量按谁的斜率变化？"><a href="#拨动市中心的设施，流入量按谁的斜率变化？" class="headerlink" title="拨动市中心的设施，流入量按谁的斜率变化？"></a>拨动市中心的设施，流入量按谁的斜率变化？</h2><p>权重还不是流量反应。论文把市中心的设施残差从 0 推到 600，看预测的市中心流入相对基线改变多少，再除以扰动量，得到敏感度。分子是流入的相对变化，分母是扰动幅度，所以不同城市的基线流入不同，仍可以比较。图 6 的曲线先上升后变平，与吸引力公式里的有界变换相符。四个面板的纵轴上限不同，大约分别到 60%、140%、120% 和 140%。曲线在图上的高度不能跨面板直接相比，也不能用表中的敏感度乘以 600 回推曲线右端的百分比。</p>
+<p><img src="/posts/4e81b6c0/fig6.webp" alt="四种模型下市中心流入对六类设施扰动的反应"></p>
+<p>图 6｜市中心设施残差被推高时，流入增量更像哪座城市？</p>
+<p>（a）伯明翰本地。纵轴大约到 60%。图例中的敏感度约为文化 0.01、基本服务 0.03、物流 0.00、办公 0.01、零售 0.00、交通 0.00。（b）考文垂本地。纵轴大约到 140%。文化约为 0.04，交通约为 0.03，基本服务、物流、办公约为 0.00，零售约为 0.01。（c）固定迁移。纵轴大约到 120%。基本服务约为 0.04，文化和办公约为 0.02，零售约为 0.01，物流和交通约为 0.00。（d）自适应迁移。纵轴大约到 140%。基本服务和文化约为 0.02，零售约为 0.01，物流、办公和交通约为 0.00。来源：原论文 Fig. 6。</p>
+<p>表 6 给出其中四类的三位小数，分母都是各自的敏感度定义，不是流入人数：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th style="text-align:right">文化</th>
+<th style="text-align:right">基本服务</th>
+<th style="text-align:right">办公</th>
+<th style="text-align:right">交通</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>伯明翰本地</td>
+<td style="text-align:right">0.012</td>
+<td style="text-align:right">0.029</td>
+<td style="text-align:right">0.012</td>
+<td style="text-align:right">0.002</td>
+</tr>
+<tr>
+<td>考文垂本地</td>
+<td style="text-align:right">0.037</td>
+<td style="text-align:right">0.003</td>
+<td style="text-align:right">0.001</td>
+<td style="text-align:right">0.030</td>
+</tr>
+<tr>
+<td>固定迁移</td>
+<td style="text-align:right">0.018</td>
+<td style="text-align:right">0.042</td>
+<td style="text-align:right">0.017</td>
+<td style="text-align:right">0.004</td>
+</tr>
+<tr>
+<td>自适应迁移</td>
+<td style="text-align:right">0.017</td>
+<td style="text-align:right">0.023</td>
+<td style="text-align:right">0.000</td>
+<td style="text-align:right">0.004</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>固定迁移的基本服务敏感度 0.042，高于伯明翰的 0.029 和考文垂的 0.003。自适应把它降到 0.023，仍与考文垂本地的 0.003 相差约一个数量级。两种迁移的交通敏感度都是 0.004，考文垂本地为 0.030。办公是自适应结果里少见的明显离开伯明翰敏感度的一项，从表 6 的 0.012 降到 0.000；同一模型在表 5 里的办公吸引力权重仍是 0.168。敏感度与权重并列时需要分开，它们回答的是扰动反应和吸引力方程中的系数。</p>
+<p>论文的阅读是：固定迁移和自适应迁移都把伯明翰式的反应带进考文垂，尤其是对基本服务的依赖。文化敏感度有所上升，自适应的 0.017 仍靠近伯明翰的 0.012，离考文垂的 0.037 更远。讨论据此把迁移学习改写成政策迁移模拟，用来问复制伯明翰会带入哪些结构假设。文中进一步认为，考文垂分散的就业更依赖交通，加强外围就业区与中心服务的联系，比复制紧凑的中心商务区更贴合本地模型。这是对模拟参数的政策解释。论文同时写明，这些观察仍属初步，还需要空间自相关等检验，区分数据噪声和规划形成的格局。</p>
+<h2 id="这次模拟可以把结论停在哪里？"><a href="#这次模拟可以把结论停在哪里？" class="headerlink" title="这次模拟可以把结论停在哪里？"></a>这次模拟可以把结论停在哪里？</h2><p>在起点总流出已知、考文垂使用表 3 所标的 25% 流量时，按市内 KL 绝对差调节正则，流量 R² 高于考文垂本地模型和均匀正则模型。多数设施的吸引力权重，以及基本服务和交通的市中心敏感度，仍与伯明翰单独估计的结果同侧。物流与工业的市内 KL 几乎相同，有效惩罚达到 1.900，四套模型的物流权重却都只有 0.016 到 0.043。</p>
+<p>流量 R² 的上升没有伴随 CPC 或终点 R² 相对直接迁移继续上升。起点总数来自观测，模型没有估计“设施改变后会有多少人出门”。就业总数是面积乘密度的指示值，其中机构类建筑占 566,838/806,739 与 306,488/398,695。直线距离也还不是出行时间。两座城市同属西米德兰兹，共用英国的规划与统计框架。论文把这组结果定为概念验证，并写明还需要在单中心与多中心、不同文化和不同规划体制之间继续检验。</p>
+<p>有三处印刷口径本文没有合成。考文垂流量比例在结果中标为 25%，在附录 C 中为 383/1,278。岗位来源在表 2 中是面积乘密度，在附录特征清单中写成商业注册册。距离在表 5 中为 0.11 与 0.21，在附录 B 的边界中为 0.5 到 5.0，在附录 I 的文字中又出现 β = 1.85 与 0.023。各处数字只在它自己的表或附录里使用。</p>
+<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>用伯明翰的引力模型为考文垂分配已知的通勤流出，少量本地流量就能提高流量方差的解释比例；这次估计留下来的设施优先级，仍是伯明翰那一套。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.compenvurbsys.2026.102455">Computers, Environment and Urban Systems 正式版</a>，128 卷，文章编号 102455。正文图 1–6、表 1–6 与附录 A–I 都出自这一版。</li>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-025-06323-8">Zhong 等，2025，Scientific Data</a>，论文所引的英格兰匿名位置数据。本文没有另行核对该数据集的采集年份。</li>
+<li>欧洲研究理事会 Horizon 2020 资助，协议编号 949670。论文的数据可得性声明只写数据处于公共领域，没有给出代码或流量文件链接。</li>
+</ul>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>五位作者都署名伦敦大学学院高级空间分析中心。</p>
+<ul>
+<li>Adham Enaya：第一作者，负责初稿、方法、形式分析、数据整理与概念。学院博士生页面列出的研究题目，是用迁移学习建立可迁移的城市移动模型，导师包括 Chen Zhong 与 Michael Batty。</li>
+<li>Chen Zhong：通讯作者，负责审阅、监督、项目管理、方法、资助与概念。本文通勤流量所引的英格兰匿名位置数据，出自 Zhong 等人的这项数据论文。</li>
+<li>Michael Batty：参与审阅、监督、方法与概念。文中的空间熵、城市模型残差和引力模型传统，沿用他此前发表的城市建模工作。</li>
+<li>Robin Morphet：学院人员页列为该中心荣誉教授。本文参与审阅、监督与概念讨论。</li>
+<li>Fulvio D. Lopane：学院人员页列为该中心荣誉研究员，研究方向包括城市与交通建模。本文参与审阅与概念讨论；正文引用了他参与的大尺度土地利用—交通互动框架。</li>
+</ul>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
+<p>若问题是“考文垂沿用伯明翰的设施权重时，已观测到的出门人数会如何改道”，权重停在伯明翰附近就是这次模拟的结果，R² 表示这套权重还能把已知流出分配到多接近观测。设施若真的改建，岗位数量和起点流出也可能改变。把 Oᵢ 固定住之后，模型回答不了总通勤规模会不会变化。下一步需要让就业和出门人数随设施情景一起变，再看分配结果。</p>
+<p>另一项可以直接补上的检验是训练比例。当前参数从伯明翰的值出发，只用考文垂 25% 的流量微调。把同一套自适应惩罚重复到一半流量和全部 1,278 对，若基本服务仍远高于 0.022、交通仍远低于 0.218，结构差异的证据会更硬。若权重随样本增加明显移向考文垂单独估计的结果，现在看到的“复制伯明翰”就主要是小样本和初始值的后果。论文没有给出这条曲线。</p>
+<p>物流与工业则是一个现成的反例。它的市内 KL 只差 0.003，锚定是六类中最强的，吸引力权重却始终低于 0.05。一类设施可以按相似的空间习惯贴在就业旁边，同时几乎不改变人们在目的地之间的分配。迁移惩罚高，还不能排成投资清单上的高优先级。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">猴猴猴</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://xiaoyue-hou.github.io/posts/4e81b6c0/">http://xiaoyue-hou.github.io/posts/4e81b6c0/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">猴猴猴</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E9%80%9A%E5%8B%A4/">
+                                    <span class="chip bg-color">通勤</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%BC%95%E5%8A%9B%E6%A8%A1%E5%9E%8B/">
+                                    <span class="chip bg-color">引力模型</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">迁移学习</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%9F%8E%E5%B8%82%E6%94%BF%E7%AD%96/">
+                                    <span class="chip bg-color">城市政策</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/a3c81e57/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="2027-A representation-explanation framework for flow-based border effects on intra-urban commuting using geographically weighted additive gravity model and machine learning">
+                        
+                        <span class="card-title">2027-A representation-explanation framework for flow-based border effects on intra-urban commuting using geographically weighted additive gravity model and machine learning</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%80%9A%E5%8B%A4/">
+                        <span class="chip bg-color">通勤</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%BE%B9%E7%95%8C%E6%95%88%E5%BA%94/">
+                        <span class="chip bg-color">边界效应</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%87%8D%E5%8A%9B%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">重力模型</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9C%B0%E7%90%86%E5%8A%A0%E6%9D%83/">
+                        <span class="chip bg-color">地理加权</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">可解释机器学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/2c8f61b4/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="2027-Unlocking hidden demand: Reconstructing bus OD flows by integrating mobile trajectories and Map API">
+                        
+                        <span class="card-title">2027-Unlocking hidden demand: Reconstructing bus OD flows by integrating mobile trajectories and Map API</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-11-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%85%AC%E4%BA%A4OD/">
+                        <span class="chip bg-color">公交OD</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%89%8B%E6%9C%BA%E4%BF%A1%E4%BB%A4/">
+                        <span class="chip bg-color">手机信令</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%87%BA%E8%A1%8C%E9%9C%80%E6%B1%82/">
+                        <span class="chip bg-color">出行需求</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B9%BF%E5%B7%9E/">
+                        <span class="chip bg-color">广州</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('-1'),
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2026</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">猴猴猴</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "4";
+                    var startDate = "26";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiaoyue-hou" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1396567029@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1396567029" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1396567029" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <script src="/js/reading-marks.js?v=7"></script>
+
+</body>
+
+</html>

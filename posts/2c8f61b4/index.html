@@ -1,0 +1,1270 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="2027-Unlocking hidden demand: Reconstructing bus OD flows by integrating mobile trajectories and Map API, 猴猴猴">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>2027-Unlocking hidden demand: Reconstructing bus OD flows by integrating mobile trajectories and Map API | 猴猴猴</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<style>
+    /* ----------------------------------------------------------- */
+    /* 1. 基础清理：隐藏不需要的文字 */
+    /* ----------------------------------------------------------- */
+    .card .card-content .summary, 
+    .caption, .img-caption, .fancybox-caption, 
+    .img-item .caption { 
+        display: none !important; 
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">猴猴猴</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">猴猴猴</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">2027-Unlocking hidden demand: Reconstructing bus OD flows by integrating mobile trajectories and Map API</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%85%AC%E4%BA%A4OD/">
+                                <span class="chip bg-color">公交OD</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%89%8B%E6%9C%BA%E4%BF%A1%E4%BB%A4/">
+                                <span class="chip bg-color">手机信令</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%87%BA%E8%A1%8C%E9%9C%80%E6%B1%82/">
+                                <span class="chip bg-color">出行需求</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%B9%BF%E5%B7%9E/">
+                                <span class="chip bg-color">广州</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper/" class="post-category">
+                                Paper
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-11-10
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+
+<h2 id="只记下在哪上车，为什么还看不清一次公交出行？"><a href="#只记下在哪上车，为什么还看不清一次公交出行？" class="headerlink" title="只记下在哪上车，为什么还看不清一次公交出行？"></a>只记下在哪上车，为什么还看不清一次公交出行？</h2><p>论文名片｜Yunling Chen、Suhong Zhou、Dan Zou、Qiuping Li、Qiumeng Li，<em>Unlocking hidden demand: Reconstructing bus OD flows by integrating mobile trajectories and Map API</em>，Travel Behaviour and Society，2027，46：101358。<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.tbs.2026.101358">DOI：10.1016/j.tbs.2026.101358</a>。本文依据该刊正式版解读；2026年8月6日在线发表，收稿日期为2025年11月12日，修回2026年7月12日，接受2026年7月16日。这是一项方法研究：用手机信令轨迹和高德地图路径规划重建公交起讫流，再拿问卷、官方线路客流和一个线路缩短模拟来检验。</p>
+<p>早高峰，一条公交线末尾有个站，上车的人很少。按上车人数，它像可以先拿掉的末梢。同一时刻，另一批乘客正在这个站下车，他们的行程要从几站之外算起。只保留上车多的站，线还在，有些人的下车点已经不在了。这是帮助想象的场景，论文的证据来自全网统计。</p>
+<p>广州中心区这一天的结果指向同一件事：手机轨迹对照地图给出的公交方案之后，可以补上刷卡常常缺少的下车站，并汇总成站点与线路客流。上车总人数和下车总人数的分布几乎叠在一起，单个站点却经常明显偏向上车或下车。在把线网里程缩短两成的模拟里，按完整起讫删站，比只按上车人数删站，保住更多下车和更多成对行程。模拟用的是重建出来的客流，衡量的是删站规则的差别，尚未变成已经实施的线网调整。</p>
+<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
+<li>在3,496条机动化问卷起讫里，加入高德路径规划后，公交这一类的F1从61.92%升到82.42%，Kappa从0.313升到0.610。F1综合的是公交类的查准和查全；3,496条里整体判对的比例，要另外看总体准确率。</li>
+<li>重建的线路客流与2024年9月官方线路日均客运量的决定系数R²为0.786，皮尔逊相关为0.887；只用静态路网规则时，这两项是0.191和0.437。散点图没有标出参与比较的线路条数。</li>
+<li>研究区4,812个站点中，出行发生站2,182个、出行吸引站1,308个、相对均衡站1,322个。上车人次的站点均值是12.40、中位数是3，下车是12.32和3。均值接近，站点角色并不接近。</li>
+<li>线路客流的秩—规模拟合指数，重建结果为−0.99，官方客流为−1.02。论文报告按秩排列后前80%的线路合计占估计总客流的99.99%、官方总客流的99.37%；这说的是排序靠后的线路份额极小，不能换成“最忙的20%线路占80%客流”。</li>
+<li>里程削减20%时，起讫方案覆盖96.16%的下车和98.29%的成对行程，上车方案覆盖79.55%的下车和93.14%的成对行程，相差16.61和5.15个百分点。上车覆盖则是96.24%对100%。分母都是这条重建网络自己的站点、上下车或起讫。全市常规公交日均289万乘次是另一套全市口径。</li>
+</ul>
+<h2 id="上车记录为什么留不下目的地？"><a href="#上车记录为什么留不下目的地？" class="headerlink" title="上车记录为什么留不下目的地？"></a>上车记录为什么留不下目的地？</h2><p>许多城市的公交自动收费只要求上车刷卡或扫码。票款数据因此有起点，没有下车站。已有研究用规则或机器学习去猜下车站，精确到站点时准确率大约在60%到80%，放宽到一段距离内或多候选站时可以到90%以上。这些数字来自论文综述的既有工作，随验证标准变化。本文在广州测得的是后面的F1和线路相关。</p>
+<p>更靠前的限制是谁会进入刷卡表。持卡的常乘客容易被记到；游客、偶尔付现或移动支付、以及并非每趟都刷卡的优惠乘客，更容易缺席。把下车站补算出来，矩阵仍然主要来自这群会被收费系统看见的人。论文把这称为代表性偏差，并认为它不能靠后面的估计算法消除。</p>
+<p>手机信令换了一条记录路径。人是否刷卡，不影响基站是否留下位置。论文同时写明，幼儿和一部分老年人因为较少持有手机，仍可能被低估。在当前中国城市，公交票款大多已经通过手机支付，所以手机数据覆盖的人群大体包住刷卡用户，刷卡用户并不能反过来包住全部手机用户。这是作者对覆盖关系的判断，本文没有拿同一天的刷卡表和信令表做逐人对照。</p>
+<p>公交还比地铁更难认。地铁的空间特征比较独，公交和小汽车、网约车共用道路，速度和停靠又不稳定。只看快慢，很容易把几种道路方式混在一起。</p>
+<h2 id="一天的信令，怎样变成可分析的样本？"><a href="#一天的信令，怎样变成可分析的样本？" class="headerlink" title="一天的信令，怎样变成可分析的样本？"></a>一天的信令，怎样变成可分析的样本？</h2><p>轨迹来自一家电信运营商，估计占广州约30%的市场份额。2024年10月9日是周三，作者选它，是因为这一天没有公共假期和极端天气。当天匿名用户10,154,117人。位置由手机与基站的信令产生，建成区空间分辨率最高到150米。</p>
+<p>运营商样本和常住人口的年龄、性别结构不一定一致。作者按第七次全国人口普查的社区人口、性别比和年龄结构做分层重抽样，目标是全市常住人口的1%。实际得到184,400人，相当于常住人口的0.98%。后面的轨迹和客流图都来自这18.44万人。1,015万人只是重抽样之前的运营商池，图上的人次也还没有放大成全市客流。</p>
+<p>停留点由运营商上游流程规定：一个人在150米×150米网格里停留至少30分钟。作者没有再改这个阈值。一次行程是相邻两个停留点之间的信令序列。出发时间是起点停留里最后一条信令，到达时间是终点停留的第一条信令，二者之差是观测行程时间。清洗后得到916,212条轨迹。论文没有报告其中有多少条最终被确认为公交。</p>
+<p>问卷是另一套人、另一个时段。2024年10月16日至31日，先按人口和经济特征分区，再从中心城区抽21个街道、95个社区，得到3,004份有效答卷。每人报告两个最常去的目的地，以及去那里的主要方式。去掉起终点相同、直线距离短于500米和逻辑不一致的记录后，剩3,987条有效起讫；其中机动化方式3,496条。这里的分母是起讫记录。一个人可以贡献多条，所以3,004份答卷不等于3,987次独立出行者。</p>
+<p>官方运营数据是2024年9月的线路长度和线路日均客运量，用来对照重建的线路总量。三个时间窗因此并排：信令是10月9日一天，问卷是10月下半月的惯常目的地，官方客流是9月日均。相关高，说明这些口径在线路总量上同向；它不能单独证明某一天的每一个下车站都被认对。</p>
+<h2 id="广州中心区的公交处在什么底图上？"><a href="#广州中心区的公交处在什么底图上？" class="headerlink" title="广州中心区的公交处在什么底图上？"></a>广州中心区的公交处在什么底图上？</h2><p>据《2024年广州市交通发展年度报告》，全市常规公交日均289万乘次，占公共交通出行的19.84%。分母是公共交通出行。步行、自行车和小汽车不在这19.84%里面。研究区比全市小。作者限定在白云、天河、越秀、海珠、荔湾、黄埔六个中心区，并纳入部分延伸到番禺的线路，因为中心区公交运营相对统一、客流集中。范围内有4,812个公交站、1,228条线路，方向相反的线路分开计数。</p>
+<p>中心城区广州公交集团约占83%的份额，其余由两家较小公司分担。南沙、花都等外围区由另外的地方交通部门管理，票价、服务标准和线网密度不同。作者把范围收在中心区，是为了让票价、服务标准和线网密度停留在同一套运营制度里。下面的站点功能和客流集中，描述的都是这块研究区。</p>
+<p><img src="/posts/2c8f61b4/fig1.webp" alt="广州研究区与公共交通构成"></p>
+<p>图 1｜重建客流之前，公交网络落在广州的哪一块？</p>
+<p>（a）广东省在中国的位置。（b）广州市在广东省的位置。（c）市域区界、中心研究区、绿地和水体；红线内是白云、天河、越秀、海珠、荔湾、黄埔及部分番禺线路所覆盖的范围。（d）同一范围的公交线路，线路明显密在中心、疏向外围。（e）2005—2024年全市公交年客运量（亿人次）和增长率；2020年客运量明显下跌，之后没有回到2010年代中段的高位。（f）同期公共交通方式构成，轨道份额上升，常规公交份额下降，图中还单列水上巴士和出租车。来源：原论文 Fig. 1。</p>
+<p>（e）（f）给出全市年度背景。（c）（d）对应后文4,812个站和1,228条线路的空间范围。2020年的年客运量下跌，回答不了10月9日每个站的上车变化。</p>
+<h2 id="三条对照，怎样把路上的移动认成公交？"><a href="#三条对照，怎样把路上的移动认成公交？" class="headerlink" title="三条对照，怎样把路上的移动认成公交？"></a>三条对照，怎样把路上的移动认成公交？</h2><p>916,212条轨迹先过一层不依赖地图的筛选，再过三层依赖高德的核对，最后才汇总成站和线路。</p>
+<p>筛选有三条。行程的起终点都在广州市行政范围内。运营商已把方式粗分成道路、地铁、飞机、铁路和其他，这里只留下道路类，当作机动化候选；这个分类器是运营商的，论文无法单独检验它的准确率。速度还要落在12–80千米/小时，时长超过15分钟。这个速度区间偏宽，留在样本里的行程其实更集中：中位数25.0千米/小时，四分位距18.0–37.0千米/小时，95%落在13.0–60.0千米/小时。宽门槛的作用是少误删，后面的地图核对才负责把公交从其他道路方式里分开。</p>
+<p>核对使用高德公交路径规划接口。输入是轨迹的起终点和出发时间，默认采用综合推荐方案。这个方案同时平衡行程时间、换乘次数、步行距离和实时班次。一条轨迹要连过三关才记为公交。</p>
+<p>第一关看方案是否存在。服务时间以外、规划不出公交的行程，记为非公交。若返回的是公交与地铁的组合行程，只抽出其中的公交段，包括上车站、下车站和线路。这样得到的起讫是站到站，门到门的两端步行留在站外。换乘行程里的公交需求因此还能留下，不必先把整条轨迹切段。</p>
+<p>第二关看两端步行。从轨迹起点走到第一个上车站、从最后一个下车站走到轨迹终点，两段都不超过500米。阈值对齐本地规划：到2025年，90%以上的城市人口应能在500米内到达公交站，2035年提到95%。</p>
+<p>第三关看时间。行程时间比等于观测行程时间除以接口估计的行程时间。公交时间常常右偏，用标准差剔异常不可靠，作者改用分位数：时间比落在全部候选的第5到第90百分位之间才保留。下界去掉快得不像公交的轨迹，上界去掉极长延误或明显损坏的记录。</p>
+<p><img src="/posts/2c8f61b4/fig2.webp" alt="公交起讫重建的三阶段框架"></p>
+<p>图 2｜从基站停留到站点客流，中间哪几步在做核对？</p>
+<p>图中没有字母面板，按三个阶段阅读。阶段1在150米网格上检测停留，用起点内最后一条信令和终点停留的第一条信令计算观测时长。阶段2先按道路方式、市域和速度时长筛出机动化候选，再用路径是否存在、两端步行不超过500米、行程时间比是否落在第5到第90百分位确认公交；侧栏示意一次换乘行程被拆成公交段。阶段3抽出上车站、下车站和线路，分别汇总到站点和线路。来源：原论文 Fig. 2。</p>
+<p>确认后的公交腿按线路编号、上车站和下车站拆开。换乘的每一段公交各算该线路的一次上车，这个口径和官方客运量统计一致。站点层累加每个站的上车与下车；线路层累加站间起讫。因为前面的筛选会丢掉一部分真公交，作者在讨论里把重建流量看作实际公交需求的下界。它没有被放大成全市客流。</p>
+<p>拿掉地图动态规划的对照模型，仍使用500米邻近，再加上静态路网里的最少换乘和绕行比，参数另行调过。两边的差别就是：一边用某一时刻的推荐公交方案核对这条行程，另一边只用站点和线路的固定几何。</p>
+<h2 id="上下车总量很像，站点为什么仍然各干各的？"><a href="#上下车总量很像，站点为什么仍然各干各的？" class="headerlink" title="上下车总量很像，站点为什么仍然各干各的？"></a>上下车总量很像，站点为什么仍然各干各的？</h2><p>重建客流在中心密、外围疏，和已有的本地需求研究同向。把所有站的上车和下车放在一起看，两组分布也很像。作者因此单独计算每个站的移动功能指数：（该站上车 − 该站下车）÷（上车 + 下车）。指数靠近1，上车远多于下车，站点更像行程的发生端；靠近−1，下车远多于上车，更像吸引端；靠近0，两端比较均衡。</p>
+<p><img src="/posts/2c8f61b4/fig3.webp" alt="站点上下车与功能分类"></p>
+<p>图 3｜总上下车相似时，单个站点是否仍有明确角色？</p>
+<p>（a）每个站的上车人次，颜色从0–3、4–38、39–100到大于100，深色集中在中心。（b）下车人次使用同一套分级，空间上也是中心密。（c）两个小提琴图的均值分别为上车12.40、下车12.32，中位数都是3；虚线带是25%–75%分位。纵轴是重建样本中的人次，长尾把均值拉到中位数上方。（d）按指数分类：发生站2,182个（0.2 &lt; 指数 &lt; 1），均衡站1,322个（−0.2 ≤ 指数 ≤ 0.2），吸引站1,308个（−1 &lt; 指数 &lt; −0.2）。三者相加为4,812，即研究区全部站点。海珠放大图里红、蓝、白站点彼此穿插。来源：原论文 Fig. 3。</p>
+<p>2,182/4,812是发生站，1,308/4,812是吸引站。发生站多于吸引站，但吸引站仍占超过四分之一。只按上车优化，高下车、低上车的站容易被当成需求弱。图3说明的是重建样本里的功能分化。它还没有和土地利用、医院或学校名单对齐，具体设施是否被忽视仍要另做核对。</p>
+<h2 id="客流是铺满全网，还是挤在少数路段？"><a href="#客流是铺满全网，还是挤在少数路段？" class="headerlink" title="客流是铺满全网，还是挤在少数路段？"></a>客流是铺满全网，还是挤在少数路段？</h2><p>线路总量会把一条线内部的差别抹平。作者按线路跨度和客流量把走廊分成三类：连接就业区和居住区的跨区通勤线、区内连接线，以及汇向主要交通节点的枢纽放射线。这是对重建客流形态的归纳。站间流量再把走廊拆开：东西向如天河商务区—黄埔，南北向如荔湾—白云，高强度汇在广州东站等换乘点附近。少数站间路段承担不成比例的客流。</p>
+<p><img src="/posts/2c8f61b4/fig4.webp" alt="线路客流与站间客流"></p>
+<p>图 4｜需求是均匀铺在线上，还是集中在少数路段？</p>
+<p>（a）1,228条线路按重建客流着色：0–36有619条，37–80有443条，81–155有135条，大于155有31条。四档相加等于全部研究线路。这些人数是18.44万样本当天的重建计数。官方日均乘次使用另一套数量级，见后文散点的横轴。（b）站间客流分0–5、6–21、22–52和大于52四档，高值沿主要走廊和枢纽分布；图例没有给出每一档的路段条数。（c）站间客流的频数向右长尾延伸，绝大多数路段流量很低。论文据此称分布呈帕累托式集中，正文没有给出“多少比例的路段承担多少比例客流”。来源：原论文 Fig. 4。</p>
+<p>31条高客流线路，指的是样本重建值超过155的线路。官方日均远高于这个刻度，下一节的散点把两套数放在同一张图的横轴和纵轴上。</p>
+<h2 id="认出来的公交，和问卷、官方客流各差多远？"><a href="#认出来的公交，和问卷、官方客流各差多远？" class="headerlink" title="认出来的公交，和问卷、官方客流各差多远？"></a>认出来的公交，和问卷、官方客流各差多远？</h2><p>微观检验把问卷里的起点坐标、终点坐标和出发时间送进同一套规则，让规则预测方式，再和受访者自报方式比较。送进去的是问卷坐标和出发时间。82.42%的F1衡量的是：已知一次起讫和出发时刻时，地图核对能否把自报公交分开。停留点识错、150米定位误差和运营商道路分类错误，留在这项分数之外，要靠后面的线路总量来看整条流程。</p>
+<p>机动化子集有3,496条。静态路网模型的公交查准率73.74%，查全率只有53.37%，F1为61.92%，Kappa为0.313，只比偶然一致好一截。地图模型的查准率79.69%，查全率85.35%，F1为82.42%，Kappa为0.610。F1提高20.50个百分点，Kappa提高0.297。查全率上升，同时查准率没有下降，说明多找回来的公交行程，没有靠大量误报换来。</p>
+<p>换到全部3,987条，步行和骑行也进入分母。地图模型的公交查全率仍是85.35%，查准率降到66.65%，F1为74.85%，Kappa为0.473。表3记录的总体准确率是73.29%，附录图四舍五入为73.3%。查全率保持不变，是因为新进入的非机动化记录不属于应被找到的公交；查准率下降，是因为一部分步行或骑行被标成了公交。作者因此把主比较放在机动化子集，避免短距离方式把公交识别的难题冲淡。</p>
+<p>四种规划偏好也在同一批问卷起讫上比过。机动化3,496条里，综合推荐的公交F1为82.42%，省钱方案79.27%，最少换乘75.76%，最少步行70.51%；对应Kappa为0.610、0.542、0.466、0.348。总体准确率从推荐方案的80.66%降到最少步行的67.65%。推荐方案同时考虑时间、换乘、步行和服务，最接近这些自报行程；最少步行把路线约束得过窄，和观测轨迹最不合。</p>
+<p><img src="/posts/2c8f61b4/fig8.webp" alt="四种路径规划策略的识别成绩"></p>
+<p>图 5｜换一种路径偏好，公交还认得出吗？</p>
+<p>图中没有字母面板。左栏是全部3,987条起讫，右栏是不含步行和骑行的3,496条。每个指标上，圆点从少步行到综合推荐排列，红字是推荐方案。右栏公交查准率79.7%、查全率85.3%、F1 82.4%、总体准确率80.7%、Kappa 0.610；左栏公交查准率降到66.7%，查全率仍为85.3%，F1为74.8%。图中红字保留一位小数。来源：原论文 Fig. A1。</p>
+<p>宏观检验把重建线路客流和9月官方日均客运量比较。静态模型的R²是0.191，相关0.437；地图模型的R²是0.786，相关0.887。两个相关的p值都小于0.001。p值小表示相关不太像抽样偶然，不表示每个站间起讫都已核实。</p>
+<p><img src="/posts/2c8f61b4/fig5.webp" alt="两类模型与官方线路客流的相关"></p>
+<p>图 6｜地图核对有没有改善线路总量，而不只是单条行程？</p>
+<p>（a）决定系数：静态模型0.191，地图模型0.786。（b）皮尔逊相关：静态模型0.437，地图模型0.887，两者p均小于0.001。蓝色是静态路网规则，红色是加入路径规划的模型。来源：原论文 Fig. 5。</p>
+<p>散点把官方客运量放在横轴，重建估计放在纵轴。拟合直线是估计值 = 0.02 × 官方值 + 0.22。官方轴延伸到一万以上，估计轴主要在几百以内。0.02是这条拟合线的斜率：官方日均约1万人次的线路，对应的估计值大约在200附近。分析样本是常住人口的0.98%，信令只覆盖一天，官方数是9月日均。纵轴因此仍是样本尺度的估计，0.02只是这张图的拟合斜率，论文没有把它用作全市放大系数。</p>
+<p><img src="/posts/2c8f61b4/fig6.webp" alt="线路客流散点与秩规模分布"></p>
+<p>图 7｜线路总量对得上时，忙线路和尾部线路各呈什么形状？</p>
+<p>（a）颜色表示点的密度，大多数线路挤在低客流一端并靠近红线；红线为 y = 0.02x + 0.22，图内标注R² = 0.786、r = 0.887。高官方客流一端有一批点落在红线上方。（b）双对数秩—规模图，上为重建客流，拟合指数−0.99；下为官方客流，拟合指数−1.02。两端都偏离直线：最大的一批线路低于直线，最小的一批在尾部陡降。来源：原论文 Fig. 6。</p>
+<p>论文给出的归一化均方根误差是0.222，归一化平均绝对误差是0.165。正文没有写出归一化的分母，这里只把它们当作作者报告的误差摘要，不换算成平均客流的百分之几。高客流线路偏向上方，作者的解释是中心区站点密，非公交轨迹更容易在空间上碰巧贴近公交站；手机数据覆盖的人群也比刷卡更宽。这是对残差方向的解释。散点本身证明的是线路总量高度同向，以及忙线路有系统性偏高。</p>
+<p>秩—规模图上的指数接近−1，论文称之为接近典型帕累托参数。按秩排列后，前80%线路合计占估计总客流99.99%、官方总客流99.37%。分母是相应的线路客流总和。它表明排序末尾的线路份额很小。图上的点在最大和最小两端离开直线，幂律指数概括的是集中程度，头尾名次还各有自己的弯曲。</p>
+<p>行程时间提供了另一项行为核对。因为候选行程已被要求长于15分钟，作者用最大似然拟合左截断的对数正态分布。对数均值μ = 2.931，对数标准差σ = 0.675。若按自然对数理解，未截断分布的中位数约为18.7分钟。图上的观测已经去掉短于15分钟的候选，已识别行程的中位数要在这条截断之后的分布里另算。Kolmogorov–Smirnov统计量是0.004，p = 0.985，分位数图大体贴着对角线。时间分布与文献中的公交行程时间一致，可以和线路客流相关并列。历时相近的其他道路方式也会落在这条右偏曲线里，所以时间形状单独还定不了方式。</p>
+<p><img src="/posts/2c8f61b4/fig7.webp" alt="已识别公交行程的时间分布"></p>
+<p>图 8｜识别出来的行程，时间上像不像公交？</p>
+<p>（a）横轴是分钟，竖线标在15分钟截断处；灰虚线是普通对数正态，蓝实线是左截断对数正态。标注为μ = 2.931、σ = 0.675、K-S = 0.0041、p = 0.985。（b）观测分位数对理论分位数，灰线是完全一致；大部分区间贴近灰线，最长的一端略有分开。来源：原论文 Fig. 7。</p>
+<p>500米和分位数窗口也做过网格。步行阈值从200米到3,000米取29档，时间窗口取8档，共232组，每组都把识别结果汇总成线路客流，再和官方数算R²与相关。步行距离的影响远大于时间窗口：从200米放到400米，R²大约从0.20升到0.77。最高点在600米、第20到第80百分位，R² = 0.812，相关0.901。本文采用的500米、第5到第90百分位得到R² = 0.786，相关0.887，比最高点低0.026。作者保留500米，因为它落在高分区里，又和本地500米服务标准一致。超过700–800米后成绩明显下降。作者提示，稍远距离上被纳入的行程里，有些可能是骑行接驳。单一步行门槛盖不住多种到站方式。</p>
+<h2 id="同样砍掉两成里程，保住的是上车还是整段行程？"><a href="#同样砍掉两成里程，保住的是上车还是整段行程？" class="headerlink" title="同样砍掉两成里程，保住的是上车还是整段行程？"></a>同样砍掉两成里程，保住的是上车还是整段行程？</h2><p>客流若集中在少数路段，缩短线网就有了可计算的对象。作者强调，这一节不提出新的优化算法。两条方案使用同一类迭代贪心程序，差别只在删什么。上车方案只知道每个站的上车人数，优先从线路两端删掉“线路长度除以上车人数”最高的站，也就是用较长路段换掉较少上车。起讫方案按站间客流从低到高分层，同样只删线路两端的段，先删低客流段，直到里程降到目标以下。只动两端，是为了不把一条线从中间剪断。</p>
+<p>目标是把总里程减少20%，同时尽量保住需求。四个指标的分母都写在重建网络上：删掉的站数除以原站数；优化后仍保留的上车除以原上车；下车同样计算；起讫覆盖则要求这一对行程的上车站和下车站都被留下，再除以全部起讫行程。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th style="text-align:right">上车方案</th>
+<th style="text-align:right">起讫方案</th>
+<th style="text-align:right">差值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>删掉的站点占比</td>
+<td style="text-align:right">20.05%</td>
+<td style="text-align:right">22.37%</td>
+<td style="text-align:right">+2.32个百分点</td>
+</tr>
+<tr>
+<td>上车覆盖</td>
+<td style="text-align:right">100%</td>
+<td style="text-align:right">96.24%</td>
+<td style="text-align:right">−3.76个百分点</td>
+</tr>
+<tr>
+<td>下车覆盖</td>
+<td style="text-align:right">79.55%</td>
+<td style="text-align:right">96.16%</td>
+<td style="text-align:right">+16.61个百分点</td>
+</tr>
+<tr>
+<td>成对起讫覆盖</td>
+<td style="text-align:right">93.14%</td>
+<td style="text-align:right">98.29%</td>
+<td style="text-align:right">+5.15个百分点</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>里程少两成时，上车方案仍覆盖100%的重建上车，同时只保住79.55%的下车。起讫方案多删一些站，上车覆盖降到96.24%，下车和成对行程都留在96%以上。下车相差16.61个百分点，成对行程相差5.15个百分点。上车方案的100%来自它的删除规则尽量不损失上车，而且只在这个削减幅度下成立。</p>
+<p>把目标改成削减10%、30%、40%和50%，起讫方案的下车覆盖和成对覆盖仍然更高。削减10%时，成对覆盖是99.77%对97.57%，下车是99.32%对89.45%，上车只差0.77个百分点。削减50%时，成对覆盖的优势收到3.20个百分点（77.57%对74.37%），下车优势仍有13.76个百分点（68.89%对55.13%），上车覆盖则变成69.07%对89.65%，起讫方案少覆盖20.58个百分点。旅程保得更完整，是以放弃更多上车覆盖为代价的；削减越深，这个代价越大。</p>
+<p>这些百分比是同一套重建需求上、两种删站规则的覆盖差。等候时间、车辆容量、发车频率和道路拥堵都留在规则之外，也还没有改线之后的实测留存。</p>
+<h2 id="证据各自停在哪一层？"><a href="#证据各自停在哪一层？" class="headerlink" title="证据各自停在哪一层？"></a>证据各自停在哪一层？</h2><p>重建流量是下界。速度、时长、步行距离和时间比会在进入地图核对之前丢掉一部分真公交，后面补不回来。微观F1使用的是问卷坐标，宏观相关使用的是线路总客运量。论文写明，目前缺少站点级的真实上下车，每一对起讫还没有直接核对。线路总量接近时，甲站到乙站的客流仍可能被配到邻近的另一对站点。</p>
+<p>推荐路径是单一的综合方案。习惯走另一条线、或愿意多换乘以换便宜票价的人，会因为和推荐方案对不上而被漏掉。共享单车让500米步行假设更不稳。样本来自一家约占30%份额的运营商，并且只有一个周三；周末、高峰与平峰、季节差异都还没测。社区层面的年龄和性别重抽样，仍然留着儿童和部分老年人缺少手机这一层偏差。</p>
+<p>优化示例还把里程和覆盖当成仅有的目标。一个站若上车不多、下车很多，起讫规则更可能留下它；若规划目标是枢纽换乘能力或车厢拥挤，结论里的最优删站会换一套。</p>
+<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>上车人数说明行程从哪一站开始。把10月9日的手机轨迹和高德公交方案核对之后，广州中心区要保住的是成对的上下车站；上车最多的站只覆盖这些行程的起点。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.tbs.2026.101358">Travel Behaviour and Society正式版</a>，题目、作者、卷期、在线日期和正文图表均按该版核对。全文15页，附录A至D含在同一PDF中，未见单独的补充材料文件。</li>
+<li>广州市规划和自然资源局，2025，《2024年广州市交通发展年度报告》。论文用它给出全市常规公交日均289万乘次，以及占公共交通出行19.84%。</li>
+<li>高德路径规划接口用于生成某一出发时刻的公交方案。论文比较了综合推荐、省钱、最少换乘和最少步行四种策略。</li>
+</ul>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><ul>
+<li>Yunling Chen：署名中山大学地理科学与规划学院。贡献说明列出写作、可视化、验证、程序、方法、调查、形式分析和数据整理。公开页面不足以再写职称，这里只保留论文中的身份。</li>
+<li>Suhong Zhou（周素红）：通讯作者，中山大学地理科学与规划学院教授，同时署名广东省公共安全与灾害工程技术研究中心；学院介绍写明该中心主任一职，研究方向为城市地理、社会交通地理和时空行为。本文中负责概念、方法、经费、资源与统筹。</li>
+<li>Dan Zou：署名同一学院和工程中心，参与方法与文稿修订。未见可核对的独立职衔页面，不另写头衔。</li>
+<li>Qiuping Li（李秋萍）：中山大学地理科学与规划学院副教授，研究城市交通流、人类移动和交通大数据，并署名上述工程中心。本文中参与概念和文稿修订。</li>
+<li>Qiumeng Li：香港科技大学（广州）城市治理与设计学域、智能交通学域助理教授，研究城市计算与移动性分析。本文中参与概念和文稿修订。</li>
+</ul>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
+<p>若一个城市只能拿到上车人数，线路两端先被拿掉的，会是下车多、上车少的末梢站。20%里程削减里，上车规则仍保住全部重建上车，下车只剩79.55%。医院、学校或铁路接驳站若恰好位于线尾，又主要承接下车，会先进入删除名单。要确认这一点，还得把吸引站和图3没有包含的设施名单叠在一起。仅凭红蓝站点穿插，还指不出哪一类设施被删。</p>
+<p>82.42%也不该被写成“信令公交识别已经达到这个准确率”。这个F1的输入是问卷里的坐标和出发时间，分母是3,496条机动化起讫。一座只有粗糙基站轨迹、没有这份问卷的城市，能直接参考的是另一项：线路总量与官方日均的R² = 0.786。而这项相关仍然不检验甲站到乙站是否配对比邻的丙站到丁站。</p>
+<p>削减加深以后，完整行程的优势还在，上车覆盖的代价迅速变大。50%里程目标下，起讫方案的成对覆盖只多3.20个百分点，上车覆盖却少20.58个百分点。若管理部门同时考核票款、车厢拥挤和换乘枢纽的上车量，只把成对覆盖设成唯一目标，会在深度缩线时先放弃一大批上车。周三的帕累托走廊也不自动等于周日集市或雨天的关键路段；单日下界流量若被写成时刻表，被漏掉的真公交不会在优化结果里自己出现。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">猴猴猴</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://xiaoyue-hou.github.io/posts/2c8f61b4/">http://xiaoyue-hou.github.io/posts/2c8f61b4/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">猴猴猴</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%85%AC%E4%BA%A4OD/">
+                                    <span class="chip bg-color">公交OD</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%89%8B%E6%9C%BA%E4%BF%A1%E4%BB%A4/">
+                                    <span class="chip bg-color">手机信令</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%87%BA%E8%A1%8C%E9%9C%80%E6%B1%82/">
+                                    <span class="chip bg-color">出行需求</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%B9%BF%E5%B7%9E/">
+                                    <span class="chip bg-color">广州</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/4e81b6c0/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="2026-TransGM: Transferable gravity models for cross-city policy transfer">
+                        
+                        <span class="card-title">2026-TransGM: Transferable gravity models for cross-city policy transfer</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-11-10
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%80%9A%E5%8B%A4/">
+                        <span class="chip bg-color">通勤</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%BC%95%E5%8A%9B%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">引力模型</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">迁移学习</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9F%8E%E5%B8%82%E6%94%BF%E7%AD%96/">
+                        <span class="chip bg-color">城市政策</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/7b3d0e92/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="2026-Causal impacts of multimodal network expansions on urban mobility: Evidence from a fast-growing megacity">
+                        
+                        <span class="card-title">2026-Causal impacts of multimodal network expansions on urban mobility: Evidence from a fast-growing megacity</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-11-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/">
+                        <span class="chip bg-color">因果推断</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9F%8E%E5%B8%82%E4%BA%A4%E9%80%9A/">
+                        <span class="chip bg-color">城市交通</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%87%BA%E8%A1%8C%E6%96%B9%E5%BC%8F/">
+                        <span class="chip bg-color">出行方式</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8F%8C%E9%87%8D%E5%B7%AE%E5%88%86/">
+                        <span class="chip bg-color">双重差分</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('-1'),
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2026</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">猴猴猴</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "4";
+                    var startDate = "26";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiaoyue-hou" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1396567029@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1396567029" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1396567029" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <script src="/js/reading-marks.js?v=7"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1431 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="2025-UrbanPulse: A Cross-City Deep Learning Framework for Ultra-Fine-Grained Population Transfer Prediction, 猴猴猴">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>2025-UrbanPulse: A Cross-City Deep Learning Framework for Ultra-Fine-Grained Population Transfer Prediction | 猴猴猴</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<style>
+    /* ----------------------------------------------------------- */
+    /* 1. 基础清理：隐藏不需要的文字 */
+    /* ----------------------------------------------------------- */
+    .card .card-content .summary, 
+    .caption, .img-caption, .fancybox-caption, 
+    .img-item .caption { 
+        display: none !important; 
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">猴猴猴</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">猴猴猴</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">2025-UrbanPulse: A Cross-City Deep Learning Framework for Ultra-Fine-Grained Population Transfer Prediction</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E4%BA%BA%E5%8F%A3%E6%B5%81%E5%8A%A8/">
+                                <span class="chip bg-color">人口流动</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">深度学习</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%85%B4%E8%B6%A3%E7%82%B9/">
+                                <span class="chip bg-color">兴趣点</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%B7%A8%E5%9F%8E%E5%B8%82%E9%A2%84%E6%B5%8B/">
+                                <span class="chip bg-color">跨城市预测</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper/" class="post-category">
+                                Paper
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-11-11
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+
+<h2 id="一座大城市的兴趣点人流，能迁到另一座城市吗？"><a href="#一座大城市的兴趣点人流，能迁到另一座城市吗？" class="headerlink" title="一座大城市的兴趣点人流，能迁到另一座城市吗？"></a>一座大城市的兴趣点人流，能迁到另一座城市吗？</h2><p>论文名片｜Hongrong Yang、Markus Schläpfer，<em>UrbanPulse: A Cross-City Deep Learning Framework for Ultra-Fine-Grained Population Transfer Prediction</em>，arXiv:2507.17924v1［cs.LG］，2025年7月23日。<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2507.17924">arXiv:2507.17924</a>。本文依据这一版预印本解读。</p>
+<p>早上七点，商场、地铁口和学校之间，未来三个小时会有多少人过去？洛杉矶若已有一整月记录，旧金山的标注少得多，直接沿用大城市的模型很省事。城市结构不同时，这种沿用可能只在大流量边上失手，也可能一换方向就失效。</p>
+<p>这里要预测的人口转移，是兴趣点之间短时段的起讫人数。居住地迁移、以及认出某个行人的下一步，属于另一类问题。模型先在洛杉矶预训练，再以冷启动和强化学习迁到旧金山；反向试验则用更小的弗雷斯诺去预测洛杉矶。向下迁时，两种误差都低于在目标城市从零训练；向上迁时，均方误差升到表中最高，平均绝对误差却是表中最低。单张图上可以有 99% 以上的边被标成判对，这个比例的分母是该时段被评估的边，和表里的误差不是同一个数。</p>
+<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
+<li>分析单位是兴趣点之间、每 15 分钟的有向转移人数。2023 年 3 月，CITYDATA.ai 的原始定位约 11.0 亿个点，清理后为 1.0307 亿个，覆盖洛杉矶、旧金山和弗雷斯诺。洛杉矶网络有 38,628 个兴趣点，旧金山有 28,580 个；弗雷斯诺的兴趣点数量没有给出。</li>
+<li>洛杉矶测试集上，UrbanPulse 的均方误差为 1.79×10⁻²，平均绝对误差为 2.08×10⁻²。相对 Graph WaveNet 的 2.37×10⁻²，均方误差低 24.47%。表 1 能核对数值的基线只有三种。</li>
+<li>2023 年 3 月 29 日早上 7:00 这一刻，洛杉矶被评估的 4,267 条边里有 4,258 条判对，占 99.79%。论文没有写出“判对”相差多少人仍算对。</li>
+<li>洛杉矶模型迁到旧金山后，冷启动加强化学习的均方误差为 0.64×10⁻²、平均绝对误差为 1.08×10⁻²，两项都低于从零监督训练（1.05×10⁻² 和 2.74×10⁻²），也低于不做微调的零样本（0.72×10⁻² 和 2.03×10⁻²）。</li>
+<li>弗雷斯诺模型直接预测洛杉矶时，均方误差为 3.07×10⁻²，是该表监督训练 1.79×10⁻² 的 1.72 倍；平均绝对误差却是 1.43×10⁻²，为该表最低。向上迁移在两个指标上不是同一种失败。</li>
+</ul>
+<h2 id="这-15-分钟里，数的是兴趣点之间的人数"><a href="#这-15-分钟里，数的是兴趣点之间的人数" class="headerlink" title="这 15 分钟里，数的是兴趣点之间的人数"></a>这 15 分钟里，数的是兴趣点之间的人数</h2><p>旧的引力模型让两地流量随人口增加、随距离下降；辐射模型再把两地之间的人口当作插入的机会。它们形式简单，也把空间分区和均衡关系写死了。引言认为，这种写法难跟上不对称、随时间变化的城市流动，也难在不损失精度的情况下细到每一个兴趣点。按网格做卷积，边界和分辨率又会限制到兴趣点。图神经网络若靠一张固定的邻接表，换一座城市往往要整网重训。引言还提到大语言模型计算贵，并且把流动看成没有空间结构的序列；后面的实验表没有给出任何大语言模型的误差。</p>
+<p>UrbanPulse 把城市写成一串随时间变化的有向图。点是 OpenStreetMap 上的兴趣点，用 OSMnx 取出，在同一座城市里保持为固定节点。每 15 分钟一张图。边上的权重是该时段内从起点兴趣点到终点兴趣点的转移人数；该时段至少发生一次转移，才建立这条边。节点特征共 7 维：兴趣点类型、经纬度、该点人数，以及 2 米气温、降水量和风速。天气来自哥白尼气候数据存储的 ERA5 再分析，风速由向东和向北的 10 米风分量合成。降水量先截断在每小时 50 毫米，再取对数。连续特征按训练集的最小—最大缩放压到 0 到 1，兴趣点类型另做可学习的嵌入。</p>
+<p>数据是 2023 年 3 月的匿名 GPS。原始约 11.0 亿个点，清理后 1.0307 亿个；建图时还有一次基于速度的异常点剔除，正文没有给出速度或距离阈值。洛杉矶用于预训练，训练、验证、测试大约按 70%、15%、15% 划分。旧金山按大约 2:4:1 分成冷启动微调、强化学习适应和最终评估。弗雷斯诺的划分比例没有报告。因此后文的误差都是这一个月、这三座加州都市区、这一套兴趣点图上的比较，不能直接换成其他月份或其他国家的人数。</p>
+<p>预测要输出的是边的人数，并且用 Softplus 保证不为负。结果部分把任务写成：从固定起点一次给出连续 12 个 15 分钟，也就是 3 小时，不把上一步预测再喂回下一步。方法部分又写，滑动窗口的标签是窗口最后一个时间步的边流量。两处没有互相解释。下面图中的数字，是 2023 年 3 月 29 日三个 3 小时窗口里、每个 15 分钟片段上的预测结果。</p>
+<h2 id="预训练的损失，按步和按轮差着一个数量级"><a href="#预训练的损失，按步和按轮差着一个数量级" class="headerlink" title="预训练的损失，按步和按轮差着一个数量级"></a>预训练的损失，按步和按轮差着一个数量级</h2><p>洛杉矶预训练用均方误差训练全部层，并选验证损失最低的检查点。图 1 把同一次训练拆成逐步和按轮两种看法。</p>
+<p><img src="/posts/e0f2a3b4/fig1.webp" alt="洛杉矶预训练的训练与验证损失"></p>
+<p>图 1｜预训练损失是平稳下降，还是只在按轮平均后才下降？</p>
+<p>（a）逐步训练损失，纵轴为对数，范围从 0.001 到 5，横轴步数标到 17,500。曲线在整个范围内大幅跳动。（b）逐步验证损失，纵轴从 0.002 到 0.050，反复出现尖峰。（c）6 个 epoch 的训练损失逐轮下降，第 1 轮在 0.6 与 0.7 之间，第 6 轮落到 0.4 刻度下方。（d）按轮验证损失先降后在第 6 轮略升，第 5 轮略低于 0.007 刻度。图注写验证损失最低为 0.0104，与（d）的最低点不在同一位置；0.0104 也没有标在（b）的某一步上。来源：原论文 Fig. 1。</p>
+<p>（c）和（d）的纵轴相差一个数量级以上。论文没有说明按轮损失怎样从逐步损失汇总而来，所以不能用 0.4 减去 0.007，说成验证比训练好了多少倍。后文比较模型时，以测试集上的均方误差和平均绝对误差为准，不把图 1 的最低点当成测试误差。</p>
+<h2 id="在洛杉矶，三种有数值的基线高了多少？"><a href="#在洛杉矶，三种有数值的基线高了多少？" class="headerlink" title="在洛杉矶，三种有数值的基线高了多少？"></a>在洛杉矶，三种有数值的基线高了多少？</h2><p>表 1 比较的是洛杉矶测试集。正文写五种最新基线，表中写出数值的是 Graph WaveNet、EGAT 和 DCRNN。另外两种没有出现，这里不补。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th style="text-align:right">UrbanPulse</th>
+<th style="text-align:right">Graph WaveNet</th>
+<th style="text-align:right">EGAT</th>
+<th style="text-align:right">DCRNN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>均方误差</td>
+<td style="text-align:right">1.79</td>
+<td style="text-align:right">2.37</td>
+<td style="text-align:right">2.46</td>
+<td style="text-align:right">3.50</td>
+</tr>
+<tr>
+<td>平均绝对误差</td>
+<td style="text-align:right">2.08</td>
+<td style="text-align:right">2.44</td>
+<td style="text-align:right">2.63</td>
+<td style="text-align:right">3.89</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>表中数字是论文为阅读方便乘以 10⁻² 之后的值，所以 1.79 表示 1.79×10⁻²。表头把模型写成 Urban Pulse。论文没有说明这些误差是对原始人数，还是对缩放后的流量计算。它们可以排序，不能直接读成平均差了多少人。百分比不受这个共同倍率影响。</p>
+<p>以 Graph WaveNet 为分母，均方误差低 (2.37−1.79)/2.37＝24.47%，平均绝对误差低 (2.44−2.08)/2.44＝14.75%。相对 EGAT 的均方误差 2.46×10⁻²，低 27.23%；相对它的平均绝对误差 2.63×10⁻²，低 20.91%。相对 DCRNN 的均方误差 3.50×10⁻²，低 48.86%。Graph WaveNet 是表中次低的一项，也是最接近的对照。20.91% 是完整模型对 EGAT 的差距；作者把它联系到正弦时间编码和时间卷积，模块各自的贡献要看后面的消融，不能把这一百分比只记在某一个模块上。</p>
+<p>这三项基线只出现在洛杉矶测试集。旧金山和弗雷斯诺的表比较的是迁移方式，没有再报告 Graph WaveNet、EGAT 或 DCRNN。</p>
+<h2 id="99-判对，分母是这一时段的边"><a href="#99-判对，分母是这一时段的边" class="headerlink" title="99% 判对，分母是这一时段的边"></a>99% 判对，分母是这一时段的边</h2><p>图 2 是洛杉矶测试数据里单独一个 15 分钟：2023 年 3 月 29 日 7:00。节点仍是全部 38,628 个兴趣点，但被计数的不是所有兴趣点对。38,628 个点之间的有向点对远多于图上的边；图上只画了这一时刻的预测流动。</p>
+<p><img src="/posts/e0f2a3b4/fig2.webp" alt="洛杉矶7点的人口转移预测网络"></p>
+<p>图 2｜早上 7 点这一刻，判对的边占被评估边的多少？</p>
+<p>（a）洛杉矶兴趣点网络。绿为判对，红为高估，蓝为低估。密集绿色连线覆盖主要建成区，红蓝边很少，图例没有给出误差的人数阈值。（b）同一时刻的边数，纵轴为对数。判对 4,258，高估 4，低估 5，合计 4,267。4,258/4,267＝99.79%。对数轴让 4 和 5 仍然可见，二者合计 9 条，占 4,267 的 0.21%。来源：原论文 Fig. 2。</p>
+<p>99.79% 的分母是这 4,267 条边，不是 38,628 个兴趣点，也不是全部可能的点对。论文只说明颜色表示相对真实值的判对、高估或低估，没有写出相差几个人以内仍算判对。因此这个百分比不能换成表 1 的 1.79×10⁻²，也不能理解成每个兴趣点对的人数都已经测准。</p>
+<p>三个 3 小时窗口把这一天拆开。每个窗口 12 个连续的 15 分钟。早晨 7:00–10:00 的合计是另一套分母。</p>
+<p><img src="/posts/e0f2a3b4/fig5.webp" alt="洛杉矶早晨三小时的人口转移预测"></p>
+<p>图 5｜洛杉矶早晨 3 小时的 99.79%，和 7 点那一张是不是同一批边？</p>
+<p>（a）T1 到 T12 共 12 张空间子图，颜色仍是判对、高估、低估；节点规模在图注中为 38,628。（b）每个 15 分钟的三条计数，左轴是判对数量，右轴是高估和低估数量。（c）3 小时合计，纵轴为对数：判对 39,376，高估 41，低估 43，合计 39,460。39,376/39,460＝99.79%。来源：原论文 Extended Data Fig. 1。</p>
+<p>早晨 3 小时与单独的 7:00 都四舍五入到 99.79%，分母分别是 39,460 和 4,267。7:00 的 4,267 条边是早晨的一部分，不是早晨的十二分之一；39,460 不能被 12 整除，各时段的边数本来就不相等。高估 41 与低估 43 接近，早晨的误差没有明显偏向某一侧。</p>
+<p><img src="/posts/e0f2a3b4/fig6.webp" alt="洛杉矶中午三小时的人口转移预测"></p>
+<p>图 6｜中午的误差是否更偏向低估？</p>
+<p>（a）12:00–15:00 的 12 张子图，颜色含义与图 5 相同。（b）逐时段计数。低估在后几个时段升高。（c）合计：判对 28,776，高估 55，低估 106，合计 28,937。28,776/28,937＝99.44%。来源：原论文 Extended Data Fig. 2。</p>
+<p>中午低估比高估多，106 对 55。误差条数是 161，占 28,937 的 0.56%，高于早晨的 84/39,460＝0.21%。论文把中午描述为波动较低的时段，同时指出模型更倾向保守的低估。</p>
+<p><img src="/posts/e0f2a3b4/fig7.webp" alt="洛杉矶傍晚三小时的人口转移预测"></p>
+<p>图 7｜傍晚是否是洛杉矶这三窗里最难的一段？</p>
+<p>（a）17:00–20:00 的 12 张子图。图注写误差在兴趣点密集处反复出现；单张缩略图只能看出少量红蓝边，看不出具体是哪些兴趣点。（b）逐时段计数，判对数量高于早晨和中午的纵轴范围，右轴仍是误差条数。（c）合计：判对 53,188，高估 199，低估 125，合计 53,512。53,188/53,512＝99.39%。来源：原论文 Extended Data Fig. 3。</p>
+<p>傍晚的误差是 324 条，占 53,512 的 0.61%，是三个窗口里最高的错误比例。这里高估多于低估，199 对 125，方向与中午相反。边也更多：53,512 高于早晨的 39,460 和中午的 28,937。错误比例升高，不单是因为傍晚画出来的边更多。</p>
+<p>三张图支持的是同一天、三个时段上的边级对错计数。它们不包含置信区间，也没有和其他日期对照。讨论提到，均方误差改善之后，平均绝对误差的优势更窄，稀少或极端流量仍然难。表 1 里相对 Graph WaveNet 的 24.47% 与 14.75% 就是这种宽窄差别；图 5 到图 7 没有按流量大小把误差拆开。</p>
+<h2 id="迁到旧金山时，从零训练和沿用预训练差在哪？"><a href="#迁到旧金山时，从零训练和沿用预训练差在哪？" class="headerlink" title="迁到旧金山时，从零训练和沿用预训练差在哪？"></a>迁到旧金山时，从零训练和沿用预训练差在哪？</h2><p>旧金山有 28,580 个兴趣点。试验用洛杉矶代表大都市，看大都市的模式能否迁到规模较小、仍属沿海都市的旧金山。论文提到两城人口密度不同，但没有给出人口密度数值。</p>
+<p>冷启动冻结时间卷积、图卷积和 Transformer 解码器的浅层，只更新这些模块的深层和最后的输出投影。这样做是为了留下预训练里较通用的时间和拓扑特征，避免用少量旧金山数据改写全部参数。强化学习不重训整张图。它用 PPO 在每个 episode 结束时给一次奖励，奖励是加权均方误差与平均绝对误差的相反数。加权项是 1 加上该边真实人数除以本批次最大真实人数，所以大流量边的平方误差罚得更重。动作只按比例缩放解码器输出层的权重组，缩放被限制在 −2 到 2。奖励公式里的全局系数和平均绝对误差的相对权重没有给出具体数值。</p>
+<p><img src="/posts/e0f2a3b4/fig3.webp" alt="旧金山微调时的强化学习奖励曲线"></p>
+<p>图 3｜强化学习的训练奖励后来稳定了吗？</p>
+<p>（a）原始奖励。纵轴为负，刻度从 −0.0050 到 −0.0025；越靠近零，加权误差越小。横轴是 episode，刻度标到 25,000。图例写 Step Reward。（b）窗口为 100 个 episode 的滑动平均。大约 21,000 个 episode 之后曲线升到较不负的一段，右端又下降。来源：原论文 Fig. 3。</p>
+<p>论文写奖励在约 21,000 个 episode 后稳定。图的右端下降说明，训练末段并没有停在这段曲线的最好位置。奖励曲线是微调过程，旧金山测试集的误差在表 2。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th style="text-align:right">强化学习且冷启动</th>
+<th style="text-align:right">监督学习</th>
+<th style="text-align:right">冷启动</th>
+<th style="text-align:right">监督且冷启动</th>
+<th style="text-align:right">洛杉矶模型直接用于旧金山</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>均方误差</td>
+<td style="text-align:right">0.64</td>
+<td style="text-align:right">1.05</td>
+<td style="text-align:right">0.68</td>
+<td style="text-align:right">1.32</td>
+<td style="text-align:right">0.72</td>
+</tr>
+<tr>
+<td>平均绝对误差</td>
+<td style="text-align:right">1.08</td>
+<td style="text-align:right">2.74</td>
+<td style="text-align:right">1.13</td>
+<td style="text-align:right">1.39</td>
+<td style="text-align:right">2.03</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>数值同样已乘以 10⁻²。强化学习且冷启动在两项上都最低。</p>
+<p>相对冷启动，它的均方误差低 (0.68−0.64)/0.68＝5.88%，平均绝对误差低 (1.13−1.08)/1.13＝4.42%。相对零样本的洛杉矶模型，均方误差低 (0.72−0.64)/0.72＝11.11%，平均绝对误差低 (2.03−1.08)/2.03＝46.80%。相对从零开始的监督学习，均方误差低 (1.05−0.64)/1.05＝39.0%，平均绝对误差低 (2.74−1.08)/2.74＝60.6%。零样本的均方误差 0.72×10⁻² 低于从零监督的 1.05×10⁻²，也低于监督加冷启动的 1.32×10⁻²；它的平均绝对误差 2.03×10⁻² 却高于监督加冷启动的 1.39×10⁻²。冷启动两项都低于监督、也低于监督加冷启动。正文有一处把预训练模型写成同时优于监督和冷启动；按表 2，它优于从零监督，但两项都不如单独的冷启动。这里以表为准。</p>
+<p>监督加冷启动的均方误差最高。作者把这解释为全量微调改写了预训练表示，也就是灾难性遗忘。表证明的是这种设置误差更高；遗忘是对这一差距的解释。监督学习的均方误差低于监督加冷启动，平均绝对误差却更高：1.05×10⁻² 对 1.32×10⁻²，2.74×10⁻² 对 1.39×10⁻²。均方误差更重地惩罚少数大偏差，两个指标排序不同，说明小误差的多少和大偏差的大小没有一起变好。</p>
+<p>图 4 是旧金山同一天 7:00 的一张快照。</p>
+<p><img src="/posts/e0f2a3b4/fig4.webp" alt="旧金山7点的人口转移预测网络"></p>
+<p>图 4｜旧金山 7 点的高比例，分母有多大？</p>
+<p>（a）28,580 个兴趣点上的预测网络，颜色同样表示判对、高估和低估。连线比洛杉矶更集中在一小块区域。（b）对数纵轴。判对标为 1,566，低估标为 2，高估没有画出柱。若高估为 0，分母是 1,568，1,566/1,568＝99.87%，与正文的 99.87% 一致。来源：原论文 Fig. 4。</p>
+<p>这个 99.87% 仍是一条 15 分钟、一批被评估边上的对错比例，容差同样没有写出。它不是表 2 的 0.64×10⁻²。</p>
+<p><img src="/posts/e0f2a3b4/fig8.webp" alt="旧金山早晨三小时的人口转移预测"></p>
+<p>图 8｜旧金山早晨的误差是高估还是低估？</p>
+<p>（a）7:00–10:00 的 12 张子图。图注中的节点数为 28,580。右侧图例紧贴 T12。（b）判对数量大多在 1,000 到 1,500 之间；红色高估线贴在 0 上。（c）合计：判对 14,513，低估 17，高估没有柱。14,513/(14,513+17)＝14,513/14,530＝99.88%。来源：原论文 Extended Data Fig. 4。</p>
+<p>7:00 那一条的 2 次低估，是这 17 次里的一部分。早晨 3 小时的高估计数为 0。正文把早晨精度和 7:00–8:00 的误差增加记到另一组扩展图编号上；与图题、日期相符的是这一张。</p>
+<p><img src="/posts/e0f2a3b4/fig9.webp" alt="旧金山中午三小时的人口转移预测"></p>
+<p>图 9｜中午相对早晨，多出来的是哪一种误差？</p>
+<p>（a）12:00–15:00 的 12 张子图，T12 附近能看到一条蓝色低估边。（b）红色高估线仍贴在 0，蓝色低估在最后几个时段上升。（c）判对 10,382，低估 23，高估没有柱。10,382/10,405＝99.78%。来源：原论文 Extended Data Fig. 5。</p>
+<p>中午低估从早晨的 17 增到 23，高估仍是 0。被评估的边从 14,530 减到 10,405。错误比例上升来自边数减少，以及低估条数增加。</p>
+<p><img src="/posts/e0f2a3b4/fig10.webp" alt="旧金山傍晚三小时的人口转移预测"></p>
+<p>图 10｜傍晚是否集中了这一天的高估？</p>
+<p>（a）17:00–20:00 的 12 张子图，网络比中午更密。（b）判对数量约在 1,500 到 2,500；高估不再全是 0，低估多次高于高估。（c）判对 21,961，高估 10，低估 62，合计 22,033。21,961/22,033＝99.67%。来源：原论文 Extended Data Fig. 6。</p>
+<p>三个旧金山窗口的高估合计为 0+0+10＝10，全部落在傍晚，与正文“10 条高估都在傍晚”一致。低估合计为 17+23+62＝102，傍晚占 62/102＝60.8%。正文写傍晚占低估的 77.4%，与这三张合计对不上，这里用图上的计数。</p>
+<p>傍晚边数是中午的 22,033/10,405＝2.12 倍，正文约为 2.1 倍。误差条数是 72 对 23，为 3.13 倍，正文约为 3.1 倍。边数和误差都增加，误差增加的倍数更高。这仍是同一天三个窗口的计数，没有推广成旧金山每个傍晚都如此。</p>
+<p>文中用轮渡和高速公路举例，说明两城的时间结构可能不同。实验没有单独统计轮渡或高速公路上的流量，这个例子停留在解释，不是表 2 的一项结果。</p>
+<h2 id="从小城市往上迁，两个指标为什么排序相反？"><a href="#从小城市往上迁，两个指标为什么排序相反？" class="headerlink" title="从小城市往上迁，两个指标为什么排序相反？"></a>从小城市往上迁，两个指标为什么排序相反？</h2><p>反向试验用弗雷斯诺预训练，再预测洛杉矶。论文把弗雷斯诺写成流动更稀疏的农业城市，把洛杉矶写成结构更复杂的大都市，用来考察从小城市往大城市扩展。弗雷斯诺的兴趣点数量和数据划分都没有给出，稀疏是定性描述。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th style="text-align:right">强化学习且冷启动</th>
+<th style="text-align:right">监督学习</th>
+<th style="text-align:right">冷启动</th>
+<th style="text-align:right">监督且冷启动</th>
+<th style="text-align:right">弗雷斯诺模型直接用于洛杉矶</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>均方误差</td>
+<td style="text-align:right">1.86</td>
+<td style="text-align:right">1.79</td>
+<td style="text-align:right">1.87</td>
+<td style="text-align:right">1.94</td>
+<td style="text-align:right">3.07</td>
+</tr>
+<tr>
+<td>平均绝对误差</td>
+<td style="text-align:right">1.70</td>
+<td style="text-align:right">2.08</td>
+<td style="text-align:right">1.79</td>
+<td style="text-align:right">2.08</td>
+<td style="text-align:right">1.43</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>数值已乘以 10⁻²。均方误差最低的是监督学习 1.79×10⁻²，不是强化学习。平均绝对误差最低的是零样本 1.43×10⁻²。</p>
+<p>零样本均方误差 3.07×10⁻² 是监督学习 1.79×10⁻² 的 1.72 倍，也高于所有微调设置。论文把向上迁移的零样本称为灾难性失败。这个判断对齐了均方误差，没有同时对齐平均绝对误差：1.43×10⁻² 低于强化学习且冷启动的 1.70×10⁻²，也低于冷启动的 1.79×10⁻²。平均绝对误差对每条边的偏差一视同仁，均方误差会放大少数很大的偏差。零样本可以在典型边上更接近，同时在少数边上偏得更远。论文没有把弗雷斯诺到洛杉矶的误差按流量拆开，所以上面这句是两种指标定义允许的读法，不是已经分解出来的结果。</p>
+<p>强化学习且冷启动相对监督学习，平均绝对误差低 (2.08−1.70)/2.08＝18.27%，均方误差则是 1.86×10⁻² 对 1.79×10⁻²，高 3.9%。“大体相当”是作者对这一小幅上升的说法；表上的均方误差并没有一起下降。冷启动相对监督学习的平均绝对误差低 (2.08−1.79)/2.08＝13.94%。强化学习再相对冷启动低 (1.79−1.70)/1.79＝5.03%。13.94% 的分母是监督学习，5.03% 的分母是冷启动，两个百分比不能直接相加。</p>
+<p>和旧金山的方向放在一起，预训练城市更复杂时，零样本的均方误差还能留在 0.72×10⁻²，和最好的 0.64×10⁻² 接近。预训练城市更简单时，零样本均方误差升到 3.07×10⁻²。这是两对城市、一个月数据上的不对称，还不是一条对所有城市等级都成立的定律。冷启动在向下迁时两项都优于从零监督；在向上迁时，它的均方误差 1.87×10⁻² 略高于监督学习的 1.79×10⁻²，平均绝对误差 1.79×10⁻² 则更好。它不是每个方向、每个指标上的同一最优解。</p>
+<h2 id="拿掉兴趣点类型、天气或时间模块，误差升在哪里？"><a href="#拿掉兴趣点类型、天气或时间模块，误差升在哪里？" class="headerlink" title="拿掉兴趣点类型、天气或时间模块，误差升在哪里？"></a>拿掉兴趣点类型、天气或时间模块，误差升在哪里？</h2><p>消融在完整模型上逐项去掉兴趣点嵌入、气象特征、时间编码、时间卷积，迁移设置上再比较去掉强化学习。短横表示该设置没有做。“洛杉矶（源）”是预训练模型，“洛杉矶（目标）”是迁入之后的微调模型。弗雷斯诺这一行填了结构模块、没有填强化学习，读作在弗雷斯诺本地训练的模型，不是表中那次迁到洛杉矶的模型。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>城市与角色</th>
+<th>指标</th>
+<th style="text-align:right">完整</th>
+<th style="text-align:right">无兴趣点嵌入</th>
+<th style="text-align:right">无气象</th>
+<th style="text-align:right">无时间编码</th>
+<th style="text-align:right">无时间卷积</th>
+<th style="text-align:right">无强化学习</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>洛杉矶（源）</td>
+<td>均方误差</td>
+<td style="text-align:right">1.79</td>
+<td style="text-align:right">1.93</td>
+<td style="text-align:right">2.05</td>
+<td style="text-align:right">2.14</td>
+<td style="text-align:right">2.28</td>
+<td style="text-align:right">—</td>
+</tr>
+<tr>
+<td>洛杉矶（源）</td>
+<td>平均绝对误差</td>
+<td style="text-align:right">2.08</td>
+<td style="text-align:right">2.76</td>
+<td style="text-align:right">2.24</td>
+<td style="text-align:right">3.28</td>
+<td style="text-align:right">2.64</td>
+<td style="text-align:right">—</td>
+</tr>
+<tr>
+<td>旧金山</td>
+<td>均方误差</td>
+<td style="text-align:right">0.64</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">0.68</td>
+</tr>
+<tr>
+<td>旧金山</td>
+<td>平均绝对误差</td>
+<td style="text-align:right">1.08</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">1.13</td>
+</tr>
+<tr>
+<td>弗雷斯诺</td>
+<td>均方误差</td>
+<td style="text-align:right">0.39</td>
+<td style="text-align:right">0.44</td>
+<td style="text-align:right">0.41</td>
+<td style="text-align:right">0.40</td>
+<td style="text-align:right">0.39</td>
+<td style="text-align:right">—</td>
+</tr>
+<tr>
+<td>弗雷斯诺</td>
+<td>平均绝对误差</td>
+<td style="text-align:right">0.73</td>
+<td style="text-align:right">1.97</td>
+<td style="text-align:right">1.39</td>
+<td style="text-align:right">1.23</td>
+<td style="text-align:right">0.95</td>
+<td style="text-align:right">—</td>
+</tr>
+<tr>
+<td>洛杉矶（目标）</td>
+<td>均方误差</td>
+<td style="text-align:right">1.86</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">1.87</td>
+</tr>
+<tr>
+<td>洛杉矶（目标）</td>
+<td>平均绝对误差</td>
+<td style="text-align:right">1.70</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">1.79</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>数值已乘以 10⁻²。旧金山和洛杉矶（目标）的“无强化学习”与前面的冷启动列相同。</p>
+<p>去掉兴趣点嵌入后，弗雷斯诺的平均绝对误差从 0.73×10⁻² 升到 1.97×10⁻²，是完整模型的 2.70 倍。正文写成接近翻倍，与这个比值不一致，这里以表为准。洛杉矶源模型的平均绝对误差从 2.08×10⁻² 升到 2.76×10⁻²，升幅为 32.7%，小于弗雷斯诺。兴趣点类型对本地模型重要，尤其体现在弗雷斯诺的绝对误差上；旧金山和迁入后的洛杉矶没有做这项消融，不能把同一倍数挪到迁移任务上。</p>
+<p>去掉时间编码，洛杉矶源模型的平均绝对误差从 2.08×10⁻² 升到 3.28×10⁻²，升 57.7%；均方误差从 1.79×10⁻² 升到 2.14×10⁻²，升 19.6%。弗雷斯诺的平均绝对误差从 0.73×10⁻² 升到 1.23×10⁻²，升 68.5%，均方误差只从 0.39×10⁻² 升到 0.40×10⁻²。时间编码对两座城市的绝对误差都明显，均方误差的升幅则是洛杉矶更大。</p>
+<p>去掉气象后，弗雷斯诺平均绝对误差升 90.4%（1.39 相对 0.73），洛杉矶只升 7.7%（2.24 相对 2.08）。均方误差相反：洛杉矶升 14.5%（2.05 相对 1.79），弗雷斯诺升 5.1%（0.41 相对 0.39）。天气对小城市绝对误差的影响更大；对均方误差，升幅更大的是洛杉矶。</p>
+<p>去掉时间卷积，洛杉矶均方误差升 27.4%（2.28 相对 1.79），平均绝对误差升 26.9%（2.64 相对 2.08）。弗雷斯诺的均方误差仍是 0.39×10⁻²，平均绝对误差从 0.73×10⁻² 升到 0.95×10⁻²，升 30.1%。正文说时间卷积对弗雷斯诺影响很小。按表中印出的精度，均方误差仍是 0.39×10⁻²。平均绝对误差从 0.73×10⁻² 升到 0.95×10⁻²。</p>
+<p>旧金山去掉强化学习，就是回到冷启动的 0.68×10⁻² 和 1.13×10⁻²。洛杉矶作为迁入目标时，去掉强化学习后均方误差从 1.86×10⁻² 变为 1.87×10⁻²，平均绝对误差从 1.70×10⁻² 变为 1.79×10⁻²，后者就是上面的 5.03%。讨论认为，强化学习相对冷启动大约 5% 的绝对误差改善，不一定抵得过额外计算。这个量级与 5.03% 和旧金山的 4.42% 相符。讨论还写，奖励可能看轻流量小、但在结构上重要的边。权重写成 1 + 该边人数/批次最大人数。流量等于本批次最大值的边，权重为 2；人数远小于这个最大值的边，权重大约为 1。这是奖励公式本身的结果。</p>
+<p>弗雷斯诺本地模型的 0.39×10⁻² 不能与洛杉矶的 1.79×10⁻² 比出“哪座城市更准”。两座城市的流量尺度和边的构成都不同，表只说明各自消融相对自己的完整模型改变了多少。</p>
+<h2 id="这些比较停在什么范围"><a href="#这些比较停在什么范围" class="headerlink" title="这些比较停在什么范围"></a>这些比较停在什么范围</h2><p>可以成立的是：在这一个月的三座城市里，兴趣点级有向人数可以用“大城市预训练、目标城市只改深层、再缩放输出层”降到低于从零监督训练的误差；反向使用小城市模型时，均方误差明显变差。图上的高判对比例描述的是若干 15 分钟里被画出的边，容差未知。</p>
+<p>边界也集中在这几处。数据只有 2023 年 3 月、一个数据源和三座加州都市区。速度与距离过滤的阈值、奖励的两个系数、网络层数都没有具体数值。正确、高估、低估没有人数阈值。扩展图只覆盖 3 月 29 日的三个时段。跨城市表没有纳入表 1 的三种基线，所以“最新水平”限定在洛杉矶测试集对这三种模型的比较。向上迁移的零样本在平均绝对误差上最好，在均方误差上最差。模型给出的是清理后转移计数的预测。</p>
+<p>讨论建议以后补上预测区间，并提到可以用注意力变化查看极端天气或疫情期间的异常。这些都还没有结果。奖励对小流量边的权重更低，加上强化学习的绝对误差收益大约五个百分点，是作者自己标出的部署取舍。</p>
+<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>兴趣点之间的短时人数可以从结构更复杂的城市往下迁，并用少量目标城市数据再压低误差；往上迁时均方误差会明显变差，而图上超过 99% 的判对比例不能代替表里的误差。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li>预印本 v1：arXiv:2507.17924v1，2025 年 7 月 23 日。图和表都在这一份 PDF 内：正文图 1–4、表 1–4，附录为 Extended Data Fig. 1–6。这一版没有印 DOI，也没有代码或数据获取说明。</li>
+<li><a target="_blank" rel="noopener" href="https://urbansystems.civil.columbia.edu/people">哥伦比亚大学城市系统工程实验室人员页</a>，核对两位作者在实验室中的身份。</li>
+<li><a target="_blank" rel="noopener" href="https://urbansystems.civil.columbia.edu/directory/hongrong-yang">Hongrong Yang 的实验室目录页</a>，核对博士研究生身份及院系。</li>
+<li>预印本参考文献［14］为 Markus Schläpfer 与合作者的人类移动访问规律，<em>Nature</em>，2021，593：522–527。参考文献［46］为流动预测不确定性研究，<em>Transportation</em>，2024，51：2301–2322。</li>
+</ul>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>两位作者的论文脚注都是哥伦比亚大学 Fu Foundation School of Engineering and Applied Science、土木工程与工程力学系。下面只写论文脚注和该系实验室公开页面能够核对的身份。</p>
+<ul>
+<li>Hongrong Yang：城市系统工程实验室人员页列为博士研究生。本文是他与 Markus Schläpfer 共同署名的预印本。</li>
+<li>Markus Schläpfer：同一实验室人员页列为负责人。本文引用了他参与的 2021 年人类移动访问规律研究，以及 2024 年关于流动预测不确定性的研究。</li>
+</ul>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
+<p>若调度只关心某条兴趣点连接在未来 15 分钟是否大体有人，图里 99% 以上的判对会显得已经够用。若运力要留给少数大流量边，评价就落到被平方误差放大的那些边。奖励权重是 1 加上该边人数除以批次最大人数：市中心干道可以接近 2，一条人数很少、却是某社区唯一出口的边接近 1。模型会被推向先修大流量边。若决策要保住唯一出口，就需要按流量分组报告误差。论文没有给出这种分组，因此全图一个均方误差还不能回答“安静但不可替代的连接有没有被低估”。</p>
+<p>另一项可以直接做的区分，是向下迁移的优势来自城市结构更丰富，还是来自洛杉矶这一个月的样本量。三座城市同为 2023 年 3 月，弗雷斯诺的兴趣点数量也没有报告。若换成另一座大都市做预训练，迁到旧金山后仍然同时优于零样本和从零训练，就更能把结构复杂度和“刚好是洛杉矶”分开。若只把弗雷斯诺再延长几个月、城市结构不变，向上迁到洛杉矶的均方误差仍停留在 3.07×10⁻² 对 1.79×10⁻² 这种差距附近，则更支持缺少的是大都市里的流动结构，而不是同一座小城市的天数。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">猴猴猴</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://xiaoyue-hou.github.io/posts/e0f2a3b4/">http://xiaoyue-hou.github.io/posts/e0f2a3b4/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">猴猴猴</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E4%BA%BA%E5%8F%A3%E6%B5%81%E5%8A%A8/">
+                                    <span class="chip bg-color">人口流动</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">深度学习</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%85%B4%E8%B6%A3%E7%82%B9/">
+                                    <span class="chip bg-color">兴趣点</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%B7%A8%E5%9F%8E%E5%B8%82%E9%A2%84%E6%B5%8B/">
+                                    <span class="chip bg-color">跨城市预测</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/f1a3b4c5/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="2013-Connections between Human Dynamics and Network Science">
+                        
+                        <span class="card-title">2013-Connections between Human Dynamics and Network Science</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E5%8A%A8%E5%8A%9B%E5%AD%A6/">
+                        <span class="chip bg-color">人类动力学</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%91%E7%BB%9C%E7%A7%91%E5%AD%A6/">
+                        <span class="chip bg-color">网络科学</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%BA%A6%E5%88%86%E5%B8%83/">
+                        <span class="chip bg-color">度分布</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">社交网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/d9e1f2a3/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="2025-FloGAN: Scenario-Based Urban Mobility Flow Generation via Conditional GANs and Dynamic Region Decoupling">
+                        
+                        <span class="card-title">2025-FloGAN: Scenario-Based Urban Mobility Flow Generation via Conditional GANs and Dynamic Region Decoupling</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                        <span class="chip bg-color">人类移动性</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">生成模型</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%B5%B7%E8%AE%AB%E6%B5%81%E9%87%8F/">
+                        <span class="chip bg-color">起讫流量</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9F%8E%E5%B8%82%E6%83%85%E6%99%AF/">
+                        <span class="chip bg-color">城市情景</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('-1'),
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2026</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">猴猴猴</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "4";
+                    var startDate = "26";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiaoyue-hou" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1396567029@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1396567029" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1396567029" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <script src="/js/reading-marks.js?v=7"></script>
+
+</body>
+
+</html>

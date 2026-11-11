@@ -1,0 +1,1390 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="2019-Using Twitter to Analyze the Effect of Hurricanes on Human Mobility Patterns, 猴猴猴">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>2019-Using Twitter to Analyze the Effect of Hurricanes on Human Mobility Patterns | 猴猴猴</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<style>
+    /* ----------------------------------------------------------- */
+    /* 1. 基础清理：隐藏不需要的文字 */
+    /* ----------------------------------------------------------- */
+    .card .card-content .summary, 
+    .caption, .img-caption, .fancybox-caption, 
+    .img-item .caption { 
+        display: none !important; 
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">猴猴猴</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">猴猴猴</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/xiaoyue-hou/xiaoyue-hou.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">2019-Using Twitter to Analyze the Effect of Hurricanes on Human Mobility Patterns</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                                <span class="chip bg-color">人类移动性</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%B4%BB%E5%8A%A8%E7%A9%BA%E9%97%B4/">
+                                <span class="chip bg-color">活动空间</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%A3%93%E9%A3%8E/">
+                                <span class="chip bg-color">飓风</span>
+                            </a>
+                        
+                            <a href="/tags/Twitter/">
+                                <span class="chip bg-color">Twitter</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%81%BE%E5%AE%B3/">
+                                <span class="chip bg-color">灾害</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper/" class="post-category">
+                                Paper
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-11-11
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+
+<h2 id="飓风那两天，定位帖没有消失，长距离为什么少了？"><a href="#飓风那两天，定位帖没有消失，长距离为什么少了？" class="headerlink" title="飓风那两天，定位帖没有消失，长距离为什么少了？"></a>飓风那两天，定位帖没有消失，长距离为什么少了？</h2><p>论文名片｜Ahmed Ahmouda、Hartwig H. Hochmair、Sreten Cvetojevic，<em>Using Twitter to Analyze the Effect of Hurricanes on Human Mobility Patterns</em>，Urban Science，2019，3：87，2019年8月3日发表。<a target="_blank" rel="noopener" href="https://doi.org/10.3390/urbansci3030087">DOI：10.3390/urbansci3030087</a>。收稿日期2019年6月9日，接收日期2019年8月1日。本文依据这一正式发表版。</p>
+<p>2017年8月28日和29日，飓风哈维的雨落在休斯顿。若只看带精确坐标的帖子还在不在更新，每日发帖的账号数和帖子数并没有明显断档。更容易被漏掉的变化，是下一条帖子离上一条有多远。</p>
+<p>这项观察研究用 Twitter 上的精确坐标帖，比较飓风前、飓风期间和飓风后的人类移动性（human mobility），也就是人在空间中的移动，这里具体落到相邻帖子之间的距离和帖子铺开的范围。三个范围里，仍能在受灾区内被观察到的账号，相邻定位更短，活动空间更小；距离的分布形状仍可以用截断幂律描述。发帖还在，只说明这批账号还在留下坐标，不能直接当成他们仍按原来的距离活动。商店附近的帖子相对变少、道路封闭和强降水与这种缩短同时出现。论文没有把其中任何一项单独分离成原因。</p>
+<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
+<li>不超过5公里的短位移，在飓风对照日占该时段全部位移的比例最高：休斯顿50%（前27%、后30%），迈阿密-戴德66%（前52%、后43%），北卡和南卡68%（前53%、后49%）。休斯顿和迈阿密-戴德在飓风日没有观察到超过50公里的位移。北卡和南卡的图上，较长距离段仍有少量飓风期间的位移。</li>
+<li>位移中位数：休斯顿由10公里降到5公里，飓风后9公里，两段差异都显著。迈阿密-戴德由4公里降到2公里，之后6公里，两段都显著。北卡和南卡由5公里降到3公里，飓风前与期间的差异未达显著（p＝0.124）；期间与之后的差异显著，之后中位数回到5公里，均值则升到24公里。</li>
+<li>回转半径的中位数在休斯顿由8.6公里降到1.9公里，飓风后11.3公里。北卡和南卡由2.9公里降到1.3公里（p＝0.045），飓风后3.2公里与期间相比 p＝0.093。迈阿密-戴德由4.7公里到3.6公里的 p＝0.064，飓风后中位数是3.1公里（p＝0.281）。三地的平均均方位移曲线在飓风期间都更低，进入这些曲线的账号只有17至25个。</li>
+<li>休斯顿三个时段的截断幂律决定系数是0.82、0.92、0.85，普通幂律是0.80、0.87、0.83。似然比只在飓风期间显著偏向截断幂律。北卡和南卡三个时段都显著偏向截断幂律。迈阿密-戴德在飓风前截断幂律的决定系数更高，差异不显著；飓风期间和之后，两种模型的决定系数相同。</li>
+<li>四周窗口里，每日发帖账号数和精确坐标帖数量没有被飓风明显打乱。供应点500米内相对更少成为发帖位置，显著结果出现在休斯顿的加油站、迈阿密-戴德的家装零售和食品店、北卡和南卡的家装零售。飓风话题标签在登陆前后升高，登陆后很快回落。</li>
+</ul>
+<h2 id="留下来的坐标，量的是哪一种距离？"><a href="#留下来的坐标，量的是哪一种距离？" class="headerlink" title="留下来的坐标，量的是哪一种距离？"></a>留下来的坐标，量的是哪一种距离？</h2><p>论文要分开的是两件容易混在一起的事：一场飓风有没有让受灾区里仍能被观察到的人少走远路，以及距离分布的形状有没有一起垮掉。既有研究已经用推文看过撤离、跨区域迁移，以及桑迪等事件里位移是否仍服从幂律。这篇论文把镜头收到地方尺度，看留在受灾范围里的活动，并加上均方位移和供应点附近的发帖位置。</p>
+<p>空间范围来自美国地质调查局洪水事件查看器上的红色多边形。休斯顿对应2017年的哈维，迈阿密-戴德县、北卡罗来纳和南卡罗来纳对应2016年的马修。论文把前两处称为城市化地区，把卡罗来纳称为乡村与城市化地区并存。</p>
+<p><img src="/posts/e6f8a9b0/fig1.webp" alt="三个飓风影响范围"></p>
+<p>图 1｜后文的统计被圈在哪三块地方？</p>
+<p>（a）得克萨斯东南部，红色范围在休斯顿及邻近海岸，对应哈维。比例尺最大标到120公里。（b）佛罗里达东南海岸，红色范围在迈阿密一带，对应马修。比例尺最大标到280公里。（c）北卡和南卡东部，红色范围同时盖住沿海和内陆的一片区域，图上标有罗利、佛罗伦萨、威尔明顿和查尔斯顿，对应马修。比例尺最大标到300公里。底部图例的粉色表示受影响范围。三幅图的比例尺不同，红色块的像素大小不能互相比较面积。来源：原论文 Fig. 1。</p>
+<p>哈维在论文中被写成4级飓风，2017年8月17日形成、9月2日消散，得克萨斯有103人死亡，降雨最多达到30英寸（760毫米），并被称为美国历史上最湿的热带气旋。马修被写成5级飓风，2016年9月28日形成、10月10日消散，论文写作损失1.9 billion USD（19亿美元），死亡超过500人、受伤超过400人。伤亡、损失和雨量都是论文转述的背景，本文没有用推文重新估算。</p>
+<p>数据只保留带精确坐标的帖子。休斯顿的下载窗口是2017年8月1日至9月30日，迈阿密-戴德和卡罗来纳是2016年9月1日至10月31日。自动账号用 Botometer 剔除。论文没有给出分数阈值，也没有给出剔除了多少账号。它引用既有研究说，全部推文里大约1%至2%带有地理标签。这个比例来自那篇既有研究，本文没有在三个多边形里重算。同一篇引用还指出，美国县级尺度上，教育程度较高、从事管理、商业、科学和艺术职业的人更常产生带地理坐标的帖子。因此下面的距离描述的是这批留下精确坐标的账号。</p>
+<p>位移（displacement）是同一账号在同一时段内、按时间排列的相邻两条精确坐标帖之间的距离，用半正矢公式换成公里。它是球面上的直线距离。论文也把这个量叫作 trip 或 offset。它不经过道路里程，论文也没有报告两条帖子之间允许隔开多久，所以一次位移可以很短，也可以把中间没发帖的路程算成一跳。</p>
+<p>比距离时，账号必须在飓风前、飓风期间和飓风之后都在受灾范围里发过帖。三个时段因此是同一批还能被观察到的账号。对照日对齐到同样的星期几。休斯顿的飓风日是2017年8月28日和29日，两周前是8月14日和15日；原定两周后的9月11日和12日下载中断，所以改到三周后的9月18日和19日。迈阿密-戴德只取2016年10月6日，对照日是9月22日和10月20日。北卡和南卡取10月8日和9日，对照日是9月24日至25日、10月22日至23日。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>地区</th>
+<th>位移统计用的日子</th>
+<th style="text-align:right">三个时段都出现的账号</th>
+<th style="text-align:right">这些账号在整个日期窗口内的精确坐标帖</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>休斯顿，哈维</td>
+<td>期间8月28–29日；前8月14–15日；后9月18–19日</td>
+<td style="text-align:right">75</td>
+<td style="text-align:right">13,980（8月14日–9月19日）</td>
+</tr>
+<tr>
+<td>迈阿密-戴德，马修</td>
+<td>期间10月6日；前9月22日；后10月20日</td>
+<td style="text-align:right">69</td>
+<td style="text-align:right">13,555（9月22日–10月20日）</td>
+</tr>
+<tr>
+<td>北卡和南卡，马修</td>
+<td>期间10月8–9日；前9月24–25日；后10月22–23日</td>
+<td style="text-align:right">49</td>
+<td style="text-align:right">4,436（9月24日–10月23日）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>右列是表1里、要求三个时段都出现的那一组。13,980、13,555和4,436的分母是整个日期窗口里的精确坐标帖。表2的均值和中位数只来自对照日上的相邻定位，论文没有印出这些位移一共有多少条。</p>
+<p>活动空间的计算放宽了这个筛选，以便增加账号。表1在不要求三个时段都出现时，列出休斯顿8,601个账号、34,294条帖，迈阿密-戴德11,407个账号、55,122条帖，北卡和南卡8,582个账号、29,432条帖。后面的均方位移曲线使用的是正文另行列出的17至25个账号。</p>
+<h2 id="每日发帖没断档，短距离的份额升高了"><a href="#每日发帖没断档，短距离的份额升高了" class="headerlink" title="每日发帖没断档，短距离的份额升高了"></a>每日发帖没断档，短距离的份额升高了</h2><p>图2先看四周里每天有多少账号、多少精确坐标帖。蓝色是账号，橙色是帖子，灰色标出的就是上面那些飓风日。三幅图的纵轴刻度不同。论文的判断是目视：飓风没有让这三个地区的每日账号数和帖子数出现明显紊乱。这里没有对每日数量做显著性检验。休斯顿曲线在窗口末端有一次下降，灰色飓风日位于曲线中部，末端下降和登陆日是两个位置。</p>
+<p><img src="/posts/e6f8a9b0/fig2.webp" alt="飓风前后每日账号数和精确坐标帖数量"></p>
+<p>图 2｜发帖的人和帖子，在飓风日有没有先少掉？</p>
+<p>（a）休斯顿，哈维，纵轴最高刻度2000，灰色为8月28日和29日。（b）迈阿密-戴德，马修，纵轴最高刻度3000，灰色为10月6日。（c）北卡和南卡，马修，纵轴最高刻度1800，灰色为10月8日和9日。橙色帖子数高于蓝色账号数，说明平均每个发帖账号一天里有不止一条精确坐标帖。三幅图的纵轴刻度不同，线的高低要各自对着自己的纵轴读。来源：原论文 Fig. 2。</p>
+<p>每日数量还在，距离的组成变了。论文把位移放进六段：5公里及以内、大于5至10公里、大于10至25公里、大于25至50公里、大于50至100公里、大于100公里。正文给出的是短距离占全部位移的比例，没有另印每一段的绝对条数。</p>
+<p>休斯顿在哈维期间，5公里及以内占全部位移的50%，飓风前是27%，飓风后是30%。超过50公里的位移在飓风日没有被观察到。卡方检验把距离分布和时段联在一起：飓风前对期间，χ²＝11.169，自由度1，p＜0.001；期间对之后，χ²＝8.600，自由度1，p＝0.003。自由度为1，而距离段有六段，论文没有列出列联表，因此看不出六段在检验里是怎样被合并的。百分比本身的分母，是该时段的全部位移。</p>
+<p><img src="/posts/e6f8a9b0/fig3.webp" alt="休斯顿各距离段的位移次数"></p>
+<p>图 3｜休斯顿的位移次数怎样从长距离挪向5公里以内？</p>
+<p>无字母子图。纵轴是位移条数，横轴是距离段。绿色为8月14–15日，红色为8月28–29日，蓝色为9月18–19日。红色在最左段最高，50公里以上没有红柱；绿色和蓝色在50至100公里仍有柱，三段在100公里以上都没有柱。正文用的是各颜色内部的百分比，不把三根柱的高度直接相加。来源：原论文 Fig. 3。</p>
+<p>把每条相邻定位放在一起，休斯顿的均值和中位数在飓风期间是11公里和5公里，之前是16公里和10公里，之后是17公里和9公里。曼-惠特尼 U 检验比较的是中位数：前对期间 U＝3892.5，p＝0.005；期间对之后 U＝4981，p＝0.025。U＝3892.5和4981作用在一条条位移上。75是账号数，同一账号在对照日可以留下多条相邻定位。</p>
+<p><img src="/posts/e6f8a9b0/fig4.webp" alt="哈维前后休斯顿逐日位移均值和中位数"></p>
+<p>图 4｜休斯顿四周里，逐日的距离在哪两天低下去？</p>
+<p>无字母子图。实线是当日位移均值，虚线是中位数，单位公里。灰色标出8月28日和29日，两条线在这一带下降，前后几天更高。这张图是哈维的逐日示例。表2把28日和29日合并成一组，得到均值11公里、中位数5公里，不能把图上某一个低点直接写成这组合并值。来源：原论文 Fig. 4。</p>
+<p>迈阿密-戴德在10月6日，5公里及以内占全部位移的66%，9月22日是52%，10月20日是43%。飓风日同样没有超过50公里的位移。卡方检验：前对期间 χ²＝5.652，自由度1，p＝0.017；期间对之后 χ²＝12.508，自由度1，p＜0.001。</p>
+<p><img src="/posts/e6f8a9b0/fig6.webp" alt="迈阿密-戴德各距离段的位移次数"></p>
+<p>图 6｜迈阿密-戴德的短距离，在登陆对照日占了多大份额？</p>
+<p>无字母子图。纵轴最高刻度100。绿色为9月22日，红色为10月6日，蓝色为10月20日。红色在5公里及以内明显高于另两天，50公里以上没有红柱；蓝色在50至100公里有一根很矮的柱。66%、52%和43%的分母，各是该颜色对应那一天的全部位移。来源：原论文 Fig. 6。</p>
+<p>北卡和南卡的短距离份额是飓风期间68%、之前53%、之后49%。论文用“和另外两处一样”来称呼这个短距离，指的仍是5公里及以内占全部位移的比例。卡方检验：前对期间 χ²＝4.291，自由度1，p＝0.038；期间对之后 χ²＝5.935，自由度1，p＝0.014。这里的图在50公里以上仍能看见飓风期间的红柱，论文没有写这两州的长距离在飓风日消失。</p>
+<p><img src="/posts/e6f8a9b0/fig7.webp" alt="北卡和南卡各距离段的位移次数"></p>
+<p>图 7｜北卡和南卡是短距离变多，还是长距离也没了？</p>
+<p>无字母子图。纵轴最高刻度60。绿色为9月24–25日，红色为10月8–9日，蓝色为10月22–23日。红色在最左段最高，但25公里以上各段仍有矮的红柱，包括100公里以上。短距离份额上升，和长距离是否还存在，是两件可以同时成立的事。来源：原论文 Fig. 7。</p>
+<p>三地合并后的均值和中位数放在一起，单位是公里。p 值比较的是该行中位数和飓风期间中位数。期间一行是基线，表中留空。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th style="text-align:right">休斯顿均值</th>
+<th style="text-align:right">休斯顿中位数</th>
+<th style="text-align:right">p</th>
+<th style="text-align:right">迈阿密-戴德均值</th>
+<th style="text-align:right">迈阿密-戴德中位数</th>
+<th style="text-align:right">p</th>
+<th style="text-align:right">北卡和南卡均值</th>
+<th style="text-align:right">北卡和南卡中位数</th>
+<th style="text-align:right">p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>飓风前</td>
+<td style="text-align:right">16</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">0.005</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">0.019</td>
+<td style="text-align:right">17</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">0.124</td>
+</tr>
+<tr>
+<td>飓风期间</td>
+<td style="text-align:right">11</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right"></td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right"></td>
+<td style="text-align:right">11</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td>飓风后</td>
+<td style="text-align:right">17</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">0.025</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">＜0.001</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">0.021</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>北卡和南卡需要单独读。飓风前中位数5公里对期间3公里，p＝0.124，这篇论文没有把它算作显著。飓风后中位数也是5公里，和飓风前相同，但和期间的3公里相比 p＝0.021，论文给出 U＝2891。飓风后均值升到24公里，中位数却停在5公里：较长的那部分位移把均值拉高了。迈阿密-戴德的期间对之后是 U＝4461.5，p＜0.001；前对期间是 U＝7729.5，p＝0.019。</p>
+<p>休斯顿这段卡方结果之后，论文写飓风对局地出行造成了显著扰动。账号处在同一组真实日期里，封路、停业和降雨叠在飓风日上。能够核对的是：这批在三个时段都留下坐标的账号，位移中位数和距离段构成在多数对照之间有统计差异；北卡和南卡飓风前与期间的中位数 p＝0.124，留在5%门槛之外。</p>
+<h2 id="分布的形状还在，截断落在更近的地方"><a href="#分布的形状还在，截断落在更近的地方" class="headerlink" title="分布的形状还在，截断落在更近的地方"></a>分布的形状还在，截断落在更近的地方</h2><p>短距离变多之后，还要看整条距离分布是否还像平时的人类移动。论文比较两种写法。幂律是 p(x) 正比于 x 的 −β 次方。截断幂律再乘上 e 的 −x/k 次方。x 是位移公里数，β 描述近处衰减有多陡，k 是和 x 同一单位的截断尺度。k 越小，很长的位移越早被压下去。似然比检验比较的是两种模型谁更拟合手上的位移，自由度记为1。拟合更好，只说明这条曲线更接近观察到的距离，不能单独证明人在按某一种行走机制做决定。</p>
+<p>只有休斯顿把两条曲线和参数印在图上。蓝色虚线是幂律，红色实线是截断幂律。决定系数与正文一致。</p>
+<p><img src="/posts/e6f8a9b0/fig5.webp" alt="休斯顿位移的幂律与截断幂律拟合"></p>
+<p>图 5｜休斯顿的距离分布，在飓风日还守着同一种形状吗？</p>
+<p>（a）飓风前。幂律 β＝1.50，决定系数0.80；截断幂律 β＝0.91，决定系数0.82，k＝48.04。（b）飓风期间。幂律 β＝1.16，决定系数0.87；截断幂律 β＝2.05，决定系数0.92，k＝20.39。（c）飓风后。幂律 β＝1.46，决定系数0.83；截断幂律 β＝0.91，决定系数0.85，k＝58.87。纵轴是该距离上的位移条数，三幅图的纵轴上限不同，横轴分别伸到大约80、50和90公里。来源：原论文 Fig. 5。</p>
+<p>似然比只在（b）显著偏向截断幂律：Δχ²(1)＝4.7922，p＝0.028。飓风前和飓风后，决定系数的差别没有达到显著。图上的 k 从飓风前的48.04降到期间的20.39，飓风后又到58.87。这是模型尺度，不是观察到的最远距离。观察到的事实仍是：休斯顿飓风日没有超过50公里的位移。β 从0.91变为2.05再回到0.91，是三个分别拟合的点估计，论文没有再检验指数本身的差异是否显著。</p>
+<p>迈阿密-戴德没有这张拟合图，正文只给决定系数。飓风前，截断幂律0.96，幂律0.93，差异不显著。飓风期间两种模型都是0.92，飓风后都是0.77。北卡和南卡同样没有拟合图。截断幂律的决定系数在三个时段是0.87、0.89、0.78，幂律是0.67、0.72、0.54。似然比都显著：飓风前 Δχ²(1)＝10.854，p＜0.001；期间 Δχ²(1)＝8.929，p＝0.002；之后 Δχ²(1)＝11.479，p＜0.001。</p>
+<p>讨论写到，三个地区里有两个，截断幂律在飓风前、期间和之后都显著优于幂律，并由此说莱维行走（Lévy walk）即使在飓风中仍接近人类移动，移动行为在分布形状上表现出韧性。按正文的检验逐项对：北卡和南卡三个时段都显著；休斯顿只有飓风期间显著；迈阿密-戴德没有一个时段显著，而且后两个时段两种模型的决定系数相同。分布还能被一条截断幂律描上，说明长距离仍然少、近距离仍然多。论文没有检验停留时间，也没有把这条曲线写成人们在飓风里仍按同一种方式选择目的地。</p>
+<h2 id="活动空间缩小了，三地缩小得不一样"><a href="#活动空间缩小了，三地缩小得不一样" class="headerlink" title="活动空间缩小了，三地缩小得不一样"></a>活动空间缩小了，三地缩小得不一样</h2><p>均方位移（mean squared displacement，MSD）看的是离起点越来越远还是停在附近。对每个账号，以该时段第一个定位为原点，之后每个定位到原点先取平方距离，再按2小时步长对账号取平均，三个地区、三个时段共九条曲线。图的纵轴印着 MSD (km)。公式是平方距离，图上的单位却写成公里，读的时候要沿用图的刻度，不要把纵轴上的5000直接说成走出了5000公里。</p>
+<p>进入曲线的账号远少于表1的大样本：休斯顿飓风前、期间、之后是22、19、25人；迈阿密-戴德是19、22、20人；北卡和南卡是17、23、19人。分母是进入该条曲线的账号。</p>
+<p><img src="/posts/e6f8a9b0/fig8.webp" alt="三地飓风前后的均方位移曲线"></p>
+<p>图 8｜离起始帖子的平方距离，在飓风日涨得更慢吗？</p>
+<p>（a）休斯顿，哈维。纵轴刻度到5000，横轴约到2640分钟。蓝色飓风后上升最快，绿色飓风前居中，红色飓风期间停留在较低处。（b）迈阿密-戴德，马修。纵轴刻度到500，横轴到1440分钟，大约一天。红色低于绿色和蓝色，蓝色最高并在后段走平。（c）北卡和南卡，马修。纵轴刻度到6500，横轴到2880分钟，大约两天。红色几乎贴着底部，蓝色更早抬高，绿色在后段才抬高。图例同为绿色之前、红色期间、蓝色之后。三幅纵轴不是同一尺度。（b）的一天和（a）（c）的大约两天，与对照窗口的天数一致。来源：原论文 Fig. 8。</p>
+<p>曲线随时间变缓，论文认为这是以往移动研究里常见的情形。飓风日里，这种变缓在迈阿密-戴德最清楚，休斯顿也有一些。北卡和南卡则是飓风期间的值整个窗口都很小。正文有一处把休斯顿的这场飓风写成了马修；图8的标题和图1的研究设计都把休斯顿归在哈维。上面的读法按图题来。</p>
+<p>回转半径（radius of gyration）用的是同一批账号。它先取一个账号全部分定位的几何中心，再计算各点到中心的均方根距离，单位公里。一个人有一个半径，表3再对账号取均值和中位数。它回答帖子围绕自己的中心铺开多大。一次很远的帖子，会被多次靠近中心的帖子拉低。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>时段</th>
+<th style="text-align:right">休斯顿均值</th>
+<th style="text-align:right">休斯顿中位数</th>
+<th style="text-align:right">p</th>
+<th style="text-align:right">迈阿密-戴德均值</th>
+<th style="text-align:right">迈阿密-戴德中位数</th>
+<th style="text-align:right">p</th>
+<th style="text-align:right">北卡和南卡均值</th>
+<th style="text-align:right">北卡和南卡中位数</th>
+<th style="text-align:right">p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>飓风前</td>
+<td style="text-align:right">11.1</td>
+<td style="text-align:right">8.6</td>
+<td style="text-align:right">0.015</td>
+<td style="text-align:right">5.9</td>
+<td style="text-align:right">4.7</td>
+<td style="text-align:right">0.064</td>
+<td style="text-align:right">10.2</td>
+<td style="text-align:right">2.9</td>
+<td style="text-align:right">0.045</td>
+</tr>
+<tr>
+<td>飓风期间</td>
+<td style="text-align:right">6.64</td>
+<td style="text-align:right">1.9</td>
+<td style="text-align:right"></td>
+<td style="text-align:right">3.9</td>
+<td style="text-align:right">3.6</td>
+<td style="text-align:right"></td>
+<td style="text-align:right">2.2</td>
+<td style="text-align:right">1.3</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td>飓风后</td>
+<td style="text-align:right">12.6</td>
+<td style="text-align:right">11.3</td>
+<td style="text-align:right">0.005</td>
+<td style="text-align:right">4.0</td>
+<td style="text-align:right">3.1</td>
+<td style="text-align:right">0.281</td>
+<td style="text-align:right">16.9</td>
+<td style="text-align:right">3.2</td>
+<td style="text-align:right">0.093</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>p 值仍是该行中位数相对飓风期间的曼-惠特尼检验。休斯顿前对期间 U＝142.5，p＝0.015；期间对之后 U＝133，p＝0.005。北卡和南卡前对期间 U＝169.5，p＝0.045；期间对之后 U＝158，p＝0.093，论文写明这略高于5%的显著水平。迈阿密-戴德前对期间 U＝150.5，p＝0.064，同样略高于5%；期间对之后 p＝0.281。这些 U 值大约在130到170，和二十人上下的比较相符。</p>
+<p>休斯顿的中位数从8.6公里降到1.9公里，均值从11.1公里降到6.64公里。中位数掉得更多，说明典型账号的帖子收得很拢，同时仍有一些账号保持较大的半径，把均值托在6.64公里。迈阿密-戴德是表中的例外：飓风后中位数3.1公里，低于期间的3.6公里，均值4.0公里与期间的3.9公里几乎相邻。论文自己写了，三地里“期间小于前后”这一句，到迈阿密-戴德的期间与之后就停住。p＝0.281表示这次检验留在5%门槛之外，两边的中位数仍是3.6公里和3.1公里。</p>
+<p><img src="/posts/e6f8a9b0/fig9.webp" alt="哈维前后休斯顿逐日回转半径"></p>
+<p>图 9｜休斯顿的回转半径，是在哪几天收小的？</p>
+<p>无字母子图。实线是当日账号回转半径的均值，虚线是中位数，纵轴为公里。灰色的8月28日和29日附近，两条线降到窗口里的低位，之后又升上去；右端9月10日前后还有一次抬高。表3的1.9公里是28日和29日合并后的中位数，图上的逐日低点只说明下降出现在这两天附近。这张逐日图只画了哈维和休斯顿。来源：原论文 Fig. 9。</p>
+<h2 id="雨、店和路，各自对应哪一种缩短？"><a href="#雨、店和路，各自对应哪一种缩短？" class="headerlink" title="雨、店和路，各自对应哪一种缩短？"></a>雨、店和路，各自对应哪一种缩短？</h2><p>三地的位移都更短，活动空间的变化程度并不整齐。论文用登陆位置和日降水来理解迈阿密-戴德为何更弱。马修没有在迈阿密-戴德登陆，而是在更北的代托纳比奇登陆。预报曾指向迈阿密-戴德或布劳沃德县，当地也有大量准备。图10来自美国国家气象局的日降水图，图例以英寸分段，从0至0.1一直到大于10。</p>
+<p><img src="/posts/e6f8a9b0/fig10.webp" alt="马修与哈维若干日期的日降水图"></p>
+<p>图 10｜缩短更明显的地方，那天的雨是否也更重？</p>
+<p>（a）（b）（c）是2016年10月5日、6日、7日的佛罗里达。迈阿密一带没有连成大片的高端色标。（d）（e）是10月8日和9日的北卡、南卡，东部出现大片偏紫、偏粉的高降水。（f）是2017年8月28日，休斯顿一带同样出现高降水色块。每幅图自带英寸图例，颜色对应的是当日降水，不是哈维全过程最多30英寸的累计叙述。图注把（f）写成了马修，面板上的日期和正文写的是哈维。来源：原论文 Fig. 10。</p>
+<p>另一条线索是人还在不在供应点附近发帖。论文从开放街图取出食品店、家装零售和加油站，休斯顿106处、迈阿密-戴德134处、北卡和南卡138处。这三个数是设施个数。然后只看那些在三个时段都至少发过一次帖的账号，数他们在设施500米内的帖子。为了让飓风日附近的样本多一些，这里用的是事件前后各扩成大约三天、并配上前两周和后两到三周的同样星期几。这个窗口比位移分析的一到两天更宽。</p>
+<p>比较方式是：设施附近的“期间相对前后”之比，对照全部帖子的同一个比，再用卡方检验看靠近设施和发帖时段是否独立。论文报告了每地至少一项显著结果，没有给出500米内的帖子条数，所以不能改写成下降了百分之几。显著的是：休斯顿加油站，χ²(1)＝23.26，p＜0.001；迈阿密-戴德家装零售，χ²(1)＝12.1，p＜0.001；北卡和南卡家装零售，χ²(1)＝4.97，p＝0.026；迈阿密-戴德食品店，χ²(1)＝5.00，p＝0.025。论文的表述是，这些地方在飓风期间相对更不容易成为发帖位置。发帖位置变了，还不等于顾客数被点算过。</p>
+<p>关门的背景来自当地报道，包括商场、大学、政府建筑、托儿设施、公园、图书馆、博物馆、超市、餐馆和银行。道路数字来自论文转引的报道和灾情摘要。论文没有给当地路网总数，下面的条数是报道中的封闭或淹没清单。休斯顿被淹道路764条、封闭35条，桥梁数未报告。南卡罗来纳封闭道路446条、封闭桥梁35座。北卡罗来纳封闭道路635条，桥梁数未报告。迈阿密-戴德不在这张表里；论文另引该县开启桥被锁定，并强调那里的降水轻于另外两处。</p>
+<p>讨论据此说，居民在飓风期间访问供应点的速率低于平时，而飓风前这些点附近也没有更高的发帖，因此人们未必提前备足了食物和物资。这是把发帖位置的相对变化读成准备不足。研究没有购物小票、库存或出行目的，这句话停留在解释。作者接着建议，临时发放点、救援队和庇护所若布得更密，会更容易够到移动变短的人。这是操作上的推论，不是一篇已经做过的选址实验。</p>
+<h2 id="话题在登陆时升高，升高的名次各地不同"><a href="#话题在登陆时升高，升高的名次各地不同" class="headerlink" title="话题在登陆时升高，升高的名次各地不同"></a>话题在登陆时升高，升高的名次各地不同</h2><p>话题标签（hashtag）用来看发帖内容有没有转向飓风。论文提取各地前两周、飓风期间和后两周各自出现次数最多的十个标签。次数是该标签的出现次数。论文没有给出全部标签的总次数，因此名次和次数都不能换成“占全部帖子的百分之几”。</p>
+<p>休斯顿在哈维期间，出现次数最高的单个标签是 Repost，129次。正文点名的 #hurricaneharvey 是23次，位于第二；#prayforhouston 是18次。同一份前十名单里还有 houstonstrong 8次、hurricane 7次、HurricaneHarvey 5次、Hurricaneharvey 4次、prayfortexas 4次。论文说与事件相关的标签占这十个名字的多数，飓风前和飓风后的前十名里没有事件标签。多数指的是十个席位里的多数。Repost 这129次已经高于 #hurricaneharvey 的23次，所以席位上的多数，不等于事件标签占了全部使用次数的多数。</p>
+<p>迈阿密-戴德在马修期间，前两名是 miamibeach 14次和 miami 11次。正文点名的事件标签只有 #hurricanematthew 和 #matthew，各6次，排在第九和第十。前后两周的前十名里没有事件标签。北卡和南卡期间，#hurricanematthew 以21次排第一，#HurricaneMatthew 5次，#matthew 4次，前后两周的前十名里同样没有事件标签。论文把三地的名次差写成：迈阿密-戴德的事件标签只在第九、第十，休斯顿的相关标签出现在第二，北卡和南卡出现在第一。</p>
+<p><img src="/posts/e6f8a9b0/fig11.webp" alt="三地飓风相关标签的逐日帖子数"></p>
+<p>图 11｜飓风话题是在登陆当天才挤进时间线，还是前后都有？</p>
+<p>（a）休斯顿，哈维。纵轴刻度到60。灰色为8月28日和29日。曲线在灰色日期前已经抬起，在这两天附近达到窗口高点，数日内回到底部。（b）迈阿密-戴德，马修。纵轴刻度到14。灰色为10月6日。高点集中在这一天附近，前后贴近零。（c）北卡和南卡，马修。纵轴刻度到20。灰色为10月8日和9日。登陆前另有一个较矮的峰，灰色日期附近是更高的峰，之后同样回到底部。三幅纵轴不是同一尺度。来源：原论文 Fig. 11。</p>
+<p>论文把休斯顿和北卡、南卡在登陆前最多五天就出现的相关帖子，放进准备阶段；哈维登陆之后的帖子，则联系到影响和恢复阶段。北卡和南卡的两个峰，被试探性地对应到2016年10月4日的撤离令和10月8日的登陆。休斯顿没有发布撤离令。迈阿密-戴德没有强制撤离，只有针对活动房屋或低洼地区等的部分自愿撤离。三地共同的一点是，话题在飓风过后很快从这批帖子里退出。</p>
+<p>作者认为，话题标签的升高和活动空间的缩小可以互相参照，并猜想干扰更重的地方，事件标签的名次也更靠前。迈阿密-戴德的标签名次靠后，回转半径和均方位移的变化也较轻，路网冲击的叙述也较少。论文把这一关系明确写成探索性观察，需要更多事件才能做统计评估。名次、降水和活动空间是一起出现的三组描述，还没有一条把标签名次当成移动距离的回归。</p>
+<h2 id="这些比较能说到哪一步"><a href="#这些比较能说到哪一步" class="headerlink" title="这些比较能说到哪一步"></a>这些比较能说到哪一步</h2><p>仍能说稳的部分是：在三个受灾范围里，精确坐标帖的每日数量没有先崩溃；要求三个时段都出现的那75、69和49个账号，其相邻定位在飓风对照日更偏向5公里以内；休斯顿和迈阿密-戴德的位移中位数显著变短，北卡和南卡的中位数差异未达显著，短距离份额的卡方检验则显著。活动空间方面，九条均方位移曲线里，飓风期间那三条更低，但每条曲线只有17至25个账号。回转半径的显著缩短出现在休斯顿的两段比较，以及北卡和南卡的飓风前对期间。截断幂律对分布的优势，只在北卡和南卡的三个时段、加上休斯顿的飓风期间，得到了显著的似然比支持。</p>
+<p>说不稳的部分同样具体。第一，位移是相邻精确坐标帖的球面距离。中间没发帖的路程会被并成一跳，原地连发则会贡献很短的距离。第二，位移样本要求账号在飓风期间仍在范围里发帖，离开范围后不再出现的账号不会进入这75、69和49人。这组结果回答的是仍留下坐标的账号如何移动。撤离了多少人，需要能看见离开的人，本文没有给出这个比例。第三，地理标签只占全部帖子的大约1%至2%，而且发帖者的社会经济构成有偏，两个数字都来自论文引用的既有研究。第四，重访是否服从齐夫定律被尝试过，由于每个账号在不同日期的再次定位太少，没有得到可用拟合，论文没有报告齐夫指数。第五，休斯顿飓风后的对照日因为下载中断挪到了三周之后。第六，供应点分析没有缓冲区内的条数，道路条数也没有路网分母。第七，标签名次和移动缩短的对应，作者已写成尚待更大样本检验的探索。</p>
+<p>对救援安排，论文的建议是按变短的活动空间来准备更密的临时供应和庇护。这还要求这组账号能够代表需要被送达的居民，并分清缩短来自走不远，还是来自帖子集中在少数彼此很近的避难点。这两点本文都还没有测量。</p>
+<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>精确坐标帖的数量没有先消失；消失的是这批仍在受灾范围里发帖的账号原本更长的相邻定位，而距离分布的截断幂律形状在部分地区、部分时段还在。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.3390/urbansci3030087">Urban Science 正式发表版</a>，<em>Urban Science</em> 2019年第3卷文章87，2019年8月3日发表。正文图1至图11、表1至表5都出在这一版。PDF 没有附带补充材料，正文也没有指向补充图表。</li>
+<li>位移、回转半径和均方位移的定义与检验写在第3.3节和表1至表3；供应点、道路和标签分别在第4.3节、表5、第4.4节和表4。</li>
+</ul>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>三位作者在论文中都署在佛罗里达大学劳德代尔堡研究与教育中心的地理信息专业（Geomatics Program, Fort Lauderdale Research and Education Center, University of Florida）。</p>
+<ul>
+<li>Ahmed Ahmouda：通讯作者。贡献说明中，统计分析、初稿和编辑由他完成。论文首页链接的 ORCID 0000-0002-7897-0192 记录其2015至2018年在佛罗里达大学攻读地理信息博士。</li>
+<li>Hartwig H. Hochmair：贡献说明中负责写作审阅与编辑。佛罗里达大学食品与农业科学研究所的教师页把他列为该中心地理信息专业教授，研究方向包括地理数据质量，以及用社交媒体考察灾害下的出行。论文首页 ORCID 为 0000-0002-7064-8238。</li>
+<li>Sreten Cvetojevic：贡献说明中负责数据采集与审阅。本文参考文献里，他与 Hochmair 还有用带地理标签的推文分析迁徙路径，以及分析事件信息在 Twitter 上如何传播的合作。</li>
+</ul>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
+<p>应急物资若按平时的中位数来布点，飓风对照日可能够不着。休斯顿的位移中位数从10公里降到5公里，回转半径中位数从8.6公里降到1.9公里，分母分别是对照日的位移和进入活动空间计算的大约20个账号。若缩短是因为人们走不到平时那家店，更密的发放点会有帮助。若缩短是因为帖子集中在少数已经很近的避难点之间，把点布密解决的是另一件事。本文的相邻帖子没有目的地类型，两条解释都还开着。</p>
+<p>第二个容易误用的信号是发帖量。图2的每日账号和帖子没有明显断档，图3到图7的距离组成却变了。用“还有人在发定位”推断道路已恢复，会把这两张证据焊在一起。北卡和南卡的话题在登陆后很快回到低位，而论文转引的封闭道路是635条、南卡是446条，这些条数描述的是飓风期间的基础设施清单，不是话题回落那天的通车比例。话题退出的速度，不能直接换成路网恢复的速度。</p>
+<p>第三个问题出在指标互相不一致的时候。北卡和南卡5公里以内的份额从53%升到68%，卡方检验显著；位移中位数从5公里到3公里，p＝0.124；回转半径中位数从2.9公里到1.3公里，p＝0.045。只盯中位数，会得到“距离没有显著变化”。只盯短距离份额或回转半径，会得到“活动已经收小”。一个值班面板若只留一个数，就会在同一批账号上做出不同的判断。更稳妥的做法是同时看份额、中位数和活动空间，并写明每个数的人或位移分母。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">猴猴猴</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://xiaoyue-hou.github.io/posts/e6f8a9b0/">http://xiaoyue-hou.github.io/posts/e6f8a9b0/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">猴猴猴</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                                    <span class="chip bg-color">人类移动性</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%B4%BB%E5%8A%A8%E7%A9%BA%E9%97%B4/">
+                                    <span class="chip bg-color">活动空间</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%A3%93%E9%A3%8E/">
+                                    <span class="chip bg-color">飓风</span>
+                                </a>
+                            
+                                <a href="/tags/Twitter/">
+                                    <span class="chip bg-color">Twitter</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%81%BE%E5%AE%B3/">
+                                    <span class="chip bg-color">灾害</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/f7a9b0c1/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="2017-Residential mobility and moving home">
+                        
+                        <span class="card-title">2017-Residential mobility and moving home</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%B1%85%E4%BD%8F%E8%BF%81%E7%A7%BB/">
+                        <span class="chip bg-color">居住迁移</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%90%AC%E5%AE%B6/">
+                        <span class="chip bg-color">搬家</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AE%B6%E4%B8%8E%E5%9C%B0%E6%96%B9/">
+                        <span class="chip bg-color">家与地方</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%94%9F%E5%91%BD%E5%8E%86%E7%A8%8B/">
+                        <span class="chip bg-color">生命历程</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/d5e7f8a9/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="2018-Weather effects on human mobility: a study using multi-channel sequence analysis">
+                        
+                        <span class="card-title">2018-Weather effects on human mobility: a study using multi-channel sequence analysis</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%A4%A9%E6%B0%94/">
+                        <span class="chip bg-color">天气</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8/">
+                        <span class="chip bg-color">人类移动</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%87%BA%E8%A1%8C%E8%A1%8C%E4%B8%BA/">
+                        <span class="chip bg-color">出行行为</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%BA%8F%E5%88%97%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">序列分析</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('-1'),
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2026</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">猴猴猴</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "4";
+                    var startDate = "26";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiaoyue-hou" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1396567029@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1396567029" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1396567029" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <script src="/js/reading-marks.js?v=7"></script>
+
+</body>
+
+</html>
