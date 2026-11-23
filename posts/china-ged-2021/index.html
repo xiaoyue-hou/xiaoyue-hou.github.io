@@ -375,12 +375,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE/">
-                                <span class="chip bg-color">开放数据</span>
-                            </a>
-                        
                             <a href="/tags/%E5%9F%8E%E5%B8%82%E7%A7%91%E5%AD%A6/">
                                 <span class="chip bg-color">城市科学</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE/">
+                                <span class="chip bg-color">开放数据</span>
                             </a>
                         
                             <a href="/tags/%E7%BB%8F%E6%B5%8E%E6%B4%BB%E5%8A%A8/">
@@ -434,69 +434,70 @@
             <div id="articleContent">
                 <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h2 id="一座城的经济活动，能用新注册企业画出来吗？"><a href="#一座城的经济活动，能用新注册企业画出来吗？" class="headerlink" title="一座城的经济活动，能用新注册企业画出来吗？"></a>一座城的经济活动，能用新注册企业画出来吗？</h2><p>论文名片｜Lei Dong、Xiaohui Yuan、Meng Li、Carlo Ratti、Yu Liu，<em>A gridded establishment dataset as a proxy for economic activity in China</em>，<em>Scientific Data</em> 8, 5（2021）。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-020-00792-9">原论文</a> · 数据描述论文。</p>
-<p>想象你正在比较两个街区：夜间灯光一样亮，一个是制造业园区，另一个是商务办公区。灯光可以告诉你哪里有人造照明，却很难告诉你经济活动的类型，也很难区分亮度已经饱和的市中心街区。城市统计年鉴又太粗，往往只给全市一个数。</p>
-<p>这篇论文换了一种观察对象：把企业注册记录放到地图上，看看每年哪里有新企业、属于什么行业。得到的不是每个街区的 GDP，而是一套可以长时间比较、细到城市内部的企业新设活动代理指标。</p>
-<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
-<li>GED 覆盖中国大陆 2005—2015 年约 2555 万条企业新设记录，以经纬各 0.01°的网格汇总，并区分三次产业。</li>
-<li>在 2015 年城市尺度的回归中，企业数量对 GDP、财政收入和就业的拟合均优于夜间灯光；与灯光结合还能提高拟合。但这不等于已经验证每个网格的经济产出。</li>
-<li>注册地址不必然是经营地址。地图的精细程度也不等于每条地址的定位精度：小城市匹配到门牌或兴趣点的比例明显较低。</li>
-<li>数据中的年份是注册年份，企业状态则取自 2018 年。它不能直接用于逐年还原企业注销数量或每年存续企业总数。</li>
-</ul>
-<h2 id="把企业放进地图，先要决定数的是什么"><a href="#把企业放进地图，先要决定数的是什么" class="headerlink" title="把企业放进地图，先要决定数的是什么"></a>把企业放进地图，先要决定数的是什么</h2><p>原始数据来自国家企业信用信息公示系统，企业名称目录来自天眼查。研究收集了 8370 万条注册记录，先去掉 5780 万条个体工商户记录。这类记录不仅经营规模通常较小，注册地址也常只到村镇，难以可靠定位。清洗后保留 25,545,850 条企业记录。</p>
-<p>这里的 establishment 被操作化为企业注册记录，不能机械理解成每一个实体门店，也不能理解成每个工作岗位。大公司与小公司都各计一条；员工数和营业额在原始数据里没有记录。</p>
-<p>论文表 1 把行业归为第一、第二、第三产业。企业还按 2018 年采集时的状态区分为存续、注销和其他。这个状态标签没有改变企业归属的注册年份。例如，一家 2010 年注册、2017 年注销的企业仍归入 2010 年的新设记录，不能把它当成 2010 年的注销事件。</p>
-<p>为了避免重名街道被定位到别的城市，流程先从地址、登记机关等字段推断城市，再调用高德地图做地理编码（geocoding，即把地址转换成坐标）。约 3%的记录无法识别对应城市或区县。坐标从 GCJ-02 转成 WGS84 后，再汇入经纬各 0.01°的网格。</p>
-<p><img src="/posts/china-ged-2021/fig1.png" alt="企业注册信息生成网格数据的完整流程"></p>
-<p>图 1｜一份企业名录怎样变成可比较的空间数据？</p>
-<p>本图没有字母子图。上排依次为收集注册信息、排除个体工商户、添加行业及经营状态标签；沿箭头进入下排，先提取城市与地址，再做地理编码、坐标转换和网格汇总。底部标出减少地址歧义、验证定位、交叉验证三个质量环节。来源：原论文 Fig. 1。</p>
-<h2 id="数量对得上，是否就说明记录完整？"><a href="#数量对得上，是否就说明记录完整？" class="headerlink" title="数量对得上，是否就说明记录完整？"></a>数量对得上，是否就说明记录完整？</h2><p>2015 年数据中有约 485 万家新设企业，官方报告折算全年约 445 万家，数据与官方之比为 109.2%。作者提出，官方可能扣除了当年注册又注销的企业，而本数据保留了注册事件。这个超过 100%的比例提醒我们：所谓覆盖率同时受到统计口径影响，不能读成超额发现了真实企业。</p>
-<p><img src="/posts/china-ged-2021/fig2.png" alt="企业新设总量、相对官方数量与网格分布"></p>
-<p>图 2｜这套数据在时间和网格尺度上呈现什么分布？</p>
-<p>（a）横轴为年份，纵轴为当年新设企业数，单位为百万；彩线区分三次产业，黑线为总量，虚线为官方报告，总量增长主要伴随第三产业增长。</p>
-<p>（b）横轴为年份，纵轴为 GED 与官方报告的数量比，曲线围绕 1 以上波动；它比较的是两个统计来源，不能独自证明逐条记录无遗漏。</p>
-<p>（c）横轴为网格企业数的常用对数，纵轴为累积分布的常用对数；红、蓝分别对应 2015、2005 年，并给出对数正态拟合。少数企业极密集的网格处于尾部，后续微观分析需要留意。来源：原论文 Fig. 2。</p>
-<p>2015 年的空间分布显示，企业新设集中在东部沿海及主要城市群。和一片亮到顶的夜间灯光相比，直接计数仍能区分市内网格。但企业注册集中可能也来自注册优惠政策，而非同等强度的现场生产和就业。</p>
-<p><img src="/posts/china-ged-2021/fig3.png" alt="中国大陆及两个城市群的企业空间分布"></p>
-<p>图 3｜全国分布之外，能否看到城市内部差异？</p>
-<p>（a）中国大陆总体分布；颜色图例对应网格企业数，暖色表示更多。</p>
-<p>（b）京津冀局部放大，展示城市群内集聚及网格差异。</p>
-<p>（c）珠三角局部放大，揭示不同城市及其内部的密集区。三幅图都是 2015 年新设企业记录的地理汇总，不是 GDP 热力图。来源：原论文 Fig. 3。</p>
-<h2 id="网格画得细，地址真的定得准吗？"><a href="#网格画得细，地址真的定得准吗？" class="headerlink" title="网格画得细，地址真的定得准吗？"></a>网格画得细，地址真的定得准吗？</h2><p>研究选取北京、长沙和鞍山，分别抽样 10,000 条地址检查定位。高德返回的匹配层级中，达到门牌或兴趣点（POI）的比例，北京约 88%、长沙约 77%、鞍山约 48%；若把村、镇层级也算进去，比例升为约 96%、95%、84%（表 4）。后一个标准更宽松，不能把两个比例都称为同样的定位准确率。</p>
-<p>另一项检查用百度地图重新编码同一批地址。按照其置信指标所对应的规则，误差小于 1000 米的比例分别为 93.1%、92.2%、74.1%。这仍是地图服务返回指标的检验，并非逐家实地核查；北京优于鞍山的差异也说明，误差不能在全国一概而论。</p>
-<h2 id="能代表经济活动，证据在哪个尺度上成立？"><a href="#能代表经济活动，证据在哪个尺度上成立？" class="headerlink" title="能代表经济活动，证据在哪个尺度上成立？"></a>能代表经济活动，证据在哪个尺度上成立？</h2><p>研究把 2015 年新设企业数汇总到城市，与同年的 GDP、财政收入和就业人数比较，并排除年鉴数据缺失的城市。模型 1 用企业总数解释各指标；模型 2 把三次产业的数量分别放入回归，两者均采用对数。作为基线，夜间灯光也在城市边界内汇总。</p>
-<p>拟合优度采用调整后的 R²：数值越高，表示这组城市数据中回归能够解释的差异越多。企业总数模型对 GDP、财政收入、就业的调整后 R² 分别为 0.782、0.817、0.761；灯光单独模型分别为 0.749、0.710、0.708。进一步区分产业，前者提高到 0.812、0.860、0.787。把产业分项与灯光结合，三项分别达到 0.847、0.868、0.813。</p>
-<p>这支持两类数据提供互补信息，不能解释成企业注册增加必然引起财政收入增加，也不是对未见城市进行预测的准确率。</p>
-<p><img src="/posts/china-ged-2021/fig4.png" alt="企业数与夜间灯光对城市经济指标的回归比较"></p>
-<p>图 4｜企业注册和灯光，分别解释了哪些城市差异？</p>
-<p>（a、b、c）横轴为新设企业数的常用对数，纵轴依次为 GDP、财政收入、就业的常用对数；散点是城市，图中同时报告企业总数与三次产业分项模型的调整后 R²。</p>
-<p>（d、e、f）横轴改为夜间灯光的常用对数，纵轴依次对应同三项指标；图内列出灯光单独、加入企业总数、加入三次产业企业数的拟合结果。不能只凭散点线条，把三种多变量模型误读成同一个一元回归。来源：原论文 Fig. 4。</p>
-<p>市级相关还留下一个问题：网格尺度也有合理结构吗？研究将北京企业网格与手机数据估计的人口网格匹配，只分析人口密度不低于每平方公里 1000 人的区域。人口与企业数呈超线性关系，幂律指数约为 1.16：在这组空间比较中，人口较多的网格，企业数平均增加得更快。</p>
-<p>这是一项与城市标度理论相容的有效性检查，并非证明每个网格的真实产值，也不是北京人口增长 1%必定带来企业增长 1.16%的时间因果关系。</p>
-<p><img src="/posts/china-ged-2021/fig5.png" alt="北京人口与企业网格及标度关系"></p>
-<p>图 5｜人口较密集的城市网格，是否也汇集更多企业？</p>
-<p>（a）北京人口空间分布，颜色图例单位为千人。</p>
-<p>（b）企业空间分布，颜色图例单位为千家；横纵轴仍为经纬度，不能把两幅图的颜色数值直接等同。</p>
-<p>（c）横轴为人口、纵轴为企业数，均取常用对数；拟合斜率为 1.16，括号中报告 0.027。点之间的空间关联支持超线性模式，不能识别其成因。来源：原论文 Fig. 5。</p>
-<h2 id="真正使用时，还要守住哪些口径？"><a href="#真正使用时，还要守住哪些口径？" class="headerlink" title="真正使用时，还要守住哪些口径？"></a>真正使用时，还要守住哪些口径？</h2><p>主文件一行是一个网格在某注册年份的汇总，含网格中心坐标、企业总数、行业分项及状态分项（表 2）。没有注册记录的网格—年份组合不写入文件。用作完整空间面板前，应先建立所需网格与年份集合，区分缺行与其他来源的数据缺失。论文还提供 2005、2010、2015 年未聚合数据，便于改变分析尺度。</p>
-<p>省级汇总表 3 描述的是全期企业数量及网格分布，不能把其网格均值当作全省任一地方的典型经营密度。行政区名称对应 2019 年边界，和其他年份统计资料连接时需处理区划变化。经纬网格也不等面积：赤道附近约为 1.1 × 1.1 公里，北京约为 0.85 × 1.1 公里；跨纬度比较密度时必须用实际面积。</p>
-<p>最难靠技术消除的误差来自注册地址与经营地址分离。税收优惠区可能吸纳大量注册企业，部分网格超过一万家。作者建议微观分析可考虑上限截断或对数变换，但这些处理只能减弱极端值影响，无法自动找回企业真正经营的位置。历史地名变更、没有企业规模信息，以及被排除的个体工商户，也共同限定了 GED 能回答的问题。</p>
-<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>企业注册能把经济新设活动画得更细、追得更久，但这张图测的是企业登记的空间分布，不能直接替代每个街区的产出、就业或真实经营现场。</p>
-<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li>Dong, L., Yuan, X., Li, M., Ratti, C. &amp; Liu, Y.（2021）<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-020-00792-9">原论文及完整图表</a>，<em>Scientific Data</em> 8, 5。本文图 1—5 均源自该论文。</li>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.6084/m9.figshare.c.5000618">GED 数据集</a>。</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/quanturban/firm">论文所列预处理与验证代码</a>。</li>
-</ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><ul>
-<li>Lei Dong：论文署名单位为北京大学遥感与地理信息系统研究所、MIT Senseable City Laboratory 和 QuantUrban；承担研究实施、数据分析和论文写作。</li>
-<li>Xiaohui Yuan：署名 QuantUrban，参与研究设计。论文披露其与 Lei Dong 为该公司共同创始人。</li>
-<li>Meng Li：署名 QuantUrban，参与数据分析。</li>
-<li>Carlo Ratti：署名 MIT Senseable City Laboratory，参与研究设计。</li>
-<li>Yu Liu：署名北京大学遥感与地理信息系统研究所，参与研究设计并为通讯作者之一。</li>
-</ul>
+<h2 id="灯一样亮的两个街区，企业注册能看出什么差别？"><a href="#灯一样亮的两个街区，企业注册能看出什么差别？" class="headerlink" title="灯一样亮的两个街区，企业注册能看出什么差别？"></a>灯一样亮的两个街区，企业注册能看出什么差别？</h2><p>从卫星上看，商务区和厂区都可能很亮。亮度能告诉我们哪里用了更多人造照明，却不直接说明那里以什么行业为主；统计年鉴的市级总量也回答不了这个街区的问题。如果换一张图，标出每一年有哪些地方新注册了企业，我们能不能看到灯光漏掉的东西？</p>
+<p><strong>论文名片｜</strong> Lei Dong、Xiaohui Yuan、Meng Li、Carlo Ratti 和 Yu Liu，<em>A gridded establishment dataset as a proxy for economic activity in China</em>，<em>Scientific Data</em>，2021，8:5。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-020-00792-9">DOI：10.1038/s41597-020-00792-9</a></p>
+<p>这是一篇数据描述论文。作者把中国大陆 <strong>2005–2015 年约 2,555 万条企业新设记录</strong>汇入经纬各 0.01° 的网格。到城市尺度，企业数对 GDP、财政收入和就业差异的拟合优于单用夜间灯光；在城市内部，登记数据还能按产业拆开看。关键边界是：<strong>这张图测的是新注册，不是各格的产值，也不是每家企业实际经营的位置。</strong></p>
+<h2 id="一张企业名录，要怎样变成网格数据？"><a href="#一张企业名录，要怎样变成网格数据？" class="headerlink" title="一张企业名录，要怎样变成网格数据？"></a>一张企业名录，要怎样变成网格数据？</h2><p>资料来自国家企业信用信息公示系统，企业名称目录来自天眼查。约 8,370 万条原始记录中，约 5,780 万条是个体工商户。作者将其排除，原因之一是其地址常只写到村镇，难以精确匹配。预处理后保留 <strong>25,545,850 条</strong>，分第一、第二、第三产业。这意味着路边小店等活动不是全都被这套资料同等覆盖；在纳入的企业中，大、小公司也都是一条，不按雇员数或营业额加权。</p>
+<p><img src="/posts/china-ged-2021/fig1.png" alt="图 1：从企业注册名录到网格数据的流程"></p>
+<p><strong>图 1｜上半段决定留谁、给企业加什么标签，下半段决定放到哪里。</strong> 团队先识别可能的城市和地址，再用高德地理编码，转换坐标后进网格。这有助于避免把重名的路放进错误城市，不能补全原始记录没有给出的门牌。</p>
+<p>注册年份和企业状态的时间口径不同。新设记录归到注册那一年；存续、注销等状态取自 <strong>2018 年</strong>收集数据时的情况。一家 2010 年登记、后来停业的企业仍属于 2010 年的新设记录；不能按状态筛出 2010 年当年注销的家数，也不能直接还原每年存续企业总量。</p>
+<h2 id="记录比官方更多，就表示覆盖更全吗？"><a href="#记录比官方更多，就表示覆盖更全吗？" class="headerlink" title="记录比官方更多，就表示覆盖更全吗？"></a>记录比官方更多，就表示覆盖更全吗？</h2><p>2015 年，数据记下约 485 万家新设企业，官方报告折算为约 445 万，论文给出的比率是 <strong>109.2%</strong>。一种解释是，官方可能扣除了年内登记又注销的企业，而这里保留登记事件。超过 100% 反而是口径提示，不能解释成名录逐条都准确。</p>
+<p><img src="/posts/china-ged-2021/fig2.png" alt="图 2：各年新设企业数及网格数量分布"></p>
+<p><strong>图 2｜a 看年份和产业，b 看两种统计之比，c 看网格分布。</strong> 曲线越往 a 的后段，总量增长越明显，第三产业贡献较多。c 关注少数企业很集中的网格；尾部的极端值需要单独辨别，不能直接叫高产值街区。</p>
+<p><img src="/posts/china-ged-2021/fig3.png" alt="图 3：中国大陆、京津冀与珠三角的 2015 年新设企业分布"></p>
+<p><strong>图 3｜先看全国集聚，再看右侧城市群放大图。</strong> 右图保留了城市内部深浅差异；颜色表示格网企业数，不是 GDP、岗位或夜间灯光强度。</p>
+<p>也不能因为方格细，就认为地址都定得准。北京、长沙、鞍山各取一万条做核查，高德返回到门牌或兴趣点的比例分别约 <strong>88%、77%、48%</strong>；若把村、镇也算合格，则为约 96%、95%、84%。改用百度重新编码，按其置信指标判断低于一公里误差的比例也有地域差别。这些是地理编码服务返回的核查指标，不是逐家走访，更不能用北京的结果为全国所有格子背书。</p>
+<h2 id="比灯光拟合得好，证据在哪个尺度？"><a href="#比灯光拟合得好，证据在哪个尺度？" class="headerlink" title="比灯光拟合得好，证据在哪个尺度？"></a>比灯光拟合得好，证据在哪个尺度？</h2><p>论文把城市的 2015 年企业数与同年的 GDP、财政收入和就业匹配，对数回归后比较调整 R²。这个统计量衡量所用城市样本中的差异有多少被模型解释，并不是对新城市的验证准确率。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>输入</th>
+<th style="text-align:right">GDP</th>
+<th style="text-align:right">财政收入</th>
+<th style="text-align:right">就业</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>夜间灯光</td>
+<td style="text-align:right">0.749</td>
+<td style="text-align:right">0.710</td>
+<td style="text-align:right">0.708</td>
+</tr>
+<tr>
+<td>企业总数</td>
+<td style="text-align:right">0.782</td>
+<td style="text-align:right">0.817</td>
+<td style="text-align:right">0.761</td>
+</tr>
+<tr>
+<td>三次产业企业数</td>
+<td style="text-align:right">0.812</td>
+<td style="text-align:right">0.860</td>
+<td style="text-align:right">0.787</td>
+</tr>
+<tr>
+<td>灯光与三次产业企业数</td>
+<td style="text-align:right">0.847</td>
+<td style="text-align:right">0.868</td>
+<td style="text-align:right">0.813</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="/posts/china-ged-2021/fig4.png" alt="图 4：注册企业和夜间灯光对城市经济指标的拟合比较"></p>
+<p><strong>图 4｜上排横轴是企业数，下排是夜间灯光，三列依次为 GDP、财政收入和就业。</strong> 散点是一座座城市；图中还列了加入其他变量的模型结果，读数不宜只看一条二维拟合线。</p>
+<p>两类记录结合后比任何一类单独使用更贴近这些市级指标。合理的解读是它们捕捉到了互补信息，而不是注册能替代产出。一张市级回归表，不能证明每个 0.01° 格都有同样好的经济估计。</p>
+<p>作者还用北京的人口网格做细尺度合理性检查。限定在人口密度不低于每平方公里 1,000 人的网格，企业数随人口呈超线性变化，拟合斜率约 <strong>1.16</strong>。这表示在这组空间对比里，人口多的格子往往聚集更多企业，且平均增幅超过同比例；不是说某格人口随后增加 1%，企业便必然增加约 1.16%。</p>
+<p><img src="/posts/china-ged-2021/fig5.png" alt="图 5：北京人口与企业的空间图及对数拟合"></p>
+<p><strong>图 5｜左、中分别是人口和企业，右图配对到同一格。</strong> 两张地图图例数的是不同东西。1.16 是空间样本的拟合斜率，不能拿来推断增长的因果作用。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>GED 提供了中国大陆连续年份、可区分产业的企业新设格网，可用来补充灯光和粗粒度统计。论文验证的是城市之间的拟合和北京格网里的合理结构，而不是逐格产出或逐企业经营地点。注册优惠、总部地址、历史地名及个体工商户排除都可能改变一地的图形。主文件不写没有新设记录的网格年份，且经纬格不等面积；合并其他年份边界或计算密度时，这些口径也会影响结果。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这份数据能看见哪里新增了企业、属于什么产业，并能补上夜间灯光无法解释的部分城市差异。但企业登记可能集中在与真实经营分离的地址，定位精度也因城市而异。把它当作企业新设活动的空间代理，比当作一张街区 GDP 地图更符合证据；尤其要分清注册年份、2018 年状态和是否纳入个体工商户。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p>Dong, L., Yuan, X., Li, M., Ratti, C., &amp; Liu, Y. (2021). <em>A gridded establishment dataset as a proxy for economic activity in China</em>. <strong>Scientific Data</strong>, 8, 5。2021 年 1 月 11 日发表。<a target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7801400/">正式全文（PMC）</a> · <a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-020-00792-9">DOI</a> · <a target="_blank" rel="noopener" href="https://doi.org/10.6084/m9.figshare.c.5000618">GED 数据集</a> · <a target="_blank" rel="noopener" href="https://github.com/quanturban/firm">预处理和验证代码</a>。图 1–5 来自发表版。</p>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>论文由 Lei Dong、Xiaohui Yuan、Meng Li、Carlo Ratti 和 Yu Liu 合作完成，Dong 和 Liu 为通讯作者。按文章署名，团队来自北京大学遥感与地理信息系统研究所、MIT Senseable City Laboratory 及 QuantUrban。研究将企业记录清洗、地理编码和城市经济指标比较结合起来。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>如果一个园区的企业注册迅速增长，手机估计的工作人口却没有同步增长，这不应立即被归为其中一份数据错误。它也可能揭示注册地与经营地正在分离。可以把企业注册、工作日白天人口、夜间灯光三种信号对齐：只在注册上突增的网格，先检查注册地址政策；三种信号共同变化的网格，再研究实际开发和就业变化。</p>
-<p>这里需要额外区分时间顺序。企业注册往往早于正式经营，人口和用电变化可能滞后。若用注册当年的同步相关筛选异常，就可能把正在建设的真实新园区误判成空壳集聚。一个更可检验的问题是：注册增加之后的几年内，哪些地方出现了持续的工作人口增长，哪些地方始终只有名录变长？</p>
+<p>设想两个园区的登记企业同时增加。一个园区灯光和工作日白天的人口也陆续增加，另一个两年后仍只在登记表里变热闹。前者可能是建设先完成、企业后来入驻；后者可能吸引的是注册地址。若只看登记当年的同步关系，就容易把还在施工的真实园区和只在名录里集聚的地址混成一类。几种数据真正互补的地方，可能在于比较它们何时开始变化，而不是让它们在同一年争谁更像现实。</p>
 
                 
             </div>
@@ -531,12 +532,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE/">
-                                    <span class="chip bg-color">开放数据</span>
-                                </a>
-                            
                                 <a href="/tags/%E5%9F%8E%E5%B8%82%E7%A7%91%E5%AD%A6/">
                                     <span class="chip bg-color">城市科学</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE/">
+                                    <span class="chip bg-color">开放数据</span>
                                 </a>
                             
                                 <a href="/tags/%E7%BB%8F%E6%B5%8E%E6%B4%BB%E5%8A%A8/">
@@ -646,12 +647,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/e8000013/">
+                <a href="/posts/e8000010/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="2023-How do urban services facilities affect social segregation among people of different economic levels? A case study of Shenzhen city">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="2022-Pseudo-PFLOW: Development of nationwide synthetic open dataset for people movement based on limited travel survey and open statistical data">
                         
-                        <span class="card-title">2023-How do urban services facilities affect social segregation among people of different economic levels? A case study of Shenzhen city</span>
+                        <span class="card-title">2022-Pseudo-PFLOW: Development of nationwide synthetic open dataset for people movement based on limited travel survey and open statistical data</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -683,12 +684,12 @@
                         <span class="chip bg-color">人类移动性</span>
                     </a>
                     
-                    <a href="/tags/%E7%A4%BE%E4%BC%9A%E9%9A%94%E7%A6%BB/">
-                        <span class="chip bg-color">社会隔离</span>
+                    <a href="/tags/%E5%90%88%E6%88%90%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">合成数据</span>
                     </a>
                     
-                    <a href="/tags/%E5%9F%8E%E5%B8%82%E8%AE%BE%E6%96%BD/">
-                        <span class="chip bg-color">城市设施</span>
+                    <a href="/tags/%E6%B4%BB%E5%8A%A8%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">活动模型</span>
                     </a>
                     
                 </div>

@@ -383,12 +383,12 @@
                                 <span class="chip bg-color">引力模型</span>
                             </a>
                         
-                            <a href="/tags/%E8%B5%B7%E8%AE%AB%E6%B5%81%E9%87%8F/">
-                                <span class="chip bg-color">起讫流量</span>
-                            </a>
-                        
                             <a href="/tags/%E7%94%9F%E6%88%90%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C/">
                                 <span class="chip bg-color">生成对抗网络</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%B5%B7%E8%AE%AB%E6%B5%81%E9%87%8F/">
+                                <span class="chip bg-color">起讫流量</span>
                             </a>
                         
                     </div>
@@ -436,192 +436,81 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h2 id="一座没有通勤表的城市，引力公式和-GAN-能补出怎样的起讫网？"><a href="#一座没有通勤表的城市，引力公式和-GAN-能补出怎样的起讫网？" class="headerlink" title="一座没有通勤表的城市，引力公式和 GAN 能补出怎样的起讫网？"></a>一座没有通勤表的城市，引力公式和 GAN 能补出怎样的起讫网？</h2><p>论文名片｜Can Rong、Huandong Wang、Yong Li，<em>Origin-Destination Network Generation via Gravity-Guided GAN</em>，arXiv:2306.03390v1，2023年6月6日提交。<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2306.03390">arXiv：2306.03390</a>。本文依据这一预印本解读。首页 ACM 模板中的 DOI 仍是占位符 XXXXXXX.XXXXXXX，不能当作正式 DOI。</p>
-<p>设想一座城市已经公开了人口、兴趣点和公交地铁，职住通勤表却因为成本或隐私拿不到。老办法是把两地人口相乘，再除以距离。换一座城市训练出来的神经网络，又可能只记住训练城市自己的花样。这篇论文试的是第三条路：把引力公式留在流量计算里，让神经网络去学每个区域的“质量”和抽象位置，并用生成对抗网络（generative adversarial networks，GAN）对照整张网络的样子。</p>
-<p>在纽约、西雅图和孟菲斯的报告结果里，这个模型的分布距离、逐对误差和通勤重叠都优于论文列出的基线。相对经典引力模型，纽约的差距很大；相对最强的神经网络基线，差距小得多。模型里的质量与人口只有中等相关，不能把它读成人口本身。</p>
-<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
-<li>任务叫起讫网络生成：目标城市不提供通勤表，输入是区域属性和交通拓扑。数据准备了 8 座美国城市，完整结果只报告纽约、西雅图、孟菲斯，空间单位是人口普查区。</li>
-<li>表 1 里，本文模型在三座城市的三项指标上都最好。纽约的通勤公共部分（CPC）为 0.6476，引力模型为 0.3547，GAT-GAN 为 0.6017；分母都是真实流量总和加预测流量总和。纽约均方根误差（RMSE）为 5.20，引力模型为 12.74，GAT-GAN 为 5.99；分母是起讫对个数，论文没有给出这个个数。</li>
-<li>西雅图 RMSE 为 14.99，孟菲斯为 14.00，都高于纽约的 5.20。论文把这归因于它们和训练所用大规模城市的结构差异，但没有列出每次训练具体用了哪几座城市。</li>
-<li>消融中，作者写道：只加入多视图交通图约提升 3%，只换上引力解码器约提升 4%，两部分一起超过 7%；相对普通图注意力网络，GAN 训练单独约提升 3%，全部设计约提升 13%。正文没有给出这些百分数的逐城算式。图 3 有误差线，也没有说明误差线的定义。</li>
-<li>去掉人口为 0、兴趣点不为 0 的区域后，学到的质量与人口相关 0.47，与兴趣点数量相关 0.20。正文没有写相关系数的种类，也没有写删掉了多少个区域。</li>
-</ul>
-<h2 id="要补的是整座城市的职住通勤网"><a href="#要补的是整座城市的职住通勤网" class="headerlink" title="要补的是整座城市的职住通勤网"></a>要补的是整座城市的职住通勤网</h2><p>论文区分了两件事。起讫预测通常还看得到这座城市已有的流量，再去估计未知或未来的流量。起讫生成则假定目标城市的流量表不可用，只能用区域属性和城市图把整张有向加权网生成出来。节点是区域，边权是从一个区域到另一个区域的人流量。</p>
-<p>实验列出 8 座美国城市：纽约、洛杉矶、芝加哥、休斯敦、旧金山、西雅图、华盛顿特区、孟菲斯。生成结果重点报告三座：论文称为大规模发达城市的纽约、称为二线城市的西雅图、称为发展中城市的孟菲斯。这是作者自己的城市分类，文中没有给出分级标准。</p>
-<p>区域用人口普查区（census tract）。人口属性来自美国社区调查（American Community Survey，ACS），先在更小的普查街区汇总，再筛出 24 维，包括性别、年龄、教育和经济水平，具体变量名没有逐项列出。参考文献把这份 ACS 标为 2020 年。兴趣点来自 OpenStreetMap 2020 年数据，按 36 类计数。两类特征拼在一起，作为区域属性。模型的噪声维度也设为 60，与区域属性维度相同；24 加 36 正好等于 60，正文没有另写这句加法。</p>
-<p>交通图有三张。两个普查区地理上相邻，就在邻接图里连边；有公交线路直接连通，就在公交图里连边；有地铁直接连通，就在轨道交通图里连边。边只表示“相邻”或“有直达线路”，不表示车程、票价或道路里程。线路来自政府网站或专有数据站点，年份和线路名单没有写明。</p>
-<p>真实流量来自纵向雇主—家庭动态起讫就业统计（LODES），是职住通勤，不是购物、就医或全部出行。通勤表按普查区对汇总。论文没有给出城市各自有多少普查区、多少起讫对，也没有写 LODES 的年份。因此后面的误差都是通勤计数上的拟合差，分母里的起讫对数量本身没有公布。</p>
-<h2 id="引力公式留在解码器里，约束的是形状"><a href="#引力公式留在解码器里，约束的是形状" class="headerlink" title="引力公式留在解码器里，约束的是形状"></a>引力公式留在解码器里，约束的是形状</h2><p>ODGN（Origin-Destination Generation Networks）分成编码器和按引力写成的解码器。编码器是多视图图注意力网络（multi-view graph attention networks，MGAT）。每个区域先把自己的属性和一串高斯噪声拼起来，再在邻接、公交、地铁三张图上分别聚合邻居。图注意力层为 3 层，每层 64 个通道、8 个注意力头。三张图的表示拼合后得到 64 维区域表示。</p>
-<p>这 64 维被拆成两截。一截叫质量，表示该区域对流量产生或吸引的贡献，不是物理质量，也不是直接放入的人口数。另一截当作抽象坐标，两区之间用坐标的欧氏距离。流量沿用可学习的引力形式：</p>
-<p>Tᵢⱼ ＝ G ×（起点质量的 λ₁ 次方）×（终点质量的 λ₂ 次方）÷（这段距离的 λ₃ 次方）。</p>
-<p>G 和三个 λ 都按城市学习。牛顿公式把力写成质量乘积除以距离平方，Zipf 在 1946 年把迁居写成人口乘积除以距离。这里的指数不固定成 1 或 2，距离也不是地图上的直线距离。物理知识进入模型的方式，是规定“流量由两个质量的幂除以距离的幂得到”。作者在相关工作里把这归为用物理公式设计网络结构，而不是在损失函数里加一条物理残差。</p>
-<p><img src="/posts/e7f8a9b0/fig1.webp" alt="完整原论文图1"></p>
-<p>图 1｜区域特征和三张交通图怎样变成流量矩阵？</p>
-<p>无字母子图。左栏把区域特征与噪声送进编码器；三张空间关系图分别画了行人、公共汽车和列车，对应邻接、公交和轨道交通，各自得到一排表示。中间把表示拆成质量与坐标。右栏按引力形式计算每一对区域的流量，颜色深浅组成 OD 矩阵。图中的距离画在坐标向量之间，应读成表示空间里的距离。来源：原论文 Fig. 1。</p>
-<p>这样设计的含义是：模型不必从零学习“两地流量如何相乘、如何随距离下降”，但仍要用数据决定每个区域的质量和抽象位置。拟合变好，说明这套形式和这些特征在当前通勤数据上更合适。它还不能证明居民真的按牛顿引力决定通勤。</p>
-<h2 id="整张网太大，判别器只看按流量抽出的路径"><a href="#整张网太大，判别器只看按流量抽出的路径" class="headerlink" title="整张网太大，判别器只看按流量抽出的路径"></a>整张网太大，判别器只看按流量抽出的路径</h2><p>条件 GAN 的生成器就是 ODGN。条件包括全部区域属性和三张交通图，另外还有与属性同维的高斯噪声。判别器不直接接收整张流量矩阵。论文的理由是，有向加权网又大又难比，算力和存储也有限。</p>
-<p>具体做法是在网上做随机游走。每条序列的起点在所有区域里等概率抽取。站在区域 i 时，下一步走到 j 的概率等于流量 Tᵢⱼ 除以 i 的总流出。走出长度 L 的节点序列后丢掉起点。L 在正文里没有给数值。为了让抽样还能反向传播，这里用直通 Gumbel 估计。</p>
-<p>送进判别器的序列，是路径上每个区域的属性，拼上刚走过那条边的流量。判别器是时间卷积网络加一层全连接，最后输出一个分数。训练框架是带权重裁剪的 Wasserstein GAN。前 300 个轮次里，每更新一次生成器先更新 5 次判别器，之后改为 1 次。损失收敛就停止。正文没有报告学习率、每批序列条数或总游走次数。</p>
-<p><img src="/posts/e7f8a9b0/fig2.webp" alt="完整原论文图2"></p>
-<p>图 2｜生成的通勤网靠什么和真实网络对照？</p>
-<p>无字母子图。生成器接收交通网络和城市特征，输出假 OD 网络。真、假网络都经随机游走变成序列，再进入判别器，损失从判别器的分数算回两边。图例区分原始数据、输入输出、运算模块和数据流。这张图说明对抗训练比较的是抽样路径，不是矩阵的逐格抄写。来源：原论文 Fig. 2。</p>
-<p>因此，“模型考虑了网络拓扑”在本文里首先是一条训练设计：游走概率跟着边权走，判别器看见的是属性和流量组成的序列。它还不是一张单独的拓扑检验。后文的分数并不包括度分布、最大流份额或社区结构。</p>
-<h2 id="三座城市上，它比谁好、好多少？"><a href="#三座城市上，它比谁好、好多少？" class="headerlink" title="三座城市上，它比谁好、好多少？"></a>三座城市上，它比谁好、好多少？</h2><p>评价有三项。流量分布用 F-JSD，越低越接近。正文把它写成：生成分布相对两者逐元素均值的 KL 散度，加上该均值相对真实分布的 KL 散度，再取平均并开方。第二项是均值到真实分布的 KL，和常见的对称 JS 散度并不逐项相同。它比较的是流量取值的整体分布，不是某一条通勤有没有对上。</p>
-<p>RMSE 是起讫对流量差的均方根，分母是矩阵元素个数 |T|，越低越好。论文没有公布 |T|，也没有写单位；它与 LODES 的通勤计数同一量纲。</p>
-<p>CPC 是两倍的“逐对取真实值与预测值中的较小者”之和，除以预测流量总和加真实流量总和。范围在 0 到 1，越高表示两张表重叠越多。0.65 是这个重叠指数，不是 65% 的通勤者被逐人判对。</p>
-<p>基线包括经典引力模型、梯度提升回归树、随机森林、深度引力模型、图注意力网络 GAT、先做地理上下文嵌入再用树模型预测的 GMEL，以及去掉本文两项特殊设计、只保留 GAT 和 GAN 的 GAT-GAN。树模型的树数量设为 100。深度引力模型的隐层数按原论文设为 15。</p>
+<h2 id="没有通勤表，能从城市地图推回人流吗？"><a href="#没有通勤表，能从城市地图推回人流吗？" class="headerlink" title="没有通勤表，能从城市地图推回人流吗？"></a>没有通勤表，能从城市地图推回人流吗？</h2><p>假设你手上有一座城市的人口分布、商店和办公楼的位置，也知道哪些片区通公交或地铁，但是不知道每天有多少人从各个住宅区去往各个就业中心。画一张“谁去哪里”的通勤地图，最难的不是填满格子，而是既填对一对对街区之间的流量，又不把整座城市的通勤结构拼歪。</p>
+<p><strong>论文名片｜</strong> Can Rong、Huandong Wang、Yong Li，<em>Origin-Destination Network Generation via Gravity-Guided GAN</em>，arXiv:2306.03390v1，2023 年。<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2306.03390v1">预印本</a></p>
+<p>这篇论文提出 ODGN：<strong>让模型学习哪些地方更能产生或吸引通勤，再用引力公式算两地流量</strong>；训练时另外让一个判别器看通勤网络上的流向组合。报告的三座城市里，这个组合优于所列基线。相对于经典引力模型，改进明显；相比同样采用对抗训练的图模型，优势则小得多。</p>
+<h2 id="不是补几条缺失记录，而是生成整张表"><a href="#不是补几条缺失记录，而是生成整张表" class="headerlink" title="不是补几条缺失记录，而是生成整张表"></a>不是补几条缺失记录，而是生成整张表</h2><p>OD 是起讫（Origin–Destination）的缩写。以人口普查区为节点，表中一格表示从某个起点区到某个终点区的通勤量；反方向是另一格。论文研究的生成任务假定目标城市的通勤表拿不到，生成器输入的是人口普查区属性和连接结构。训练仍然要用有标签的真实通勤网来学习，实验也必须用真实数据核对结果；“目标城市不提供 OD 作输入”并不是“训练全程不需要 OD”。</p>
+<p>研究准备了 8 座美国城市的数据，完整表现表只报告纽约、西雅图和孟菲斯。区域属性包括美国社区调查提取的 24 项人口社会特征，以及 OpenStreetMap 的 36 类兴趣点计数。连接结构分三张图：地理邻接、公交直达和地铁直达。连边表示相邻或有直接线路，不包含车程、票价或班次。评测真值来自 LODES 就业起讫统计，因此这里生成的是职住通勤，不代表上学、购物、就医等全部流动。</p>
+<h2 id="引力公式不变的是思路，变的是“质量”和“距离”"><a href="#引力公式不变的是思路，变的是“质量”和“距离”" class="headerlink" title="引力公式不变的是思路，变的是“质量”和“距离”"></a>引力公式不变的是思路，变的是“质量”和“距离”</h2><p>经典引力类比直观：起点和终点越有能力产生、吸引通勤，人流通常越多；越难抵达，人流通常越少。但用人口总数定义两端、用地图直线定义距离，容易把写字楼和住宅区、地铁相连和隔河绕行的情形看成一回事。</p>
+<p>ODGN 先把区域属性和随机噪声放进图注意力网络，分别沿地理邻接、公交和地铁聚合附近区域的信息，再把三套表示拼合。解码时，一部分表示为区域的“质量”，另一部分作为坐标。正文按式 (6) 以两端质量的幂相乘，再除以表示空间中的距离项；比例系数和指数允许学习。起点和终点使用不同指数，因而两个方向的流量不必一样。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/e7f8a9b0/fig1.png" alt="图 1：多视图图编码与引力解码生成 OD 矩阵"></p>
+<p><strong>图 1｜从左往右看，先合并三个视图，再把区域拆成质量和坐标。</strong> 右边分母比较的是模型学到的坐标，不是地图上的公里数；图示用范数写距离项，正文以式 (6) 说明引力形式。学到的位置可能把地铁相连的两个片区拉近，但论文没有证明潜在距离逐对等于实际交通阻抗。</p>
+<p>这就是这里的“知识引导”：作者把引力形式写进解码器，不是让模型去验证物理定律，也不是直接拿经典公式算人口流动。</p>
+<h2 id="怎样让一对对流量拼起来像一张网络？"><a href="#怎样让一对对流量拼起来像一张网络？" class="headerlink" title="怎样让一对对流量拼起来像一张网络？"></a>怎样让一对对流量拼起来像一张网络？</h2><p>如果只逐格比误差，模型未必会重现网络上的连接组合。论文用条件生成对抗网络（GAN）给它另一个反馈：判别器比较从真实网和生成网中抽出的序列，而不是一次吃下整张矩阵。</p>
+<p>抽样像是从任意一个区域起步，在每一步按通勤流量的比例选择下一站。例如 A 到 B 的流量占 A 总流出的三分之二，走到 A 后就有三分之二的概率下一步取 B。模型用连续几步的区域序列去区分真网和生成网，再把反馈传回生成器。<strong>序列是从汇总流量中抽样的，不是同一个人去过这些地方的真实轨迹。</strong> 同一个起点的所有流量同比例放大，不会改变这一跳的选择概率，因此这个训练信号也不是对总量准确的单独保证。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/e7f8a9b0/fig2.png" alt="图 2：从真实网和生成网采样并作对抗训练"></p>
+<p><strong>图 2｜上路从城市条件生成 OD，下路从真实 OD 出发。</strong> 两条路都先随机游走，再把区域序列送去比较。真实 OD 出现在训练对照这一侧，不是目标城市生成时必须填给生成器的输入。</p>
+<h2 id="比经典引力公式好多少？比神经网络又好多少？"><a href="#比经典引力公式好多少？比神经网络又好多少？" class="headerlink" title="比经典引力公式好多少？比神经网络又好多少？"></a>比经典引力公式好多少？比神经网络又好多少？</h2><p>论文表 1 用三把尺子：<strong>F-JSD</strong> 衡量流量分布差异，<strong>RMSE</strong> 衡量逐对流量误差，<strong>CPC</strong> 衡量真实和生成通勤量在相同起讫格子中的重叠。前两项越低越好，CPC 越高越好。CPC 不是预测正确的乘客占比：它用同一格真实、生成值中的较小者来统计共同部分，再用两张表的总流量归一化。</p>
 <div class="table-container">
 <table>
 <thead>
 <tr>
-<th>模型</th>
-<th style="text-align:right">纽约 F-JSD</th>
-<th style="text-align:right">纽约 RMSE</th>
-<th style="text-align:right">纽约 CPC</th>
-<th style="text-align:right">西雅图 F-JSD</th>
-<th style="text-align:right">西雅图 RMSE</th>
-<th style="text-align:right">西雅图 CPC</th>
-<th style="text-align:right">孟菲斯 F-JSD</th>
-<th style="text-align:right">孟菲斯 RMSE</th>
-<th style="text-align:right">孟菲斯 CPC</th>
+<th>城市</th>
+<th style="text-align:right">ODGN 的 F-JSD ↓</th>
+<th style="text-align:right">ODGN 的 RMSE ↓</th>
+<th style="text-align:right">ODGN 的 CPC ↑</th>
+<th style="text-align:right">经典引力 CPC</th>
+<th style="text-align:right">GAT-GAN CPC</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>引力模型</td>
-<td style="text-align:right">0.4979</td>
-<td style="text-align:right">12.74</td>
-<td style="text-align:right">0.3547</td>
-<td style="text-align:right">0.5193</td>
-<td style="text-align:right">24.37</td>
-<td style="text-align:right">0.3485</td>
-<td style="text-align:right">0.5582</td>
-<td style="text-align:right">27.05</td>
-<td style="text-align:right">0.3155</td>
-</tr>
-<tr>
-<td>梯度提升树</td>
-<td style="text-align:right">0.2569</td>
-<td style="text-align:right">7.70</td>
-<td style="text-align:right">0.5600</td>
-<td style="text-align:right">0.2846</td>
-<td style="text-align:right">17.41</td>
-<td style="text-align:right">0.6461</td>
-<td style="text-align:right">0.2961</td>
-<td style="text-align:right">19.87</td>
-<td style="text-align:right">0.5854</td>
-</tr>
-<tr>
-<td>随机森林</td>
-<td style="text-align:right">0.2520</td>
-<td style="text-align:right">8.43</td>
-<td style="text-align:right">0.5821</td>
-<td style="text-align:right">0.2594</td>
-<td style="text-align:right">16.59</td>
-<td style="text-align:right">0.6896</td>
-<td style="text-align:right">0.3022</td>
-<td style="text-align:right">14.52</td>
-<td style="text-align:right">0.6024</td>
-</tr>
-<tr>
-<td>深度引力</td>
-<td style="text-align:right">0.2755</td>
-<td style="text-align:right">8.86</td>
-<td style="text-align:right">0.5633</td>
-<td style="text-align:right">0.3099</td>
-<td style="text-align:right">16.58</td>
-<td style="text-align:right">0.6189</td>
-<td style="text-align:right">0.2900</td>
-<td style="text-align:right">16.80</td>
-<td style="text-align:right">0.5640</td>
-</tr>
-<tr>
-<td>GAT</td>
-<td style="text-align:right">0.2540</td>
-<td style="text-align:right">7.03</td>
-<td style="text-align:right">0.5726</td>
-<td style="text-align:right">0.2642</td>
-<td style="text-align:right">21.63</td>
-<td style="text-align:right">0.6510</td>
-<td style="text-align:right">0.3011</td>
-<td style="text-align:right">16.26</td>
-<td style="text-align:right">0.5466</td>
-</tr>
-<tr>
-<td>GMEL</td>
-<td style="text-align:right">0.2540</td>
-<td style="text-align:right">6.49</td>
-<td style="text-align:right">0.5810</td>
-<td style="text-align:right">0.2717</td>
-<td style="text-align:right">21.42</td>
-<td style="text-align:right">0.6510</td>
-<td style="text-align:right">0.3013</td>
-<td style="text-align:right">15.97</td>
-<td style="text-align:right">0.5729</td>
-</tr>
-<tr>
-<td>GAT-GAN</td>
-<td style="text-align:right">0.2512</td>
-<td style="text-align:right">5.99</td>
-<td style="text-align:right">0.6017</td>
-<td style="text-align:right">0.2508</td>
-<td style="text-align:right">16.20</td>
-<td style="text-align:right">0.6996</td>
-<td style="text-align:right">0.2556</td>
-<td style="text-align:right">16.42</td>
-<td style="text-align:right">0.6147</td>
-</tr>
-<tr>
-<td>本文</td>
+<td>纽约</td>
 <td style="text-align:right">0.2312</td>
 <td style="text-align:right">5.20</td>
 <td style="text-align:right">0.6476</td>
+<td style="text-align:right">0.3547</td>
+<td style="text-align:right">0.6017</td>
+</tr>
+<tr>
+<td>西雅图</td>
 <td style="text-align:right">0.2400</td>
 <td style="text-align:right">14.99</td>
 <td style="text-align:right">0.7300</td>
+<td style="text-align:right">0.3485</td>
+<td style="text-align:right">0.6996</td>
+</tr>
+<tr>
+<td>孟菲斯</td>
 <td style="text-align:right">0.2348</td>
 <td style="text-align:right">14.00</td>
 <td style="text-align:right">0.6282</td>
+<td style="text-align:right">0.3155</td>
+<td style="text-align:right">0.6147</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>表中 F-JSD 和 RMSE 越低越好，CPC 越高越好。数字与原论文表 1 一致。</p>
-<p>纽约上，和引力模型比，CPC 从 0.3547 到 0.6476，增加 0.2929，相当于引力模型 CPC 的 82.6%；RMSE 从 12.74 到 5.20，减少 7.54，相当于该基线的 59.2%；F-JSD 从 0.4979 到 0.2312，减少 0.2667，相当于该基线的 53.6%。引力模型只有很少的人口和距离项，这个大差距说明它确实吃亏，也说明“超过引力模型”本身还不算很强的证据。</p>
-<p>和三项指标上都最接近的 GAT-GAN 比，纽约 CPC 从 0.6017 到 0.6476，增加 0.0459，相当于 GAT-GAN 的 7.6%；RMSE 从 5.99 到 5.20，减少 0.79，相当于该基线的 13.2%；F-JSD 从 0.2512 到 0.2312，减少 0.0200，相当于该基线的 8.0%。西雅图 CPC 从 0.6996 到 0.7300，增加 0.0304，相当于 4.3%；RMSE 从 16.20 到 14.99，减少 1.21，相当于 7.5%。孟菲斯 CPC 从 0.6147 到 0.6282，只增加 0.0135，相当于 2.2%。</p>
-<p>孟菲斯的 RMSE 还要换一个对照。随机森林是 14.52，低于 GAT-GAN 的 16.42；本文的 14.00 只比随机森林少 0.52，相当于随机森林 RMSE 的 3.6%。所以“全面最好”在表上成立，但孟菲斯的逐对误差已经和一棵集成树很接近。</p>
-<p>论文还说，树模型比 GAT、GMEL、GAT-GAN 更稳。西雅图支持这句话的一部分：GAT 和 GMEL 的 RMSE 为 21.63 和 21.42，随机森林为 16.59。纽约则相反：GAT 和 GMEL 的 RMSE 为 7.03 和 6.49，低于梯度提升树的 7.70。更稳是作者对跨城市表现的概括，不是每一座城市、每一项指标都成立。</p>
-<p>表 1 每个格子只有一个点估计，没有置信区间，也没有写重复运行次数。算法输入里同时出现训练城市和目标城市，问题定义又要求目标城市没有可用 OD。正文只说西雅图、孟菲斯与训练中的大规模城市不同，没有列出每次留出的城市名单。这些数字应读成三座被报告城市上的生成误差。它们还不能单独证明某一种固定的留出城市协议已经完成。</p>
-<h2 id="拿掉公交地铁，或拿掉引力形式，还剩多少？"><a href="#拿掉公交地铁，或拿掉引力形式，还剩多少？" class="headerlink" title="拿掉公交地铁，或拿掉引力形式，还剩多少？"></a>拿掉公交地铁，或拿掉引力形式，还剩多少？</h2><p>图 3 在 GAN 训练框架里比较四种结构：只有 GAT 的 GAT-GAN，换成多视图图的 MGAT-GAN，保留 GAT 但使用引力解码器的 GAT-gravity-GAN，以及两者都用的本文模型。普通 GAT 不在这张图里，它和 GAN 的差别要回到表 1。</p>
-<p><img src="/posts/e7f8a9b0/fig3.webp" alt="完整原论文图3"></p>
-<p>图 3｜多视图和引力解码器各自改变了多少？</p>
-<p>（a）纵轴为 CPC，从 0.4 到 0.8，越高越好。蓝为 GAT-GAN，橙为 MGAT-GAN，绿为 GAT-gravity-GAN，红为本文模型。三座城市都是红柱最高；西雅图蓝柱的误差线上下跨度很大，柱顶高低不宜单独当成稳定差距。（b）纵轴为 RMSE，越低越好，颜色与（a）相同。红柱在纽约、西雅图、孟菲斯都最低。正文没有说明误差线是标准差、置信区间还是重复次数。来源：原论文 Fig. 3。</p>
-<p>作者给出的幅度是：多视图约 3%，引力解码器约 4%，两样一起超过 7%，全部设计相对 GAT 约 13%。用表 1 的 CPC 相对 GAT 验算，纽约为 (0.6476−0.5726)/0.5726＝13.1%，西雅图为 (0.7300−0.6510)/0.6510＝12.1%，孟菲斯为 (0.6282−0.5466)/0.5466＝14.9%。13% 和纽约这一格接近，却不是三座城市的同一个数。正文也没有声明这 13% 就是纽约 CPC。图 3 里若干误差线互相重叠，论文没有做显著性检验。方向上，红柱在两张子图里都处于更好的一侧；幅度上，应保留作者的约数，并同时看表 1 的原始值。</p>
-<p>两部分一起优于单独使用，说明多视图交通图和引力解码器在这个实验里不是完全重复的信息。交通图提供的是邻接和直达线路，引力解码器提供的是质量和抽象距离的计算形式。谁在因果上导致了通勤，图 3 不能回答。</p>
-<h2 id="学到的质量，只部分跟着人口走"><a href="#学到的质量，只部分跟着人口走" class="headerlink" title="学到的质量，只部分跟着人口走"></a>学到的质量，只部分跟着人口走</h2><p>最后一个实验看质量是否有可理解的内容。作者把质量分别和区域人口、兴趣点总数做相关。兴趣点总数在这里被当作经济规模的一个代理。剔除人口为 0 但兴趣点不为 0 的区域之后，两个相关是 0.47 和 0.20。</p>
-<p><img src="/posts/e7f8a9b0/fig4.webp" alt="完整原论文图4"></p>
-<p>图 4｜质量与人口、兴趣点是什么关系？</p>
-<p>（a）横轴为总人口，可见刻度为 50、100、150，纵轴为质量，刻度到 2，并有点高于 2。低人口处点很密，向右迅速变稀。（b）横轴为兴趣点数量，刻度标有 200 和 400，点云继续延伸到 400 右侧；纵轴质量刻度到 2.0。大多数点堆在低质量，兴趣点较多时质量的上沿略抬高。靠近纵轴有一个兴趣点很少、质量超过 2 的点。0.47 和 0.20 写在正文，没有标在图上。来源：原论文 Fig. 4。</p>
-<p>人口轴标到 150，对美国普查区的原始居民人数来说低得异常，正文却没有说明单位或缩放。因此不能把横轴读成“每个普查区只有几十到一百多人”。相关也没有说明是 Pearson 还是 Spearman，没有给出区域个数。图 4 属于哪一座城市，正文同样没有写。</p>
-<p>0.47 表示人口较高的区域，质量有偏高的趋势，离散仍然很大。0.20 更弱。作者还指出兴趣点与质量之间有某种非线性约束，这与（b）里上沿缓慢抬升的形状相符。质量可以同时带上人口和经济活动的一点信息。它仍然是解码器里的可学习向量，不是普查人口，也不是已经解释了通勤的机制变量。</p>
-<h2 id="这些结果能说到哪里"><a href="#这些结果能说到哪里" class="headerlink" title="这些结果能说到哪里"></a>这些结果能说到哪里</h2><p>本文最稳的结论是：在所报告的三座城市、三种指标上，MGAT 加引力形式解码器，再用按流量抽样的 GAN 训练，点估计优于表 1 的七个基线。相对经典引力模型，纽约的改善很大；相对 GAT-GAN 或孟菲斯的随机森林，改善小，而且图 3 的不确定性没有被定义。</p>
-<p>流量是模型输出的职住通勤计数，不是观测到的全目的出行，也不是某个人的一天。LODES 年份没有写，ACS 与地图引用在 2020 年附近，时间是否对齐无法从正文核对。训练城市名单、普查区数量、起讫对数量、序列长度和重复实验次数都没有给出。相关 0.47 和 0.20 是剔除部分区域后的描述，不是质量等于人口的证明。判别器的设计意图是拓扑，评分表里却没有拓扑统计量，所以“抓住了网络整体结构”仍是训练过程的说明，不是一条独立结果。</p>
-<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>没有目标城市通勤表时，用交通图和引力形状生成整张职住起讫网，可以在纽约、西雅图和孟菲斯上超过论文中的基线；超过最强基线的幅度有限，学到的质量也只是与人口中等相关的表示，而不是人口或真实出行本身。</p>
-<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2306.03390">arXiv:2306.03390v1</a>，2023年6月6日提交，cs.LG，目前只有这一版。正文 10 页，图 1–4 与表 1 都出自该版。</li>
-<li>PDF 首页的 ACM 参考文献块把会议、年份和 DOI 留成模板：Conference acronym ’XX、2018、Woodstock, NY，DOI 为 XXXXXXX.XXXXXXX。这不是可解析的正式出版信息。</li>
+<p>ODGN 在表中三城三项指标均居首。纽约的 CPC 相比经典引力模型高约 0.293，相比 GAT-GAN 则高约 0.046；孟菲斯和 GAT-GAN 的差距只有约 0.014。也别只看某一项：西雅图的 CPC 最高，但它的逐对 RMSE 仍远高于纽约，说明流量重叠和绝对计数误差反映的是不同问题。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/e7f8a9b0/fig3.png" alt="图 3：多视图编码和引力解码的消融比较"></p>
+<p><strong>图 3｜左图 CPC 看高处，右图 RMSE 看低处。</strong> 在 GAT-GAN 上单加多视图编码或单换引力解码后，柱高整体朝更优方向移动；完整模型最好。误差线在一些城市有明显重叠，正文没解释它代表什么，不能据此断言每个组件都在逐城比较中达到统计显著。</p>
+<p>论文说西雅图和孟菲斯可能与用于训练的大城市差异较大，但没有逐次交代训练城市及留城划分。表格支持这三组结果中的相对优势，不能据此给所有无标签目标城市的泛化能力下保证。</p>
+<h2 id="“质量”很像人口吗？"><a href="#“质量”很像人口吗？" class="headerlink" title="“质量”很像人口吗？"></a>“质量”很像人口吗？</h2><p>作者想知道解码器学到的量是否还能解释。在去除人口为零而兴趣点非零的区域后，报告的质量与人口相关系数为 <strong>0.47</strong>，与兴趣点总量为 <strong>0.20</strong>。论文没给出统计类型或筛除数量，适合把这些数字读成初步关联。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/e7f8a9b0/fig4.png" alt="图 4：学习到的区域质量与人口和兴趣点计数的散点关系"></p>
+<p><strong>图 4｜两幅纵轴都是模型的质量，比较的是点云，不是拿横轴替换质量。</strong> 左图横轴是总人口，右图横轴是兴趣点数。相同人口或相似兴趣点数量的点仍可有不同质量，这个变量不宜直接命名为人口或就业规模。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>论文用结构化的引力解码、多视图交通图和基于随机游走的对抗训练，把起讫点对与城市网络放在同一个生成问题里。对纽约、西雅图和孟菲斯，报告结果在流量分布、逐对误差和共同通勤量三方面都优于所列基线。</p>
+<p>证据范围仍是三座美国城市的报告结果，且目标是人口普查区之间的职住通勤。数据划分、线路来源细节和误差线含义披露有限，生成结果也没有直接对照未来或其他国家城市。实际用于规划时，仍要先跨城验证，并查看流量是否集中在正确的走廊。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><ul>
+<li><strong>输入是什么？</strong> 区域属性，以及地理邻接、公交直达、地铁直达三张图，而不是目标城市现成的通勤表。</li>
+<li><strong>方法多做了什么？</strong> 用引力形式算起讫对，再比较真实网络与生成网络抽出的流向序列。</li>
+<li><strong>证据到哪儿？</strong> 三城的报告结果有优势；这是估计聚合通勤的证据，不是复原个人轨迹或保证跨城可用的证据。</li>
 </ul>
-<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>三位作者在论文中均署名清华大学，北京。论文没有写职称、分工或更细的院系，下面只保留署名机构。</p>
-<ul>
-<li>Can Rong：论文第一作者，署名清华大学。</li>
-<li>Huandong Wang：署名清华大学。</li>
-<li>Yong Li：署名清华大学。</li>
-</ul>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p>Rong, C., Wang, H., &amp; Li, Y. (2023). <em>Origin-Destination Network Generation via Gravity-Guided GAN</em>. arXiv:2306.03390v1，2023 年 6 月 6 日。<a target="_blank" rel="noopener" href="https://arxiv.org/html/2306.03390v1">全文</a> · <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2306.03390v1">arXiv 记录</a> · <a target="_blank" rel="noopener" href="https://doi.org/10.48550/arXiv.2306.03390">预印本 DOI</a>。未核实到正式出版版；首页 ACM 模板里的会议信息和 DOI 是占位文字。</p>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>论文由 Can Rong、Huandong Wang 和 Yong Li 合作完成，三人在该稿的署名单位均为清华大学。本文从人类移动建模出发，结合城市交通网络与知识引导的机器学习方法。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>如果判别器的价值在于拓扑，评分却只用分布距离、逐对误差和重叠指数，那么 GAN 可能做了表格没有展示的事，也可能只是把 CPC 从纽约的 0.6017 推到 0.6476。一个直接的核对是：在一张确定没有进入训练的通勤网上，比较真实与生成的出度、入度，以及流量最高的 1% 起讫对占了总通勤的多少。若这些量接近，而 CPC 只移动几个点，拓扑目标就值得单独报告；若这些量差得很远，现有三项指标的领先还说明不了网络结构已经被学会。</p>
-<p>另一个核对针对“质量”。人口相关只有 0.47，图 4 的人口轴又没有单位。把普查人口和道路时间直接代进经典引力公式，并不等于在使用 ODGN 的输入。可以把 λ 冻结，只把抽象坐标距离换成高峰行程时间，看 CPC 和最高流量走廊是否一起变化。若几乎不变，引力形式主要是在约束乘除形状；若长距离通勤明显改写，现在的抽象距离就还不是规划里可用的阻抗。</p>
+<p>假设一个新区要决定优先开哪一条接驳公交，两张估计表可能给出相近的总流量和总体重叠率，却把少数上班大潮画在不同走廊。只看汇总指标，你可能觉得它们同样可用；换成公交站的选址，两张图却导向完全不同的投资。与其把模型输出当成唯一答案，不如先看不同估计在哪些走廊意见一致、在哪些地方分歧最大，把实地计数优先放在后者。生成图的用处可以是缩小调查范围，而不是取代一次真实的调查。</p>
 
                 
             </div>
@@ -694,12 +583,12 @@
                                     <span class="chip bg-color">引力模型</span>
                                 </a>
                             
-                                <a href="/tags/%E8%B5%B7%E8%AE%AB%E6%B5%81%E9%87%8F/">
-                                    <span class="chip bg-color">起讫流量</span>
-                                </a>
-                            
                                 <a href="/tags/%E7%94%9F%E6%88%90%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C/">
                                     <span class="chip bg-color">生成对抗网络</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%B5%B7%E8%AE%AB%E6%B5%81%E9%87%8F/">
+                                    <span class="chip bg-color">起讫流量</span>
                                 </a>
                             
                         </div>
@@ -760,7 +649,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            #articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap
                         
                     </div>
                     <div class="publish-info">
@@ -820,7 +709,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            #articleContent img {display:block;margin:1.25rem auto .5rem;max-width:100%;height:auto;} .post-title {overflow-wrap:any
                         
                     </div>
                     <div class="publish-info">

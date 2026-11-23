@@ -379,12 +379,12 @@
                                 <span class="chip bg-color">人类移动性</span>
                             </a>
                         
-                            <a href="/tags/%E7%A9%BA%E9%97%B4%E4%BA%A4%E4%BA%92/">
-                                <span class="chip bg-color">空间交互</span>
-                            </a>
-                        
                             <a href="/tags/%E4%BD%8D%E7%BD%AE%E9%A2%84%E6%B5%8B/">
                                 <span class="chip bg-color">位置预测</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%A9%BA%E9%97%B4%E4%BA%A4%E4%BA%92/">
+                                <span class="chip bg-color">空间交互</span>
                             </a>
                         
                     </div>
@@ -432,63 +432,43 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h2 id="猜你下一小时在哪里，别人的日程能帮多少忙？"><a href="#猜你下一小时在哪里，别人的日程能帮多少忙？" class="headerlink" title="猜你下一小时在哪里，别人的日程能帮多少忙？"></a>猜你下一小时在哪里，别人的日程能帮多少忙？</h2><p>论文名片｜Francesco Calabrese、Giusy Di Lorenzo、Carlo Ratti，<em>Human Mobility Prediction based on Individual and Collective Geographical Preferences</em>，IEEE ITSC 2010，312—317。<a target="_blank" rel="noopener" href="https://doi.org/10.1109/ITSC.2010.5625119">DOI</a>。</p>
-<p>周五傍晚，你过去常去的地方并不只有一个：可能回家，也可能去商业区。个人历史提供候选，其他人在这个时段通常走多远、靠近什么类型的地点，能不能帮助进一步判断？</p>
-<p>这篇 2010 年的论文把个人周期性与群体地理偏好放进同一个概率模型，在波士顿地区手机轨迹上预测下一小时的位置。它显示两类信息可以结合，但也需要分清：相对简单常去地点基线的改善很大，群体信息在个人周期模型之上的额外收益则小得多。</p>
-<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
-<li>原始数据约有 100 万台设备、8.29 亿条位置估计，覆盖四个月；实际模型实验选用其中每天至少 100 次网络连接的 2,000 个用户。</li>
-<li>模型在 500 米网格、1 小时时间步上预测位置，个人历史按一周 168 小时的周期对齐；群体部分综合不移动概率、距离、土地利用和 POI。</li>
-<li>混合权重 α=0.8 时平均误差约 1.34 公里，优于总猜个人最常去网格的 2.8 公里；图中的纯个人模型已约为 1.35 公里，新增群体收益需与这个更强对照一起看。</li>
-<li>约 60% 的预测网格与观测网格一致，但这包括下一小时仍留在原地的情况，不能理解为 60% 的真实出行目的地被精确猜中。</li>
-</ul>
-<h2 id="从庞大定位库里，真正测试的是谁？"><a href="#从庞大定位库里，真正测试的是谁？" class="headerlink" title="从庞大定位库里，真正测试的是谁？"></a>从庞大定位库里，真正测试的是谁？</h2><p>数据由 AirSage 提供，来自电话、短信及网络数据连接时产生的匿名位置估计，比只用通话详单包含更多事件。位置是网络侧估计，不是手机 GPS 的连续实测；论文引用的定位误差平均约 320 米、中位数约 220 米，还可能出现短时间跨越很远的异常点。</p>
-<p>范围涵盖马萨诸塞州东部八个县，人口约 550 万。为了获得较密的个人轨迹，研究筛出每天至少 100 次网络连接的 2,000 个用户，其个人事件间隔在约 75% 的情况下低于一小时。该选择偏向高活动设备，不能把结果直接推广给整个约百万设备库。</p>
-<p>预处理把空间上相近的连续测量融合为虚拟停留位置，以约 1 公里阈值缓和定位误差，再构造 1 小时采样的轨迹，并映射到 500 米×500 米网格。因而，500 米是分析网格宽度，不能当作原始定位精度。</p>
-<p>预测问题是：已知当前网格，下一小时会在哪个网格？它没有先要求人必须出发，也不是预测某趟汽车行程的完整路线。</p>
-<h2 id="个人惯例与群体偏好，怎样放在一起？"><a href="#个人惯例与群体偏好，怎样放在一起？" class="headerlink" title="个人惯例与群体偏好，怎样放在一起？"></a>个人惯例与群体偏好，怎样放在一起？</h2><p>个人部分统计过去每周同一时段，从当前网格前往各网格的历史频率。如果同一时段从未出现过当前网格，则退回到那个时段个人到访网格的频率。这个设计把个人的周周期作为基础，也意味着至少需要一个完整周期的历史才能开始预测。</p>
-<p>群体部分回答两个问题：这个时段人们通常是否移动，以及若移动，更可能到怎样的地方。它使用同一批 2,000 个用户的历史，把目的地得分写成距离、POI 和土地利用三项的乘积，再归一化。</p>
-<p>最终预测概率是：个人概率×(1−α)＋群体概率×α，再选择概率最大的网格。α 是两个概率模型的混合权重，α=0.8 不能解读为人的行为有 80% 被群体决定。</p>
-<h2 id="不移动和短距离移动，先构成一个强约束"><a href="#不移动和短距离移动，先构成一个强约束" class="headerlink" title="不移动和短距离移动，先构成一个强约束"></a>不移动和短距离移动，先构成一个强约束</h2><p><img src="/posts/individual-collective-mobility-2010/fig1.webp" alt="群体一周内不移动概率"></p>
-<p>图 1｜同一个人群在一周不同小时，有多大概率留在原网格？单幅图横轴从周一零点开始按小时排列，纵轴为下一时间步不改变位置的概率。曲线呈现重复的日内高低起伏，说明预测首先需要区分仍然停留与移动，而非每小时都选择新目的地。来源：原论文 Fig. 1。</p>
-<p><img src="/posts/individual-collective-mobility-2010/fig2.webp" alt="群体距离分布"></p>
-<p>图 2｜移动发生后，距离分布是什么样？单幅图横轴为行程长度（公里），纵轴为归一化频率；这里将不同时段的非零距离统计平均展示。短距离较多，长距离较少。模型中距离偏好可随周内时段变化，图中平均曲线本身不能展示全部时间差异。来源：原论文 Fig. 2。</p>
-<p>这两个统计有不同作用：不移动概率为留在原地提供依据，距离分布限制其他候选网格的可达偏好。它们不要求预先指定所有人都遵循固定的距离平方反比，而是从群体历史估计。</p>
-<h2 id="目的地的功能，能提供怎样的额外线索？"><a href="#目的地的功能，能提供怎样的额外线索？" class="headerlink" title="目的地的功能，能提供怎样的额外线索？"></a>目的地的功能，能提供怎样的额外线索？</h2><p>土地利用数据来自 MassGIS，在网格内计算各类用地的面积比例，分为 33 类。展示地图时，每个网格只画面积最大的类别，模型计算则使用类别组成向量；不能把显示的主类当成网格内唯一功能。</p>
-<p><img src="/posts/individual-collective-mobility-2010/fig3.webp" alt="土地利用空间分布"></p>
-<p>图 3｜同一片区域有哪些土地利用差异？单幅网格地图按面积占优的土地利用类别着色，右侧图例保留所有原类别。坐标表示网格位置；颜色是类别编码，没有由浅到深的数值大小含义。来源：原论文 Fig. 3。</p>
-<p><img src="/posts/individual-collective-mobility-2010/fig4.webp" alt="群体土地利用偏好"></p>
-<p>图 4｜人群更常出现在怎样的土地利用组合附近？横轴为访问占比，纵轴为排序后的用地类别。多家庭住宅、商业和高密度住宅合计超过一半；这是用地组成与轨迹占据的统计联系，不是每个人真实活动目的的调查。来源：原论文 Fig. 4。</p>
-<p>POI 来自 Yelp，同样汇总到网格。模型考虑人群各时段所在网格的类别构成，再给具有类似资源的候选网格较高得分。餐馆多的区域可能支持餐饮活动，但也可能有工作或其他活动；作者明确将地理资源作为活动代理。</p>
-<p><img src="/posts/individual-collective-mobility-2010/fig5.webp" alt="POI主导类别地图"></p>
-<p>图 5｜POI 类型怎样分布在空间上？单幅地图按每格数量最多的 POI 类别着色，深蓝色表示没有 POI 记录。没有记录不能自动等同于没有活动，地图的类别也不能直接当作居民收入或人流强度。来源：原论文 Fig. 5。</p>
-<p><img src="/posts/individual-collective-mobility-2010/fig6.webp" alt="群体POI偏好"></p>
-<p>图 6｜哪些 POI 类别在群体偏好中占比较高？横轴为访问占比，纵轴为排序类别。餐馆与食品类合计接近一半，随后为美容、购物和医疗等；结果依赖地点库和当前样本，不能解释为近半数出行都是为了吃饭。来源：原论文 Fig. 6。</p>
-<p>土地利用与 POI 共同提供目的地功能线索，乘上距离项之后，模型才得到群体条件概率。它并未直接测量动机，也没有单独识别是哪一类地理资源导致人们前往。</p>
-<h2 id="最佳误差-1-34-公里，应该与谁比较？"><a href="#最佳误差-1-34-公里，应该与谁比较？" class="headerlink" title="最佳误差 1.34 公里，应该与谁比较？"></a>最佳误差 1.34 公里，应该与谁比较？</h2><p>研究逐步改变 α。α=0 是个人周期模型，α=1 只用群体概率；另一个对照把“群体”改成仅包含当前这个人，检查其他用户的信息是否有额外帮助。</p>
-<p><img src="/posts/individual-collective-mobility-2010/fig7.webp" alt="不同混合权重的平均误差"></p>
-<p>图 7｜加入其他人的历史，在什么权重下有帮助？单幅图横轴为 α，纵轴为平均地理误差（公里）；两条线分别使用 2,000 个用户与仅当前用户构造群体偏好。α≈0.8 时，前者取得约 1.34 公里的最低值；α 接近 1 时误差反而明显升高，不能概括为群体占比越高越好。来源：原论文 Fig. 7。</p>
-<p>有两个不同的比较。对“永远猜个人最常去网格”的简单基线，1.34 公里比 2.8 公里低约 52%。但对已经利用周周期与当前状态的纯个人模型，图 7 中误差约为 1.35 公里，最佳混合只是再降低约 0.01 公里，属于图示近似值。</p>
-<p>所以，本文最直接的证据是：个人周期已经很有用，在某些混合权重下群体地理偏好还能改善。它没有证明所有时段、所有用户或所有权重都同样获益；也没有给出误差条或独立显著性检验来判断这项小差距的稳定程度。</p>
-<p><img src="/posts/individual-collective-mobility-2010/fig8.webp" alt="预测误差累积分布"></p>
-<p>图 8｜均值之外，误差分布怎样？单幅图横轴为地理误差（公里），纵轴为累积比例。论文在最佳权重下报告约 60% 的误差为零，剩余样本包含较长误差尾部。这里的零是网格位置一致，既非厘米级定位，也不意味着每次实际移动的目的地都被猜中。来源：原论文 Fig. 8。</p>
-<p>留在原地的小时占有较大比例，精确网格命中率必须与这些小时一起理解。论文没有另列只在真实移动发生时的命中率，因而不能从约 60% 推出出发后的导航目的地成功率。</p>
-<p>另外，模型公式使用历史周期，但文中没有充分说明独立测试时段、α 调参集与最终评估集的隔离。1.34 公里应视为本文实验设置下报告的最优结果，不能当成任何未来月份均已验证的保证。</p>
-<h2 id="给出三个候选地点，评价为何更容易改善？"><a href="#给出三个候选地点，评价为何更容易改善？" class="headerlink" title="给出三个候选地点，评价为何更容易改善？"></a>给出三个候选地点，评价为何更容易改善？</h2><p>推荐示例不再只取一个地点，而是给出前若干候选，以真实位置到候选集合最近地点的距离作误差。候选越多，这个最小距离在定义上就越不容易变大，因此需要同时考虑列表长度。</p>
-<p><img src="/posts/individual-collective-mobility-2010/fig9.webp" alt="推荐列表长度与误差"></p>
-<p>图 9｜多给几个候选地点，能减少多少位置误差？（a）横轴为推荐列表长度，纵轴为平均最近距离误差；从 1 增到 3 后主要下降已经出现，继续增大仍有改善。（b）横轴仍为列表长度，纵轴为集合中最接近真实位置的候选的平均名次；即使列表到 10，平均名次仍不到 3。来源：原论文 Fig. 9。</p>
-<p>列表长度为 3 时并未完全达到长度 10 的最低误差；“最好的候选通常较靠前”也不等于“三个候选已精确覆盖几乎全部目的地”。这项示例验证的是模型排序与地理距离表现，没有测试真实用户点击、满意度或交通规划收益。</p>
-<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>个人周期是强预测基础，群体的距离与地理偏好能提供额外线索，但收益大小必须与强基线、停留小时及评价设置一起解读。</p>
-<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p>Francesco Calabrese, Giusy Di Lorenzo, Carlo Ratti. <em>Human Mobility Prediction based on Individual and Collective Geographical Preferences</em>. 13th International IEEE Conference on Intelligent Transportation Systems, 2010, 312–317。<a target="_blank" rel="noopener" href="https://doi.org/10.1109/ITSC.2010.5625119">DOI：10.1109/ITSC.2010.5625119</a>，<a target="_blank" rel="noopener" href="https://dspace.mit.edu/entities/publication/fce0c7a3-5f16-4e91-b3e7-1a611f3b92dd">MIT 机构仓库</a>。Fig. 1—9、方法及实验数值均来自原论文；约 52% 为根据 1.34 与 2.8 公里计算的相对误差降低。</p>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><ul>
-<li>Francesco Calabrese：论文署名机构为麻省理工学院 Senseable City Laboratory。</li>
-<li>Giusy Di Lorenzo：论文署名机构为麻省理工学院 Senseable City Laboratory。</li>
-<li>Carlo Ratti：论文署名机构为麻省理工学院 Senseable City Laboratory。</li>
-</ul>
+<h2 id="知道一周的作息之后，城市里的地点还能提供什么线索？"><a href="#知道一周的作息之后，城市里的地点还能提供什么线索？" class="headerlink" title="知道一周的作息之后，城市里的地点还能提供什么线索？"></a>知道一周的作息之后，城市里的地点还能提供什么线索？</h2><p>每到周五傍晚，一座城市有许多人结束工作，但接下来并不都去同一种地方。以往的作息已经能解释不少重复移动；在这个基础上，其他人的活动和城市的功能分布，究竟还能补上多少信息？这篇论文的结果要分两层看：混合模型比简单基线好很多，但只比已有的个人周期模型好一点。</p>
+<p><strong>论文名片｜</strong> Francesco Calabrese、Giusy Di Lorenzo、Carlo Ratti，<em>Human Mobility Prediction Based on Individual and Collective Geographical Preferences</em>，第13届 IEEE 智能交通系统会议（ITSC），2010，312–317。<a target="_blank" rel="noopener" href="https://doi.org/10.1109/ITSC.2010.5625119">DOI：10.1109/ITSC.2010.5625119</a> · <a target="_blank" rel="noopener" href="https://dspace.mit.edu/entities/publication/fce0c7a3-5f16-4e91-b3e7-1a611f3b92dd">MIT机构仓库</a></p>
+<h2 id="百万设备的资料库，实验实际用了多少？"><a href="#百万设备的资料库，实验实际用了多少？" class="headerlink" title="百万设备的资料库，实验实际用了多少？"></a>百万设备的资料库，实验实际用了多少？</h2><p>研究从波士顿都会区四个月的网络定位数据中，选取每天至少有100次网络连接的2,000个用户。这是观测较密的子样本，不是对资料库里约百万设备的随机检验。记录来自电话、短信和数据连接产生的网络侧位置估计；论文引用的定位误差平均约320米、中位数约220米，不能当作连续GPS。</p>
+<p>研究将处理后的观测划入500米网格，用一小时作为时间步。评估问的是：已知一小时的位置，下一小时的观测落在哪个网格？下一小时可以仍在原地，因此这个任务既包含出行，也包含连续停留。网格边长是分析尺度，不是定位精度。</p>
+<h2 id="为什么不动和走多远要分开看？"><a href="#为什么不动和走多远要分开看？" class="headerlink" title="为什么不动和走多远要分开看？"></a>为什么不动和走多远要分开看？</h2><p>论文把预测线索分为两组。一组概括同一参与者过去相同周内时段的重复活动；另一组汇总样本在同一时段的活动特点，例如是否移动、通常走多远、所在网格有哪些城市功能。研究比较两组信息单独及混合时的整体误差，而不是验证某个特定人的未来去向。</p>
+<p><img src="/posts/individual-collective-mobility-2010/fig1.webp" alt="一周内的群体停留概率"></p>
+<p><strong>图 1｜</strong> 横轴从周一零点起按小时计，纵轴是下一小时没有改变网格的概率。曲线呈现反复起伏，留在原地并非少见例外。</p>
+<p><img src="/posts/individual-collective-mobility-2010/fig2.webp" alt="群体移动距离的归一化分布"></p>
+<p><strong>图 2｜</strong> 横轴是公里数，纵轴是归一化频数。已发生的位置变化中，较短距离比图示范围内的较远距离常见；这条汇总曲线没有展开各时段的差异。</p>
+<p>这正是预测得分需要区分的两件事：有没有离开当前网格，以及离开后走了多远。若把它们混在一起，总体得分可以受大量停留时段左右。</p>
+<h2 id="土地利用与兴趣点，能告诉我们什么？"><a href="#土地利用与兴趣点，能告诉我们什么？" class="headerlink" title="土地利用与兴趣点，能告诉我们什么？"></a>土地利用与兴趣点，能告诉我们什么？</h2><p>模型用土地利用和兴趣点（POI）描述地点的功能。前者来自MassGIS，将每个网格的用地面积分为33类；后者来自Yelp，统计网格内有哪些商店和服务。地图为便于查看，只画出每格占优的类别；模型并不将一个网格简化成唯一用途。</p>
+<p><img src="/posts/individual-collective-mobility-2010/fig3.webp" alt="研究区各网格的主导土地用途"></p>
+<p><strong>图 3｜</strong> 颜色代表网格内面积最大的土地利用类别，而不是人流强弱，也不是该网格唯一的用途。</p>
+<p><img src="/posts/individual-collective-mobility-2010/fig4.webp" alt="各土地利用类别的群体占据比例"></p>
+<p><strong>图 4｜</strong> 横向条长表示访问占比，多家庭住宅、商业和高密度住宅排在前列。这是轨迹占据与区域功能的统计联系。</p>
+<p><img src="/posts/individual-collective-mobility-2010/fig5.webp" alt="研究区各网格的主导兴趣点类别"></p>
+<p><strong>图 5｜</strong> 颜色代表每格数量最多的兴趣点类别，深蓝表示数据里没有该网格的兴趣点记录，不等于无人活动。</p>
+<p><img src="/posts/individual-collective-mobility-2010/fig6.webp" alt="样本群体的兴趣点偏好统计"></p>
+<p><strong>图 6｜</strong> 横轴是访问占比，餐馆与食品类排在前面。人出现在餐馆聚集区，也可能是在工作、换乘或做别的事；不能把类别占比当成出行目的占比。</p>
+<p>这些变量提供的是活动的间接线索，没有调查每一次移动的真实原因。用地构成和兴趣点统计能帮助模型区分不同网格，却不能单独识别哪种设施促成了出行。</p>
+<h2 id="1-34公里的误差，和哪条基线比才公平？"><a href="#1-34公里的误差，和哪条基线比才公平？" class="headerlink" title="1.34公里的误差，和哪条基线比才公平？"></a>1.34公里的误差，和哪条基线比才公平？</h2><p><img src="/posts/individual-collective-mobility-2010/fig7.webp" alt="不同混合权重下的平均地理误差"></p>
+<p><strong>图 7｜</strong> 横轴是群体项的混合权重，纵轴是平均地理误差。蓝线使用2,000个用户形成群体统计，绿线只使用当前参与者来检验是否有额外收益。权重为0时只用个人周期，为1时只用群体统计。</p>
+<p>取群体权重0.8时，论文报告最低平均误差为1.34公里；始终猜最常访问网格的简单基线是2.8公里。但图7中只用个人周期的误差已经约为1.35公里，图示差距只有约0.01公里。后者才直接反映群体统计的<strong>额外收益</strong>；论文没有为这点差距给出独立显著性检验。0.8也是调出的模型权重，不表示群体决定了80%的出行。</p>
+<p><img src="/posts/individual-collective-mobility-2010/fig8.webp" alt="最佳混合权重下的误差累积分布"></p>
+<p><strong>图 8｜</strong> 横轴是地理误差，纵轴是累计比例。正文报告约60%的误差为零；零误差表示落在同一分析网格，其中包括下一小时并未移动的样本。</p>
+<p>目前无法由文中得分算出只在移动发生时的命中率。论文也没有充分交代调参和最后测试是否使用独立时间段，所以最佳值应视为该实验样本内的报告结果，不是未来月份或其他地区的精度保证。</p>
+<h2 id="多给几个候选，误差降低说明了什么？"><a href="#多给几个候选，误差降低说明了什么？" class="headerlink" title="多给几个候选，误差降低说明了什么？"></a>多给几个候选，误差降低说明了什么？</h2><p><img src="/posts/individual-collective-mobility-2010/fig9.webp" alt="候选列表长度与误差和排名"></p>
+<p><strong>图 9｜</strong> （a）候选越多，离观测位置最近的候选，其平均误差越小；（b）最接近观测位置的候选平均排在第几。原图的两个面板对应两个指标。</p>
+<p>这个误差取列表里最接近观测位置的一项；留住原候选再加新的，误差本来就不会增大。因而图9适合讨论列表长度和地理误差的关系，不等于实际使用者满意，也不意味着每次都把真实目的地放进前三个。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>在波士顿地区高频连接用户的小时网格实验中，个人周周期是一个强对照；加入由地理环境和群体活动得到的信息，能在部分混合权重下继续降低平均误差，但改善小于与简单基线比较时看起来的幅度。证据没有区分停留与实际移动的成绩，也不支持将结果直接外推至低频设备、其他城市或个体监测。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>Calabrese等人把个人周期与群体的停留、距离、用地及兴趣点统计放在一起评估，发现混合模型平均误差约1.34公里，明显低于常去地点基线的2.8公里，却仅略低于个人周期模型的约1.35公里。这提示阅读移动预测论文时，既要比较对照强弱，也要分清网格命中包含哪些情形，不能把包含停留时段的平均成绩当作出行目的地预测精度。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p>Calabrese, F., Di Lorenzo, G., &amp; Ratti, C. (2010). <em>Human Mobility Prediction Based on Individual and Collective Geographical Preferences</em>. <em>13th International IEEE Conference on Intelligent Transportation Systems</em>, 312–317。<a target="_blank" rel="noopener" href="https://doi.org/10.1109/ITSC.2010.5625119">正式论文 DOI</a> · <a target="_blank" rel="noopener" href="https://dspace.mit.edu/entities/publication/fce0c7a3-5f16-4e91-b3e7-1a611f3b92dd">MIT作者终稿记录</a> · <a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/224190715_Human_mobility_prediction_based_on_individual_and_collective_geographical_preferences">Calabrese公开上传的全文</a>。沿用原有图1–9；图3、图5现有图片右侧部分图例文字不全，未重绘或补写。MIT存档对其作者终稿标注 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>，不据此推定IEEE排版版使用同一许可。</p>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>按论文发表时的署名，Francesco Calabrese、Giusy Di Lorenzo和Carlo Ratti均来自麻省理工学院Senseable City Laboratory。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>如果专门把“下一小时移动”与“不移动”分开报告，群体信息可能在少数移动小时中更有价值，也可能只是改善了停留判断。这两种机制会导向不同应用：前者有助于目的地候选排序，后者主要帮助判断是否需要预测新地点。</p>
-<p>还可以比较同样数量的不同群体：所有用户、作息相似的用户，以及随机用户。保持个人模型与训练时长不变后，才能判断改善来自更多样本，还是来自选到了更相关的人群。原论文提出了按相似习惯定制群体的扩展，这类实验能够把这个设想转成可检验的预测增益。</p>
+<p>若一份城市移动模型主要在大量停留时段把网格猜对，它可能适合估计某个时刻人口仍集中在哪里，却未必较好地解释人流如何从一个区域转到另一个区域。把评估报告拆成“保持原网格”和“发生跨网格移动”两栏，再用未参与调参的时段对照汇总流量，就能看出新增信息究竟在哪类情形下有用。</p>
 
                 
             </div>
@@ -527,12 +507,12 @@
                                     <span class="chip bg-color">人类移动性</span>
                                 </a>
                             
-                                <a href="/tags/%E7%A9%BA%E9%97%B4%E4%BA%A4%E4%BA%92/">
-                                    <span class="chip bg-color">空间交互</span>
-                                </a>
-                            
                                 <a href="/tags/%E4%BD%8D%E7%BD%AE%E9%A2%84%E6%B5%8B/">
                                     <span class="chip bg-color">位置预测</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%A9%BA%E9%97%B4%E4%BA%A4%E4%BA%92/">
+                                    <span class="chip bg-color">空间交互</span>
                                 </a>
                             
                         </div>
@@ -671,12 +651,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">
-                        <span class="chip bg-color">大语言模型</span>
-                    </a>
-                    
                     <a href="/tags/%E5%9F%8E%E5%B8%82%E6%A8%A1%E6%8B%9F/">
                         <span class="chip bg-color">城市模拟</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">大语言模型</span>
                     </a>
                     
                     <a href="/tags/%E7%94%9F%E6%88%90%E5%BC%8F%E6%99%BA%E8%83%BD%E4%BD%93/">

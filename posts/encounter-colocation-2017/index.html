@@ -434,92 +434,44 @@
             <div id="articleContent">
                 <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h2 id="能猜中相遇的地点，就能猜中会遇见谁吗？"><a href="#能猜中相遇的地点，就能猜中会遇见谁吗？" class="headerlink" title="能猜中相遇的地点，就能猜中会遇见谁吗？"></a>能猜中相遇的地点，就能猜中会遇见谁吗？</h2><p>论文名片｜Karim Karamat Jahromi、Matteo Zignani、Sabrina Gaito、Gian Paolo Rossi，<em>Predicting encounter and colocation events</em>，Ad Hoc Networks 62（2017）：11—21。<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.adhoc.2017.04.004">论文 DOI</a>。</p>
-<p>周一上午，你总在同一栋楼上课。手机或许容易猜中你会在哪里与别人同时出现，却未必知道旁边究竟是谁，更难知道你们会待多久。对机会网络而言，这几种信息各有用处：附近出现设备，才有机会交换消息；遇见合适的人、留出足够时间，转发才可能成功。</p>
-<p>这篇论文用校园 Wi-Fi 和城市手机活动记录，把相遇预测拆成地点、持续时间、联系人三个任务。它的结果表明，规律的日程确实能帮助预测，但地点预测的高分不能直接替代对完整相遇事件的判断。</p>
-<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
-<li>校园样本中，给出三个候选地点时，超过 90% 的用户地点预测准确率超过 80%；只给一个候选地点，达到这一门槛的用户约占 70%。</li>
-<li>加权朴素贝叶斯通常优于标准朴素贝叶斯；为每个人单独校准权重，比全体共享权重仅有小幅改善。</li>
-<li>相遇多久明显更难：按论文设定的容差区间判定，只有约 30% 的用户分类器准确率超过 50%。</li>
-<li>城市基站数据上的共址预测表现更弱。即使允许三个候选地点，也只有约一半用户的地点准确率超过 50%；联系人预测没有用户超过 70%。</li>
+<h2 id="猜中相遇的地点，为什么离理解相遇还很远？"><a href="#猜中相遇的地点，为什么离理解相遇还很远？" class="headerlink" title="猜中相遇的地点，为什么离理解相遇还很远？"></a>猜中相遇的地点，为什么离理解相遇还很远？</h2><p>一座教学楼每天上午都很忙。即使模型知道设备常在那里同时联网，也不代表能判断未被观测的面对面接触，或知道这种重叠会持续多久。把地点、时长和联系对象合成一个“相遇预测准确率”，会把三个难度不同的问题混在一起。</p>
+<p><strong>论文名片｜</strong>Karim Karamat Jahromi、Matteo Zignani、Sabrina Gaito、Gian Paolo Rossi，<em>Predicting encounter and colocation events</em>，<em>Ad Hoc Networks</em> 62，11–21，2017。<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.adhoc.2017.04.004">DOI：10.1016/j.adhoc.2017.04.004</a>。本文根据 11 页正式排版版，原图 1–8 均按此编号。2016 年<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1610.01790">较早的预印本</a>题名另有 <em>in metropolitan areas</em>，不可用它替代正式版完整图组。</p>
+<p>论文的主要发现是，重复的校园联网地点在其样本里相对容易猜中，但同地点的重叠时长和联系标签更难，城市蜂窝共址的分数也低得多。研究指标评价的是网络事件标签，不是面对面会见、联系人身份或实际通信交付。</p>
+<h2 id="相遇与共址，都是设备记录里的代理标签"><a href="#相遇与共址，都是设备记录里的代理标签" class="headerlink" title="相遇与共址，都是设备记录里的代理标签"></a>相遇与共址，都是设备记录里的代理标签</h2><p>研究比较 Dartmouth 校园 Wi-Fi 和米兰蜂窝活动数据。校园中，同一个接入点服务下的连接时段重叠才进入“相遇”标签；城市中，共址指同一蜂窝覆盖区内推定的同时出现。设备可以被同一设施服务而人没有见面；蜂窝事件之间不连续，还需要对缺失时段作假设。两个标签的空间精度和观测条件因此不同。</p>
+<p>论文表 1 在预处理后保留校园 <strong>14,082</strong> 个样本账号、907 个记录地点，城市 <strong>17,400</strong> 个样本账号、5,398 个地点。分类实验还要筛出具备足够过往事件记录的样本，图里不是前述全部账号的分布。世纪初的一个校园和 2012 年的一座都市区也无法代表所有 Wi-Fi 或蜂窝系统。</p>
+<h2 id="先读图轴：这里不是把所有测试记录放在一个分母"><a href="#先读图轴：这里不是把所有测试记录放在一个分母" class="headerlink" title="先读图轴：这里不是把所有测试记录放在一个分母"></a>先读图轴：这里不是把所有测试记录放在一个分母</h2><p>论文比较标准与特征加权的朴素贝叶斯分类，但本文只讨论其汇总评估，不展开建立个人预测器的步骤。图中的候选数越多，允许命中的答案范围越宽。横轴是记录级准确率在一个纳入样本上的汇总阈值，纵轴是达到或超过相应阈值的样本比例，即互补累积分布。曲线在 80% 阈值处为 90%，不等于全体测试记录正确率为 90%，也不等于给出一个答案有相同结果。</p>
+<p><img src="/posts/encounter-colocation-2017/fig1.webp" alt="原论文图 1"></p>
+<p>图 1｜校园地点任务中，加权与标准模型各有不同候选数。允许三个候选时，超过九成纳入样本达到约八成准确率的阈值；不等于唯一地点预测。 来源：原论文图 1。</p>
+<p><img src="/posts/encounter-colocation-2017/fig2.webp" alt="原论文图 2"></p>
+<p>图 2｜四格比较地点任务的其他方法与权重设置。它们是该数据和实现的对照，不是所有地点预测方法的统一排名。 来源：原论文图 2。</p>
+<p>按论文的四折交叉验证统计，并未另报告严格向未来留出的部署测试。也没有利用独立线下观察检验相遇标签。用日历获得的统计增益对于理解周期性有用，却无法排除交叉验证与样本筛选使结果高于将来应用的可能。</p>
+<p><img src="/posts/encounter-colocation-2017/fig3.webp" alt="原论文图 3"></p>
+<p>图 3｜工作日与周末的地点分布依候选口径有交叉，不能把正文中的整体解释改写成所有比较都一样。 来源：原论文图 3。</p>
+<p><img src="/posts/encounter-colocation-2017/fig4.webp" alt="原论文图 4"></p>
+<p>图 4｜不同时间分箱下的地点比较；纵轴并非从零开画。时间切分改变了评价问题，不只是把模型性能加减一个固定量。 来源：原论文图 4。</p>
+<h2 id="地点高分并不会自动复制到时长和联系"><a href="#地点高分并不会自动复制到时长和联系" class="headerlink" title="地点高分并不会自动复制到时长和联系"></a>地点高分并不会自动复制到时长和联系</h2><p>持续时间的判定不是猜中精确秒数，而是符合论文设定的容差。即使这样，校园中约三成纳入样本跨过 50% 的准确率门槛。联系标签的分布也比地点更弱。三项结果有不同含义：地点可反映空间日程，时长会受事件间断和进出安排影响，设备重叠中的联系标签则不能验证两人实际互动。</p>
+<p><img src="/posts/encounter-colocation-2017/fig5.webp" alt="原论文图 5"></p>
+<p>图 5｜在论文时长容差下，样本达较高准确率的比例不高；不是预测时长的置信区间。 来源：原论文图 5。</p>
+<p><img src="/posts/encounter-colocation-2017/fig6.webp" alt="原论文图 6"></p>
+<p>图 6｜校园联系标签的汇总准确率分布。只用来与地点任务的评估差别对照，不用于识别真实联系人。 来源：原论文图 6。</p>
+<p>城市共址的地点表现进一步下降。即便允许三个候选，准确率超过一半的样本也只约一半；联系标签的曲线没有达到 70% 以上。两地同时更换了技术、空间尺度和人群，不能单独归因为城市居民日程更复杂。</p>
+<p><img src="/posts/encounter-colocation-2017/fig7.webp" alt="原论文图 7"></p>
+<p>图 7｜城市蜂窝地点任务，和图 1 读同一种纵轴，但记录条件不相同，不是把同一群人搬到城市后的实验。 来源：原论文图 7。</p>
+<p><img src="/posts/encounter-colocation-2017/fig8.webp" alt="原论文图 8"></p>
+<p>图 8｜城市联系标签的汇总分布，只有加权方法曲线。候选条件放宽仍不能将共址标签解释为真人会面。 来源：原论文图 8。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><ul>
+<li>网络接入信息构造的设备同区标签，不是面对面接触真值；校园和蜂窝口径不同。</li>
+<li>给多个候选时，地点任务在该校园样本中的结果最强，持续时间和联系更弱；这些准确率不能相互替代。</li>
+<li>交叉验证是限定样本的内部检验，没有证明时间外泛化或交付表现，也不支持对个人关系或活动作判断。</li>
 </ul>
-<h2 id="两个人连上同一张网，就算遇见了吗？"><a href="#两个人连上同一张网，就算遇见了吗？" class="headerlink" title="两个人连上同一张网，就算遇见了吗？"></a>两个人连上同一张网，就算遇见了吗？</h2><p>论文中的相遇（encounter）与共址（colocation），都由网络记录推断，而非面对面观察。校园 Wi-Fi 中，两台设备连接同一个接入点，连接时段又有重叠，就形成相遇记录。研究处理了设备在接入点间来回切换的乒乓现象，但同一覆盖区仍不保证两个人真正见面。</p>
-<p>Dartmouth 数据覆盖 2004 年 1 月 3 日至 4 月 30 日，论文表 1 记为 120 天。原有 17,414 名用户、1,292 个接入点；保留用户停留超过 15 分钟的接入点访问后，剩下 14,082 名用户、907 个地点。这里的兴趣点（point of interest，PoI）是网络接入点标识，不是人工标注的教室或食堂。</p>
-<p>另一份数据来自米兰都市区，覆盖 2012 年 3 月 26 日至 5 月 31 日，共 67 天，记录电话、短信和数据活动。表 1 给出的预处理前人数为 734,149，保留每天至少有一次活动的用户后为 17,400，包含 5,398 个基站地点。这些规模是数据预处理口径，后面的分类器还要求个人有足够的事件记录，不能直接当作所有预测实验的分母。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>数据</th>
-<th style="text-align:right">预处理后用户</th>
-<th style="text-align:right">地点数</th>
-<th style="text-align:right">时长</th>
-<th>事件的空间口径</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Dartmouth Wi-Fi</td>
-<td style="text-align:right">14,082</td>
-<td style="text-align:right">907</td>
-<td style="text-align:right">120 天</td>
-<td>同一接入点下的连接时段重叠</td>
-</tr>
-<tr>
-<td>米兰手机活动记录</td>
-<td style="text-align:right">17,400</td>
-<td style="text-align:right">5,398</td>
-<td style="text-align:right">67 天</td>
-<td>同一基站覆盖区下的估计停留时段重叠</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>表中汇总原论文 Table 1。手机活动并不连续，因此研究假定用户在一次活动开始前 900 秒至活动结束后 900 秒仍位于该基站覆盖区；短信的活动时长计为零。这是补足观测间隙的规则，也会影响哪些人被认定为同时在场。</p>
-<p>基站的空间范围又比 Wi-Fi 接入点更粗。论文报告，米兰距中心 3 公里以内区域的基站覆盖半径中位数约为 120 米；这个数字只描述该中心区域，不能外推为所有基站的精度。因而，后面两个场景的差异同时包含校园与城市人群、观测频率、空间分辨率的差异。</p>
-<h2 id="只告诉模型星期几、几点，它能学到什么？"><a href="#只告诉模型星期几、几点，它能学到什么？" class="headerlink" title="只告诉模型星期几、几点，它能学到什么？"></a>只告诉模型星期几、几点，它能学到什么？</h2><p>模型按用户分别训练，输入是星期几和一天中的时间窗。默认每窗 2 小时；例如周一上午的某个时间窗，可以对应过去重复出现的地点和联系人。原论文 Table 2 列出的记录还包含用户标识、地点标识、对方标识，以及事件起止时间对应的时间窗。</p>
-<p>标准朴素贝叶斯分类器（naïve Bayesian classifier，NBC）把候选地点的历史常见程度，与该地点对应的星期、时段概率相乘，选择得分最高的地点。困难在于，它假定特征在给定类别后条件独立；但同一个上午时段在工作日与周末可能意味着完全不同的安排。</p>
-<p>加权版本根据 Kullback–Leibler 散度衡量特征带来的信息，调整星期和时段概率在得分中的权重。可把它理解为：让更有区分力的时间信息承担更多判断，而不是把每个特征等量使用。加权可以缓和原模型的局限，但并没有完整建模所有特征依赖。</p>
-<p>地点和联系人任务返回概率最高的前 k 个候选，k 分别取 1、2、3；真实记录落在候选集合内就算命中。允许更多候选本来就更容易命中，所以 top-3 的高分不等于准确猜中唯一答案。持续时间任务另外使用预测地点作为输入，地点误差也可能影响后续判断。</p>
-<p>实验采用四折交叉验证。每名用户的准确率是测试记录中命中的比例，再对各折取平均，最后展示不同用户准确率的分布。论文没有把这写成严格按时间前推、留出未来一段时间的验证，因此结果应解释为该交叉验证设置下的能力。</p>
-<h2 id="校园的相遇地点为什么最容易预测？"><a href="#校园的相遇地点为什么最容易预测？" class="headerlink" title="校园的相遇地点为什么最容易预测？"></a>校园的相遇地点为什么最容易预测？</h2><p>校园实验选择至少有 75 条相遇记录的用户训练分类器。图 1 不是所有记录混在一起的总体准确率：横轴是单个用户的预测准确率，纵轴是互补累积分布（CCDF），表示准确率高于该门槛的用户比例。同一横坐标上，曲线越高，达到该水平的用户越多。</p>
-<p><img src="/posts/encounter-colocation-2017/fig1.webp" alt="校园相遇地点预测准确率"></p>
-<p>图 1｜加入特征权重，能帮助多少用户猜中相遇地点？单幅图中的六条曲线比较标准与加权 NBC，以及各自的前 1、2、3 个候选地点。加权版本在候选较少时改善尤其明显；给出三个候选时，超过 90% 的用户准确率超过 80%。来源：原论文 Fig. 1。</p>
-<p>研究还比较了采用高斯时间分布的时空方法、基于高斯过程改写的预测器，以及以支持向量机实现的纠错输出码分类器。这里的高斯过程比较将既有方法改造成同一地点任务，不能当成原方法在所有任务上的全面排名。</p>
-<p><img src="/posts/encounter-colocation-2017/fig2.webp" alt="相遇地点预测器的四项比较"></p>
-<p>图 2｜地点预测优势是否只来自挑选较弱的标准模型？四幅图横轴均为地点准确率，纵轴均为用户比例的 CCDF。（a）加权 NBC 与时空分布方法比较；（b）与用于同一地点任务的高斯过程比较，论文报告高斯过程的准确率中位数约 41%，加权方法约 97%；（c）与纠错输出码分类器比较；（d）比较全体共享特征权重和按个人单独调整的权重，后者只有小幅提升。图中原始排列为左列 a、b，右列 c、d。来源：原论文 Fig. 2。</p>
-<p>图 2 支持的是这些数据、任务与实现设置下的相对优势。它没有评估所有可能的现代预测器，也没有直接把结果换算为消息送达率。</p>
-<p>日历规律还反映在周末与工作日的差别上。论文文字概括周末预测更好，并解释为周末在家停留等安排可能更简单。但图 3 的图例需要细读：k=1、3 的周末曲线较高，k=2 的工作日曲线反而较高。因此，这张图不能支持所有候选数下周末都更好的概括；关于在家的解释也没有被独立检验。</p>
-<p><img src="/posts/encounter-colocation-2017/fig3.webp" alt="周末与工作日地点预测比较"></p>
-<p>图 3｜周末和工作日，哪一种日程更容易预测？单幅图按 k=1、2、3 比较两类日期，横轴为地点准确率，纵轴为 CCDF。按原图图例，k=1、3 时周末表现较好，k=2 时则是工作日表现较好；这与正文概括的方向并不完全一致。来源：原论文 Fig. 3。</p>
-<p>把时间窗放宽，会合并原本不同的活动，也可能缓和轻微迟到带来的误差。图 4 显示，这个折中并非时间窗越大越好：从 2 小时改到 4 小时，地点准确率略有下降，k=3 时更明显；继续改到 8 小时，变化不大。</p>
-<p><img src="/posts/encounter-colocation-2017/fig4.webp" alt="不同时间窗的地点预测"></p>
-<p>图 4｜时间分得更粗，地点预测会改善吗？单幅图比较 H=2、4、8 小时与三个候选数。横轴为地点准确率，纵轴为 CCDF；注意纵轴从 0.4 起，视觉差距不能当作从零开始的比例差距。来源：原论文 Fig. 4。</p>
-<h2 id="地点很稳定，为什么停留多久仍难判断？"><a href="#地点很稳定，为什么停留多久仍难判断？" class="headerlink" title="地点很稳定，为什么停留多久仍难判断？"></a>地点很稳定，为什么停留多久仍难判断？</h2><p>持续时间并不是要求模型精确猜到某个秒数。研究在测试集中，按地点和时间情境汇总持续时间、去除异常值，再计算均值 μ 与标准差 σ；预测时长落在 μ−σ 至 μ+σ 的范围内，就按论文规则记为正确。这个容差口径与逐条实际时长完全相等不同，也不是模型给出的置信区间。</p>
-<p>即使采用这样的判定，约 30% 的分类器准确率超过 50%。同样在一栋楼遇见别人，临时谈话、不同课程长度或离开的时机仍可能让持续时间变化。论文没有逐一验证这些原因，但结果明确说明，固定地点并不能提供同样稳定的时长。</p>
-<p><img src="/posts/encounter-colocation-2017/fig5.webp" alt="相遇持续时间预测准确率"></p>
-<p>图 5｜知道常见地点，能否进一步猜中相遇时长？单幅图横轴为按容差规则计算的持续时间准确率，纵轴为 CCDF；三种候选设置下的加权与标准 NBC 都明显弱于地点任务，加权版本整体有所改善。来源：原论文 Fig. 5。</p>
-<h2 id="猜到会遇见谁，还需要更细的重复关系"><a href="#猜到会遇见谁，还需要更细的重复关系" class="headerlink" title="猜到会遇见谁，还需要更细的重复关系"></a>猜到会遇见谁，还需要更细的重复关系</h2><p>联系人任务同样采用前 k 个候选：只要其中一个用户标识与测试记录中的对方一致，就计为命中。它评估的是单条事件的联系人候选覆盖，不是一次列出时间窗内所有真实接触者。</p>
-<p>校园中，k=1 时约 20% 的用户联系人准确率超过 80%；放宽为 k=3，这一比例约为 30%。地点的固定并不保证周围人员完全相同。加权仍有帮助，尤其是 k=1、2，但联系人预测的分布比地点任务分散得多。</p>
-<p><img src="/posts/encounter-colocation-2017/fig6.webp" alt="校园联系人预测准确率"></p>
-<p>图 6｜同一时间、同一校园日程，能否锁定具体的人？单幅图横轴为联系人准确率，纵轴为 CCDF，六条曲线比较候选数及是否加权。随着候选增多，达到高准确率的用户增加；仍不能据此声称所有用户的联系人都可被稳定预测。来源：原论文 Fig. 6。</p>
-<h2 id="从校园移到城市，共址预测还剩多少把握？"><a href="#从校园移到城市，共址预测还剩多少把握？" class="headerlink" title="从校园移到城市，共址预测还剩多少把握？"></a>从校园移到城市，共址预测还剩多少把握？</h2><p>米兰共址实验进一步选择至少有 350 条记录的用户，避免个人训练数据过少。这比前面的数据清理门槛更严格。城市活动的时空变化、基站覆盖区和记录间隙都可能影响共址标签，不能把两个场景的分数差完全归因于城市居民更不规律。</p>
-<p><img src="/posts/encounter-colocation-2017/fig7.webp" alt="城市共址地点预测准确率"></p>
-<p>图 7｜基站尺度的共址地点还容易预测吗？单幅图横轴为共址地点准确率，纵轴为 CCDF，比较标准与加权模型的三个候选数。加权版本整体更好，但 k=3 时仍只有约一半用户准确率超过 50%；k=1、2 时达到该门槛的用户约占 15%、20%。来源：原论文 Fig. 7。</p>
-<p><img src="/posts/encounter-colocation-2017/fig8.webp" alt="城市共址联系人预测准确率"></p>
-<p>图 8｜城市共址数据能否猜中具体联系人？单幅图只比较加权模型的前 1、2、3 个候选，横轴为联系人准确率，纵轴为 CCDF。增加候选可提高命中率，但没有分类器的准确率超过 70%。这里没有标准 NBC 的对照曲线。来源：原论文 Fig. 8。</p>
-<p>作者把较弱表现解释为基站记录更稀疏、更粗，以及城市人群日程不如校园规律。这些解释合理，却没有被当前跨数据集比较逐项分离。对实际系统而言，还需要时间前推验证、不同观测规则的敏感性分析，以及在转发协议中直接测试效益。论文把改善内容分发留作未来工作。</p>
-<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>日历与历史事件能帮助预测重复相遇的地点，但相遇多久、遇见谁，以及城市粗粒度共址，分别需要更强的证据，不能共用一个高准确率结论。</p>
-<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p>Karim Karamat Jahromi, Matteo Zignani, Sabrina Gaito, Gian Paolo Rossi. <em>Predicting encounter and colocation events</em>. Ad Hoc Networks 62 (2017), 11–21. <a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.adhoc.2017.04.004">DOI：10.1016/j.adhoc.2017.04.004</a>。数据、方法、数值及 Fig. 1—8 均来自该论文正文。</p>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><ul>
-<li>Karim Karamat Jahromi：论文署名机构为意大利米兰大学计算机科学系，也是本文通讯作者。</li>
-<li>Matteo Zignani：论文署名机构为米兰大学计算机科学系。</li>
-<li>Sabrina Gaito：论文署名机构为米兰大学计算机科学系。</li>
-<li>Gian Paolo Rossi：论文署名机构为米兰大学计算机科学系。</li>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这篇论文最清晰的证据不是“相遇可预测”，而是相遇从地点到持续时间再到联系标签，每加一层，代理记录和评估含义都变了。校园地点在多个候选的宽松口径下表现较高，换成持续时间或城市蜂窝共址就不再一样。在没有独立面对面测量和真实应用测试时，它更适合用来区分任务和数据的局限，而不是推断人将遇见谁。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.adhoc.2017.04.004">Ad Hoc Networks 正式 DOI</a>：刊版 62，11–21，图 1–8 与表 1–2；原图另行发布须核对 Elsevier 的权利条件。</li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1610.01790">2016 年作者预印本</a>：较早题名与编排，不能替代本篇正式图组。</li>
 </ul>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Karim Karamat Jahromi、Matteo Zignani、Sabrina Gaito 和 Gian Paolo Rossi 署名意大利米兰大学计算机科学相关机构。Jahromi 为通讯作者。以上按正式论文署名。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>如果一个转发系统每天都能猜中你会出现在办公室，却经常猜错会遇见哪位同事，地点高分可能对送达消息帮助有限。更贴近应用的评估，可以把“给出三个地点的命中率”换成实际决策：按照预测选择等待或转发，再比较交付时间、耗电和失败率。</p>
-<p>另一项值得做的实验，是在同一批人身上同时记录 Wi-Fi、基站活动和近距离探测。固定人群后改变观测尺度，才能更清楚地区分：表现下降来自行为变化，还是来自标签把许多并未相见的人装进了同一个覆盖区。</p>
+<p>如果目的是测试校园环境的机会通信性能，可以用仿真或经同意的匿名汇总来分别检查时段拥挤程度、设备接触时长分布和消息交付。先保留覆盖区域与记录频率差异，再比较不同情景。这样不需要生成任何可定位的未来见面名单，也避免地点得分好就假定协议效果好。</p>
 
                 
             </div>
@@ -613,12 +565,12 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/e8000028/">
+                <a href="/posts/encounters-opportunistic-2012/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="2007-Impact of Human Mobility on Opportunistic Forwarding Algorithms">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="2012-Predicting Encounters in Opportunistic Networks">
                         
-                        <span class="card-title">2007-Impact of Human Mobility on Opportunistic Forwarding Algorithms</span>
+                        <span class="card-title">2012-Predicting Encounters in Opportunistic Networks</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -646,16 +598,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9C%BA%E4%BC%9A%E7%BD%91%E7%BB%9C/">
-                        <span class="chip bg-color">机会网络</span>
-                    </a>
-                    
                     <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
                         <span class="chip bg-color">人类移动性</span>
                     </a>
                     
-                    <a href="/tags/%E9%87%8D%E5%B0%BE%E5%88%86%E5%B8%83/">
-                        <span class="chip bg-color">重尾分布</span>
+                    <a href="/tags/%E6%9C%BA%E4%BC%9A%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">机会网络</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8E%A5%E8%A7%A6%E9%A2%84%E6%B5%8B/">
+                        <span class="chip bg-color">接触预测</span>
                     </a>
                     
                 </div>
@@ -669,12 +621,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/encounters-opportunistic-2012/">
+                <a href="/posts/e8000025/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="2012-Predicting Encounters in Opportunistic Networks">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="2025-UrbanEV: An Open Benchmark Dataset for Urban Electric Vehicle Charging Demand Prediction">
                         
-                        <span class="card-title">2012-Predicting Encounters in Opportunistic Networks</span>
+                        <span class="card-title">2025-UrbanEV: An Open Benchmark Dataset for Urban Electric Vehicle Charging Demand Prediction</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -702,16 +654,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9C%BA%E4%BC%9A%E7%BD%91%E7%BB%9C/">
-                        <span class="chip bg-color">机会网络</span>
+                    <a href="/tags/%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">开放数据</span>
                     </a>
                     
-                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
-                        <span class="chip bg-color">人类移动性</span>
+                    <a href="/tags/%E7%94%B5%E5%8A%A8%E6%B1%BD%E8%BD%A6/">
+                        <span class="chip bg-color">电动汽车</span>
                     </a>
                     
-                    <a href="/tags/%E6%8E%A5%E8%A7%A6%E9%A2%84%E6%B5%8B/">
-                        <span class="chip bg-color">接触预测</span>
+                    <a href="/tags/%E5%85%85%E7%94%B5%E9%9C%80%E6%B1%82/">
+                        <span class="chip bg-color">充电需求</span>
                     </a>
                     
                 </div>

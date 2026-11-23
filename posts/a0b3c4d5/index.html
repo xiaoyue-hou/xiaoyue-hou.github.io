@@ -436,34 +436,22 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h2 id="出租车流的全市重合更高时，脆弱地区的误差也更接近吗？"><a href="#出租车流的全市重合更高时，脆弱地区的误差也更接近吗？" class="headerlink" title="出租车流的全市重合更高时，脆弱地区的误差也更接近吗？"></a>出租车流的全市重合更高时，脆弱地区的误差也更接近吗？</h2><p>论文名片｜Daniel Wang、Jack McFarland、Afra Mashhadi、Ekin Ugurel，<em>Comparing Fairness of Generative Mobility Models</em>，扩展摘要，arXiv:2411.04453v1 [cs.LG]，2024年11月7日。<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2411.04453v1">arXiv:2411.04453v1</a>。</p>
-<p>一座城市要用模型补齐出租车在地点之间的流量。全市叠在一起看，生成流量和真实流量更重合，规划图会显得更完整。若多出来的重合集中在一部分地区，另一部分地区的误差分布仍可能离得很远。下面这个对照只帮助理解表里的两个分数，不是摘要里的真实规划案例。</p>
-<p>这份扩展摘要在纽约市 2016 年 4 月 1 日至 6 月 30 日的出租车记录上比较四个生成式移动模型（generative mobility models，用来生成地点之间流量的模型）。深度重力的全市平均重合最高，传统重力模型在每一项社会脆弱性分组上的误差分布距离都最小。平均更重合，和两组地区的误差分布更接近，是两份分开的结果。</p>
-<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
-<li>超过 3500 万条出租车记录上，四个模型的平均 CPC 为：深度重力 0.41，非线性重力 0.36，重力模型 0.35，辐射模型 0.24。CPC 落在 0 到 1，1 表示生成流量与真实流量完全重合；3500 万是记录条数，不是乘客人数，也不是起讫点对数量。</li>
-<li>公平性看优势组与劣势组 CPC 分布的 KL 散度。社会脆弱性总分一行是：重力模型 0.60，辐射模型 0.97，非线性重力 3.34，深度重力 4.10。散度为 0 表示两个分布相同；表注把每一行的最低值视为更公平。</li>
-<li>五个分组的最低值都在重力模型一列。族裔一行的距离最大：重力模型 0.70，辐射模型 0.92，非线性重力 7.86，深度重力 8.22。</li>
-<li>深度重力的平均 CPC 比非线性重力高 0.05（0.41 对 0.36），五个分组的 KL 也都更高。作者把这一差异归到深度重力的特征嵌入，并猜测与 OSM 中较贫困社区的兴趣点表达有关；摘要没有测量兴趣点数量。</li>
-<li>开篇写要在多个数据集上比较，结果部分只给出纽约这一张表。</li>
-</ul>
-<h2 id="四个模型比的是同一季出租车流量"><a href="#四个模型比的是同一季出租车流量" class="headerlink" title="四个模型比的是同一季出租车流量"></a>四个模型比的是同一季出租车流量</h2><p>生成式移动模型在这里的输出是地点之间的合成流量，比较对象也是地点之间的真实流量。摘要使用四套已有模型：重力模型，引用 scikit-mobility；辐射模型，引用 Simini、González、Maritan 与 Barabási 2012 年的模型；深度重力和非线性重力，都引用 Simini、Barlacchi、Luca 与 Pappalardo 2021 年的深度重力论文。这份摘要没有重写它们的公式、输入特征或参数。</p>
-<p>数据是纽约市出租车行程记录，收集时间是 2016 年 4 月 1 日至 6 月 30 日，超过 3500 万条记录。参考文献给出的网页访问日期是 2023 年 3 月 1 日，行程日期仍是 2016 年这一季。摘要没有写地点是出租车站区、人口普查区还是别的分区，也没有写保留了多少起讫点对。</p>
-<p>社会脆弱性指数（Social Vulnerability Index，SVI）由美国疾病控制与预防中心建立，单位是人口普查区。它把 15 个美国普查变量合成四个主题：社会经济地位、家庭特征、种族与族裔、住房和交通，用来给各区在灾害面前的相对脆弱性排序。每个主题有自己的百分位，百分位越高，脆弱性越高。摘要没有列出那 15 个变量，也没有给出所用 SVI 的年份。</p>
-<h2 id="一个分数看全市重合，另一个分数看两组分布"><a href="#一个分数看全市重合，另一个分数看两组分布" class="headerlink" title="一个分数看全市重合，另一个分数看两组分布"></a>一个分数看全市重合，另一个分数看两组分布</h2><p>效用用通勤者公共部分（Common Part of Commuters，CPC）。名字来自通勤流量研究，这里比较的是出租车流量。对每一对地点，取生成流量和真实流量中较小的那个，全部加总后乘 2，再除以生成流量总和与真实流量总和：</p>
-<p>CPC = 2 × Σᵢ,ⱼ min(ŷ(i,j), y(i,j)) / [Σᵢ,ⱼ ŷ(i,j) + Σᵢ,ⱼ y(i,j)]</p>
-<p>ŷ 是地点 i 到 j 的生成流量，y 是真实流量。CPC 在闭区间 0 到 1：1 表示两套流量完全重合，0 表示没有重合。表中的平均 CPC 被用来概括全部地区的生成质量。摘要没有写明被平均的 CPC 是按起点、人口普查区还是起讫点对先算出来的。</p>
-<p>公平性被论文称为人口统计均等（Demographic Parity）：不同人群应得到相近的处理。正文印刷的等式还带一个条件，即真实结果 Y 等于 1 时，敏感属性 S 取 0 和取 1，分类器给出阳性结果的概率相等。摘要随后没有去估计这个分类器概率，而是比较优势组 S 与劣势组 S′ 的 CPC 分布，用 KL 散度（Kullback–Leibler divergence）衡量两个分布的距离。两个分布相同，距离为 0。作者用一句话说明目标：模型应为城市中更富裕和更贫困的地区生成误差比例相同的合成流量。</p>
-<p>分组规则印在摘要里：总体 SVI 及其分主题中，处于 bottom interquartile range 的起讫点对作为优势组 S，处于 top-interquartile range 的起讫点对作为劣势组 S′。百分位越高越脆弱，因此顶端对应劣势组。摘要没有把这两个范围换成具体百分位，没有给出每组的起讫点对数量，也没有说明一个起讫点对的指数取起点、终点，还是两端一起判断。KL 本身不对称，摘要也没有写以哪一组为参照。表里的公平性数字因此只表示两组 CPC 分布差多远，不能单独读成某一组低了多少个百分点。</p>
-<h2 id="平均重合和组间距离在同一张表里分开了"><a href="#平均重合和组间距离在同一张表里分开了" class="headerlink" title="平均重合和组间距离在同一张表里分开了"></a>平均重合和组间距离在同一张表里分开了</h2><p>表 1 是全文唯一的结果表，没有图。平均 CPC 用括号标出。公平性各行的最低值在 PDF 中排成斜体，表注说明这些斜体标出更公平的模型；深度重力的平均 CPC 0.41 也是斜体，表注没有把它解释成置信区间。行名 Household、Ethnicity、Transportation 比正文里的四个主题短，分别对应家庭特征、种族与族裔、住房和交通。</p>
-<div class="table-container">
+<p>把两套出租车流量图摊开，一套在全市范围内更像实测，另一套却在低脆弱和高脆弱地区表现得更接近。如果只能选一个模型，市里应该看哪张图？</p>
+<p>Daniel Wang 等人用 2016 年第二季度的纽约出租车记录比较了四个流量生成模型。答案取决于看什么：深度重力模型的平均重合度最高（0.41），传统重力模型在五种社会脆弱性分组下的组间差异都最小。这两个指标把同一组模型排成了不同的顺序。</p>
+<span id="more"></span>
+<h2 id="一张出租车流量图，怎样看出两种差别？"><a href="#一张出租车流量图，怎样看出两种差别？" class="headerlink" title="一张出租车流量图，怎样看出两种差别？"></a>一张出租车流量图，怎样看出两种差别？</h2><p>研究比较的是地点之间的出租车流量，不是逐个乘客的轨迹。纽约市数据覆盖 2016 年 4 月 1 日至 6 月 30 日，包含超过 3500 万条行程记录；这个数字不是人数，也不是起讫点对的数量。对照的四个模型分别是传统重力、辐射、非线性重力与深度重力，均来自已有工作。</p>
+<p>先看合成流量与真实流量重合多少。作者使用 CPC（Common Part of Commuters，通勤流量重合度），虽然名称中有「通勤」，这里比较的是出租车行程。对每一对地点，取预测与实测流量中较小的那个；把各对的重合量加起来，乘以 2，再除以两套流量的总和。例如，若两套数据各有 100 趟，逐对核算后重合 40 趟，CPC 就是 0.40。这个指标在 0 到 1 之间，1 表示完全重合。论文报告平均 CPC，但扩展摘要没有说明平均前的计算单位和加权方法。</p>
+<p>再看不同地区的 CPC 分布是否相近。作者采用美国疾控中心的社会脆弱性指数（SVI），该指数按人口普查区评估社区面对灾害的相对脆弱程度，涵盖社会经济地位、家庭特征、种族与族裔、住房与交通四个主题。作者按总分和这四个主题分别比较指数低端和高端的 OD（起讫点对）。摘要没有交代切分对应的确切百分位、样本量，也没说一对起讫点按哪一端的 SVI 归组。</p>
+<p>两组的 CPC 分布用 KL 散度比较。越小表示按这个指标看两组分布越接近，0 表示分布相同。它不告诉你<strong>哪一组</strong>的重合度更低，也不保证两组都拟合得好。论文将它作为组间公平性的操作化指标；这里讨论的是流量生成表现是否接近，不是出租车服务或资源分配本身是否公平。</p>
+<h2 id="平均拟合最好的，组间差别也最大"><a href="#平均拟合最好的，组间差别也最大" class="headerlink" title="平均拟合最好的，组间差别也最大"></a>平均拟合最好的，组间差别也最大</h2><div class="table-container">
 <table>
 <thead>
 <tr>
 <th>指标</th>
-<th style="text-align:right">重力模型</th>
-<th style="text-align:right">辐射模型</th>
+<th style="text-align:right">传统重力</th>
+<th style="text-align:right">辐射</th>
 <th style="text-align:right">深度重力</th>
 <th style="text-align:right">非线性重力</th>
 </tr>
@@ -473,40 +461,40 @@
 <td>平均 CPC</td>
 <td style="text-align:right">0.35</td>
 <td style="text-align:right">0.24</td>
-<td style="text-align:right">0.41</td>
+<td style="text-align:right"><strong>0.41</strong></td>
 <td style="text-align:right">0.36</td>
 </tr>
 <tr>
-<td>社会脆弱性总分</td>
-<td style="text-align:right">0.60</td>
+<td>SVI 总分分组的 KL 散度</td>
+<td style="text-align:right"><strong>0.60</strong></td>
 <td style="text-align:right">0.97</td>
 <td style="text-align:right">4.10</td>
 <td style="text-align:right">3.34</td>
 </tr>
 <tr>
 <td>社会经济地位</td>
-<td style="text-align:right">0.68</td>
+<td style="text-align:right"><strong>0.68</strong></td>
 <td style="text-align:right">0.99</td>
 <td style="text-align:right">4.87</td>
 <td style="text-align:right">3.51</td>
 </tr>
 <tr>
 <td>家庭特征</td>
-<td style="text-align:right">0.61</td>
+<td style="text-align:right"><strong>0.61</strong></td>
 <td style="text-align:right">1.01</td>
 <td style="text-align:right">5.94</td>
 <td style="text-align:right">4.82</td>
 </tr>
 <tr>
-<td>族裔</td>
-<td style="text-align:right">0.70</td>
+<td>种族与族裔</td>
+<td style="text-align:right"><strong>0.70</strong></td>
 <td style="text-align:right">0.92</td>
 <td style="text-align:right">8.22</td>
 <td style="text-align:right">7.86</td>
 </tr>
 <tr>
 <td>住房与交通</td>
-<td style="text-align:right">0.65</td>
+<td style="text-align:right"><strong>0.65</strong></td>
 <td style="text-align:right">0.88</td>
 <td style="text-align:right">5.43</td>
 <td style="text-align:right">4.13</td>
@@ -514,28 +502,23 @@
 </tbody>
 </table>
 </div>
-<p>平均 CPC 的顺序是深度重力 0.41、非线性重力 0.36、重力模型 0.35、辐射模型 0.24。深度重力比重力模型高 0.06，比非线性重力高 0.05，比辐射模型高 0.17。这些差都在 0 到 1 的重合尺度上，分母不是 3500 万条记录。作者写明，深度重力的 CPC 更高，与 Simini 等人 2021 年报告的排序相近；0.41 本身是这张纽约表上的数。</p>
-<p>公平性五行的最低值都是重力模型：总分 0.60，社会经济地位 0.68，家庭特征 0.61，族裔 0.70，住房与交通 0.65。辐射模型在每一行都是第二低。深度重力在每一行都是最高，也就是按这篇摘要的定义最不公平。总分上，深度重力的 4.10 约为重力模型 0.60 的 6.8 倍；族裔一行，8.22 约为 0.70 的 11.7 倍。倍数的分母是同一行重力模型的 KL，不是 CPC。</p>
-<p>非线性重力的平均 CPC 只比传统重力模型高 0.01（0.36 对 0.35），总分上的 KL 却是 3.34 对 0.60。摘要没有为这一对差异另给机制。它明确比较的是非线性重力和深度重力：特征嵌入使合成流量的平均重合从 0.36 升到 0.41，同时也使五个分组的 KL 都上升，总分从 3.34 到 4.10，族裔从 7.86 到 8.22。作者猜测，原因可能是 OSM 对较贫困社区的兴趣点表达已经带有偏差。这是假设。摘要没有统计兴趣点数量，也没有做去掉兴趣点后的对照。</p>
-<p>辐射模型把两件事放在一起：平均 CPC 最低，只有 0.24；公平性又始终排在第二。两组分布更接近，可以是两组都重合得有限。家庭特征一行里，辐射模型的 KL 为 1.01，仍远低于非线性重力的 4.82 和深度重力的 5.94。</p>
-<h2 id="这张表能停在哪一步"><a href="#这张表能停在哪一步" class="headerlink" title="这张表能停在哪一步"></a>这张表能停在哪一步</h2><p>CPC 和 KL 都是模型输出与真实流量对照后的分数。它们描述这一季、这一座城市、这四套模型的生成结果，不能由此推出模型改变了居民的出行，也不能推出出租车服务已经对某一群乘客作出了不公平的调度。比较单位是地区之间的流量和人口普查区的脆弱性，不是可以还原到个人的行程。</p>
-<p>出租车记录也只覆盖付费的出租车行程。CPC 的名字虽带通勤者，数据并不是居住地到工作地的普查通勤。社会脆弱性描述的是普查区居民面对灾害的相对脆弱程度；作者用更富裕和更贫困来解释优势组与劣势组，四个主题里只有社会经济地位直接涉及经济状况。</p>
-<p>开篇所说的多个数据集，在结果里没有出现第二座城市或第二张表。摘要没有给出置信区间、显著性检验、训练与测试的划分，也没有给出各组样本量。底端与顶端两个范围的具体切法、起讫点对如何对应到普查区，都还缺在表外。缺了这些，0.60 和 4.10 可以比较模型在本文定义下谁的分布更近，不能换算成有多少乘客、多少个街区受到了影响。</p>
-<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>在 2016 年第二季度的纽约出租车流量上，深度重力的全市平均重合最高，传统重力模型在五项社会脆弱性分组上的 CPC 分布都最近；平均更像真实流量，并不等于脆弱程度不同的地区得到了更接近的误差。</p>
+<p><em>表1：复现原文唯一结果表。首行 CPC 越高越好，其余五行均为 KL 散度，越低表示两组分布越接近。原文没有图。</em></p>
+<p>先把深度重力与传统重力放在一起看。深度重力的平均 CPC 高 0.06，但 SVI 总分的 KL 散度为 4.10，而传统重力仅 0.60；在种族与族裔分组下，是 8.22 对 0.70。反过来，辐射模型的组间距离五项都排第二，平均 CPC 却最低（0.24）。因此，不能只看一个指标来决定哪套合成数据更适合用。</p>
+<p>非线性重力与深度重力之间还有一个值得追问的差异：平均 CPC 从 0.36 增至 0.41 的同时，五种分组下的 KL 都变大了。作者把比较的焦点放在深度模型对输入特征的编码方式，并猜测 OpenStreetMap 的兴趣点对贫困社区记录不足或表达有偏。但摘要没有报告覆盖率审计或移除兴趣点的实验，单靠这张表不能确认偏差来自地图输入、编码方式，还是其他因素。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>在这份纽约出租车数据上，深度重力模型给出了最高的平均流量重合度，而传统重力模型给出了最接近的组间 CPC 分布。最好的全市平均成绩并不保证模型对不同脆弱程度地区有相近的拟合表现。</p>
+<p>证据只到这里：论文虽提出要比较多个数据集，公开结果只有纽约一张表。扩展摘要也未提供训练测试切分、分组样本量、置信区间或 KL 的计算方向，不能从表中判断哪组拟合更差，或这些排名是否会在其他时期、城市和出行方式下保持。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><ul>
+<li><strong>比较对象：</strong> 同一季度纽约出租车记录上的四种合成流量模型，不是居民个人，也不是公共交通服务。</li>
+<li><strong>最醒目的对照：</strong> 深度重力 CPC 最高；传统重力在总 SVI 与四个分主题下的组间 KL 均最低。</li>
+<li><strong>用这组结果选模型时：</strong> 同时看整体拟合和每组的拟合；一个组间距离既不能表示哪组更差，也不能证明两组都拟合得好。</li>
+</ul>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2411.04453v1">arXiv:2411.04453v1</a>，2024年11月7日扩展摘要。本文的模型名单、CPC 与 KL 的定义、纽约数据时间，以及表 1 的全部分数，都来自这一版。摘要没有印刷 DOI。</li>
-<li>出租车数据在参考文献中指向纽约市 TLC 行程记录，访问日期印为 2023年3月1日：<a target="_blank" rel="noopener" href="https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page">TLC Trip Record Data</a>。</li>
-<li>深度重力与非线性重力的模型来源，摘要引用 Simini、Barlacchi、Luca、Pappalardo，<em>A deep gravity model for mobility flows generation</em>，Nature Communications，2021。重力模型的实现引用 scikit-mobility，辐射模型引用 Simini 等人 2012 年 Nature 论文。这些文献提供模型，不提供表 1 的公平性分数。</li>
+<li>Daniel Wang, Jack McFarland, Afra Mashhadi &amp; Ekin Ugurel (2024). <em>Comparing Fairness of Generative Mobility Models</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2411.04453v1">arXiv v1 扩展摘要</a> · <a target="_blank" rel="noopener" href="https://arxiv.org/html/2411.04453v1">全文 HTML</a>。2024 年 11 月 7 日提交；本文据此版，不按正式同行评议文章介绍。</li>
+<li><a target="_blank" rel="noopener" href="https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page">纽约市出租车与豪华轿车委员会记录</a>，原文引用的数据入口。</li>
 </ul>
-<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><ul>
-<li>Daniel Wang：扩展摘要的第一作者。PDF 署名行没有给他单独的单位上标。</li>
-<li>Jack McFarland：摘要列为作者，PDF 同样没有单独的单位上标。华盛顿大学 Mary Gates 学者名录中有一位 Jack McFarland，专业为计算机科学与软件工程，导师为 Afra Mashhadi；名录页面介绍的是另一项研究，不能当成这篇摘要的贡献说明。</li>
-<li>Afra Mashhadi：通讯作者，PDF 署名为华盛顿大学博塞尔校区计算与软件系统，邮箱为 mashhadi@uw.edu。该校教师页使用同一邮箱，并将其研究写为普适计算、机器学习，以及人工智能模型的公平性与隐私。</li>
-<li>Ekin Ugurel：PDF 署名为华盛顿大学西雅图土木与环境工程系。华盛顿大学学位论文库收录其 2025 年博士论文 <em>Behaviorally Informed Machine Learning for Human Mobility</em>，主题是人类移动与机器学习。2024 年这篇摘要上的身份，以当时印刷的系所署名为准。</li>
-</ul>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Daniel Wang、Jack McFarland、Afra Mashhadi、Ekin Ugurel 共同署名。扩展摘要将通讯作者 Afra Mashhadi 标注为华盛顿大学博塞尔校区计算与软件系统，Ekin Ugurel 标注为华盛顿大学西雅图校区土木与环境工程系；未为前两位单列单位，不据此推断其个人分工。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>若只按平均 CPC 选模型，这张表会选中深度重力：它比重力模型高 0.06（0.41 对 0.35）。若要求高脆弱与低脆弱起讫点对的 CPC 分布接近，五行都会选中重力模型；族裔一行是 0.70 对深度重力的 8.22。下一步可以把每组自己的平均 CPC、分布宽度和起讫点对数量一起报出来。KL 只能说明形状远近，两组可以都很接近，也可以都停在辐射模型这种 0.24 的重合附近；它也不指出哪一组更低。</p>
-<p>另一项直接的核对，是改一次分组再看模型排名是否还在。同一对地点可以只使用起点的社会脆弱性、只使用终点，或要求两端都落在同一端。出租车乘客也不等于普查区居民：付费行程更多反映愿意并能够乘坐出租车的人，脆弱性指数描述的是住在该区的人。若两种标签对不上，公平性分数会跟着标签移动。摘要没有做这三种切法。把切法写清，仍然是在地区流量上比较模型，不必把行程还原到个人。</p>
+<p>如果要把这项对照变成可复现的模型检查，我会先给每个模型补一张两组并列的 CPC 分布图，并同时报告每组的样本量和中位数。这样一眼就能区分「两组都拟合得好」和「两组都拟合得差」，而不只是比较它们离得多远。再分别按起点和终点的 SVI 重做分组：若交换分组口径后排名就反转，下一步应该先查清是出发地还是到达地的误差在驱动结果，再去验证兴趣点覆盖的假设。</p>
 
                 
             </div>
@@ -764,12 +747,12 @@
                         <span class="chip bg-color">人类移动性</span>
                     </a>
                     
-                    <a href="/tags/%E8%B7%9D%E7%A6%BB%E8%A1%B0%E5%87%8F/">
-                        <span class="chip bg-color">距离衰减</span>
-                    </a>
-                    
                     <a href="/tags/%E5%BC%95%E5%8A%9B%E6%A8%A1%E5%9E%8B/">
                         <span class="chip bg-color">引力模型</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%B7%9D%E7%A6%BB%E8%A1%B0%E5%87%8F/">
+                        <span class="chip bg-color">距离衰减</span>
                     </a>
                     
                     <a href="/tags/%E5%9C%B0%E7%90%86%E7%BA%A6%E6%9D%9F/">

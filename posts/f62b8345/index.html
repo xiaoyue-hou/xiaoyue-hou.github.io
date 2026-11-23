@@ -383,12 +383,12 @@
                                 <span class="chip bg-color">出行模体</span>
                             </a>
                         
-                            <a href="/tags/%E5%9C%B0%E9%93%81/">
-                                <span class="chip bg-color">地铁</span>
-                            </a>
-                        
                             <a href="/tags/%E7%86%B5/">
                                 <span class="chip bg-color">熵</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%9C%B0%E9%93%81/">
+                                <span class="chip bg-color">地铁</span>
                             </a>
                         
                     </div>
@@ -438,311 +438,36 @@
             <div id="articleContent">
                 <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h2 id="线网差很多的四座城市，地铁乘客的出行骨架为什么这么像？"><a href="#线网差很多的四座城市，地铁乘客的出行骨架为什么这么像？" class="headerlink" title="线网差很多的四座城市，地铁乘客的出行骨架为什么这么像？"></a>线网差很多的四座城市，地铁乘客的出行骨架为什么这么像？</h2><p>论文名片｜Shixin Chang、Liang Gao、Chaoyang Zhang、Ting Yu、Xiao Han、Bingfeng Si、Jose F.F. Mendes，<em>Unraveling metro mobility patterns in China: A multi-city comparative study using travel motifs and entropy analysis</em>，Chaos, Solitons and Fractals，2025，191：115916。2024年11月18日收稿，12月10日接收，12月27日在线发表。<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.chaos.2024.115916">DOI：10.1016/j.chaos.2024.115916</a>。本文依据这一正式版本解读。</p>
-<p>周一早高峰，北京的地铁图铺成一张密网，苏州只有几条线。若只看线网，很难相信两地乘客的刷卡方式会接近。刷卡记录里反复出现的，常常是很少几个车站之间的来回。</p>
-<p>这项研究比较北京、重庆、南京、苏州四座城市各约一个月的地铁自动售检票记录。线网规模差很多，但在每月乘车 15 到 300 次的活跃用户里，十二种出行模体的占比排得很近，几种熵的分布也挤在一起。偏好返回模型在用上这些经验分布之后，能再模拟出熵分布上的几个峰。相似指的是这批地铁活跃用户的统计分布。线网形状怎样改变一个人的选择，要另做开通前后的对照。</p>
-<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
-<li>分析单位是活跃用户。四城为 510 万、84 万、82 万和 17 万，分别占各城票卡用户的 15.5%、15.0%、12.2% 和 6.8%。刷卡条数和全体居民是另外两套口径。</li>
-<li>随机熵主要落在 1.5 到 5.5，对应大约 3 到 46 个不同车站。分布均值约在 2 附近；北京、重庆、苏州的峰约在 2.5。按 2 的熵次方换算，南京更集中于大约 4 个车站，另外三城大约 6 个车站。把到站频率算进去之后，时间无关熵的峰在 1.58 附近，有效车站数大约是 3。</li>
-<li>十二种出行模体里，两站来回的 M1 占活跃用户 28.4% 到 30.8%。模体在提取前去掉只出现一次的车站，计的是反复出现的两站骨架。随机熵等于 1 则表示全部不同车站正好为 2，论文写这个比例不高。</li>
-<li>同一模体组内，熵的峰出现在 0、1、log₂3 和 2 附近。正文用这些峰表示一种很死板的循环，或两三种出现频率接近的主模式。M3、M6、M11 的组内比例是作者给出的概括。</li>
-<li>访问占比随车站秩下降，幂指数 ζ 的四城平均从访问 3 个车站时的 1.76 降到 6 个车站时的 1.29。100 万名模拟用户的熵在 0、1 和 log₂3 处再出现峰；初始子序列已经按观察到的模体占比分配。</li>
-</ul>
-<h2 id="比的是哪一批地铁刷卡？"><a href="#比的是哪一批地铁刷卡？" class="headerlink" title="比的是哪一批地铁刷卡？"></a>比的是哪一批地铁刷卡？</h2><p>四座城市都位于论文所说的中国 GDP 前十，人口、辖区和地铁规模各不相同。表 1 的人口（单位百万人）依次是北京 21.707、重庆 31.018、南京 10.722、苏州 8.436；GDP（单位十亿元人民币）是 2801.5、2036.3、1282.0、1859.7。表 1 把面积印成北京 16 410、重庆 6 587.0、南京 8 657.3、苏州 82 402 平方公里。苏州与重庆这两格的数量级和常见市域面积对不上，论文在该表旁没有给出年鉴出处。后面的比较用的是线网和刷卡，不把这一行面积当成城市尺度的测量结果。</p>
-<p>表 2 给出论文采用的线网底数。北京 22 条线、293 站、608 公里，日客运量 10.35 百万人次；重庆 8 条线、141 站、313 公里、2.35 百万人次；南京 10 条线、150 站、378 公里、3.065 百万人次；苏州 4 条线、93 站、121 公里、0.89 百万人次。日客运量的分母是系统客运量。后面的模体占比另以活跃用户为分母。</p>
-<p><img src="/posts/f62b8345/fig1.webp" alt="完整原论文图1"></p>
-<p>图 1｜四座城市的地铁网，形状差在哪里？</p>
-<p>（a）北京线路多、网格密。（b）重庆线路沿组团伸展。（c）南京线路更疏，覆盖被拉出中心。（d）苏州只有少数几条走廊。颜色区分线路，站名小到需要放大才能读。这张图说明比较发生在形态不同的网上；它本身不包含客流。来源：原论文 Fig. 1。</p>
-<p>刷卡来自各城自动售检票系统，字段包括用户编号、日期、进出站和进出站时间。四个观察窗并不重叠：北京 2017 年 10 月，31 天里 17 个工作日；重庆 2018 年 4 月，30 天里 20 个工作日；南京标为 2018 年 3 月，数据覆盖 28 天、19 个工作日；苏州 2018 年 5 月，30 天里 19 个工作日。南京这 28 天短于 2018 年 3 月的日历长度，苏州的 30 天也短于 5 月的 31 天。</p>
-<p>论文只保留活跃用户：一个月超过 300 次的记录被当作可能的地铁工作人员而剔除，少于 15 次的被当作低频用户剔除。阈值是作者给出的筛选，职业并没有另作核对。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>城市</th>
-<th style="text-align:right">刷卡记录</th>
-<th style="text-align:right">票卡用户</th>
-<th style="text-align:right">活跃用户</th>
-<th style="text-align:right">活跃用户 / 票卡用户</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>北京</td>
-<td style="text-align:right">1.7×10⁸</td>
-<td style="text-align:right">3.3×10⁷</td>
-<td style="text-align:right">5.1×10⁶</td>
-<td style="text-align:right">15.5%</td>
-</tr>
-<tr>
-<td>重庆</td>
-<td style="text-align:right">5.0×10⁷</td>
-<td style="text-align:right">5.6×10⁶</td>
-<td style="text-align:right">8.4×10⁵</td>
-<td style="text-align:right">15.0%</td>
-</tr>
-<tr>
-<td>南京</td>
-<td style="text-align:right">5.2×10⁷</td>
-<td style="text-align:right">6.7×10⁶</td>
-<td style="text-align:right">8.2×10⁵</td>
-<td style="text-align:right">12.2%</td>
-</tr>
-<tr>
-<td>苏州</td>
-<td style="text-align:right">1.5×10⁷</td>
-<td style="text-align:right">2.5×10⁶</td>
-<td style="text-align:right">1.7×10⁵</td>
-<td style="text-align:right">6.8%</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>右列分母是表 3 的票卡用户。四城活跃用户合计 6.93×10⁶，这个合计是四格相加，论文没有单独报告合并样本。苏州留下的比例最低。此后的熵和模体，分母都是这批活跃用户。一次刷卡是一条起讫记录；一个人一个月可以有很多条。</p>
-<h2 id="两名乘客的图，怎样帮人看见“选择并不均匀”？"><a href="#两名乘客的图，怎样帮人看见“选择并不均匀”？" class="headerlink" title="两名乘客的图，怎样帮人看见“选择并不均匀”？"></a>两名乘客的图，怎样帮人看见“选择并不均匀”？</h2><p>把一名用户去过的车站当成点，把自动售检票记下的车次当成有向连线，就得到一张个人出行网。图 2 用两名用户说明这种网可以差很远。正文写，第一人在 20 天里往返 3 个车站，三角形路线跨度约 21 公里、覆盖约 18 平方公里。第二人在 27 天里去过 6 个车站，路线跨度约 70 公里、覆盖约 80 平方公里，而实际选用的连接只有 13 条。连线粗细对应选择次数，两人都有一对车站之间的来回特别多。作者推断其中一个点很可能是居住站，数据里没有单独的居住地字段。</p>
-<p>这两名用户是例子。21 公里、13 条连接都不能外推成某城的平均出行。</p>
-<p><img src="/posts/f62b8345/fig2.webp" alt="完整原论文图2"></p>
-<p>图 2｜同是地铁用户，个人出行网可以差到什么程度？</p>
-<p>（a）3 个车站。纵轴是时间，底面是这几站的空间位置和来回；t1 到 t24 标出依次经过的站。（b）6 个车站，时间层上的折线更散，底面的连线也更多，仍有少数边明显更粗。来源：原论文 Fig. 2。</p>
-<h2 id="去过的车站多，就算出行更难猜吗？"><a href="#去过的车站多，就算出行更难猜吗？" class="headerlink" title="去过的车站多，就算出行更难猜吗？"></a>去过的车站多，就算出行更难猜吗？</h2><p>熵在这里用来比较一张出行序列有多“散”。论文为每个用户准备了四种算法，每一种改一个信息。</p>
-<p>随机熵假定人在自己去过的车站里完全均匀地挑下一站，写成 S^randᵢ = log₂Nᵢ。Nᵢ 是不同车站个数。它是车站集合大小的上限式度量：站越多，这个熵越高。它不看来过几次，也不看先后。</p>
-<p>时间无关熵把均匀假设拿掉，只保留历史到站频率：S^uncᵢ = −Σ pᵢ(j) log₂pᵢ(j)。常去的站会把熵压低。顺序仍然不进入计算。</p>
-<p>出行选择熵把基本单位从车站换成起讫车次：S^tripᵢ = −Σ pᵢ(od) log₂pᵢ(od)。同是三个站，只走家和公司，与三站之间每种搭配都走，这一项可以差很多。</p>
-<p>真实熵还要看子序列的顺序。子序列长度为 1 时，它退回时间无关熵；长度等于整条轨迹时，熵为 0，因为整段行程已经被看完。直接对所有长度计算很重，所以后面用模体对应的那个长度来近似。</p>
-<p><img src="/posts/f62b8345/fig3.webp" alt="完整原论文图3"></p>
-<p>图 3｜三种熵在四座城市里有多接近？</p>
-<p>蓝、橙、绿、红依次是北京、重庆、南京、苏州；灰带是同一熵值上四城的最大到最小，黑线是灰带的平滑均值。（a）随机熵从 1.5 铺到 5.5，峰在 2 到 2.5 附近，南京的峰更靠左、更高。（b）时间无关熵在 1.58 附近最高，再往右迅速下降。（c）出行选择熵的峰靠近 2。来源：原论文 Fig. 3。</p>
-<p>随机熵 1.5 和 5.5 换算成车站数，是 2^1.5 ≈ 2.8 和 2^5.5 ≈ 45.3。论文据此说，用户大约访问 3 到 46 个不同车站。四城这条分布的均值约在 2，2² = 4。北京、重庆、苏州的峰约在 2.5，2^2.5 ≈ 5.7，论文说大约 6 个车站；南京则以较高概率落在大约 4 个车站。论文又写，空间上的不可预测性集中在 8 个车站附近，那对应随机熵 3。</p>
-<p>时间无关熵的峰在 1.58，2^1.58 ≈ 3.0。论文的读法是：人更可能有效地使用 3 个车站，继续增加车站的人变少。随机熵的峰落在大约 4 到 6 个车站，频率加权之后的有效车站数更靠近 3。多去过的站里，有些几乎不再被使用。</p>
-<p>出行选择熵的峰约在 2。均匀选择下，熵为 2 对应大约 4 种起讫。论文原句把这个数量写成约 2 的随机熵次方、大约 4 次出行。无论沿用哪一个上标，被解释的都是大约 4 种车次。分母是这名用户自己的起讫选择。</p>
-<p>图 3 支持四城分布同形、南京的随机熵略偏少站。行程顺序留在后面的模体熵里。</p>
-<h2 id="把一个月收成一张小图，小图为什么只有十二种？"><a href="#把一个月收成一张小图，小图为什么只有十二种？" class="headerlink" title="把一个月收成一张小图，小图为什么只有十二种？"></a>把一个月收成一张小图，小图为什么只有十二种？</h2><p>出行模体（travel motif）在本文里是个人时空图里反复出现的有向小结构，自环保留。自环的来源很具体：上一趟的到达站可以是下一趟的出发站，时间不同，两点仍要分开。只出现一次的车站在提取模体前被去掉。方法节还写，权重小于 1 的边被排除，因为只发生一次的出行可能是偶然出行。若权重就是次数，出现一次的边权重为 1，并不小于 1。正文同时留下这两句，没有再给一个可复核的删除公式。</p>
-<p>模体的用途，是替每名用户选一个子序列长度，用来计算模体熵，并把它当作真实熵的近似。表 4 最后一列就是这个长度，M1 为 4，M3 为 16，M12 为 28。正文没有列出从图形数到这些长度的逐步规则。每个用户只归入一种模体，多种模体的组合不单独分类。</p>
-<p><img src="/posts/f62b8345/fig4.webp" alt="完整原论文图4"></p>
-<p>图 4｜十二种典型模体各自由哪些站和箭头组成？</p>
-<p>图中没有 a、b 子图字母。黑点是车站，蓝箭头是有向联系，多数点上有自环。M1 是上下两个车站对开。M2 和 M3 各有三个车站，M3 的箭头更满。M4 到 M12 的点和箭头继续变密。正文点名的结构是：M6 为四站环，M11 为 6 个节点、5 条连接。其余模体的箭头以图为准。来源：原论文 Fig. 4。</p>
-<p>这十二种模体在每座城市都出现，正文说它们覆盖至多 95% 的用户。表 4 的单位是占该城活跃用户的百分比。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>模体</th>
-<th style="text-align:right">北京</th>
-<th style="text-align:right">重庆</th>
-<th style="text-align:right">南京</th>
-<th style="text-align:right">苏州</th>
-<th style="text-align:right">子序列长度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>M1</td>
-<td style="text-align:right">29.2</td>
-<td style="text-align:right">30.7</td>
-<td style="text-align:right">28.4</td>
-<td style="text-align:right">30.8</td>
-<td style="text-align:right">4</td>
-</tr>
-<tr>
-<td>M2</td>
-<td style="text-align:right">18.6</td>
-<td style="text-align:right">15.1</td>
-<td style="text-align:right">17.0</td>
-<td style="text-align:right">18.2</td>
-<td style="text-align:right">8</td>
-</tr>
-<tr>
-<td>M3</td>
-<td style="text-align:right">16.7</td>
-<td style="text-align:right">14.7</td>
-<td style="text-align:right">14.7</td>
-<td style="text-align:right">15.2</td>
-<td style="text-align:right">16</td>
-</tr>
-<tr>
-<td>M4</td>
-<td style="text-align:right">9.25</td>
-<td style="text-align:right">8.51</td>
-<td style="text-align:right">9.44</td>
-<td style="text-align:right">8.51</td>
-<td style="text-align:right">12</td>
-</tr>
-<tr>
-<td>M5</td>
-<td style="text-align:right">7.91</td>
-<td style="text-align:right">7.45</td>
-<td style="text-align:right">8.45</td>
-<td style="text-align:right">8.56</td>
-<td style="text-align:right">12</td>
-</tr>
-<tr>
-<td>M6</td>
-<td style="text-align:right">4.07</td>
-<td style="text-align:right">4.30</td>
-<td style="text-align:right">4.48</td>
-<td style="text-align:right">3.88</td>
-<td style="text-align:right">20</td>
-</tr>
-<tr>
-<td>M7</td>
-<td style="text-align:right">3.74</td>
-<td style="text-align:right">3.90</td>
-<td style="text-align:right">4.34</td>
-<td style="text-align:right">3.82</td>
-<td style="text-align:right">20</td>
-</tr>
-<tr>
-<td>M8</td>
-<td style="text-align:right">3.59</td>
-<td style="text-align:right">3.50</td>
-<td style="text-align:right">3.85</td>
-<td style="text-align:right">3.61</td>
-<td style="text-align:right">16</td>
-</tr>
-<tr>
-<td>M9</td>
-<td style="text-align:right">2.40</td>
-<td style="text-align:right">2.87</td>
-<td style="text-align:right">3.07</td>
-<td style="text-align:right">2.43</td>
-<td style="text-align:right">24</td>
-</tr>
-<tr>
-<td>M10</td>
-<td style="text-align:right">1.73</td>
-<td style="text-align:right">1.79</td>
-<td style="text-align:right">1.92</td>
-<td style="text-align:right">1.54</td>
-<td style="text-align:right">24</td>
-</tr>
-<tr>
-<td>M11</td>
-<td style="text-align:right">1.56</td>
-<td style="text-align:right">1.71</td>
-<td style="text-align:right">1.62</td>
-<td style="text-align:right">1.27</td>
-<td style="text-align:right">20</td>
-</tr>
-<tr>
-<td>M12</td>
-<td style="text-align:right">1.20</td>
-<td style="text-align:right">1.52</td>
-<td style="text-align:right">1.55</td>
-<td style="text-align:right">1.21</td>
-<td style="text-align:right">28</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>十二行相加，北京 99.95%、重庆 96.05%、南京 98.82%、苏州 99.03%。相加时每一项的分母都是 100 个百分点。概括句里的“至多 95%”低于这四个加总，阅读占比时以表中的分项为准。四城的名次几乎相同，只有苏州 M5 的 8.56% 略高于 M4 的 8.51%。</p>
-<p>正文概括，大约 30% 的用户在两个固定车站之间活动，大约 17% 在三个固定车站组成的环上活动。和 30% 对齐的是 M1 的 28.4%–30.8%。17% 更接近 M2 的 15.1%–18.6%；M3 是 14.7%–16.7%，后文又把 M3 称作三站环。正文没有把“大约 17%”再指定到 M2 或 M3 的编号上。</p>
-<p><img src="/posts/f62b8345/fig5.webp" alt="完整原论文图5"></p>
-<p>图 5｜模体占比怎样随名次下降？</p>
-<p>无子图字母。横轴是模体名次 1 到 12，纵轴是占比、对数刻度。四城的点几乎叠在同一条下降线上，第 1 名约在 0.3，第 12 名略高于 0.01，与表 4 的 28.4%–30.8% 和 1.20%–1.55% 相符。图注给出 y = −0.28x + 1.15，R² = 0.9824，并把对数坐标上的直线读成占比随名次指数下降。后文使用的占比以表 4 为准。来源：原论文 Fig. 5。</p>
-<p>M1 约占三成，而随机熵等于 1 的用户比例被论文描述为不高。随机熵等于 1 意味着不同车站数正好是 2。模体在提取前去掉只出现一次的车站，随机熵则把这名用户去过的车站都算进 Nᵢ。两套数字的分母都是活跃用户，计入的车站集合不同：M1 量的是反复出现的两站骨架，随机熵把偶尔去过的站也算进去。论文自己的解释是，通勤者还会访问两个通勤站以外的车站。</p>
-<h2 id="同一种骨架里，还有多少人完全按一种循环走？"><a href="#同一种骨架里，还有多少人完全按一种循环走？" class="headerlink" title="同一种骨架里，还有多少人完全按一种循环走？"></a>同一种骨架里，还有多少人完全按一种循环走？</h2><p>模体熵看的是：按该模体的子序列长度切出行链之后，各种长度为这个值的片段有多集中。熵为 0，表示切出来的片段非常单一。熵为 1，等于 log₂2，论文把它读成两种主模式的频率接近。log₂3 ≈ 1.58 对应三种，2 对应四种。这个 m 是作者用来解释峰位的主模式个数。它和随机熵里 2 的幂次所对应的车站个数，回答的是两件不同的事。</p>
-<p><img src="/posts/f62b8345/fig6.webp" alt="完整原论文图6"></p>
-<p>图 6｜同一种模体内部，熵是单峰还是多峰？</p>
-<p>颜色和图 3 相同，灰带仍是四城在该熵值上的最大到最小。（a）M3，横轴到 2；0 处的峰顶在 0.3 一线，1 附近的峰高于 0.1。（b）M6，0 处顶到 0.2，1 附近略高于 0.1，更高熵处还有更小的峰。（c）M11，0 处接近 0.2，1 之后继续有若干小峰。四城曲线的起伏位置一致。来源：原论文 Fig. 6。</p>
-<p>正文的概括以组内用户为分母。M3 里大约 30% 严格走三站环，大约 15% 再带一个附加模体，与图 6a 在 0 和 1 附近的峰同量级。M6 里大约 20% 严格走四站环，大约 6% 多一个模体，大约 5% 多两个模体。0 处大约 20% 与图 6b 的轴顶一致；1 附近的峰按纵轴看略高于 0.1，高于正文写的大约 6%。M11 里大约 18% 在 6 个节点、5 条连接上活动，多一个、两个、三个模体的大约是 6%、5% 和 5%。这些百分比是正文概括，图上没有逐点标出。</p>
-<p>30% 的分母是 M3 这一组。北京 M3 占活跃用户 16.7%，组内大约 30% 乘回去，大约相当于全体活跃用户的 5%。30% 本身是大约，这个 5% 只表示量级。</p>
-<p>其余九种模体的熵分布写在补充材料中。正文的概括是：结构越复杂，熵越分散，四城波动几乎相同。下文的峰高只来自正文已经画出的 M3、M6、M11 和全体分布。</p>
-<p><img src="/posts/f62b8345/fig7.webp" alt="完整原论文图7"></p>
-<p>图 7｜全体用户的模体熵，和“各长度里最规则的那个熵”像不像？</p>
-<p>（a）按每人所属模体算出的熵。0 处最高，图上超过 0.25；1 附近是第二个主峰，再往后峰谷差变小。（b）对每名用户在不同子序列长度上计算熵，取最小值。0 和 1 两处的峰还在，高熵一侧更平。来源：原论文 Fig. 7。</p>
-<p>图 7b 被用来支持模体长度是一个可用的近似：它和按模体计算的分布像。论文没有给出两条分布的距离或相关系数。“像”是图上的判断。熵越高，峰和谷越接近，人越难被收成一种稳定循环。高熵用户在四城都存在，只是占比低。</p>
-<h2 id="偏好返回模型，复现的是哪一层规律？"><a href="#偏好返回模型，复现的是哪一层规律？" class="headerlink" title="偏好返回模型，复现的是哪一层规律？"></a>偏好返回模型，复现的是哪一层规律？</h2><p>个人模型要接上两件事：人会回到自己常去的站，又不会让最早去过的站永远累积优势。论文把下一站选在第 r 个地点的概率写成到访次数除以这名用户全部到访次数，fᵣ = mᵣ / Σ mᵣ。到访很不均匀时，这个频率随秩近似成齐夫关系 fᵣ ∼ r^(−ζ)。同一组“不同车站数 Nᵢ 相同”的用户共用一个 ζ。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:right">不同车站数</th>
-<th style="text-align:right">北京</th>
-<th style="text-align:right">重庆</th>
-<th style="text-align:right">南京</th>
-<th style="text-align:right">苏州</th>
-<th style="text-align:right">平均</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right">2</td>
-<td style="text-align:right">1.63</td>
-<td style="text-align:right">1.52</td>
-<td style="text-align:right">1.71</td>
-<td style="text-align:right">1.77</td>
-<td style="text-align:right">1.66</td>
-</tr>
-<tr>
-<td style="text-align:right">3</td>
-<td style="text-align:right">1.71</td>
-<td style="text-align:right">1.73</td>
-<td style="text-align:right">1.83</td>
-<td style="text-align:right">1.83</td>
-<td style="text-align:right">1.76</td>
-</tr>
-<tr>
-<td style="text-align:right">4</td>
-<td style="text-align:right">1.44</td>
-<td style="text-align:right">1.49</td>
-<td style="text-align:right">1.6</td>
-<td style="text-align:right">1.59</td>
-<td style="text-align:right">1.53</td>
-</tr>
-<tr>
-<td style="text-align:right">5</td>
-<td style="text-align:right">1.35</td>
-<td style="text-align:right">1.34</td>
-<td style="text-align:right">1.43</td>
-<td style="text-align:right">1.40</td>
-<td style="text-align:right">1.38</td>
-</tr>
-<tr>
-<td style="text-align:right">6</td>
-<td style="text-align:right">1.28</td>
-<td style="text-align:right">1.24</td>
-<td style="text-align:right">1.32</td>
-<td style="text-align:right">1.33</td>
-<td style="text-align:right">1.29</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>平均列是四城并列之后的平均值，论文没有按活跃用户数加权。ζ 在 3 个车站时最高，平均 1.76；到 6 个车站降到 1.29。2 个车站的平均 1.66，低于 3 个车站。论文的总判断是：模体更简单的用户更依赖历史到访，模体更复杂的用户依赖更弱。表只报到 6 个车站。图 8a 的横轴延伸到 20 以上，更多车站的用户没有对应的 ζ。</p>
-<p>偏好在每次移动后更新，用来抵消旧地点的累积优势。正文用文字说明了这一步，没有再给一个独立公式。</p>
-<p><img src="/posts/f62b8345/fig8.webp" alt="完整原论文图8"></p>
-<p>图 8｜模拟之前，车站数和出行链长度本身如何分布？</p>
-<p>（a）不同车站个数 Nᵢ。四城都在大约 5 到 8 个车站处最高，纵轴大约 0.12 到 0.15；重庆的点往更大的车站数延伸更远，南京下降更快。黑线是五次多项式，R² = 0.9684。（b）出行链长度 Lᵢ。主峰大约在 30 到 40，概率约 0.04；70 到 90 附近还有一个较低的平台。六次多项式的 R² = 0.9042，曲线在接近 100 时再次抬头，这段抬头更像多项式的形状。来源：原论文 Fig. 8。</p>
-<p>论文写图 8a 与图 3a 相似。一条横轴是车站个数，另一条是车站个数的以 2 为底对数。图 8a 的高点在大约 5 到 8 个车站，图 3a 的高点在熵大约 2 到 2.5，换算成大约 4 到 6 个车站。两者都是“少数人只去两站、多数人集中在数个车站”。</p>
-<p>模拟把三样东西直接取自经验分布：按图 8a 分配不同车站数，按图 5 的指数占比分配初始模体链，按图 8b 抽取链长。车站的地理坐标不进入模型，模型记录的是去过几种站、每种去了多少次。</p>
-<p><img src="/posts/f62b8345/fig9.webp" alt="完整原论文图9"></p>
-<p>图 9｜100 万名模拟用户的熵，峰落在哪里？</p>
-<p>无子图字母。蓝点是模拟，黑线是均值。图上 0 处约 0.25，1 附近约 0.13，1.5 到 1.6 之间约 0.06，之后下降。来源：原论文 Fig. 9。</p>
-<p>这三个位置对应 0、1 和 log₂3，与图 7 的前几个峰同址。论文写特征熵值的比例与观察数据接近，没有报告分布距离、相关系数或分城误差。初始链已经按观察到的模体占比放进模型。图 9 说明的是：在车站数、模体占比和链长都照经验分布给定之后，偏好返回还能把熵的峰留在这些位置。M1 为何约占三成，在这套模拟里是初始条件。</p>
-<h2 id="相似可以说到哪一步？"><a href="#相似可以说到哪一步？" class="headerlink" title="相似可以说到哪一步？"></a>相似可以说到哪一步？</h2><p>四城曲线接近，比较的是各自活跃用户内部的分布形状。观察窗相差半年，工作日数量从 17 天到 20 天，线网从 93 站到 293 站。分布相似发生在这些差异已经存在的时候。论文没有做同一批人在新线开通前后的对照。四城模体占比接近时，线网规模的差异已经同时存在。</p>
-<p>样本停在地铁闸机里。步行、公交、驾车和小汽车接驳都不在序列中。一名用户的两站模体，可能只是他地铁部分的骨架。</p>
-<p>活跃用户排除了少于 15 次和多于 300 次的人。低频乘客和被怀疑为工作人员的极端高频乘客，都不参与熵的峰。引言里北京地铁占偏好通勤方式 52%、公共交通出行 71% 的句子，没有给出由这批刷卡计算的过程。表 3 报告的是记录数、票卡用户和活跃用户。</p>
-<p>每人只保留一种模体。熵分布上的第二、第三个峰，是作者对“还有别的主模式”的读法。</p>
-<p>数据可用性声明写的是 “No data was used for the research described in the article.” 正文明确使用了四城自动售检票数据。声明和正文对不上，PDF 里也没有附上可复算的记录。</p>
-<p>讨论列出的后续方向包括：四座城市对稳健性不够，时间序列可以改成动态监测，指标还可以纳入更多社会和拓扑统计，空间距离尚未进入模型。这些是作者标明的未做事项。</p>
-<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>在每月 15 到 300 次的地铁活跃用户里，四座线网很不相同的城市仍然共享接近的模体占比和熵分布；偏好返回模型在吃进这些分布之后，把熵峰留在 0、1 和 log₂3。线网规模与模体占比的关系，停留在四城横截面的同时出现。</p>
+<h2 id="地铁图长得不一样，乘客的出行骨架也会不一样吗？"><a href="#地铁图长得不一样，乘客的出行骨架也会不一样吗？" class="headerlink" title="地铁图长得不一样，乘客的出行骨架也会不一样吗？"></a>地铁图长得不一样，乘客的出行骨架也会不一样吗？</h2><p>北京和苏州的地铁线路图几乎不会被认错，但经常乘地铁的人可能都在少数站点之间反复往返。Shixin Chang、Liang Gao 等在 <em>Chaos, Solitons &amp; Fractals</em> 191:115916 的正式论文（2024 年 12 月 27 日在线，2025 年卷，<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.chaos.2024.115916">DOI</a>）用北京、重庆、南京和苏州约一个月的刷卡记录，检验线路差异背后能否看到相似的群体出行结构。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/f62b8345/fig1.png" alt="完整原论文图1"></p>
+<p>图 1｜北京、重庆、南京和苏州的地铁线网；网络规模不同，不能只看图猜乘客行为。</p>
+<h2 id="把车站名称拿走，还剩下什么？"><a href="#把车站名称拿走，还剩下什么？" class="headerlink" title="把车站名称拿走，还剩下什么？"></a>把车站名称拿走，还剩下什么？</h2><p>论文先比较每月刷卡 15–300 次的活跃样本。出行模体描述的是站点之间的连接方式，而不是车站的名称或它们之间的公里数。两种行程如果都在两个常用站之间反复往返，即使一趟在北京、一趟在苏州，也可以落入同一种模体。研究同时用几种熵指标区分去过多少站、各站访问有多集中，以及把访问顺序算进去后有多少不确定性；这些问题不能互换。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/f62b8345/fig2.png" alt="完整原论文图2"></p>
+<p>图 2｜两个站点数不同的出行链样例；纵向展示时间顺序，不是车站高度。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/f62b8345/fig3.png" alt="完整原论文图3"></p>
+<p>图 3｜三种熵分别衡量可选站点、访问频率与顺序信息；比较的是分布，不是某位乘客的预测成绩。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/f62b8345/fig4.png" alt="完整原论文图4"></p>
+<p>图 4｜十二种常见模体；节点和箭头表示站点之间的关系，不是可定位的路线。</p>
+<h2 id="四城相似的是统计分布，不是每个人的路线"><a href="#四城相似的是统计分布，不是每个人的路线" class="headerlink" title="四城相似的是统计分布，不是每个人的路线"></a>四城相似的是统计分布，不是每个人的路线</h2><p>作者报告，十二种典型模体在各城能覆盖约九成以上的用户，最高约 95%。四城的排序与若干熵分布相近。相似出现在筛选后的活跃乘客群体中，不能推广到不坐地铁的人或完整的门到门出行，也不能反推线网形状对出行没有作用。刷卡统计更不能单独说明某处停留是工作还是休闲。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/f62b8345/fig5.png" alt="完整原论文图5"></p>
+<p>图 5｜十二种模体按占比排序，四城的下降趋势相近。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/f62b8345/fig6.png" alt="完整原论文图6"></p>
+<p>图 6｜三种模体的熵分布示例；阴影表示城市之间的范围，而非个体预测的不确定性。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f62b8345/fig7.png" alt="完整原论文图7"></p>
+<p>图 7｜按两种展示口径比较用户熵；局部峰值可重复出现，并非所有人集中在同一水平。</p>
+<p>论文还用站点数与出行链长度等实测特征设定带偏好返回的模型。模型能再现多个峰值，说明“反复回到常见站点”可以帮助解释分布形状。由于模拟已使用这批数据的统计输入，这不是把模型带到第五座城市所做的独立预测，也没有证明只有这一种机制能产生相似的峰。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/f62b8345/fig8.png" alt="完整原论文图8"></p>
+<p>图 8｜出行链的站点数和长度分布，为理解模拟输入提供参照。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/f62b8345/fig9.png" alt="完整原论文图9"></p>
+<p>图 9｜模拟熵的峰与经验均线作比较；吻合是对群体分布的复现。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>四座城市的活跃地铁用户在常见模体与若干熵指标上呈现相近分布。给定经验特征后，偏好返回模型能复现部分分布形状。研究是多城观察比较，没有用事件前后的独立设计检验线网变化怎样引起行为变化。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>把真实车站抽象成连接形状，可以看见常见往返结构在四座地铁城市中重复出现；把访问频率和顺序加回来，又能看到这种重复并不等于每个人都按同一条路线走。论文最有说服力的证据是筛选后群体的分布相似，最不宜外推的是把这种相似写成所有城市的交通规律。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.chaos.2024.115916">Chaos, Solitons and Fractals 正式页面</a>，卷期为 191 (2025) 115916。正文图 1–9 与表 1–5 均来自这一版本。</li>
-<li>论文写明补充材料可在同一 DOI 获取。除 M3、M6、M11 和全体用户外的分模体熵分布，只在正文中被概括，不在这 9 页 PDF 内。</li>
+<li>Chang, S., Gao, L., Zhang, C., Yu, T., Han, X., Si, B. &amp; Mendes, J. F. F. <em>Unraveling metro mobility patterns in China: A multi-city comparative study using travel motifs and entropy analysis</em>. Chaos, Solitons &amp; Fractals 191, 115916 (2025)。<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.chaos.2024.115916">正式论文</a>。图 1–9 均来自正式论文；数据和图版权利需分别核对。</li>
 </ul>
-<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>以下只写论文署名、贡献说明和论文里能够核对的机构信息。</p>
-<ul>
-<li>Shixin Chang：北京交通大学系统科学学院，以及综合交通运输大数据应用技术交通运输行业重点实验室。贡献为调查和撰写初稿。</li>
-<li>Liang Gao：同一学院和重点实验室，通讯作者。贡献为概念、调查、指导和撰写初稿。论文所留邮箱为 lianggao@bjtu.edu.cn。</li>
-<li>Chaoyang Zhang：同时署北京交通大学上述单位，以及葡萄牙阿威罗大学物理系与 I3N。贡献为调查和审阅修改。致谢写明中国留学基金委项目 202207090075 的支持。</li>
-<li>Ting Yu：北京交通大学系统科学学院和上述重点实验室。贡献为调查和审阅修改。</li>
-<li>Xiao Han：署名单位只标到北京交通大学系统科学学院。贡献为验证和审阅修改。</li>
-<li>Bingfeng Si：北京交通大学系统科学学院和上述重点实验室，通讯作者。贡献为调查和撰写初稿。论文所留邮箱为 bfsi@bjtu.edu.cn。</li>
-<li>Jose F.F. Mendes：阿威罗大学物理系与 I3N，通讯作者。贡献为概念和审阅修改。参考文献中与 S. N. Dorogovtsev 合著的 <em>The Nature of Complex Networks</em>（牛津大学出版社，2022）也使用这一姓名。论文所留邮箱为 jfmendes@ua.pt。</li>
-</ul>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Shixin Chang 为第一作者；正式版列 Liang Gao、Bingfeng Si、Jose F. F. Mendes 为通讯作者。团队涉及交通运输建模和复杂系统研究。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>若要检验“线网变了，出行骨架变不变”，同一城市、同一批卡在新线开通前后的模体占比，比四座城市的横截面更直接。比较时可以继续用本文的活跃用户门槛作基线：开通后仍然每月 15 到 300 次的人，M1 是否还在 30% 附近；同时单列开通后才进入这个门槛的人。横截面里的相似，给这个前后比较提供了一个待检验的数字。</p>
-<p>另一组值得单列的人，是每月少于 15 次、因而没有进入熵分布的乘客。运营上更难安排的往往是这批人，而本文的峰主要由反复出行的人贡献。把同一月份、同一城市里 2 到 14 次的用户，按他们实际出现过的车站数和起讫种类，与活跃用户的图 3 并排，就能看出“好猜”在多大程度上来自样本门槛。这个对照不需要先假定他们也会落入 M1。</p>
+<p>我会先用未参与建模的城市做组层面检验，再换一套活跃度筛选阈值。若最常见的模体仍然相似，而低频出行的模体差很多，这个规律就适合解释通勤样本，但不宜被用作整个地铁系统的行为模型。</p>
 
                 
             </div>
@@ -815,12 +540,12 @@
                                     <span class="chip bg-color">出行模体</span>
                                 </a>
                             
-                                <a href="/tags/%E5%9C%B0%E9%93%81/">
-                                    <span class="chip bg-color">地铁</span>
-                                </a>
-                            
                                 <a href="/tags/%E7%86%B5/">
                                     <span class="chip bg-color">熵</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%9C%B0%E9%93%81/">
+                                    <span class="chip bg-color">地铁</span>
                                 </a>
                             
                         </div>
@@ -907,12 +632,12 @@
                         <span class="chip bg-color">人类移动性</span>
                     </a>
                     
-                    <a href="/tags/%E5%9F%8E%E5%B8%82%E8%A7%84%E5%88%92/">
-                        <span class="chip bg-color">城市规划</span>
-                    </a>
-                    
                     <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
                         <span class="chip bg-color">深度学习</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9F%8E%E5%B8%82%E8%A7%84%E5%88%92/">
+                        <span class="chip bg-color">城市规划</span>
                     </a>
                     
                     <a href="/tags/%E8%B5%B7%E8%AE%AB%E6%B5%81%E9%87%8F/">
@@ -963,16 +688,16 @@
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/%E5%9F%8E%E5%B8%82%E5%87%BA%E8%A1%8C/">
+                        <span class="chip bg-color">城市出行</span>
+                    </a>
+                    
                     <a href="/tags/%E6%B4%BB%E5%8A%A8%E6%A8%A1%E5%9E%8B/">
                         <span class="chip bg-color">活动模型</span>
                     </a>
                     
                     <a href="/tags/%E9%9D%A2%E5%AF%B9%E9%9D%A2%E6%8E%A5%E8%A7%A6/">
                         <span class="chip bg-color">面对面接触</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%9F%8E%E5%B8%82%E5%87%BA%E8%A1%8C/">
-                        <span class="chip bg-color">城市出行</span>
                     </a>
                     
                     <a href="/tags/%E6%B3%95%E5%85%B0%E8%A5%BF%E5%B2%9B/">

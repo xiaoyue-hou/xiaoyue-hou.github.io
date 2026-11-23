@@ -432,95 +432,33 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h2 id="电话与推文记录了不同的人，怎样一起帮助预测去向？"><a href="#电话与推文记录了不同的人，怎样一起帮助预测去向？" class="headerlink" title="电话与推文记录了不同的人，怎样一起帮助预测去向？"></a>电话与推文记录了不同的人，怎样一起帮助预测去向？</h2><p>论文名片｜Lucas M. Silveira、Jussara M. de Almeida、Humberto T. Marques-Neto、Carlos Sarraute、Artur Ziviani，<em>MobHet: Predicting human mobility using heterogeneous data sources</em>，Computer Communications，95，54—68，2016。<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.comcom.2016.04.013">DOI</a>。</p>
-<p>一个人在商业区打电话，另一个人在附近发带定位的推文。两条记录既不属于同一个账号，也不是连续轨迹。把它们放到一起，究竟能补充城市的移动规律，还是会把两种不一样的采样方式混在一起？</p>
-<p>MobHet 用区域转移图统一这些记录，再比较不同信息对预测的贡献。它给出的答案相当具体：共享区域图能处理不同来源；联系人信息也有帮助，但这两种收益在论文中来自不同实验，不能合并成一个无条件成立的融合故事。</p>
-<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
-<li>模型预测人在离散时间窗内所在的区域，以区域完全命中的比例评分；研究使用 500 米边长网格，并不直接预测道路轨迹或精确坐标。</li>
-<li>区域热度、区域间转移频率和联系人共处概率可以共同改善位置预测，但联系人定义过松或过严，表现都会下降。</li>
-<li>巴西电话与推文中的身份无法对应，数据融合依靠共享空间图；由于巴西电话记录没有被叫标识，跨来源实验只使用热度和转移频率。</li>
-<li>加入第二种来源没有自动超过表现最好的单来源结果。数据如何对齐、是否出现训练中没有见过的区域，都会改变成绩。</li>
-</ul>
-<h2 id="两类记录，真的在测同一件事吗？"><a href="#两类记录，真的在测同一件事吗？" class="headerlink" title="两类记录，真的在测同一件事吗？"></a>两类记录，真的在测同一件事吗？</h2><p>电话记录把位置关联到通信基站；带定位的推文给出发帖坐标。前者随通话发生，后者随发帖发生，都不能直接代表每个人全天的连续移动。论文先删除只出现一次电话或推文的用户，再把空间统一成网格。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>数据</th>
-<th>时间和范围</th>
-<th>过滤后规模</th>
-<th>可提供的信息</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>MobilePhone-BR</td>
-<td>巴西五座大城市，2011—2014 年间 27 份短时采集</td>
-<td>874,147 次通话、表内合计 383,742 用户</td>
-<td>通话时间与起讫基站，无法推断呼叫双方关系</td>
-</tr>
-<tr>
-<td>Twitter-BR</td>
-<td>与巴西通话采集对应的地点和时段</td>
-<td>974,406 条推文、表内合计 392,848 用户</td>
-<td>定位、关注关系和转推互动</td>
-</tr>
-<tr>
-<td>MobilePhone-MX</td>
-<td>墨西哥，2014 年 3 月 1—31 日</td>
-<td>9,882,477 次通话、3,541,580 用户、22,304 基站</td>
-<td>增加被叫匿名标识，可估计互动关系</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>巴西的用户数量是各采集批次的表内汇总，不能直接当作整个时期去重后的城市居民数。Table 2 给出各城市、日期、时段及样本量；Table 1 汇总符号。这些记录描述特定服务的活跃用户，不能自动推广到全部居民。</p>
+<h2 id="电话和推文合在一起，移动数据真的会更好吗？"><a href="#电话和推文合在一起，移动数据真的会更好吗？" class="headerlink" title="电话和推文合在一起，移动数据真的会更好吗？"></a>电话和推文合在一起，移动数据真的会更好吗？</h2><p>论文名片｜Lucas M. Silveira、Jussara M. de Almeida、Humberto T. Marques-Neto、Carlos Sarraute、Artur Ziviani，<em>MobHet: Predicting human mobility using heterogeneous data sources</em>，<em>Computer Communications</em> 95（2016）：54–68。<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.comcom.2016.04.013">DOI：10.1016/j.comcom.2016.04.013</a>。校读同 DOI 的 Article in Press 排版稿，卷页以正式书目为准。</p>
+<p>一部手机路过三个街区，电话记录可能只在拨打时留下基站位置；地理标注推文也只在有人发帖时出现。两套样本都遗漏了很多移动，更不一定遗漏同样的部分。论文把异质来源放到共同区域表示下，比较单源和融合在历史样本上的准确率。本文只讨论比较结果和资料约束，不把实验变成推测现实个人去向的指南。</p>
+<h2 id="两套记录，不是同一把尺"><a href="#两套记录，不是同一把尺" class="headerlink" title="两套记录，不是同一把尺"></a>两套记录，不是同一把尺</h2><p>电话记录受基站布设和通信事件影响，推文受发帖与地理标签选择影响；即使共享一个地点标签，覆盖的人群、活动和时间也可能不同。粗化到共同区域便于对照，却不会补回从未被观测的人群，也可能使空间精度较高的一方失去信息。</p>
 <p><img src="/posts/mobhet-mobility-2016/fig2.webp" alt="贝洛奥里藏特基站分布"></p>
-<p>图 2｜电话位置在城市里由哪些观测点产生？这张单面板地图展示贝洛奥里藏特的基站，橙色天线符号为位置点，底图提供城市道路背景。观测点分布并不均匀；图本身没有给出各点用户量，也不能把每个图标当作一个等面积服务区。来源：原论文 Fig. 2。</p>
+<p><strong>图 2｜</strong> 贝洛奥里藏特样本的基站覆盖背景。位置标记表示样本的观测设施，不是人流强弱。</p>
 <p><img src="/posts/mobhet-mobility-2016/fig3.webp" alt="墨西哥基站分布"></p>
-<p>图 3｜另一个国家的数据覆盖在哪里？单面板地图以红色标记展示墨西哥基站。南部和中部标记更密集，但地图密度不是人口密度估计，更不是对每个人的连续追踪。来源：原论文 Fig. 3。</p>
-<p>巴西两类数据独立收集，论文不能识别电话用户与推文用户是否为同一个人，建模时将两组身份视为不相交。因此，所谓异构数据融合首先是把不同人的记录投到共同区域，而不是拼出某个个人的完整跨平台生活史。</p>
+<p><strong>图 3｜</strong> 墨西哥数据有不同的空间覆盖范围，不宜与单座城市的结果直接混成一个样本。</p>
 <p><img src="/posts/mobhet-mobility-2016/fig4.webp" alt="电话和推文的小时数量"></p>
-<p>图 4｜同一时段，两类数据的出现频率相同吗？横轴为 2014 年 6 月 29 日里约热内卢的一天内小时，纵轴为记录数；深灰为电话、浅灰为推文。两者均随时间波动，且数量不一致。按小时学习可以减少把不同活动时段混为同一分布的问题，但不能消除平台选择偏差。来源：原论文 Fig. 4。</p>
-<h2 id="一张区域图，怎样变成下一时刻的位置概率？"><a href="#一张区域图，怎样变成下一时刻的位置概率？" class="headerlink" title="一张区域图，怎样变成下一时刻的位置概率？"></a>一张区域图，怎样变成下一时刻的位置概率？</h2><p>MobHet 将地区作为节点，把相邻时间窗中出现的区域转移作为边。留在同一区域也有自环。所有用户的记录共同形成一张群体图，再从待预测用户的起点在图上模拟，不是为每个人训练一套独立参数。</p>
-<p>三个候选线索分别是：区域热度 P，即训练期到访该区域的不同用户数；转移频率 T，即相邻时间窗之间从一个区域去另一个区域的经验频率；联系人共处概率 C，即在一定数量联系人同处某区域时，用户也在该区域的条件概率。C 由训练数据估计后跨用户汇总，因此仍是一种群体统计。</p>
+<p><strong>图 4｜</strong> 里约示例中，电话和推文数量在同一时段也不相同。事件数量是资料可见性，不是移动人数。</p>
 <p><img src="/posts/mobhet-mobility-2016/fig1.webp" alt="MobHet转移概率计算示例"></p>
-<p>图 1｜热度和转移频率怎样共同决定下一步？（a）三个区域的热度 p 与边上的转移频率 h，自环代表停留；（b）将目的地区域热度与对应转移频率相乘，得到边权；（c）对同一出发节点的所有出边归一化，得到概率。例如从 r₁ 到 r₃ 为约 0.55，到 r₂ 约 0.31，停留约 0.14。图中的 r₂、r₃ 只有自环可选，归一化后为 1。来源：原论文 Fig. 1。</p>
-<p>只结合 T 和 P 的版本叫 MobHet-TP；再加 C，叫 MobHet-TPC。论文还比较只用 C、组合 TC、组合 PC 的变体，用来判断某条信息被移除后会发生什么。所选特征相乘后归一化，构成随机转移概率。</p>
-<p>这里还有一个重要假设：电话和推文是稀疏事件。两个已知记录之间的空白，被处理为在两个端点区域各停留一半间隔，并在一个时间窗内完成转移。时间窗内发生又返回的旅行没有被单独恢复。因此，评价位置也依赖这套填补规则，不等同于独立 GPS 真值。</p>
-<h2 id="预测的时间边界，怎样避免与未来混淆？"><a href="#预测的时间边界，怎样避免与未来混淆？" class="headerlink" title="预测的时间边界，怎样避免与未来混淆？"></a>预测的时间边界，怎样避免与未来混淆？</h2><p>研究使用两种训练测试划分。跨日方案用较早日期的同一小时训练，预测较晚日期相应小时；同日方案则把每小时的前 30 分钟用于训练，后 30 分钟用于测试。两者都遵守训练先于测试，但各自在短时段内假设移动规律大致稳定。</p>
+<p><strong>图 1｜</strong> 共同区域表示的抽象示意。重点在于把不同粒度的观测转换成能比较的区域关系，不是获取或推断个人位置的流程。</p>
+<h2 id="比较准确率，先交代测试条件"><a href="#比较准确率，先交代测试条件" class="headerlink" title="比较准确率，先交代测试条件"></a>比较准确率，先交代测试条件</h2><p>论文报告两种历史留出方式：跨日与同日分开。两者考验的稳定性不同，而且分数只在留下且可打分的记录上计算，不是对所有人的覆盖率。人群选择、初始条件、空间对齐和可用资料都会改变分母。</p>
 <p><img src="/posts/mobhet-mobility-2016/fig5.webp" alt="跨日训练和测试"></p>
-<p>图 5｜过去一天的规律怎样应用于后来一天？上方为训练日的连续一小时区段，下方为后续日期的对应区段，箭头表示用各训练时段学习的规律预测相应测试时段。图用相隔若干周作示意；具体日期配对由正文列出，不能据此假定所有样本都完整覆盖连续数周。来源：原论文 Fig. 5。</p>
+<p><strong>图 5｜</strong> 跨日评估把学习和测试放到不同日，检验规律能否跨日保持。</p>
 <p><img src="/posts/mobhet-mobility-2016/fig6.webp" alt="同日训练和测试"></p>
-<p>图 6｜只有一天数据时，怎样前推？上方为各小时前半段的 1,800 秒训练片段，下方为后半段的 1,800 秒测试片段，箭头连接同一小时内的前后半段。这里的半小时是训练或测试周期，区别于内部的 5 或 10 分钟预测时间窗。来源：原论文 Fig. 6。</p>
-<p>模拟以用户测试期第一条观测所在区域作为已知起点，再逐窗生成位置。评分分母是测试集中的用户—区域—时刻记录，分子是预测区域正确的记录。每个实验重复 50 次，表格报告平均准确率及 95% 置信区间；这不是说从一个未知位置开始，能连续无误地预测半小时。</p>
-<p>对照方法 SMOOTH 和 Leap Graph 原本面向移动建模，本文把它们适配成相同网格和时间评价下的预测器；例如为 Leap Graph 增加自环和权重。因此，结果说明这套实现与设置中的表现，不能直接替代与后来所有预测算法的比较。</p>
-<h2 id="联系人有用，为什么不能越多越好？"><a href="#联系人有用，为什么不能越多越好？" class="headerlink" title="联系人有用，为什么不能越多越好？"></a>联系人有用，为什么不能越多越好？</h2><p>Twitter 的第一种关系是双方互相关注，第二种关系 ContactStrength 用双方互动次数占某用户全部互动次数的比例来筛选联系人。墨西哥数据以通话互动建立后一种关系。比例的分母随用户而变，所以关系可以有方向性；25% 表示至少四分之一互动集中到该联系人，并不表示四分之一用户被保留。</p>
-<p>Table 3 的里约同日、5 分钟窗口示例中，TP 平均准确率为 0.545；TPC 使用互相关注为 0.559，使用 25% 互动阈值为 0.678，50% 为 0.684，后两者统计上相近。墨西哥示例中，TP 为 0.619，TPC 在 25% 阈值时为 0.692。联系人提供了额外预测信息，但关注一个账号，不一定等于能反映移动联系。</p>
-<p>门槛也有代价。Table 4 中，里约训练数据满足至少一个联系人的用户，在 25% 阈值下为 400 人，50% 为 392 人，75% 只剩 78 人。阈值太宽松可能引入较弱关系；太严格则削减可学习的样本。Table 5 把最低联系人数 m 从 1 增至 2、3，多数设置下降，但互相关注情形并非每次都单调下降，不能把 m=1 写成普遍规律。</p>
-<p>如果测试用户不满足联系人数量条件，TPC 等组合版本会退回不用 C 的对应模型。因而整体准确率还受联系人可用性影响，未来部署时也需要交代联系人信息什么时候能够取得。这些结果说明预测关联，不能证明一个人因为朋友出现而决定移动。</p>
-<p>Table 6、7 对时间设置作补充：里约 TPC、25% 阈值同日 5 分钟准确率为 0.678，10 分钟为 0.631；墨西哥对应示例为 0.690 与 0.665。Table 7 的原地停留模型在这些设置中约为 0.21—0.24。更细窗口在本文评分下较好，但这涉及离散化与移动填补，不能推广成所有数据里窗口越细越好。跨日与同日的有限比较没有显著差异，也不等于长期漂移已经解决。</p>
-<h2 id="把电话与推文合并，就一定更准确吗？"><a href="#把电话与推文合并，就一定更准确吗？" class="headerlink" title="把电话与推文合并，就一定更准确吗？"></a>把电话与推文合并，就一定更准确吗？</h2><p>跨源实验比较两种对齐方式：将推文映射到最近基站；或者把基站位置当作一个点，与推文一起映射到网格。前一种会把推文的精细坐标压到基站位置，后一种保留两类点再统一网格。巴西电话数据缺少联系人，所以这些实验只比较 TP 与两个对照，不运行完整 TPC。</p>
-<p>Table 8 的里约示例揭示了融合的代价。TP 只用电话时准确率为 0.799，只用推文为 0.545；把推文映射到电话位置后为 0.744，把电话作为点和推文合并后为 0.531。融合结果并没有超过最好的电话单源结果。前一种对齐下 Leap Graph 为 0.745，TP 为 0.744，数值几乎相同，也不能把所有场景写成 TP 都明显领先。</p>
-<p>推文单源较难预测的一个原因，是测试出现更多训练未见区域；区域图没有这些节点，模型便无法预测到它们。这既是一个模型边界，也说明不同采样方式会改变任务难度。</p>
+<p><strong>图 6｜</strong> 同日评估有独立的时间切分，但仍共享当天背景；不能把它等同于换季或换城市后使用。</p>
+<h2 id="合并的收益不一定抵得过对齐损失"><a href="#合并的收益不一定抵得过对齐损失" class="headerlink" title="合并的收益不一定抵得过对齐损失"></a>合并的收益不一定抵得过对齐损失</h2><p>例如论文表 8 的里约对照，在该实验设置里电话单源约 0.799，推文单源约 0.545，两种资料的两种对齐方式得到约 0.744 和 0.531，均未超过电话单源。这些是特定留出评分，不是实时准确率或通用上限。另有社会关联资料的对照在部分样本表现改善，但它和“电话加推文”是不同问题，不能把改善叠算，也不能由相关性推断同行动因。</p>
 <p><img src="/posts/mobhet-mobility-2016/fig7.webp" alt="不同城市日期数据上的模型比较"></p>
-<p>图 7｜上述比较是否只出现在一个里约样本？（a）只用电话，TP 绿圆与 Leap Graph 蓝方通常接近，两者高于 SMOOTH 红三角；（b）只用推文，加入联系人信息的 TPC 星形整体更高，TP 绿圆与 SMOOTH 红三角较接近；（c）电话加推文，并将推文映射到基站，TP 与 Leap Graph 再度接近。三幅横轴均为城市—日期采集批次，纵轴为平均位置预测准确率，误差线表示不确定性；均为同日训练测试、5 分钟时间窗。完整组合图保留三种不同实验，不能将（b）的 TPC 成绩当成（c）的融合成绩。来源：原论文 Fig. 7。</p>
-<p>论文汇总 27 个巴西采集批次：电话单源 TP 相对 Leap Graph 平均提高约 6%；推文单源最佳 TPC 相对 Leap Graph 约提高 71%；异构融合 TP 相对 Leap Graph 约提高 4%。这些是相对提升，比较对象和模型版本不同，不能相加，也不是分别增加 6、71、4 个百分点。</p>
-<p>MobHet 的贡献因此更接近一套可组合的区域统计框架：它能容纳不同来源，检验热度、转移与联系人的作用。它没有消除平台偏差，没有恢复被事件采样遗漏的全部旅行，也没有证明更多来源永远带来更好的个人预测。</p>
-<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>共享区域图可以把电话和推文放进同一套预测框架，联系人也能补充线索，但是否提高准确率，取决于数据对齐、关系门槛和可观测区域，而非数据源数量本身。</p>
-<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p>Lucas M. Silveira, Jussara M. de Almeida, Humberto T. Marques-Neto, Carlos Sarraute, Artur Ziviani. <em>MobHet: Predicting human mobility using heterogeneous data sources</em>. Computer Communications, 95, 54–68, 2016。<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.comcom.2016.04.013">DOI</a>，<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/abs/pii/S0140366416301554">出版社书目信息</a>。本文依据论文全文；Fig. 1—7 均为完整原图，Table 1—8 的定义、样本与比较在对应段落说明。</p>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><ul>
-<li>Lucas M. Silveira：论文署名为巴西米纳斯吉拉斯联邦大学（UFMG），并列为通讯作者。</li>
-<li>Jussara M. de Almeida：论文署名为巴西米纳斯吉拉斯联邦大学（UFMG）。</li>
-<li>Humberto T. Marques-Neto：论文署名为巴西米纳斯吉拉斯天主教大学（PUC Minas）。</li>
-<li>Carlos Sarraute：论文署名为阿根廷 Grandata Labs。</li>
-<li>Artur Ziviani：论文署名为巴西国家科学计算实验室（LNCC）。</li>
-</ul>
+<p><strong>图 7｜</strong> 上、中、下三组是电话单源、推文单源与一组融合对照。横轴是城市和采集日期组合，先在各组比较方法与波动，再看哪些结果能跨组解释；中间的增益不是下图融合的增益。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>共同区域表示可用来对照多类移动记录，但融合并不保证超过信号更强的单源。对齐方式和覆盖差异会直接改变比较。论文给出历史样本的模型评分，不能支持对现实个人去向作判断，也没有证明新增来源能代表原先看不见的人。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这篇论文比较电话基站记录与地理标注推文在共同区域表示下的移动模型表现。多源合并有时改善某些基线，却也可能因观测习惯、空间粒度和对齐造成损失；里约示例的最强电话单源就超过两种融合结果。读分数时应先问资料覆盖谁、测试用哪段记录，以及改进来自共享区域、额外关系线索还是更换比较基线。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p><a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.comcom.2016.04.013">Elsevier 期刊记录</a>。保留匹配 DOI 的 Article in Press 排版稿图 1–7；图权利归原权利人，私人校读不构成公开再利用许可。</p>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Lucas M. Silveira、Jussara M. de Almeida、Humberto T. Marques-Neto、Carlos Sarraute 和 Artur Ziviani 共同完成此文，结合通信资料与社会平台资料研究移动观测差异。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>如果融合后的平均准确率下降，可以先把测试记录分成训练中已见区域和新区域，再分别评估。若下降集中在新区域，问题主要是候选图覆盖；若已见区域也下降，就需要进一步检查平台间采样权重和空间对齐，而不是笼统归因于异构性。</p>
-<p>联系人模型还可以同时报告两条曲线：可使用联系人信息的用户比例，以及这些用户相对不使用联系人的准确率收益。只有同时看到覆盖与收益，才能判断一个高分是否来自对大多数人的改善，还是仅来自一小群关系密集用户。</p>
+<p>若目标换成汇总街区之间的流量，可以请独立交通调查作参照，分别检查区域覆盖和流量组成。只有两方面都更接近参照，才有理由认为融入额外平台改善了整体代表性，而不是只改变了能被打分的记录。</p>
 
                 
             </div>
@@ -614,12 +552,12 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/e8000058/">
+                <a href="/posts/next-location-limits-2017/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="2016-Self-attracting walk on heterogeneous networks">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="2017-An alternative approach to the limits of predictability in human mobility">
                         
-                        <span class="card-title">2016-Self-attracting walk on heterogeneous networks</span>
+                        <span class="card-title">2017-An alternative approach to the limits of predictability in human mobility</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -647,16 +585,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8/">
-                        <span class="chip bg-color">人类移动</span>
+                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                        <span class="chip bg-color">人类移动性</span>
                     </a>
                     
-                    <a href="/tags/%E8%87%AA%E5%90%B8%E5%BC%95%E6%B8%B8%E8%B5%B0/">
-                        <span class="chip bg-color">自吸引游走</span>
+                    <a href="/tags/%E4%BF%A1%E6%81%AF%E7%86%B5/">
+                        <span class="chip bg-color">信息熵</span>
                     </a>
                     
-                    <a href="/tags/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C/">
-                        <span class="chip bg-color">复杂网络</span>
+                    <a href="/tags/%E5%8F%AF%E9%A2%84%E6%B5%8B%E6%80%A7/">
+                        <span class="chip bg-color">可预测性</span>
                     </a>
                     
                 </div>
@@ -670,12 +608,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/d71a39c8/">
+                <a href="/posts/e8000055/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="2016-Automatic User Identification Method across Heterogeneous Mobility Data Sources">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="2015-The effect of recency to human mobility">
                         
-                        <span class="card-title">2016-Automatic User Identification Method across Heterogeneous Mobility Data Sources</span>
+                        <span class="card-title">2015-The effect of recency to human mobility</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -703,16 +641,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%BD%A8%E8%BF%B9%E5%8C%B9%E9%85%8D/">
-                        <span class="chip bg-color">轨迹匹配</span>
+                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8/">
+                        <span class="chip bg-color">人类移动</span>
                     </a>
                     
-                    <a href="/tags/%E5%BC%82%E6%9E%84%E6%95%B0%E6%8D%AE/">
-                        <span class="chip bg-color">异构数据</span>
+                    <a href="/tags/%E4%B8%AA%E4%BD%93%E7%A7%BB%E5%8A%A8%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">个体移动模型</span>
                     </a>
                     
-                    <a href="/tags/%E4%BD%8D%E7%BD%AE%E9%9A%90%E7%A7%81/">
-                        <span class="chip bg-color">位置隐私</span>
+                    <a href="/tags/%E8%BF%91%E6%9C%9F%E6%95%88%E5%BA%94/">
+                        <span class="chip bg-color">近期效应</span>
                     </a>
                     
                 </div>

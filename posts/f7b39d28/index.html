@@ -438,376 +438,42 @@
             <div id="articleContent">
                 <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h2 id="没有这座城市的出行记录，只凭人口和位置，能生成它的人流吗？"><a href="#没有这座城市的出行记录，只凭人口和位置，能生成它的人流吗？" class="headerlink" title="没有这座城市的出行记录，只凭人口和位置，能生成它的人流吗？"></a>没有这座城市的出行记录，只凭人口和位置，能生成它的人流吗？</h2><p>论文名片｜Zhipeng Wang、Chenfan Li、Tong Zhang、Yu’ang Zhu、Jing Li，<em>A prompt tuning approach based on pre-trained cross-city graph neural networks for zero-shot flow generation</em>，International Journal of Geographical Information Science，2026年3月12日在线发表（收稿日期 2025年8月14日，接收日期 2026年3月3日）。<a target="_blank" rel="noopener" href="https://doi.org/10.1080/13658816.2026.2642382">DOI：10.1080/13658816.2026.2642382</a>。数据与代码见 <a target="_blank" rel="noopener" href="https://doi.org/10.6084/m9.figshare.29878226">figshare：10.6084/m9.figshare.29878226</a>。</p>
-<p>可以想象一座只公开了人口普查区和坐标的都市区：规划者知道每个普查区有多少人、位于哪里，却没有手机信令整理出的起讫矩阵。旧办法常常是在有人流的城市里标定重力模型或深度模型，再把学到的城市模式搬过去。搬得动多少，取决于源城市的出行形态够不够多样。</p>
-<p>这篇论文把步骤拆开。先用许多城市的人口和位置，在完全不用人流的条件下，预训练一个跨城市图神经网络，让它记住人口分布怎样构成流动潜力。再用另外少数几座有人流的城市，只训练一组轻量的图提示和流量解码器。最后，把这套转换规则用到从未提供人流的城市上，生成普查区之间的流量。在美国最大的 50 个都市区里，30 座只参与预训练，15 座提供微调人流，5 座只做测试。测试集上，本文模型的总体 CPC 为 0.752，RMSE 为 35.704；相对该总体行里最好的基线，CPC 高 5.62%，RMSE 低 14.21%。优势主要来自预训练，短距离上的相对提升大于中、长距离，而且这仍是疫情期间美国都市区上的流量拟合，不是对出行机制的因果证明。</p>
-<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
-<li>零样本约束落在目标城市。预训练的 30 座城市不使用人流；微调的 15 座城市提供真实人流，用来学习提示和流量解码；洛杉矶、旧金山、波特兰、克利夫兰、新奥尔良五座测试城市的人流只用于评价。</li>
-<li>表 2 的 Average 行给出五座测试城市合在一起的结果：本文 CPC 0.752、MAE 12.664、RMSE 35.704。相对这一行的最好基线，分别改善 5.62%、4.80% 和 14.21%。这一行不是五座城市指标的简单算术平均。</li>
-<li>五城之中，波特兰的 CPC 相对提升最大，为 11.43%（0.731 相对随机森林的 0.656）。洛杉矶的绝对 CPC 最高，为 0.764，相对最好基线深度重力的 0.737 只高 3.66%。</li>
-<li>起讫对按数量三等分后，短距离（0–6.95 km）本文 CPC 为 0.703，比该组最好基线随机森林的 0.639 高 0.064。中距离、长距离的绝对 CPC 更高，分别是 0.792 和 0.828，但相对各组最好基线只高 0.011 和 0.013。</li>
-<li>去掉预训练后表现最差。去掉提示后，五座城市的 CPC 依次只下降 0.003、0.008、0.020、0.020、0.030。提示改的是先验到流量的转换，幅度小于先验本身。</li>
+<h2 id="没有目标城市的流量标签，还能估计区际出行吗？"><a href="#没有目标城市的流量标签，还能估计区际出行吗？" class="headerlink" title="没有目标城市的流量标签，还能估计区际出行吗？"></a>没有目标城市的流量标签，还能估计区际出行吗？</h2><p>新城市有地图和人口数据，却没有完整的区域间流量表。此时能借用其他城市学到的规律吗？这篇论文把问题分成两步：先从多座城市提取人口与空间布局的关系，再用另一些城市的流量标签学习如何把这种关系转成预测。</p>
+<p>论文名片｜Zhipeng Wang、Chenfan Li、Tong Zhang、Yu’ang Zhu、Jing Li，<em>A prompt tuning approach based on pre-trained cross-city graph neural networks for zero-shot flow generation</em>，International Journal of Geographical Information Science（2026 年 3 月 12 日在线发表）。<a target="_blank" rel="noopener" href="https://doi.org/10.1080/13658816.2026.2642382">正式 DOI</a>。</p>
+<h2 id="零样本指的是哪里没有标签？"><a href="#零样本指的是哪里没有标签？" class="headerlink" title="零样本指的是哪里没有标签？"></a>零样本指的是哪里没有标签？</h2><p>预训练的 30 座城市不提供流量标签；学习提示和流量解码时使用另外 15 座城市的观测流量。洛杉矶、旧金山、波特兰、克利夫兰和新奥尔良只在最后用流量数据评价。因此，零样本只限定目标城市，不表示整个训练不用人流数据。任务是生成区际汇总流量，不是判断某个人去哪。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f7b39d28/fig1.png" alt="图 1：从人口和坐标到预训练、提示与流量生成"></p>
+<p><em>图 1｜三段流程分别建立城市表示、调整提示和预测目标城市流量。</em></p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f7b39d28/fig2.png" alt="图 2：跨城市预训练的计算流程"></p>
+<p><em>图 2｜跨城预训练用空间图学习可复用的区域表示，不用流量监督。</em></p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/f7b39d28/fig3.png" alt="图 3：用消息传递编码人口分布"></p>
+<p><em>图 3｜人口与空间结构进入图编码，邻居信息改变区域表示。</em></p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/f7b39d28/fig4.png" alt="图 4：把节点和城市嵌入合在一起聚类"></p>
+<p><em>图 4｜同时参考区域与城市表示进行聚类，聚类并非官方功能分区。</em></p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f7b39d28/fig5.png" alt="图 5：用同簇和异簇节点做三元组损失"></p>
+<p><em>图 5｜比较同簇与异簇区域的表示距离，为预训练提供学习信号。</em></p>
+<h2 id="这里的“提示”，不是给大语言模型写问题"><a href="#这里的“提示”，不是给大语言模型写问题" class="headerlink" title="这里的“提示”，不是给大语言模型写问题"></a>这里的“提示”，不是给大语言模型写问题</h2><p>预训练好的表示保持冻结，模型学习一组可训练向量来调整表示，再用源城市已知流量校准预测。提示让表示适应流量任务，但论文的消融中，拿掉预训练比拿掉提示更伤性能，不能把全部收益都归给提示。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/f7b39d28/fig6.png" alt="图 6：在冻结的城市表示上学习图提示"></p>
+<p><em>图 6｜提示在冻结表示上学习，仍需要有标签城市提供流量监督。</em></p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/f7b39d28/fig7.png" alt="图 7：由簇中心和节点差异生成提示向量"></p>
+<p><em>图 7｜提示来自簇中心与区域表示，不是自然语言指令。</em></p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/f7b39d28/fig8.png" alt="图 8：流量生成作为下游任务"></p>
+<p><em>图 8｜解码端输出区对流量，目标是汇总矩阵而不是个人轨迹。</em></p>
+<h2 id="多出来的收益，主要在哪些流向上？"><a href="#多出来的收益，主要在哪些流向上？" class="headerlink" title="多出来的收益，主要在哪些流向上？"></a>多出来的收益，主要在哪些流向上？</h2><p>作者报告五城汇总行 CPC 0.752、MAE 12.664、RMSE 35.704。CPC 衡量预测和观测流量的重叠，不是个人预测命中率；汇总行也不是简单平均五座城市。按区对距离分组，短距离组绝对 CPC 不及中长距离组，但相比该组最佳基线的增益更大。绝对成绩和相对收益不是一回事。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f7b39d28/fig9.png" alt="图 9：不同距离组上的 CPC"></p>
+<p><em>图 9｜分距离组比较 CPC，较难的短距离组改进较明显。</em></p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/f7b39d28/fig10.png" alt="图 10：预训练与提示的消融"></p>
+<p><em>图 10｜去除预训练或提示后分别比较成绩，预训练的贡献更突出。</em></p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/f7b39d28/fig11.png" alt="图 11：新奥尔良各模型的流量地图"></p>
+<p><em>图 11｜新奥尔良的观测及不同模型流量地图；视觉相似不等于逐区对吻合。</em></p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>在五座未见目标城市上，使用源城市标签学习的流量模型能够利用跨城先验，优于所测基线的若干指标。证据限于所选美国城市、数据尺度和基准，不代表没有任何标签也能训练，或适用于所有城市。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这里可复用的是城市的人口与空间表示，而不是把一张现成流量表移植过去。目标城可以没有流量训练标签，但源城监督、区域划分和可比的输入仍重要。评价时还要检查改进来自哪些距离和流量群组，不能只看一个全表平均。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1080/13658816.2026.2642382">正式论文</a>：本地出版 PDF、图 1–11。图版公开复用须核出版许可。</li>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.6084/m9.figshare.29878226">随文代码和数据记录</a>。</li>
 </ul>
-<h2 id="人流从哪来，评价时和谁比？"><a href="#人流从哪来，评价时和谁比？" class="headerlink" title="人流从哪来，评价时和谁比？"></a>人流从哪来，评价时和谁比？</h2><p>空间单元是 2020 年美国人口普查的普查区（census tract）。每个普查区是图上的一个节点，既可以发出出行，也可以作为目的地。节点属性来自人口和地理坐标；人流来自 Kang 等人 2020 年发布的美国多尺度手机移动数据集，取 2020 年 6 月 29 日至 7 月 26 日共 28 天的日流量，再对这 28 天求平均，作为地面真值。平均会压低星期周期和单日异常的影响。2020 年夏季疫情对出行水平的整体改变，仍然留在这组真值里。</p>
-<p>50 个最大都市区被分成三份：30 个只有人口和位置，用于预训练；15 个带有真实人流，用于微调；5 个测试。微调城市共有 2,092,078 条真实出行流数据用于下游任务，测试城市共有 727,609 条出行数据用于评价。论文用“条数据”来称呼它们，没有写成出行人次的总和。五座测试城市的普查区数量相加是 5,843。全部有向单元对的数量远大于 727,609，因此这 727,609 条不是五座城市所有单元对的全矩阵。训练损失却对一座城市的全部单元对按 1/N² 求均方误差。评价样本和训练损失是否覆盖同一批起讫对，正文没有写明。</p>
-<p>测试城市按论文的划分，洛杉矶和旧金山是大城市，波特兰是中等城市，克利夫兰和新奥尔良是小城市。表 1 的流量是起讫流量的平均和最大，与人口密度、直线距离并列，单位没有再写成“人次”。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>测试城市</th>
-<th style="text-align:right">普查区数</th>
-<th style="text-align:right">人口</th>
-<th style="text-align:right">人口密度平均 / 最大（人/km²）</th>
-<th style="text-align:right">直线距离平均 / 最大（km）</th>
-<th style="text-align:right">流量平均 / 最大</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>洛杉矶</td>
-<td style="text-align:right">3,112</td>
-<td style="text-align:right">13,463,446</td>
-<td style="text-align:right">4,768.5 / 42,211.9</td>
-<td style="text-align:right">15.9 / 141.5</td>
-<td style="text-align:right">25.8 / 2,375</td>
-</tr>
-<tr>
-<td>旧金山</td>
-<td style="text-align:right">1,102</td>
-<td style="text-align:right">4,905,893</td>
-<td style="text-align:right">5,545.3 / 86,596.1</td>
-<td style="text-align:right">17.0 / 124.8</td>
-<td style="text-align:right">32.2 / 1,855</td>
-</tr>
-<tr>
-<td>波特兰</td>
-<td style="text-align:right">568</td>
-<td style="text-align:right">2,649,748</td>
-<td style="text-align:right">1,971.5 / 19,280.9</td>
-<td style="text-align:right">19.6 / 179.8</td>
-<td style="text-align:right">29.5 / 2,244</td>
-</tr>
-<tr>
-<td>克利夫兰</td>
-<td style="text-align:right">631</td>
-<td style="text-align:right">2,292,571</td>
-<td style="text-align:right">1,493.1 / 7,103.4</td>
-<td style="text-align:right">16.9 / 130.9</td>
-<td style="text-align:right">24.2 / 1,944</td>
-</tr>
-<tr>
-<td>新奥尔良</td>
-<td style="text-align:right">430</td>
-<td style="text-align:right">1,367,928</td>
-<td style="text-align:right">1,828.9 / 9,937.7</td>
-<td style="text-align:right">13.9 / 158.7</td>
-<td style="text-align:right">22.7 / 1,866</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>评价用三个指标。共同通勤部分（Common Part of Commuters，CPC）把每条起讫对上观测流量和估计流量的较小值加总，乘 2，再除以观测流量与估计流量的总和，范围在 0 到 1，越大表示两套流量越重合。这个名字来自通勤研究，本文的地面真值是疫情期间的日出行平均，不是人口普查里的居住地到工作地通勤。论文同时使用平均绝对误差 MAE 和均方根误差 RMSE。正文把二者的分母写成 N，印刷出的求和只保留了一个下标；训练用的均方误差则明确对全部起讫对使用 1/N²。后文直接引用表和图上的数值，不再把它们换算成另一种样本口径。CPC 对大流量更敏感，RMSE 对大误差更敏感。</p>
-<p>基线有五个：重力模型、辐射模型、随机森林、Luo 与 Chen 2024 年的图神经网络模型，以及深度重力模型。比较都做在五座测试城市上。正文没有写明随机森林、图神经网络和深度重力用哪些城市训练，也没有写明重力模型的参数怎样估计。</p>
-<h2 id="一张没有流量的图，凭什么代表流动潜力？"><a href="#一张没有流量的图，凭什么代表流动潜力？" class="headerlink" title="一张没有流量的图，凭什么代表流动潜力？"></a>一张没有流量的图，凭什么代表流动潜力？</h2><p>空间相互作用理论把两地之间的流动写成起点的推动、终点的吸引和空间阻抗。本文据此只保留三类量：人口密度，用来代表一个地方产生和吸引出行的“质量”；相对位置，用来表示这个地方在整座城市人口格局中的位置；出行距离，用来代表空间摩擦。</p>
-<p>相对位置不是经纬度本身。设普查区 i 的坐标是 (uᵢ, vᵢ)，城市人口重心是 (u_pc, v_pc)，则</p>
-<p>lᵢ ＝ √[(uᵢ − u_pc)² + (vᵢ − v_pc)²]。</p>
-<p>人口重心是用各普查区人口加权的坐标平均。两区之间的出行距离用两区之间的欧氏距离代替，也就是地图上的直线距离，不是沿路里程或出行时间。节点特征只有人口密度和这个相对位置，维度为 2；每条有向边带一个距离。图本身不含流量。</p>
-<p>每座城市都建成一张有向的起讫拓扑网络：每个普查区是节点，每一对节点之间连一条虚拟有向边。这样，大城市的边数会随普查区数量的平方增长。洛杉矶有 3,112 个节点，全连接有向图的规模远大于小城市。论文选择这种完全图，是为了让模型看到所有潜在连接，而不是只看已经观察到的出行。</p>
-<p><img src="/posts/f7b39d28/fig1.webp" alt="图 1：从人口和坐标到预训练、提示与流量生成"></p>
-<p>图 1｜没有目标城市人流时，模型分哪几步把人口结构变成流量？</p>
-<p>（a）每座城市用人口、坐标和距离建成起讫拓扑网络；真实人流只接在后面的微调上。（b）预训练用两层图神经网络、节点—城市嵌入、K 均值聚类和三元组损失，属性编码器和网络参数在这一阶段更新。（c）微调城市上，城市表示保持冻结，由聚类中心产生可训练的提示。（d）流量生成继续冻结预训练表示，只把提示后的图送进节点分类和流量估计。雪花表示冻结，火焰表示更新。来源：原论文 Fig. 1。</p>
-<p>这个设计把“人口分布有什么空间规律”和“规律怎样换算成这座城市的流量”分开。预训练可以吃进很多没有人流的城市；目标城市缺少历史出行时，仍然能得到一套人口结构嵌入。它同时放弃了兴趣点、土地利用和路网。作者认为，少用城市特有的辅助数据，先验才更容易迁到没见过的城市。代价是：真正由机场、产业园或特殊地形推动的长距离出行，人口和直线距离解释不了。</p>
-<h2 id="预训练怎样把不同城市里角色相近的地方归到一起？"><a href="#预训练怎样把不同城市里角色相近的地方归到一起？" class="headerlink" title="预训练怎样把不同城市里角色相近的地方归到一起？"></a>预训练怎样把不同城市里角色相近的地方归到一起？</h2><p>预训练不预测流量。两层消息传递图神经网络先把标量属性变成向量：人口密度和相对位置各 4 维，距离 8 维。节点由前两者拼接而成，输入维度是 8；边的输入维度也是 8。网络输出维度是 16。</p>
-<p>第一层只聚合一阶邻居，第二层再扩大范围。消息沿有向边发送：一个节点作为起点，汇总它指向的潜在目的地。边的更新把起点、边和终点拼在一起送进多层感知机；节点再对目的地做平均池化，并与自身拼接后更新。作者明确说，这一层可以换成图卷积或注意力，预训练框架并不绑在这一种图神经网络上。实验用的是这种基本消息传递，两层的传播范围有限，后文对长距离的讨论会用到这一点。</p>
-<p><img src="/posts/f7b39d28/fig2.webp" alt="图 2：跨城市预训练的计算流程"></p>
-<p>图 2｜不用人流时，预训练究竟在优化什么？</p>
-<p>人口、位置和距离先各自编码，再经过两层图神经网络。节点嵌入与整座城市的池化嵌入拼接，得到节点—城市嵌入。K 均值在若干候选簇数上计算轮廓系数，取得分最高的聚类，再抽出锚点、正样本和负样本，用三元组损失更新编码器和网络。图中候选簇数画成 K＝4、5 直到 10。来源：原论文 Fig. 2。</p>
-<p><img src="/posts/f7b39d28/fig3.webp" alt="图 3：用消息传递编码人口分布"></p>
-<p>图 3｜一个起点怎样吸收潜在目的地的信息？</p>
-<p>（a）边更新：把起点嵌入、距离嵌入和终点嵌入拼接后编码。（b）节点聚合：每个外出邻居单独编码，再对邻居做平均池化。（c）节点更新：原节点嵌入与聚合结果拼接，得到新的节点嵌入；边嵌入也一并输出。来源：原论文 Fig. 3。</p>
-<p>城市级嵌入是全部节点嵌入的平均。每个节点再与这个城市嵌入拼接，表示“这个普查区在自己城市的人口格局里处于什么位置”。所有预训练城市的节点放在一起做 K 均值++聚类。簇数 k 由轮廓系数最高的那一档决定。图 2 和图 4 都把候选范围画成 4 到 10。正文没有报告最终选中的 k，也没有报告轮廓系数的数值。</p>
-<p><img src="/posts/f7b39d28/fig4.webp" alt="图 4：把节点和城市嵌入合在一起聚类"></p>
-<p>图 4｜聚类用的是区域自身，还是区域在城市中的位置？</p>
-<p>更新后的图先得到节点嵌入，平均池化成城市嵌入，二者拼接成节点—城市嵌入。K 均值在 K＝4 到 K＝10 的候选上比较轮廓系数，保留得分最高的聚类。来源：原论文 Fig. 4。</p>
-<p>三元组损失用这些簇标签构造样本。每个预训练节点都当锚点；正样本与锚点同簇，负样本来自其他簇。损失要求锚点到负样本的嵌入距离，至少比到正样本的距离大出一个间隔 α。α 取 50，距离用嵌入空间里的欧氏距离。于是，大都市的次中心和小城市的中心区，只要在各自城市的人口结构里角色相近，就会被拉近。这个“角色”由人口密度和相对位置决定，还没有对照真实人流。</p>
-<p><img src="/posts/f7b39d28/fig5.webp" alt="图 5：用同簇和异簇节点做三元组损失"></p>
-<p>图 5｜预训练怎样让相似的人口结构靠近？</p>
-<p>聚类之后，每个三元组包含锚点、同簇正样本和异簇负样本。三类嵌入进入度量学习，输出三元组损失，用来更新前面的编码器。来源：原论文 Fig. 5。</p>
-<p>预训练的学习率是 5×10⁻⁴，优化器是 Adam。正文没有给出训练轮数。</p>
-<h2 id="提示在微调城市上学，到测试城市时还能否使用？"><a href="#提示在微调城市上学，到测试城市时还能否使用？" class="headerlink" title="提示在微调城市上学，到测试城市时还能否使用？"></a>提示在微调城市上学，到测试城市时还能否使用？</h2><p>微调只用 15 座有人流的城市。预训练得到的属性编码器和两层图神经网络冻结。可训练的是提示、聚类成员分类网络，以及后面的流量解码器。</p>
-<p>每个簇的中心，是该簇全部节点—城市嵌入的平均。一个全连接层把这些中心变成提示矩阵。对单个节点，模型用它的嵌入减去各个簇中心，做归一化后再经多层感知机和 softmax，得到它在各簇上的权重。节点提示等于权重与提示矩阵的乘积，再加回冻结的节点嵌入。这样，提示携带的是“这个地方更接近哪一类人口结构”，参数来自有人流的城市，计算本身不读取目标城市的流量。</p>
-<p><img src="/posts/f7b39d28/fig6.webp" alt="图 6：在冻结的城市表示上学习图提示"></p>
-<p>图 6｜微调阶段哪些模块看得到真实人流？</p>
-<p>微调城市的图进入冻结的属性编码器和图神经网络。节点—城市嵌入分成簇中心和簇标签，由此产生带火焰标记的提示。下游同时做节点分类和流量估计，真实人流进入流量估计。来源：原论文 Fig. 6。</p>
-<p><img src="/posts/f7b39d28/fig7.webp" alt="图 7：由簇中心和节点差异生成提示向量"></p>
-<p>图 7｜一个节点的提示从哪里来？</p>
-<p>预训练模型给出节点嵌入。节点—城市嵌入逐个减去簇中心，经过归一化、权重解码和 softmax，得到权重。权重乘上由簇中心生成的提示矩阵，得到该节点的提示向量。来源：原论文 Fig. 7。</p>
-<p>流量解码把起点嵌入、边嵌入和终点嵌入拼接起来，送进一个 15 层隐藏层的多层感知机。前 5 层宽度 64，后 10 层宽度 32，激活函数是 LeakyReLU。流量损失是估计值与真实流量的均方误差。另外还有一项聚类交叉熵：冻结网络更新后的节点嵌入，要能预测该节点属于哪个簇。总损失等于 0.1 乘交叉熵，再加上均方误差。微调学习率是 1×10⁻³。</p>
-<p>两项损失一起训练时，人流只用来学习“人口结构嵌入怎样换成流量”。它不回头重写 30 座城市已经学到的人口结构。测试城市没有人流时，模型仍用冻结先验加上这套已学好的换算。这就是论文所说的零样本：目标城市为零，整套系统不为零。</p>
-<p><img src="/posts/f7b39d28/fig8.webp" alt="图 8：流量生成作为下游任务"></p>
-<p>图 8｜最终损失由哪两部分相加？</p>
-<p>微调图经过冻结的属性编码器，加上可训练提示，再经过冻结的图神经网络，分出节点嵌入和边嵌入。节点侧用交叉熵拟合簇标签，流量侧用均方误差拟合真实流量，两者合成总损失。来源：原论文 Fig. 8。</p>
-<h2 id="五座测试城市上，相对最好基线提高了多少？"><a href="#五座测试城市上，相对最好基线提高了多少？" class="headerlink" title="五座测试城市上，相对最好基线提高了多少？"></a>五座测试城市上，相对最好基线提高了多少？</h2><p>表 2 同时给出分城市结果和一行 Average。最后一列是相对该行、该指标上最好基线的提升。最好基线会随城市和指标变化：平均绝对误差上常常是深度重力，均方根误差上常常是随机森林或重力模型。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>城市</th>
-<th>指标</th>
-<th style="text-align:right">重力</th>
-<th style="text-align:right">辐射</th>
-<th style="text-align:right">随机森林</th>
-<th style="text-align:right">图神经网络</th>
-<th style="text-align:right">深度重力</th>
-<th style="text-align:right">本文</th>
-<th style="text-align:right">相对最好基线</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>洛杉矶</td>
-<td>CPC</td>
-<td style="text-align:right">0.708</td>
-<td style="text-align:right">0.640</td>
-<td style="text-align:right">0.720</td>
-<td style="text-align:right">0.732</td>
-<td style="text-align:right">0.737</td>
-<td style="text-align:right">0.764</td>
-<td style="text-align:right">3.66%</td>
-</tr>
-<tr>
-<td>洛杉矶</td>
-<td>MAE</td>
-<td style="text-align:right">12.691</td>
-<td style="text-align:right">15.876</td>
-<td style="text-align:right">13.880</td>
-<td style="text-align:right">13.361</td>
-<td style="text-align:right">11.989</td>
-<td style="text-align:right">11.589</td>
-<td style="text-align:right">3.34%</td>
-</tr>
-<tr>
-<td>洛杉矶</td>
-<td>RMSE</td>
-<td style="text-align:right">36.347</td>
-<td style="text-align:right">38.001</td>
-<td style="text-align:right">36.492</td>
-<td style="text-align:right">36.355</td>
-<td style="text-align:right">37.851</td>
-<td style="text-align:right">31.562</td>
-<td style="text-align:right">13.16%</td>
-</tr>
-<tr>
-<td>旧金山</td>
-<td>CPC</td>
-<td style="text-align:right">0.653</td>
-<td style="text-align:right">0.682</td>
-<td style="text-align:right">0.681</td>
-<td style="text-align:right">0.703</td>
-<td style="text-align:right">0.683</td>
-<td style="text-align:right">0.743</td>
-<td style="text-align:right">5.69%</td>
-</tr>
-<tr>
-<td>旧金山</td>
-<td>MAE</td>
-<td style="text-align:right">17.824</td>
-<td style="text-align:right">18.485</td>
-<td style="text-align:right">18.362</td>
-<td style="text-align:right">16.898</td>
-<td style="text-align:right">16.527</td>
-<td style="text-align:right">14.825</td>
-<td style="text-align:right">10.30%</td>
-</tr>
-<tr>
-<td>旧金山</td>
-<td>RMSE</td>
-<td style="text-align:right">50.369</td>
-<td style="text-align:right">51.069</td>
-<td style="text-align:right">49.843</td>
-<td style="text-align:right">49.866</td>
-<td style="text-align:right">52.432</td>
-<td style="text-align:right">42.270</td>
-<td style="text-align:right">15.19%</td>
-</tr>
-<tr>
-<td>波特兰</td>
-<td>CPC</td>
-<td style="text-align:right">0.633</td>
-<td style="text-align:right">0.622</td>
-<td style="text-align:right">0.656</td>
-<td style="text-align:right">0.640</td>
-<td style="text-align:right">0.637</td>
-<td style="text-align:right">0.731</td>
-<td style="text-align:right">11.43%</td>
-</tr>
-<tr>
-<td>波特兰</td>
-<td>MAE</td>
-<td style="text-align:right">17.502</td>
-<td style="text-align:right">21.203</td>
-<td style="text-align:right">17.670</td>
-<td style="text-align:right">19.488</td>
-<td style="text-align:right">17.452</td>
-<td style="text-align:right">15.447</td>
-<td style="text-align:right">11.49%</td>
-</tr>
-<tr>
-<td>波特兰</td>
-<td>RMSE</td>
-<td style="text-align:right">59.486</td>
-<td style="text-align:right">61.968</td>
-<td style="text-align:right">58.423</td>
-<td style="text-align:right">60.246</td>
-<td style="text-align:right">63.108</td>
-<td style="text-align:right">48.664</td>
-<td style="text-align:right">16.70%</td>
-</tr>
-<tr>
-<td>克利夫兰</td>
-<td>CPC</td>
-<td style="text-align:right">0.628</td>
-<td style="text-align:right">0.651</td>
-<td style="text-align:right">0.672</td>
-<td style="text-align:right">0.648</td>
-<td style="text-align:right">0.669</td>
-<td style="text-align:right">0.707</td>
-<td style="text-align:right">5.21%</td>
-</tr>
-<tr>
-<td>克利夫兰</td>
-<td>MAE</td>
-<td style="text-align:right">14.586</td>
-<td style="text-align:right">16.655</td>
-<td style="text-align:right">14.695</td>
-<td style="text-align:right">16.895</td>
-<td style="text-align:right">14.508</td>
-<td style="text-align:right">14.328</td>
-<td style="text-align:right">1.24%</td>
-</tr>
-<tr>
-<td>克利夫兰</td>
-<td>RMSE</td>
-<td style="text-align:right">47.887</td>
-<td style="text-align:right">49.432</td>
-<td style="text-align:right">46.967</td>
-<td style="text-align:right">49.098</td>
-<td style="text-align:right">49.873</td>
-<td style="text-align:right">41.739</td>
-<td style="text-align:right">11.13%</td>
-</tr>
-<tr>
-<td>新奥尔良</td>
-<td>CPC</td>
-<td style="text-align:right">0.619</td>
-<td style="text-align:right">0.628</td>
-<td style="text-align:right">0.653</td>
-<td style="text-align:right">0.622</td>
-<td style="text-align:right">0.648</td>
-<td style="text-align:right">0.696</td>
-<td style="text-align:right">6.58%</td>
-</tr>
-<tr>
-<td>新奥尔良</td>
-<td>MAE</td>
-<td style="text-align:right">14.741</td>
-<td style="text-align:right">17.426</td>
-<td style="text-align:right">15.182</td>
-<td style="text-align:right">17.512</td>
-<td style="text-align:right">14.866</td>
-<td style="text-align:right">14.243</td>
-<td style="text-align:right">3.38%</td>
-</tr>
-<tr>
-<td>新奥尔良</td>
-<td>RMSE</td>
-<td style="text-align:right">43.686</td>
-<td style="text-align:right">46.174</td>
-<td style="text-align:right">43.390</td>
-<td style="text-align:right">46.092</td>
-<td style="text-align:right">46.442</td>
-<td style="text-align:right">37.018</td>
-<td style="text-align:right">14.69%</td>
-</tr>
-<tr>
-<td>Average</td>
-<td>CPC</td>
-<td style="text-align:right">0.684</td>
-<td style="text-align:right">0.646</td>
-<td style="text-align:right">0.703</td>
-<td style="text-align:right">0.710</td>
-<td style="text-align:right">0.712</td>
-<td style="text-align:right">0.752</td>
-<td style="text-align:right">5.62%</td>
-</tr>
-<tr>
-<td>Average</td>
-<td>MAE</td>
-<td style="text-align:right">13.939</td>
-<td style="text-align:right">16.732</td>
-<td style="text-align:right">14.867</td>
-<td style="text-align:right">14.751</td>
-<td style="text-align:right">13.303</td>
-<td style="text-align:right">12.664</td>
-<td style="text-align:right">4.80%</td>
-</tr>
-<tr>
-<td>Average</td>
-<td>RMSE</td>
-<td style="text-align:right">41.827</td>
-<td style="text-align:right">43.415</td>
-<td style="text-align:right">41.616</td>
-<td style="text-align:right">41.979</td>
-<td style="text-align:right">43.715</td>
-<td style="text-align:right">35.704</td>
-<td style="text-align:right">14.21%</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>洛杉矶 CPC 的 3.66%，分母是深度重力的 0.737：(0.764 − 0.737) / 0.737。波特兰 CPC 的 11.43%，分母是随机森林的 0.656：(0.731 − 0.656) / 0.656。Average 一行 CPC 的 5.62%，分母是深度重力的 0.712：(0.752 − 0.712) / 0.712。RMSE 的 14.21%，分母是随机森林的 41.616：(41.616 − 35.704) / 41.616。讨论部分把后两个数四舍五入成 CPC 提高 5.6%、RMSE 降低 14.2%。</p>
-<p>五座城市 CPC 的简单算术平均是 (0.764 + 0.743 + 0.731 + 0.707 + 0.696) / 5 ＝ 0.728，MAE 和 RMSE 的简单平均约为 14.09 和 40.25。表中的 0.752、12.664、35.704 都不是这个算法。论文没有说明 Average 按流量、起讫对还是别的权重汇总。读总体结论时要用表里的 0.752，不要再把五座城市平均一次。</p>
-<p>分城市的相对提升在波特兰最高。作者的解释是：中等城市的空间结构没那么破碎，人口集中和流动形成的关系更直接，因而更贴近只靠人口分布学到的先验。大城市还有多中心功能和交通网络，小城市的空间单元和出行样本又偏少。五座城市的序列本身并不单调。新奥尔良 CPC 的相对提升是 6.58%，高于克利夫兰的 5.21%；RMSE 的相对提升是 14.69%，也高于克利夫兰的 11.13%。“先升后降”是作者对规模趋势的概括，不是五城严格按人口排序后的单调结果。</p>
-<p>RMSE 的相对降幅整体大于 MAE 和 CPC。以 Average 行为例，RMSE 降 14.21%，MAE 降 4.80%，CPC 升 5.62%。作者据此认为模型更能压低大误差。三个指标的单位不同，这个比较说的是相对改善幅度，不是同一种误差被削减了 14%。克利夫兰的 MAE 只从深度重力的 14.508 降到 14.328，相对降幅 1.24%，说明小城市上“每条流量的平均绝对偏差”改进可以很有限，即使 CPC 和 RMSE 仍有可见改善。</p>
-<h2 id="短途的相对提升，为什么不能读成短途更准？"><a href="#短途的相对提升，为什么不能读成短途更准？" class="headerlink" title="短途的相对提升，为什么不能读成短途更准？"></a>短途的相对提升，为什么不能读成短途更准？</h2><p>全部起讫对按数量分成相等的三组：短距离 0–6.95 km，中距离 6.95–17.71 km，长距离大于 17.71 km。切点因此是这批起讫对距离的三等分位置。论文没有说明其中是否包含零流量对，也没有说明 6.95 km 和 17.71 km 来自五城合并样本还是某一座城市。</p>
-<p><img src="/posts/f7b39d28/fig9.webp" alt="图 9：不同距离组上的 CPC"></p>
-<p>图 9｜相对现有基线，哪一段距离的 CPC 多得最多？</p>
-<p>纵轴是 CPC。红、蓝、绿分别是短、中、长距离，每组起讫对数量相等。重力模型为 0.604、0.748、0.775；辐射模型为 0.634、0.716、0.578；随机森林为 0.639、0.758、0.790；图神经网络为 0.632、0.770、0.771；深度重力为 0.619、0.781、0.815；本文为 0.703、0.792、0.828。来源：原论文 Fig. 9。</p>
-<p>短距离组里，最好基线是随机森林的 0.639，本文是 0.703，绝对差 0.064，相对差 (0.703 − 0.639) / 0.639 ≈ 10.0%。中距离组的最好基线是深度重力 0.781，本文 0.792，绝对差 0.011，相对约 1.4%。长距离组的最好基线是深度重力 0.815，本文 0.828，绝对差 0.013，相对约 1.6%。</p>
-<p>绝对 CPC 的排序相反：本文在长距离组是 0.828，在短距离组是 0.703。短途更“准”这个读法不成立。成立的是，短距离上本文相对当时最好基线多出来的重合度更大。辐射模型在长距离组掉到 0.578，低于它自己的短距离 0.634，说明长距离并不是对所有模型都更容易。</p>
-<p>作者给出的地理理由是：短距离出行更多受局部人口集聚和距离摩擦支配，而这正是预训练先验编码的内容；长距离的市内出行更多指向产业园、机场等特定功能，依赖土地利用，而模型只有人口和位置。算法理由是两层图神经网络的消息传递范围有限。这两点能解释相对增益的差别，图 9 本身没有单独检验土地利用，也没有把功能区从人口中分离出来。</p>
-<h2 id="去掉预训练和去掉提示，各自掉多少？"><a href="#去掉预训练和去掉提示，各自掉多少？" class="headerlink" title="去掉预训练和去掉提示，各自掉多少？"></a>去掉预训练和去掉提示，各自掉多少？</h2><p>消融有两个变体。去掉预训练：下游任务直接在微调数据上训练。去掉提示：仍保留预训练和微调框架，但微调时不使用提示向量。图 10 比较三套模型在五座城市和 Average 上的 CPC。</p>
-<p><img src="/posts/f7b39d28/fig10.webp" alt="图 10：预训练与提示的消融"></p>
-<p>图 10｜先验和提示，哪一步贡献更大？</p>
-<p>红柱是去掉预训练，蓝柱是保留预训练但去掉提示，绿柱是完整模型。城市顺序为洛杉矶、旧金山、波特兰、克利夫兰、新奥尔良，最后是 Average。红柱在每组都最矮。绿柱相对蓝柱的抬升在小城市更明显。柱顶没有标出数值。来源：原论文 Fig. 10。</p>
-<p>正文给出的数量是完整模型相对“去掉提示”的 CPC 绝对增量，按五座测试城市依次为 0.003、0.008、0.020、0.020、0.030。与表 2 的 0.764、0.743、0.731、0.707、0.696 相减，去掉提示后约为 0.761、0.735、0.711、0.687、0.666。这是由正文增量和表 2 回推的，不是图 10 上另读出的刻度。图 10 没有给出去掉预训练之后的具体 CPC，正文只说明它最差，并且预训练带来的增益大于提示。</p>
-<p>增量从大城市到小城市变大。洛杉矶只增加 0.003，新奥尔良增加 0.030。作者的解释是：大城市微调样本更丰富，没有提示也能从冻结先验里学到出行格局；小城市样本少，提示对节点表示的修正更有用。0.030 仍是 CPC 这个 0–1 指标上的绝对差。相对新奥尔良完整模型的 0.696，0.030 / 0.696 ≈ 4.3%，小于波特兰相对外部基线的 11.43%。提示的边际贡献，和模型相对重力、深度重力的总优势，不是同一个数。</p>
-<p>同一段还写了两点：缩小预训练城市后，小城市的精度会明显下降；微调若同时包含大、中、小城市，提示的适应最好。正文没有给出被拿掉的城市名单、缩小后的 CPC，或不同规模组合的对照表。这两句是作者的概括，图 10 没有单独证明它们。</p>
-<h2 id="新奥尔良的流量地图说明了什么？"><a href="#新奥尔良的流量地图说明了什么？" class="headerlink" title="新奥尔良的流量地图说明了什么？"></a>新奥尔良的流量地图说明了什么？</h2><p>数值比较之后，论文只画了新奥尔良。图 11 有六幅流量地图，没有放入图神经网络基线。颜色分三档：小于 25、25–90、大于 90。图例写的是流量，没有再定义这是 28 日平均后的数值还是别的单位。表 1 里新奥尔良的平均流量是 22.7、最大是 1,866，三档阈值落在同一套流量数字的量级上。</p>
-<p><img src="/posts/f7b39d28/fig11.webp" alt="图 11：新奥尔良各模型的流量地图"></p>
-<p>图 11｜CPC 只差零点零几时，地图上的高流量还一样吗？</p>
-<p>（a）观测流量集中在中心，并向外形成若干束。（b）本文模型，图上 CPC＝0.696，中心的高强度和西侧的一束较清楚。（c）深度重力，CPC＝0.648，高强度流量更少。（d）随机森林，CPC＝0.653，中心向北的连接偏多。（e）重力模型，CPC＝0.619，中心高强度偏弱，外围蓝线更多。（f）辐射模型，CPC＝0.628，西侧出现成片中等流量。蓝线小于 25，红线为 25–90，黄线大于 90。来源：原论文 Fig. 11。</p>
-<p>图上的 CPC 与表 2 一致。随机森林是新奥尔良基线里 CPC 最高的，0.653，只比深度重力的 0.648 高 0.005，却比本文的 0.696 低 0.043。作者对地图的读法是：重力和辐射低估中心区流量；深度重力仍抓不住全市的高强度格局；随机森林高估市中心到北部的流量，又放过西侧的中高强度流量；本文模型保住了中心商务区的高强度，并分开西侧的次级枢纽。</p>
-<p>这是对一幅城市地图的目视判断。论文没有统计西侧枢纽包含多少条起讫对，也没有给出空间误差地图。基线流量在相邻起讫对上更平滑，观测流量则有明显的空间非平稳。CPC 接近的两个基线，地图形态可以差很多。因此 0.653 和 0.648 不能读成两套人流在城市西侧同样可用。</p>
-<h2 id="结论能用到哪一类城市？"><a href="#结论能用到哪一类城市？" class="headerlink" title="结论能用到哪一类城市？"></a>结论能用到哪一类城市？</h2><p>可以成立的说法是：在这 50 个美国都市区、2020 年 6 月 29 日至 7 月 26 日的平均日流量上，用人口和位置预训练、再用其他城市的人流学习提示，能够在五座未提供人流的测试城市上提高流量重合度，并降低大误差。表 2 的每一座城市、每一个指标都高于该行最好基线。预训练的贡献大于提示。</p>
-<p>不能成立的说法同样明确。模型输出是估计流量，不是新观测到的出行。人口结构与流量的对应，来自空间相互作用理论的建模选择和神经网络拟合，不是对“形态导致流动”的因果识别。CPC 提高也不等于每一条通勤、每一个人的出行都被恢复。</p>
-<p>属性只有人口密度、到人口重心的直线距离，以及两区之间的直线距离。地形、轨道网、就业和土地利用都没有进入先验。作者建议以后可以把直线距离换成出行时间，或加入就业密度、土地利用混合熵。本次实验没有做这些替换。</p>
-<p>50 个都市区都在美国。作者写道，美国城市共享郊区化扩张和较多方格路网，学到的先验会带上这种人口分布与流动的关系。欧洲紧凑的历史城区、亚洲高密度混合用地的大城市，人口怎样推动流动可能不同。方法框架可以换一组国际城市重新预训练；把现在这个美国先验直接用于那些城市，论文没有提供测试。</p>
-<p>长距离和多中心城市是另一个边界。图 9 里长距离的绝对 CPC 已经不低，相对提升却很小。两层消息传递被作者视为原因之一。讨论提出图 Transformer 作为后续结构，本次没有报告该结构的结果。</p>
-<p>基线的训练细节、Average 的权重、评价是否只保留非零流量、以及最终簇数，都会影响“提高了百分之几”的解释。在这些口径写明之前，5.62% 和 14.21% 只应理解为表 2 这一行、相对该行最好基线的改善。</p>
-<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>目标城市自己不提供人流时，先从多座城市的人口和位置学习流动潜力，再用其他城市的人流学会换算规则，可以在五个美国都市区上比五个基线更接近 2020 年夏季的观测流量；多出来的重合度在短距离上更大，却还不足以当成全球城市或非疫情年份的出行机制。</p>
-<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p>Wang, Z., Li, C., Zhang, T., Zhu, Y., &amp; Li, J. (2026). A prompt tuning approach based on pre-trained cross-city graph neural networks for zero-shot flow generation. <em>International Journal of Geographical Information Science</em>. Published online 12 March 2026. <a target="_blank" rel="noopener" href="https://doi.org/10.1080/13658816.2026.2642382">https://doi.org/10.1080/13658816.2026.2642382</a></p>
-<p>人流数据来自 Kang 等人 2020 年的美国多尺度手机移动数据（<em>Scientific Data</em>, 7, 390）。普查区与人口来自 2020 年美国人口普查。研究得到国家自然科学基金 42371470 资助，数值计算使用武汉大学超算中心。正文图 1 至图 11 及表 1、表 2 均出自该文。</p>
-<p>Zhipeng Wang 是武汉大学测绘遥感信息工程国家重点实验室的博士研究生，论文署名与作者简介都列在该实验室。文中写明的研究方向是面向人类移动建模的空间显式机器学习和地理人工智能。ORCID：0009-0007-1547-1779。</p>
-<p>Chenfan Li 的论文署名单位是北京市测绘设计研究院。作者简介写明他硕士毕业于上述武汉大学实验室，研究方向包括人类移动建模。</p>
-<p>Tong Zhang 是武汉大学测绘遥感信息工程国家重点实验室教授，也是本文通讯作者。文中写明的研究方向包括城市计算和机器学习。ORCID：0000-0002-0683-4669。</p>
-<p>Yu’ang Zhu 在论文署名页与武汉大学同一实验室并列。作者简介写明他硕士毕业于该实验室，现任职于南阳市自然资源和规划局，研究方向包括时空数据挖掘和人类移动建模。</p>
-<p>Jing Li 是丹佛大学地理与环境系副教授。文中写明的研究方向包括地理可视化、高性能地理计算，以及时空数据建模与分析。</p>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Zhipeng Wang 为第一作者；Chenfan Li、Tong Zhang、Yu’ang Zhu 与 Jing Li 为共同作者。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>若一个地区只有普查人口和坐标，这篇论文的系统仍要先找到一批带人流的“兄弟姐妹城市”，才能学出提示和 15 层流量解码器。五座测试城市是零样本，15 座微调城市不是。一个从未建设手机信令或出行调查的国家，不能只把美国这 30 加 15 座城市的参数拿来，就声称本地已经满足论文里的零样本条件。至少需要一组与本地城市形态更接近的有人流城市，重新学习那条换算规则。</p>
-<p>图 9 还提示了任务选择。短距离组相对最好基线多出 0.064 的 CPC，长距离组只多出 0.013，而长距离组的绝对 CPC 已经有 0.828。用这套模型补充邻里之间的日常联系，比用它决定机场、产业园或跨区枢纽的流量更符合实验里的相对优势。后一类设施往往落在长距离、强功能联系上，而那一部分正是作者认为人口变量覆盖不足的地方。</p>
-<p>新奥尔良的随机森林和深度重力只差 0.005 的 CPC，地图上却一个偏北、一个没有保住高强度。若规划只按 CPC 排序选模型，西侧的次级联系可能在 0.653 的模型里被放过。后续使用时，除了表 2 的三个指标，至少还要抽查高流量端和城市边缘的空间分布。图 11 只提供了一座小城市的目视证据，这个检查不能代替五座城市各自的误差地图。</p>
+<p>若用于另一地区，可事先留出一座形态差异较大的城市，再分开检查短跨区与长跨区的汇总误差。若改进只发生在某一类网络形态上，应将这一条件随成绩一起公开。</p>
 
                 
             </div>
@@ -976,12 +642,12 @@
                         <span class="chip bg-color">手机信令</span>
                     </a>
                     
-                    <a href="/tags/%E4%B9%92%E4%B9%93%E6%95%88%E5%BA%94/">
-                        <span class="chip bg-color">乒乓效应</span>
-                    </a>
-                    
                     <a href="/tags/%E6%95%B0%E6%8D%AE%E8%B4%A8%E9%87%8F/">
                         <span class="chip bg-color">数据质量</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%B9%92%E4%B9%93%E6%95%88%E5%BA%94/">
+                        <span class="chip bg-color">乒乓效应</span>
                     </a>
                     
                 </div>
@@ -1006,7 +672,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            #articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-ti
                         
                     </div>
                     <div class="publish-info">
@@ -1028,12 +694,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%A7%BB%E5%8A%A8%E4%BC%A0%E6%84%9F/">
-                        <span class="chip bg-color">移动传感</span>
-                    </a>
-                    
                     <a href="/tags/%E5%85%AC%E5%85%B1%E4%BA%A4%E9%80%9A/">
                         <span class="chip bg-color">公共交通</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A7%BB%E5%8A%A8%E4%BC%A0%E6%84%9F/">
+                        <span class="chip bg-color">移动传感</span>
                     </a>
                     
                     <a href="/tags/%E4%BA%BA%E5%8F%A3%E4%BB%A3%E8%A1%A8%E6%80%A7/">

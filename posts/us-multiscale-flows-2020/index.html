@@ -434,120 +434,39 @@
             <div id="articleContent">
                 <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h2 id="出门变少以后，城市之间的联系怎样改变？"><a href="#出门变少以后，城市之间的联系怎样改变？" class="headerlink" title="出门变少以后，城市之间的联系怎样改变？"></a>出门变少以后，城市之间的联系怎样改变？</h2><p>论文名片｜Yuhao Kang、Song Gao、Yunlei Liang、Mingxiao Li、Jinmeng Rao、Jake Kruse，<em>Multiscale dynamic human mobility flow dataset in the U.S. during the COVID-19 epidemic</em>，Scientific Data 7，390（2020）。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-020-00734-5">原论文与 DOI</a>。</p>
-<p>知道一座城市的外出活动下降了，并不能知道它与哪些地方的联系断了。来自同一个社区的人，是不再去市中心，还是取消了跨州旅行？对需要连接不同地区的传播模型和交通研究，只有一个地区总指数往往不够，还需要起点与终点配对的流量。</p>
-<p>这篇数据论文把美国手机访客记录整理成每日、每周的起讫点流量，并提供普查区、县和州三个尺度。它让疫情早期区域联系的变化可以被直接比较，同时也提出一个使用时必须回答的问题：这些流量究竟是在数人、数访问，还是在把样本外推成人口？</p>
-<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
-<li>数据从 2020 年 3 月 1 日起提供日、周流量，三个空间尺度对应 74,001 个普查区、3,219 个县，以及 50 州、华盛顿特区和波多黎各。</li>
-<li>样本访客流量按起点的人口与设备数量之比外推。人口流量是估计值，准确性依赖样本代表性，不能把全部人口都当作被直接追踪。</li>
-<li>与 ACS 通勤流、其他移动指标和空间交互模型的比较支持数据捕捉到主要空间及时间模式；这些相关性不能替代真实人口流量的误差检验。</li>
-<li>日数据与周数据有不同的空间对象和去重规则，七天日流量之和不等于周流量；跨尺度汇总也可能重复计算同一人。</li>
-</ul>
-<h2 id="起点是家，终点是到访地，不是连续行程的下一站"><a href="#起点是家，终点是到访地，不是连续行程的下一站" class="headerlink" title="起点是家，终点是到访地，不是连续行程的下一站"></a>起点是家，终点是到访地，不是连续行程的下一站</h2><p>原始数据来自 SafeGraph 汇集的匿名手机应用定位。家所在的普查街区组（census block group，CBG），根据过去六周夜间最常出现的位置确定：先在每天当地时间 18 点至次日 7 点的定位聚类中寻找主要 CBG，再取六周内最常见的夜间 CBG。访客流量因此是从居住地到到访地的联系，不是逐段还原“咖啡馆到办公室”的连续行程。</p>
-<p>定位点需要先聚类、识别停留和兴趣点（point of interest，POI），而非路过一个 GPS 点就算一次访问。论文把至少约一分钟的停留作为到访门槛。数据库涉及超过 500 万个 POI、超过 22 万个 CBG。</p>
+<h2 id="外出少了，少的是哪两地之间的联系？"><a href="#外出少了，少的是哪两地之间的联系？" class="headerlink" title="外出少了，少的是哪两地之间的联系？"></a>外出少了，少的是哪两地之间的联系？</h2><p>只看一个城市的访客总量，很难知道是周边县少来人了，还是较远地区的联系变弱了。起讫流量表把出发地和到访地放在同一个格子里，刚好能回答这类问题。但从手机观测推到全国，第一步不是画图，而是弄清楚表里到底在数什么。</p>
+<p>Yuhao Kang、Song Gao、Yunlei Liang、Mingxiao Li、Jinmeng Rao 和 Jake Kruse 的数据论文 <a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-020-00734-5">Multiscale dynamic human mobility flow dataset in the U.S. during the COVID-19 epidemic</a> 于 2020 年 11 月 12 日发表于 <em>Scientific Data</em>（7，390）。作者用 SafeGraph 的访客汇总估计美国普查区、县和州三个尺度上的日度和周度区域联系。这里关注的是数据口径、样本代表性和出行趋势。</p>
+<h2 id="表里的起点通常是家，不是上一站"><a href="#表里的起点通常是家，不是上一站" class="headerlink" title="表里的起点通常是家，不是上一站"></a>表里的起点通常是家，不是上一站</h2><p>数据将访客归到估计的居住区域，再与到访区域关联。它不能还原一个人先去了商店、后来去了公园的连续顺序。日数据来自人口普查街区组之间的访客汇总；周数据则从地点这一层汇总来访者的居住区。统计对象和归并规则不同，一周中的每日数值不能直接相加，拿来当周数据的同口径替代。同一个人造访不同地点时，也可能进入多个地点汇总。</p>
 <p><img src="/posts/us-multiscale-flows-2020/fig1.webp" alt="从定位数据到人口流量的流程"></p>
-<p>图 1｜区域流量怎样从手机定位产生？（a）轨迹清理、居住地与到访地识别；（b）生成每日 CBG—CBG 访客与每周 CBG—POI 访客；（c）汇总到普查区、县和州；（d）以人口／设备数比例把样本访客流量外推成人口流量。保留原图 a、b、c、d 的流程顺序及位置。来源：原论文 Fig. 1。</p>
+<p>图 1｜从样本访客汇总到普查区、县和州的流量估计；日度与周度是两条数据路径。</p>
 <p><img src="/posts/us-multiscale-flows-2020/fig2.webp" alt="美国POI空间密度"></p>
-<p>图 2｜到访地点覆盖哪里？单幅图展示美国本土连续地区的 POI 空间密度，较亮区域代表地点更多，主要城市及道路网络清晰可见。它是地点分布图，不能直接解读为某天人流或全国人口的抽样率。来源：原论文 Fig. 2。</p>
-<h2 id="同样叫流量，日与周究竟数什么？"><a href="#同样叫流量，日与周究竟数什么？" class="headerlink" title="同样叫流量，日与周究竟数什么？"></a>同样叫流量，日与周究竟数什么？</h2><p>每日产品先统计：住在某个起点 CBG 的不同设备，当天有多少到过目标 CBG。同一个人一天内在目标 CBG 去了两栋楼，在这组起讫联系中仍只计一次。</p>
-<p>每周产品先统计：住在某个起点 CBG 的不同设备，一周内有多少去过某个 POI。同一个人一周五次去同一办公室，只计一个周访客；去两个不同 POI 则可能各计一次。原论文 Table 1 的两条示例记录，正是在说明这两种不同的起讫对象。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>产品</th>
-<th>细尺度统计对象</th>
-<th>去重时间与地点</th>
-<th>不能怎样理解</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>日流量</td>
-<td>居住 CBG 到目标 CBG</td>
-<td>同一天、同一目标 CBG 的不同设备</td>
-<td>不是每一段出行次数</td>
-</tr>
-<tr>
-<td>周流量</td>
-<td>居住 CBG 到目标 POI</td>
-<td>同一周、同一 POI 的不同设备</td>
-<td>不是七天日流量求和</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>两个产品再分别汇总到普查区（census tract）、县和州。空间尺度并非只是换张底图：一个人到访同一普查区内两个不同 CBG，细尺度分别计数后再相加，可能在普查区层面计为两次。因此，即便字段来自独立访客统计，最终的区域流量也不保证仍是区域间去重人数。</p>
-<p>公开 CSV 包含起终点 GEOID、几何中心经纬度、日期或周日期范围，以及 visitor_flows 和 pop_flows。GEOID 应按字符串读取，以保留前导零；普查区、县、州分别使用 11、5、2 位标识。周文件名的日期表示该周周一，覆盖周一至周日。几何中心坐标用于连接区域，不代表某个人实际到达的街口。</p>
-<h2 id="约一成样本，怎样外推到人口？"><a href="#约一成样本，怎样外推到人口？" class="headerlink" title="约一成样本，怎样外推到人口？"></a>约一成样本，怎样外推到人口？</h2><p>研究在每个起点用下面的比例放大样本流量：</p>
-<p>人口流量（o→d）＝样本访客流量（o→d）× 起点人口（o）／起点设备数（o）。</p>
-<p>人口来自美国社区调查（American Community Survey，ACS）。采用起点各自的比例，可以避免把全国统一的约一成抽样率强加给所有地区。但它仍假定起点被观测设备的移动行为能够代表当地人口。老年人、儿童、没有智能手机或相关应用的人，都可能代表不足；单纯调整总人数不能消除这些行为差异。</p>
+<p>图 2｜美国本土连续地区的地点密度，亮色表示地点更多，不是旅客数量或设备抽样率。</p>
+<h2 id="样本多的地方，怎样与样本少的地方比较？"><a href="#样本多的地方，怎样与样本少的地方比较？" class="headerlink" title="样本多的地方，怎样与样本少的地方比较？"></a>样本多的地方，怎样与样本少的地方比较？</h2><p>作者按居住区域把样本访客量校正到人口尺度，用当地人口和观测设备规模的比例来估计。如果某个区域的设备覆盖较少，校正权重就较大。这个做法能缓解覆盖率不同，却不能自动修正设备样本与未观测居民在年龄、出行偏好或行为上的差异。估计很好看也不等于一次独立的全人口计数。</p>
+<p>图 3 对比同一周样本流量与外推结果的分位数。普查区、县、州三个尺度的拟合决定系数分别为 <strong>0.865、0.958、0.953</strong>。较粗尺度上两者的分布更接近；细尺度的高流量尾部更容易偏离。而且这两份数据本来就通过外推公式相连，这个检查说明结果没有完全改写分布，不能验证每个起讫格都准确。</p>
 <p><img src="/posts/us-multiscale-flows-2020/fig3.webp" alt="样本流量与人口外推流量的分布比较"></p>
-<p>图 3｜外推是否大幅改变流量分布？（a）普查区；（b）县；（c）州。横轴为归一化样本访客流量分位数，纵轴为人口流量分位数，红线是拟合线；示例为 2020 年 3 月 2—8 日。三个尺度的 R² 分别为 0.865、0.958、0.953，普查区较大流量的尾部偏离更明显。来源：原论文 Fig. 3。</p>
-<p>图 3 检查的是样本与其外推结果在分布上的一致性，两者本来就通过公式相连。它不能证明外推后的每个起讫对都准确，也没有与独立观测的全人口流量逐项核对。</p>
-<h2 id="高相关性，能验证到哪一步？"><a href="#高相关性，能验证到哪一步？" class="headerlink" title="高相关性，能验证到哪一步？"></a>高相关性，能验证到哪一步？</h2><p>论文先用引力模型和辐射模型作参照。前者结合两地规模与距离衰减，后者进一步考虑起点周围的中间机会。县级周流量中，引力模型与人口流量的 Pearson 相关系数约为 0.56—0.65，辐射模型约为 0.75；Table 2 逐周列出参数和相关系数。这是不同估计之间的交叉参照，没有真实总流量时，不能据此判定哪一个已测得真值。</p>
-<p>ACS 通勤数据则提供了另一个比较方向。它是居住地到主要工作地的联系，本文访客流量还包括其他目的，因此二者不应完全相等。研究在能匹配上的县级起讫对中计算相关性，Table 3 给出疫情前、限制期间和重新开放阶段的结果。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>周起始日</th>
-<th style="text-align:right">周样本访客流量与 ACS</th>
-<th style="text-align:right">周人口流量与 ACS</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2020-03-02</td>
-<td style="text-align:right">0.961</td>
-<td style="text-align:right">0.984</td>
-</tr>
-<tr>
-<td>2020-04-06</td>
-<td style="text-align:right">0.932</td>
-<td style="text-align:right">0.981</td>
-</tr>
-<tr>
-<td>2020-05-11</td>
-<td style="text-align:right">0.917</td>
-<td style="text-align:right">0.977</td>
-</tr>
-<tr>
-<td>2020-05-25</td>
-<td style="text-align:right">0.915</td>
-<td style="text-align:right">0.974</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>以上为原论文 Table 3 的周数据部分。日样本流量相关系数为 0.934—0.953，日人口流量为 0.980—0.985。人口外推提高了与通勤流量的一致性，但不能把相关系数 0.98 写成 98% 准确率。并且，周样本流量后两期为 0.917 和 0.915，低于论文文字概括的 0.93；使用时应以表中具体值区分产品和日期。</p>
-<p>时间趋势方面，研究与 Descartes Labs 的最大移动距离中位数指标比较。纽约、洛杉矶、芝加哥、休斯敦、西雅图五个都市区的相关系数依次为 0.977、0.956、0.928、0.920、0.951（Table 4）。这说明不同测量捕捉到相近的变化方向，并不表示距离指标和访客流量成了同一个量。</p>
-<h2 id="三月到五月，联系减少与恢复发生在哪里？"><a href="#三月到五月，联系减少与恢复发生在哪里？" class="headerlink" title="三月到五月，联系减少与恢复发生在哪里？"></a>三月到五月，联系减少与恢复发生在哪里？</h2><p><img src="/posts/us-multiscale-flows-2020/fig4.webp" alt="五个都市区的日周流量变化"></p>
-<p>图 4｜五个都市区的流量怎样随时间变化？按面板坐标标注，（a）日样本访客流量；（b）周样本访客流量；（c）日人口流量；（d）周人口流量。横轴均为 2020 年 3—5 月日期，颜色区分五个都市区。原图英文图注把 b、c 的描述对调，此处按各面板纵轴说明。日曲线保留更多波动，周曲线较平滑；两种产品不可直接互相累加换算。来源：原论文 Fig. 4。</p>
-<p>五个都市区在三月明显下降，随后部分恢复。这样的共时变化与疫情、限制措施及后续重新开放相符，但图中没有建立一个单独识别居家令因果效应的对照设计。个别选举日、节假日或其他事件，也可能影响短期活动。</p>
-<p>还有一个容易忽略的变化：样本规模也在动。论文报告，周活跃设备数从开始时超过 2,200 万降到 4 月 13—19 日一周约 1,300 万；日设备数在 4 月 18 日降至约 1,600 万。日周活跃设备的统计流程不同，这些数字不宜直接作为同一固定面板的人数比较。</p>
+<p>图 3｜从左到右是普查区、县和州；比较样本访客流量与外推人口流量的分位数。</p>
+<p>论文还把部分区域联系与外部通勤资料比较，把都市区的时间趋势与另一套移动距离指标比较。相关系数较高，表示较强联系和上升、下降的时段往往对应；它不意味着“流量准确率约 98%”。通勤只覆盖一部分出行，移动距离也不是区域间访客人数。不同数据捕捉到相近的方向，不能把它们当成同一指标。</p>
+<h2 id="出行联系下滑时，设备分母也变了"><a href="#出行联系下滑时，设备分母也变了" class="headerlink" title="出行联系下滑时，设备分母也变了"></a>出行联系下滑时，设备分母也变了</h2><p>五个都市区在三月至五月的曲线总体先下滑、后部分回升，但城市和度量的走势不完全重合。图 4 的英文原图注调换了 b、c 的说明，应按各面板纵轴来读。图 5 把样本规模和至少有一次出行的设备占比分开显示，提醒读者：样本不固定，不能把每段原始访客曲线的全部变化都归给居民出行行为。</p>
+<p><img src="/posts/us-multiscale-flows-2020/fig4.webp" alt="五个都市区的日周流量变化"></p>
+<p>图 4｜五个都市区：a 为日样本、b 为周样本、c 为日人口外推、d 为周人口外推；按面板纵轴判读。</p>
 <p><img src="/posts/us-multiscale-flows-2020/fig5.webp" alt="样本规模与外出设备比例"></p>
-<p>图 5｜流量下降时，设备样本是否也在变化？（a）日活跃设备数量；（b）周活跃设备数量；（c）日外出设备比例 Nc/N；（d）周外出设备比例。Nc 指至少发生一次出行的设备，N 指相应时期观测到的设备总量，横轴为 2020 年 3—5 月。数量和外出比例都随时期变化，提醒使用者同时检查分子与分母。来源：原论文 Fig. 5。</p>
+<p>图 5｜上排为日度和周度的活跃设备量，下排为相应时期观测到外出的设备比例。</p>
+<p>地图提供了另一种读法。三月初较丰富的区域联系到四月初变得稀疏，五月的一些联系恢复。图 6 在州、县及纽约都市区普查区三个层级各给四期对照。行政分区越细，变化越容易受到小流量抑制与样本波动影响。未显示的联系不宜直接读成完全无人出行，回升的颜色也不证明是哪一个因素造成的。</p>
 <p><img src="/posts/us-multiscale-flows-2020/fig6.webp" alt="疫情前中后多尺度人口流量地图"></p>
-<p>图 6｜哪些空间联系收缩，又怎样恢复？（a）美国本土连续地区的州际联系；（b）同一区域的县际联系；（c）纽约都市区的普查区联系。每组四幅地图依原序展示 3 月 2—8 日、4 月 6—12 日、5 月 11—17 日、5 月 25—31 日的周人口流量，线的强弱对应各图图例的流量分级。四月长距离联系明显稀疏，五月部分回升。地图没有展示阿拉斯加、夏威夷和波多黎各，但数据范围包含这些地区。来源：原论文 Fig. 6。</p>
-<p>地图展示了多尺度产品的价值：全国长距离网络与一个都市区内部的联系可以分别观察。但跨尺度比较时仍要记住，汇总会改变计数和空间结构；连线不是实际道路，也不是旅行路线的逐段复原。</p>
-<h2 id="低流量与重复访客，怎样改变使用结论？"><a href="#低流量与重复访客，怎样改变使用结论？" class="headerlink" title="低流量与重复访客，怎样改变使用结论？"></a>低流量与重复访客，怎样改变使用结论？</h2><p>隐私保护直接影响周流量的低值部分。论文描述的规则是：某个居住 CBG 到某个 POI 的访客数为 0 或 1 时不记录，为 2—4 时统一显示为 4。少量访问因此可能被隐藏或上调，不能把缺失起讫对简单解释为没人移动，也不宜把最小记录当作精确人数。</p>
-<p>另一方面，同一人在周内多次去同一 POI 只计一次，会低估重复访问；跨 CBG 或 POI 汇总后，同一人又可能被重复计数。两种误差可以同时存在，不能只用一个统一校正倍数消除。</p>
-<p>因此，这套数据更适合研究明确口径下的起讫联系、变化趋势和空间差异。若用于容量规划、绝对出行次数或传播模型，需要先说明 visitor_flows 与 pop_flows 的选择、低值处理、汇总尺度与人口外推假设，再检查结果对这些选择是否敏感。</p>
-<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>这套多尺度数据把疫情中的区域联系变成可分析的日周起讫流量，但流量的时间口径、去重与人口外推方式，决定了它能回答什么问题。</p>
-<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p>Yuhao Kang et al. <em>Multiscale dynamic human mobility flow dataset in the U.S. during the COVID-19 epidemic</em>. Scientific Data 7, 390 (2020)，2020 年 11 月 12 日发表。<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41597-020-00734-5">论文及全部原图</a>。本文图 1—6、表格数据及方法均依据该论文。</p>
-<p>论文对应的<a target="_blank" rel="noopener" href="https://doi.org/10.6084/m9.figshare.c.5032634.v1">静态数据归档</a>与<a target="_blank" rel="noopener" href="https://github.com/GeoDS/COVID19USFlows">代码及数据仓库</a>提供进一步复用入口。本文讨论原论文所述的 2020 年产品设计和验证，不把当年的更新计划作为现在仍持续更新的承诺。</p>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><ul>
-<li>Yuhao Kang：论文署名为威斯康星大学麦迪逊分校地理系 GeoDS Lab，参与研究设计、数据处理与分析。</li>
-<li>Song Gao：同属该实验室，为论文通讯作者，参与研究设计、数据处理与分析。</li>
-<li>Yunlei Liang：同属该实验室，参与结果分析。</li>
-<li>Mingxiao Li：署名同时包括该实验室、中国科学院地理科学与资源研究所、深圳大学建筑与城市规划学院，参与可视化。</li>
-<li>Jinmeng Rao：署名为威斯康星大学麦迪逊分校地理系 GeoDS Lab，参与可视化。</li>
-<li>Jake Kruse：署名为同一实验室；论文注明所有作者共同参与写作。</li>
+<p>图 6｜三组各四期地图依次为州际、县际及纽约都市区普查区联系；色阶按各图图例判读。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><ul>
+<li>这套资料提供了三个行政地理尺度的区域间访客流量估计，能显示总量趋势看不到的空间联系变化。</li>
+<li>居住区域到到访区域不等于连续行程；日度与周度的来源和计数规则不同。</li>
+<li>外部相关性支持部分联系格局和时间趋势，但外推不是普查，细尺度和小流量联系应格外谨慎。</li>
 </ul>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这项工作把分散的手机访客观测转成可以比较的美国区域间流量资料，价值在于同时保留了地理方向、时间变化和多层尺度。读数据时最重要的是区分样本访客与人口外推、居住地与上一站、以及相关性与准确率。它适合观察较大的出行联系怎样改变，不宜拿某天某条很小的连边当成精确客流。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-020-00734-5">Scientific Data 正式论文</a>；<a target="_blank" rel="noopener" href="https://user.eng.umd.edu/~austin/ence688p.d/papers-reading/Dynamic-Human-Mobility-Model2020.pdf">马里兰大学课程站所存的正式排版 PDF</a>。图 1–6 来源为该论文（Kang 等，2020），现有 WebP 图沿用原图内容和面板。论文为 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>，另有署名声明的第三方材料按其声明处理。</li>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.6084/m9.figshare.c.5032634.v1">论文对应的静态数据归档</a>。本文讨论原论文产品与验证，不把 2020 年的更新计划当作现行承诺。</li>
+</ul>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>论文由 Yuhao Kang、Song Gao、Yunlei Liang、Mingxiao Li、Jinmeng Rao 和 Jake Kruse 合作完成。作者来自威斯康星大学麦迪逊分校地理系 GeoDS Lab 等机构，Song Gao 为通讯作者。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>假设一个县的周流量减少，至少可能有三种情形：更少的人外出、同一批人少去几个地点，或定位样本本身减少。它们对传播风险和服务需求的含义不同。把总流量、活跃设备数、外出比例和目的地类别一起分析，会比仅画一条下降曲线更有解释力。</p>
-<p>另一个有价值的复用检验，是从同一细尺度产品分别汇总到县和州，量化重复计数会把绝对流量推高多少。若拿不到个人级数据，也可以为可能的重复程度设定范围，检查政策比较是否仍然稳定，而不是把每条线的数值都看成无误差的独立人数。</p>
+<p>如果要用这些资料比较两个地区的交通可达性变化，我会先固定同一种日度或周度产品，再把流量变化和设备分母一起画出来。对最可能影响公交服务的几条薄弱联系，还要拿独立的汇总客流去核对；否则，稀疏数据里的消失可能只是没观测到，而不是居民真的不再需要那条联系。</p>
 
                 
             </div>
@@ -674,16 +593,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%89%8B%E6%9C%BA%E4%BF%A1%E4%BB%A4/">
-                        <span class="chip bg-color">手机信令</span>
-                    </a>
-                    
                     <a href="/tags/%E5%85%B1%E4%BD%8D/">
                         <span class="chip bg-color">共位</span>
                     </a>
                     
                     <a href="/tags/%E7%A4%BE%E4%BC%9A%E7%BD%91%E7%BB%9C/">
                         <span class="chip bg-color">社会网络</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%89%8B%E6%9C%BA%E4%BF%A1%E4%BB%A4/">
+                        <span class="chip bg-color">手机信令</span>
                     </a>
                     
                 </div>
@@ -697,12 +616,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/e8000034/">
+                <a href="/posts/e8000031/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="2019-Data4UrbanMobility: Towards Holistic Data Analytics for Mobility Applications in Urban Regions">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="2013-Understanding metropolitan patterns of daily encounters">
                         
-                        <span class="card-title">2019-Data4UrbanMobility: Towards Holistic Data Analytics for Mobility Applications in Urban Regions</span>
+                        <span class="card-title">2013-Understanding metropolitan patterns of daily encounters</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -730,16 +649,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%9F%8E%E5%B8%82%E5%87%BA%E8%A1%8C/">
-                        <span class="chip bg-color">城市出行</span>
+                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                        <span class="chip bg-color">人类移动性</span>
                     </a>
                     
-                    <a href="/tags/%E5%A4%9A%E6%BA%90%E6%95%B0%E6%8D%AE/">
-                        <span class="chip bg-color">多源数据</span>
+                    <a href="/tags/%E5%85%AC%E5%85%B1%E4%BA%A4%E9%80%9A/">
+                        <span class="chip bg-color">公共交通</span>
                     </a>
                     
-                    <a href="/tags/%E5%85%AC%E6%B0%91%E7%A7%91%E5%AD%A6/">
-                        <span class="chip bg-color">公民科学</span>
+                    <a href="/tags/%E7%86%9F%E6%82%89%E7%9A%84%E9%99%8C%E7%94%9F%E4%BA%BA/">
+                        <span class="chip bg-color">熟悉的陌生人</span>
                     </a>
                     
                 </div>

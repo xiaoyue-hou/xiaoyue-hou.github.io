@@ -375,12 +375,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%9C%BA%E4%BC%9A%E7%BD%91%E7%BB%9C/">
-                                <span class="chip bg-color">机会网络</span>
-                            </a>
-                        
                             <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
                                 <span class="chip bg-color">人类移动性</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%9C%BA%E4%BC%9A%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">机会网络</span>
                             </a>
                         
                             <a href="/tags/%E9%87%8D%E5%B0%BE%E5%88%86%E5%B8%83/">
@@ -434,16 +434,9 @@
             <div id="articleContent">
                 <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h2 id="消息交给第一个遇见的人，为什么可能等得格外久？"><a href="#消息交给第一个遇见的人，为什么可能等得格外久？" class="headerlink" title="消息交给第一个遇见的人，为什么可能等得格外久？"></a>消息交给第一个遇见的人，为什么可能等得格外久？</h2><p>论文名片｜Augustin Chaintreau、Pan Hui、Jon Crowcroft、Christophe Diot、Richard Gass、James Scott，<em>Impact of Human Mobility on Opportunistic Forwarding Algorithms</em>，<em>IEEE Transactions on Mobile Computing</em>，2007，6(6)：606–620。期刊正式版，2007 年 3 月 28 日在线发表，6 月刊出。<a target="_blank" rel="noopener" href="https://doi.org/10.1109/TMC.2007.1060">DOI</a>。</p>
-<p>设想一条消息暂时接不上互联网。你的设备把消息传给迎面遇见的人，对方带着消息走，直到碰到收件人才交付。这种存储、携带、转发的方式，把人的移动变成了通信网络的一部分。问题是：见过一次的人，多久以后才会再见？</p>
-<p>如果等候时间大多围绕一个温和的平均值波动，随缘找人接力或许够用；如果少数等待特别漫长，平均延迟就可能被长尾支配。这篇论文用八组接触记录指出，常见移动模型对漫长等待的估计可能过于乐观，再用更新过程模型解释这种差异怎样改变转发算法的保证。</p>
-<p>先把四点发现放在前面：</p>
-<ul>
-<li>在约 10 分钟至 1 天的范围，八组数据中的接触间隔尾部都下降缓慢，幂律可作近似或下界；这不等于完整时间范围都遵循同一幂律。</li>
-<li>同一对设备两次接触之间的间隔，与消息在任意时刻到来后还要等多久，是两种分布。后者更容易落进长间隔。</li>
-<li>在独立、同分布、无截断幂律的模型中，单副本两跳转发需要比“平均接触间隔有限”更强的条件，才能保证有限平均延迟。</li>
-<li>多副本可以扩大模型中的可行区域，却无法自动消除所有重尾问题。真实网络是否如此，还取决于长时间截断、群体差异和接触相关性。</li>
-</ul>
+<h2 id="消息交给第一个遇见的人，为什么可能等得格外久？"><a href="#消息交给第一个遇见的人，为什么可能等得格外久？" class="headerlink" title="消息交给第一个遇见的人，为什么可能等得格外久？"></a>消息交给第一个遇见的人，为什么可能等得格外久？</h2><p>两台设备都暂时接不上互联网，却可以在彼此靠近时传消息。于是，一台设备先把消息交给碰到的中继，中继带着它移动，等遇到收件设备再交付。这样的接力难不难，不只看相遇有多频繁，更要看少数漫长的等待有多常见。</p>
+<p>论文名片｜Augustin Chaintreau、Pan Hui、Jon Crowcroft、Christophe Diot、Richard Gass、James Scott，<em>Impact of Human Mobility on Opportunistic Forwarding Algorithms</em>，<em>IEEE Transactions on Mobile Computing</em>，2007 年 6 月，6(6)：606–620；2007 年 3 月 28 日首次在线。<a target="_blank" rel="noopener" href="https://doi.org/10.1109/TMC.2007.1060">DOI</a>。</p>
+<span id="more"></span>
 <h2 id="八组记录，测到的是同一种相遇吗？"><a href="#八组记录，测到的是同一种相遇吗？" class="headerlink" title="八组记录，测到的是同一种相遇吗？"></a>八组记录，测到的是同一种相遇吗？</h2><p>论文测量的是接触间隔时间（intercontact time）：对固定的一对设备，从一次接触结束，到下次接触开始的等待。它不是一次接触持续多久，也不是某人离开一个人后多久碰到任何另一个人。</p>
 <p>表 1 的实验概况有必要放在一起看，因为不同采集方式会改变我们对相遇的理解。</p>
 <div class="table-container">
@@ -522,26 +515,18 @@
 <p>共享接入点或基站只是潜在通信机会的代理。两个设备连着同一基站，未必在彼此的直连范围；没有接入点的地方也可能发生未记录的相遇。设备还可能被留在桌上。因此，八组数据的共同模式有价值，但不能把它们当作精度相同的面对面社交记录。</p>
 <p>每对至少相遇两次的设备先各自生成间隔分布，再给不同设备对相同权重，合成聚合分布。这避免接触频繁的设备对仅凭记录数占据全部权重，也意味着图中的概率不是把所有人的全部间隔直接混在一起数出来的比例。</p>
 <h2 id="相遇很多次，也掩不住少数漫长等待"><a href="#相遇很多次，也掩不住少数漫长等待" class="headerlink" title="相遇很多次，也掩不住少数漫长等待"></a>相遇很多次，也掩不住少数漫长等待</h2><p><img src="/posts/e8000028/fig1.webp" alt="八组实验接触间隔的聚合尾部分布"></p>
-<p>图 1｜固定两台设备，再次相遇需要等多久？</p>
-<p>（a）Cambridge 内部接触、Hong Kong 外部接触和 Toronto 的聚合互补累积分布。横轴是等待时间，纵轴是间隔超过该时间的概率，双轴均取对数；细直线是尾指数 0.6 的幂律参照。</p>
-<p>（b）INFOCOM 内部与外部接触。两条曲线在主要范围内接近，参照幂律尾指数为 0.35；一天附近之后出现明显偏离。</p>
-<p>（c）UCSD、Dartmouth、MIT BT 和 MIT GSM。参照线尾指数为 0.2，不同技术对应的曲线高度和远端形状差异明显。来源：原论文 Fig. 1。</p>
+<p>图 1｜同一对设备再次相遇要等多久？三幅双对数图均以时间为横轴，以超过该时长的概率为纵轴。(a) Cambridge 内部、Hong Kong 外部和 Toronto，幂律参照指数 0.6；(b) INFOCOM 内外部，参照 0.35；(c) UCSD、Dartmouth、MIT BT 与 MIT GSM，参照 0.2。</p>
 <p>这里的互补累积分布（CCDF）回答“等候超过 t 的概率还有多少”。双对数图上缓慢下降的曲线意味着长等待不容易消失。作者在三组 iMote 实验中报告，约 17%–30% 的间隔超过一小时，约 3%–7% 超过一天；Toronto 中约 14% 超过一天、8% 超过一周；MIT 蓝牙记录中超过一天的间隔可达 60%。这些是不同数据集的统计，不能合成一种通用的人类相遇概率。</p>
 <p>最可比较的区域是 10 分钟至 1 天。原文的谨慎说法是：这一范围的尾部可被幂律下界约束，在部分数据中幂律也是较好的近似。0.6、0.35、0.2 是图中参照下界的指数，不应写成八组数据分别得到的精确共同参数。</p>
 <p>实验的两端都有观测限制：短于扫描周期的离开再返回可能漏掉，长于观测期的间隔无法完整看到；论文还排除了实验开始至首次接触、最后一次接触至实验结束的未闭合区间。因此，超长间隔的尾部不能仅凭这些有限记录定型。</p>
 <h2 id="幂律只是聚合造成的吗？"><a href="#幂律只是聚合造成的吗？" class="headerlink" title="幂律只是聚合造成的吗？"></a>幂律只是聚合造成的吗？</h2><p>一个平均图形可能由许多不同的个体规律混合而成。论文因此同时做分布对照和逐设备对估计。</p>
 <p><img src="/posts/e8000028/fig2.webp" alt="模型分位数对照与设备对尾指数"></p>
-<p>图 2｜幂律近似有多好，不同设备对有多大差异？</p>
-<p>（a）INFOCOM 内部接触的分位数对照图。横轴为参数模型的分位数，纵轴为观测分位数，接近对角线表示对应分位数相近。指数、对数正态和幂律模型都匹配观测中位数，幂律在约 18 小时以内更贴近观测，一天以后也明显偏离。</p>
-<p>（b）INFOCOM 的逐设备对尾指数估计，共 1,438 对，横轴为按中位数估计排序后的相对名次。实线来自中位数估计，竖区间是用目标时间范围内次序统计量得到的启发式上下界；为可读性仅绘部分竖区间。</p>
-<p>（c）不同数据集的三种估计汇总。各组由左到右为下界估计、中位数估计、上界估计；粗部覆盖中间 50% 的设备对，细线覆盖中间 90%。这不是参数估计的置信区间。来源：原论文 Fig. 2。</p>
+<p>图 2｜(a) INFOCOM 的实测分位数与三种模型对照，越靠对角线越吻合；(b) 1,438 个设备对的尾指数估计，竖线是启发式上下界；(c) 各数据集的下界、中位数、上界估计，粗细区间分别覆盖中间 50% 和 90% 的设备对，不是置信区间。</p>
 <p>在图 2a 的特定比较中，幂律优于所测试的指数与对数正态近似。但这并不是包含全部候选分布的严格模型选择，也没有证明幂律来自某个唯一的移动机制。作者明确把一天以上的额外参数模型留作后续工作。</p>
 <p>图 2b 的中位数估计，对一半 INFOCOM 设备对落在 0.2–0.4。几乎所有上界估计低于 1，但仍有三对例外。Hong Kong 的记录更稀疏，上界估计在约 10% 的设备对中略高于 1。这既提醒我们关注群体差异，也提醒我们：有限样本下的启发式界限不是精确参数。</p>
 <p>下一步理论把这些差异大幅简化，假设所有设备对共享同一个尾指数。经验分析为关注重尾提供理由，却没有验证这种同质化假设。</p>
 <h2 id="没看见明显自相关，就能把相遇当作独立吗？"><a href="#没看见明显自相关，就能把相遇当作独立吗？" class="headerlink" title="没看见明显自相关，就能把相遇当作独立吗？"></a>没看见明显自相关，就能把相遇当作独立吗？</h2><p><img src="/posts/e8000028/fig3.webp" alt="接触间隔序列的对数自相关"></p>
-<p>图 3｜一段等待能否预测后面的等待？</p>
-<p>（a）INFOCOM 各设备对间隔对数值的自相关，横轴为滞后阶数 k，纵轴为相关系数。设备对之间分散很大，平均值略偏负；粗箱和细线分别给出中间 50% 与 90% 的设备对范围。</p>
-<p>（b）MIT GSM 的相同计算，结果更集中于零附近。两图均计算至滞后 50 阶。来源：原论文 Fig. 3。</p>
+<p>图 3｜(a) INFOCOM 与 (b) MIT GSM 的间隔对数自相关，横轴最多滞后 50 阶。粗箱、细线分别覆盖中间 50%、90% 的设备对。MIT GSM 较集中于零，INFOCOM 个体间差异更大。</p>
 <p>这里先取间隔的对数，是为了减轻重尾和潜在无限方差对普通相关分析的影响。接近零的相关系数可以支持简化分析，却不能证明独立；图 3 检查的还是同一对设备的前后间隔，并未验证不同设备对之间独立。共处办公室、共同上下班等现实结构，正可能产生跨设备对的关联。</p>
 <p>理论部分明确假设：同一设备对的间隔独立同分布，不同设备对的接触过程也独立，所有设备对同质。模型直接描述接触过程，不模拟地理位置与运动轨迹。</p>
 <h2 id="为什么平均相遇间隔有限，消息还可能等到均值失控？"><a href="#为什么平均相遇间隔有限，消息还可能等到均值失控？" class="headerlink" title="为什么平均相遇间隔有限，消息还可能等到均值失控？"></a>为什么平均相遇间隔有限，消息还可能等到均值失控？</h2><p>论文假设离散时间中的间隔 X 满足 P(X ≥ t) = t 的负 α 次方，且没有上限。α 是尾指数，越小意味着长等待越常见。这个无截断假设将有限观测范围中的现象扩展为数学对象，是后面“无界”的前提。</p>
@@ -585,10 +570,14 @@
 <h2 id="这项研究留下了什么判断方法？"><a href="#这项研究留下了什么判断方法？" class="headerlink" title="这项研究留下了什么判断方法？"></a>这项研究留下了什么判断方法？</h2><p>评价机会网络时，只报告平均相遇频率不够。还需检查同一对设备的间隔尾部、消息到达时看到的剩余等待，以及复制和队列资源之间的取舍。用轻尾的随机移动模型得到的延迟保证，可能依赖真实数据不具备的二阶矩条件。</p>
 <p>附录 A 给出更新过程、剩余等待和平稳性结论，附录 B 通过服务时刻队列、广义 Little 关系和随机游走条件处理队列期望，附录 C 构造短接触转发与多中继次序统计量的证明。它们巩固的是在明确假设下的数学保证，并未补上现实跨设备相关性、异质性、无线干扰和有限缓存的实测验证。</p>
 <p>作者提出的出路也很具体：应用应能承受偶发长延迟；转发可以利用设备身份、历史相遇与社会结构；还可以加入特殊设备或部分基础设施，创造新的接触机会。这些方向值得研究，但本文尚未证明哪种方案在现实中一定最优。</p>
-<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>消息交给第一个遇见的人，能否可靠地等到收件人，取决于等待分布的长尾和消息到来时看到的剩余时间；有限范围的重尾观测值得警惕，却必须与无截断理想模型的延迟定理分开理解。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><ul>
+<li>八组无线记录都显示，约 10 分钟到 1 天内的设备接触间隔尾部下降缓慢。幂律是这个范围内的近似或参照下界，并非覆盖一切时间尺度的经验定律。</li>
+<li>对任意时刻到来的消息，剩余等待比从一次接触起算的完整间隔更容易被长尾支配。在独立、同质、无截断的模型里，部分参数区间需要多个中继才存在有限平均延迟；当尾指数不超过 1 时，有限设备网络即使洪泛也没有有限长期平均延迟。这是模型定理，不是实测延迟。</li>
+</ul>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>论文用 8 组无线接触数据、跨度 3–246 天、单组 12–6,648 台设备，发现同一对设备再次相遇的等待在约 10 分钟至 1 天内有显著长尾。为了说明长尾为何妨碍通信，作者用更新过程区分完整接触间隔与消息看到的剩余等待：在独立、同质且无截断的幂律模型中，即使平均间隔有限，单副本转发也可能没有有限长期平均延迟；多中继只在特定区间能改变这一结果。两种证据应分开读：记录刻画的是有限范围内的接触机会，定理给出的是理想模型的延迟边界。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.1109/TMC.2007.1060">期刊原文与 DOI</a>：数据表 1、图 1–3、定理 1–2、结论和附录 A–C。本文三张图均来自原论文对应完整图。</li>
-<li><a target="_blank" rel="noopener" href="https://researchportal.hkust.edu.hk/en/publications/impact-of-human-mobility-on-opportunistic-forwarding-algorithms/">香港科技大学研究门户书目记录</a>：核对期刊、卷期、页码与发表年份。</li>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1109/TMC.2007.1060">IEEE 期刊正式 DOI</a>；<a target="_blank" rel="noopener" href="https://citeseerx.ist.psu.edu/document?doi=fe4ca51ae932250d71c2d33063874a16510e6d18&amp;repid=rep1&amp;type=pdf">刊版全文存档</a>（首页载首次在线日期）；<a target="_blank" rel="noopener" href="https://www.cs.columbia.edu/~danr/Rising/Chaintreau/Chaintreau-pub2.pdf">哥伦比亚大学托管的同题作者全文</a>。本文采用 2007 年期刊版，不混用早期不同题名的会议稿。</li>
+<li>表 1、图 1–3、定理 1–2 与附录 A–C 均可在上述全文查阅。图 1–3 为期刊文章完整图组；刊版载有 IEEE 版权声明，公开转载许可尚未核实。</li>
 </ul>
 <h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>以下身份均按论文首页及文末作者简介的发表时期信息。</p>
 <ul>
@@ -599,7 +588,7 @@
 <li>Richard Gass：Intel Research 匹兹堡研究工程师，研究机会通信、无线网络和车载自组网。</li>
 <li>James Scott：微软剑桥研究院研究人员，研究移动网络与普适计算。</li>
 </ul>
-<h2 id="延伸思考：比平均延迟更适合用户的承诺是什么？"><a href="#延伸思考：比平均延迟更适合用户的承诺是什么？" class="headerlink" title="延伸思考：比平均延迟更适合用户的承诺是什么？"></a>延伸思考：比平均延迟更适合用户的承诺是什么？</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
 <p>如果用户只关心今晚之前能否收到消息，长期平均延迟就不够贴近问题。可以同时报告在 10 分钟、一小时、一天内送达的比例，以及为达到这些目标消耗的副本数、能量和缓存。这样即使分布有很长的尾巴，用户仍能理解某个期限内的服务可靠程度。</p>
 <p>另一个实验可以把同一组真实接触记录分成两类仿真：保留完整时序，或打乱设备身份和时间关联但尽量保持间隔分布。如果两者期限送达率不同，就能检验只保留单对间隔分布是否丢掉了有用结构。长尾给出困难的轮廓，关系与日程可能决定哪些中继能真正绕开困难。</p>
 
@@ -666,12 +655,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%9C%BA%E4%BC%9A%E7%BD%91%E7%BB%9C/">
-                                    <span class="chip bg-color">机会网络</span>
-                                </a>
-                            
                                 <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
                                     <span class="chip bg-color">人类移动性</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%9C%BA%E4%BC%9A%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">机会网络</span>
                                 </a>
                             
                                 <a href="/tags/%E9%87%8D%E5%B0%BE%E5%88%86%E5%B8%83/">
@@ -781,12 +770,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/encounter-colocation-2017/">
+                <a href="/posts/encounters-opportunistic-2012/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="2017-Predicting encounter and colocation events">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="2012-Predicting Encounters in Opportunistic Networks">
                         
-                        <span class="card-title">2017-Predicting encounter and colocation events</span>
+                        <span class="card-title">2012-Predicting Encounters in Opportunistic Networks</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -818,12 +807,12 @@
                         <span class="chip bg-color">人类移动性</span>
                     </a>
                     
-                    <a href="/tags/%E6%8E%A5%E8%A7%A6%E9%A2%84%E6%B5%8B/">
-                        <span class="chip bg-color">接触预测</span>
+                    <a href="/tags/%E6%9C%BA%E4%BC%9A%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">机会网络</span>
                     </a>
                     
-                    <a href="/tags/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF/">
-                        <span class="chip bg-color">朴素贝叶斯</span>
+                    <a href="/tags/%E6%8E%A5%E8%A7%A6%E9%A2%84%E6%B5%8B/">
+                        <span class="chip bg-color">接触预测</span>
                     </a>
                     
                 </div>

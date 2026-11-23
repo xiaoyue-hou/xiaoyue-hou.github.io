@@ -434,106 +434,26 @@
             <div id="articleContent">
                 <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h2 id="充电桩被占着，究竟意味着多少用电需求？"><a href="#充电桩被占着，究竟意味着多少用电需求？" class="headerlink" title="充电桩被占着，究竟意味着多少用电需求？"></a>充电桩被占着，究竟意味着多少用电需求？</h2><p>论文名片｜Han Li、Haohao Qu、Xiaojun Tan、Linlin You、Rui Zhu、Wenqi Fan，<em>UrbanEV: An Open Benchmark Dataset for Urban Electric Vehicle Charging Demand Prediction</em>，<em>Scientific Data</em>，2025，12：523，2025 年 3 月 28 日发表。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-025-04874-4">论文原文</a> · <a target="_blank" rel="noopener" href="https://doi.org/10.5061/dryad.np5hqc04z">数据</a> · <a target="_blank" rel="noopener" href="https://github.com/IntelligentSystemsLab/UrbanEV">代码与说明</a>。</p>
-<p>假设你正为下一小时的充电服务做准备。司机想知道哪里有空桩，运营者想知道哪些区域会拥挤，电网则更关心会消耗多少电。三个问题看起来都叫充电需求，却不能用同一个数字回答：一个桩显示忙碌，不代表它始终按额定功率输电。</p>
-<p>UrbanEV 把深圳公共充电平台的信息整理成可用于预测的城市数据。它同时提供占用、累计使用时长、估计电量、价格、天气和空间关系。理解这份基准的关键，是分清直接记录的状态、根据状态推算的使用，以及模型可以预测的对象。</p>
-<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
-<li>原始范围为 1,682 座公共充电站、24,798 个充电桩；清洗并筛选后，主要预测数据保留 275 个交通小区、1,362 座站和 17,532 个桩。站与桩不能混称。</li>
-<li>数据覆盖 2022 年 9 月至 2023 年 2 月，共六个月；五分钟状态记录被整理为小时级区域序列，共 4,344 个时间点。</li>
-<li>电量主要由使用时长乘以桩额定功率估计，并非电表实测。另一个固定 11 kW 的版本也是替代估计，不能当作已验证的真实电量。</li>
-<li>复杂模型在若干指标上表现较好，但并非所有指标都获胜；加入天气和价格也不必然提高预测，更不能据此证明价格对用户行为的因果效应。</li>
-</ul>
-<h2 id="数据里的站、桩和区域，分别是什么？"><a href="#数据里的站、桩和区域，分别是什么？" class="headerlink" title="数据里的站、桩和区域，分别是什么？"></a>数据里的站、桩和区域，分别是什么？</h2><p>研究通过供司机查找公共充电设施的移动平台，每五分钟记录可用状态、额定功率、费用与位置。一个站点可以包含多个桩；交通小区则把同一区域的站和桩汇总，便于研究相邻区域之间的联系。</p>
+<p>充电地图上，一座站几乎没有空桩。司机关心还能不能插上车，运营者关心这些桩会被用多久，电网则想知道接下来要供多少电。三个问题都叫「充电需求」，但一个忙碌状态不能同时回答三个问题。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-025-04874-4">UrbanEV 论文</a>用深圳公共充电设施的记录搭建了开放预测基准，关键是弄清每个预测目标是怎么来的。</p>
+<h2 id="深圳的站和桩，怎样变成一张区域图？"><a href="#深圳的站和桩，怎样变成一张区域图？" class="headerlink" title="深圳的站和桩，怎样变成一张区域图？"></a>深圳的站和桩，怎样变成一张区域图？</h2><p>作者从公共充电平台每五分钟采集忙闲状态、位置、额定功率和费用。初始覆盖 1,682 座站、24,798 个桩；清洗并筛选后，用于主要预测任务的是 275 个交通小区、1,362 座站和 17,532 个桩。一个站有多个桩，一个交通小区又可以包含多座站。数据从 2022 年 9 月 1 日到 2023 年 2 月 28 日，小时序列共有 4,344 个时间点。</p>
 <p><img src="/posts/e8000025/fig1.webp" alt="图 1：深圳公共充电设施的初始覆盖"></p>
-<p>图 1｜这些记录来自城市的哪些地方？</p>
-<p>这张图没有字母子图。底图呈现深圳空间单元，颜色为初始 24,798 个桩的核密度，单位是每平方公里桩数，颜色更深表示设施更密集。它展示的是采集覆盖与设施密度，不是该时刻的充电负荷，也不是最终 275 个区域的筛选结果。来源：原论文 Fig. 1。</p>
-<p>其他资料包括两处气象站的温度、气压和相对湿度，以及兴趣点（point of interest，POI）、区域面积、道路长度、中心点距离和邻接关系。天气序列对所有区域共享，不能据此精确表示每个充电点自己的微气候。</p>
-<p>原论文表 1 把 UrbanEV 与其他充电数据比较，突出城市尺度、较多桩位以及价格和空间背景的组合。这个贡献是增加研究条件，不意味着平台覆盖了深圳所有公共与私人充电设施。</p>
-<h2 id="一个忙碌状态，怎样变成时长和电量？"><a href="#一个忙碌状态，怎样变成时长和电量？" class="headerlink" title="一个忙碌状态，怎样变成时长和电量？"></a>一个忙碌状态，怎样变成时长和电量？</h2><p>论文的规则是，两次相邻记录都为忙碌时，将相应片段视作活跃充电；累加使用桩数与五分钟间隔得到时长，再乘额定功率估计电量。区域内多个桩同时使用，因此一个小时里累计桩时可以超过一小时：十个桩各用半小时就是五桩时，不能读成某一辆车充了五小时。</p>
-<p>小时聚合也分两类。时长和电量是累计量，在一小时内相加；占用率和价格则取指定时刻的瞬时值，不是这一小时全部五分钟记录的均值。因此，用占用率直接推算平均利用率时，要先核对采样口径。</p>
-<p>作者仓库说明进一步区分：占用从可用性出发，包含不可用或忙碌的桩；时长与电量则从使用角度统计活跃充电。占用、时长、电量相关，却不是可以互换的字段。</p>
-<p>电量的边界尤其重要。车辆实际功率可能受电量状态、车型、充电曲线和设施限制影响；平台忙碌状态乘额定功率，可能高估真实供电。<code>volume-11kW.csv</code> 用固定 11 kW 替换部分功率作为另一种估计，它不是逐车测量或对全部直流充电功率的事实描述。</p>
-<h2 id="为什么只保留部分区域，又怎样处理错误？"><a href="#为什么只保留部分区域，又怎样处理错误？" class="headerlink" title="为什么只保留部分区域，又怎样处理错误？"></a>为什么只保留部分区域，又怎样处理错误？</h2><p>研究删除负收费、忙闲数量与总桩数不一致等异常记录，将其视为缺失；先向前填充，再用向后填充处理序列开端缺口。对部分指标使用四倍四分位距阈值识别离群点，再以相邻有效值均值替换。与常见的 1.5 倍阈值相比，四倍设置保留了更多原始极值，但仍可能改变真实峰值。</p>
-<p>初始空间聚合得到 331 个区域，再排除占用率方差低于 0.001，或零值比例超过 30% 的区域，最终保留 275 个。这使预测基准更集中于有明显变化和使用活动的区域，也意味着不能把结果直接推广到低使用率或长期闲置区域。</p>
+<p><em>图 1｜初始采集范围内的充电桩空间密度。深色表示设施更密，不表示电网负荷更大。</em></p>
+<p>把站汇总到交通小区后，研究者用邻接关系连接相邻小区，并计算区域中心点之间的直线距离。区域资料还包括兴趣点、面积和设施数量，时间资料包括天气与价格。筛选时会剔除占用率变化很小或零值过多的区域，因此评测难度不等于深圳所有站点的预测难度。</p>
 <p><img src="/posts/e8000025/fig2.webp" alt="图 2：筛选区域及其空间关系"></p>
-<p>图 2｜怎样把一座城市变成可学习的空间网络？</p>
-<p>（a）区域级充电桩数量分布，绿色深浅表示桩数，标记指出存在分时定价的区域；这不是预测误差地图。</p>
-<p>（b）中心商务区局部放大，显示相邻交通小区及其编号。</p>
-<p>（c）把局部区域转成节点图，一跳与两跳表示沿邻接关系跨过一个或两个区域，不是开车一公里或两公里。</p>
-<p>（d）部分邻近区域中心点的距离矩阵，单位为米；数值为欧氏距离，不是道路行程时间。全部四个面板共同解释聚合与空间特征，不能把区域编号当作站点编号。来源：原论文 Fig. 2。</p>
-<p>原论文表 2 给出区域指标的分布。占用字段的数值在 0–1 范围内，即比例；表中虽用百分号标记，0.24 应先理解为 24%，而不是 0.24%。价格字段也需留意：正文数据说明曾写每小时，作者仓库则明确电价与服务费单位为元／kWh。复用时应以具体文件说明统一单位，不能把时间分辨率误当计价单位。</p>
-<h2 id="模型预测得好，证明了哪些事情？"><a href="#模型预测得好，证明了哪些事情？" class="headerlink" title="模型预测得好，证明了哪些事情？"></a>模型预测得好，证明了哪些事情？</h2><p>论文以小时数据做预测评测，采用按月份扩展的时间序列交叉验证：逐折增加月份，在各折中以 80% 训练、10% 验证、10% 测试。评估指标包括均方根误差（RMSE）、平均绝对误差（MAE）、平均绝对百分比误差（MAPE）和相对绝对误差（RAE）。不同指标对低值和极值的重视不同，排名可能变化。</p>
-<p>区域占用预测比较了直接沿用最近值、AR、ARIMA、全连接网络、LSTM、图模型及两种较新的时间序列模型。原论文表 3 的四个预测长度为 3、6、9、12 小时，下面列出跨长度平均结果；占用比例的误差均还原到 0–1 尺度。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>模型</th>
-<th>平均 RMSE</th>
-<th>平均 MAE</th>
-<th>平均 MAPE</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>最近值 LO</td>
-<td>0.1309</td>
-<td>0.0783</td>
-<td>43.02%</td>
-</tr>
-<tr>
-<td>LSTM</td>
-<td>0.1028</td>
-<td>0.0679</td>
-<td>43.99%</td>
-</tr>
-<tr>
-<td>GCN-LSTM</td>
-<td>0.0953</td>
-<td>0.0658</td>
-<td>43.59%</td>
-</tr>
-<tr>
-<td>TimesNet</td>
-<td>0.0954</td>
-<td>0.0599</td>
-<td>35.20%</td>
-</tr>
-<tr>
-<td>TimeXer</td>
-<td>0.0924</td>
-<td>0.0561</td>
-<td>32.74%</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>例如，TimeXer 的平均 MAE 为 0.0561，表示占用比例的绝对误差约 5.61 个百分点，不是总体预测准确率为 94.39%。它相对 LO 改善了表中这些平均指标，但短期 MAPE 上，LO 的 3 小时结果 25.39% 仍低于 TimeXer 的 26.13%。</p>
-<p>这些结果支持数据中存在可学习的时间与空间结构，也提供统一比较任务。不过，模型能更好预测由状态规则和功率假设生成的序列，并不反过来证明估计电量已等于电表真值。</p>
-<h2 id="单个节点的预测，所有指标都是同一个赢家吗？"><a href="#单个节点的预测，所有指标都是同一个赢家吗？" class="headerlink" title="单个节点的预测，所有指标都是同一个赢家吗？"></a>单个节点的预测，所有指标都是同一个赢家吗？</h2><p>原论文表 4 比较单节点上的占用、时长与电量预测。TimeXer 的 RMSE 分别为 0.07、2.73 小时、43.66 kWh，MAE 分别为 0.05、2.04 小时、33.81 kWh，多个指标较好；时长仍应按节点累计使用量理解。</p>
-<p>但表内存在明确反例：占用 MAPE 中 AR 为 0.11、TimeXer 为 0.29；电量 MAPE 中 LO 为 0.58、TimeXer 为 0.66。在这些小数比例指标下，值越小越好。因而，不能照搬正文对 TimeXer 在所有指标上都最优的概括。选模型应对照实际任务的误差代价，也应核对零值附近 MAPE 的实现方式。</p>
-<h2 id="把天气和费用都加进去，就会预测得更好吗？"><a href="#把天气和费用都加进去，就会预测得更好吗？" class="headerlink" title="把天气和费用都加进去，就会预测得更好吗？"></a>把天气和费用都加进去，就会预测得更好吗？</h2><p>表 5 做的是预测特征组合试验：比较气压、温度、湿度、电价和服务费单独或组合加入后的表现。它并没有随机改变价格或天气，因此不是价格弹性或用户行为的因果实验。</p>
-<p>在四个模型的平均 RMSE 上，不加外部特征为 0.0899，加入温度与电价的组合为 0.0888；五项全加则为 0.0902。改善幅度不大，也没有因此证明所有模型都受益。具体到 TimeXer，不加特征的 RMSE 为 0.0795，全加为 0.0863，反而变差。</p>
-<p>这也提醒我们，表 3 与表 5 的基线数值并不完全相同，不能未经实验设置核对，就拿其中一行拼成新的统一排行榜。没有误差区间与重复运行的完整信息时，细小差别应作为该设置下的结果描述，而不是某种特征永远有用的结论。</p>
-<p>作者把价格组合表现较好解释为用户关注总费用，把温度影响解释为出行和充电需求变化。这些解释具有行为直觉，但预测增益本身不足以排除分时价格、日周期、季节和其他共同变化因素。</p>
-<h2 id="这份基准适合怎样使用？"><a href="#这份基准适合怎样使用？" class="headerlink" title="这份基准适合怎样使用？"></a>这份基准适合怎样使用？</h2><p>UrbanEV 适合检验区域充电序列预测、空间邻接建模与外部特征融合。它同时提供小时和五分钟版本、区域几何、背景变量及代码；读者可以对照研究目标选择占用或使用量，而不是把所有任务统称为电网负荷预测。</p>
-<p>有三项边界尤其实际。首先，六个月覆盖的是深圳公共平台的一段时期，并非完整全年或其他城市的分布。其次，前后向填充和相邻均值替换会改变突变，预测评估应核查预处理是否跨过训练测试分界；面向实时预测时不能使用当时尚未发生的数据填补过去。最后，区域筛选移除了大量低变化和高零值单元，因此难点可能与全市新建、低利用率站点不同。</p>
-<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>UrbanEV 为城市充电预测提供了丰富且可复用的共同基准，而占用、累计使用与估计电量的区别，决定了预测结果究竟能服务什么问题。</p>
+<p><em>图 2｜(a) 区域桩数及分时价格标记；(b) 局部小区；(c) 邻接图；(d) 小区中心点距离。图上的两跳不是两公里。</em></p>
+<h2 id="一个忙碌状态，怎样换算成时长和电量？"><a href="#一个忙碌状态，怎样换算成时长和电量？" class="headerlink" title="一个忙碌状态，怎样换算成时长和电量？"></a>一个忙碌状态，怎样换算成时长和电量？</h2><p><strong>占用</strong>是从司机能否用桩的角度统计：某个时刻有多少桩不能马上使用。它是一个瞬时比例，不是一小时平均使用率。<strong>时长</strong>是从使用角度统计：作者把相邻两次都忙碌的五分钟片段计为活跃，再把一个区域中各桩使用时长加起来。十个桩各用半小时，得到五桩时，并不是一辆车充了五小时。</p>
+<p><strong>电量</strong>则是用估计时长乘功率后累加。主要版本使用额定功率，发布包也提供了用固定 11 kW 作替代的估计。实际充电功率会随车辆、电量和设施条件变化，所以两个电量版本都不是电表实测。即使模型准确预测了这条估计序列，也不能据此说已经准确预测电网负荷。</p>
+<h2 id="哪个模型更好，取决于要避开什么错？"><a href="#哪个模型更好，取决于要避开什么错？" class="headerlink" title="哪个模型更好，取决于要避开什么错？"></a>哪个模型更好，取决于要避开什么错？</h2><p>作者做按时间顺序扩展的评测，比较沿用最近一次观测、传统时序方法和较新的深度模型。以区域占用为例，跨 3、6、9、12 小时预测范围，TimeXer 的平均绝对误差为 0.0561，最近值基线为 0.0783。占用率用 0–1 表示，这分别是约 5.61 和 7.83 个百分点的误差，不是预测准确率。</p>
+<p>排名也会随指标变。比如在三小时占用预测的百分比误差上，最近值基线略优于 TimeXer。加入温度和电价有时能改善误差，把所有外部特征加上去却未必更好；这是预测输入的比较，不是随机改变收费的实验，不能用来推断提价会让多少司机改变选择。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>UrbanEV 为深圳公共充电的区域预测提供了开放的数据、空间关系和基线，可分别评估占用、累计使用时长与估计电量。后两类预测的含义受状态识别和功率假设限制，外部变量的增益也随模型和设置改变。数据只覆盖一座城市公共平台的六个月，并剔除了低变化或零值较多的区域；若做实时评测，还应确保填补缺失值时不使用预测当时尚未发生的数据。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>先决定要回答的是「有没有空桩」「一共用了多久」还是「实际供了多少电」，再选择数据字段。UrbanEV 能让前两个问题和一个电量代理指标在同一基准上比较，但不能让占用率直接变成电网负荷。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li>Li, H., Qu, H., Tan, X., You, L., Zhu, R., &amp; Fan, W. (2025). <em>UrbanEV: An Open Benchmark Dataset for Urban Electric Vehicle Charging Demand Prediction</em>. <em>Scientific Data</em>, 12, 523. <a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-025-04874-4">DOI: 10.1038/s41597-025-04874-4</a>。两张完整主图与表内比较数值均来自该论文。</li>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.5061/dryad.np5hqc04z">Dryad 数据</a>及<a target="_blank" rel="noopener" href="https://github.com/IntelligentSystemsLab/UrbanEV">作者仓库说明</a>：另核对价格单位、占用与使用量区别及替代电量文件。</li>
+<li>Li, H., Qu, H., Tan, X., You, L., Zhu, R., &amp; Fan, W. (2025). <em>UrbanEV: An Open Benchmark Dataset for Urban Electric Vehicle Charging Demand Prediction</em>. Scientific Data, 12, 523. <a target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11953418/">正式全文</a> · <a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-025-04874-4">DOI</a>。图 1–2 源于原论文，<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>。</li>
+<li><a target="_blank" rel="noopener" href="https://datadryad.org/dataset/doi%3A10.5061/dryad.np5hqc04z">Dryad 数据及版本记录</a> · <a target="_blank" rel="noopener" href="https://github.com/IntelligentSystemsLab/UrbanEV">作者代码与字段说明</a>。数据包仍有后续版本，复用时应记录所用版本。</li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><ul>
-<li>Han Li：共同第一作者，署名中山大学智能工程学院；贡献声明列出实验实施与结果分析。</li>
-<li>Haohao Qu：共同第一作者，署名香港理工大学计算学系；参与研究构思与结果分析。</li>
-<li>Xiaojun Tan：署名中山大学智能工程学院，参与论文审阅与编辑。</li>
-<li>Linlin You：通讯作者，署名中山大学智能工程学院，参与研究构思。</li>
-<li>Rui Zhu：署名新加坡科技研究局高性能计算研究所，参与论文审阅与编辑。</li>
-<li>Wenqi Fan：署名香港理工大学计算学系，为本文共同作者；论文未单独列出其具体实验分工。</li>
-</ul>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Han Li（中山大学）与 Haohao Qu（香港理工大学）为共同第一作者，Linlin You（中山大学）为通讯作者。合作者 Xiaojun Tan、Rui Zhu、Wenqi Fan 分别署名中山大学、新加坡科技研究局高性能计算研究所和香港理工大学。机构按论文发表时的署名列出。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>同一座充电站可能同时出现两个看似矛盾的情况：司机觉得没有位置，而电网测得的功率并不高。因为不可用的桩不一定都在高功率充电，单纯提高电量预测精度，也未必解决寻找空桩的问题。</p>
-<p>后续可以分别验证三个目标：到站时有没有可用位置，接下来会累计多少使用时间，以及电表实际会增加多少电量。再观察同一个模型是否在三个目标上都稳定。如果仅在额定功率推算的序列上表现好，就应把贡献表述为该代理序列的预测改善，而不要提前承诺解决排队或电网峰值。</p>
+<p>如果要同时服务司机和电网，可以先选几座站，把平台状态、充电会话和电表读数按小时对齐，挑出「空桩很少但总功率不高」的时段单独测试。假如一个模型能预测空桩不足，却总把这些时段报成高负荷，就应该保留它作为可用性模型，而不要把同一个输出拿去安排供电。</p>
 
                 
             </div>
@@ -657,12 +577,12 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/encounters-opportunistic-2012/">
+                <a href="/posts/encounter-colocation-2017/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="2012-Predicting Encounters in Opportunistic Networks">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="2017-Predicting encounter and colocation events">
                         
-                        <span class="card-title">2012-Predicting Encounters in Opportunistic Networks</span>
+                        <span class="card-title">2017-Predicting encounter and colocation events</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -690,16 +610,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9C%BA%E4%BC%9A%E7%BD%91%E7%BB%9C/">
-                        <span class="chip bg-color">机会网络</span>
-                    </a>
-                    
                     <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
                         <span class="chip bg-color">人类移动性</span>
                     </a>
                     
                     <a href="/tags/%E6%8E%A5%E8%A7%A6%E9%A2%84%E6%B5%8B/">
                         <span class="chip bg-color">接触预测</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF/">
+                        <span class="chip bg-color">朴素贝叶斯</span>
                     </a>
                     
                 </div>
@@ -724,7 +644,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            #articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-ti
                         
                     </div>
                     <div class="publish-info">
@@ -746,12 +666,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E6%A0%A1%E5%87%86/">
-                        <span class="chip bg-color">数据校准</span>
-                    </a>
-                    
                     <a href="/tags/%E4%BA%BA%E5%8F%A3%E8%BF%81%E7%A7%BB/">
                         <span class="chip bg-color">人口迁移</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E6%A0%A1%E5%87%86/">
+                        <span class="chip bg-color">数据校准</span>
                     </a>
                     
                     <a href="/tags/%E5%B1%85%E4%BD%8F%E5%88%86%E5%BC%82/">

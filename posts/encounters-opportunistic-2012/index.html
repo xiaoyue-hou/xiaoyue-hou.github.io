@@ -375,12 +375,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%9C%BA%E4%BC%9A%E7%BD%91%E7%BB%9C/">
-                                <span class="chip bg-color">机会网络</span>
-                            </a>
-                        
                             <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
                                 <span class="chip bg-color">人类移动性</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%9C%BA%E4%BC%9A%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">机会网络</span>
                             </a>
                         
                             <a href="/tags/%E6%8E%A5%E8%A7%A6%E9%A2%84%E6%B5%8B/">
@@ -434,61 +434,34 @@
             <div id="articleContent">
                 <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h2 id="不知道下一次遇见谁，手机还能提前准备传消息吗？"><a href="#不知道下一次遇见谁，手机还能提前准备传消息吗？" class="headerlink" title="不知道下一次遇见谁，手机还能提前准备传消息吗？"></a>不知道下一次遇见谁，手机还能提前准备传消息吗？</h2><p>论文名片｜Radu Ioan Ciobanu、Ciprian Dobre，<em>Predicting Encounters in Opportunistic Networks</em>，HP-MOSys ’12，2012，9—14。<a target="_blank" rel="noopener" href="https://doi.org/10.1145/2386980.2386983">论文 DOI</a>。</p>
-<p>假设手机没有持续连通的网络，却能在靠近别人的设备时交换消息。它可以先存下消息，随着人移动，再把消息交给下一位可能接近目的地的人。问题是：现在就转发，还是等下一小时更多设备出现？</p>
-<p>这就是机会网络（opportunistic network）里的存储—携带—转发。本文研究的预测目标比猜中某个具体的人更窄：根据过去同一星期、同一小时的记录，预测这一小时会发生几次接触。校园作息提供了可利用的规律，但高正确率还需要与大量没有接触的时段一起理解。</p>
-<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><ul>
-<li>主实验持续 64 天，66 名参与者中筛出 53 个有用设备节点；样本主要来自同一所大学，日程有较强重复性。</li>
-<li>给整个实验只设一个平均接触率，泊松分布拟合表现不佳；细分到星期几的第几小时后，未被卡方检验拒绝的比例大幅提高。</li>
-<li>留出最后两周，逐小时接触次数完全预测正确的比例约为 97.59%—99.14%，取决于周次及接触计数方式。</li>
-<li>这不等于同样准确地知道会遇见谁，也没有直接证明消息送达率、延迟或能耗已经改善；这些仍是后续应用设想。</li>
-</ul>
-<h2 id="设备探测到的接触，怎样对应人的相遇？"><a href="#设备探测到的接触，怎样对应人的相遇？" class="headerlink" title="设备探测到的接触，怎样对应人的相遇？"></a>设备探测到的接触，怎样对应人的相遇？</h2><p>2012 年春季，布加勒斯特理工大学使用 Android 应用 HYCCUPS Tracer 记录设备交互。蓝牙在附近发现设备，AllJoyn 则通过 Wi-Fi 会话的建立与断开记录交互，保存对方标识、时间和持续时长。</p>
-<p>66 名参与者包括不同年级学生、教师和6名办公环境的外部参与者，其中53名原始参与者为本科四年级学生。研究排除外部设备与接触记录过少的节点，最终分析53个节点。筛选有助于获得完整记录，也可能让结果更偏向按要求开机、常来学校且作息稳定的人。</p>
-<p>本文的 encounter 是设备进入彼此可检测范围、之后又离开的记录，不是两个人一定面对面聊天，更不是疾病传播意义的有效接触。同一段长期共处也可能因探测或应用中断被切成多次接触。</p>
+<h2 id="不知道会遇见谁，还能估计网络什么时候好用吗？"><a href="#不知道会遇见谁，还能估计网络什么时候好用吗？" class="headerlink" title="不知道会遇见谁，还能估计网络什么时候好用吗？"></a>不知道会遇见谁，还能估计网络什么时候好用吗？</h2><p>没有稳定网络连接时，移动设备可以先把消息留在本地，等出现短暂连接再转交。对这种机会网络，一小时内大概会出现多少次连接机会，可能比提前知道每次会遇见哪台设备更有用。Radu Ioan Ciobanu 和 Ciprian Dobre 的 <a target="_blank" rel="noopener" href="https://doi.org/10.1145/2386980.2386983">Predicting Encounters in Opportunistic Networks</a> 就用设备接触记录比较了这些问题。论文发表于 2012 年 ACM HP-MOSys 工作坊，9–14 页。</p>
+<h2 id="设备靠近有周节律，但不是人际关系记录"><a href="#设备靠近有周节律，但不是人际关系记录" class="headerlink" title="设备靠近有周节律，但不是人际关系记录"></a>设备靠近有周节律，但不是人际关系记录</h2><p>研究在布加勒斯特理工大学开展了 64 天，66 名参与者中有 53 个节点留在分析里。接触由设备探测产生，既可能漏掉人实际见面的情形，也可能只是设备靠近。课程按周重复，让校园里的接触数据比一般城市移动更有周期。前两张图用一个节点示例展示次数和总时长，不能据此断定每个节点都按同样方式活动。</p>
 <p><img src="/posts/encounters-opportunistic-2012/fig1.webp" alt="一个节点与其他设备的每日接触次数"></p>
-<p>图 1｜一个人的接触，是否按星期重复？</p>
-<p>本图没有字母子图。横轴按日期顺序用星期字母标示，纵轴为接触次数，展示一个示例节点在实验期间的每日接触。周二、周三、周四等时段反复出现相似模式；这是一个节点的示例，不能当作全部53个节点都有同样规则的证明。来源：原论文 Fig. 1。</p>
+<p>图 1｜单个示例节点的每日接触次数；横轴按星期重复排列。</p>
 <p><img src="/posts/encounters-opportunistic-2012/fig2.webp" alt="同一示例节点的每日接触时长"></p>
-<p>图 2｜接触次数有规律，持续多久也一样有规律吗？</p>
-<p>本图没有字母子图。横轴仍为连续日期的星期标记，纵轴为每日接触持续时长的累计值。部分工作日反复较高，但相较图1波动更大；次数和时长是两个不同预测目标。本文后续实际预测的是次数，没有给出同等完整的时长预测结果。来源：原论文 Fig. 2。</p>
-<h2 id="预测会不会有人出现，和预测谁出现，为什么不同？"><a href="#预测会不会有人出现，和预测谁出现，为什么不同？" class="headerlink" title="预测会不会有人出现，和预测谁出现，为什么不同？"></a>预测会不会有人出现，和预测谁出现，为什么不同？</h2><p>研究把不确定性拆成两部分。一部分问下一时段有没有接触，只有有、无两种结果；另一部分问下一次接触的是哪个节点，候选者更多。</p>
-<p>Shannon 熵用各结果的频率概括这种不确定性。一个结果长期占绝大多数，熵就低；结果比较分散，熵就高。论文以接触对象在全部接触中的份额描述对象分布，也以发生接触的时间占比描述时间状态。</p>
+<p>图 2｜同一示例的每日接触总时长；次数多不必然意味着总时长也长。</p>
+<h2 id="会不会出现接触，比会遇见谁更有规律"><a href="#会不会出现接触，比会遇见谁更有规律" class="headerlink" title="会不会出现接触，比会遇见谁更有规律"></a>会不会出现接触，比会遇见谁更有规律</h2><p>作者对“下一时段是否有接触”和“接触对象是什么”分别计算熵。前者的不确定性较低，后者分布更宽。两项的候选状态本来就不同，因此不能拿熵值的大小直接换算两种任务的准确率。对网络工程来说，分开这两个问题很重要：有机会传消息，不等于知道消息能被交给谁，也不等于连接够长。</p>
 <p><img src="/posts/encounters-opportunistic-2012/fig3.webp" alt="接触时间状态与接触对象的熵分布"></p>
-<p>图 3｜两类预测的难度，表现在哪里？</p>
-<p>本图没有字母子图。横轴为熵，纵轴实际标为 P[X&gt;x]，应读作超过某熵值的比例；接触时间状态的曲线集中在较低值，接触对象的曲线延伸得更远。对象候选多、分布更分散，提示还需要额外信息；低二元熵本身不能证明接触发生的具体时刻容易猜中。来源：原论文 Fig. 3。</p>
-<p>这里有一个容易忽略的反例：如果绝大多数时段都没有接触，永远猜没有，也会得到低熵和较高正确率。因此，熵只能支持数据分布较集中，不能替代与朴素预测基线的直接比较。</p>
-<h2 id="同一个平均接触率，为什么不够？"><a href="#同一个平均接触率，为什么不够？" class="headerlink" title="同一个平均接触率，为什么不够？"></a>同一个平均接触率，为什么不够？</h2><p>泊松分布（Poisson distribution）用一个参数 λ 表示固定时间窗的平均事件数。本文取一小时为窗口，从历史平均接触次数估计 λ，再据此给出零次、一次、两次等接触的概率。</p>
-<p>但校园中周日夜里与周二上课时的平均数显然可能不同。研究依次尝试三种粒度：全实验共享一个平均数；按星期几分别求平均；按星期几和小时分别求平均。最后一种相当于为一周的168个时间槽各估计一个接触率。</p>
-<p>模型因此利用了周内季节性，并不是宣称全部接触以不变速率独立发生。若换课表、进入假期或设备使用方式改变，这些历史参数也可能失效。</p>
+<p>图 3｜接触发生与接触对象两类问题的熵分布；曲线不能直接读成命中率。</p>
+<h2 id="加入时段后，次数模型更贴近样本"><a href="#加入时段后，次数模型更贴近样本" class="headerlink" title="加入时段后，次数模型更贴近样本"></a>加入时段后，次数模型更贴近样本</h2><p>作者用泊松分布描述给定时间窗内的接触次数。把整个实验只用一个平均率概括，许多拟合在卡方检验中被拒绝；按星期和小时分组后，未被拒绝的比例明显提高。文中还比较“每次接触都计入”和“窗口内重复对象只计一次”。细分时段下，两个版本分别有 2.49% 和 1.31% 的检验被拒绝。未拒绝意味着这项检验未找到足够反证，不等于证明设备接触一定服从泊松分布。</p>
 <p><img src="/posts/encounters-opportunistic-2012/fig4.webp" alt="六种计数与时间分组方案的卡方检验"></p>
-<p>图 4｜提高时间分辨率后，泊松拟合的检验结果怎样变？</p>
-<p>本图没有字母子图。横轴1—3使用全部接触次数，依次按全实验、星期几、星期几加小时估计λ；4—6对应相同粒度，但一小时内同一对方只计一次。柱体区分原文所称的 Accepted 与 Rejected，表示在0.05显著性水平下未拒绝或拒绝泊松假设。它们不是预测正确与错误的比例。来源：原论文 Fig. 4。</p>
-<p>全部接触计数下，全实验方案仅20.75%的假设未被拒绝；按星期分组后，拒绝比例降至29.65%；再细分小时，降至2.49%。对一小时内不同对方计数的方案，三种粒度的拒绝比例为75.47%、24.26%与1.31%。</p>
-<p>去重的理由是减少长接触被记录成很多短接触的影响，但去重也改变了目标：一小时先后遇到同一个人五次，与只遇到一次，此时都计一。</p>
-<p>这些检验需要谨慎解读。分到星期—小时后，每个时间槽只拥有约九周的重复观察，稀疏数据会影响卡方近似与检验能力；研究还把全零序列归为未拒绝。未拒绝不能反过来证明泊松分布就是唯一或真实机制，增加分组后的通过率也不直接等于预测能力提升。</p>
-<h2 id="留出未来两周，能准确猜中几次？"><a href="#留出未来两周，能准确猜中几次？" class="headerlink" title="留出未来两周，能准确猜中几次？"></a>留出未来两周，能准确猜中几次？</h2><p>研究将主实验最后两周留下，用此前记录估计各星期—小时的泊松概率，以概率最大的次数作为预测，再与未来每小时真实次数比较。</p>
-<p>全部接触次数下，倒数第二周正确率为97.59%，最后一周98.42%；一小时内对方去重后分别为98.24%与99.14%。这里的正确是整数次数完全相等，不是消息成功传输、接触对象正确或接触时长正确。</p>
+<p>图 4｜六种粒度和计数设置的卡方检验结果；细分时段后拒绝较少。</p>
+<h2 id="接近-99-，猜中的究竟是什么？"><a href="#接近-99-，猜中的究竟是什么？" class="headerlink" title="接近 99%，猜中的究竟是什么？"></a>接近 99%，猜中的究竟是什么？</h2><p>原实验把末两周留作验证，逐小时比较模型给出的整数次数与真实计数，完全相等才算正确。全部接触的正确比例为 <strong>97.59% 和 98.42%</strong>；重复对象只计一次时，为 <strong>98.24% 和 99.14%</strong>。这些比例既不是消息送达率，也不是接触对象或时长的预测准确率。由于数据中有不少接触稀少的时段，要判断模型是否改善真正有传输机会的窗口，还需要一个总预测零次的基线，以及只在非零窗口上的成绩。论文没有用这组对照证明接近 99% 的工程收益。</p>
 <p><img src="/posts/encounters-opportunistic-2012/fig5.webp" alt="主实验最后两周的逐小时次数预测结果"></p>
-<p>图 5｜高正确率对应哪一种预测？</p>
-<p>本图没有字母子图。横轴1、2为全部接触计数的两个留出周结果，3、4为去重接触计数的两个留出周结果；柱体为次数预测完全正确与不正确的比例。纵轴从90开始，放大了小比例差异，不能只按柱体可见高度比较效果。来源：原论文 Fig. 5。</p>
-<p>高百分比是一个有价值的初步结果，但论文没有给出永远猜零、直接重复上一周次数等基线，也没有单独报告非零接触时段的表现。如果零时段占主导，总体正确率可能掩盖对真正传输机会的漏判。</p>
-<h2 id="换一个环境，规律还在吗？"><a href="#换一个环境，规律还在吗？" class="headerlink" title="换一个环境，规律还在吗？"></a>换一个环境，规律还在吗？</h2><p>研究也在另一份布加勒斯特校园记录上做分布检验，该记录为22名参与者、35天；星期—小时去重计数方案的拒绝比例为0.11%。</p>
-<p>再换到St Andrews：27名成员携带传感设备79天，探测范围约10米，每6.67秒发送发现信标，参与者被要求在城内外都携带设备。相较单一课堂环境，其活动空间更开放；相同方案拒绝比例为12.39%。</p>
-<p>这为跨记录的可用性提供线索，但外部记录报告的是分布检验，并没有像图5一样给出未来两周次数预测正确率。因此，不能把主校园接近99%的正确率直接套到St Andrews或普通城市居民。</p>
-<h2 id="提前知道几次接触，离更好路由还差什么？"><a href="#提前知道几次接触，离更好路由还差什么？" class="headerlink" title="提前知道几次接触，离更好路由还差什么？"></a>提前知道几次接触，离更好路由还差什么？</h2><p>如果预测下一小时机会更多，设备可以继续携带消息；如果接下来机会少，可能应抓住当前机会转发。但具体选择还取决于遇见谁、对方是否接近目标、缓存容量、消息时限和能耗。</p>
-<p>本文没有实现并比较完整预测路由协议，也没有给出相对基线的送达率、延迟或耗电改善。它支持的结论是，特定重复作息场景中的逐小时接触次数具有可利用的规则；路由收益是下一步需要检验的应用，而不是本研究已经测得的效果。</p>
-<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>手机可以借助每周重复的接触节律预估下一小时有几次机会，但高次数正确率既不等于知道会遇见谁，也不自动保证消息传得更好。</p>
+<p>图 5｜主校园样本末两周的四种测试结果；纵轴从 90 开始，正确指次数完全相等。</p>
+<p>论文还用另一份校园资料和 St Andrews 资料做分布检验。在后一份资料中，同一去重计数方案的拒绝比例为 12.39%，比主实验高。这不等于独立环境也重现了主实验的未来两周准确率：外部检验问的是分布是否贴合，不是未来次数有多少猜对。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><ul>
+<li>在所测校园样本中，接触次数具有时间规律，按星期与小时区分后，泊松模型更贴近观测计数。</li>
+<li>末两周的高准确率属于整数次数预测，不能解释为准确知道对象、时长或成功交付率。</li>
+<li>外部资料提供了分布拟合对照，未验证所有环境中的留出预测成绩或通信性能收益。</li>
+</ul>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这篇论文把机会网络里两件容易混在一起的事拆开了：估计一段时间能碰到多少连接机会，与判断具体连接对象并不相同。校园样本的小时计数很有规律，后两周测试也得到很高的完全相等比例，但这些数字没有回答模型是否能挑出真正可用的传输窗口，或让消息更快送到。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li>Ciobanu, R. I. &amp; Dobre, C.（2012）<a target="_blank" rel="noopener" href="https://doi.org/10.1145/2386980.2386983">原论文</a>，HP-MOSys ’12，9—14。本文图1—5均源自原论文。</li>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1145/2386980.2386983">ACM 正式出版记录</a>；<a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/262369232_Predicting_encounters_in_opportunistic_networks">合作者 Ciprian Dobre 公开上传的会议全文</a>。五幅图与测试数值按这一版核对。论文的个人或课堂复制条款并非开放转载许可。</li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><ul>
-<li>Radu Ioan Ciobanu：论文署名单位为布加勒斯特理工大学自动控制与计算机学院，本文研究人携设备接触记录与机会网络中的预测。</li>
-<li>Ciprian Dobre：署名同一学院，与Ciobanu共同撰写本文。以上采用论文发表时的机构身份。</li>
-</ul>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Radu Ioan Ciobanu 和 Ciprian Dobre 在会议论文中均署名布加勒斯特理工大学自动控制与计算机学院。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>评价这种预测时，可以先把所有小时分为真实有接触与无接触，再分别检查漏掉了多少机会、提前准备却没有等到接触的情况有多少。对于一条快到期的消息，错过一次有效相遇的成本，可能远大于多开一次无线设备。</p>
-<p>因此，合适目标未必是把逐小时次数正确率推到最高，而可能是在固定电量预算下减少错过的有效传输机会。要验证这一点，需要把接触预测接进真实的转发和能耗模型，比较最终送达与时延，而不只是比较一个容易被零时段抬高的百分比。</p>
+<p>如果要验证这种估计对断网时的设备同步有没有用，我会先在不含个人轨迹的汇总模拟中，对比简单时段基线与计数模型，再看消息延迟、成功同步比例和耗电。若优势只来自猜中许多零接触窗口，就不应把接近 99% 的计数分数当成升级系统的理由。</p>
 
                 
             </div>
@@ -523,12 +496,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%9C%BA%E4%BC%9A%E7%BD%91%E7%BB%9C/">
-                                    <span class="chip bg-color">机会网络</span>
-                                </a>
-                            
                                 <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
                                     <span class="chip bg-color">人类移动性</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%9C%BA%E4%BC%9A%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">机会网络</span>
                                 </a>
                             
                                 <a href="/tags/%E6%8E%A5%E8%A7%A6%E9%A2%84%E6%B5%8B/">
@@ -582,18 +555,18 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/encounter-colocation-2017/">
+                <a href="/posts/e8000028/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="2017-Predicting encounter and colocation events">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="2007-Impact of Human Mobility on Opportunistic Forwarding Algorithms">
                         
-                        <span class="card-title">2017-Predicting encounter and colocation events</span>
+                        <span class="card-title">2007-Impact of Human Mobility on Opportunistic Forwarding Algorithms</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            #articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-ti
                         
                     </div>
                     <div class="publish-info">
@@ -619,12 +592,12 @@
                         <span class="chip bg-color">人类移动性</span>
                     </a>
                     
-                    <a href="/tags/%E6%8E%A5%E8%A7%A6%E9%A2%84%E6%B5%8B/">
-                        <span class="chip bg-color">接触预测</span>
+                    <a href="/tags/%E6%9C%BA%E4%BC%9A%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">机会网络</span>
                     </a>
                     
-                    <a href="/tags/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF/">
-                        <span class="chip bg-color">朴素贝叶斯</span>
+                    <a href="/tags/%E9%87%8D%E5%B0%BE%E5%88%86%E5%B8%83/">
+                        <span class="chip bg-color">重尾分布</span>
                     </a>
                     
                 </div>
@@ -638,12 +611,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/e8000025/">
+                <a href="/posts/encounter-colocation-2017/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="2025-UrbanEV: An Open Benchmark Dataset for Urban Electric Vehicle Charging Demand Prediction">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="2017-Predicting encounter and colocation events">
                         
-                        <span class="card-title">2025-UrbanEV: An Open Benchmark Dataset for Urban Electric Vehicle Charging Demand Prediction</span>
+                        <span class="card-title">2017-Predicting encounter and colocation events</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -671,16 +644,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE/">
-                        <span class="chip bg-color">开放数据</span>
+                    <a href="/tags/%E4%BA%BA%E7%B1%BB%E7%A7%BB%E5%8A%A8%E6%80%A7/">
+                        <span class="chip bg-color">人类移动性</span>
                     </a>
                     
-                    <a href="/tags/%E7%94%B5%E5%8A%A8%E6%B1%BD%E8%BD%A6/">
-                        <span class="chip bg-color">电动汽车</span>
+                    <a href="/tags/%E6%8E%A5%E8%A7%A6%E9%A2%84%E6%B5%8B/">
+                        <span class="chip bg-color">接触预测</span>
                     </a>
                     
-                    <a href="/tags/%E5%85%85%E7%94%B5%E9%9C%80%E6%B1%82/">
-                        <span class="chip bg-color">充电需求</span>
+                    <a href="/tags/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF/">
+                        <span class="chip bg-color">朴素贝叶斯</span>
                     </a>
                     
                 </div>
