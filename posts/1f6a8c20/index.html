@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-GAGNN: a geography-aware graph neural network for citywide commuting flows prediction, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="GAGNN: a geography-aware graph neural network for citywide commuting flows prediction, 猴猴猴">
+    <meta name="description" content="把道路、公交或地铁接到福州的通勤地图上，哪种信息最能补出缺失的流量？结论还取决于地图上的格子有多大。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-GAGNN: a geography-aware graph neural network for citywide commuting flows prediction | 猴猴猴</title>
+    <title>GAGNN: a geography-aware graph neural network for citywide commuting flows prediction | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-GAGNN: a geography-aware graph neural network for citywide commuting flows prediction</h1>
+                    <h1 class="description center-align post-title">GAGNN: a geography-aware graph neural network for citywide commuting flows prediction</h1>
                 </div>
             </div>
         </div>
@@ -436,51 +436,35 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img { display: block; max-width: 100%; height: auto; margin: 1.25rem auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h2 id="在通勤预测里，挨着的街区就一定是邻居吗？"><a href="#在通勤预测里，挨着的街区就一定是邻居吗？" class="headerlink" title="在通勤预测里，挨着的街区就一定是邻居吗？"></a>在通勤预测里，挨着的街区就一定是邻居吗？</h2><p>隔着一条河的两个片区，地图上很近，坐车未必方便；沿同一条交通走廊的两个片区，相隔较远，却可能共享一批通勤流。GAGNN 的问题是，预测区域间通勤时，能不能同时表达地理邻近和交通联系，而不是只留一种邻居？</p>
-<p>论文名片｜Youjun Tu、Peixiao Wang、Julie N.Y. Zhu、Zhiyuan Zhao、Junli Li、Sheng Wu，<em>GAGNN: a geography-aware graph neural network for citywide commuting flows prediction</em>，International Journal of Applied Earth Observation and Geoinformation 147，105175（2026）。<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.jag.2026.105175">正式 DOI</a>。</p>
-<h2 id="福州的任务是估区对流量，不是预测个人去向"><a href="#福州的任务是估区对流量，不是预测个人去向" class="headerlink" title="福州的任务是估区对流量，不是预测个人去向"></a>福州的任务是估区对流量，不是预测个人去向</h2><p>论文用福州移动记录得到聚合通勤流，把网格作为节点、起讫区对上的计数作为预测目标。作者使用职住位置的代理来构造参照流量；它不是逐次测得的行程，也不单独证明某地铁线路上有多少乘客。所谓道路、公交或地铁语义边，是供模型比较的空间关系，不是个人交通方式标签。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/1f6a8c20/fig5.png" alt="完整原论文图5，福州位置与观测通勤流"></p>
-<p><em>图 5｜从研究区位置到通勤流分布，图中线条属于区对汇总，不是实际道路轨迹。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/1f6a8c20/fig6.png" alt="完整原论文图6，居住地与工作地识别"></p>
-<p><em>图 6｜论文原图说明职住标签是由记录构造的代理，不是调查或个体真值。</em></p>
-<h2 id="两种邻接怎样进入一个模型？"><a href="#两种邻接怎样进入一个模型？" class="headerlink" title="两种邻接怎样进入一个模型？"></a>两种邻接怎样进入一个模型？</h2><p>地理邻接体现区域位置接近，语义邻接体现交通网络中的连接。GAGNN 把两者合入图学习，再结合起终点属性与区对的距离线索预测流量。它把“在哪儿”和“怎样相连”保留下来，不过任何一种邻接的覆盖不足都会限制信号。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/1f6a8c20/fig1.png" alt="完整原论文图1，地理邻接与语义邻接示意"></p>
-<p><em>图 1｜地理邻居与交通邻居并不相同，同一格子在两张关系图的位置可不同。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/1f6a8c20/fig2.png" alt="完整原论文图2，GAGNN 总体框架"></p>
-<p><em>图 2｜编码端整合区域属性和邻接，解码端把区对信息变成流量估计。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/1f6a8c20/fig3.png" alt="完整原论文图3，两类邻接矩阵的融合"></p>
-<p><em>图 3｜示意两个邻接矩阵怎样融合，而不是用一种边取代另一种边。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/1f6a8c20/fig4.png" alt="完整原论文图4，起终点与中央商务区距离"></p>
-<p><em>图 4｜图区分起终点之间的距离与各自到中心区的距离，三者不是一个变量。</em></p>
-<h2 id="道路表现最好，但结果会随网格和对照改变"><a href="#道路表现最好，但结果会随网格和对照改变" class="headerlink" title="道路表现最好，但结果会随网格和对照改变"></a>道路表现最好，但结果会随网格和对照改变</h2><p>在福州道路语义的测试设置下，十次运行平均 MAE 为 3.26，对照 GSGNN 为 3.83；CPC 从 0.94 到 0.96。前者是区对计数误差，后者是汇总流量重叠，不是逐人成行命中率。去掉地理或交通邻接的消融中，完整模型表现较好；不同图使用的验证和测试口径不可混读。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/1f6a8c20/fig7.png" alt="完整原论文图7，不同语义连接下的训练曲线"></p>
-<p><em>图 7｜不同交通连接下的训练表现；收敛曲线不等于独立测试成绩。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/1f6a8c20/fig8.png" alt="完整原论文图8，消融实验"></p>
-<p><em>图 8｜把几个组件分别去掉，检查误差与重叠指标怎样变动。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/1f6a8c20/fig9.png" alt="完整原论文图9，不同语义连接的残差"></p>
-<p><em>图 9｜看预测残差的分布，不要用一个平均值掩盖流量大小之间的差别。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/1f6a8c20/fig10.png" alt="完整原论文图10，预测流量与误差的空间分布"></p>
-<p><em>图 10｜并列空间预测与误差。全市平均表现不错，也可能有局部偏差。</em></p>
-<p>道路在细网格上的表现较好，公交和地铁的覆盖在细尺度更稀；放大到 5 公里后三种连接的误差并不向同一方向变化。这既反映空间聚合改变了任务，也说明道路优于轨道不是一个脱离样本的结论。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/1f6a8c20/fig11.png" alt="完整原论文图11，不同空间尺度下的预测指标"></p>
-<p><em>图 11｜比较不同网格尺度。误差受网格归并和计数规模影响，不能当成同一任务的直接排名。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/1f6a8c20/fig12.png" alt="完整原论文图12，停留半径和时间门槛的敏感性"></p>
-<p><em>图 12｜不同观测构造假设下的敏感性结果，差异说明参照流量也依赖定义。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/1f6a8c20/fig13.png" alt="完整原论文图13，邻接融合权重的敏感性"></p>
-<p><em>图 13｜比较邻接融合权重组合在该研究设置中的效果，不给出可跨城照用的常数。</em></p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>在福州所选通勤基准上，同时使用地理与交通关系比若干单一关系或简化对照更好。结果受空间尺度、网络覆盖及参照流量构造影响，不能扩展成所有城市都应使用道路边，或证明模型能够识别个体通勤。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>GAGNN 的贡献不是给通勤找一个万能距离，而是允许地理上靠近和交通上相连分别提供信息。读指标时，要先问哪一座城、哪种空间划分、预测哪一种聚合流量。只有固定这些条件，模型的改进才有清楚含义。</p>
+<h2 id="一条干道串起的街区，能帮我们估出多少人去上班吗？"><a href="#一条干道串起的街区，能帮我们估出多少人去上班吗？" class="headerlink" title="一条干道串起的街区，能帮我们估出多少人去上班吗？"></a>一条干道串起的街区，能帮我们估出多少人去上班吗？</h2><p>Tu, Y., Wang, P., Zhu, J. N. Y., Zhao, Z., Li, J., &amp; Wu, S. (2026). GAGNN: a geography-aware graph neural network for citywide commuting flows prediction. <em>International Journal of Applied Earth Observation and Geoinformation, 147</em>, 105175. <a href="https://doi.org/10.1016/j.jag.2026.105175">论文 DOI</a></p>
+<p>在地图上圈出一个住宅区，要估计每天有多少人从这里去另一个片区上班。两地之间隔着几个街区，一条主干道却把它们串在一起。如果只能看到各处住了多少人、有多少商店和企业，怎样把这条路提供的线索也用上？</p>
+<p>在福州，把同一条干道沿线的地区连起来，确实帮模型更准确地补出了缺失的通勤流量。更有意思的是，把地图画粗一点，道路提供的线索变弱了，公交和地铁站点提供的线索却变强了。</p>
+<h2 id="两个地区怎样成为邻居？"><a href="#两个地区怎样成为邻居？" class="headerlink" title="两个地区怎样成为邻居？"></a>两个地区怎样成为邻居？</h2><p>先看图 1 左边的蓝线。R15 和 R5 并不接壤，但如果这是一条公交线，两地各有这条线的站点，两地居民就有直达的可能。反过来，共享边界的两个街区，可能一处以住宅为主，另一处集中了为周边居民服务的商铺，即使没有同一条公交线经过，彼此的用地情况也值得参考。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/1f6a8c20/fig1.png" alt="共享边界的地区与同一条公交线连接的地区"></p>
+<p>图 1｜左图是同一组片区，右上按共用边界连线，右下按同一条线路设站连线。找到左下角的 R15，再看它在两张图上分别连到了哪里。</p>
+<p>这项研究为每个地区记录人口、道路密度，以及餐饮、企业等 18 类兴趣点（points of interest）的分布。研究者用图神经网络让每个地区参考邻居的这些特征。地理关系看谁和谁接壤，交通关系则分三次尝试：同一条干道经过两地、两地有同一公交线路的站点、两地有同一地铁线路的站点。每次都将地理关系与其中一种交通关系合在一起，再让模型学习哪些邻居的信息有用。道路按具体线路识别，公交与地铁只认直达，换乘关系没有直接画成边。</p>
+<p>得到每个地区的特征后，模型把居住地放在前、工作地放在后，加上两地间的直线距离及两地各自到中央商务区的距离，输出这一个方向的通勤量。因此，住宅区到就业区与反向通勤可以得到两个不同的估计。</p>
+<h2 id="留出福州的一部分通勤联系，模型能补回多少？"><a href="#留出福州的一部分通勤联系，模型能补回多少？" class="headerlink" title="留出福州的一部分通勤联系，模型能补回多少？"></a>留出福州的一部分通勤联系，模型能补回多少？</h2><p>研究者用 2023 年 1—2 月福州工作日的手机定位记录，把夜间停留最久的位置作为住处，把工作日白天停留最久的位置作为工作地，汇总了约 137 万条职住配对记录。同一对地区、同一方向的记录加总，成为模型要估计的流量。这种识别对夜班和不规则作息的通勤者可能不够准确。</p>
+<p>检验时，研究者把已经观测到的起讫地区对随机分成三份，60% 用于训练、20% 用于选择模型设置，余下 20% 留到最后测试。测试要求模型补出同一座城市里一批未参与训练的地区对。迁到另一座城市或预测下一年的通勤，两项能力还要另行验证。</p>
+<p>道路版本在测试集上运行十次，对每个有向地区对的流量取绝对误差，再求平均，结果是 3.26；同样考虑地理和交通关系的对照模型 GSGNN 为 3.83。也就是说，在这批地区对上，每对平均少错约 0.6 个通勤计数。这部分差距涉及两套模型组合邻居信息的方式。另一个更直接的检验是在同一套模型里拿掉道路联系，在验证集上，即使还有地理邻居可参考，预测流量与观测流量的重合程度仍然下降。</p>
+<h2 id="为什么网格变大，三种交通网络的表现会分开？"><a href="#为什么网格变大，三种交通网络的表现会分开？" class="headerlink" title="为什么网格变大，三种交通网络的表现会分开？"></a>为什么网格变大，三种交通网络的表现会分开？</h2><p>把福州划成边长 1 公里的格子时，一条干道沿途会穿过许多格子，即使两个格子相隔很远，也可能由同一条路连接。站点的情形不同：一条地铁线可以穿过某个格子，但只要站点落在格子外，这个格子就接不上模型里的地铁线。按论文统计，在这一尺度下，只有约 1.1% 的格子进入了有连接的地铁网络。</p>
+<p>当格子边长从 1 公里增至 5 公里，邻近站点更容易落入同一片区，原先零散的公交、地铁联系更容易显出来。图 11 中，这两种模型的平均绝对误差都下降，道路模型的误差却上升。对道路而言，原本可以区分的沿线小片区被合并，局部差别也被抹平。格子越大，每个起讫对汇总的通勤量也会改变，因此这些曲线回答的是同一种网络在不同分区下表现怎样。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/1f6a8c20/fig11.png" alt="道路、公交、地铁与无交通连接模型在五种网格尺度下的误差"></p>
+<p>图 11｜横轴从边长 1 公里到 5 公里，各面板纵轴刻度各异。沿黑线读平均绝对误差，越低越好。道路（a）向上，公交（b）和地铁（c）向下，去掉交通联系的对照（d）也向下。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>在福州的留出测试中，同时使用地区邻接关系和道路联系，能改善地区间通勤量估计。主干道经过哪些地方，为人口、设施和两地距离之外的比较提供了一份线索。</p>
+<p>选交通网络时也要选空间尺度。福州的细网格保留了道路沿线的局部差异，却会把大量无站网格留在公交和地铁网络之外。论文比较的是哪种地图更适合估流量，居民乘车、乘地铁或步行的比例仍需另外测量。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这篇论文把通勤预测中常被略过的一个决定摆到了台前：一个地区应该向哪些邻居借信息？福州约 137 万条职住配对提供了核对流量的参照。共享边界和共享交通走廊各有作用，地图划多细，又决定了模型究竟能看见哪些走廊。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.jag.2026.105175">期刊正式 DOI</a>：本地正式出版 PDF、图 1–13 与测试表。原图复用须遵循文章许可和第三方底图署名。</li>
+<li>方法、留出测试与空间尺度比较见原文表 2、表 4 及图 11。<a href="https://doi.org/10.1016/j.jag.2026.105175">原论文</a></li>
+<li>职住配对来自位置服务商的手机定位记录。地区属性来自高德地图兴趣点和人口普查，交通网络来自 OpenStreetMap。<a href="https://ditu.amap.com/">高德地图</a> · <a href="https://www.stats.gov.cn/sj/pcsj/rkpc/d7c/">第七次全国人口普查</a> · <a href="https://www.openstreetmap.org/">OpenStreetMap</a></li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Youjun Tu 为第一作者，与 Peixiao Wang、Julie N.Y. Zhu、Zhiyuan Zhao、Junli Li 和 Sheng Wu 合作完成该研究。</p>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Youjun Tu、Zhiyuan Zhao 和 Sheng Wu 署名福州大学计算机与大数据学院、数字中国研究院（福建）及空间数据挖掘与信息共享教育部重点实验室，Zhiyuan Zhao 为通讯作者。Peixiao Wang 署名中国科学院地理科学与资源研究所，Julie N.Y. Zhu 署名福州大学经济与管理学院，Junli Li 署名安徽农业大学资源与环境学院。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>可在另一座跨河或多中心城市，用同样的网格和独立汇总通勤调查比较不同交通邻接。如果地铁联系的优势只在站点密集和覆盖充分时出现，应该把这些适用条件和平均误差一起报告。</p>
+<p>假设交通部门正在看地铁口附近的一片住宅区。住宅与站口隔着一条街，恰好分属两个网格，模型把住宅所在的格子标成没有地铁联系。规划者若直接据此判断居民用不上地铁，可能会误读这条网格线。到现场走一趟更有针对性：过街信号是否够长，站口开在哪一侧，老人能否方便地走过去？改变网格就会消失的差别，和居民每天确实要跨过的障碍，值得分别看清。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -608,17 +592,13 @@
                 <a href="/posts/3e7b9d41/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="2026-Predicting citywide human mobility with a graph-prior-enhanced euclidean convolutional network">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Predicting citywide human mobility with a graph-prior-enhanced euclidean convolutional network">
                         
-                        <span class="card-title">2026-Predicting citywide human mobility with a graph-prior-enhanced euclidean convolutional network</span>
+                        <span class="card-title">Predicting citywide human mobility with a graph-prior-enhanced euclidean convolutional network</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">厦门和福州的实验把通行节奏相似的流向排进相邻网格，检验预测下一刻钟人次时，哪些误差能降低、哪些运算能提前做。</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
@@ -668,17 +648,13 @@
                 <a href="/posts/b2d17f90/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="2026-Block-fitness modeling of the global air mobility network">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Block-fitness modeling of the global air mobility network">
                         
-                        <span class="card-title">2026-Block-fitness modeling of the global air mobility network</span>
+                        <span class="card-title">Block-fitness modeling of the global air mobility network</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">从机场转机的人究竟要去哪里？研究用大区客流合计数重建旅客起讫关系，并检验公开航段资料可以替代多少商业客票信息。</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-11

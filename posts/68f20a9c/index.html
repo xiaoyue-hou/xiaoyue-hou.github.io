@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-A Global Intra-city Commuting Origin-Destination Flow Dataset for Urban Sustainable Development, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="A Global Intra-city Commuting Origin-Destination Flow Dataset for Urban Sustainable Development, 猴猴猴">
+    <meta name="description" content="卫星图上分得清住宅和厂房，却看不见谁去哪里工作。用美国通勤资料学来的模型，能在其他城市辨认哪些通勤联系？">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-A Global Intra-city Commuting Origin-Destination Flow Dataset for Urban Sustainable Development | 猴猴猴</title>
+    <title>A Global Intra-city Commuting Origin-Destination Flow Dataset for Urban Sustainable Development | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-A Global Intra-city Commuting Origin-Destination Flow Dataset for Urban Sustainable Development</h1>
+                    <h1 class="description center-align post-title">A Global Intra-city Commuting Origin-Destination Flow Dataset for Urban Sustainable Development</h1>
                 </div>
             </div>
         </div>
@@ -432,73 +432,51 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img { display: block; margin: 1.2rem auto .6rem; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h2 id="没有通勤调查，卫星图能帮一座城市补出什么？"><a href="#没有通勤调查，卫星图能帮一座城市补出什么？" class="headerlink" title="没有通勤调查，卫星图能帮一座城市补出什么？"></a>没有通勤调查，卫星图能帮一座城市补出什么？</h2><p>一座城市想调整公交线路，知道哪里住人、哪里办公，却没有一张表说明每片住宅区分别有多少人去各个工作区。卫星图可以看见楼和路，但看不见谁住在哪里、又去哪里上班。能不能让有通勤统计的城市先教会模型，再给缺数据的城市一个初步估计？</p>
-<p><strong>论文名片｜</strong> Can Rong、Jingtao Ding、Meng Li、Yong Li，<em>A Global Intra-city Commuting Origin-Destination Flow Dataset for Urban Sustainable Development</em>，<em>Scientific Data</em>，2026，13:1269。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-026-07279-z">DOI：10.1038/s41597-026-07279-z</a></p>
-<p>WorldCommuting-OD 为 <strong>179 个国家的 2,358 座城市</strong>生成了城内跨分区通勤流。在美国留出的地区和美国训练、英国测试的情景中，流量重合指数分别为 <strong>0.593 和 0.485</strong>。这份数据的价值，是让缺调查的城市也有一张可检验的草图；它不是对每座城市实测过的通勤地图。</p>
-<h2 id="先定城市边界，再让模型从城市特征学习"><a href="#先定城市边界，再让模型从城市特征学习" class="headerlink" title="先定城市边界，再让模型从城市特征学习"></a>先定城市边界，再让模型从城市特征学习</h2><p>起讫（OD）矩阵的一行是一个居住分区，一列是一个工作分区，一个数代表两地之间的估计通勤人数。作者先整合并去重多套城市边界，再根据城市大小自适应划分，网格边长约 500 米至 5 公里。边界会决定什么算“城内”：住在界外、跨边界进入市中心的人，不会出现在那张城内表里。</p>
-<p><img src="/posts/68f20a9c/fig1.webp" alt="图 1：城市边界、区域属性和通勤网络生成流程"></p>
-<p><strong>图 1｜从左往右看城市怎么切、区域怎么描述、流量怎么生成。</strong> 箭头是处理流程，不是个人路线。每个分区用 1,094 维特征描述，分别来自人口及年龄、性别结构（36 维）、RemoteCLIP 提取的卫星影像特征（1,024 维）和兴趣点计数（34 维）。</p>
-<p><img src="/posts/68f20a9c/fig2.webp" alt="图 2：纳入数据的全球城市"></p>
-<p><strong>图 2｜红点是覆盖名单，不是精度地图。</strong> 正式论文统计 6 大洲、179 个国家、2,358 城；不同地区的数据覆盖与验证强度不同。</p>
-<p><img src="/posts/68f20a9c/fig3.webp" alt="图 3：三座城市的自适应分区示例"></p>
-<p><strong>图 3｜并排示例的尺度约 900、800、800 米。</strong> 这里展示划分方法。跨城比较时，不能假定所有城市都用同一格网尺度。</p>
-<p>模型采用 WEDAN 图扩散架构。训练时把已知通勤网络的流量逐步加噪，再学着在区域特征和距离的条件下复原；生成时从噪声出发，逐步得到一张新的矩阵。它是在用人口和建成环境推断联系，不是在影像里观测出行。WorldPop 的人口、OSM 兴趣点和影像的时间又不完全相同，输出不对应一个明确的实际通勤日。</p>
-<h2 id="下载以后，为什么要特别留意对角线？"><a href="#下载以后，为什么要特别留意对角线？" class="headerlink" title="下载以后，为什么要特别留意对角线？"></a>下载以后，为什么要特别留意对角线？</h2><p>每城有分区 Shapefile 与 NumPy 流量矩阵，应按分区索引对齐。作者<strong>不估计同一分区内通勤</strong>，用零占住对角线。计算“多少人在本地工作”时，这些零应该记作缺失，不能据此说没有人走路去附近上班。区内通勤也不会被自动补回总量；网格越粗，越多本来可以跨小格的行程可能落进大格对角线。</p>
-<p><img src="/posts/68f20a9c/fig4.webp" alt="图 4：从地图分区编号查找起讫关系的示意"></p>
-<p><strong>图 4｜格子里的索引用来对照矩阵。</strong> 图注与正文的雅典分区数量示例不一致，读这张图以了解索引和空间对应为主，不用它核定某个城市的具体分区数。</p>
-<p><img src="/posts/68f20a9c/fig5.webp" alt="图 5：洛杉矶、曼彻斯特与罗马的生成通勤联系"></p>
-<p><strong>图 5｜蓝线表示分区之间的起讫联系，不是道路路径。</strong> 城市形状不同，生成的联系也不一样，但不能据此判断某条道路拥堵或哪条公交载客最多。</p>
-<h2 id="没有逐城真值，怎么知道生成的结构有用？"><a href="#没有逐城真值，怎么知道生成的结构有用？" class="headerlink" title="没有逐城真值，怎么知道生成的结构有用？"></a>没有逐城真值，怎么知道生成的结构有用？</h2><p>作者首先对比四组独立手机位置参照。北京、上海、里约热内卢、塞内加尔的 Spearman 相关依次为 <strong>0.741、0.641、0.816 和 0.477</strong>。相关是流量强弱顺序有多接近，不是同样多的人被记录在相同边。四组基础数据来自不同年份与运营或定位资料，也不是完全一致的普查真值。</p>
-<p><img src="/posts/68f20a9c/fig6.webp" alt="图 6：生成流量与四组手机位置参照的逐对比较"></p>
-<p><strong>图 6｜横轴是生成，纵轴是手机数据推断。</strong> 双对数坐标下看点云趋势；不同图的离散程度差异，比只记一个总相关范围更有意义。</p>
-<p>更直接的验证来自美国和英国通勤统计。按正文的同一实验口径，美国留出地区 CPC 为 <strong>0.593</strong>，美国训练、英国测试为 <strong>0.485</strong>，英国训练、美国测试为 <strong>0.530</strong>。CPC 对每个起讫对取观测与预测中较小的流量再汇总，与总流量规模归一化；它不是准确追踪了相同比例的人。补充基线实验的地区数、划分及部分误差口径不同，不能同正文的表拼成一次测试。英国资料对应 2021 年，也要考虑疫情期通勤特点。</p>
-<p><img src="/posts/68f20a9c/fig7.webp" alt="图 7：不同分区数量下的 CPC 分布"></p>
-<p><strong>图 7｜另一条轴是分区数，立起的是概率密度。</strong> 划分小的区域组波动较大，不能从最大密度处推断每座城市能达到同样数值。</p>
-<p><img src="/posts/68f20a9c/fig8.webp" alt="图 8：芝加哥和伦敦内部的起点 CPC"></p>
-<p><strong>图 8｜看同一城内深浅有多不均匀。</strong> 每格是以该处为起点、与所有目的地的流量重合，不是当地交通量或居住人口。</p>
-<details>
-<summary>查看图 9–13：各地的空间结构展示</summary>
-
-<img src="/posts/68f20a9c/fig9.webp" alt="北京：手机位置参照与生成联系的并排对照">
-<p><strong>图 9｜</strong>北京：手机位置参照与生成联系的并排对照。</p>
-<img src="/posts/68f20a9c/fig10.webp" alt="上海：比较主要汇聚的地点，而不是把线条亮度当成人数相同">
-<p><strong>图 10｜</strong>上海：比较主要汇聚的地点，而不是把线条亮度当成人数相同。</p>
-<img src="/posts/68f20a9c/fig11.webp" alt="里约热内卢：狭长沿海地形中的参照与生成联系">
-<p><strong>图 11｜</strong>里约热内卢：狭长沿海地形中的参照与生成联系。</p>
-<img src="/posts/68f20a9c/fig12.webp" alt="塞内加尔：空间热点相近，可以与流量排序相关较低同时成立">
-<p><strong>图 12｜</strong>塞内加尔：空间热点相近，可以与流量排序相关较低同时成立。</p>
-<img src="/posts/68f20a9c/fig13.webp" alt="洛杉矶、圣彼得堡、霍巴特和拉巴特的多中心形态展示；不是四城逐项真值验证">
-<p><strong>图 13｜</strong>洛杉矶、圣彼得堡、霍巴特和拉巴特的多中心形态展示；不是四城逐项真值验证。</p>
-</details>
-
-<h2 id="有用到什么程度？白天人口比逐条通勤更容易核对"><a href="#有用到什么程度？白天人口比逐条通勤更容易核对" class="headerlink" title="有用到什么程度？白天人口比逐条通勤更容易核对"></a>有用到什么程度？白天人口比逐条通勤更容易核对</h2><p>作者将夜间住宅人口与生成通勤叠加，得到工作时段人口，再与经缩放的百度热力参照比较。成都、广州、济南和青岛的 R² 分别为 <strong>0.95、0.89、0.84、0.87</strong>，对应不加通勤的基线为 0.71、0.66、0.63、0.65。这个用途看的是区域汇总，当不同起讫边的误差相互抵消时，也可能得到不错的白天分布；不能反推各条边都准。</p>
-<p><img src="/posts/68f20a9c/fig14.webp" alt="图 14：四城工作时段人口估计与热力参照"></p>
-<p><strong>图 14｜横轴是估计、纵轴是缩放后的热力参照。</strong> 看结果是否改善自己的基线，不把平台覆盖和缩放后的人口地图当成普查。</p>
-<p>论文还检查生成流量的长尾，用统一交通方式比例及里程系数粗估排放，并用网络结构构造韧性指标。这些应用展示同一数据可以支持什么样的比较，不是证明排放、灾后恢复或连通性在每座城市都估得准。特征对照中，人口及人口构成替换为噪声的损失最大，卫星影像其次，兴趣点变化较小。</p>
-<details>
-<summary>查看图 15–18：长尾、排放、韧性和特征敏感性</summary>
-
-<img src="/posts/68f20a9c/fig15.webp" alt="六城归一化流量的长尾；形状相似不代表每条联系的空间位置正确">
-<p><strong>图 15｜</strong>六城归一化流量的长尾；形状相似不代表每条联系的空间位置正确。</p>
-<img src="/posts/68f20a9c/fig16.webp" alt="估计与参照的交通碳排放；图例写 R² = 0.66，正文称相关系数，不能互换两个统计量">
-<p><strong>图 16｜</strong>估计与参照的交通碳排放；图例写 R² = 0.66，正文称相关系数，不能互换两个统计量。</p>
-<img src="/posts/68f20a9c/fig17.webp" alt="人口与模型韧性指标；分组线不是人口增长造成韧性变化的因果结论">
-<p><strong>图 17｜</strong>人口与模型韧性指标；分组线不是人口增长造成韧性变化的因果结论。</p>
-<img src="/posts/68f20a9c/fig18.webp" alt="英国测试的输入特征对照；替换人口与人口构成造成最大降幅">
-<p><strong>图 18｜</strong>英国测试的输入特征对照；替换人口与人口构成造成最大降幅。</p>
-</details>
-
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>公开人口、卫星影像和兴趣点可以用于构造大范围通勤网络，已有独立对照也显示，生成结果能抓住部分人流强弱与汇总格局。但验证范围不等于发布范围，系统性验证集中在美英实验，其他地区的迁移误差、逐条流量的不确定性和真实零值仍要检查。这是静态的城内跨区通勤，不能替代本地调查、区内通勤、跨城流量或逐小时交通记录。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>WorldCommuting-OD 的最大价值是给没有通勤统计的城市一张可以拿去核对的初稿，而不是一份已经查明的出行账本。它在多地抓住主要联系，但美训英测 CPC 只有 0.485，同城内部也不均匀；路线规划、排放或就业可达性应结合当地资料校准。使用时先核对城市边界、格网分辨率和时间口径，特别把不估计的对角线零值当成缺失。</p>
-<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p>Rong, C., Ding, J., Li, M., &amp; Li, Y. (2026). <em>A Global Intra-city Commuting Origin-Destination Flow Dataset for Urban Sustainable Development</em>. <strong>Scientific Data</strong>, 13, 1269。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-026-07279-z">DOI</a> · <a target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13538590/">正式全文与补充材料（PMC）</a> · <a target="_blank" rel="noopener" href="https://doi.org/10.6084/m9.figshare.28350107">数据存档</a> · <a target="_blank" rel="noopener" href="https://github.com/tsinghua-fib-lab/WorldCommuting-OD">项目仓库</a>。本文图 1–18 来自发表版，按原文 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a> 署名，保留既有完整图件。</p>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>论文由 Can Rong、Jingtao Ding、Meng Li 和 Yong Li 合作完成，Yong Li 为通讯作者。按发表时署名，团队关联清华大学电子工程系、北京信息科学与技术国家研究中心和清华大学土木工程系。工作结合了城市地理数据、图生成模型和交通数据验证。</p>
+<p>Rong, C., Ding, J., Li, M., &amp; Li, Y. (2026). A Global Intra-city Commuting Origin-Destination Flow Dataset for Urban Sustainable Development. <em>Scientific Data, 13</em>, 1269. <a href="https://doi.org/10.1038/s41597-026-07279-z">论文 DOI</a></p>
+<h2 id="卫星看得见住宅区和办公楼，能看见谁去哪里上班吗？"><a href="#卫星看得见住宅区和办公楼，能看见谁去哪里上班吗？" class="headerlink" title="卫星看得见住宅区和办公楼，能看见谁去哪里上班吗？"></a>卫星看得见住宅区和办公楼，能看见谁去哪里上班吗？</h2><p>假设城市东边有一大片住宅区，西边有两个产业园。卫星图能标出厂房，人口地图能估计住宅区里住了多少人。要决定早高峰的公交应该往哪个园区开，还缺一个数字：从这片住宅区出发的人，分别有多少去了两个园区？</p>
+<p>WorldCommuting-OD 尝试用已有统计的城市回答这个问题，再把学到的关系用于缺少调查的地方。它为 179 个国家的 2,358 座城市生成了区际通勤估计。拿有统计的地方对照，模型能抓住一些主要的居住地与工作地联系；换一个国家，或者把视线缩到一小片住宅区，误差就更值得留意。</p>
+<h2 id="一座城市在数据里长什么样？"><a href="#一座城市在数据里长什么样？" class="headerlink" title="一座城市在数据里长什么样？"></a>一座城市在数据里长什么样？</h2><p>一张通勤起讫矩阵（origin–destination matrix，简称 OD 矩阵）把住处列在行、工作地列在列。住宅区 A 到园区 B 的那格，是模型估计住在 A、到 B 上班的人数。反过来读 B 行 A 列，问的是另一群人。要让不同地方共用一套办法，首先得确定 A 和 B 这些区域究竟画在哪里。</p>
+<p><img src="/posts/68f20a9c/fig1.webp" alt="城市边界、区域特征和通勤流的生成流程"></p>
+<p>图 1｜左栏把城市切成小区块，中栏为每个区块收集人口、影像和设施信息，右栏把区块当作节点，估计从一个节点到另一个节点的通勤人数。</p>
+<p>研究合并 Who’s On First 等三套边界资料，去掉重复城市，再在每个边界内划网格。网格随城市范围大小调整，边长限定在 500 米至 5 公里之间。因而，小城市里两个相邻街区之间的通勤，在大城市的划法里可能会落进同一格。全球城市共享的是估计方法，各地的空间精度仍有差别。</p>
+<p>下载的城市文件里，地理边界和流量矩阵分开保存，每个区块的编号把地图上的位置对应到矩阵的一行和一列。两类行程尤其容易漏读。住在界外、进城上班的人不在城内矩阵里；居住和工作都在同一格的人，模型没有估计。文件对角线上填的 0 应按缺失处理。如果直接用矩阵计算短距离通勤人数，这一部分人会从结果中消失。</p>
+<h2 id="怎样从两片城区的样子推到连接它们的人数？"><a href="#怎样从两片城区的样子推到连接它们的人数？" class="headerlink" title="怎样从两片城区的样子推到连接它们的人数？"></a>怎样从两片城区的样子推到连接它们的人数？</h2><p>人口数量、年龄和性别结构告诉模型每格住着怎样的群体。高分辨率卫星影像让它看到连片住宅、厂房或其他建成形态。开放街图里的学校、商铺、办公设施等兴趣点（points of interest，POI）又补了一层当地功能。仍用两个产业园为例，即使它们在图上一样大，周围人口、设施和其他潜在工作地的分布也可能很不一样。</p>
+<p>要知道这些差别与通勤有什么关系，研究者用美国 3,333 个县和都市地区的资料做训练、验证和测试，其中八成用于训练。图扩散模型 WEDAN 的练习是把已知矩阵里的流量逐步加噪打乱，再借助区域特征一轮轮把噪声去掉。在一座缺少调查的城市，模型从噪声出发，用当地各格的特征生成整张有方向的流量表。它学到的是同类空间条件在训练数据里通常对应怎样的流动。两座园区之间若存在图上看不出来的用工或班车差异，模型很难凭空知道。</p>
+<h2 id="估计得像不像，要看总量、去向，还是地图？"><a href="#估计得像不像，要看总量、去向，还是地图？" class="headerlink" title="估计得像不像，要看总量、去向，还是地图？"></a>估计得像不像，要看总量、去向，还是地图？</h2><p>先看去向的强弱顺序。把每对区域的估计人数和手机定位资料推得的流量排在一起，北京、上海、里约热内卢和塞内加尔的秩相关系数分别约为 0.74、0.64、0.82 和 0.48。几处对照的质量也有区别。里约使用依据通话记录构建的合成参照数据，北京和上海的记录来自不同年份、不同服务商。能在两份数据上找出同样繁忙的联系，并不等于两边报出的人数相同。</p>
+<p><img src="/posts/68f20a9c/fig6.webp" alt="四地模型流量与移动数据的对照"></p>
+<p>图 6｜（a–d）依次为北京、上海、里约热内卢和塞内加尔。横轴是模型生成的区际流量，纵轴是移动数据推得的流量，两轴均用对数刻度。点群向右上方延伸表示两者的强弱顺序大致一致。</p>
+<p>若知道每对地区实际有多少人通勤，还能问得更严一些。对每一对起讫地，在统计人数和生成数中取较小者，汇总后与两张表的平均总人数相比，得到通勤流量重合指数（common part of commuters，CPC）。把正确的人数全分给错误的目的地，城市总量仍然能对上，重合指数却会很低。</p>
+<p>美国训练、在留出的美国地区测试时，重合指数为 0.593；同一个国家训练、换到英国测试时降至 0.485。在英国训练后转到美国，结果为 0.530。读这些数时应保留比较的对象：它们衡量两张聚合流量表在同一起讫地上重合多少，不能据此数出有多少个人被正确识别。</p>
+<p><img src="/posts/68f20a9c/fig8.webp" alt="芝加哥和伦敦各出发区的流量重合程度"></p>
+<p>图 8｜（a）芝加哥，（b）伦敦。对每格单独汇总从这里出发、去往所有其他格的流量。颜色越红，该格的去向分布与统计记录重合得越多。</p>
+<p>芝加哥和伦敦的图还提醒人们，整座城市的一个分数会掩盖地区差异。出发客流较多的区域通常估得更好。同一张图如果要拿来讨论市郊一条小客流线路，就得回到那里的证据。塞内加尔的地图能看见另一种误差。两幅图都在西部出现密集联系，但把每条联系逐对排序，它却是四地中一致程度最低的。</p>
+<p><img src="/posts/68f20a9c/fig12.webp" alt="塞内加尔参照流量与生成联系"></p>
+<p>图 12｜塞内加尔。（a）来自汇总通话资料，（b）来自模型。西侧密集区在两图中都能辨认；若比较具体起讫地的流量排序，此例在图 6 四组对照中一致程度最低。</p>
+<p>如果一座城市有几个就业中心，模型会不会把所有人都分配给正中心？洛杉矶、圣彼得堡、霍巴特和拉巴特的生成图显示，模型能给出多个聚集点和中心之间的联系。要确定每个就业中心究竟吸引了多少人，仍须与当地通勤统计核对。</p>
+<h2 id="如果说对了人从哪里来，能不能更好地估计白天哪里人多？"><a href="#如果说对了人从哪里来，能不能更好地估计白天哪里人多？" class="headerlink" title="如果说对了人从哪里来，能不能更好地估计白天哪里人多？"></a>如果说对了人从哪里来，能不能更好地估计白天哪里人多？</h2><p>从夜间居住人口开始，减去每个区早晨出去工作的人，再加上来这里工作的人，就得到工作时段人口的估计。研究把这一结果与 2024 年 9 月 9 日经换算的百度慧眼人口热力数据比较。在广州，只用居住人口时，地区间人口分布的拟合优度 R² 为 0.66，加上通勤后为 0.89。成都、济南、青岛也有改善。这里核对的是每片地区最终有多少人，不同的起讫流量组合也可能得到相近的白天人口。</p>
+<p><img src="/posts/68f20a9c/fig14.webp" alt="四城工作时段人口预测与热力数据"></p>
+<p>图 14｜（a–d）依次为成都、广州、济南和青岛。横轴是预测人口，纵轴是热力数据换算的人口，都取对数；每个点是一个地区。</p>
+<p>进一步估碳排放，需要把区际距离换成道路里程，再给每种交通方式指定排放因子。论文统一假设 60% 的通勤乘汽车、35% 乘公共交通，其余步行或骑行。这些份额直接影响结果。图 16 里，重庆的交通排放参照值较高，而模型估计值很低；仅有通勤 OD，还不足以解释一座城市道路交通的排放总量。</p>
+<p><img src="/posts/68f20a9c/fig16.webp" alt="城市交通碳排放估计与参照数据"></p>
+<p>图 16｜横轴为 Carbon Monitor Cities 的交通排放数据，纵轴为通勤推算值，单位均为吨二氧化碳。一个点代表一座城市，右下方是重庆。</p>
+<p>另一个应用把每个分区当作网络节点，模拟节点失效，再结合网络连通性、替代路径等特征计算韧性。人口规模相近的城市仍有明显不同的分数。这项计算描述的是给定网络在设定冲击下的表现，没有观测各地交通中断后的恢复时间。</p>
+<h2 id="哪些输入最能支撑这张估计图？"><a href="#哪些输入最能支撑这张估计图？" class="headerlink" title="哪些输入最能支撑这张估计图？"></a>哪些输入最能支撑这张估计图？</h2><p>在美国训练、英国检验的条件下，研究者轮流用随机噪声替换一类资料。去掉人口和人口结构信息，流量重合度降得最多；替换卫星影像也有明显影响；替换兴趣点的变化较小。这样的比较说明，在其余资料已经可用时，模型有多依赖某一类输入。它无法单独回答新建一片住宅或商场会增加多少通勤。</p>
+<p><img src="/posts/68f20a9c/fig18.webp" alt="替换人口、影像或设施特征后的英国测试结果"></p>
+<p>图 18｜纵轴为流量重合指数 CPC。从左至右分别替换人口资料、卫星影像、兴趣点，以及保留全部资料；比较各柱与最右柱的高度差。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>用公开的区域人口、卫星影像和设施资料，可以为缺少本地调查的城市估计居住区通向哪些工作区。训练地与测试地发生变化后，结果会变。美国内部的测试优于从美国转到英国的测试，主要流向也通常比小客流地区的具体去向稳健。</p>
+<p>在四座中国城市，用估出的通勤流修正夜间人口，都更接近工作时段的人口参照数据。相比之下，要用同一张表估公交客流、交通排放或真实的中断损失，还需要当地交通方式、道路或服务资料。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>WorldCommuting-OD 用已知城市的居住地与工作地联系训练图扩散模型，再为全球 2,358 座城市生成区际通勤表。它让缺少调查的城市也能提出具体问题，例如哪个居住片区与哪个就业中心可能联系紧密。使用前要同时看训练地区、当地验证、城市边界和网格尺度，尤其应将同格通勤视为尚未估计。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li>Rong 等的论文、数据与配套代码。<a href="https://doi.org/10.1038/s41597-026-07279-z">原论文</a> · <a href="https://doi.org/10.6084/m9.figshare.28350107">Figshare 数据</a> · <a href="https://github.com/tsinghua-fib-lab/WorldCommuting-OD">作者代码仓库</a></li>
+<li>WorldPop 的人口和年龄、性别分布，Esri World Imagery 卫星影像，以及 OpenStreetMap 的设施记录用于描述各网格。三类材料来自不同时间，不能把矩阵当成某个工作日的同期观测。<a href="https://www.worldpop.org/">WorldPop</a> · <a href="https://www.arcgis.com/home/item.html?id=10df2279f9684e4a9f6a7f08febac2a9">Esri World Imagery</a> · <a href="https://www.openstreetmap.org/">OpenStreetMap</a></li>
+</ul>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>Can Rong、Jingtao Ding 和通讯作者 Yong Li（清华大学电子工程系、北京信息科学与技术国家研究中心）参与这份数据的建设。Can Rong 实现数据处理、通勤生成和验证代码，Jingtao Ding 与 Yong Li 设计研究和数据构建流程。Meng Li（清华大学土木工程系）设计验证策略。四位作者共同撰写论文。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>两个新区都为新公交线争取经费，生成地图把其中一个画成更大的通勤来源。可如果另一区的大部分上班行程恰好在一个粗网格内，地图并不会画出这些往返，排序就可能先反映格网怎么切，再反映真实需求。与其只按预测量排队，不如把这一处当成值得补调查的地方：先核对公交上车记录和雇员去向，再看两区的排序能否维持。生成数据最能节省的，可能是决定先去哪里找真实数据的时间。</p>
+<p>回到开头的两个产业园。假如模型认为西边园区吸收了更多通勤，公交公司就有了一个值得去站台数人的地方。但若实际发现东边园区门口每天都排长队，也不必马上认定哪一方看错了。西边园区的人也许大多坐单位班车，东边园区的职工却都挤在一条公交线上。模型问的是有多少人来上班，站台上等车的人回答的是现有公交承担了多少需求。把这两件事放在一起，才更容易看出该把新增的一班车开向哪里。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             

@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-AI-based urban layout generation model, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="AI-based urban layout generation model, 猴猴猴">
+    <meta name="description" content="知道全城路网，只测过少量街区，能给风场模型补出怎样的一座城？北美 330 座城市的实验区分了重建、推断和情景设计。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-AI-based urban layout generation model | 猴猴猴</title>
+    <title>AI-based urban layout generation model | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-AI-based urban layout generation model</h1>
+                    <h1 class="description center-align post-title">AI-based urban layout generation model</h1>
                 </div>
             </div>
         </div>
@@ -432,39 +432,40 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img { display: block; margin: 1.2rem auto .6rem; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h2 id="只有道路和几个街区，生成的城市能当成实测地图吗？"><a href="#只有道路和几个街区，生成的城市能当成实测地图吗？" class="headerlink" title="只有道路和几个街区，生成的城市能当成实测地图吗？"></a>只有道路和几个街区，生成的城市能当成实测地图吗？</h2><p>地图上的道路还在，建筑图层却缺了许多。与其把空白留给规划模拟，能否先补上一种合理的建筑布局？Liu He、Harsh G. Kamath、Songlin Fei、Dev Niyogi 和 Daniel Aliaga 的 <a target="_blank" rel="noopener" href="https://doi.org/10.1038/s42949-026-00369-2">AI-based urban layout generation model</a> 用北美城市资料研究这个问题。论文刊于 <em>npj Urban Sustainability</em>（2026 年，6，87）。它更像为缺测区域生成可比较的场景，而不是宣称只看道路就能找回每栋真实建筑。</p>
-<h2 id="先学习街区，再让相邻街区提供背景"><a href="#先学习街区，再让相邻街区提供背景" class="headerlink" title="先学习街区，再让相邻街区提供背景"></a>先学习街区，再让相邻街区提供背景</h2><p>作者用来自 330 座北美城市的大量建筑数据训练。模型把街区几何和内部建筑概括成一组数值表示，再利用相邻街区的上下文补齐未知表示，最后解码为建筑位置、大小和高度等属性。这种表示便于在大区域生成布局，也会丢掉原图的部分细节。生成结果不包含实测地图上每栋建筑的身份和历史。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/z5daj55fj/fig1.png" alt="完整城市布局生成框架"></p>
-<p>图 1｜a 为街区编码、上下文和解码流程；b、c 展示真实与生成区域的形态及不同城市示例。</p>
-<h2 id="看过的街区能重建，没看过的街区是推断"><a href="#看过的街区能重建，没看过的街区是推断" class="headerlink" title="看过的街区能重建，没看过的街区是推断"></a>看过的街区能重建，没看过的街区是推断</h2><p>论文把重建与推断分开评分。重建是把已有建筑信息编码后再恢复；推断则在信息不完整时补出未知建筑。正文报告，在约 5% 输入的重建设置中，位置、大小和数量误差约为 1%，高度约为 10%。而推断的误差随属性和输入比例而变，不能把重建端的 1% 当成未见街区的统一误差。主图还用生成建筑布局运行芝加哥局部的风场示例；能支持示例模拟，不表示生成几何已在所有城市通过街尺度验证。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/z5daj55fj/fig2.png" alt="完整重建推断与风场图"></p>
-<p>图 2｜按实际面板：a 为重建及推断误差，b 比较不同输入比例的布局，c 为芝加哥局部风场示例。原图注对 a、b 的部分说明交叉。</p>
-<h2 id="建筑形态与社区指标有关，但不是生活条件的判决书"><a href="#建筑形态与社区指标有关，但不是生活条件的判决书" class="headerlink" title="建筑形态与社区指标有关，但不是生活条件的判决书"></a>建筑形态与社区指标有关，但不是生活条件的判决书</h2><p>论文另做一项分类：看街区表示能否区分某指标最高与最低的 1%。这是极端组之间的二分类，并不预测中间群体的连续数值。表中列出的 15 项是所展示的指标，不宜写成对所有候选指标都很准。分类准确也只能支持这里的统计关联。比如能分开两个暴露程度相差很大的地点，不等于知道具体住户的暴露，更不说明形态就是差异的原因。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/z5daj55fj/table1.png" alt="完整指标分类表"></p>
-<p>表 1｜按指标列出两类分类器的结果；准确率属于高低极端组对照。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/z5daj55fj/fig3.png" alt="完整指标示例图"></p>
-<p>图 3｜几组极低和极高指标的示例街区，是选取的案例，不是全体预测结果。</p>
-<h2 id="改变生成布局，不等于改变现实中的结果"><a href="#改变生成布局，不等于改变现实中的结果" class="headerlink" title="改变生成布局，不等于改变现实中的结果"></a>改变生成布局，不等于改变现实中的结果</h2><p>作者也在模型的表示空间里移动布局，看看沿着与某些指标相关的方向，可以生成什么样的街区。这适合在规划讨论中迅速得到多个候选场景。图 4 中箭头表示生成模型如何编辑输入；模型没有观察新布局建成后人们是否更健康，或生活负担是否真的下降。用这类图讨论设计方案，应该把指标关联、物理模拟和现实效果分别验证。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/z5daj55fj/fig4.png" alt="完整指标编辑图"></p>
-<p>图 4｜编码、沿指标关联方向移动表示，再解码布局；面板展示的是场景编辑，不是实地干预。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><ul>
-<li>结合道路、已知街区和邻近结构，可以在论文案例中生成形态连贯的建筑布局。</li>
-<li>重建误差、未知区域推断误差与下游模拟误差是三件事；不能互相代替。</li>
-<li>极端组指标分类与布局编辑展示了应用潜力，但不是个人属性推断，也未检验规划对社会指标的因果效果。</li>
-</ul>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这篇论文的价值，在于把少量已知建筑和道路条件变成可供讨论、比较和模拟的街区方案。它能补出合理形态，却不等同于恢复真实城市；它也能找到形态与部分区域指标的关联，却不能凭这种关联决定应该怎样改建。使用时最重要的是分清实测部分、生成部分和需要独立验证的下游结论。</p>
+<p>He, L., Kamath, H. G., Fei, S., Niyogi, D., &amp; Aliaga, D. (2026). AI-based urban layout generation model. <em>npj Urban Sustainability, 6</em>, 87. <a href="https://doi.org/10.1038/s42949-026-00369-2">论文 DOI</a></p>
+<h2 id="给你一张路网和少数几条街上的楼，能拼出一座城吗？"><a href="#给你一张路网和少数几条街上的楼，能拼出一座城吗？" class="headerlink" title="给你一张路网和少数几条街上的楼，能拼出一座城吗？"></a>给你一张路网和少数几条街上的楼，能拼出一座城吗？</h2><p>假设要模拟夏天的风怎样吹过一片城区。道路地图很全，哪几栋楼挡风、街口两侧的楼有多高，却只测过少数街区。把未知街区全部留白，风吹过去会像穿过空地。能否参考已经测过的街区，先给模拟器一座形态合理的城市？</p>
+<p>这项研究从北美 330 座城市的楼房轮廓和高度中学习，利用完整路网与少量已知街区，为其他街区生成楼的位置、大小和高度。论文在芝加哥拿这种布局做了风场模拟。研究还展示了一个更容易被误读的用途：模型能认出哪些建筑形态常与某些社会指标一同出现，也能画出向另一类形态靠近的方案。要知道改建后居民的生活会怎样，还需要真实城市里的证据。</p>
+<h2 id="为什么先学会重画一个街区？"><a href="#为什么先学会重画一个街区？" class="headerlink" title="为什么先学会重画一个街区？"></a>为什么先学会重画一个街区？</h2><p>拿一块不规则的三角形街区来说，两排楼是沿路排开，还是在地块中间围成一圈，光知道建筑总数并不能画出来。作者把道路围成的每个街区单独处理。街区里的每栋楼是一个节点，位置相邻的楼之间连边，各节点保存楼的平面几何和高度。这样既能描述一栋楼的样子，也保留它和前后左右建筑的关系。</p>
+<p>图变分自编码器（graph variational autoencoder）的练习是把一整个街区压成一串数，再用这串数把布局画回来。编码时，相邻建筑交换几何信息，形成一个含 512 个数的街区表示；解码时，模型利用这个表示和街区外形还原建筑图。画回来的位置、尺寸、数量等与原图差得越远，训练时的惩罚越大。方法部分列出的建模样本约有 83 万个街区、1,766 万栋建筑。模型见过足够多的变化，才有机会分辨不规则地块、排屋街区和密集商业街的几何特点。</p>
+<p><img src="/posts/z5daj55fj/fig1.png" alt="街区布局编码、解码及六座城市的例子"></p>
+<p>图 1｜（a）从左往右读，街区外形和楼房邻接关系经过编码、解码，再生成建筑布局。（b）匹兹堡与迈阿密示例中，斜线左侧为已有资料，另一侧为生成结果。（c）依次为坦帕、丹佛、巴尔的摩和菲尼克斯的生成示例。</p>
+<h2 id="给出-5-的资料，究竟测的是哪种本事？"><a href="#给出-5-的资料，究竟测的是哪种本事？" class="headerlink" title="给出 5% 的资料，究竟测的是哪种本事？"></a>给出 5% 的资料，究竟测的是哪种本事？</h2><p>第一种本事是重建。给编码器看过一个街区，再让解码器把它画回来。在图 2a 的重建试验中，用到约 5% 的训练资料时，位置、大小和数量的相对误差已在约 1% 的量级，楼高误差仍接近 10%。后一项对风场尤其重要：两组建筑在平面图上长得很像，楼顶高度也可能差得很远。</p>
+<p>第二种本事是推断。面对一片新的城区，路网给出所有街区边界，只有抽中的部分街区提供建筑布局。研究用距离加权的方式，从已知街区的表示估计缺失街区的表示，再交给同一个解码器生成建筑。图 2b 显示，当给定街区从 1% 增到 5%、20%，输出的布局逐渐接近参照图。重建试验里约 1% 的误差，不能拿来声称未知街区里 99% 的楼都被找回了。</p>
+<p><img src="/posts/z5daj55fj/fig2.png" alt="已知街区比例、重建与推断误差及芝加哥风场"></p>
+<p>图 2｜（a）横轴为输入资料占比，纵轴为各建筑属性的相对误差，对数刻度；左图比较重建，右图比较对缺失建筑的推断。（b）从少量已知街区逐步加到 20%，最右为参照布局。（c）芝加哥红色街区给定、蓝色街区生成，右侧用颜色比较风速（米/秒）。</p>
+<p>芝加哥案例把生成的三维布局送入天气研究与预报模式（WRF），与参照布局的风速图并列。读这幅图时更值得问哪些风场特征能保留，以及结论对楼高有多敏感。文中给了局部示例地图，没有据此验证整座城市每个街口的风速。遇到街区内部有公园、道路有复杂尽端，或桥梁和工业设施占主导时，模型采用的几何表示也可能失效，甚至会把楼画到尽端道路上。</p>
+<h2 id="楼房的排列，为什么也能用来猜指标？"><a href="#楼房的排列，为什么也能用来猜指标？" class="headerlink" title="楼房的排列，为什么也能用来猜指标？"></a>楼房的排列，为什么也能用来猜指标？</h2><p>如果两个街区的建筑排布很相似，它们也可能有相近的开发历史、土地用途或交通条件。研究者想检验这种联系有多强。他们取来自人口普查区资料的约 100 项社会、环境等指标，每次只挑一个指标，选出最低 1% 和最高 1% 两端的街区，让分类器仅凭建筑布局的 512 个数来区分高组、低组。</p>
+<p>例如，用支持向量机（support vector machine）识别柴油颗粒物暴露指标最高和最低的两组，表 1 给出的分类准确率约为 90%；识别家庭能源负担两组约为 84%。这个任务故意选了两个极端，模型学的是区分两类几何特征。它没有测量某栋楼的污染浓度，也没有预测住在相邻两栋楼的家庭各花了多少钱。</p>
+<p><img src="/posts/z5daj55fj/fig3.png" alt="不同城市中被判入指标高低两组的街区"></p>
+<p>图 3｜红框标出被分类的街区，High 和 Low 表示对应指标的高、低组。左上两个例子分别来自亚特兰大和芝加哥，比较柴油颗粒物暴露指标；左下两个比较丹佛与什里夫波特的能源负担指标。</p>
+<h2 id="把表示朝另一个方向移，改动了什么？"><a href="#把表示朝另一个方向移，改动了什么？" class="headerlink" title="把表示朝另一个方向移，改动了什么？"></a>把表示朝另一个方向移，改动了什么？</h2><p>分类器在 512 维空间里能把高组和低组区分开。于是，给定同一个街区，沿两组之间的方向一点点改变它的表示，每改一步就解码一次，可以得到一串渐变布局。研究在华盛顿特区演示了同时沿两个指标方向移动，让街区几何越来越像较长预期寿命、较低经济负担那组街区的形态。</p>
+<p><img src="/posts/z5daj55fj/fig4.png" alt="沿两个指标方向改变街区几何的华盛顿特区示例"></p>
+<p>图 4｜（a）改变街区表示后重新解码，（b）红色向量示意如何合并两个变化方向，（c）从左到右是同一片街区依次生成的布局，并非四个时期的实测地图。</p>
+<p>为什么这一步需要格外小心？高负担社区的楼房形态可能与房龄、公共投资或住户收入一同变化。模型通过分组学会了分辨形态，并没有观察居民从一种布局搬到另一种之后发生什么。图 4 能让规划者快速比较多个形态方案，却无法告诉他们哪种改建会延长居民寿命。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>用同一种街区表示，模型可以从已知建筑学习局部几何关系，并在路网和少量样本约束下生成大范围三维布局。能较好地重画已知街区，与能否准确推算未测量街区，是两项不同的检验；楼高、道路死角和不常见建筑尤其值得单独核对。</p>
+<p>街区几何里含有与部分社会、环境指标相关的信息，足以帮助区分所选指标的极端高低组。沿这些方向修改几何表示得到的是情景方案，其社会效果仍待验证。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这项研究把北美 330 座城市的街区压缩成可比较的几何表示，再用道路边界和已知街区为缺测区域生成楼房。它最直接的用途，是在尚无完整三维建筑资料时为风场等城市模拟准备若干可检验的布局。图上的每一栋楼，以及改动布局后的每一项社会指标，仍有各自需要回答的验证问题。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.1038/s42949-026-00369-2">正式 DOI</a>与<a target="_blank" rel="noopener" href="https://www.cs.purdue.edu/urbx_lab/papers/npjus2026-urban-layout.pdf">普渡大学团队提供的正式期刊全文</a>。原文图 1–4、表 1 沿用已有完整图版，不改绘；期刊许可为 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>，另有署名的第三方材料按其声明处理。</li>
-<li><a target="_blank" rel="noopener" href="https://static-content.springer.com/esm/art%3A10.1038%2Fs42949-026-00369-2/MediaObjects/42949_2026_369_MOESM1_ESM.pdf">官方补充材料</a>。</li>
+<li>He 等的原论文与作者公开的期刊版全文。<a href="https://doi.org/10.1038/s42949-026-00369-2">论文 DOI</a> · <a href="https://www.cs.purdue.edu/urbx_lab/papers/npjus2026-urban-layout.pdf">普渡大学作者全文</a></li>
+<li>道路和建筑平面主要来自 OpenStreetMap 等公开建筑轮廓资料，高度来自 UT-GLOBUS 建筑高度数据。<a href="https://www.openstreetmap.org/">OpenStreetMap</a> · <a href="https://doi.org/10.1038/s41597-024-03719-w">UT-GLOBUS 数据论文</a></li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Liu He、Harsh G. Kamath、Songlin Fei、Dev Niyogi 和 Daniel Aliaga 共同完成论文，署名机构为普渡大学和得克萨斯大学奥斯汀分校，Daniel Aliaga 为通讯作者。</p>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>Liu He、通讯作者 Daniel Aliaga（普渡大学计算机科学系）撰写论文。Harsh G. Kamath、Dev Niyogi（得克萨斯大学奥斯汀分校地球与行星科学系）和 Songlin Fei（普渡大学林业与自然资源系）参与分析和稿件修改。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>若拿生成街区做风环境评估，我会对同一真实道路和观测街区生成几套不同的布局，并单独标出结论随生成建筑变化的程度。若风速热点随补图大幅移动，就应先补真实建筑资料；若多个合理布局都指向同一处，才值得将它列为优先实测的地点。</p>
+<p>假设一所学校想知道，夏季下午打开哪边的窗户更容易通风。城市大部分建筑都没有楼高资料，但学校对面恰好有一栋刚建成的高楼。随机知道全城 5% 的街区，可能已经足够画出一张外观连贯的地图，却仍可能漏掉这一栋最能改变教室风向的楼。此时，生成模型可以用来做一道选择题：分别把那块地设成矮楼和高楼，看通风判断会不会翻转。如果两种设定给出的建议相反，下一次实地测量就有了清楚的目的地。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -645,17 +646,13 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="2026-Computational models of complex systems meet AI agents">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Computational models of complex systems meet AI agents">
                         
-                        <span class="card-title">2026-Computational models of complex systems meet AI agents</span>
+                        <span class="card-title">Computational models of complex systems meet AI agents</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">一张模拟结果图能否追溯到当时的客流和设置？两位复杂系统研究者提出，让人和智能体能够复查同一次实验的六项要求。</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-18

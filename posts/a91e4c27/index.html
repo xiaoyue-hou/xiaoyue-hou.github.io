@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-Spatial distribution of foot traffic in New York City and applications for urban planning, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="Spatial distribution of foot traffic in New York City and applications for urban planning, 猴猴猴">
+    <meta name="description" content="把人流加进纽约步行地图，皇后区哪些街段比规划等级更忙？按过街人流校正后，哪些路口的受伤指标更突出？">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-Spatial distribution of foot traffic in New York City and applications for urban planning | 猴猴猴</title>
+    <title>Spatial distribution of foot traffic in New York City and applications for urban planning | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-Spatial distribution of foot traffic in New York City and applications for urban planning</h1>
+                    <h1 class="description center-align post-title">Spatial distribution of foot traffic in New York City and applications for urban planning</h1>
                 </div>
             </div>
         </div>
@@ -440,43 +440,40 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img {display:block; width:100%; max-width:100%; height:auto; margin:1.25rem auto;} .post-title {overflow-wrap:anywhere;}</style>
 
-<h2 id="纽约哪条街最忙，哪处路口最危险？两张地图可能给出不同答案"><a href="#纽约哪条街最忙，哪处路口最危险？两张地图可能给出不同答案" class="headerlink" title="纽约哪条街最忙，哪处路口最危险？两张地图可能给出不同答案"></a>纽约哪条街最忙，哪处路口最危险？两张地图可能给出不同答案</h2><p>纽约中城有些路口受伤人数高，也有大量行人经过。皇后区一处地铁站旁的街道，晚高峰却可能有上千人走过，规划等级仍不高。一个例子暴露的是安全统计没把人流放进分母，另一个暴露的是街道分类没直接使用人流。两件事都要先回答同一个问题：每条人行道和横道大概有多少人经过？</p>
-<p><strong>论文名片｜</strong> Andres Sevtsuk、Rounaq Basu、Liu Liu、Abdulaziz Alhassan、Justin Kollar，<em>Spatial distribution of foot traffic in New York City and applications for urban planning</em>，<em>Nature Cities</em> 3(2)，136–145，2026年2月6日在线发表。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s44284-025-00383-y">DOI：10.1038/s44284-025-00383-y</a> · <a target="_blank" rel="noopener" href="https://cityform.mit.edu/projects/nycwalks">MIT NYCWalks 项目</a></p>
-<h2 id="有限的现场计数，怎样铺到31万段人行网络？"><a href="#有限的现场计数，怎样铺到31万段人行网络？" class="headerlink" title="有限的现场计数，怎样铺到31万段人行网络？"></a>有限的现场计数，怎样铺到31万段人行网络？</h2><p>作者整理出315,577段人行道、人行横道和步道组成的可通行网络。与用机动车道路中心线代替步行空间不同，这个网络能区分街道两侧的人行道和横道，但也依赖底图的完整性，不包括没有标记的过街路径。</p>
-<p>模型先给出十种起讫地点组合，例如住所与学校、就业地与地铁、设施与设施。在约800米的网络距离内，更近或规模更大的目的地会得到更高的出行权重；再将出行分给不超过最短路径1.15倍的候选路径，沿途累加成路段流量。最后，以纽约市交通局2018–2019年的实地计数校准。模型分别估计工作日和周末的早、午、晚三个高峰小时，并没有给出全天逐小时的实测人流。计数含使用轮椅等辅助器具的人，不含自行车等单独统计的方式。</p>
-<p>校准使用随机森林，训练和留出测试按八二划分，只纳入每小时至少30人经过的计数路段。工作日训练集R²约0.95–0.96，留出测试约0.66–0.74；测试的平均绝对百分比误差约41%–51%。周末早高峰的留出测试只有39段，R²为0.40。训练拟合高不保证未观测路段同样准，也不能把平均百分比误差理解为每条街都在这个误差范围内。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/a91e4c27/fig1.png" alt="不同出行类型在各高峰的预测重要度"></p>
-<p><strong>图 1｜</strong> （a）工作日，（b）周末，各自从左到右为早、午、晚高峰。工作日早晨，就业地与地铁的起讫对重要度约48%；午间就业地与设施更突出，周末设施间出行更显眼。重要度由打乱输入后的模型变化得到，不等于此类出行占总量的48%。</p>
-<h2 id="中城最忙，但一个区的均值看不到每条街"><a href="#中城最忙，但一个区的均值看不到每条街" class="headerlink" title="中城最忙，但一个区的均值看不到每条街"></a>中城最忙，但一个区的均值看不到每条街</h2><p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/a91e4c27/fig2.png" alt="全城估计人流及局部实测对照"></p>
-<p><strong>图 2｜</strong> 左图是工作日早高峰的全城估计，右图放大局部；青色数字为现场计数，白色数字为模型估计。右图图例写作weekday PM，与原图说明的早高峰不一致；示意数9,999不是一条路段的实测值。</p>
-<p>59个社区区里，曼哈顿中城的工作日晚高峰平均每段估计有1,697人，约为下曼哈顿金融区740人的两倍多。外区整体更低，却不代表没有繁忙的交通枢纽和商业街。把分区均值缩小到某条街，和把训练集成绩外推到整张地图一样，都容易抹掉局部差异。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/a91e4c27/fig3.png" alt="59个社区区的工作日晚高峰平均路段人流"></p>
-<p><strong>图 ED1｜</strong> 原文扩展数据图1。每个社区区用辖内人行网络路段的平均估计人数标注，颜色深表示均值更高，并非区内步行总量。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/a91e4c27/fig4.png" alt="纽约四个地点的局部人行网络和计数"></p>
-<p><strong>图 ED2｜</strong> 原文扩展数据图2。（a）布朗克斯枢纽，（b）曼哈顿坚尼街，（c）布鲁克林第七大道与58街，（d）布朗克斯洪水三角地带。蓝字只标有计数的位置，空白不等于实测为零。</p>
-<h2 id="原来等级不高的街道，有多少人走？"><a href="#原来等级不高的街道，有多少人走？" class="headerlink" title="原来等级不高的街道，有多少人走？"></a>原来等级不高的街道，有多少人走？</h2><p>纽约步行规划将部分街道分为全球、区域、邻里、社区连接和基线五类。步行流量模型提供一个新参照：对每个低等级路段，比较它的晚高峰估计是否已超过上一等级的第75百分位。这是在找人流与分级的错位，不是用人流直接重定等级。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/a91e4c27/fig5.png" alt="五类步行走廊的晚高峰估计人流"></p>
-<p><strong>图 3｜</strong> 原论文主图3。全球走廊的中位数约为每小时1,500人。红字标出超过上一档第75百分位的路段：区域26段、邻里200段、社区连接684段、基线2,901段。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/a91e4c27/fig6.png" alt="官方走廊类别与高出两档的人流路段"></p>
-<p><strong>图 4｜</strong> 原论文主图4。左图显示五类走廊；右图用更严的标准，突出超过高两档类别第75百分位的路段。两种比较口径不应混在一起。</p>
-<p>皇后区阿斯托里亚的31街与23大道就是一个例子。论文估计这里工作日晚高峰约有1,024人经过，相邻路段的官方分类却有基线或社区连接路。现有等级还可能考虑旅游、历史或土地用途，不能只凭这一次峰值断言原有分级全部失当，也不能由此推算过去投入了多少资金。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/a91e4c27/fig7.png" alt="阿斯托里亚31街与23大道附近的街景"></p>
-<p><strong>图 ED3｜</strong> 原文扩展数据图3。同一路口附近的两幅街景提供空间背景，照片本身不是人流计数。</p>
-<h2 id="如果把行人暴露放进分母，受伤热点会移到哪？"><a href="#如果把行人暴露放进分母，受伤热点会移到哪？" class="headerlink" title="如果把行人暴露放进分母，受伤热点会移到哪？"></a>如果把行人暴露放进分母，受伤热点会移到哪？</h2><p>研究将2012–2023年的行人受伤记录关联到路口，先按受伤人数排序，再除以典型工作日早、中、晚三个高峰小时的估计过街人流之和，比较两种口径下各自的前100处。中城在人数图中显眼；用人流校正后，中城与下城不再进入风险指标最高的100处，上曼哈顿与其他行政区的部分路口更突出。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/a91e4c27/fig8.png" alt="按受伤人数和按暴露校正的两幅路口地图"></p>
-<p><strong>图 5｜</strong> 原论文主图5。左为按受伤人数排出的100处，右为按人流校正指标排出的100处。两图不是在同一组固定路口上重新着色。</p>
-<p>右图不是全年事故概率。它的分子跨多年，分母只是一个典型工作日三个高峰小时的估计人流，无法逐起对应受伤当时的真实暴露。如果模型低估某处人流，校正指标还会被抬高。这样的排序能提示哪些地方值得补做计数，不能直接证明某个路口的设计造成了更多伤害。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>纽约的路段级步行估计可以补足现场计数覆盖有限的问题，并让规划者看到两类容易漏掉的地方：现有分级较低但高峰人流较高的走廊，以及受伤人数不是最高、按人流校正后却靠前的路口。模型未纳入公交站、部分大型活动目的地、临时施工或无明确目的地的休闲步行；对时段、地点和低流量路段的推广还需要补充观测。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>Sevtsuk等人把潜在步行出行分配到纽约的人行网络，再用现场计数校准成高峰小时的路段人流。拿这张地图与官方步行走廊分级对照，能看到外区一部分高人流路段等级偏低；用估计人流校正受伤人数，前100处路口的地理分布也会改变。论文说明人流是两种判断里都缺不得的参照，但它仍是有误差的典型高峰估计，不是全天实测，也不直接给出施工或干预的因果证据。</p>
-<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p>Sevtsuk, A., Basu, R., Liu, L., Alhassan, A., &amp; Kollar, J. (2026). <em>Spatial distribution of foot traffic in New York City and applications for urban planning</em>. <em>Nature Cities</em>, 3(2), 136–145。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s44284-025-00383-y">正式版 DOI</a> · <a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/400539973_Spatial_distribution_of_foot_traffic_in_New_York_City_and_applications_for_urban_planning">作者公开全文</a> · <a target="_blank" rel="noopener" href="https://cityform.mit.edu/projects/nycwalks">MIT NYCWalks 资料页</a>。主图1–5及扩展数据图1–3以正式版编号标注；作者公开稿的扩展图编号不同。项目页提供网络、估计人流及模型，资料可下载不等于期刊图采用开放转载许可。</p>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>按论文署名，通讯作者Andres Sevtsuk及Liu Liu、Abdulaziz Alhassan、Justin Kollar署名麻省理工学院城市研究与规划系；Rounaq Basu署名佐治亚理工学院城市与区域规划学院。</p>
+<h2 id="纽约该把哪处人行道拓宽，该把哪处路口改得更安全？"><a href="#纽约该把哪处人行道拓宽，该把哪处路口改得更安全？" class="headerlink" title="纽约该把哪处人行道拓宽，该把哪处路口改得更安全？"></a>纽约该把哪处人行道拓宽，该把哪处路口改得更安全？</h2><p>Sevtsuk, A., Basu, R., Liu, L., Alhassan, A., &amp; Kollar, J. (2026). Spatial distribution of foot traffic in New York City and applications for urban planning. <em>Nature Cities, 3</em>, 136–145. <a href="https://doi.org/10.1038/s44284-025-00383-y">论文 DOI</a></p>
+<p>在纽约皇后区阿斯托里亚，31 街与 23 大道交会处靠近地铁终点站。按城市的步行走廊分级，附近一些街段属于最低两档。可研究估计，工作日下午五至六时，这里每小时有约 1,024 人经过。假如在规划图上只看颜色，很难想象它会有这样繁忙的一小时。</p>
+<p>NYC Walks 团队想补上的，是纽约每一段人行道和斑马线大约有多少人走。他们把全市的步行路径与现场计数结合，发现布鲁克林和皇后区有一批高峰人流超过规划等级所暗示的街段。同一张人流图还能用来重新看待事故。按受伤人数排，曼哈顿中城有多个路口突出；把穿行的人流考虑进去，另一批路口浮现了出来。</p>
+<h2 id="没有在每条街上数过人，怎样估出五个区的步行量？"><a href="#没有在每条街上数过人，怎样估出五个区的步行量？" class="headerlink" title="没有在每条街上数过人，怎样估出五个区的步行量？"></a>没有在每条街上数过人，怎样估出五个区的步行量？</h2><p>行人从地铁口到办公室，走在马路哪一侧、在哪个路口过街，都影响需要维护的具体设施。研究者把人行道、人行横道和步道连接成一张含 315,577 段的可通行网络。街道两侧各有路径，标明的人行横道才能过街。因此地图适合分析这些设施的使用，也会漏掉行人实际采用的某些未标线过街方式。</p>
+<p>模型以十类可能的起讫组合来生成步行需求。例如，从住宅去地铁，要先确定沿步行网络一定距离内有哪些入口；论文以半英里、约 800 米为例。若有多个目的地可选，距离和目的地的吸引力决定各自分到多少潜在出行。对选定的一对地点，模型再找出不超过最短路线长度 1.15 倍的备选路径，并在这些路径间等概率分配出行。若从不同入口出发的多条路线都经过同一条斑马线，分到这条斑马线的量就会累加。</p>
+<p>这样算出的是各类潜在出行在每段路上集中的程度。要把它换算成一个小时约有多少人经过，团队用纽约市交通局 2018 和 2019 年的现场计数训练随机森林，让各类行程的估计与实测人流相匹配。工作日和周末各分早、午、晚三段，分别校准。计数包括步行和使用轮椅等辅助器具的人。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/a91e4c27/fig1.png" alt="工作日和周末不同时段各类起讫组合对预测的贡献"></p>
+<p>图 1｜（a）为工作日，（b）为周末，各分早、午、晚高峰。横轴衡量打乱某类输入后预测受到多大影响，纵轴列出十类地点组合。工作日早高峰，地铁与就业地之间的联系最突出；横条长度表示预测重要度，不能直接读作行人出行目的占比。</p>
+<p>研究将每小时至少 30 人的已计数路段分为训练和测试样本，留出约两成检验。工作日三个高峰在这些测试路段上的 R² 约为 0.66–0.74，平均绝对百分比误差约为 41%–51%；周末早高峰的测试路段只有 39 段，R² 为 0.40。地图可以帮助筛查全城的空间差别，若要为一个路口决定施工尺度，所标的人数仍值得用现场计数核实。</p>
+<h2 id="哪些看似普通的街段，已经有人流密集的街道那么忙？"><a href="#哪些看似普通的街段，已经有人流密集的街道那么忙？" class="headerlink" title="哪些看似普通的街段，已经有人流密集的街道那么忙？"></a>哪些看似普通的街段，已经有人流密集的街道那么忙？</h2><p>纽约将步行走廊划为五档，考虑预期人流与沿街用途。在工作日晚高峰，最高一级走廊的人行道每小时估计人数中位数约为 1,500 人。逐级往下，多数街段人流相应减少，但同一级内的差异也很大。阿斯托里亚地铁站附近的街段就藏在这种差异里。</p>
+<p>作者把每个街段与比它高一级的街段相比。若它的人流甚至高过上一级四分之三的街段，就值得检查现有定级。例如，在最低一档有 2,901 段超过上一级的这个门槛。红色数目指网络分段，不代表同样数量的整条街道，更不能直接当作一份待拨款清单。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/a91e4c27/fig5.png" alt="五类纽约步行走廊的工作日晚高峰人流分布"></p>
+<p>图 3｜横轴为工作日晚高峰每小时估计人数，每行是一种走廊类型。箱体两端为第 25 和第 75 百分位，中线为中位数，箱内黑点为均值。红色标注给出本档人流超过上一级第 75 百分位的段数。</p>
+<p>为了让异常更醒目，论文在地图上又换了一道更严格的筛选，标出人流超过高两级走廊第 75 百分位的街段。布鲁克林和皇后区仍有较多街段进入视野。人流提供了重新审视步行设施优先级的理由；旅游功能、土地用途、设施条件以及已经获得的投资，仍要另行考察。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/a91e4c27/fig6.png" alt="现有步行走廊分级与超过高两级流量门槛的街段"></p>
+<p>图 4｜左图按规划等级给走廊着色；右图粉红线标出人流超过高两级门槛的街段，线宽反映估计流量。它与图 3 的上一级比较采用不同门槛。</p>
+<h2 id="一个路口伤的人多，是因为危险，还是因为过街的人多？"><a href="#一个路口伤的人多，是因为危险，还是因为过街的人多？" class="headerlink" title="一个路口伤的人多，是因为危险，还是因为过街的人多？"></a>一个路口伤的人多，是因为危险，还是因为过街的人多？</h2><p>研究把 2012–2023 年涉及行人受伤的机动车碰撞记录关联到路口，再各做一次排序。第一张地图直接取受伤人数最多的 100 处，时代广场和曼哈顿中城一带很显眼。第二张图用同一路口典型工作日早、午、晚三个高峰小时的估计人流之和作分母，再选出校正指标最高的 100 处。曼哈顿中城和下城的路口退出了这份名单，曼哈顿北部、布朗克斯及其他行政区的一些路口更加突出。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/a91e4c27/fig8.png" alt="纽约路口按行人受伤总量和按过街人流校正结果分别排序"></p>
+<p>图 5｜两幅图各自选出前 100 处路口。左图按多年累计的行人受伤记录，右图按同一分子除以三个工作日高峰小时的估计人流，并换算到每千人。可比较两张图中城和下城一带是否仍有标记。</p>
+<p>两个排序各回答一个实际问题。想减少全市总受伤人数，关注伤者多的地方仍有意义。想知道哪些地方在并不很大的过街人流下也有较多伤者，就需要第二个参照。这一指标不能直接解释为每过街千次会发生几次伤害：分子跨越多年，分母代表典型工作日的三个小时，模型在个别路口还可能高估或低估人流。碰撞资料也不包括差点出事却没有留下记录的情况。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>最高等级的步行走廊总体人多，但地铁站附近和外围商业街也有规划等级较低、人流已经很高的街段。将典型高峰人流与走廊分级逐段比较，比用一个行政区的平均数更容易找到它们。</p>
+<p>把过街人流纳入比较，受伤指标靠前的地点在全市重新分布。人流估计帮助规划者同时看到事故数量与暴露程度，不能单凭这个排序判定哪种路口设计造成了伤害。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>NYC Walks 先把十类潜在步行出行分到纽约 31 万多段人行网络上，再用现场计数校准工作日及周末的高峰流量。建成的地图揭示了两类容易被忽视的地方：外区某些规划等级较低却十分繁忙的街段，以及事故总量未必最突出、按过街人流衡量却值得关注的路口。两种判断都依赖可检验的人流分母，也都要记住它代表哪些时段。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li>Sevtsuk 等（2026）。期刊附件提供人行网络、六个时段的估计流量和校准模型。<a href="https://www.nature.com/articles/s44284-025-00383-y">期刊论文</a> · <a href="https://cityform.mit.edu/projects/nycwalks">MIT NYC Walks 项目</a></li>
+<li>纽约市交通局的现场计数用于校准高峰模型，步行规划提供五档走廊分类。碰撞和受伤位置来自纽约市警察局的机动车碰撞记录。<a href="https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95">纽约市机动车碰撞开放数据</a></li>
+</ul>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>Andres Sevtsuk、Liu Liu、Abdulaziz Alhassan 和 Justin Kollar 均署名麻省理工学院城市研究与规划系。Sevtsuk 发起研究，Alhassan 实现模型并估计人流，Liu 制作人流图并对照现场计数，Kollar 分析碰撞。Rounaq Basu（佐治亚理工学院城市与区域规划学院）参与研究设计并负责模型校准。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>两处路口的工作日晚高峰人流相同，一处早晚各繁忙一小时，另一处整天都繁忙。如果用同一个高峰人流作分母，两个路口看起来暴露相当，但真实的累计过街次数可能差很多。若从排名变化最大的路口开始补做全天、不同时段的计数，再看风险排序是否稳定，就能区分新排序是揭示了人数统计漏掉的问题，还是主要受分母口径驱动。</p>
+<p>在学校门口，短短十分钟可能有很多家长带孩子一起过街；离校后那个路口也许相当清静。另一个地铁口的人流则从早到晚更平稳。若两处都挤进人流校正后的名单，实地改造时就值得多问一句：哪些人在什么时候最难过？学校路口或许需要配合放学时段延长绿灯，地铁口则可能全天都有人在转弯车前抢时间。排名把这两个路口都指给了人看，真正决定怎样改的，是那十分钟里正在发生什么。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -608,17 +605,13 @@
                 <a href="/posts/6b28d0f5/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="2026-On predicting sociodemographics from mobility signals">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="On predicting sociodemographics from mobility signals">
                         
-                        <span class="card-title">2026-On predicting sociodemographics from mobility signals</span>
+                        <span class="card-title">On predicting sociodemographics from mobility signals</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">四轮普吉特湾调查检验了出行记录能透露哪些人群差别，以及模型给出的概率能信到什么程度。</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2026-11-10
@@ -672,17 +665,13 @@
                 <a href="/posts/7c30e8ab/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="2026-Hidden patterns of urban mixing across five global cities">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Hidden patterns of urban mixing across five global cities">
                         
-                        <span class="card-title">2026-Hidden patterns of urban mixing across five global cities</span>
+                        <span class="card-title">Hidden patterns of urban mixing across five global cities</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            #articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-ti
-                        
-                    </div>
+                    <div class="summary block-with-text">同住一个社区的人，白天接触的收入群体也相同吗？五城出行日记说明，用社区平均收入替代家庭收入，会低估人们在目的地的混合程度。</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-10

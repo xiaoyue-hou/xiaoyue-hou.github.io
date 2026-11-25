@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-City2Graph: A Python library for Heterogeneous Graph Neural Networks and spatial analysis in urban systems, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="City2Graph: A Python library for Heterogeneous Graph Neural Networks and spatial analysis in urban systems, 猴猴猴">
+    <meta name="description" content="利物浦 1,624 个普查区里，哪些地方更像市中心？把步行和公交能到的小区分别当作邻居，功能分组会发生什么变化？">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-City2Graph: A Python library for Heterogeneous Graph Neural Networks and spatial analysis in urban systems | 猴猴猴</title>
+    <title>City2Graph: A Python library for Heterogeneous Graph Neural Networks and spatial analysis in urban systems | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-City2Graph: A Python library for Heterogeneous Graph Neural Networks and spatial analysis in urban systems</h1>
+                    <h1 class="description center-align post-title">City2Graph: A Python library for Heterogeneous Graph Neural Networks and spatial analysis in urban systems</h1>
                 </div>
             </div>
         </div>
@@ -440,66 +440,42 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img {display:block; width:100%; max-width:100%; height:auto; margin:1.25rem auto;} .post-title {overflow-wrap:anywhere;}</style>
 
-<h2 id="两个街区挨着，就一定在同一个生活圈吗？"><a href="#两个街区挨着，就一定在同一个生活圈吗？" class="headerlink" title="两个街区挨着，就一定在同一个生活圈吗？"></a>两个街区挨着，就一定在同一个生活圈吗？</h2><p>在利物浦市中心，和购物区共边的街区、走十五分钟能到的街区、搭公交十五分钟能到但走路到不了的街区，不是同一批地方。如果把三种邻居都写成同一种连线，模型就分不出它们为什么相连。City2Graph 的做法是先把不同关系写进不同的边，再让分析者决定如何使用它们。</p>
-<p>论文名片｜Yuta Sato、Elisabetta Pietrostefani、Ron Mahabir、Daniel Arribas-Bel，<em>City2Graph: A Python library for Heterogeneous Graph Neural Networks and spatial analysis in urban systems</em>，<em>Computers, Environment and Urban Systems</em>，2026 年，第 130 卷，102492。<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.compenvurbsys.2026.102492">正式 DOI</a>。这是软件论文，配有利物浦的无监督案例，不是多城统一基准。</p>
-<h2 id="先把城市关系保留下来，再决定分析方式"><a href="#先把城市关系保留下来，再决定分析方式" class="headerlink" title="先把城市关系保留下来，再决定分析方式"></a>先把城市关系保留下来，再决定分析方式</h2><p>图表示学习把节点、边或整张图变成向量；在利物浦案例里，一个节点对应一个普查输出区。城市图也可以同时有多种节点，比如路口、地块和站点，或只有一种节点、但保留多种边。后者正是利物浦案例的设定。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/b3e3267b/fig1.png" alt="图 1：图表示学习把带属性的图变成节点、边或整图的向量"></p>
-<p><em>图 1｜带属性的图可以产生节点、边或整图向量。本文案例用的是节点向量，不是把整座城市压成一个向量。</em></p>
-<p>City2Graph 用带几何信息的表保存节点和边。异构图按节点类型和关系类型分表；需要传统网络分析时可以转成 NetworkX，需要训练图神经网络时可以转成 PyTorch Geometric。转换保留回到原始索引与几何所需的信息，因此模型输出可以按原来的空间单元画回地图。这是软件的主要贡献，不意味着转换本身会让模型更准。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/b3e3267b/fig2.png" alt="图 2：City2Graph 从多类城市数据建图，再按用途在 GeoPandas、NetworkX 和 PyTorch Geometric 之间转换"></p>
-<p><em>图 2｜四类城市关系进入图结构，右侧对应空间表、网络分析和图神经网络三种用途。</em></p>
-<h2 id="地块、时刻表和客流，不该成为同一种边"><a href="#地块、时刻表和客流，不该成为同一种边" class="headerlink" title="地块、时刻表和客流，不该成为同一种边"></a>地块、时刻表和客流，不该成为同一种边</h2><p>形态图连接路段、建筑或地块；时刻表图连接存在计划服务的站点；起讫矩阵图表达已整理的区域或站点之间的流量；邻近图则根据距离、几何接触或归属建边。同一对地点可能在多张图中出现，但边权含义可以完全不同，例如一条是时间，另一条是客流计数。这些示例展示构图接口，不是独立的效果验证。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/b3e3267b/fig3.png" alt="图 3：巴塞罗那扩展区的形态异构图及其六步构造"></p>
-<p><em>图 3｜巴塞罗那示例：左侧叠放路段与场所关系，右侧逐步展示建筑、镶嵌、节点和三类连接。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/b3e3267b/fig4.png" alt="图 4：纽约地铁的班次摘要图和起讫客流图"></p>
-<p><em>图 4｜纽约地铁的两种看法：左图来自班次摘要，右图来自站间起讫客流估计；计划供给不等于乘客流量。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/b3e3267b/fig5.png" alt="图 5：涩谷餐厅在 100 米阈值下的三种固定半径图"></p>
-<p><em>图 5｜涩谷餐厅使用同样的 100 米阈值，不同近邻规则仍会给出不同的边。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/b3e3267b/fig6.png" alt="图 6：跨层桥接，以及点面归属加面与面邻接"></p>
-<p><em>图 6｜上部展示不同类型节点的跨层连接，下部展示点归属到面、面再彼此邻接的组合。</em></p>
-<p>不同类型的边也可以拼成一条有含义的路径。例如，两个设施不直接相邻，却可以经由连接它们的街道到达。把这类多步关系收成一条边，论文称为元路径。关键在于先说明边表示“经过几步”还是“几分钟可达”，再解释结果。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/b3e3267b/fig7.png" alt="图 7：元路径把经过街道的多步联系收成设施之间的直接边"></p>
-<p><em>图 7｜原图以设施经由街道相连为例，展示怎样把多步路径转成设施间的新关系。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/b3e3267b/fig8.png" alt="图 8：伦敦苏豪区按跳数和按步行时间生成的元路径"></p>
-<p><em>图 8｜伦敦苏豪区用跳数与步行时间限制元路径；两种规则得到的连线形状并不相同。</em></p>
-<h2 id="利物浦验证了什么？"><a href="#利物浦验证了什么？" class="headerlink" title="利物浦验证了什么？"></a>利物浦验证了什么？</h2><p>案例把 1,624 个普查输出区作为节点，每区用 23 项土地使用与兴趣点属性表征。作者比较主成分基线和四个图自编码模型：只含邻接、邻接加步行、邻接加公交，以及三种关系全用。Queen 邻接允许面共边或共顶点；十五分钟步行由路网时间定义；公交包含计划行程时间，且剔除了已经属于步行关系的区对。因此公交层表达的是相对于步行的额外连接，不是所有真实公交行程。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/b3e3267b/fig9.png" alt="图 9：利物浦案例从数据、构图、训练到四种地图的函数流程"></p>
-<p><em>图 9｜案例由数据整备、建图、训练走到回画地图；构图示例和模型结果属于流水线的不同环节。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/b3e3267b/fig10.png" alt="图 10：利物浦输出区的用地分类和 16 类兴趣点计数"></p>
-<p><em>图 10｜左侧是输出区用地，右侧是 16 类兴趣点计数地图，两种信息共同构成节点属性。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/b3e3267b/fig11.png" alt="图 11：输出区多边形、人口加权质心，以及 Queen 邻接边"></p>
-<p><em>图 11｜左侧是输出区及人口加权质心，右侧是 Queen 邻接；几何相邻不意味着能快速到达。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/b3e3267b/fig12.png" alt="图 12：15 分钟步行和 15 分钟公交两条输出区关系"></p>
-<p><em>图 12｜左侧是十五分钟步行关系，右侧是剔除步行可达区对后的十五分钟公交关系。两张图是建模输入，不是客流监测。</em></p>
-<p>自编码器学习输出区的向量，再用向量聚类。论文还把节点属性换成全 1，查看只保留结构是否能重现类似划分。这个对照有助于区分功能属性的贡献与空间连边的贡献，但不是外部标注下的分类检验。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/b3e3267b/fig13.png" alt="图 13：四种图自编码器的输入、编码器和两个解码器"></p>
-<p><em>图 13｜编码器利用节点属性和一种或多种关系，解码端检查特征及图结构的重建；训练未用官方功能区标签。</em></p>
-<h2 id="聚类更清楚，是否意味着更接近真实生活圈？"><a href="#聚类更清楚，是否意味着更接近真实生活圈？" class="headerlink" title="聚类更清楚，是否意味着更接近真实生活圈？"></a>聚类更清楚，是否意味着更接近真实生活圈？</h2><p>在 2 到 50 类的设置上，平均轮廓系数衡量同簇是否更紧、异簇是否更分开。论文表 3 中，主成分基线和只含邻接的模型均约 0.19，加入步行、公交或两者后分别约 0.37、0.39、0.38。模块度则衡量分组是否沿给定关系聚集。由于关系本身也是模型输入，这种对齐不能视为对现实生活圈的独立检验；而且哪一模型表现最好，取决于选什么指标和哪种关系。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/b3e3267b/fig14.png" alt="图 14：轮廓系数和三种关系的模块度随聚类数变化"></p>
-<p><em>图 14｜左上比较轮廓系数，其余三图按邻接、步行、公交分别算模块度。横轴是聚类数，不能只取一个峰值代表整条曲线。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/b3e3267b/fig15.png" alt="图 15：最优 k 的功能聚类，以及各输出区与 Liverpool ONE 的余弦相似度"></p>
-<p><em>图 15｜左半是各模型在其最高轮廓系数所对应的聚类图，右半是与 Liverpool ONE 输出区的嵌入相似度。不同模型的最优簇数可以不同。</em></p>
-<p>只用拓扑时，模型没有得到与全属性模型相似的功能分区；其中有的在单个聚类数上仍能拿到较高轮廓系数。这说明向量里能分成几组，与地图上能否形成有解释的城区，并不是同一个问题。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/b3e3267b/fig16.png" alt="图 16：从 Liverpool ONE 出发的步行等时圈和公交等时圈"></p>
-<p><em>图 16｜以 Liverpool ONE 为起点，左图是步行等时圈，右图是结合街道与公交的等时圈；右图沿交通廊道伸展得更远。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/b3e3267b/fig17.png" alt="图 17：各等时圈内，嵌入与市中心输出区的平均余弦相似度"></p>
-<p><em>图 17｜按等时圈分箱比较模型与市中心的嵌入相似度。相似度变化描述向量，不等于实测往来人数。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/b3e3267b/fig18.png" alt="图 18：两层语义注意力在邻接、步行和公交上的空间分布"></p>
-<p><em>图 18｜左右对应两层语义注意力，列是三种关系；空白表示模型不用该关系。注意力是模型内部权重，不是出行方式占比。</em></p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>论文展示了在同一套地理数据结构中组合多种城市关系，送入图神经网络，再把结果画回地图的可行性。利物浦案例中，功能属性与计时可达性边共同使用时，嵌入聚类比只用属性或只加邻接更分明。证据限于单城、给定关系和内部指标；任何一次转换的运行时间都不能外推到全国尺度，更不能当作不同软件或模型的性能排行。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>City2Graph 最有价值的地方是让连线的含义从输入一直保留到地图：共边是几何关系，走得到是路网条件，时刻表给的是计划服务，客流才是观察或估计的移动量。利物浦说明把这些关系分开建模会改变聚类，但没有证明模型找到了居民真实的生活圈。结果能回答什么，取决于建图时把什么写成了边。</p>
+<h2 id="哪些街区和利物浦市中心算得上邻居？"><a href="#哪些街区和利物浦市中心算得上邻居？" class="headerlink" title="哪些街区和利物浦市中心算得上邻居？"></a>哪些街区和利物浦市中心算得上邻居？</h2><p>Sato, Y., Pietrostefani, E., Mahabir, R., &amp; Arribas-Bel, D. (2026). City2Graph: A Python library for Heterogeneous Graph Neural Networks and spatial analysis in urban systems. <em>Computers, Environment and Urban Systems, 130</em>, 102492. <a href="https://doi.org/10.1016/j.compenvurbsys.2026.102492">论文 DOI</a></p>
+<p>假如你在利物浦市中心的 Liverpool ONE 购物区工作，午休时愿意走去吃饭的地方，和下班后搭公交顺路能去的地方，大概会落在两张不同的地图上。现在把这座城市划成小区，问哪些地方在功能上彼此相似。如果只看每个小区里有多少商店和餐馆，会错过周围哪些联系？</p>
+<p>利物浦大学的研究团队开发了开源工具 City2Graph，让同一对小区可以因不同理由相连。用利物浦数据比较时，把步行或公交可达的小区也当成邻居，模型划出的各组在特征上更容易区分。只保留路网和连线、抹去各地的用地及设施差别，模型又很难分清哪些地方更像市中心。</p>
+<h2 id="一条连线，怎样记住人能怎么走？"><a href="#一条连线，怎样记住人能怎么走？" class="headerlink" title="一条连线，怎样记住人能怎么走？"></a>一条连线，怎样记住人能怎么走？</h2><p>在城市研究中，改换分析工具有个很实际的麻烦。地图软件保存的是带坐标的街道和街区，网络软件处理节点与边，训练神经网络却要把输入整理成一组数字。如果转换时丢掉一个街区的编号，最后就很难把模型结果画回原来的位置。如果所有边都编成同一种关系，模型还会把两个街区共用边界，和两个街区之间有公交可达，混在一起。</p>
+<p>City2Graph 用地理数据表分别保存各类节点和边，连同空间坐标系及标识符一起转换。研究者可以在 GeoPandas 中整理地图，用 NetworkX 计算网络指标，也可以把同一批数据交给 PyTorch Geometric 训练图神经网络。所谓异构图（heterogeneous graph），就是一张图区分多类对象或联系。哪怕节点全是街区，也可以让每条边携带自己的关系类型。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/b3e3267b/fig2.png" alt="城市数据建图和三种数据表示之间的转换"></p>
+<p>图 2｜左侧的城市形态、交通供给、起讫流量和地理邻近关系可以分别建图。沿箭头看，同一批节点和边怎样进入空间分析、网络计算与模型训练。</p>
+<h2 id="从一张公交时刻表，怎样得到小区之间的十五分钟联系？"><a href="#从一张公交时刻表，怎样得到小区之间的十五分钟联系？" class="headerlink" title="从一张公交时刻表，怎样得到小区之间的十五分钟联系？"></a>从一张公交时刻表，怎样得到小区之间的十五分钟联系？</h2><p>研究把利物浦的 1,624 个普查输出区（Output Area）作为节点。每个区有 23 项描述自身功能的指标，其中 16 项统计餐饮、教育等不同类别的设施数量，另外 7 项统计住宅、商业、绿地等不同用地的面积。同样有一排店铺的小区，四周可能是密集的商业街，也可能是大片住宅，光看区内的指标还分不清这一点。</p>
+<p>最简单的邻居来自边界。两个区只要有一段边或者一个顶点相接，就连一条邻接边。步行邻居则要看街道。研究用人口加权中心代表每个区，把中心接到街道网络，沿路步行不超过 15 分钟的两区建立步行联系。这样，相邻的两个多边形未必是步行邻居，步行也可能在一刻钟内穿过好几个小区。</p>
+<p>公交让这套办法再向外走一步。从一个区的中心上街，经站点搭车，再从另一站步行到目的地区的中心。模型按公交时刻表计算站间的平均计划行程时间，把整条路径压成两区间的一条边。总时间在 15 分钟以内，且两端单靠步行达不到这个条件的区对，才计入公交辅助可达这一层。这层边告诉我们，按研究的时间设定，哪里因搭车多出了一种去处。</p>
+<p><img src="/posts/b3e3267b/fig12-full.png" alt="利物浦步行可达与公交额外连接的小区"></p>
+<p>图 12｜每条线连接两个普查区，颜色表示计算出的出行时间（秒）。左侧（a）沿街步行，右侧（b）结合步行和公交，并已去除左图可达的区对。右侧有更多跨越多个小区的长线。</p>
+<h2 id="给同一个小区换一批邻居，分组会变多少？"><a href="#给同一个小区换一批邻居，分组会变多少？" class="headerlink" title="给同一个小区换一批邻居，分组会变多少？"></a>给同一个小区换一批邻居，分组会变多少？</h2><p>研究团队让模型为每个区生成一组数字，称为嵌入向量（embedding）。图自编码器（graph autoencoder）训练时，会把本区与不同邻居的特征汇总，再尝试用向量还原各区的功能特征和原有连线。训练完，向量相近的小区由 K 均值聚类归入同组。训练和分组都没有预先给定哪些地方应属市中心。</p>
+<p>对照从相同的小区出发。第一种方法只压缩 23 项自身属性；第二种让区界相接的小区交换信息；其余三种在地理邻接之外，分别加入步行、公交辅助或两种可达联系。为避免某个分组数恰好合适，研究将分组数量从 2 一直试到 50。轮廓系数（silhouette score）比较一个区的向量与本组成员和最近其他组成员之间的距离。数值越高，各组在模型的向量空间里越容易分开。</p>
+<p>各个分组数取平均，只用区内属性和只加地理邻接约为 0.19。加入步行、公交辅助或两者的结果分别为 0.37、0.39、0.38。把公交加进来有明显差别，一次用上全部关系却没有获得最高平均分。这里衡量的是模型自身的分组清晰程度，论文没有用居民的出行日志来判定分组是否符合他们的活动范围。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/b3e3267b/fig14.png" alt="分组数量对轮廓系数及三类关系模块度的影响"></p>
+<p>图 14｜四幅图的横轴都是分组数。（a）的纵轴是轮廓系数，实线为使用小区属性的方法，虚线为空白属性对照。（b）至（d）的纵轴为模块度，分别看同组小区沿地理邻接、步行和公交辅助关系聚在一起的程度。</p>
+<h2 id="从-Liverpool-ONE-向外走，哪里还像市中心？"><a href="#从-Liverpool-ONE-向外走，哪里还像市中心？" class="headerlink" title="从 Liverpool ONE 向外走，哪里还像市中心？"></a>从 Liverpool ONE 向外走，哪里还像市中心？</h2><p>把向量画回地图，就可以沿着同一个地点看差别。加入步行联系后，利物浦的分组偏向较小而连片的步行范围。加入公交联系，图上开始出现沿公交可达范围铺开的较大组。研究还单独取 Liverpool ONE 所在区，用余弦相似度衡量其他区的向量与它有多接近。保留区内属性时，远离中心的地区逐渐显出差异，沿公交方便到达的一些地方仍与中心较相似。</p>
+<p><img src="/posts/b3e3267b/fig15-full.png" alt="各模型的功能分组和各区与利物浦市中心的相似度"></p>
+<p>图 15｜（a）每种颜色表示一组，每个模型使用自身轮廓系数最高时的分组数。（b）比较各区与 Liverpool ONE 所在区的向量相似度，红色一端更相似。比较 Model 2（步行）、Model 3（公交辅助）和 Model 4（两者都有）可看出市中心相似范围的变化。</p>
+<p>一个更严格的追问是，连线本身会不会就足以产生这幅地图？研究让各区的 23 项输入全部取 1，保留原样的道路与可达联系，再训练一遍。这时无论距离中心多少分钟，各时间段的平均相似度都接近 1。连线仍在，它却几乎分不清一个近邻与一个远郊小区各有多像市中心。给定这些模型，要看见有地理含义的差别，还得知道各地实际分布着哪些设施和用地。</p>
+<p>研究用的是计划班次汇总得到的静态网络。晚高峰多等十分钟、末班车已经开走，都会改变具体某趟出行的范围，这些变化没有逐时进入图中。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>在利物浦，加入步行或公交可达关系的小区向量比只用属性、或只加地理邻接时分组更清楚。选用哪种交通关系也会影响地图上功能相近地区连成片的尺度。</p>
+<p>把小区自身的功能信息抹去后，连线难以重现各区与市中心的差异。案例验证了不同城市关系可以从地理数据一路保留到模型和结果地图；哪些街区共享真实客源、居民是否频繁往来，仍需要独立的出行观测。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>City2Graph 让研究者明确指定一个小区向哪些邻居借信息。在利物浦的 1,624 个普查区，地理边界相接、十五分钟步行可达、搭公交后额外可达，给出了三种不同的邻居。把交通关系与各区的设施和用地结合，聚类的平均轮廓系数从约 0.19 升至 0.37–0.39。地图描述的是在这些关系下哪些区功能相似，解释它时需要同时看区内有什么，以及人们按什么条件能够到达。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.compenvurbsys.2026.102492">期刊 DOI</a>与<a target="_blank" rel="noopener" href="https://city2graph.net/latest/assets/papers/sato2026city2graph.pdf">作者站点保存的期刊正式 PDF</a>：构图、案例、表 3 和主图 1–18。</li>
-<li><a target="_blank" rel="noopener" href="https://zenodo.org/records/20650663">Zenodo 的软件 v0.4.0 存档</a>和<a target="_blank" rel="noopener" href="https://github.com/c2g-dev/city2graph-case-study">作者案例仓库</a>：软件版本与复现材料，不是期刊论文的另一个版本。</li>
+<li>Sato 等（2026）的原论文提供软件设计、利物浦案例及表 3 的比较。<a href="https://doi.org/10.1016/j.compenvurbsys.2026.102492">期刊论文</a> · <a href="https://github.com/c2g-dev/city2graph-case-study">作者的案例代码</a></li>
+<li>英国国家统计局提供普查区边界及人口加权中心，Overture Maps 提供设施、用地与街道，英国交通部提供英格兰西北部的公交时刻表。<a href="https://geoportal.statistics.gov.uk/">英国国家统计局地理数据平台</a> · <a href="https://overturemaps.org/">Overture Maps</a> · <a href="https://data.bus-data.dft.gov.uk/">英国交通部开放公交数据</a></li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>四位作者发表时均署名利物浦大学地理与规划系 Geographic Data Science Lab。第一作者和通讯作者 Yuta Sato 负责软件、方法、数据处理、分析、可视化和初稿等工作；Elisabetta Pietrostefani、Ron Mahabir 和 Daniel Arribas-Bel 参与审阅和指导。</p>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>Yuta Sato、Elisabetta Pietrostefani、Ron Mahabir 和 Daniel Arribas-Bel 均署名英国利物浦大学地理与规划系地理数据科学实验室。Sato 负责软件、方法、分析、可视化和初稿，其他三位作者参与研究指导与稿件修订。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>如果要把这套方法用于规划，值得先把同一座城画成工作日高峰、离峰和周末三张图，再对照独立的汇总出行调查，检查哪些分区跨时段稳定，哪些只因计划班次改变而出现。若某一区域仅在模型中与市中心更加相似，却没在独立资料里表现出更好的服务可达性，就不应把嵌入变化当成政策成效。</p>
+<p>想象社区图书馆准备把一场亲子活动从周六上午挪到傍晚。按步行地图，周边家庭都还住在原来的地方，覆盖范围看上去原封不动；对仰赖公交的家庭来说，来时能赶上车，结束后能否接上回程，却可能决定这场活动算不算“家附近的事”。如果地图只画一张，规划者很容易以为图书馆始终服务着同一批邻居。把去程和回程都放进具体时刻，地图上最值得留意的也许就是那些白天画得到、散场时却回不去的街区。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -631,17 +607,13 @@
                 <a href="/posts/2718c2c2/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="2026-Truck Travel times on freeway facilities and segments in Germany based on FCD from 2019">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Truck Travel times on freeway facilities and segments in Germany based on FCD from 2019">
                         
-                        <span class="card-title">2026-Truck Travel times on freeway facilities and segments in Germany based on FCD from 2019</span>
+                        <span class="card-title">Truck Travel times on freeway facilities and segments in Germany based on FCD from 2019</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">德国高速货车走到前方时，那里的速度可能已经变了。2019 年行程时间表怎样从车辆定位记录重建这段过程？</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2026-11-18

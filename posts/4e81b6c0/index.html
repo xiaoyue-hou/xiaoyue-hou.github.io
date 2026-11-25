@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-TransGM: Transferable gravity models for cross-city policy transfer, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="TransGM: Transferable gravity models for cross-city policy transfer, 猴猴猴">
+    <meta name="description" content="借用伯明翰的通勤模型，考文垂的流量拟合得更好。然而模型仍把伯明翰看重的基本服务放在首位，低估了考文垂本地模型对交通设施的敏感程度。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-TransGM: Transferable gravity models for cross-city policy transfer | 猴猴猴</title>
+    <title>TransGM: Transferable gravity models for cross-city policy transfer | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-TransGM: Transferable gravity models for cross-city policy transfer</h1>
+                    <h1 class="description center-align post-title">TransGM: Transferable gravity models for cross-city policy transfer</h1>
                 </div>
             </div>
         </div>
@@ -436,45 +436,35 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img {display:block;margin:1.25rem auto;max-width:100%;height:auto;} .post-title {overflow-wrap:anywhere;}</style>
 
-<h2 id="把隔壁城市的模型搬过来，预测更准就算理解了本地吗？"><a href="#把隔壁城市的模型搬过来，预测更准就算理解了本地吗？" class="headerlink" title="把隔壁城市的模型搬过来，预测更准就算理解了本地吗？"></a>把隔壁城市的模型搬过来，预测更准就算理解了本地吗？</h2><p>一座城市的通勤资料比较少，能不能借隔壁城市已经校准的模型？即使新模型把流量估得更准，如果它仍把源城看重的设施放在首位，又能不能据此决定目标城该建什么？Adham Enaya、Chen Zhong、Michael Batty、Robin Morphet 和 Fulvio D. Lopane 的 <a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.compenvurbsys.2026.102455">TransGM: Transferable gravity models for cross-city policy transfer</a> 用伯明翰到考文垂的单向迁移检验了这个区别。文章于 2026 年 5 月 19 日在线发表，刊于 <em>Computers, Environment and Urban Systems</em> 128，102455。</p>
-<h2 id="从一地学到的，是如何分配已知的通勤总量"><a href="#从一地学到的，是如何分配已知的通勤总量" class="headerlink" title="从一地学到的，是如何分配已知的通勤总量"></a>从一地学到的，是如何分配已知的通勤总量</h2><p>模型把居住区的总流出作为已知条件，再按距离、岗位和设施估计这些通勤分别去向哪里。这是起点约束引力模型：它会把已知流出分完，不是在独立预测出门人数。距离用区域质心间的直线距离，不是沿道路或公交网络测出的时间。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/4e81b6c0/fig1.png" alt="TransGM 从设施残差、空间签名到迁移正则的流程"></p>
-<p>图 1｜先分离岗位与设施信号，再比较城市空间结构，最后按设施类型调整迁移强度。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/4e81b6c0/fig2.png" alt="英格兰位置示意及伯明翰与考文垂范围"></p>
-<p>图 2｜伯明翰与考文垂的研究范围，均位于英格兰西米德兰兹。</p>
-<p>如果岗位多的地方本来设施也多，把它们都直接放进模型，不容易知道设施项新提供了什么信息。作者先估出给定岗位规模时通常会出现多少设施，再把偏离这一预期的部分作为设施信号。残差是模型里的统计调整，不等于把就业的社会影响全部剥离，也不是设施对通勤的因果效果。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/4e81b6c0/fig7.png" alt="考文垂与伯明翰就业估计和设施残差的相关矩阵"></p>
-<p>图 7｜附录的考文垂与伯明翰相关矩阵，展示岗位与各类残差化设施的关系。</p>
-<h2 id="结构相似能决定锚定强度，不能凭空补足当地数据"><a href="#结构相似能决定锚定强度，不能凭空补足当地数据" class="headerlink" title="结构相似能决定锚定强度，不能凭空补足当地数据"></a>结构相似能决定锚定强度，不能凭空补足当地数据</h2><p>作者先衡量每座城市内部的岗位与每类设施如何分布，再比较两个城市的这类空间差异。两城模式较近时，目标参数被更强地拉向源城；差异较大时，正则更弱，可给目标数据留出调整空间。但“约束较弱”只说明模型允许系数改动，不表示少量当地数据足够让它改到本地水平。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/4e81b6c0/fig4.png" alt="六类设施的城际 KL 绝对差与迁移惩罚"></p>
-<p>图 4｜不同设施的空间差异与有效迁移惩罚，采用双纵轴；设施精确差异值以表 4 为准。</p>
-<p>按表 4，物流与工业的差异为 0.003，锚定强；办公与基本服务的差异较大，锚定很弱。现有图 4 的物流柱与表 4 所列差值并不一致，不应从柱高反推该数。更重要的是，迁移锚定强度不是通勤吸引力大小：有相似布局的设施，不一定在两城都是最强通勤因素。</p>
-<h2 id="考文垂的流量更像了，设施排序还是伯明翰的"><a href="#考文垂的流量更像了，设施排序还是伯明翰的" class="headerlink" title="考文垂的流量更像了，设施排序还是伯明翰的"></a>考文垂的流量更像了，设施排序还是伯明翰的</h2><p>按论文表 3 标为 25% 目标流量的设置，考文垂本地模型的起讫流量 R² 为 <strong>0.472</strong>，直接微调为 <strong>0.529</strong>，固定正则迁移为 <strong>0.516</strong>，自适应迁移为 <strong>0.547</strong>。相对本地模型，自适应的 R² 增加 0.075，即相对约 15.9%。但自适应与直接微调的通勤重叠 CPC 为 <strong>0.875 对 0.876</strong>，终点总流入 R² 为 <strong>0.937 对 0.941</strong>；所以它没有在每项指标都领先。附录 C 还列出 383/1,278 的划分，约 30%；论文没交代它怎样对应结果表的 25%，这里不将两个口径合并。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/4e81b6c0/fig3.png" alt="五种模型的流量 R²、CPC 和终点 R²"></p>
-<p>图 3｜三项指标分别是区域对流量 R²、通勤量重叠 CPC、目的地总流入 R²；纵轴范围不同。</p>
-<p>再看模型系数，就知道总体拟合为什么不能代替本地解释。考文垂本地模型中，文化与交通设施的权重较高，基本服务权重仅 <strong>0.022</strong>。伯明翰本地的基本服务权重为 <strong>0.394</strong>，两种带正则迁移的模型却都仍在 <strong>0.41</strong> 以上。作者把这种结果与有限的目标城流量联系起来。它不是数据量效应的独立检验：论文没有在不同考文垂训练比例下逐一验证系数会不会逐渐回到本地水平。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/4e81b6c0/fig5.png" alt="四套模型的六类设施吸引力权重"></p>
-<p>图 5｜六类设施的吸引力权重。迁移后的基本服务和交通仍较接近伯明翰配置。</p>
-<p>作者再在模型中调高市中心某类设施的残差，观察预测流入如何变化。对交通设施，考文垂本地模型的敏感度约 <strong>0.030</strong>，自适应迁移模型约 <strong>0.004</strong>；对基本服务，自适应模型则仍高于考文垂本地模型。这些是模型改变输入后的模拟响应，不是实地增建设施后测出来的效果。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/4e81b6c0/fig6.png" alt="四种模型下市中心流入对六类设施扰动的反应"></p>
-<p>图 6｜四套模型下设施扰动与预测流入的关系；各面板纵轴量程不同。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><ul>
-<li>自适应迁移在本案例的区域对流量 R² 上最好，但在 CPC 和目的地流入 R² 上没有超过直接微调。</li>
-<li>迁移正则由设施的空间结构差异决定；当地数据不足仍可能让模型保留源城的设施权重。</li>
-<li>单向跨城案例可用来审查模型的迁移局限，不能当成政策移植的实际效果或通用因果证据。</li>
-</ul>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>TransGM 用城市间的设施布局差异决定哪些参数该保留、哪些可以调整。在伯明翰到考文垂的案例里，这让起讫流量拟合更好，却没让模型真正学到考文垂本地的设施排序。想用迁移结果辅助规划，必须分别检查流量误差、本地参数含义和改变设施后的预测反应；一个更高的 R² 回答不了另外两个问题。</p>
-<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.compenvurbsys.2026.102455">Elsevier 正式出版记录</a>与 <a target="_blank" rel="noopener" href="https://discovery.ucl.ac.uk/id/eprint/10225427/1/TransferGM-2026.pdf">UCL Discovery 的 17 页正式版 PDF</a>。图 1–7 来自 Enaya 等（2026），沿用原图，在此按内容重新排布，源许可为 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>；如图版另有第三方署名，按其声明处理。</li>
-</ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Adham Enaya、Chen Zhong、Michael Batty、Robin Morphet 和 Fulvio D. Lopane 在论文中署名伦敦大学学院高级空间分析中心；Chen Zhong 为通讯作者。</p>
-<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>下一步我会固定同一组考文垂测试流量，逐步增加训练样本，同时记录预测误差和设施系数。如果误差很早就变小，设施权重却始终接近伯明翰，就该限制这套模型用于设施政策比较；如果系数随着本地样本积累开始稳定转向，再调查哪些数据最能帮助模型理解当地。</p>
+<h2 id="在考文垂算得更准，为什么仍像在给伯明翰做规划？"><a href="#在考文垂算得更准，为什么仍像在给伯明翰做规划？" class="headerlink" title="在考文垂算得更准，为什么仍像在给伯明翰做规划？"></a>在考文垂算得更准，为什么仍像在给伯明翰做规划？</h2><p>Enaya, A., Zhong, C., Batty, M., Morphet, R., &amp; Lopane, F. D. (2026). TransGM: Transferable gravity models for cross-city policy transfer. <em>Computers, Environment and Urban Systems, 128</em>, 102455. <a href="https://doi.org/10.1016/j.compenvurbsys.2026.102455">论文 DOI</a></p>
+<p>假设考文垂正在讨论市中心的一笔预算，是改善交通连接，还是增设方便上班族办事的基本服务？附近的伯明翰有较丰富的通勤资料。借它的模型来算，考文垂各居住区到各就业区的人数预测确实更接近观测记录。然而，单独用考文垂资料拟合时，对两类设施的判断却几乎倒了过来。</p>
+<p>这就是 TransGM 实验里最值得追问的结果。同一份流量答卷可以由不同组合的参数写出来。模型在邻城的成绩提高了多少，与它究竟带来了哪座城市的判断，需要分开检验。</p>
+<h2 id="借给邻城的模型，本来能算什么？"><a href="#借给邻城的模型，本来能算什么？" class="headerlink" title="借给邻城的模型，本来能算什么？"></a>借给邻城的模型，本来能算什么？</h2><p>研究把两城划成英国的小区域统计单元 LSOA，以匿名手机应用数据汇总居住地和工作地之间的通勤人数。岗位数则来自估算，作者将不同用途建筑的楼面面积乘以对应的就业密度，再加总到各区。两地的距离取区域质心间的直线距离，代表通勤阻力的近似值。</p>
+<p>设想一个居住区今天有 100 人外出上班。起点约束引力模型（production-constrained gravity model）将这 100 人分给不同就业区。一个就业区有多少岗位，工作地点附近有哪些配套，从居住区过去有多远，共同决定它能分到多少人。分完后总人数必然是 100，所以检验模型要看它有没有把人分到正确的目的地。</p>
+<p>就业区的设施往往随着岗位一起增加。为了了解设施还能提供哪些信息，研究先估计在给定岗位规模时各类设施通常有多少，再将实际设施与这一预期的差值作为设施残差。这样，一个办公楼很多的区域，不能单凭岗位与设施同时偏多，就被重复算成特别有吸引力。残差可以反映配套相对集中，也可能包含楼面面积或岗位估算的误差。</p>
+<h2 id="哪些参数值得借，模型怎样区分？"><a href="#哪些参数值得借，模型怎样区分？" class="headerlink" title="哪些参数值得借，模型怎样区分？"></a>哪些参数值得借，模型怎样区分？</h2><p>以工业和物流设施为例。研究者先在伯明翰比较两张分布图：全城就业岗位怎样分布，扣除岗位规模后的这类设施又怎样分布；然后在考文垂做相同计算。每城用 KL 散度（Kullback–Leibler divergence）概括两种空间分布的差别。比较两城各自得到的散度，就能知道这类设施相对于就业位置的布局是否相似。模型无需为两城找出一一对应的街区。</p>
+<p>两城的工业和物流布局在这个指标上很接近。考文垂模型估算这一类设施的参数时，若与伯明翰参数相差很远，训练就会受到较大的额外惩罚。办公设施和基本服务在两城的空间布局差异较大，相应约束就很弱。这项约束决定本地参数有多大调整余地。要真正知道该往哪个方向调，还得由本地通勤流提供信息。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/4e81b6c0/fig1.png" alt="两城的设施布局如何决定参数借用的强弱"></p>
+<p>图 1｜左列把设施中随岗位数量变化的部分分离出来，中列比较两城内部的岗位与设施布局，右列用伯明翰的流量估计源模型。三路信息在下方汇合，并用考文垂的观测流量校准目标模型。</p>
+<h2 id="借了模型以后，哪项预测进步最明显？"><a href="#借了模型以后，哪项预测进步最明显？" class="headerlink" title="借了模型以后，哪项预测进步最明显？"></a>借了模型以后，哪项预测进步最明显？</h2><p>在论文表 3 标作使用 25% 目标城市资料的比较中，只用考文垂资料拟合，居住区到工作区的流量 R² 为 0.472。从伯明翰参数出发、用考文垂数据直接微调，为 0.529。所有设施用同样强度约束，得到 0.516。按设施空间布局分别设定约束，结果提高到 0.547。相对只用本地数据，最后一种增加了 0.075，约为原来得分的 16%。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/4e81b6c0/fig3.png" alt="直接微调、统一约束和分类约束的通勤预测对比"></p>
+<p>图 3｜横轴是模型设置，a 的纵轴是各起讫区对流量的 R²，b 是预测与观测客流的重叠程度，c 是各就业区流入总量的 R²。比较右侧三种迁移设置，a 的差距最明显。</p>
+<p>换一个评价标准，结论就细一些。自适应迁移与直接微调的通勤者重叠指标分别为 0.875 和 0.876，几乎一样。另有一个数据口径需要保留：正文和表 3 把目标数据比例标为 25%，附录 C 另记 1,278 个考文垂起讫区对中，用 383 个训练，约为 30%。论文没有说明两者如何对应，精确的数据节省比例仍不确定。</p>
+<h2 id="模型到了考文垂，为何仍记着伯明翰的基本服务？"><a href="#模型到了考文垂，为何仍记着伯明翰的基本服务？" class="headerlink" title="模型到了考文垂，为何仍记着伯明翰的基本服务？"></a>模型到了考文垂，为何仍记着伯明翰的基本服务？</h2><p>伯明翰本地模型里，基本服务的系数约为 0.39，比其他五种设施都高。在考文垂本地模型里，这个系数只有约 0.02，文化和交通设施排在前面。按布局差异自适应迁移以后，基本服务的系数却达到 0.42，交通设施只有约 0.04。算法虽然允许基本服务的参数大幅调整，有限的目标流量仍未让它恢复为考文垂本地模型的排序。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/4e81b6c0/fig5.png" alt="两座城市本地模型与两种迁移模型的设施系数"></p>
+<p>图 5｜每组柱表示一种设施，纵轴是模型系数。蓝、黄分别代表伯明翰和考文垂本地模型，绿、橙代表两种迁移模型。在 Essential 和 Transport 两组，看橙柱更接近哪座城市的颜色。</p>
+<p>作者还在计算机里调高市中心某类设施的剩余吸引力，看预测流入量会如何变化。对交通设施，考文垂本地模型给出的敏感度约为 0.030，自适应迁移模型只有约 0.004；对基本服务，自适应模型反而比考文垂本地模型更敏感。实验改变的是模型里的输入，并未观察新车站或新设施建成之后的客流，因而不能把这些差别兑换成投资收益。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>从伯明翰向考文垂迁移时，按设施类型选择不同约束，改善了区对通勤流量的拟合。但最好的一项整体分数没有带来相同幅度的客流重叠改善，也没有让模型学回考文垂本地的设施排序。</p>
+<p>设施布局相似程度可以用来决定哪些参数更值得借，目标城市的数据量和信息内容则决定参数实际上能调多远。两座城市同处英国西米德兰兹，研究只做了一个方向的迁移，这组结果还不能代表其他城市组合。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>TransGM 先比较两座城市的设施和就业怎样分布，再决定考文垂的通勤模型应多大程度参考伯明翰。这个办法提高了流量预测的 R²，却同时保留了源城对基本服务的偏重。比较模型时多问一句「如果只改一种设施，哪个模型的答案变得最多」，就能看清预测分数里看不出的政策假设。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p>论文第 4 节说明匿名移动应用通勤流、OpenStreetMap 建筑数据及英国规划就业密度系数的用法。表 3、5、6 分别给出流量表现、设施系数和市中心流入量的敏感度。<a href="https://doi.org/10.1016/j.compenvurbsys.2026.102455">期刊正式版</a></p>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Adham Enaya、Chen Zhong、Michael Batty、Robin Morphet、Fulvio D. Lopane 均署名伦敦大学学院高级空间分析中心。Enaya 负责数据、分析与初稿，Chen Zhong 为通讯作者。</p>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><small>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</small></p>
+<p>市政会议上，借来的模型可能顺利回答「现在每天有多少人到市中心」，因为这道题有今天的通勤数据可供校准。预算会议真正要问的却是「把同一笔钱用在接驳车上，结果会怎样」。这时，今天的人数已经帮不上多少忙，模型只能依赖它对交通和服务相对重要性的判断。在讨论某个投资数字以前，先请团队说明这个判断来自本地哪些记录，也许比要求再报一位小数更能帮助决策。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -666,17 +656,13 @@
                 <a href="/posts/2c8f61b4/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="2027-Unlocking hidden demand: Reconstructing bus OD flows by integrating mobile trajectories and Map API">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Unlocking hidden demand: Reconstructing bus OD flows by integrating mobile trajectories and Map API">
                         
-                        <span class="card-title">2027-Unlocking hidden demand: Reconstructing bus OD flows by integrating mobile trajectories and Map API</span>
+                        <span class="card-title">Unlocking hidden demand: Reconstructing bus OD flows by integrating mobile trajectories and Map API</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">广州有些公交站上车的人少，下车的人却多。把手机记录与当时可选的公交路线对起来，能看见哪些容易被刷卡数字漏掉的需求？</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-10

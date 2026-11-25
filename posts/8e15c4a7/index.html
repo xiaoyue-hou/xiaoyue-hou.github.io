@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-Crowding controls the scaling of bus frequency with demand, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="Crowding controls the scaling of bus frequency with demand, 猴猴猴">
+    <meta name="description" content="客流多一倍，一条线通常多开几班车？19 个都市区的时刻表显示，答案与乘客是否容易被满载的车留在站台有关。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-Crowding controls the scaling of bus frequency with demand | 猴猴猴</title>
+    <title>Crowding controls the scaling of bus frequency with demand | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-Crowding controls the scaling of bus frequency with demand</h1>
+                    <h1 class="description center-align post-title">Crowding controls the scaling of bus frequency with demand</h1>
                 </div>
             </div>
         </div>
@@ -436,35 +436,37 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<p>客流翻倍，公交要不要也加一倍班次？如果司机工时有限，多派一班车到这条线路，就可能少派一班到别处。交通经济学的经典答案不是翻倍，而是增加到约 1.41 倍。<a target="_blank" rel="noopener" href="https://doi.org/10.1073/pnas.2535998123">这篇 PNAS 论文</a>发现，现实公交系统的班次往往加得比这个更快，却仍远不到翻倍。差出的那一截，可能和车上已经很挤有关。</p>
-<h2 id="比较十九座城市时，怎样定义一条线路有多忙？"><a href="#比较十九座城市时，怎样定义一条线路有多忙？" class="headerlink" title="比较十九座城市时，怎样定义一条线路有多忙？"></a>比较十九座城市时，怎样定义一条线路有多忙？</h2><p>研究者把 19 个都市区约 3,000 条常规线路的机构客流报告，和同期的公开时刻表配对。比较单位是一条线路的一个方向；机构资料通常不分方向，作者将整线客流按两方向对半拆分。排班来自 GTFS 时刻表，是计划班次，不是逐班核验过的实开记录。</p>
-<p>为了区分同样客流下的长短线路，作者把单向日客流除以单程时间，称为线路的「繁忙程度」。拟合的是每日班次对这个量的关系，不是班次单独对客流的关系；以下说客流翻倍时的变化，都以单程时间不变为前提。</p>
-<p>大多数都市区的指数落在 0.50 到 0.67。若繁忙程度翻倍，按这两个端点换算，班次分别约变为 1.41 和 1.59 倍。这是用指数理解观测关系，不是同一线路经历需求冲击前后的实测结果。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/8e15c4a7/fig1.png" alt="原论文图1，公交班次与客流的标度"></p>
-<p><em>图 1｜(A) 线路的三个输入；(B) 各都市区的指数；(C–E) 费城、伦敦、多伦多的线路级拟合。</em></p>
-<h2 id="把满车带来的额外等待算进去，指数为什么会变陡？"><a href="#把满车带来的额外等待算进去，指数为什么会变陡？" class="headerlink" title="把满车带来的额外等待算进去，指数为什么会变陡？"></a>把满车带来的额外等待算进去，指数为什么会变陡？</h2><p>在模型里，乘客若随机到站、而且每班都能上车，平均等待约是发车间隔的一半。班次升高会缩短等待，但增加班次也会耗用驾驶时间，而且长线路的一班更贵。固定全系统驾驶时间、只压低乘客等待，推得班次随繁忙程度的平方根增长。</p>
-<p>拥挤时，等车不仅取决于班次间隔，还取决于这一班能不能挤上。作者加了一个随平均载客相对容量上升的等待惩罚。这一项随班次增多下降得更快；当它占主导时，推导得到的指数变为 2/3。两个端点之间是平滑过渡。2/3 取决于论文采用的拥挤惩罚形式，不是所有满载公交都会遵循的常数。</p>
-<p>奥克兰大多数线路落在模型转折点以下，整体指数约为 0.53；迈阿密转折两侧都有相当数量的线路，指数约为 0.55；伦敦在转折点以上的线路更多，指数约为 0.62。图里的转折点由拟合得出，不是用车上点人数直接测到的满载阈值。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/8e15c4a7/fig2.png" alt="原论文图2，频率主导与运力主导的转折"></p>
-<p><em>图 2｜(A–C) 奥克兰、迈阿密、伦敦。红色虚线是模型转折，插图显示线路分别落在哪一侧。</em></p>
-<h2 id="多给-20-的驾驶时间，哪些地方会少等更多？"><a href="#多给-20-的驾驶时间，哪些地方会少等更多？" class="headerlink" title="多给 20% 的驾驶时间，哪些地方会少等更多？"></a>多给 20% 的驾驶时间，哪些地方会少等更多？</h2><p>作者固定线路、单程时间和客流，在模型里增加驾驶时间预算，再重新分配各线班次。资源增加后，一些线路会从拥挤主导转到频率主导，但各地的初始位置不同，等车收益也不同。论文摘要以增加 20% 为例：波士顿每位乘客每个运营日将近少等 5 分钟，巴黎约少等 1 分钟。这是模型情景，不是现实中实施加班次后实测的改变。</p>
-<p>图 3 的折线画的是费城、休斯敦和波士顿，不包括巴黎。预算增加时，少等的分钟持续增长，但边际收益变小；不能把最初每增加 1% 的收益乘以 20。地图上的颜色也是按模型划分的运营区间，不是每班车实际挤不上多少人的调查。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/8e15c4a7/fig3.png" alt="原论文图3，增加预算后的班次重分配"></p>
-<p><em>图 3｜(A–B) 预算增加后的线路比例与等车变化；(C–F) 迈阿密和休斯敦加预算前后的模型分区。</em></p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>在观察到的常规公交线路中，班次通常随繁忙程度次线性增加，都市区指数大多在 1/2 至 2/3 之间。固定驾驶时间、同时考虑发车间隔和拥挤惩罚的模型能重现这一范围，也给出不同系统增加资源的情景结果。数据主要是日均客流和计划班次，预算实验又冻结了客流，因此不能据此推断调度机构实际使用了这一目标，也不能把模拟分钟数当作实际乘客体验。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>不太挤时，多开一班主要缩短间隔；容易挤不上时，多开一班还能减少乘客多等一辆车的风险。两种作用解释了为什么更繁忙线路值得多分班次，却不自动决定某座城市最该给哪条线加车。</p>
+<h2 id="同样半小时跑完全程，客流多一倍的线路该多开几班？"><a href="#同样半小时跑完全程，客流多一倍的线路该多开几班？" class="headerlink" title="同样半小时跑完全程，客流多一倍的线路该多开几班？"></a>同样半小时跑完全程，客流多一倍的线路该多开几班？</h2><p>Patwardhan, S., Erkol, Ş., Radicchi, F., &amp; Barthelemy, M. (2026). Crowding controls the scaling of bus frequency with demand. <em>Proceedings of the National Academy of Sciences, 123</em>(29), e2535998123. <a href="https://doi.org/10.1073/pnas.2535998123">论文 DOI</a></p>
+<p>假设有两条公交线，从起点到终点都要半小时，其中一条工作日每天载客 1,000 人次，另一条载客 2,000 人次。让第二条线多开一倍班次，两条线平均每班载的人就一样多。可全城司机每天能开的总时数有限，这样排也意味着其他线路少了车。要让全城乘客合起来等得最短，忙线该分到多少班次？</p>
+<p>19 个都市区的排班给出一个相当接近的范围。按大部分城市各自的线路关系换算，同样长的两条线，客流多一倍的那条通常多开约四成到六成。论文给出的解释来自站台上两种不同的等待。人少时，车来了就能走。车满时，前面那班虽然按点到了，你还得在原地等下一班。</p>
+<h2 id="为什么一条线有多少乘客，还要除以单程时间？"><a href="#为什么一条线有多少乘客，还要除以单程时间？" class="headerlink" title="为什么一条线有多少乘客，还要除以单程时间？"></a>为什么一条线有多少乘客，还要除以单程时间？</h2><p>在刚才的例子里，加一班车占用半个小时。如果另一条线单程只需 15 分钟，同样的驾驶时间可以多跑两班。把班次和客流摆在一起比较，得先算清供给一班车要占用多少工时。</p>
+<p>研究汇集了约 3,000 条常规公交线路的两份记录。运营机构的客流报告给出平均工作日的乘车人次，公开时刻表给出每日计划班次和单程时间。研究统一按一个方向计算。许多报告只给出双向总客流，作者把客流各半分给两个方向。单程时间取非节假日周二各班车计划用时的中位数。校车等特殊线路和班次很少的服务不在比较范围内。</p>
+<p>对每条线，用单向日客流除以单程分钟数，就知道相对于跑完一班车所需的时间，这条线要服务多大的需求。图 1 给每座城市单独作图，横轴放这个比值，纵轴放每日班次。费城的拟合指数为 0.53，伦敦为 0.62，多伦多约为 0.67。两条线单程时间相同、客流差一倍时，按费城的指数换算，班次相差约 44%，按多伦多的指数换算则相差约 59%。这些数值描述同城各线路之间的差异。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/8e15c4a7/fig1.png" alt="19 个都市区的公交班次怎样随线路需求变化"></p>
+<p>图 1｜A 标出日客流、日班次、单程时间。B 每个点是一座城市，横轴为平均每条线的日客流，纵轴为该城的拟合指数。芝加哥和温哥华的点估计分处灰带上下两侧。C–E 每个点是一条线，线越陡，繁忙线路相对分到的班次越多。</p>
+<h2 id="什么时候值得把下一班车派给已经很忙的线路？"><a href="#什么时候值得把下一班车派给已经很忙的线路？" class="headerlink" title="什么时候值得把下一班车派给已经很忙的线路？"></a>什么时候值得把下一班车派给已经很忙的线路？</h2><p>假定乘客随机到站，而班车等间隔到达。每 10 分钟来一辆，乘客平均等 5 分钟。如果每人都能上第一辆车，多排一班的收益就是缩短发车间隔。在全系统总驾驶时间固定的条件下，把各线乘客节省的时间加起来，最省等待的分配会让班次随“日客流除以单程时间”的平方根增长。这个比值翻倍，班次便增加约 41%。</p>
+<p>满载的车进站，事情就变了。给忙线多排一班，既缩短全体乘客面对的发车间隔，又分走原来集中在每辆车上的一部分人。模型用客流、班次、单程时间和平均乘车时长估算每辆车同时载有多少人，再根据载客量相对于车辆容量的比例，给普通候车时间加上拥挤带来的额外等待。在这项额外等待占主导时，同样的工时更值得投向忙线。按论文设定的线性拥挤惩罚，最优班次的指数逐渐接近 2/3。</p>
+<p>哪一项等待更重要，会随线路和城市变化。作者用各城的实际时刻表拟合拥挤参数，再结合当地驾驶总时数，得到两种情况的分界。奥克兰多数线路在分界左侧，伦敦的多数线路在右侧，迈阿密则两边都有相当数量。这个分界来自模型对整天的估计。它可以用来比较线路，无法指出早高峰哪一站有几个人没上去。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/8e15c4a7/fig2.png" alt="奥克兰、迈阿密和伦敦公交线路在拥挤分界两侧的分布"></p>
+<p>图 2｜A–C 依次是奥克兰、迈阿密、伦敦。横轴是单向日客流除以单程分钟数，纵轴是每日班次。灰点是线路，灰线是模型拟合。看小图里的柱子，红色虚线右边的橙柱代表运力紧张的线路。</p>
+<h2 id="同样多给-20-的驾驶时间，波士顿和巴黎能少等几分钟？"><a href="#同样多给-20-的驾驶时间，波士顿和巴黎能少等几分钟？" class="headerlink" title="同样多给 20% 的驾驶时间，波士顿和巴黎能少等几分钟？"></a>同样多给 20% 的驾驶时间，波士顿和巴黎能少等几分钟？</h2><p>模型可以把同一笔资源算两本账。一本数多少条线摆脱了运力紧张，另一本算乘客总共少等了多久。假如一条线非常挤，多开几班能使许多人受益，车却仍然很满。它会在第二本账上体现出改善，在第一本账上仍算原来那一类。</p>
+<p>研究固定线路需求和行车时间，沿用每座城市拟合出的拥挤参数，在总驾驶时间增加后重新求解各线班次，并按每天运营 18 小时折算等待。在增加 20% 的情景下，波士顿每位乘客每天平均可少等接近 5 分钟，巴黎约 1 分钟。两种结果都来自模拟。乘客可能因新班次而改乘公交，运营机构也可能优先维持末班车或偏远街区的服务，这些变化都超出这次计算。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/8e15c4a7/fig3.png" alt="增加驾驶时间怎样影响各地的线路分类和乘客等待"></p>
+<p>图 3｜A、B 横轴都是驾驶时间增加的百分比。A 的纵轴是主要受发车间隔影响的线路占比，B 是每位乘客每天节省的分钟数。橙线为波士顿。C、D 是迈阿密，E、F 是休斯敦，各组左图为原班次，右图为增加 20% 驾驶时间后的模型结果。橙色线路受运力限制更明显。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>19 个都市区中，17 个城市的班次增长指数落在约 1/2 至 2/3 的区间内。与单程时间相比越繁忙的线路，通常有越多班次，但班次增加的比例小于客流差异。</p>
+<p>在驾驶工时固定的模型里，候车间隔和满载带来的额外等待给出了这一区间的一种解释。原先运力紧张的城市，即使一批线路短期内仍然很挤，加车也可能为乘客省下较多时间。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>把约 3,000 条公交线的工作日客流和计划班次放在一起，可以看到大部分系统在分配有限驾驶时间时遵循相似的比例。实际班次与模型的吻合提示，挤不上车的风险有助于解释忙线为什么能分到更多班次。把这个规律用于一条具体线路，还得知道乘客在哪一站、什么时段被留在站台。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li>Patwardhan, S., Erkol, Ş., Radicchi, F., &amp; Barthelemy, M. (2026). <em>Crowding controls the scaling of bus frequency with demand</em>. PNAS, 123(29), e2535998123. <a target="_blank" rel="noopener" href="https://www.pnas.org/doi/10.1073/pnas.2535998123">正式全文与补充材料入口</a>。图 1–3 来自正式论文。</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/SiddharthP96/urban-bus-scaling-law">作者公开的线路数据与代码</a>。</li>
+<li>论文报告了跨城市线路比较、拥挤模型和增加驾驶时间的情景。<a href="https://doi.org/10.1073/pnas.2535998123">PNAS 正式论文</a></li>
+<li>各地公交机构提供线路客流，Transitland 存档提供相应时期的标准公交时刻表（GTFS）。作者公开了处理后的线路数据与分析代码。<a href="https://www.transit.land/">Transitland</a> · <a href="https://github.com/SiddharthP96/urban-bus-scaling-law">作者的数据和代码</a></li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Siddharth Patwardhan 和 Şirag Erkol 的发表署名为美国西北大学；Filippo Radicchi 署名印第安纳大学；Marc Barthelemy 的署名包括法国理论物理研究所、社会分析与数学中心及维也纳复杂性科学中心。Patwardhan 与 Barthelemy 为通讯作者。</p>
-<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>若要把模型用于排班，可以先为医院接驳和低客流社区设定最低服务班次，再比较剩余驾驶时间优先分给最拥挤线路还是最不准点线路。这样既能检验哪个分配办法更能减少高峰等待，也能看出只优化平均等待会不会遗漏承担基本覆盖的线路。</p>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Siddharth Patwardhan、Şirag Erkol（美国西北大学凯洛格管理学院科学学与创新中心），Filippo Radicchi（美国印第安纳大学布卢明顿分校复杂网络与系统研究中心），Marc Barthelemy（法国巴黎萨克雷理论物理研究所、巴黎社会分析与数学中心及维也纳复杂性科学中心）。四人共同设计研究并撰文，Patwardhan 负责数据分析。</p>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><small>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</small></p>
+<p>设想一条经过医院的公交线，时刻表显示每十分钟有车。住在起点附近的人按这个间隔出门，通常赶得上预约。住在医院前两站的人却可能接连看见两辆满车开走。两处站牌印着同一份时刻表，实际能坐上的班次相差很大。如果市民反映“车太少”，排班人员值得多问一句，上一辆是一直没来，还是来了却上不去？答案能帮助他们判断，该把这条线的发车间隔整体缩短，还是在最容易留下乘客的那一段补上运力。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -592,17 +594,13 @@
                 <a href="/posts/5a92e8c1/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="2026-An open framework for assessing urban mobility resilience: evidence from New York City">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="An open framework for assessing urban mobility resilience: evidence from New York City">
                         
-                        <span class="card-title">2026-An open framework for assessing urban mobility resilience: evidence from New York City</span>
+                        <span class="card-title">An open framework for assessing urban mobility resilience: evidence from New York City</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">纽约有些街区在疫情后换了叫车高峰，有些始终如常。相同的稳定节奏，在曼哈顿和低收入社区意味着同一件事吗？</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2026-11-10
@@ -656,17 +654,13 @@
                 <a href="/posts/e2a84c19/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="2026-Multi-level urban environments and population mobility shape urban epidemic dynamics: A study in Beijing">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Multi-level urban environments and population mobility shape urban epidemic dynamics: A study in Beijing">
                         
-                        <span class="card-title">2026-Multi-level urban environments and population mobility shape urban epidemic dynamics: A study in Beijing</span>
+                        <span class="card-title">Multi-level urban environments and population mobility shape urban epidemic dynamics: A study in Beijing</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">北京 2022 年秋冬的每日高风险地点名单，可以用来问某地是否曾经上榜，也可以问一次上榜延续了多久。两个问题对城市资料提出了不同要求。</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-10

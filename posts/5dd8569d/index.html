@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-Transferable human mobility network reconstruction with neuroGravity, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="Transferable human mobility network reconstruction with neuroGravity, 猴猴猴">
+    <meta name="description" content="波士顿只给出约1%的区际联系，模型能估出哪些外围流向？从本城填补缺口到跨城借用经验，还要看两地居民的空间分布。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-Transferable human mobility network reconstruction with neuroGravity | 猴猴猴</title>
+    <title>Transferable human mobility network reconstruction with neuroGravity | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-Transferable human mobility network reconstruction with neuroGravity</h1>
+                    <h1 class="description center-align post-title">Transferable human mobility network reconstruction with neuroGravity</h1>
                 </div>
             </div>
         </div>
@@ -436,51 +436,42 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img { display: block; margin: 1.2rem auto .6rem; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<p>给一座城市调整公交线路时，地图能告诉你住宅和商店在哪里，却不能直接告诉你每天有多少人从东边的住宅区去西边工作。最难补的往往是这张起讫流量表。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s43588-026-01003-y">neuroGravity</a>尝试用人口、地图和少量已有流量把它补起来，再问同一套方法能不能换城使用。</p>
-<h2 id="为什么不直接用人口和距离推算？"><a href="#为什么不直接用人口和距离推算？" class="headerlink" title="为什么不直接用人口和距离推算？"></a>为什么不直接用人口和距离推算？</h2><p>传统引力模型假设两地人口越多，往来潜力越大；距离越远，往来通常越少。不过，两对区域即便人口相同、距离相当，一对连接住宅和就业中心，另一对连接两个住宅区，流量也可能很不一样。研究把城市划成统计区域，预测区域对之间典型一天的出行量。它不是预测某个人走哪条路，也不是预测实时公交客流。</p>
-<p><img src="/posts/5dd8569d/fig1.png" alt="图1：neuroGravity的研究问题与应用框架"></p>
-<p><em>图 1｜(a) 少量观测下重建网络；(b) 区域指标估计；(c) 跨城迁移；(d) 全球生成的代理网络，不代表逐城实测验证。</em></p>
-<p>模型先用人口、距离和 OpenStreetMap 的建筑、用地、道路及兴趣点等特征筛选可能有稳定流量的区域对。随后用引力结构给出初值，让不同区域对有不同的距离衰减；最后由图神经网络综合相邻区域和其他连接，修正流量。参考网络主要基于手机通信或位置服务记录，经过扩样等处理，也不是全体居民逐次出行的直接计数。</p>
-<p><img src="/posts/5dd8569d/fig2.png" alt="图2：neuroGravity完整模型结构"></p>
-<p><em>图 2｜(a) 准备区域特征；(b) 筛选可能连边；(c) 给出引力初值；(d) 结合网络修正流量。</em></p>
-<h2 id="只开放-10-的区域，实际能看到多少连接？"><a href="#只开放-10-的区域，实际能看到多少连接？" class="headerlink" title="只开放 10% 的区域，实际能看到多少连接？"></a>只开放 10% 的区域，实际能看到多少连接？</h2><p>作者随机挑 10% 的区域，只把两端都在这批区域里的流量交给模型。因此可见的连接约为全城有效连接的 1%，不是直接给出 10% 的连接。波士顿的图示案例里，neuroGravity 的 $R^2$ 为 0.77，引力模型为 0.59。六城重复抽样后，在同一观测条件下，它比平均表现最强的图神经网络基线取得约 38% 的相对 $R^2$ 提升，不是增加 38 个百分点的准确率。</p>
-<p>这组主要比较预先知道哪些连接有非零流量，重点是把流量大小估准。若连哪些区域之间有流量也不知道，还要先完成连边预测，不能把主要比较的成绩直接当成完整流程的精度。</p>
-<p><img src="/posts/5dd8569d/fig3.png" alt="图3：少量观测下的出行网络重建结果"></p>
-<p><em>图 3｜(a–c) 三地的实例；(d–e) 引力模型及 neuroGravity 的流量对照；(f–g) 随观测比例变化的两种指标。</em></p>
-<h2 id="为流量学到的区域表示，还能解释什么？"><a href="#为流量学到的区域表示，还能解释什么？" class="headerlink" title="为流量学到的区域表示，还能解释什么？"></a>为流量学到的区域表示，还能解释什么？</h2><p>为流量预测训练后，模型为每个区域学到一组特征，也叫嵌入。把波士顿的嵌入投影到平面，收入相近但地理上不相邻的区域有时会靠近。研究再用已知标签训练预测器，发现嵌入和地图特征合用，能改善部分收入、教育和环境指标的估计。</p>
-<p>这不是从一张地图直接读出居民收入。学习嵌入时用到了本地出行数据，后续预测器也要有现成的指标数据；而且不同城市、不同指标的增益并不一样。</p>
-<p><img src="/posts/5dd8569d/fig4.png" alt="图4：区域嵌入与社会经济及宜居性指标"></p>
-<p><em>图 4｜(a–b) 嵌入与收入差异；(c–d) 区域指标的估计结果；(e) 不同特征对预测的相对贡献。</em></p>
-<h2 id="换一座城市，能把流量的形状和总量一起带过去吗？"><a href="#换一座城市，能把流量的形状和总量一起带过去吗？" class="headerlink" title="换一座城市，能把流量的形状和总量一起带过去吗？"></a>换一座城市，能把流量的形状和总量一起带过去吗？</h2><p>作者把用波士顿数据训练的模型应用到其他城市，不用目标城市逐条出行记录重新训练。图 5 展示了洛杉矶、旧金山湾区、波哥大和里约热内卢等案例。阅读这组成绩时，应该把两件事分开：一是能否把出行量合理分给各条连接，二是知不知道整座城市一天有多少趟出行。即使前一件做得好，也不能直接把图中的迁移成绩当成目标城市总量未知时的精度。</p>
-<p>五座有收入数据的城市还提供了一个线索：两城收入差异在空间上的聚集程度越接近，迁移往往越好。这里的空间收入隔离指数考虑相近收入是否集中在相邻地区，而不只是全市贫富差距。这个关系来自有限城市对，不是把任意新城市的迁移精度代入公式就能算出来的定律。团队还为全球 1,200 多个城市和地区生成了流量代理，各地生成结果不等于各地都有实测验证。</p>
-<p><img src="/posts/5dd8569d/fig5.png" alt="图5：跨城迁移效果与空间收入隔离"></p>
-<p><em>图 5｜(a–b) 跨城网络与迁移成绩；(c) 收入空间隔离的计算示意；(d–f) 隔离差距与迁移表现的关系。</em></p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>把引力结构和图神经网络结合，可以改善少量观测下的区域流量重建，也在若干跨城案例保留了主要联系。重建精度仍取决于如何识别非零连接、可获得哪些目标城市信息，以及参考流量的口径。社会经济指标与迁移实验提供了可检验的线索，而不是对新城市精度或因果机制的保证。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>人口和地图能帮我们补出一张出行网络，但在拿它做决定前，要分开看三个问题：它有没有找对连接，有没有把流量分对，以及全城出行总量有没有估对。</p>
+<p>Yang, J., Huang, S., Huang, Z., Jin, Y., Yang, X., González, M. C., &amp; Xu, Y. (2026). Transferable human mobility network reconstruction with neuroGravity. <em>Nature Computational Science, 6</em>, 630–641. <a href="https://doi.org/10.1038/s43588-026-01003-y">论文 DOI</a></p>
+<h2 id="同样远的两个目的地，为什么一个人来人往，另一个冷清？"><a href="#同样远的两个目的地，为什么一个人来人往，另一个冷清？" class="headerlink" title="同样远的两个目的地，为什么一个人来人往，另一个冷清？"></a>同样远的两个目的地，为什么一个人来人往，另一个冷清？</h2><p>从同一片住宅区出发，往西十公里是就业中心，往东十公里是另一片住宅区。即使两地人口相仿，早晨往这两个方向走的人数也可能差很多。传统引力模型知道人口和距离，要区分这两条联系，却少了一项信息：各片区能让人来做什么，又与哪些其他地方相连。</p>
+<p>在波士顿，研究者只让模型看到约 1% 的有效区际联系，用人口和公开地图去估计其余联系。新模型留住了传统引力模型容易漏掉的一些外围流向。换到没有本地流量可学的城市，效果就有明显差别：在波士顿学到的模型用于洛杉矶，表现接近用洛杉矶少量本地观测训练的结果；换到里约热内卢，准确度下降得更多。论文还追问，两座城市的居民收入在空间上如何分布，能否帮助解释这种差别。</p>
+<h2 id="只知道一成片区，究竟能看到多少出行？"><a href="#只知道一成片区，究竟能看到多少出行？" class="headerlink" title="只知道一成片区，究竟能看到多少出行？"></a>只知道一成片区，究竟能看到多少出行？</h2><p>图上的点是统计片区，每条有方向的连线表示典型一天从起点片区到终点片区的出行量。波士顿、洛杉矶和旧金山湾区使用美国邮政编码统计区，其他地区沿用各自能取得的分区。研究把手机通信或定位服务样本经过模型扩样，再汇总成区际流量作为参照。手机样本覆盖和扩样都会影响参照值；一条线也可以包含购物、探访等多种目的的出行。</p>
+<p>这里的观测比例容易读错。研究随机抽取 10% 的片区，只给模型看起点、终点都在抽中片区内的联系。如果只抽中了住宅区，却没抽中产业园，两者之间的往来仍是未知的。波士顿有 250 个片区和 51,786 条有效联系，论文举例的一次抽样实际只给模型看了其中 496 条。怎么算其余流量，考验的就是它能否从看得到的那一小块推到更大的网络。</p>
+<h2 id="一条潜在的出行联系，怎样从地图上估出人数？"><a href="#一条潜在的出行联系，怎样从地图上估出人数？" class="headerlink" title="一条潜在的出行联系，怎样从地图上估出人数？"></a>一条潜在的出行联系，怎样从地图上估出人数？</h2><p>neuroGravity 先给每个片区准备人口、建筑和用地类型、设施及道路密度。两地人口很多，未必每天都有人在它们之间往返，所以第一步用已有区际联系作参照，筛出可能存在稳定流量的片区对。对于这些候选联系，人口多会增加流动潜力、距离远会压低流量这层引力结构仍然保留。不同的是，住宅到就业中心、住宅到住宅可以有不同的吸引强度和距离衰减。</p>
+<p>由此得到的是每条联系的初步流量。图神经网络（graph neural network，GNN）再把起点、终点及其与其他片区的联系放在一起修正。比如同样是十公里外的一座商场，一片住宅周围若还有好几个类似目的地，模型就有了判断分流的线索。最后输出的是片区之间平均每天有多少出行，无法由此直接给某条公交线路排班。</p>
+<p><img src="/posts/5dd8569d/fig2.png" alt="从区域人口和设施到区际出行量的模型结构"></p>
+<p>图 2｜（a）为各片区准备特征，（b）判断片区对之间是否可能有联系；（c）给这些联系估计初始流量，（d）再用整个网络的信息修正。右侧两个流量图依次对应初估和最终输出。</p>
+<h2 id="误差主要藏在城市中心，还是中心以外？"><a href="#误差主要藏在城市中心，还是中心以外？" class="headerlink" title="误差主要藏在城市中心，还是中心以外？"></a>误差主要藏在城市中心，还是中心以外？</h2><p>波士顿、洛杉矶和旧金山湾区的地图只画流量排在前 30% 的联系。在波士顿，传统引力模型把许多强联系挤向中心。neuroGravity 的结果中，外围也出现了连接密集的走廊，形状更接近手机数据推得的参照网络。在抽取 10% 片区的设置下，波士顿的拟合优度 R² 从传统引力模型的 0.59 提高到 0.77。</p>
+<p>另一项指标问的是流量有没有分给同一对起讫地。对每条联系，计算估计量与参照量中各自重合的部分，再看它们占两张表平均总量的比例，得到流量重合指数（common part of commuters，CPC）。在同一例子中，指数从 0.63 提高到 0.73。即使一套模型把全城总人数估得很接近，若它把前往近郊的人都分给市中心，这项指标仍会惩罚它。</p>
+<p><img src="/posts/5dd8569d/fig3.png" alt="波士顿和其他美国城市的局部观测重建结果"></p>
+<p>图 3｜（a）从左至右对照波士顿的已知联系、传统引力模型、新模型与参照网络；（b、c）用相同办法展示洛杉矶和旧金山湾区。（d、e）横轴是参照流量，纵轴是估计值，点越靠近对角线，两者越接近。（f、g）横轴是抽取的片区比例，纵轴分别是拟合优度和流量重合度。</p>
+<h2 id="学会了人流去向，还能认出怎样的街区？"><a href="#学会了人流去向，还能认出怎样的街区？" class="headerlink" title="学会了人流去向，还能认出怎样的街区？"></a>学会了人流去向，还能认出怎样的街区？</h2><p>模型在学习流量时，为每个片区形成了一组数字，称作节点嵌入（node embedding）。两个片区虽然相距很远，若它们在网络中与其他地方的联系相似，这两组数字也可能很接近。作者用波士顿的家庭收入给这些片区重新着色，发现表示相近的片区，家庭收入中位数之差通常较小。训练流量模型时没有把收入作为输入，因此这个比较提供了独立的参照。</p>
+<p>作者再用这些数字加上开放街图特征，估计收入、教育程度、家庭碳足迹、二氧化氮和居民活动范围。这层信息在波士顿的帮助较明显，但不能直接移到另一座城。例如对洛杉矶的活动范围，R² 约为 −0.07，连用均值作简单估计的基准都没有超过。作者提出多中心城市可能有更复杂的流动与社会条件组合；现有对照尚未单独识别城市形态的作用。</p>
+<p><img src="/posts/5dd8569d/fig4.png" alt="地区出行表示与社会经济和宜居性指标的关系"></p>
+<p>图 4｜（a）用收入给片区的模型表示着色，（b）看表示距离增大时，收入差距如何变化。（c）将波士顿五项指标的估计与参照比较，（d）把三种输入组合放到三座城市对照，（e）显示各项特征对预测的相对贡献。</p>
+<h2 id="没有一条本地流量可学时，该借哪座城市的经验？"><a href="#没有一条本地流量可学时，该借哪座城市的经验？" class="headerlink" title="没有一条本地流量可学时，该借哪座城市的经验？"></a>没有一条本地流量可学时，该借哪座城市的经验？</h2><p>在完全不给目标城市流量的迁移实验里，先在波士顿训练，再使用目标城市自己的人口与地图。对洛杉矶和旧金山湾区，R² 分别为 0.69 和 0.61，与使用少量本地流量时的 0.70 和 0.60 接近。到了波哥大和里约热内卢，同一个波士顿模型分别降至 0.48 和 0.42。换一张城市地图，训练时学到的距离、设施与出行之间的关系，未必依旧合适。</p>
+<p>两座城市平均收入接近，也可能有不同的居住格局。可能每片城区内部都有高、低收入社区，也可能较富和较穷的社区各自连成一大片。论文设计的空间收入隔离指数先把彼此相邻、收入又相近的片区合并，再计算全城收入差异中，有多少留在这些大区之间。相似收入社区越集中连片，这个比例通常越高。</p>
+<p>在有可比收入资料的五座城市里，每次固定一座作为训练地，其余四座作为检验地。两地隔离指数差得越多，模型的迁移拟合度通常越低。每条趋势线只有四个跨城对照，地图覆盖率、分区大小、手机样本等也因地而异。收入隔离可以提示哪些迁移值得多核验，不能由这组比较断定收入格局造成了误差。</p>
+<p><img src="/posts/5dd8569d/fig5.png" alt="五座城市之间的迁移结果与空间收入隔离差异"></p>
+<p>图 5｜（a）把同一个波士顿模型移到四个目标城市，（b）比较不同训练地和目标地组合。（c）说明隔离指数的计算；（d）横轴为两城指数之差，纵轴为迁移 R²，每条线固定同一个训练城市。（e、f）检验用隔离程度、分区和地图特征预测迁移表现的结果。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>即使两个端点都得到观测的联系很少，把地图信息与引力结构结合，也能改善一些城市的区际流量估计。波士顿的改进既体现在流量重合度，也体现在中心以外的强联系。模型从流动中学得的地区表示对部分社会和环境指标有帮助，其价值随城市和指标而变。</p>
+<p>在五城迁移对照里，空间收入隔离程度相近的城市通常更容易互相借用经验。研究将模型用于全球逾 1,200 座城市和地区，公开成果是供当地调查稀缺处参考的估计网络。全球覆盖规模要与实际参与验证的城市数量分开看，尤其是开放街图中建筑和设施漏记较多的地方。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>neuroGravity 把人口与距离给出的初始流量，放回真实城市的建筑、设施和网络联系中修正。波士顿只给出约 1% 的有效联系，模型就能比传统引力模型更好地重建主要流向。若当地完全没有流量观测，判断一份外地模型能否借用，还要看两地居民的空间分布和地图质量。平均每天从哪里到哪里可以借模型估算，具体服务该开往哪里，仍需当地证据支持。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li>Yang, J., Huang, S., Huang, Z., Jin, Y., Yang, X., González, M. C., &amp; Xu, Y. (2026). <em>Transferable human mobility network reconstruction with neuroGravity</em>. Nature Computational Science, 6, 630–641. <a target="_blank" rel="noopener" href="https://doi.org/10.1038/s43588-026-01003-y">期刊正式记录</a>。</li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/html/2604.23678v1">作者预印本 arXiv v1 全文</a>。正文讲解及图 1–5 的面板读法按此可访问版本核对；正式刊卷与页码按期刊记录列出。</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/urbanmobility/NeuroGravity">作者代码仓库</a> · <a target="_blank" rel="noopener" href="https://doi.org/10.5281/zenodo.19727864">生成流量数据</a>。</li>
+<li>原论文报告六城局部观测测试、五城收入隔离对照，以及美国城市社会经济指标估计。人口取自美国人口普查及 WorldPop，建成环境资料来自 OpenStreetMap。<a href="https://doi.org/10.1038/s43588-026-01003-y">原论文</a> · <a href="https://www.openstreetmap.org/">OpenStreetMap</a> · <a href="https://www.worldpop.org/">WorldPop</a></li>
+<li>作者公开的网络数据包含 1,200 多座城市和地区的估计流量；代码库给出模型实现。<a href="https://doi.org/10.5281/zenodo.19727864">Zenodo 数据</a> · <a href="https://github.com/urbanmobility/NeuroGravity">模型代码</a></li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>第一作者 Jinming Yang 与合作者 Shaoyu Huang、Zongyuan Huang、Yaohui Jin、Xiaokang Yang、Yanyan Xu 署名上海交通大学。Marta C. González 的署名机构包括加州大学伯克利分校。机构按论文发表时的署名列出。</p>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>Jinming Yang、Shaoyu Huang、Zongyuan Huang、Yaohui Jin、Xiaokang Yang 和 Yanyan Xu 均署名上海交通大学，Jinming Yang、Yaohui Jin、Yanyan Xu 另署名该校数据驱动管理决策实验室。Jinming Yang 与 Yanyan Xu 设计研究，Jinming Yang 承担分析，两位 Huang 参与移动数据处理，Yaohui Jin 与 Xiaokang Yang 建设计算平台。Marta C. González（加州大学伯克利分校、劳伦斯伯克利国家实验室）提供移动数据并参与分析讨论。通讯作者为 Yaohui Jin、Xiaokang Yang 和 Yanyan Xu。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>如果只能做一轮小规模调查，可以留出一部分样本专门核验模型，而不是全部拿去训练。调查可以优先覆盖模型给出差异最大的区域对，再加入一些在地图上条件相似但预测相反的对照。如果误差集中出现在特定走廊，就先查这些地方是否漏了交通方式或重要目的地，再据此调整线路，而不是把模型的缺口当作居民没有出行需求。</p>
-<style>
-.post-cover .post-title { max-width: 1050px; margin: 0 auto; padding: 0 16px; font-size: 36px !important; line-height: 1.45; overflow-wrap: break-word; }
-#articleContent img { display: block; max-width: 100%; width: 100%; height: auto; margin: 28px auto 18px; box-shadow: none; border-radius: 0; }
-#articleContent h2:first-of-type { margin-top: 0; font-size: 26px; line-height: 1.5; }
-#articleContent small { color: #65717b; font-size: 13px; }
-#articleContent table { display: block; max-width: 100%; overflow-x: auto; }
-@media (max-width: 600px) {
-  .post-cover .post-title { font-size: 26px !important; }
-  #articleContent h2:first-of-type { font-size: 23px; }
-}
-</style>
+<p>假如两个收入差距相近的城市想共用一份公交需求预测，其中一个城市的低收入社区靠近就业园区，另一个城市的低收入社区却集中在河对岸。引力模型可以很快算出两岸人口和直线距离，可是乘客真正面对的是哪几座桥能过、过桥后还要换几趟车。若预测结果显示跨河流量很小，现场调查最值得问的问题也许是：确实很少有人想去，还是正因为如此难去，原有出行量才一直很小？这个区别会把一条走廊引向完全不同的服务选择。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -634,17 +625,13 @@
                 <a href="/posts/2bdc3ce1/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="2026-The spatial reach of mobility interactions in urban systems">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="The spatial reach of mobility interactions in urban systems">
                         
-                        <span class="card-title">2026-The spatial reach of mobility interactions in urban systems</span>
+                        <span class="card-title">The spatial reach of mobility interactions in urban systems</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            #articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap
-                        
-                    </div>
+                    <div class="summary block-with-text">从12个美国都市圈的出行地图看，人口与距离往往低估了相邻街区流量之间的联系。一座城遇到冲击时，这种联系又会怎样改变？</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-10-13

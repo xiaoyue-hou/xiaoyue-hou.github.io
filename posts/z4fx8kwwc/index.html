@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-A foundational individual mobility prediction model based on open-source large language models, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="A foundational individual mobility prediction model based on open-source large language models, 猴猴猴">
+    <meta name="description" content="同样是没参与训练的新城市，为什么模型能猜中杭州约九成地铁进站，却只能猜中东京约三成场所签到？">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-A foundational individual mobility prediction model based on open-source large language models | 猴猴猴</title>
+    <title>A foundational individual mobility prediction model based on open-source large language models | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-A foundational individual mobility prediction model based on open-source large language models</h1>
+                    <h1 class="description center-align post-title">A foundational individual mobility prediction model based on open-source large language models</h1>
                 </div>
             </div>
         </div>
@@ -432,44 +432,47 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img{display:block;margin:1.1rem auto .75rem;max-width:100%;height:auto}#articleContent img[src$="fig5.png"]{width:min(100%,350px)}.post-title{overflow-wrap:anywhere}</style>
 
-<h2 id="换了城市，模型的好成绩还能带过去吗？"><a href="#换了城市，模型的好成绩还能带过去吗？" class="headerlink" title="换了城市，模型的好成绩还能带过去吗？"></a>换了城市，模型的好成绩还能带过去吗？</h2><p>论文名片｜Zhenlin Qin、Leizhen Wang、Yancheng Ling、Francisco Camara Pereira、Zhenliang Ma，<em>A foundational individual mobility prediction model based on open-source large language models</em>，<em>Transportation Research Part C</em> 185（2026）：105562。<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.trc.2026.105562">DOI：10.1016/j.trc.2026.105562</a>。</p>
-<p>一个模型在已经见过的网络中答得不错，到了另一座城，地名、线路、出行方式都不一样，答对的理由还成立吗？论文把四类历史记录任务放进同一套评价框架，分别看领域内表现、跨域迁移和分布变化。本文只比较基准和局限，不提供现实中的个人定位或轨迹推断方法。</p>
-<h2 id="四个问题，为什么不能用一个成绩概括？"><a href="#四个问题，为什么不能用一个成绩概括？" class="headerlink" title="四个问题，为什么不能用一个成绩概括？"></a>四个问题，为什么不能用一个成绩概括？</h2><p>GPS 历史、签到和公共交通记录所观察的行为不同；公交一趟行程的起点和终点也不是同一类答案。论文把问题写成统一文本形式，是为了让同一模型比较任务，而不是说四类采样记录测到同一个行为。题目的含义必须和评分的分母一起看。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/z4fx8kwwc/fig1.png" alt="四种预测任务的完整示意图"></p>
-<p><strong>图 1｜</strong> 四类任务的示意。符号区分停留、出发与到达，无实际地图或可识别人员。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/z4fx8kwwc/fig2.png" alt="MoBLLM整体流程"></p>
-<p><strong>图 2｜</strong> 研究整体设计把任务表达、模型适配和评估分开。读图只看实验分工，不把它当个人数据处理指南。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/z4fx8kwwc/fig3.png" alt="基础指令的五项结构"></p>
-<p><strong>图 3｜</strong> 论文原刊展示题目定义、输入和回答形式。是否按格式作答与答案是否正确，应分别检验。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/z4fx8kwwc/fig4.png" alt="生成多风格指令的提示"></p>
-<p><strong>图 4｜</strong> 原刊示意同类问题可以有不同表述；模型能适应改写，不表示已经懂了城市空间。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/z4fx8kwwc/figA1.png" alt="GPS任务指令"></p>
-<p><strong>图 A1｜</strong> 历史位置任务的编码示例；编号不是可据此定位的地址。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/z4fx8kwwc/figA2.png" alt="签到任务指令"></p>
-<p><strong>图 A2｜</strong> 签到任务示例；是否主动签到会影响哪类活动留下记录。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/z4fx8kwwc/figA3.png" alt="出发站任务指令"></p>
-<p><strong>图 A3｜</strong> 公共交通出发任务和到达任务的评价对象不同。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/z4fx8kwwc/figA4.png" alt="目的站任务指令"></p>
-<p><strong>图 A4｜</strong> 目的站任务示例。和上一图对读，重点是两道题所求不同，不是如何推断真实个人。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/z4fx8kwwc/fig5.png" alt="LoRA完整示意"></p>
-<p><strong>图 5｜</strong> 参数适配的抽象结构。调得更省不意味着跨城市必然更准。</p>
-<h2 id="跨城得分好，需要排除哪些简单解释？"><a href="#跨城得分好，需要排除哪些简单解释？" class="headerlink" title="跨城得分好，需要排除哪些简单解释？"></a>跨城得分好，需要排除哪些简单解释？</h2><p>作者把多类任务的整体命中表现同基线比较，还用网络或票价改变的情境看稳定性。部分比较显示共同模型在换域时仍能发挥作用，但不代表在所有域都压过专项模型。常见地点重访也可能贡献很大：总分不错，却不说明对于从未出现的地点同样稳健。跨城的优势还要看目标地点覆盖、候选构成和训练测试是否真正隔离。</p>
-<p>模型也会给出形式上像答案却不回答问题的内容。作者把下面两幅图列为基础模型的幻觉；原刊代码样式的片段不是可用实现，本文不复述或运行。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/z4fx8kwwc/figB1.png" alt="基础模型GPS错误实例"></p>
-<p><strong>图 B1｜</strong> 第一项任务的答非所问示例；这种输出不能当作预测结果。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/z4fx8kwwc/figB2.png" alt="基础模型出发站错误实例"></p>
-<p><strong>图 B2｜</strong> 另一项任务的格式失败，说明统一答案形式还需要单独验收。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>论文表明多类历史移动任务可纳入同一基准，并在部分任务和迁移比较中获得有竞争力的成绩。这个证据依赖已有数据和特定划分；它不能证明模型可用于预测实际个人，也不能把重访优势解释成普遍的城市空间理解。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>MoBLLM 将 GPS、签到和公共交通的几种历史任务放在同一个模型中，对照领域内表现、跨域测试及资料变化后的稳定性。好成绩需要分别核对不同任务、先前见过的地点和真正新的地点，还要把答题格式与准确性分开。论文支持讨论统一评价的价值，并不支持追踪现实人员或将跨城成绩推广到任意环境。</p>
-<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p><a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.trc.2026.105562">Elsevier 正式出版版</a>，185：105562。图 1–5、A1–A4、B1–B2 按既有本地图保留，原图权利归原权利人。公开前应另查样本展示、附录提示和图权；私人校读不是公开许可。</p>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Zhenlin Qin、Leizhen Wang、Yancheng Ling、Francisco Camara Pereira 与 Zhenliang Ma 将语言模型适配和交通基准评估联系起来。</p>
+<h2 id="在香港学会预测进站口，到了杭州还猜得中吗？"><a href="#在香港学会预测进站口，到了杭州还猜得中吗？" class="headerlink" title="在香港学会预测进站口，到了杭州还猜得中吗？"></a>在香港学会预测进站口，到了杭州还猜得中吗？</h2><p>Qin, Z., Wang, L., Ling, Y., Pereira, F. C., &amp; Ma, Z. (2026). A foundational individual mobility prediction model based on open-source large language models. <em>Transportation Research Part C: Emerging Technologies, 185</em>, 105562. <a href="https://doi.org/10.1016/j.trc.2026.105562">论文 DOI</a></p>
+<p>把香港地铁换成杭州地铁，站名和线路都变了，早上从哪个站上车却可能仍和前几个工作日有关。一个模型能不能利用这种重复，而不用在每座城市重新学习所有站名？研究者把香港、北京和纽约的几类历史记录交给同一个语言模型训练，然后拿出模型训练时没有用过的杭州刷卡记录和其他城市的签到记录考试。</p>
+<p>在杭州的测试中，模型答对了约 89% 的下一次进站站点，却只答对东京约 29% 的下一次签到地点。换座城市仍然可以答题，但一张交通卡和一次主动签到留下的线索，显然很不一样。</p>
+<h2 id="“下一个地点”有四种不同的问法"><a href="#“下一个地点”有四种不同的问法" class="headerlink" title="“下一个地点”有四种不同的问法"></a>“下一个地点”有四种不同的问法</h2><p>假设上一条记录是在甲站出闸，下一条记录是在乙站进闸，之后又在丙站出闸。预测乙站，需要判断乘客上一次坐完地铁后去了哪里再搭车。已知乘客在乙站上车再预测丙站，则多了一条很有用的线索：这趟行程已经从哪里出发。论文将两道题分别计分。</p>
+<p>另外两道题取自北京的 GeoLife GPS 轨迹和 Foursquare 的场所签到。GPS 题询问连续停留后下一个停留地点的编号，签到题询问下一条签到会出现在哪个场所。签到者会主动选择要记录的地方，两次签到之间完全可能还去过别处。地铁刷卡记录的也是进出车站，乘客离开车站后的活动并未直接观测到。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/z4fx8kwwc/fig1.png" alt="停留地点、下一次进站和下一次出站的三个示意"></p>
+<p>图 1｜（a）沿停留或签到序列补出问号处的地点。（b）蓝圈问号在下一次进站，（c）红圈问号在本次出站。黑箭头表示乘车，绿线连接两次乘车之间的记录。</p>
+<h2 id="站名换了，模型还能用什么作答？"><a href="#站名换了，模型还能用什么作答？" class="headerlink" title="站名换了，模型还能用什么作答？"></a>站名换了，模型还能用什么作答？</h2><p>作者把每份数据里的地点换成该数据集内部的整数编号。同一个数字在两座城市可以指毫无关系的地点，但同一份记录里的一个编号反复出现，仍然传达了重访的信息。这也说清了跨城测试的条件：模型没有在杭州记录上更新参数，答题时仍然能读到这名杭州乘客此前的出行。它要把从其他数据学来的规律用到这段新历史上。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/z4fx8kwwc/fig2.png" alt="从四类任务模板到经过微调的 MoBLLM"></p>
+<p>图 2｜左栏生成同一道题的不同问法，中栏填入真实记录和已知答案，右栏用这些问答调整开源语言模型。模型最后输出预测的地点或站点编号。</p>
+<p>一次考试需要说清给了哪些线索。以预测下车站为例，题目给出以往行程、最近的乘车记录和本次已知的起点，再要求模型报出目的站。用地点编号可以让新城市直接沿用这套问法，也意味着模型少了街区用途、站点毗邻关系等地理知识。答对一个编号，并不足以判断模型对当地街区有多熟悉。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/z4fx8kwwc/fig3.png" alt="目的站预测的任务定义、数据说明与输入示例"></p>
+<p>图 3｜左栏从上至下列出任务、字段含义、判断提示、答案格式和实际输入。最底部的 history、context 和 target 分别对应较早记录、近期记录和要补全的这一次记录。</p>
+<p>为了让模型遇到换个说法的题也会作答，研究使用 GPT-4o mini 改写题面，再将真实记录和对应的正确地点填进去。生成的是问句的多种写法。训练究竟该回答哪个地方，取决于记录里下一次真正出现的编号。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/z4fx8kwwc/fig4.png" alt="改写基础任务指令的要求"></p>
+<p>图 4｜上半部规定可以怎样变化措辞，下半部要求保留任务说明和数据字段。最后一行是待改写的基础题面。</p>
+<p>真正承担预测的是以 Llama 3.1 8B Instruct 为基础的 MoBLLM。为避免重新训练整个语言模型，研究团队比较了几种低秩适配方法（low-rank adaptation，LoRA）。它们在原有模型上加入一小组可训练的参数，用出行问答学习怎样调整原来的输出。后续测试采用比较中平均表现最好的 OLoRA 版本。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/z4fx8kwwc/fig5.png" alt="原有权重与低秩适配的两条计算路径"></p>
+<p>图 5｜输入 X 同时经过左侧的预训练权重和右侧的两个小矩阵，两路结果相加后得到输出。右侧是图中用于学习任务调整量的部分。</p>
+<h2 id="同一座城，进站和出站也有难易之分"><a href="#同一座城，进站和出站也有难易之分" class="headerlink" title="同一座城，进站和出站也有难易之分"></a>同一座城，进站和出站也有难易之分</h2><p>研究以能否一次猜中实际记录的地点计准确率。香港测试中，MoBLLM 猜对约 88% 的进站站点、71% 的出站站点。这两项任务上，得分最高的专门深度学习基线分别约为 84% 和 66%。在北京 GPS 停留地点和纽约签到两项测试中，MoBLLM 分别答对约 59% 和 41%，也领先论文所列对照。四项任务的加权 F1 得分方向相同。这个指标给常见地点较大权重，不能据此推断罕见地点也同样好猜。</p>
+<p>到了训练没用过的城市，比较对象有所变化。原先的三个专门模型按训练城市的一套地点编号输出答案，无法直接输出另一座城市的站点。论文因此只用同一提示下的 GPT-4o mini 方法做跨城对照。杭州下一次进站这一题，MoBLLM 的准确率约 89%，对照方法约 74%。换成下一次出站，两者分别约 80% 和 69%。</p>
+<p>东京签到的对照更能说明边界：MoBLLM 从对照方法的约 16% 提高到约 29%，仍有七成左右的签到未猜中。杭州样本只有 81 个车站，东京签到样本涉及超过 1.5 万个地点，人的签到也比刷卡稀疏。直接把两座城市的数字相减，会同时混入记录方式、可选地点数量和人群的差异。</p>
+<h2 id="如果列车晚点，过去的规律还靠得住吗？"><a href="#如果列车晚点，过去的规律还靠得住吗？" class="headerlink" title="如果列车晚点，过去的规律还靠得住吗？"></a>如果列车晚点，过去的规律还靠得住吗？</h2><p>作者另取香港的历史样本，考察车站较少的旧线网、早高峰票价优惠、举办演唱会的日子，以及发生列车延误的日子。以早高峰优惠时期为例，MoBLLM 的进站准确率约 79%，低于常规样本的 88%。到了延误日，它的出站准确率反而约 80%，高于常规样本的 71%。在这些测试里，模型仍领先论文所列基线，但不能由此断定晚点会让乘客更容易预测。两批记录的年份或日期、乘客和行程构成都可能不同。答对已发生行程的终点，也没有算进那些临时放弃乘车的人。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>将 GPS、签到和地铁行程整理成带正确地点的问答，再微调同一个语言模型，可以在多类测试上提高命中率。香港的样本也说明，即使人群和线网相同，预测进站与出站仍是难度不同的任务。</p>
+<p>跨城时，训练阶段学到的一部分规律可以继续使用，前提是测试时能获得目标乘客或用户自己的历史记录。地铁站点的高命中率没有延伸成对各种场所签到的高命中率。异常日期的成绩同样只适用于相应记录覆盖的人和出行。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>MoBLLM 用北京 GPS、纽约签到和香港地铁记录学习四种下一地点问题，再把同一模型用到新的城市。杭州刷卡记录中，约九成进站站点、八成出站站点能一次猜中。换成东京的场所签到，命中率约为三成。使用同一模型和同一评分方式，让这些差别变得可见。评价一次预测时，还要问它究竟在猜什么、可以从哪些地点中选择，以及历史记录漏掉了哪些出行。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li>原论文报告四类任务、跨数据集测试及香港变化情境的比较。<a href="https://doi.org/10.1016/j.trc.2026.105562">Qin 等（2026）</a></li>
+<li>微软研究院的 GeoLife 提供 GPS 轨迹。Foursquare 签到资料用于纽约、东京和全球多城的场所测试。香港和杭州的自动售检票记录用于进站与出站测试。<a href="https://www.microsoft.com/en-us/research/publication/geolife-gps-trajectory-dataset-user-guide/">GeoLife 数据说明</a> · <a href="https://sites.google.com/site/yangdingqi/home/foursquare-dataset">Foursquare 签到数据说明</a></li>
+</ul>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><ul>
+<li>Zhenlin Qin、Yancheng Ling 和通讯作者 Zhenliang Ma（瑞典皇家理工学院土木与建筑工程系）。Qin 负责初稿并参与方法、分析及验证，Ling 参与数据整理与验证，Ma 参与研究设计、方法和指导。</li>
+<li>Leizhen Wang（莫纳什大学数据科学与人工智能系）参与研究设计、方法和验证。</li>
+<li>Francisco Camara Pereira（丹麦技术大学技术、管理与经济系）参与研究设计、分析和论文修改。</li>
+</ul>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>如果只评价区域汇总量，可把复访较稳定与新出现需求较多的区域分开报错，再和不使用语言模型的参照比较。这样能区分模型在重复习惯上做得好，还是对改变后的群体需求也能适应。</p>
+<p>设想地铁运营方要在晚点时决定给哪个换乘站增派工作人员。一个模型很擅长猜中那些照常刷卡的乘客最终在哪下车，可站台最需要帮忙的，恰恰可能是第一次改走这条线的人。还有些乘客在进站前就改坐公交，地铁记录里也不会留下他们原本打算去哪。此时，整体命中率即使上升，现场最棘手的客流也未必更好判断。运营方真正需要了解的，是哪些站突然多了不熟悉路线的乘客，以及往常会出现的哪些乘客今天没有来。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             

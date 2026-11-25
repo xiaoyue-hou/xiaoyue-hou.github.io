@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-China Public Transport Operation Network Dataset (CPTOND-2025):National-Scale Bus-Metro Vector Dataset, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="China Public Transport Operation Network Dataset (CPTOND-2025):National-Scale Bus-Metro Vector Dataset, 猴猴猴">
+    <meta name="description" content="全国公交与地铁数据可以评估哪些站相连，而公交与地铁的定位偏差、运营字段完整度决定了还能回答哪些问题。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-China Public Transport Operation Network Dataset (CPTOND-2025):National-Scale Bus-Metro Vector Dataset | 猴猴猴</title>
+    <title>China Public Transport Operation Network Dataset (CPTOND-2025):National-Scale Bus-Metro Vector Dataset | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-China Public Transport Operation Network Dataset (CPTOND-2025):National-Scale Bus-Metro Vector Dataset</h1>
+                    <h1 class="description center-align post-title">China Public Transport Operation Network Dataset (CPTOND-2025):National-Scale Bus-Metro Vector Dataset</h1>
                 </div>
             </div>
         </div>
@@ -436,71 +436,38 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style>
-#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; }
-.post-title { overflow-wrap: anywhere; }
-</style>
+<style id="paper-figure-layout">#articleContent img{display:block;margin:1.1rem auto .75rem;max-width:100%;height:auto}#articleContent img[src$="fig2.png"]{width:min(100%,610px)}.post-title{overflow-wrap:anywhere}</style>
 
-<h2 id="全国公交和地铁放到一张图上，能算到哪一步？"><a href="#全国公交和地铁放到一张图上，能算到哪一步？" class="headerlink" title="全国公交和地铁放到一张图上，能算到哪一步？"></a>全国公交和地铁放到一张图上，能算到哪一步？</h2><p>两座城市的地图都标着公交站，一座还写了首末班，另一座只有路线。你可以比较站点周围有没有路网，却不能用同一套字段算晚上十点还有没有车。全国数据的难点就在这里：把线和站摆在同一张图上是一件事，让运营字段能公平地比较是另一件事。</p>
-<p><strong>论文名片｜</strong>Liang Wang 等，<em>China Public Transport Operation Network Dataset (CPTOND-2025):National-Scale Bus-Metro Vector Dataset</em>，<em>Scientific Data</em> 13，188，2026 年 1 月 13 日。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-025-06505-4">正式 DOI：10.1038/s41597-025-06505-4</a>；<a target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12886901/">正式全文</a>。名称里的 <strong>2025</strong> 指数据采集时间，不是出版年份。</p>
-<p>CPTOND-2025 把 2025 年 6 月的公交和地铁整理为可计算的线路、站点与站间线段，附上不完全覆盖的首末班、票价和运营公司信息。它让跨城市的<strong>网络结构</strong>比较更容易，仍不能单独告诉我们等车多久、实际客流多少，或哪条线路现在仍按这张表运行。</p>
-<h2 id="350-个公交城市和-46-个地铁城市，怎样数？"><a href="#350-个公交城市和-46-个地铁城市，怎样数？" class="headerlink" title="350 个公交城市和 46 个地铁城市，怎样数？"></a>350 个公交城市和 46 个地铁城市，怎样数？</h2><p>论文以 350 个有公交记录、46 个有地铁记录的城市单元组织数据，其中 45 个重合，合计 351 个城市单元。论文的采集范围含内地、香港、澳门及台湾；按项目口径，台湾作为一个城市单元，只有地铁资料。另一个常见数字是商业吸引力名单中覆盖 346/356 个城市，约 97.2%。这是按一份外部城市名单算的覆盖比例，不能与 351 直接互换，也不是站点准确率。流程图另有一个同样写成 97.2% 的有效性比率，更不宜混成一个值。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/ad3bf346/fig1.png" alt="原论文图 1"></p>
-<p>图 1｜先读图例：星形为公交与地铁均有记录，蓝色为仅公交、橙色为仅地铁。地图点显示城市覆盖和方式组合，不表示班次、线路规模或客流。 来源：原论文图 1。</p>
-<p>数据概览列出 <strong>140,371 条公交线路记录和 992 条地铁线路记录</strong>。站点分别是 <strong>3,571,284 条和 17,731 条</strong>。公交线路上下行分开，公交站点含不同线路的重复记录，所以这两个数不能直接当作物理线路数和独立站台数。地铁跨城市服务时也要防止从各城市文件相加得到重复总数。原文合报约 340.8 万公里，这是数据中的线路几何长度，不等于公报按运营线路定义汇总的实际里程。</p>
-<h2 id="从整条线路拆到相邻两站"><a href="#从整条线路拆到相邻两站" class="headerlink" title="从整条线路拆到相邻两站"></a>从整条线路拆到相邻两站</h2><p>数据来源是 8684 与高德地图服务。作者将名录、几何、站点和属性对齐，转换为 WGS-84，输出带中英文字段的 Shapefile。线路层保存折线，站点层保存坐标，站间线段层则把相邻两站连接起来。三种层各有职责：地图上的整条线不是一个最短路网络，单独一组站点也不足以知道两站是否相邻。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/ad3bf346/fig2.png" alt="原论文图 2"></p>
-<p>图 2｜按 A 至 D 看采集、标准化处理、质量控制与产出。坐标转换、把站点投影到线、按相邻站切分，是让数据可用于网络计算的关键步骤。 来源：原论文图 2。</p>
-<p>两站之间的字段量的是沿线路折线的地理距离，不是站点间的直线距离，更不是实测行程时间。站间段记录起终站以及服务该连接的线路数量；它不告诉你服务的发车频率。全国站点原始层与按城市去重的站点层同时提供。做跨城比较前，先说明计算单位是线段、方向记录，还是去重后的物理站点。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/ad3bf346/fig3.png" alt="原论文图 3"></p>
-<p>图 3｜公交折线在全国底图上较为密集；线密说明本产品记录了较密的线路几何，不是上下客人数图。 来源：原论文图 3。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/ad3bf346/fig4.png" alt="原论文图 4"></p>
-<p>图 4｜地铁折线更集中于少数城市，在全国比例尺下仅能辨认分布，不宜从图上逐城量里程或定位出入口。 来源：原论文图 4。</p>
-<h2 id="运营字段能用，但空白不是没有服务"><a href="#运营字段能用，但空白不是没有服务" class="headerlink" title="运营字段能用，但空白不是没有服务"></a>运营字段能用，但空白不是没有服务</h2><p>首末班字段只记录某条线服务窗口的两个端点，不含逐站到离时刻、班次间隔或实时车辆位置。论文的分方式统计比总览表的摘要百分比更适合回答“手里这类线能有多少可用属性”：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>字段完整性</th>
-<th style="text-align:right">公交</th>
-<th style="text-align:right">地铁</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>同时有首班与末班</td>
-<td style="text-align:right">48.4%</td>
-<td style="text-align:right">26.2%</td>
-</tr>
-<tr>
-<td>论文报告的票价完整</td>
-<td style="text-align:right">86.6%</td>
-<td style="text-align:right">68.7%</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>公交票价细分字段的覆盖有别：基础票价为 85.4%，全程票价为 81.5%。所以总表的 86.6% 不宜理解为“两项均非空”的交集；论文没有把这一概率口径对齐。正文报告运营公司信息见于 74.5% 的线路，没有给出分方式比例。缺失字段不代表免费、不运营或没有公司。计算晚间服务覆盖时，把没写末班的线路一律当作停运，会把资料缺漏变成服务缺口。</p>
-<p>数据字段设计参考 GTFS，却未提供完整 GTFS 时刻表；原文讨论的其他兼容格式不是本次交付产品。票价与首末班也只是采集期状态，实用查询应查当时的运营方数据。</p>
-<h2 id="抽查说明什么，不能替哪些地方背书？"><a href="#抽查说明什么，不能替哪些地方背书？" class="headerlink" title="抽查说明什么，不能替哪些地方背书？"></a>抽查说明什么，不能替哪些地方背书？</h2><p>研究用北京、上海、广州的第三方地图作对照，样本包括 6,675 个公交站和 310 个地铁站。论文报告平均偏差分别 <strong>3.69 米</strong>和 <strong>34.79 米</strong>。这不是针对所有小城市或每个站点做的地面测量。尤其在地铁站，所用定位点不一定是乘客实际使用的某个出入口。</p>
-<p>论文同时报告全库 5.08 米，并将其描述为按站点量加权的结果；但用公开的两类均值与全库站点数量直接加权只能得到约 3.84 米，不能复现 5.08 米。两种写法不宜合并成一个精度承诺。另一个“100%”指论文报告在收录的 46 城中用运营方材料核对地铁线路、站数和名称的一致性；它不是坐标零误差，也不代表所有运营细节完整。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><ul>
-<li>这套数据交付的是 2025 年 6 月公交和地铁的静态几何、拓扑与部分运营属性，不是客流和时刻表。</li>
-<li>方向记录、跨城线路和重复站点会改变计数。物理线路与运营里程应先统一口径再和其他资料对照。</li>
-<li>时间、票价和公司字段有限且各有分母。三座大城市的坐标抽检提供了参考，而不是其他城市或出入口级别的精度保证。</li>
-</ul>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>CPTOND-2025 补上了全国公交与地铁在同一采集期、同一坐标系统和相似字段结构下的线路、站点和站间线段，有助于比较城市之间的交通网络怎样连接。它最可靠的起点是结构分析；如果问题转向实际班次、乘车耗时、服务收费或人流，就必须另补数据，并处理方向计数、跨城重复和运营字段的缺失，不能用静态线网替代真实运行。</p>
+<h2 id="两个公交站挨得很近，晚上十点也能顺利换乘吗？"><a href="#两个公交站挨得很近，晚上十点也能顺利换乘吗？" class="headerlink" title="两个公交站挨得很近，晚上十点也能顺利换乘吗？"></a>两个公交站挨得很近，晚上十点也能顺利换乘吗？</h2><p>Wang, L., Wei, H., Guan, Y., et al. (2026). China Public Transport Operation Network Dataset (CPTOND-2025):National-Scale Bus-Metro Vector Dataset. <em>Scientific Data, 13</em>, 188. <a href="https://doi.org/10.1038/s41597-025-06505-4">论文 DOI</a></p>
+<p>在地图上找离地铁站最近的公交站，只需知道两个站在哪里。想知道晚上十点走出地铁还能不能搭上公交，就得知道公交往哪个方向开、末班车从哪里发、什么时候经过这一站。对一座城市，往往可以逐条查。把同样的问题拿去比较几百座城市，地图上的线可以很完整，时间栏却可能是空的。</p>
+<p>CPTOND-2025 把 2025 年 6 月收集的公交与地铁线路、站点和相邻站间的路段整理成一套全国数据。按论文的统计单位，公交覆盖 350 个城市单元，地铁覆盖 46 个，其中 45 个同时收录两种方式。它擅长回答线路经过哪里、哪两站直接相连。要回答不同时间的服务能否接续，还得先看看哪些线路留下了运营时间。</p>
+<h2 id="一条线路为什么要有方向，还要拆成一段段？"><a href="#一条线路为什么要有方向，还要拆成一段段？" class="headerlink" title="一条线路为什么要有方向，还要拆成一段段？"></a>一条线路为什么要有方向，还要拆成一段段？</h2><p>数据库先用 8684 公交平台上的城市和线路名录建立索引，再从高德地图接口获取线路走向、站点和可用的运营资料。国内地图提供的位置被转换到统一的 WGS-84 坐标系，公交和地铁由此能叠在同一张底图上。论文把台湾地区按接口限制合并为一个城市单元。读全国覆盖数字时，应保留这一口径。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/ad3bf346/fig1.png" alt="不同城市收录的公交和地铁类型"></p>
+<p>图 1｜红色符号表示两种方式均收录，蓝色表示只收录公交，黄色表示只收录地铁。符号回答的是数据包括哪种网络，不能用来比较城市的发车频率。</p>
+<p>设想两条公交线都从医院开到火车站，中途在同一条路上共用三站。把两条完整线路保留下来，可以看哪辆车不用换乘。把共用的两段路提取出来，又可以看哪一段有多条线路服务。制作者将每个站点投影到所属线路的折线上，按沿线距离排列站序，截取相邻两站间的路径，再合并起讫相同的路段，记录经过的线路数量。这里量的是车辆沿线路走的距离，经过的线路条数也不能直接换算成每小时的班次。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/ad3bf346/fig2.png" alt="从线路名录到站点、线段和运营字段的整合流程"></p>
+<p>图 2｜从上到下，A 汇集平台名录与地图记录，B 统一坐标和字段并切分线路，C 核查覆盖和质量，D 输出公交、地铁的标准化地理文件。看 B 最右侧，整条线在这里变成可分析的站间连接。</p>
+<p>全库约有 14 万条公交线路记录、近千条地铁线路记录。拿它们与官方线路条数对照时，要留意同一条线路的上行与下行在库中分别记录，官方往往按物理线路号统计。表 3 的约 341 万公里也是把各条方向线路的长度累加起来。同一条道路上重合的公交线会各自贡献里程，不能把总数当作互不重叠的道路或轨道长度。</p>
+<h2 id="论文报告的位置偏差约五米，这对地铁站意味着什么？"><a href="#论文报告的位置偏差约五米，这对地铁站意味着什么？" class="headerlink" title="论文报告的位置偏差约五米，这对地铁站意味着什么？"></a>论文报告的位置偏差约五米，这对地铁站意味着什么？</h2><p>研究在北京、上海和广州各抽取 100 条公交线路、3 条地铁线路，用百度地图记录的相应站点位置作独立对照。三城共比较 6,675 个公交站点和 310 个地铁站点。公交站的两种位置平均相距约 3.7 米，地铁站平均却接近 35 米。对公交来说，站牌通常提供了比较清楚的位置。地铁站的站厅、站台和几个出入口分布得更远，不同平台选取的代表点可以相差几十米。</p>
+<p>论文报告的合计偏差为 5.08 米。按验证样本中的两类站点数加权，用文中取整后的分类均值可以得到约 5.1 米。若按表 3 列出的全库站点记录数加权，则约为 3.8 米。无论用哪种汇总，小数点后的精度都无法消除公交和地铁之间的差异。比较换乘步行距离时，尤其要查清地铁位置标的是哪个出入口。三座大城市的对照也不能替人口更少的城市保证同样的位置精度。</p>
+<h2 id="为什么适合画线路，却还不足以排出一趟行程？"><a href="#为什么适合画线路，却还不足以排出一趟行程？" class="headerlink" title="为什么适合画线路，却还不足以排出一趟行程？"></a>为什么适合画线路，却还不足以排出一趟行程？</h2><p>每条方向线路可以附有首末班时间、基础票价、全程票价和运营单位。作者统计，同时有首班、末班时间的公交线路只有 48.4%，地铁线路为 26.2%。相比之下，两类线路有票价信息的比例分别为 86.6% 和 68.7%。地图里能看到线路并不保证同一个条目具有足够的时间或票价信息。</p>
+<p>即使某路车的两端时间都填了，通常也只表明线路运营窗口。要可靠判断乘客 22 点到达中途某一站后还能不能上车，还需要该方向具体车次的到站时刻，以及从地铁出口走过去花多久。字段为空的线路则只能标作时间未知。如果把空值当作零班车，得到的夜间服务地图会同时映出真实的服务差异和资料的缺口。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>这套资料将公交和地铁的站点、方向线路、站间连线与部分运营信息放进相同格式，适于比较哪些站直接相连、多条线路在哪些路段重叠。方向线路、物理线路和互不重复的基础设施里程，要分别统计。</p>
+<p>地理与时间信息的可靠程度随交通方式和用途而变。三城抽样中，地铁站的跨平台位置差异明显大于公交站。全库首末班字段的完整度又低于票价字段。由此得到的换乘距离与夜间可达性，不能用一个全库平均数概括。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>CPTOND-2025 描绘了 2025 年 6 月不同城市的公交和地铁如何在空间上连成网。上下行分开，线路沿相邻站点切开，研究者既能看整条线，也能看某一站间有几条线路共用。拿它评价服务时，值得把问题再问具体一点：线路从哪里经过、站点在哪个出入口、乘客几点能赶上车，三者需要的证据各不相同。尤其是在不足半数方向线路同时具备首末班时间时，能画出线路不等于能排出时刻表。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-025-06505-4">Scientific Data 正式 DOI</a>与 <a target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12886901/">PMC 同一出版版本</a>：题名、出版日期、图 1–4、字段与技术校验。另有<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41597-025-06505-4_reference.pdf">出版社接受稿</a>，本文以正式版本的书目信息和正文为准。</li>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.6084/m9.figshare.29377427">Figshare 数据与代码档案</a>：按论文数据与代码可用性声明核对。档案使用条件和第三方底图授权需分别确认。</li>
-<li>期刊文章按 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a> 开放，注明来源和许可的非商业原样传播与改编再发布不同；有单独署名的第三方材料不自动包含。</li>
+<li>原论文的表 3、4 给出全国数据规模及不同来源的城市比较，技术验证部分报告定位误差与字段完整性。<a href="https://doi.org/10.1038/s41597-025-06505-4">Wang 等（2026）</a></li>
+<li>CPTOND-2025 公开数据含公交、地铁的地理文件与说明。8684 提供城市及线路索引，高德地图提供空间和运营属性，百度地图用于抽样定位比较。<a href="https://doi.org/10.6084/m9.figshare.29377427">数据与版本记录</a></li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Liang Wang 署名于北京交通大学经济管理学院和北京市城市规划设计研究院，负责研究设计与数据处理。He Wei 与其他北京市城市规划设计研究院合作者参与质量控制和数据核验；Daqing Gong、Zhenji Zhang 参与论文写作指导。通讯作者 Xinghua Zhang 与 Xiaodong Zhang 提供技术指导并参与论文修改，署名合作单位包括北京交通大学、北京航空航天大学、北京市城市规划设计研究院和清华大学。</p>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><ul>
+<li>Liang Wang（北京交通大学经济管理学院、北京市城市规划设计研究院）提出研究、设计采集流程并撰写论文。</li>
+<li>He Wei、Yu Guan、Libin Ouyang、DanDan Xu、Xuehua Han、Min Zhang、Meng Chen 和 Daosheng Sun（北京市城市规划设计研究院）参与数据验证与质量控制。</li>
+<li>Daqing Gong、Zhenji Zhang（北京交通大学经济管理学院）参与论文写作指导。通讯作者 Xinghua Zhang（北京交通大学物理科学与工程学院、北京航空航天大学物理学院等）和 Xiaodong Zhang（北京市城市规划设计研究院、清华大学建筑学院）参与技术指导及修订。</li>
+</ul>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>如果要做多城的晚间公交覆盖比较，我会先公布各城首末班字段的完整率，再把“明确仍在运营”“明确结束服务”“没有足够信息”分开画。客流风险或班次调整则要另接同期运营时刻和线路级汇总客流。这样能先回答哪里可能有服务差异、哪里只是资料差异，不会因为一张地图少画了几点，就断定整个街区搭不到车。</p>
+<p>假设一张夜间公交地图要给晚班护士看。她关心的不是医院周围画了几条彩线，而是交班后从哪一个门出发、走到哪一侧站牌，还赶得上往家方向的车。如果制图时把缺末班时间的线全部抹掉，她可能错过本来能坐的车。如果原样画成正常运营，她又可能在站牌下白等。给“已核实能乘”“线路经过但班次未知”两种情况不同的标记，地图才同时告诉她哪里有车可查，以及这一步还需要查什么。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -628,17 +595,13 @@
                 <a href="/posts/21d9afc6/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="2026-Proxy datasets to identify city boundaries">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Proxy datasets to identify city boundaries">
                         
-                        <span class="card-title">2026-Proxy datasets to identify city boundaries</span>
+                        <span class="card-title">Proxy datasets to identify city boundaries</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            #articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap
-                        
-                    </div>
+                    <div class="summary block-with-text">越南火龙果田夜里亮着，百万人口的基桑加尼却不显眼。八地地图说明，同一座城市会被人口、建筑和夜光各画成什么样。</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2026-11-18
@@ -692,17 +655,13 @@
                 <a href="/posts/48e62126/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="2026-Comprehensive spatiotemporal dataset of shared bicycle operations in Xiamen China">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Comprehensive spatiotemporal dataset of shared bicycle operations in Xiamen China">
                         
-                        <span class="card-title">2026-Comprehensive spatiotemporal dataset of shared bicycle operations in Xiamen China</span>
+                        <span class="card-title">Comprehensive spatiotemporal dataset of shared bicycle operations in Xiamen China</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">厦门同一周里，雨天少了约六成骑行，早高峰却仍在八点附近。能否调对车辆，要看停车区里的借还差额。</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-18

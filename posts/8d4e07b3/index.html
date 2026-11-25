@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-Theory-informed and interpretable graph learning for urban commuting flows, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="Theory-informed and interpretable graph learning for urban commuting flows, 猴猴猴">
+    <meta name="description" content="从家出门和抵达工作地是同一片区的不同角色。英格兰约三十万条通勤联系显示，距离规律有助于预测，也留下繁忙短途的误差。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-Theory-informed and interpretable graph learning for urban commuting flows | 猴猴猴</title>
+    <title>Theory-informed and interpretable graph learning for urban commuting flows | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-Theory-informed and interpretable graph learning for urban commuting flows</h1>
+                    <h1 class="description center-align post-title">Theory-informed and interpretable graph learning for urban commuting flows</h1>
                 </div>
             </div>
         </div>
@@ -440,64 +440,32 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h2 id="通勤预测误差小，就说明它学到了合理的城市关系吗？"><a href="#通勤预测误差小，就说明它学到了合理的城市关系吗？" class="headerlink" title="通勤预测误差小，就说明它学到了合理的城市关系吗？"></a>通勤预测误差小，就说明它学到了合理的城市关系吗？</h2><p>估计新住宅区与就业中心之间的通勤，不仅要看两个地方分别有多少人和岗位，也要看路程与周边地区如何改变选择。图模型可能拟合出很好看的流量表，却在远距离或极大流量上出错。Minwei Zhao、Dailuo Zhang、Zhecheng Shi 和 Cai Wu 将引力模型的直觉放入图学习，让起点的产出、终点的吸引和两地的距离承担不同角色。本文核读 <em>Sustainable Cities and Society</em> 148:107575 正式版（2026 年 6 月 13 日在线，<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.scs.2026.107575">DOI</a>）。</p>
-<h2 id="先弄清流量表记的是哪一种通勤"><a href="#先弄清流量表记的是哪一种通勤" class="headerlink" title="先弄清流量表记的是哪一种通勤"></a>先弄清流量表记的是哪一种通勤</h2><p>主样本是英格兰 6,856 个中层统计区之间的居住地到工作地通勤。去掉区内自环后，论文说训练比较保留 298,681 条正流量边。区对流量不是个人轨迹，一区内部或没有正流量标签的区对也不应从这个数字中自行补出。建模使用劳动年龄人口与兴趣点密度等代理；这些变量便于区分起终点，却不是直接测量每个人的工作机会。</p>
-<p><img src="/posts/8d4e07b3/fig2.png" alt="完整原论文图2"></p>
-<p>图 2｜英格兰居住地到工作地汇总通勤样本的空间背景。</p>
-<p><img src="/posts/8d4e07b3/fig3.png" alt="完整原论文图3"></p>
-<p>图 3｜不同区对的流量和距离呈现不同分布；一条平均趋势不能描述所有区对。</p>
-<p><img src="/posts/8d4e07b3/fig4.png" alt="完整原论文图4"></p>
-<p>图 4｜用两类聚合特征刻画地区的出发与吸引条件，地图不是个人通勤定位。</p>
-<h2 id="把“出发”和“吸引”拆开，再用理论限制离谱结果"><a href="#把“出发”和“吸引”拆开，再用理论限制离谱结果" class="headerlink" title="把“出发”和“吸引”拆开，再用理论限制离谱结果"></a>把“出发”和“吸引”拆开，再用理论限制离谱结果</h2><p>PIG-GNN 用不同分支学习地区的通勤产出和吸引，再考虑空间邻接与起讫交互。距离衰减和流量分布只作软约束：模型可以由数据调整，不必机械服从一个固定的引力指数。这里的“物理信息”主要指理论与经验规律，不能理解为已经验证了一条关于通勤行为的物理定律。</p>
-<p><img src="/posts/8d4e07b3/fig1.png" alt="完整原论文图1"></p>
-<p>图 1｜完整流程，从统计区与流量准备，到图学习、约束和评估。</p>
-<p><img src="/posts/8d4e07b3/fig5.png" alt="完整原论文图5"></p>
-<p>图 5｜空间邻接图与有向起讫流量图区分了相邻和实际交互。</p>
-<p><img src="/posts/8d4e07b3/fig6.png" alt="完整原论文图6"></p>
-<p>图 6｜双分支、区对互动与预测约束承担不同作用。</p>
-<p><img src="/posts/8d4e07b3/fig7.png" alt="完整原论文图7"></p>
-<p>图 7｜不同数据尺度上的经验指标；理论先验允许的范围不等于把各地参数钉死。</p>
-<p><img src="/posts/8d4e07b3/fig8.png" alt="完整原论文图8"></p>
-<p>图 8｜训练同时兼顾预测误差、距离趋势和分布；先验是软限制。</p>
-<h2 id="哪些指标赢了，哪些没赢？"><a href="#哪些指标赢了，哪些没赢？" class="headerlink" title="哪些指标赢了，哪些没赢？"></a>哪些指标赢了，哪些没赢？</h2><p>五折交叉验证中，PIG-GNN 在一组可部署对照里得到最低 RMSE，约 0.297；论文使用的是对数变换后的流量尺度，不是人次。共同通勤者份额（CPC）约 0.791。使用实测起终总量作额外输入的双重约束引力模型，决定系数与重叠指标仍略高；在全目的出行数据上，论文的模型保持点误差优势，但 CPC 低于随机森林。不同基准掌握的边际信息和不同指标评价的对象，都应明确说明。一个模型不必在所有指标上排名相同。</p>
-<p><img src="/posts/8d4e07b3/fig9.png" alt="完整原论文图9"></p>
-<p>图 9｜各基线相对 PIG-GNN 的多指标比较；箭头说明哪个方向更好。</p>
-<p><img src="/posts/8d4e07b3/fig11.png" alt="完整原论文图11"></p>
-<p>图 11｜观测与预测、残差的联合对照；平均误差可能盖住某些流量段的偏差。</p>
-<p><img src="/posts/8d4e07b3/fig10.png" alt="完整原论文图10"></p>
-<p>图 10｜训练期间几种损失分量的变化；优化收敛不等于跨地区泛化。</p>
-<p><img src="/posts/8d4e07b3/figA14.png" alt="完整原论文图A.14"></p>
-<p>图 A14｜补充对照展示约束设置变化与指标响应；具体结果依赖试过的参数范围。</p>
-<p>主样本的预测分布保留了高、低流量两簇，不过散点图仍显示高流量区对的系统偏差。作者还对模型输入作缩放：模型对劳动年龄人口变化的响应比对兴趣点密度强。这是训练模型内部的诊断，不能当成增加居民或岗位的真实因果效果。补充的西安、广州实验说明同类结构可在不同数据上重新比较；不是说英格兰模型不调整就能在两城可靠工作。</p>
-<p><img src="/posts/8d4e07b3/fig12.png" alt="完整原论文图12"></p>
-<p>图 12｜预测的双峰与距离及观测流量的关系；双峰保留不意味着高流量误差已消失。</p>
-<p><img src="/posts/8d4e07b3/fig13.png" alt="完整原论文图13"></p>
-<p>图 13｜从两类流量抽样的空间图；样本量与展示口径不同。</p>
-<p><img src="/posts/8d4e07b3/figA15.png" alt="完整原论文图A.15"></p>
-<p>图 A15｜西安的空间分布对照，为补充实验交代数据背景。</p>
-<p><img src="/posts/8d4e07b3/figA16.png" alt="完整原论文图A.16"></p>
-<p>图 A16｜西安的五折模型比较；按 RMSE、决定系数与 CPC 分开看。</p>
-<p><img src="/posts/8d4e07b3/figA17.png" alt="完整原论文图A.17"></p>
-<p>图 A17｜西安的距离衰减与位序趋势；拟合只对应当地样本。</p>
-<p><img src="/posts/8d4e07b3/figA18.png" alt="完整原论文图A.18"></p>
-<p>图 A18｜广州的空间分布对照；与西安补充结果的尺度和数据条件有别。</p>
-<p><img src="/posts/8d4e07b3/figA19.png" alt="完整原论文图A.19"></p>
-<p>图 A19｜广州的五折模型比较；某项指标接近不等于误差结构相同。</p>
-<p><img src="/posts/8d4e07b3/figA20.png" alt="完整原论文图A.20"></p>
-<p>图 A20｜广州的距离衰减与位序趋势；尾部可偏离拟合线。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>将通勤产出与吸引分开，并加上距离和分布约束，可在所测数据中改善多项区对流量指标，帮助解释模型是否保留了经验结构。优势依赖可用的流量、特征和对照条件，各指标也有例外。论文没有验证人口或就业变化的因果作用，不能把输入敏感性当作政策效果。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>最值得学的是把“总体误差更小”和“流量表更像城市”分开检验。一个模型可能更擅长预测典型区对，却在较大流量上偏高；另一个模型利用已知边际后可能提高重叠。只有把输入条件和指标含义写清楚，理论先验才是可核查的约束，而非给预测数字贴上的可信标签。</p>
-<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li>Zhao, M., Zhang, D., Shi, Z. &amp; Wu, C. <em>Theory-informed and interpretable graph learning for urban commuting flows</em>. Sustainable Cities and Society 148, 107575 (2026)。<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.scs.2026.107575">正式论文</a>。图 1–13 与附录图 A14–A20 对应正式版；图版与交通数据的使用条款需分别核对。</li>
-</ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Minwei Zhao、Dailuo Zhang、Zhecheng Shi 和 Cai Wu 为本文作者。文章聚焦空间交互、图学习与通勤流的可解释建模。</p>
+<h2 id="如果同一片区既有人出门上班，也有人来上班，模型怎么分？"><a href="#如果同一片区既有人出门上班，也有人来上班，模型怎么分？" class="headerlink" title="如果同一片区既有人出门上班，也有人来上班，模型怎么分？"></a>如果同一片区既有人出门上班，也有人来上班，模型怎么分？</h2><p>Zhao, M., Zhang, D., Shi, Z., &amp; Wu, C. (2026). Theory-informed and interpretable graph learning for urban commuting flows. <em>Sustainable Cities and Society</em>, 148, 107575. <a href="https://doi.org/10.1016/j.scs.2026.107575">论文 DOI</a></p>
+<p>把一处车站周围的住宅和商铺一起画进地图，这个片区在早高峰可能同时扮演两种角色：住在这里的人出门，住在别处的人来这里上班。从甲地到乙地和从乙地到甲地，同样是两个点、同一段距离，人数却可能相差很多。</p>
+<p>研究者把这种方向差异写进图神经网络，分别学习每个片区送出通勤者和吸引通勤者的能力，再让模型参考距离和周边联系。它在英格兰通勤数据上提高了预测精度。不过，最难解释的恰好是城市里繁忙的短距离联系：主要人流可以被识别出来，具体每一对片区之间相差多少，仍容易估错。</p>
+<h2 id="看两个地方之间的人流，要用哪两张地图？"><a href="#看两个地方之间的人流，要用哪两张地图？" class="headerlink" title="看两个地方之间的人流，要用哪两张地图？"></a>看两个地方之间的人流，要用哪两张地图？</h2><p>研究采用英格兰 6,856 个中层统计区的居住地—工作地数据。在一张地图上，边界相接的片区提供彼此的地理背景。在另一张图上，从甲地去乙地确实有通勤记录，就画一条从甲指向乙的边。两类邻居并不相同：两个片区可以隔得很远却有稳定通勤，紧靠着也不一定有多少人往来。主分析去除同一区内的通勤，关注约 29.9 万条有正流量的区际连接。这决定了模型擅长回答的是已有联系有多强。</p>
+<p>把甲地放在起点位置，模型用 16 至 64 岁人口衡量有多少人可能从当地出发；把乙地放在终点位置，则用商业和服务等设施点的密度近似当地活动的吸引力。两个模型分支各自参考附近片区的同类特征，再沿有方向的通勤网络，结合区对距离更新对起点和终点的描述。最后，它们共同估计从甲到乙的人数。设施点的数量并不能直接换算成岗位数，正因为如此，后面还要检查模型对这个指标有多敏感。</p>
+<p><img src="/posts/8d4e07b3/fig6.png" alt="从片区的两种角色到有方向的通勤流量预测"></p>
+<p>图 6｜左侧两列让同一片区分别以居住端和活动吸引端的身份读取邻区信息。中间把两端放进有方向的起讫网络，并加入距离。右侧用这些信息估计一条有方向的流量。</p>
+<h2 id="通勤联系通常随距离减弱，这条经验该约束到什么程度？"><a href="#通勤联系通常随距离减弱，这条经验该约束到什么程度？" class="headerlink" title="通勤联系通常随距离减弱，这条经验该约束到什么程度？"></a>通勤联系通常随距离减弱，这条经验该约束到什么程度？</h2><p>如果硬规定距离翻倍，所有地方的人流都按同样比例减少，就很难容纳车站附近和普通住宅区的差别。反过来，如果只要求模型把每一对片区拟合好，也可能得到一张看似数字精确、整体空间分布却走样的表。</p>
+<p>PIG-GNN 采用较松的约束。训练时一方面惩罚逐条通勤联系的预测误差，另一方面检查整套预测随距离衰减的趋势，以及把流量从大到小排列后是否保留少数大流量、多数小流量的格局。明显偏离经验范围会增加损失，各地和各条联系仍可不同。</p>
+<p>这些约束带来了多大改善？在英格兰样本的五折检验中，以预测与观测在相同区对上重合了多少流量来衡量，完整模型的共同通勤份额（CPC）为 0.791，保留网络结构、去掉理论约束时为 0.784。改善存在，量级也有限。基础的无约束引力模型为 0.754。有一种引力模型的重合度略高，达 0.792，但它事先使用了实测的各区出发总人数和到达总人数；要预估未知客流时，这两项额外资料未必拿得到。</p>
+<h2 id="分数接近八成，为何还有一类通勤特别难估？"><a href="#分数接近八成，为何还有一类通勤特别难估？" class="headerlink" title="分数接近八成，为何还有一类通勤特别难估？"></a>分数接近八成，为何还有一类通勤特别难估？</h2><p>将测试样本的预测流量从低到高画出来，能看到一个大峰和一个远小得多的高值峰。低值组许多联系跨越较长距离，距离一增长，预测流量就明显回落。高值组大量集中在短距离范围内，实测人数虽有明显差异，预测却容易挤在一条较窄的带上。</p>
+<p><img src="/posts/8d4e07b3/fig12.png" alt="预测通勤流量呈现两个峰及其对应的距离分布"></p>
+<p>图 12｜上排横轴是预测流量取对数后的数值，纵轴是密度；右图把两组分开。左下横轴是观测流量、纵轴是预测流量，均取对数，黑虚线表示完全一致。右下把横轴改为公里，观察蓝色高值组集中在哪段距离、红色低值组如何随距离延伸。</p>
+<p>作者把这两组分别联系到城市内部密集通勤和较长距离的城际联系。分组依据是预测流量的分布，不能把颜色当作每次出行是否越过城市边界的独立验证。短途大流量的细节还可能取决于站点、班次和岗位密度，而研究用的是片区静态属性和两地空间距离，无法从图上为这些因素分出各自贡献。</p>
+<p>把起点人口输入增加 20%，模型预测的平均流量约增加 22%；只把终点设施密度输入增加 20%，对应增幅约为 0.5%。这项对照说明模型确实以不同方式使用起点和终点特征。设施密度作为通勤吸引力的代理较粗，直接拿这两个数字去预估增建住宅或商业设施的现实效果，会超出实验范围。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>区分出发和到达角色、引入邻区与起讫联系，再用经验规律轻度约束整体分布，改善了英格兰已观测区对的通勤预测。在不预先给出各区实测出发和到达总量的对照中，模型取得最低的整体均方根误差。</p>
+<p>逐区对误差和流量重合度有时会选出不同的模型。在更长距离的通勤区间，随机森林的逐点误差能更低。换成英格兰全目的出行数据时，随机森林也保留了更高的流量重合度。评估一条通勤走廊，仍需看它属于哪一类联系。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>模型把一个片区作为居住地和工作目的地分别看待，就能估计同一段路两个方向上不同的人流，也能检查这些估计是否保留合理的距离衰减。英格兰的结果同时提醒我们，一张通勤网络的大体轮廓可以相当准确，繁忙短途联系之间的强弱差别却仍然难以重现。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p>主分析使用英格兰中层统计区之间的 Home-to-Work 通勤数据。附录还报告了英格兰全目的出行和西安、广州独立网格数据上的比较；中国两市按当地数据训练和检验。<a href="https://doi.org/10.1016/j.scs.2026.107575">期刊论文及附录</a></p>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Minwei Zhao、Dailuo Zhang、Zhecheng Shi、Cai Wu 均署名香港科技大学（广州）城市治理与设计学域，Cai Wu 为通讯作者。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>如果为新片区预测通勤，我会把整个未见片区作为测试，而不是把同一片区的边随机分到训练和测试中。并列比较同等输入条件下的引力基线、图模型及空间距离分组误差；如果总体误差下降而服务不足片区的误差上升，规划时应先承认这个代价。</p>
+<p>假设一条几公里长的公交走廊早高峰总是满员，附近另一条长度相仿的线路却常有空位。城市尺度的预测可能把它们都识别成繁忙短途联系，这足以帮助定位需要调查的区域，却还没有回答该给哪一条线加车。也许一边有集中交班的医院，另一边的上班时间更分散。同样多的通勤者挤在十分钟里，和分散在整个早高峰，对班次的要求会完全不同。这正是总流量地图值得接上站点与时刻信息的地方。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -629,17 +597,13 @@
                 <a href="/posts/7c30e8ab/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="2026-Hidden patterns of urban mixing across five global cities">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Hidden patterns of urban mixing across five global cities">
                         
-                        <span class="card-title">2026-Hidden patterns of urban mixing across five global cities</span>
+                        <span class="card-title">Hidden patterns of urban mixing across five global cities</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            #articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-ti
-                        
-                    </div>
+                    <div class="summary block-with-text">同住一个社区的人，白天接触的收入群体也相同吗？五城出行日记说明，用社区平均收入替代家庭收入，会低估人们在目的地的混合程度。</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2026-11-10
@@ -693,17 +657,13 @@
                 <a href="/posts/2f9a61c4/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="2026-Uncovering the endogenous dynamics of intercity population mobility: Evidence from urban networks in China">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Uncovering the endogenous dynamics of intercity population mobility: Evidence from urban networks in China">
                         
-                        <span class="card-title">2026-Uncovering the endogenous dynamics of intercity population mobility: Evidence from urban networks in China</span>
+                        <span class="card-title">Uncovering the endogenous dynamics of intercity population mobility: Evidence from urban networks in China</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">中国296座城市五年的往来记录显示，一条城际联系能否延续，既与两端城市的条件有关，也与反向联系、共同伙伴和既有往来有关。</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-10

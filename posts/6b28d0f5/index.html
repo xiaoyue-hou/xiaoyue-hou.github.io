@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-On predicting sociodemographics from mobility signals, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="On predicting sociodemographics from mobility signals, 猴猴猴">
+    <meta name="description" content="四轮普吉特湾调查检验了出行记录能透露哪些人群差别，以及模型给出的概率能信到什么程度。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-On predicting sociodemographics from mobility signals | 猴猴猴</title>
+    <title>On predicting sociodemographics from mobility signals | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-On predicting sociodemographics from mobility signals</h1>
+                    <h1 class="description center-align post-title">On predicting sociodemographics from mobility signals</h1>
                 </div>
             </div>
         </div>
@@ -440,46 +440,44 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img {display:block; width:100%; max-width:100%; height:auto; margin:1.25rem auto;} .post-title {overflow-wrap:anywhere;}</style>
 
-<h2 id="从出行看见人群差异，就能判断一个人吗？"><a href="#从出行看见人群差异，就能判断一个人吗？" class="headerlink" title="从出行看见人群差异，就能判断一个人吗？"></a>从出行看见人群差异，就能判断一个人吗？</h2><p>一份出行调查可能发现不同人群的日程在平均上有差别。但从群体曲线反过来判断某个人，需要的证据要强得多。这篇论文对照了调查记录与由轨迹推断的行为摘要，发现模型的局限不只在准确率，还在输入标签和置信度。</p>
-<p>论文名片｜Ekin Uğurel、Cynthia Chen、Brian H.Y. Lee、Filipe Rodrigues，<em>On predicting sociodemographics from mobility signals</em>，Computers, Environment and Urban Systems 127，102420（2026）。<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.compenvurbsys.2026.102420">正式 DOI</a>。</p>
-<h2 id="调查知道的事，移动轨迹未必知道"><a href="#调查知道的事，移动轨迹未必知道" class="headerlink" title="调查知道的事，移动轨迹未必知道"></a>调查知道的事，移动轨迹未必知道</h2><p>研究用普吉特湾 2017、2019 和 2023 年的家庭出行调查，比较年龄、性别、收入和子女数等调查属性与汇总行为指标。调查可能直接记录目的、同行情况和方式；普通移动数据不一定看得见这些信息。两者不能共享同一个性能结论。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/6b28d0f5/fig1.png" alt="完整原论文图1，一日出行有向图示意"></p>
-<p><em>图 1｜把日程写成有向图的示意。节点和连线是行为摘要，不证明掌握了个人属性。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/6b28d0f5/fig2.png" alt="完整原论文图2，六类日出行基序"></p>
-<p><em>图 2｜不同模体概括日程连接结构。结构相同，真实活动和生活背景仍可能不同。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/6b28d0f5/fig3.png" alt="完整原论文图3，结伴比例与多方式比例的计算示意"></p>
-<p><em>图 3｜结伴和多方式都是调查里的行为信息；不应假定普通轨迹也观测到它们。</em></p>
-<h2 id="变化的是样本平均，还是可信的个体预测？"><a href="#变化的是样本平均，还是可信的个体预测？" class="headerlink" title="变化的是样本平均，还是可信的个体预测？"></a>变化的是样本平均，还是可信的个体预测？</h2><p>相关性因任务而异，很多组间差异较弱。加入复杂图特征在部分测试有小幅收益，但更简单的对照也在一些设置表现最好；收入预测的领先幅度尤其应结合类别分布来读。不能用某项准确率掩盖大类占比或跨年份下降。论文另比较打乱与跨时间划分，以及不同条件下模型自报的可信度。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/6b28d0f5/fig4.png" alt="完整原论文图4，共享干线的多任务网络"></p>
-<p><em>图 4｜多任务模型共享部分表示，但各输出仍是不同任务，不能用一个总分概括。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/6b28d0f5/fig5.png" alt="完整原论文图5，出行特征与四类社会人口属性的斯皮尔曼相关"></p>
-<p><em>图 5｜四组相关性对照是观察样本的汇总关联，不能反向用于判断个人。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/6b28d0f5/fig6.png" alt="完整原论文图6，嵌套特征下四项指标的箱线图"></p>
-<p><em>图 6｜多种指标与特征集合的比较；平均成绩、组别差异和误差需要一起看。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/6b28d0f5/fig7.png" alt="完整原论文图7，四个代表性设置的可靠性图"></p>
-<p><em>图 7｜可靠性图对照自报概率与实际命中频率。高置信度不是已经得到核验的个人事实。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/6b28d0f5/fig8.png" alt="完整原论文图8，不同训练比例下多任务、单任务和条件变分自编码器的比较"></p>
-<p><em>图 8｜训练数据比例改变时，几类模型的表现并不同步。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/6b28d0f5/figA10.png" alt="完整原论文图A.10，多任务与四个单任务模型的训练时间"></p>
-<p><em>图 A.10｜附图比较训练用时；运行更快不能补正标签偏差。</em></p>
-<h2 id="输入变粗，与输入变错，不是同一种损失"><a href="#输入变粗，与输入变错，不是同一种损失" class="headerlink" title="输入变粗，与输入变错，不是同一种损失"></a>输入变粗，与输入变错，不是同一种损失</h2><p>论文用不同实验区分粗化调查标签与引入有偏标签。仅把已知正确目的类别合并，在整体指标上变化较小；从轨迹推断标签的偏差则可能改变行为描述。调查中的结伴信息尤其不能假定从普通定位准确获得。由此得到的不是一个可通用的画像模型，而是对观测误差如何进入评估的警告。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/6b28d0f5/fig9.png" alt="完整原论文图9，目的变粗和标签有偏对预测的影响"></p>
-<p><em>图 9｜对比减少标签类别与引入标注偏差；两类信息损失不能互换。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/6b28d0f5/figB11.png" alt="完整原论文图B.11，调查日记与轨迹推断的行为描述子对比"></p>
-<p><em>图 B.11｜调查摘要与轨迹推断摘要的分布对照，提醒两者并非同质输入。</em></p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>在家庭出行调查这一基准上，移动行为与部分人口属性存在群体关联，但预测表现随属性、方法及评估划分变化，许多改进有限。结果不保证普通移动资料也具备同等信息，也不支持个人画像或用于住房等高影响决定。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>研究的价值在于检验移动资料的边界。模型在有详细调查标签时拿到的分数，不能直接搬到只见位置事件的场景。政策或规划若需要了解人群差异，宜用自愿调查及必要的汇总统计，不把未经核验的个体推断当作事实。</p>
+<h2 id="几段相似的行程，背后可能是怎样不同的人？"><a href="#几段相似的行程，背后可能是怎样不同的人？" class="headerlink" title="几段相似的行程，背后可能是怎样不同的人？"></a>几段相似的行程，背后可能是怎样不同的人？</h2><p>Uğurel, E., Chen, C., Lee, B. H. Y., &amp; Rodrigues, F. (2026). On predicting sociodemographics from mobility signals. <em>Computers, Environment and Urban Systems, 127</em>, 102420. <a href="https://doi.org/10.1016/j.compenvurbsys.2026.102420">论文 DOI</a></p>
+<p>早上七点半，一辆车开到学校门口，再继续驶向市中心。坐在车上的可能是上学的孩子、送孩子的家长，也可能是顺路搭车上班的邻居。地图上的路线可以一模一样，出行日记中“为什么来、和谁一起走”的答案却不同。如果交通规划者想知道一条线路服务了哪些人，他们从一串位置记录里究竟能看出多少？</p>
+<p>美国普吉特湾的调查表明，有些日程差异确实与年龄、家庭子女数等属性相伴。为模型加入出行时间、活动组合等信息，在部分测试中有助于区分人群。但模型换到别的年份，或把调查中填报的出行目的改为从定位记录估计，表现就会改变。即便猜中次数增加，模型给出的概率也未必更可信。</p>
+<h2 id="出行日记多记下了哪些事？"><a href="#出行日记多记下了哪些事？" class="headerlink" title="出行日记多记下了哪些事？"></a>出行日记多记下了哪些事？</h2><p>这项研究用普吉特湾区域委员会的家庭出行调查，覆盖西雅图所在的金县及邻近三个县。表 1 中，2017、2019 和 2023 年三轮调查各涉及约 5,100 至 6,000 人。日记让研究者看见同一个人何时出发、到了哪里、为什么出行、怎样到达，以及是否有人同行，又能用受访者自己报告的年龄组、性别、家庭收入组及子女数核对模型。</p>
+<p>研究用有向图（directed graph）整理日程。地点是节点，一段行程是从出发点指向目的地的边。同一个人都有上班、购物、回家三类记录，先回家再出门采购，和下班一路买菜回家，会在图上留下不同的出行次序。调查还可以区分独自出门与结伴。仅有某部设备的经纬度时，同行者尤其难以观察。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/6b28d0f5/fig1.png" alt="一日活动地点、出行方向和交通方式的示意"></p>
+<p>图 1｜圆点代表地点，箭头给出行进方向，编号表示示例行程的先后，粗细反映观测期内到访频率。节点记录哪些活动发生在哪里，边记录人怎样在这些地方之间往返。</p>
+<p>群体差异的强度随所问的属性而变。普吉特湾的样本中，上学行程占比与年龄的等级相关系数约为 −0.50，独自驾车的行程占比与年龄约为 +0.30。对性别，图中最强的一批相关系数的绝对值也没有超过 0.08。同一种日程出现在不同人群里很常见，尤其是后一种情形。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/6b28d0f5/fig5.png" alt="出行行为与四项人口属性的等级相关"></p>
+<p>图 5｜四个面板分别对应年龄、家庭收入、性别和家庭子女数。每行是一项出行指标，横轴是 Spearman 等级相关系数；向左与向右分别是负、正相关。各面板横轴范围不同，应看刻度再比较强弱。</p>
+<h2 id="模型明明猜对了，为什么还要检查它有多确信？"><a href="#模型明明猜对了，为什么还要检查它有多确信？" class="headerlink" title="模型明明猜对了，为什么还要检查它有多确信？"></a>模型明明猜对了，为什么还要检查它有多确信？</h2><p>模型为四项任务分别给出各类别的概率。研究从日记中直接统计的方式和目的占比出发，逐步加入出发时间、距离、活动多样性、日程连接方式和同行情况，比较增加哪些信息有帮助。混合年份的测试把三轮调查合在一起再留出测试样本；跨年份测试则在 2017、2019 年训练和验证，留到 2021 和 2023 年考查。2021 年仅用于跨年份测试，该轮额外招募的自愿网络样本未纳入。</p>
+<p>在混合年份测试中，较丰富的描述常能让模型更好地区分类别。跨年份时，收益更不稳定，有些任务用较简单的输入反而更好。调查记录了整套行为，即使模型从中学到一种关联，在出行条件已经变化的年份，这种关联也可能变弱。</p>
+<p>如果一个模型对一批回答都给出“六成把握”，其中大致六成答对，才称得上在这一档有良好的概率校准（calibration）。假设它始终把六成写成八成，选中的类别可以完全相同，但按这些概率计算的人数会变。反过来，过度保守也会使概率与实际正确率脱节。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/6b28d0f5/fig7.png" alt="模型置信度与同一置信度区间内的实际正确率"></p>
+<p>图 7｜横轴是模型选中类别时给出的概率，蓝柱高度是该档实际正确率，灰柱按右轴表示样本数。虚线是两者相等的位置。看下排左图，一些蓝柱明显高于虚线，但灰柱很低，读数时也要顾及该档有多少人。</p>
+<p>图中的上排是年龄任务，下排是家庭子女数任务。换一种行为特征组合，某些概率区间的模型会低估自己的正确率，其他区间则可能高估。只报告最高概率类别有多少猜对，无法告诉使用者这些概率可不可以拿来汇总人群。</p>
+<h2 id="样本少时，四个问题一起学会怎样？"><a href="#样本少时，四个问题一起学会怎样？" class="headerlink" title="样本少时，四个问题一起学会怎样？"></a>样本少时，四个问题一起学会怎样？</h2><p>四项任务有部分共用的信息，因此可以让四个模型各学各的，也可以让一个网络共用前面学习行为特征的部分，最后分四个出口分别作答。研究把训练数据从全量逐步缩减到千分之一，对比这种多任务学习（multitask learning）、四个单任务模型和一个生成式对照模型。</p>
+<p>训练样本充足、测试年份混合时，三类模型的平均正确率和区分能力相近。样本减少后，共用特征的模型在若干指标上更有优势。跨年份测试中，它在多数训练比例下的平均正确率也较高。比较取的是四项任务的平均，不能据此断定对每一种属性、每个年份合并训练都更好。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/6b28d0f5/fig8.png" alt="训练样本逐步减少时三类模型的测试表现"></p>
+<p>图 8｜上排为混合年份测试，下排为跨年份测试。横轴从左到右是从千分之一到全部的训练数据。蓝线是多任务模型，橙线是单任务模型，绿线为生成式模型。左两列的正确率、区分能力越高越好，右两列的概率损失、校准误差越低越好。</p>
+<h2 id="把问卷换成手机轨迹，会损失哪一层信息？"><a href="#把问卷换成手机轨迹，会损失哪一层信息？" class="headerlink" title="把问卷换成手机轨迹，会损失哪一层信息？"></a>把问卷换成手机轨迹，会损失哪一层信息？</h2><p>研究选出既有出行日记、又有 GPS 轨迹的参与者，将两种情况拆开比较。第一种仅把调查中已知的 14 类目的合并成 7 类，保留原来填报的信息。四项任务的平均正确率约下降 0.003，即 0.3 个百分点，区分类别的指标 AUROC 平均下降约 0.011。即使没有把一次出行猜错，较粗的分类也会带走一点有用差别。</p>
+<p>第二种保持同一套 7 类口径，用各人的 GPS 推断目的比例替换调查比例。这样的替换也损伤了模型区分类别的能力，以及它为真实类别分配概率的表现。两项比较揭示了不同的损失来源：一类来自标签合并，另一类来自把目的推断错。它们发生在同一地区的配对子样本中，不能当作其他城市或商业定位数据必然产生的损失幅度。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/6b28d0f5/fig9.png" alt="调查目的合并与用轨迹目的替换时的性能变化"></p>
+<p>图 9｜上排橙柱与绿柱比较调查目的分成 14 类或 7 类；下排在同一较粗分类下比较原调查与替换为 GPS 推断目的比例的输入。蓝柱是 GPS 对照。每列纵轴范围不同，柱高表示四项任务的平均指标。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>普吉特湾出行日记中，某些行为与年龄、家庭子女数的关联比与性别的关联明显。时间、活动组合和同行情况能为部分任务增加信息，收益受测试年份和样本量影响。</p>
+<p>四项任务共享行为特征，在训练样本较少时尤其有帮助，但预测类别的能力与概率校准要分别检验。轨迹推断出的活动目的进入模型时，上游分类过粗或目的误判，都可能传递到人口构成估计。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这项研究用有自报人口属性的出行调查检验，从行为记录反推人群构成能走多远。它发现可用信号随属性而异，混合年份表现较好的模型换到后续年份未必保持优势，模型说有多大把握也要拿实际正确率检验。要把调查中的发现用于定位数据，必须留意调查直接问到了哪些行为，而轨迹中哪些行为还得另外估计。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.compenvurbsys.2026.102420">正式论文</a>：本地出版 PDF，正文图 1–9 与 A.10、B.11。图版公开复用须核许可。</li>
+<li>Uğurel 等（2026）报告三轮常规调查的样本、跨年份测试、概率校准和 GPS 对照。<a href="https://doi.org/10.1016/j.compenvurbsys.2026.102420">期刊论文</a></li>
+<li>普吉特湾区域委员会（Puget Sound Regional Council）提供家庭出行调查。研究用受访者报告的人口属性与出行日记建立对照，并在有配套轨迹的子样本中检查推断误差。</li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Ekin Uğurel 为第一作者和通讯作者，与 Cynthia Chen、Brian H.Y. Lee、Filipe Rodrigues 合作完成研究；署名机构包括纽约大学、华盛顿大学、普吉特湾区域委员会和丹麦技术大学。</p>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>Ekin Uğurel（纽约大学技术管理与创新系）为第一作者和通讯作者，负责数据整理、建模、分析及初稿。Cynthia Chen 署名华盛顿大学土木与环境工程系，Brian H. Y. Lee 署名普吉特湾区域委员会，Filipe Rodrigues 署名丹麦技术大学技术、管理与经济系。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>做交通公平评估时，可以将自愿调查中已有的群体信息在足够大的统计单元内与服务供给对照，并报告缺失与抽样误差。如果一个结论只在标签极详细的样本成立，不应假设扩大轨迹样本就能补齐缺失信息。</p>
+<p>一条公交线调整了晚班时刻，规划人员想知道带孩子的家庭有没有得到更方便的服务。假如乘客构成是用日程推算的，这次调班本身就有可能改变“接孩子后再回家”在记录里呈现的时间和次序。于是，地图上这类家庭的估计人数变少，至少有两种可能：他们真的换了线路，或者他们仍在车上，只是新日程不再像模型熟悉的那一类。新时刻表实施后的乘客调查，最值得问的或许正是那些仍坐同一班车、日常安排却已经改变的人。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -611,17 +609,13 @@
                 <a href="/posts/c5e17a83/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="2026-Population heterogeneity of the impact caused by temporal sampling intervals on typical human mobility indicators using mobile phone location data">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Population heterogeneity of the impact caused by temporal sampling intervals on typical human mobility indicators using mobile phone location data">
                         
-                        <span class="card-title">2026-Population heterogeneity of the impact caused by temporal sampling intervals on typical human mobility indicators using mobile phone location data</span>
+                        <span class="card-title">Population heterogeneity of the impact caused by temporal sampling intervals on typical human mobility indicators using mobile phone location data</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">手机每隔两小时才留下一个位置，会漏掉奔波者的短停，还是漏掉平时少出门的人偶尔走远的一次？深圳轨迹显示，答案取决于你计算哪个出行指标。</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2026-11-10
@@ -671,17 +665,13 @@
                 <a href="/posts/a91e4c27/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="2026-Spatial distribution of foot traffic in New York City and applications for urban planning">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Spatial distribution of foot traffic in New York City and applications for urban planning">
                         
-                        <span class="card-title">2026-Spatial distribution of foot traffic in New York City and applications for urban planning</span>
+                        <span class="card-title">Spatial distribution of foot traffic in New York City and applications for urban planning</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">把人流加进纽约步行地图，皇后区哪些街段比规划等级更忙？按过街人流校正后，哪些路口的受伤指标更突出？</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-10

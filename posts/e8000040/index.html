@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-Pedestrian Trajectory Dataset of Public European Squares, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="Pedestrian Trajectory Dataset of Public European Squares, 猴猴猴">
+    <meta name="description" content="39个欧洲广场的34.8万条行人轨迹，能说明哪里常有人经过。要知道谁留下来歇脚，还要看静止的人有没有被持续跟住。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-Pedestrian Trajectory Dataset of Public European Squares | 猴猴猴</title>
+    <title>Pedestrian Trajectory Dataset of Public European Squares | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-Pedestrian Trajectory Dataset of Public European Squares</h1>
+                    <h1 class="description center-align post-title">Pedestrian Trajectory Dataset of Public European Squares</h1>
                 </div>
             </div>
         </div>
@@ -432,43 +432,32 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h2 id="摄像头认出了人，为什么可能还是数错广场上的访客？"><a href="#摄像头认出了人，为什么可能还是数错广场上的访客？" class="headerlink" title="摄像头认出了人，为什么可能还是数错广场上的访客？"></a>摄像头认出了人，为什么可能还是数错广场上的访客？</h2><p>两个人走进广场：一个从斜对角穿过去，一个在长椅上坐了十分钟。摄像头在很多帧里都能认出他们，却可能在有人经过长椅、挡住画面的那几秒丢掉原来的编号。系统把重新出现的人当成新访客，结果一个人的长停留变成几段短停留。</p>
-<p><strong>论文名片｜</strong> Nils Wolff、Layne Perry、Titus Venverloo、Geertje Slingerland、Jessica Wreyford、Paolo Santi 和 Fábio Duarte，<em>Pedestrian Trajectory Dataset of Public European Squares</em>，<em>Scientific Data</em>，2026，13:402。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-026-06686-6">正式论文</a></p>
-<p>这篇数据论文公开了 <strong>39 个欧洲广场、约 34.8 万条机器提取的行人轨迹</strong>。能不能用它比较广场，关键不只是样本规模。论文把三件事分开检查：每一帧能不能找到人、相邻帧能不能一直跟住同一个人、像素位置能不能放到地图上的正确地方。结论很直观：<strong>在抽样验证中，检测精确率超过九成，静止轨迹却没有一条被评为完整。</strong></p>
-<h2 id="39-个广场和-193-小时视频，代表怎样的使用场景？"><a href="#39-个广场和-193-小时视频，代表怎样的使用场景？" class="headerlink" title="39 个广场和 193 小时视频，代表怎样的使用场景？"></a>39 个广场和 193 小时视频，代表怎样的使用场景？</h2><p>团队先在公开网络摄像头目录里找能清楚俯看广场、可录制且帧率和画面质量足够的点位。并不是先随机抽取广场，再去布置摄像头；合适的取景决定了哪些地方能进入样本。可比性采集计划是每处录四次半小时，分别为工作日早晨、午间、傍晚和周六午间，尽量避开雨天、集市和游行。另在 Assisi、Biberach、Celanova、Varberg 四处做季节采集，允许更宽的天气条件。</p>
-<p>正式版报告约 193 小时视频、391 条录制；全库精确总数在不同位置分别写作 348,300、348,200 和 348,254，本文只采用约 34.8 万。跨地点对比不能自动按“每处四次、每次完全一样长”处理，尤其应在所下载版本核对实际记录、时段和有效时长。天气、座椅与广场面积可以帮助描述场地，但这不是识别某一设施使人停留多久的实验。</p>
-<h2 id="从画面到路径，系统在哪一步把人连起来？"><a href="#从画面到路径，系统在哪一步把人连起来？" class="headerlink" title="从画面到路径，系统在哪一步把人连起来？"></a>从画面到路径，系统在哪一步把人连起来？</h2><p><img src="/posts/e8000040/fig1.webp" alt="图 1：视频、行人检测、像素轨迹及配准后的轨迹"></p>
-<p><strong>图 1｜从左往右看四步。</strong> a 是画面、b 是检测框、c 是按像素串起来的轨迹、d 是放到地理坐标中的结果。图里的红线由系统生成，不是人工逐步测量出的脚印。</p>
-<p>团队先把视频统一为 1,280 × 720、每秒 15 帧，并用掩膜限制研究区域。行人框由用 CrowdHuman 定制训练的 YOLOv10l 提取。与原有预训练 YOLOv10l 相比，在文中检测验证集上，精确率由 <strong>0.679 到 0.871</strong>，召回率由 <strong>0.419 到 0.684</strong>。与另一种 CrowdHuman 预训练配置相比，它不是每项都最好；检测框的成绩本来也不衡量同一个人能被认多久。</p>
-<p><img src="/posts/e8000040/fig2.webp" alt="图 2：YOLO 检测与 ByteTrack 多目标跟踪流程"></p>
-<p><strong>图 2｜先找框，再给编号。</strong> YOLO 看单帧里哪里像有人，ByteTrack 把前后帧的候选框连起来。一个编号只是跟踪算法暂时认为是同一个对象，不能据此把不同片段去重成自然人。</p>
-<p>树、路人或摄像条件变化都可能引起断轨。常见的两种错误方向相反：一个人拿到多个 ID，或者一个 ID 被接到了不同人身上。前者容易多算访客、低估停留，后者可能把本来无关的移动拼在一起。两种都不会只靠提高单帧检测精确率消失。</p>
-<h2 id="像素移动一米和地图上一米，怎么对应？"><a href="#像素移动一米和地图上一米，怎么对应？" class="headerlink" title="像素移动一米和地图上一米，怎么对应？"></a>像素移动一米和地图上一米，怎么对应？</h2><p>画面近处，走一米可能跨过几十像素；在远处，同一距离只移动几个像素。作者用广场上可见的固定点与俯视底图对应，通过单应性变换把近似平坦的地面映射到地图。每个广场单独校准。行人框的底边中心用来近似脚点，变换后提供地理坐标。</p>
-<p><img src="/posts/e8000040/fig3.webp" alt="图 3：斜视图中固定特征与卫星底图的对应"></p>
-<p><strong>图 3｜红箭头连的是同一固定特征，不是行人的行走方向。</strong> 角度、坡度、看不清的远端点位都会影响变换；地理坐标不能使所有点自动有一样精度。</p>
-<p><img src="/posts/e8000040/fig4.webp" alt="图 4：轨迹清洗、平滑、坐标转换和输出"></p>
-<p><strong>图 4｜关注短段删除、平滑和降采样。</strong> 原始不足 30 个点、约两秒的短轨迹会被删，广场边界外点被排除，最后保留约每秒两点。较少抖动有助于读大致路径，但短暂经过、急转和局部速度也可能受处理影响。使用最终文件时，别把相邻行当成隔着 1/15 秒。</p>
-<h2 id="三道验证，分别通过了多少？"><a href="#三道验证，分别通过了多少？" class="headerlink" title="三道验证，分别通过了多少？"></a>三道验证，分别通过了多少？</h2><p>第一道是<strong>逐帧识别</strong>。人工核查的 50 帧至少覆盖每处广场一帧；把样本中的检测合在一起，精确率为 <strong>93.8%</strong>，召回率为 <strong>92.8%</strong>。前者问框出来的有多少真是人，后者问真实行人有多少被框出来。表现好的帧占多数，却不是每一帧都好。</p>
-<p><img src="/posts/e8000040/fig5.webp" alt="图 5：50 帧人工核查的检测精确率和召回率分布"></p>
-<p><strong>图 5｜左边是精确率，右边是召回率。</strong> 靠近零的少量样本提醒读者：空场里一个雕像误检，或只有一人时恰好漏掉，就可能让该帧的某个指标很差。</p>
-<p>第二道是<strong>轨迹完整性</strong>。作者按四个时长层各抽 50 条，共 200 条，不是按原库比例抽样。在人工判定有效的 182 条中，131 条属移动、51 条属静止。移动样本 <strong>56.5%</strong> 完整；静止组没有一条完整。合在一起，全部有效样本完整率为 <strong>40.7%</strong>。这是分层抽样的审核结果，不能直接外推成全库任意一条轨迹的概率；部分分层和汇总口径也不宜混着推算。</p>
-<p><img src="/posts/e8000040/fig6.webp" alt="图 6：三个广场按持续时间分组的轨迹"></p>
-<p><strong>图 6｜三行是三个广场，三列是 10–50、50–100 和超过 100 秒的轨迹。</strong> 红线展示机器输出。短红线不一定是短停留，也可能是长停留只留下的一段。</p>
-<p>第三道是<strong>地理配准</strong>。在两处验证广场，Zlín 的平均误差为 <strong>0.3 米</strong>（范围 0–2.2 米）；Ozórkow 为 <strong>2.58 米</strong>（1.5–10.9 米）。规则铺装的对应点较好识别，但这里验证的只是两个广场的固定特征，不是全部 39 处场地、所有行人点的实测定位。</p>
-<p><img src="/posts/e8000040/fig7.webp" alt="图 7：两个广场的配准误差可视对照"></p>
-<p><strong>图 7｜橙点为目标位置，蓝三角为变换后位置，绿圆为参考点。</strong> 左右差别提醒研究者：即使都提供经纬度，分析人与座椅、台阶或边缘相距多少时，也要看当地的校准条件。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>这份公开数据把不同广场的行人路径放进同一套可重用流程，提供原始及处理后的轨迹、空间边界与变换等资源。它适合为可见区域内的穿行路径和空间使用方式提供比较素材；对停留时间、唯一访客数或靠得很近的相互作用，需要先验证误差是否足以改变结论。</p>
-<p>论文没有把机器轨迹当成人工真值，也没有证明设施对广场活力的因果效应。开始实证分析前，先固定数据版本、记录时段及清洗规则，再分别核对检测、跟踪和地理位置，不要用其中一个好看的指标代替另外两个。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>研究用 39 个欧洲公共广场的固定摄像视频跟踪并地理配准行人。抽帧核验的检测精确率为 93.8%，但被人工核验的移动轨迹仅约 56.5% 完整，静止轨迹更容易丢失。因此数据适合在口径一致时比较广场内移动分布，不能把轨迹 ID 直接当作人数，跨广场时还要检查录制和配准差异。</p>
-<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p>Wolff, N., Perry, L., Venverloo, T., Slingerland, G., Wreyford, J., Santi, P., &amp; Duarte, F. (2026). <em>Pedestrian Trajectory Dataset of Public European Squares</em>. <strong>Scientific Data</strong>, 13, 402。<a target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12999984/">正式全文（PMC）</a> · <a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-026-06686-6">DOI</a> · <a target="_blank" rel="noopener" href="https://doi.org/10.5281/zenodo.18267205">Zenodo 数据 v1.1</a> · <a target="_blank" rel="noopener" href="https://doi.org/10.5281/zenodo.18266937">处理代码归档</a>。本文图 1–7 均为原论文对应图；论文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>，另标第三方权利的素材依原图说明。</p>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>论文由 Nils Wolff、Layne Perry、Titus Venverloo、Geertje Slingerland、Jessica Wreyford、Paolo Santi 和 Fábio Duarte 合作完成，Wolff 与 Duarte 为通讯作者。按正式版署名，作者团队关联麻省理工学院 Senseable City Laboratory、代尔夫特理工大学、瓦赫宁根大学及阿姆斯特丹高级都市解决方案研究所。</p>
+<h2 id="一个人在长椅上坐了十分钟，会在广场地图上留下一条怎样的线？"><a href="#一个人在长椅上坐了十分钟，会在广场地图上留下一条怎样的线？" class="headerlink" title="一个人在长椅上坐了十分钟，会在广场地图上留下一条怎样的线？"></a>一个人在长椅上坐了十分钟，会在广场地图上留下一条怎样的线？</h2><p>Wolff, N., Perry, L., Venverloo, T., Slingerland, G., Wreyford, J., Santi, P., &amp; Duarte, F. (2026). Pedestrian Trajectory Dataset of Public European Squares. <em>Scientific Data, 13</em>, 402. <a href="https://doi.org/10.1038/s41597-026-06686-6">论文 DOI</a></p>
+<p>看一眼广场的照片，你大概能找到坐在椅子上的那个人。可要回答“他坐了多久”，就得从他坐下看到他离开。中间有路人走过，挡住镜头几秒。等他再次出现在画面里，你还记得是他，跟踪软件却可能已经给他换了编号。</p>
+<p>一项覆盖 39 个欧洲公共广场的研究，恰好检验了这两种判断差多远。软件在抽查的画面里找出了九成以上的人；回看整段视频时，走动的人有过半能留下一条完整轨迹，坐着或站着的人却最容易被跟丢。这决定了同一份数据适合拿来回答广场里的哪些问题。</p>
+<h2 id="一条红线记录了什么？"><a href="#一条红线记录了什么？" class="headerlink" title="一条红线记录了什么？"></a>一条红线记录了什么？</h2><p>如果甲广场靠研究员现场数人，乙广场靠市民自愿上传运动记录，两地的差别可能来自谁被看到了。研究团队为此筛选了画质和视角合适的公开摄像头，按相同办法采集并处理录像。跨广场比较选择工作日早晨、午间、傍晚与周六午间，计划每次记录半小时，尽量避开集市、游行和雨天。另外四个广场有跨季节的重复观测，也包含不同天气。两部分合计约 193 小时视频，得到了约 34.8 万条处理后的轨迹。</p>
+<p>看图 1，最关键的一步在 b 和 c 之间。软件先在一帧画面里框出行人，再判断下一帧的哪个框属于刚才那个人。只有一连串框都接对了，起点到终点才是一条完整的路径。最后，研究者用广场上的固定地物把像素坐标换算到地图上，远近不同的两段路才能用米来比较。公开数据里的编号标记的是软件接起来的一段观测。</p>
+<p><img src="/posts/e8000040/fig1.webp" alt="把视频中的行人框连成路径再映射到广场地图"></p>
+<p>图 1｜沿 a 到 d 看同一处广场。a 是原始画面，b 给单帧中的行人加框，c 把连续画面里的位置连成红线，d 将这些线放到实际场地的地图上。</p>
+<p>这些路径可以叠起来，看广场中间有没有常走的斜线，某个出入口是否连接两条步行路线。但摄像头能看清的地方才有机会进入样本。要拿两座广场作比较，还需对齐观察时段和可见范围。</p>
+<h2 id="看见了人，为何还会低估他停留的时间？"><a href="#看见了人，为何还会低估他停留的时间？" class="headerlink" title="看见了人，为何还会低估他停留的时间？"></a>看见了人，为何还会低估他停留的时间？</h2><p>研究者先抽查了 50 帧画面，确保每个广场至少出现一次。他们逐帧数人，发现软件画出的行人框中，93.8% 确实框住了人；从人工找到的所有人往回看，92.8% 被软件检出。前一个比例告诉我们会不会认错，后一个告诉我们有没有漏人。</p>
+<p>检验停留时间要换一种抽查方式。团队按轨迹时长分成四组，每组抽 50 条，再回到原视频逐条看。200 个编号里，182 个确实对应行人。131 条属于走动的人，其中 56.5% 用一个编号覆盖了这个人在视野中的整段路径。另有 51 条属于坐着或站着的人，其中完整的是 0 条。</p>
+<p>作者给出一种解释：跟踪器依赖运动线索。一个人走进遮挡物后，先前的方向和速度能帮助系统在他再次出现时接上编号；坐着的人被挡住时，能用的运动信息少得多。假如一段停留被拆成三条线，把每个编号算作一次来访，就可能高估来访次数，同时低估每次停留的时长。四组轨迹在核验时抽得一样多，库中各组数量却不同，因此这组结果最适合说明哪些行为容易漏记。</p>
+<h2 id="线落到了地图上，能分清长椅和台阶吗？"><a href="#线落到了地图上，能分清长椅和台阶吗？" class="headerlink" title="线落到了地图上，能分清长椅和台阶吗？"></a>线落到了地图上，能分清长椅和台阶吗？</h2><p>这还取决于画面位置能否准确换算成地面位置。团队在两处广场用固定地物做对照。在铺装纹路规整的捷克兹林（Zlín），论文报告的平均误差约为 0.3 米；在可供对照的地物较不规则的波兰奥佐尔库夫（Ozórkow），平均误差约为 2.6 米。几米的偏差对辨认穿越广场的大方向可能影响有限，对判断人走在台阶上还是旁边却很要紧。这项精度核验只覆盖两处广场。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>统一的采集和处理方式，让研究者可以在多个广场比较行人常从哪里经过。单帧抽查显示，多数行人能够被检测出来，持续跟踪的难度却因行为而异，尤其容易断掉的是坐着或站着的人的轨迹。</p>
+<p>要估算长时间停留、到访人数，或人与某项设施的距离，各自需要不同的核验。前两项取决于编号能连续保持多久，最后一项还取决于场地的地图配准精度。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这份数据的价值在于，可以用同一种方法观察 39 处广场怎样被使用，也能用作者的人工抽查判断该相信什么。约 34.8 万条轨迹能勾出广场上的通行路线；想知道有多少人停下来、停了多久，还得回到那些最容易在自动跟踪时消失的人。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li>行人检测、轨迹完整性与地面坐标误差见论文技术验证部分。<a href="https://doi.org/10.1038/s41597-026-06686-6">原论文</a></li>
+<li>轨迹、场地资料、两类采集的统计表与使用说明收录于公开数据集。<a href="https://zenodo.org/records/18267205">Zenodo 数据 v1.1</a></li>
+</ul>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Nils Wolff 和 Fábio Duarte 是通讯作者，均署名麻省理工学院 Senseable City Laboratory，Wolff 也署名代尔夫特理工大学。Layne Perry 署名麻省理工学院和瓦赫宁根大学及研究中心，Titus Venverloo 署名麻省理工学院和阿姆斯特丹先进都市解决方案研究所。Geertje Slingerland 署名代尔夫特理工大学，Jessica Wreyford 署名瓦赫宁根大学及研究中心，Paolo Santi 署名麻省理工学院。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>假设市里要决定是否保留广场树下的长椅。追踪系统若老是丢掉坐着的人，可能一边记录“这里来的行人很多”，一边显示“每个人都很快离开”。偏偏要保护的那种使用方式，在统计里最容易消失。路径图可以先帮工作人员挑出常见入口和穿行路线；至于椅子到底有没有提供休息价值，更适合把阴影下的静止区域单独观察一段，而不是直接按轨迹 ID 结算停留分钟。</p>
+<p>设想城里准备翻修广场，需要决定哪块地方留给步行、哪块地方留给休息。地图上最醒目的可能是一条密密麻麻的斜线，沿线的人走得快，软件也跟得稳。旁边有树荫的角落只有几段短线，那里或许恰好有人在坐。规划人员可以顺着斜线看通道是否够宽，也可以特意在树下坐一会儿，看哪里有人等朋友、歇脚或陪孩子玩。能让人安静坐下的角落，可能恰恰需要另一种观察方式才看得见。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             

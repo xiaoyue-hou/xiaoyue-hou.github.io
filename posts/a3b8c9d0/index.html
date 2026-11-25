@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-Generative AI in urban science and practice, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="Generative AI in urban science and practice, 猴猴猴">
+    <meta name="description" content="合成出行轨迹能改善活动预测，模拟居民也能讨论规划。两个结果各自证明了什么？这篇综述从测量、模拟和决策三处回答。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-Generative AI in urban science and practice | 猴猴猴</title>
+    <title>Generative AI in urban science and practice | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-Generative AI in urban science and practice</h1>
+                    <h1 class="description center-align post-title">Generative AI in urban science and practice</h1>
                 </div>
             </div>
         </div>
@@ -436,30 +436,33 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img { display: block; max-width: 100%; height: auto; margin: 1.25rem auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h2 id="补全一张城市地图，算不算多知道了一件事？"><a href="#补全一张城市地图，算不算多知道了一件事？" class="headerlink" title="补全一张城市地图，算不算多知道了一件事？"></a>补全一张城市地图，算不算多知道了一件事？</h2><p>一张无云的卫星图、一批模拟出行记录和一份规划说明，可能都由生成式 AI 帮忙完成。第一份改变了我们能看到什么，第二份提出了城市可能怎样运行，第三份帮助人讨论该做什么。三件事并不需要同一种证据：生成得像，不代表补出了实测，也不代表方案有效。</p>
-<p>Yunke Zhang、Fengli Xu 等在 <em>Nature Cities</em> 的综述 <em>Generative AI in urban science and practice</em>（2026 年 8 月 5 日在线，3:688–699，<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s44284-026-00492-2">正式 DOI</a>）把这些用途放进感知、建模和决策的工作流。这是一篇综述，图里的案例是作者用来组织证据的例子，不是同一套新实验。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/a3b8c9d0/fig1.png" alt="完整原论文图1，生成式人工智能进入城市感知、建模与决策的概念图"></p>
-<p>图 1｜分布拟合模型与基础模型接入城市感知、建模和决策；科学研究与城市实践在中间交换证据。</p>
-<h2 id="观测补得更完整，不等于实际测得更多"><a href="#观测补得更完整，不等于实际测得更多" class="headerlink" title="观测补得更完整，不等于实际测得更多"></a>观测补得更完整，不等于实际测得更多</h2><p>生成模型可以补缺、增加训练数据或辅助解释图像和文本；问题在于需要验证的是下游目的，而不只是视觉效果。比如补全影像时，除了比较已知区域的重建误差，还应留出真正独立的实测区域，检查缺测最严重的地区是否也受益。论文图 2 的示例有特定任务与指标，不能推出所有城市或人群都能获得一样的改善。合成数据尤其不能默认无隐私风险，也不能默认为代表性不足的地区提供了新观测。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/a3b8c9d0/fig2.png" alt="完整原论文图2，生成式人工智能增强城市感知"></p>
-<p>图 2｜左上是多源城市观测，右上是生成式增强方式；下方两个案例分别显示任务表现和不同城市语义任务的指标。</p>
-<h2 id="模拟能帮忙比较情景，但不能替人做决定"><a href="#模拟能帮忙比较情景，但不能替人做决定" class="headerlink" title="模拟能帮忙比较情景，但不能替人做决定"></a>模拟能帮忙比较情景，但不能替人做决定</h2><p>在建模一侧，生成式系统既可当作耗时模拟的近似，也可在数字环境中表达人或组织的可能行为。两者应分开验证：物理过程要检查物理一致性和极端条件；行为模拟要与独立数据对照，不能仅凭语言流畅就把模型视为市民。拟合过去也不等于知道政策改变之后会发生什么。</p>
-<p>决策侧有不同的工作时钟。应急响应重视在有限时间内说明不确定性，日常管理需要反复核查效果，长期规划则涉及公平、预算和利益冲突。模型可以生成备选情景和帮助人阅读证据，但哪种代价值得接受，最终仍需由负责决策的人说明。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/a3b8c9d0/fig3.png" alt="完整原论文图3，生成式人工智能参与城市决策的三个时间尺度"></p>
-<p>图 3｜应急管理、城市治理与规划设计的代表性用例；这些案例不是用同一指标比较出来的优胜方案。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>这篇综述把生成式 AI 在城市科学与实践中的能力对应到三类证据任务。数据增强需与独立观测比较，模拟需检查机制、适用条件及不确定性，决策辅助要保留人工审查与公共问责。案例说明这些工具各有用途，但没有验证一套系统能端到端替代城市研究与治理全过程。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>我会把这篇综述读成三个检查问题：地图补出来的内容，是否经得起独立观测核对？模拟出的变化，能不能在别的场景成立？模型提出的方案，最后由谁权衡和负责？把这三件事分开，比笼统讨论生成式 AI 能不能“改造城市”更有用。</p>
+<h2 id="AI-补出了一幅城市地图，我们对这座城市多知道了什么？"><a href="#AI-补出了一幅城市地图，我们对这座城市多知道了什么？" class="headerlink" title="AI 补出了一幅城市地图，我们对这座城市多知道了什么？"></a>AI 补出了一幅城市地图，我们对这座城市多知道了什么？</h2><p>Zhang, Y., Xu, F., Wang, Q. R., et al. (2026). Generative AI in urban science and practice. <em>Nature Cities, 3</em>, 688–699. <a href="https://doi.org/10.1038/s44284-026-00492-2">论文 DOI</a></p>
+<p>一场暴雨过后，假设值班人员拿到一张积水图。几条街有水尺读数，另外几条街没有传感器，模型根据降雨与周边地形填上了颜色。如果只看成图，两种颜色一样清晰。但要安排人去查看哪条路，值班人员得知道哪些水深有人量过、哪些是模型估的，以及雨下得比往年更大时这些估计还靠不靠谱。</p>
+<p>这篇综述把生成式 AI 在城市里的用途串成三个问题：能否从零散的记录中看清城市，能否模拟没见过的情景，以及人们可以据此做什么决定。作者梳理的是不同团队的研究。把它们放在一起，最值得看的是，同一个看起来合理的输出，到了下一步还缺哪一种证据。</p>
+<h2 id="补足训练材料后，真实任务做得更好吗？"><a href="#补足训练材料后，真实任务做得更好吗？" class="headerlink" title="补足训练材料后，真实任务做得更好吗？"></a>补足训练材料后，真实任务做得更好吗？</h2><p>人们的出行调查很费工，少量日记往往装不下生活中各种活动次序。一种做法是让模型从已有记录里学习活动的规律，再生成一批可能的记录，和原数据一起训练预测模型。这样做有没有价值，可以用一个实在的问题来检验：在同样多的真实数据下，加上合成记录，活动预测做得更好吗？</p>
+<p>综述引用的一项研究分别取了 50、100 和 1,000 条真实活动序列，每组都额外加入 1,000 条合成序列。图 2c 中，在每一组样本量下，加上合成数据后的 F1 分数都高于只用真实数据。F1 同时考虑预测出的活动有多少是对的，以及应识别的活动有多少被找到了。以 1,000 条真实序列为例，图上的分数约从 0.29 升到 0.37。这个结果说明额外训练材料能帮助这一项预测任务。至于训练材料原本就很少记录的夜班出行是否也补得好，还得找到真实的夜班记录才能判断。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/a3b8c9d0/fig2.png" alt="生成数据辅助活动预测和街景指标估计的对照"></p>
+<p>图 2｜a、b 列出城市观测来源与生成模型的用途。c 的横轴是真实样本数，纵轴为 F1 分数；在同一组内比较蓝柱和红柱。d 把任务换成从街景估计不平等相关指标，纵轴也换成准确率，各组颜色表示不同的模型设置。</p>
+<p>图 2d 提出了另一层问题。街景能让模型看到房屋和街道的外观，收入分布却要从其他资料中取得参照。模型更准确地估出了某个指标，可以支持研究者用它筛选值得进一步调查的地方。要判断一户人家的收入、或某项分配政策是否公平，仍需与问题相称的家庭或制度资料。</p>
+<h2 id="从补一张图，到模拟下一场雨，中间差了什么？"><a href="#从补一张图，到模拟下一场雨，中间差了什么？" class="headerlink" title="从补一张图，到模拟下一场雨，中间差了什么？"></a>从补一张图，到模拟下一场雨，中间差了什么？</h2><p>在积水研究中，水动力模型可以根据地形、降雨等条件推演水往哪里流。要试许多种降雨情景，反复运行可能很慢。一类生成模型学习这些模拟结果，之后能更快给出可能的积水分布。研究者可以花同样的时间比较更多情景，再挑出要细算的几种。检验这类工具，要拿模型没见过的水深观测或可信的水动力模拟作对照，还要看罕见暴雨时误差会多大。</p>
+<p>换成人，验证办法也得换。语言模型可以扮演不同居民，给出听起来合理的行动和理由。要知道这些行为是否贴近当地居民，研究者需要独立的出行观测或行为实验来校验。如果模拟中的所有居民都同意某个方案，这个结果首先告诉我们模拟怎样运转。现实中的分歧仍要由真实居民表达。</p>
+<h2 id="在电脑里开一场居民议事会，谁在给方案打分？"><a href="#在电脑里开一场居民议事会，谁在给方案打分？" class="headerlink" title="在电脑里开一场居民议事会，谁在给方案打分？"></a>在电脑里开一场居民议事会，谁在给方案打分？</h2><p>综述引用了一项以北京两个片区为背景的规划研究。在实验里，语言模型分别扮演规划师和背景各异的居民。模拟居民提出自己最需要的几类设施，讨论土地利用方案，模拟规划师再据此修改图纸。研究者计算这些角色所需的设施中，有多少类能在住处 500 米内找到，把这个比例作为“满意度”。在回龙观的案例里，从讨论一轮增加到三轮，这个指标从约 74% 升到 79%。</p>
+<p>这个变化有清楚的含义：把模拟居民的意见多交换几轮，画出的设施布局更贴近这些角色所提的需求。当地居民本人会提出哪些诉求、是否赞同图纸上的取舍，要靠实际参与才能知道。综述强调，工具进入真实决策后，居民应能追问模型用过哪些资料、指出哪种需求被漏掉，以及弄清最终由谁作出决定。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>已有研究为一些具体用途提供了依据。合成数据可以改善特定的活动预测，学习物理模拟结果可以加快情景比较，语言模型也能帮助人们读懂和修改规划方案。三类成果分别需要用真实任务表现、独立观测或模拟基准，以及参与和决策的实际过程来检验。</p>
+<p>跨城市、极端天气和资料稀少的人群是这些证据容易变薄的地方。作者把当地校验、记录数据来源，以及居民能够质疑和修正模型结论的渠道，列为工具进入实践的重要条件。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>从地图空白处推估一个水深，到用这张图决定人手该派往哪里，中间有两次判断。研究者要知道估计在什么条件下可靠，负责行动的人还要权衡漏掉一条危险街道与多做一次排查的代价。这篇综述给城市研究者的启发是，先说清生成结果将被用来做什么，才能知道怎样的检验足以支持下一步。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li>Zhang, Y., Xu, F. et al. <em>Generative AI in urban science and practice</em>. Nature Cities 3, 688–699 (2026)。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s44284-026-00492-2">正式论文</a>。图 1–3 来自该论文；案例数据和第三方材料的使用条件需分别核对。</li>
+<li>综述汇集城市感知、模拟与决策支持领域的既有研究。活动预测、街景指标估计和参与式规划分别见参考文献 41、42 和 16。<a href="https://www.nature.com/articles/s44284-026-00492-2">正式论文</a></li>
+<li>合成活动序列的加样方式，以及北京规划实验中模拟居民的身份与满意度算法，见两项原始研究。<a href="https://doi.org/10.1145/3543507.3583276">活动序列研究</a> · <a href="https://arxiv.org/html/2402.17161v1">参与式规划研究</a></li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>论文由 Yunke Zhang、Fengli Xu 与多位城市科学、规划和计算领域的研究者共同撰写。按论文署名，Zhang 与 Xu 同等贡献，Yong Li 为通讯作者。</p>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Yunke Zhang、Fengli Xu（共同第一作者）、Huandong Wang 和 Yong Li（通讯作者）署名清华大学电子工程系，Dongping Fang 署名清华大学土木工程系。Qi R. Wang 和 Esteban Moro 署名美国东北大学，Esteban Moro 同时署名麻省理工学院媒体实验室。</p>
+<p>Yang Yue 署名香港科技大学（广州），Bin Chen 和 Peng Gong 署名香港大学，Yu Liu 署名北京大学。Luís M. A. Bettencourt 署名芝加哥大学及圣塔菲研究所，Michael Batty 署名伦敦大学学院高级空间分析中心。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>我会先选一个窄任务，例如判断合成观测能否改善覆盖不足地区的服务评估。保留一批真实观测做最后检验，同时报告平均误差和覆盖最弱地区的误差。如果平均表现变好、弱覆盖区反而变差，就不该把这种增强称为改善了整个城市的测量。</p>
+<p>如果把开头的积水图交给社区工作人员，最值得保留的也许是几处空白。对传感器覆盖充分的主路，颜色可以帮助安排巡查先后；对那条每次大雨都有人来电、模型却一直画得很浅的小巷，标出“缺实测”可能更有用。这样一来，居民打来的电话就有了明确的去处：它提醒人们，这条街需要的是下一次测量。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             

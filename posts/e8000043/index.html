@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-Towards a foundational platform for generative agents in simulated city environment, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="Towards a foundational platform for generative agents in simulated city environment, 猴猴猴">
+    <meta name="description" content="模拟城市里，一句“我准备坐车去上班”怎样变成会占用道路、经过时间、改变下一步选择的出行？这篇综述把语言模型与城市模拟器的分工讲清楚。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-Towards a foundational platform for generative agents in simulated city environment | 猴猴猴</title>
+    <title>Towards a foundational platform for generative agents in simulated city environment | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-Towards a foundational platform for generative agents in simulated city environment</h1>
+                    <h1 class="description center-align post-title">Towards a foundational platform for generative agents in simulated city environment</h1>
                 </div>
             </div>
         </div>
@@ -432,62 +432,38 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img { display:block; margin:1.25rem auto; max-width:100%; height:auto; }  .post-title { overflow-wrap:anywhere; }</style>
 
-<h2 id="虚拟居民说要送孩子上学，模拟城市能让这件事真的发生吗？"><a href="#虚拟居民说要送孩子上学，模拟城市能让这件事真的发生吗？" class="headerlink" title="虚拟居民说要送孩子上学，模拟城市能让这件事真的发生吗？"></a>虚拟居民说要送孩子上学，模拟城市能让这件事真的发生吗？</h2><p>一个虚拟居民说：“先送孩子上学，再去上班。”日程听起来很像真的。但模型是否知道学校在哪、这条路早上多久能走完、如果道路临时关闭要不要迟到？一段流畅的描述，不等于一次能在城市里执行的行动。</p>
-<p><strong>论文名片｜</strong> Fengli Xu、Jun Zhang、Chen Gao、Peijie Liu、Jie Feng 和 Yong Li，<em>Towards a foundational platform for generative agents in simulated city environment</em>，<em>PLOS Complex Systems</em>，2026，3(3):e0000093。<a target="_blank" rel="noopener" href="https://doi.org/10.1371/journal.pcsy.0000093">DOI：10.1371/journal.pcsy.0000093</a></p>
-<p>这篇综述提出<strong>城市生成式智能（UGI）</strong>的概念架构：让擅长表达意图的语言模型连接城市数据、知识图谱和模拟器，让决定可以执行，执行结果又能改变下一步的决定。文章给出的是平台蓝图、案例和待解决的问题，<strong>不是一套已在全城统一检验过的数字孪生系统</strong>。</p>
-<h2 id="为什么光把既有流量预测准，还不够？"><a href="#为什么光把既有流量预测准，还不够？" class="headerlink" title="为什么光把既有流量预测准，还不够？"></a>为什么光把既有流量预测准，还不够？</h2><p>预测普通工作日哪条路拥堵，与推演“封路以后哪些人会改道、延后出发或取消活动”是两道题。前者可以利用交通记录里反复出现的模式；后者还要表示道路、时间、替代选择及不同人的约束。基于智能体的传统模型擅长明写规则、跟踪规则如何产生集体变化，但把人的意图写成少数规则也容易简化。语言模型能表达更复杂的取舍，却可能生成听来真实、在环境里并不成立的行为。</p>
-<p><img src="/posts/e8000043/fig1.webp" alt="图 1：城市生成式智能综述的范围"></p>
-<p><strong>图 1｜这是一张文章路线图。</strong> 左上是开放基础设施、语言接口和智能体；右上是交通、商业、经济、社会等案例；下半部分转向实施、治理和未来路线。四块组织的是问题，不是四项已验证的效果。</p>
-<h2 id="怎样让“我想去”变成模拟器中的行动？"><a href="#怎样让“我想去”变成模拟器中的行动？" class="headerlink" title="怎样让“我想去”变成模拟器中的行动？"></a>怎样让“我想去”变成模拟器中的行动？</h2><p>论文把底层拆成三类资源。<strong>数据库</strong>保留观测和更新，<strong>城市知识图谱（UrbanKG）</strong>把地点、类别和关系组织成可查询的对象，<strong>模拟器</strong>规定行动对道路或其他城市状态有什么后果。自然语言接口让智能体请求查询、选择绑定到模拟器的行动，并获得结果。如果同一学校在图谱和模拟器中没有对齐，模型即使说对学校名，也可能操作错对象。</p>
-<p><img src="/posts/e8000043/fig2.webp" alt="图 2：从开放数字基础设施到生成式智能体的平台架构"></p>
-<p><strong>图 2｜从下往上读。</strong> 数据、图谱与模拟器先准备城市状态，中间的自然语言接口把资源变成可调用的工具，上层由 CityGPT 等城市知识增强模型支持移动、经济、社区与社会智能体。最上面的规划、气候适应与减少不平等是示例用途，不是效果测量。</p>
-<p>在开篇的例子里，智能体不只写一句“然后去公司”，还可以在模拟中查询学校、交给交通工具计算到达时间、读到封路反馈再改变计划。这是对架构的解释，不是论文实测过的一段通勤。诸如 Mirage、CityGPT 和开放调用协议也不应被当成本文同一个完整系统的统一成绩。<strong>语言接口解决的是能不能沟通，环境反馈解决的是行动在设定的城市里能不能成立；两者都不自动证明真实居民会那么做。</strong></p>
-<h2 id="除了角色提示，智能体还需要记住什么？"><a href="#除了角色提示，智能体还需要记住什么？" class="headerlink" title="除了角色提示，智能体还需要记住什么？"></a>除了角色提示，智能体还需要记住什么？</h2><p>论文中的“具身”并不是必须有机器人，而是要能感知和改变一个有状态的环境。模型内部包含记忆、角色和偏好。记忆保存已经发生的事，角色描述这个人承担什么任务，偏好影响面对多种可行选择时怎样取舍。感知读取环境，通信跨智能体传递信息，行动则让决定在模拟器内形成可追踪的状态变化。</p>
-<p><img src="/posts/e8000043/fig3.webp" alt="图 3：城市环境中具身生成式智能体的内部结构"></p>
-<p><strong>图 3｜中间的决策只是一环。</strong> 上方的记忆、角色与偏好进入推理；下方的感知、通信与行动连接模拟器和城市图谱。角色如何抽样、记忆何时更新、偏好是否有数据校准，都仍然是模型假设，不能因为写成自然语言就不算假设。</p>
-<h2 id="“像居民一样活动”和“替用户挑方案”，是两种任务"><a href="#“像居民一样活动”和“替用户挑方案”，是两种任务" class="headerlink" title="“像居民一样活动”和“替用户挑方案”，是两种任务"></a>“像居民一样活动”和“替用户挑方案”，是两种任务</h2><p>综述区分了模拟智能体和决策智能体。前者若为了照顾家人而绕路，可能是逼真的行为；后者若面对希望尽快到达的任务，可能应当选择直达。同一条路线未必同时适合两种目标。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>任务</th>
-<th>综述中的示例</th>
-<th>不能由此推出</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>模拟移动</td>
-<td>从活动意向、日程约束生成地点和轨迹</td>
-<td>生成理由像真的，就证明还原了人的认知</td>
-</tr>
-<tr>
-<td>模拟经济与社会</td>
-<td>观察工作、消费、调控、舆论或群体互动</td>
-<td>重现熟悉的宏观形态，就唯一识别了产生它的微观机制</td>
-</tr>
-<tr>
-<td>推荐与日程规划</td>
-<td>在用户偏好和环境条件下查询候选地点、调整日程</td>
-<td>案例构想已经通过统一用户试验，或推荐一定最好</td>
-</tr>
-</tbody>
-</table>
+<h2 id="一辆车晚到了，虚拟居民会不会迟到？"><a href="#一辆车晚到了，虚拟居民会不会迟到？" class="headerlink" title="一辆车晚到了，虚拟居民会不会迟到？"></a>一辆车晚到了，虚拟居民会不会迟到？</h2><p>Fengli Xu、Jun Zhang、Chen Gao、Peijie Liu、Jie Feng、Yong Li（2026）。Towards a foundational platform for generative agents in simulated city environment。<em>PLOS Complex Systems</em>，3(3)，e0000093。<a href="https://doi.org/10.1371/journal.pcsy.0000093">正式论文</a></p>
+<p>设想把两位虚拟居民放在同一个公交站。一位九点要打卡，另一位准备去图书馆。让语言模型给两人各写一段日程，它可以顺畅地编出等车、上车和到达的经过。现在把下一班车推迟二十分钟。如果日程里的车照旧到站，后面的故事仍然读得通，可这座虚拟城市已经无法回答哪一位会迟到。</p>
+<p>清华大学团队在这篇综述中提出了城市生成式智能（Urban Generative Intelligence，UGI）的平台构想。把会解释打算的语言模型放进一个有地图、有时钟、会反馈行动后果的模拟环境，让两位居民面对同一次晚点，再观察他们怎样选择。文章梳理的是这套构想需要哪些部件、现有研究把哪些环节做到了什么程度。论文里的三幅图均为架构或综述示意，读不到针对整座城市的预测精度。</p>
+<!-- more -->
+<h2 id="为什么两位居民必须共用一张地图、一只钟？"><a href="#为什么两位居民必须共用一张地图、一只钟？" class="headerlink" title="为什么两位居民必须共用一张地图、一只钟？"></a>为什么两位居民必须共用一张地图、一只钟？</h2><p>城市计算已经可以拿历史轨迹估计下一时段的车流。数字孪生城市（digital twin city）能把建筑、道路和不断更新的数据对应到现实地点。传统的基于智能体建模（agent-based modeling）则让每位模拟居民按照设定的规则行动，再观察许多个体怎样共同造成拥堵。三者各解决一部分问题。若只知道一处车站平日有多少人上车，还得说明这些人为什么来、还能去哪里，才能推演车站停运后的反应。</p>
+<p>作者在图 2 里把城市资料分了工。数据库保存地物和观测记录。城市知识图谱（UrbanKG）把车站、街区、设施当作可以查询的对象，记录它们相邻、归属或属于哪种设施等关系。模拟器则维护一个可以随时间改变的城市状态，让出发、移动、到达各有先后。论文以 Mirage 作为城市模拟器的例子。三种资源通过自然语言接口与上面的智能体联系。模型可以询问有什么选择，提交一个行动，然后取得模拟器给出的结果。</p>
+<p><img src="/posts/e8000043/fig2-r6c01e7c18c.webp" alt="城市数据与知识图谱经语言接口连接到模拟智能体"></p>
+<p>图 2｜从下往上读，数据源进入数据库和 UrbanKG，城市模拟器接收这些信息。跨过中间绿色的自然语言接口，模型才能调用底层资源。顶端的城市规划、气候适应和减少不平等是预期用途。</p>
+<p>回到公交站。图谱可以回答图书馆附近有哪些车站，今天的交通状态决定在那里等车要花多久。语言模型可以表达九点打卡的重要性，却不应该凭自己写的一句“已经到站”就改变车的位置。把这几件事分开后，当结果有误，可以追查是地图地点没对上、行车耗时设错了，还是这位居民作出的决定与真实行为相去太远。</p>
+<h2 id="同一班车晚点，两个人凭什么作出不同决定？"><a href="#同一班车晚点，两个人凭什么作出不同决定？" class="headerlink" title="同一班车晚点，两个人凭什么作出不同决定？"></a>同一班车晚点，两个人凭什么作出不同决定？</h2><p>论文里的生成式智能体（generative agent）是一名能记忆、判断并在模拟环境中行动的虚拟参与者。只给提示词写上职业和年龄，还很难让它持续扮演同一个人。今天早晨它已经等了十分钟，这段经历应当留在记忆里。它是否需要按点到岗，会改变迟到的代价。它平常愿不愿意多走一站，则会影响它从几个可行选项里选哪一个。图 3 将这些差别分别放进记忆、角色与偏好。</p>
+<p><img src="/posts/e8000043/fig3-rb1a1911737.webp" alt="生成式居民的记忆、角色、偏好，以及同外界交流和行动的回路"></p>
+<p>图 3｜中间椭圆表示决定、推理与计划。上方三个框保存记忆、角色和偏好，下方三个框负责感知、沟通和行动。沿底部箭头回到城市模拟器和知识图谱，可以看到下一次决定从哪里得到反馈。</p>
+<p>这里说的具身（embodied）有一个很具体的意思。虚拟居民要能感知正在发生的事，在这个环境中采取行动，再接受行动带来的限制。假如它决定多走一站，时间就应向前推进，到下一站时又能读到新的车辆位置。这条回路使人能够检查一次出行是否前后连贯。至于被写成赶时间的居民究竟会步行、打车还是接受迟到，角色设定本身无法给出真实答案。</p>
+<h2 id="从活动意图到落在地图上的一趟出行，中间隔着什么？"><a href="#从活动意图到落在地图上的一趟出行，中间隔着什么？" class="headerlink" title="从活动意图到落在地图上的一趟出行，中间隔着什么？"></a>从活动意图到落在地图上的一趟出行，中间隔着什么？</h2><p>综述引用的 CoPB 研究把这个问题拆成两部分。生成下一项活动时，模型参考计划行为理论（Theory of Planned Behaviour），考虑个人喜欢做什么、日程和社会角色要求做什么，以及此刻觉得什么做得到。工作时间等相对固定的安排会成为日程里的锚点。要把“吃午饭”落到一个实际去处，再由考虑距离和设施分布的引力模型挑选目的地。一个人在十二点有吃饭的打算，并不意味着全城每家餐厅都同样可能被选中。</p>
+<p>这项独立研究用北京的腾讯和中国移动两份出行数据评估生成结果。它把生成的活动意图序列与同类人群观测到的序列相比较。在腾讯数据中，普通语言模型直接生成日程时，研究报告的意图错误率是 57.8%，采用 CoPB 后为 19.4%。中国移动数据上的相应数字是 64.2% 和 24.7%。这个比较说明，把意图和选址分开，有助于生成接近观测的人群活动序列。它没有给出某位居民明天会乘哪一班公交的命中率。<a href="https://arxiv.org/html/2402.09836v2">CoPB 原始研究及指标定义</a></p>
+<p>用同一套想法模拟经济，所需反馈便换成了工资、消费和市场状态。综述引用的 EconAgent 为不同参与者赋予不同经历，让他们决定工作与消费，市场变化再进入下一轮决定。若多个个体一起减少开支，模拟器里便可能出现个体日程中看不到的总体变化。模型能产生与现实相似的经济走势，仍需进一步辨别这种走势是否由和现实相同的行为机制产生。<a href="https://aclanthology.org/2024.acl-long.829/">EconAgent 原始研究</a></p>
+<h2 id="给乘客规划路线，与模仿乘客怎么走，是同一项考试吗？"><a href="#给乘客规划路线，与模仿乘客怎么走，是同一项考试吗？" class="headerlink" title="给乘客规划路线，与模仿乘客怎么走，是同一项考试吗？"></a>给乘客规划路线，与模仿乘客怎么走，是同一项考试吗？</h2><p>一名居民总爱在熟悉的地方换车，即使绕一点也更放心。模拟居民时，能还原这种稳定的偏好可能是成功的。换成替一位明确要求尽快到达的乘客做推荐，沿用相同的绕路选择，反而可能耽误对方。综述把生成居民个人与群体行为的模拟智能体，和帮助具体使用者选地点、排日程的决策智能体分开讨论。一个要对照现实中人们怎样行动，另一个要看使用者想完成的事情有没有办成。</p>
+<p>走出个人日程后，还会遇到两层实际困难。其一是很多人共用同一处资源。一名乘客改道时，那条路的速度也许不用调整。一万人同时改道，所有人的到达时间都可能变化。其二是资料并没有均匀地记录每一种人。若夜班工作者的真实作息在输入资料中很少，仅靠多生成一批带有夜班标签的角色，模型就可能将少数被记录的行为放大。作者因此强调要对照现实观测，检查资料偏差，并让受影响的人有机会评议模拟结果。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>这篇综述提出了一种能逐步检查的城市模拟方式。语言模型表达意图，知识图谱提供可查询的地点与关系，模拟器让计划受到时间和城市状态的约束。出行意图和经济活动两项既有研究分别展示了部分能力，使用各自的数据与评价方法。把这些部件放进同一张架构图，不能据此推算整个系统对一项公交或城市政策的预测精度。</p>
+<p>作者还区分了三个阶段。当前已有简单环境查询、角色交互和有限的场景模拟。近期想解决的是个人行动与整座城市状态之间更及时的双向反馈。持续学习、同时模拟城市物理、经济、社会和生态过程的高分辨率数字孪生，仍是远期设想。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>要让虚拟乘客真正经历一次晚点，模型需要知道自己是谁、正在等哪班车、还剩多久，并在选择之后收到城市状态的更新。这篇文章把上述环节放在同一幅平台架构里。读到某个模拟场景时，可以沿着这条关系追问，哪些动作由环境执行，哪些偏好来自设定，又有哪些结果已经拿真实居民的数据比较过。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li>本文以 2026 年 3 月 13 日发表的综述为主，图 2、图 3 取自其正式版本。<a href="https://doi.org/10.1371/journal.pcsy.0000093">PLOS Complex Systems 全文</a></li>
+<li>交通意图生成与宏观经济模拟的数值、任务及参照各来自独立研究。<a href="https://arxiv.org/abs/2402.09836">CoPB</a> · <a href="https://aclanthology.org/2024.acl-long.829/">EconAgent</a></li>
+</ul>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>六位作者的署名单位均为清华大学。Fengli Xu、Jun Zhang 和 Chen Gao 共同第一署名，Fengli Xu 和 Yong Li 为通讯作者。</p>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><small>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</small></p>
+<p>假如一座城市把早班公交推迟十分钟，模拟显示大部分乘客仍准时到岗，决策者很容易以为影响不大。但一位家长或许是省下了陪孩子吃早饭的十分钟，另一位是多花钱打车，还有人只能提前一班出发。三个人在报表里都没有迟到。若只用到达时间检查模拟，模型可以猜对那个数字，却把调整由谁承担全猜错。一次班次调整值不值得，取决于城市最终关心的是准点的人数，还是居民为了准点放弃了什么。</p>
+
 </div>
-<p>移动案例里的计划行为理论，把个人态度、主观规范和感知到的行动控制纳入活动意向。综述引用的 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2402.09836">CoPB</a> 用这一视角组织推理，以日程锚点和空间可行性收束选择；<a target="_blank" rel="noopener" href="https://doi.org/10.18653/v1/2024.acl-long.829">EconAgent</a> 则是经济场景中的独立工作。文章引用的移动意向错误率从 57.8% 到 19.4%，是前一项工作特定任务的结果，不是 UGI 平台对所有行为的整体误差。</p>
-<h2 id="从一个街区扩大到一座城市，证据还缺哪几层？"><a href="#从一个街区扩大到一座城市，证据还缺哪几层？" class="headerlink" title="从一个街区扩大到一座城市，证据还缺哪几层？"></a>从一个街区扩大到一座城市，证据还缺哪几层？</h2><p>一个智能体的日程前后不冲突，是<strong>个体可行性</strong>；许多智能体在模拟中加起来能接近真实流量，是<strong>群体验证</strong>；现实改变道路、票价或服务之后，模拟也能重现方向和幅度，是另一个更强的<strong>干预检验</strong>。这些证据不能互相代替。用语言模型评价生成文本“像不像人”，尤其不能代替独立城市观测。</p>
-<p>规模与治理也不是推理速度的附注。大量智能体共享道路、资源和社会关系，工具调用顺序或状态更新方式都可能改变结果。文章讨论模型压缩、批处理、开放接口、隐私保护与偏差审计，但不少量化案例来自其他论文，有各自的任务与边界。能够同时覆盖物理、经济、社会与生态过程的持续学习城市数字副本，仍属于路线图远端。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>这篇综述真正提出的是一个分工：生成模型组织意图和行为，城市图谱提供可查询的关系，模拟器执行动作并形成反馈。把三者连起来，可以把纯文字叙事变成可检查的城市情景；论文没有提供统一实验，证明组合后的系统在真实城市干预中有多准。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>UGI 试图解决的不是让虚拟居民说得更像人，而是让人们能追踪一个意图如何经过地理、时间与资源约束，变成可执行的行动和新的城市状态。论文给出了系统组织方式，也借独立研究展示各类应用的可能性；模拟和决策不是同一评价任务，可信度仍要分别由真实行为、集体流量和干预反应来检验。</p>
-<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p>Xu, F., Zhang, J., Gao, C., Liu, P., Feng, J., &amp; Li, Y. (2026). <em>Towards a foundational platform for generative agents in simulated city environment</em>. <strong>PLOS Complex Systems</strong>, 3(3), e0000093。2026 年 3 月 13 日发表，文章类型为 Review。<a target="_blank" rel="noopener" href="https://journals.plos.org/complexsystems/article?id=10.1371%2Fjournal.pcsy.0000093">正式全文</a> · <a target="_blank" rel="noopener" href="https://doi.org/10.1371/journal.pcsy.0000093">DOI</a>。图 1–3 来自正式版。CoPB 和 EconAgent 为综述所引用的独立研究。</p>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>论文由 Fengli Xu、Jun Zhang、Chen Gao、Peijie Liu、Jie Feng 和 Yong Li 合作完成。六位作者的论文署名单位为清华大学。Xu、Zhang、Gao 为共同第一作者，Xu 与 Li 为通讯作者。</p>
-<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>一座桥临时关闭时，模拟里出现“大家从另一座桥过河”听起来合理。但有人可以改道，有人会取消接送，有人只能迟到：三种情形可能得到相同的过桥流量，却对应完全不同的日程影响。如果一个模拟只和流量地图对上，仍无法判断它是否理解居民为何改变计划。这也说明，可执行的故事和忠实的行为解释之间，还有一层需要证据来填的空白。</p>
-
-                
-            </div>
             <hr/>
 
             

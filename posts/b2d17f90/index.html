@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-Block-fitness modeling of the global air mobility network, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="Block-fitness modeling of the global air mobility network, 猴猴猴">
+    <meta name="description" content="从机场转机的人究竟要去哪里？研究用大区客流合计数重建旅客起讫关系，并检验公开航段资料可以替代多少商业客票信息。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-Block-fitness modeling of the global air mobility network | 猴猴猴</title>
+    <title>Block-fitness modeling of the global air mobility network | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-Block-fitness modeling of the global air mobility network</h1>
+                    <h1 class="description center-align post-title">Block-fitness modeling of the global air mobility network</h1>
                 </div>
             </div>
         </div>
@@ -440,41 +440,38 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img { display:block; max-width:100%; height:auto; margin:1.25rem auto; } .post-title {overflow-wrap:anywhere;}</style>
 
-<h2 id="飞机在哪里转机，不等于乘客要去哪里"><a href="#飞机在哪里转机，不等于乘客要去哪里" class="headerlink" title="飞机在哪里转机，不等于乘客要去哪里"></a>飞机在哪里转机，不等于乘客要去哪里</h2><p>一位乘客从甲地出发，在乙地转机，最后到丙地。航班时刻表有甲到乙、乙到丙两段；一份旅客起讫表，记的是甲到丙的一次旅行。只用航段，转机枢纽看起来人来人往，却未必知道这些人实际要去哪里。偏偏旅客起讫数据通常是商业数据，比时刻表难取得。</p>
-<p>Giulia Fischetti、Anna Mancini、Giulio Cimini、Jessica T. Davis、Abby O. K. Leung、Alessandro Vespignani 和 Guido Caldarelli 的 <em>Block-fitness modeling of the global air mobility network</em>，于 2026 年 10 月 12 日发表于 <em>Nature Communications</em> 17，11559（<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41467-026-78115-6">DOI</a>）。论文问的是：若只知道局部汇总数字，能不能生成一批在统计上接近实际起讫流的合成网络？</p>
-<h2 id="先把直飞地图换成乘客的起讫地图"><a href="#先把直飞地图换成乘客的起讫地图" class="headerlink" title="先把直飞地图换成乘客的起讫地图"></a>先把直飞地图换成乘客的起讫地图</h2><p>研究取 2019 年 9–11 月 OAG 商业起讫数据，把机场汇入以交通枢纽为中心的子人口区，再把两方向的日均客流合成一条无向边。边越重，表示两个区之间的起讫客流总量越大，却看不出哪一边出发的人更多。真实网络只有约 1.8% 的可能区对有边，连接也不均匀：有的区连许多地方，有的区只连少数；按 11 个预先设好的地理区域排序，区域内部往往更密。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/b2d17f90/fig1.png" alt="航空起讫网的度数、客流、距离与分区结构"></p>
-<p>图 1｜A、B 对照连接数量与客流量，C 看连接如何随距离变化，D、E 显示预先划好的地理区域及对应矩阵。对角块更密不表示所有跨区联系都不存在。 来源：原论文 Fig. 1。</p>
-<h2 id="用汇总量补网络，哪些数字是输入，不是预测？"><a href="#用汇总量补网络，哪些数字是输入，不是预测？" class="headerlink" title="用汇总量补网络，哪些数字是输入，不是预测？"></a>用汇总量补网络，哪些数字是输入，不是预测？</h2><p>只给每个地方一个总客流，模型可以把它分给很多目的地，最后变成一张到处都有细线的密网。为避免这个问题，论文的分块适应度方法需要两类约束：一是每个子人口区与各大区之间的汇总客流；二是大区与大区之间一共有多少条连接。前者提供更细的客流线索，后者控制稀疏程度。换句话说，大区之间有多少条边并不是推断成绩；真正要检验的是，这些边会不会落在对的区对上。</p>
-<p>模型给区对分配连边概率，并生成多张与这些约束相容的网络，再给出现的边赋予客流。约束针对多次生成的平均，并不保证某一次抽样里每个地方都恰好匹配。选好的地理分区也已进入模型，所以重现区域块结构不能解读成模型自己发现了地理社区。</p>
-<h2 id="75-到底猜对了什么？"><a href="#75-到底猜对了什么？" class="headerlink" title="75% 到底猜对了什么？"></a>75% 到底猜对了什么？</h2><p>论文在完整 OAG 网络上报告约 <strong>75%</strong> 的概率召回率。它是把模型对每条真实连边给出的概率取平均，不是先选一个阈值再数“猜对几条”，也不是把所有区对混在一起算的正确率。若一个随机基线对每个可能区对都只给 1.8% 的连边概率，同一指标就是 1.8%。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/b2d17f90/fig2.png" alt="生成网络与 OAG 在连边和客流上的比较"></p>
-<p>图 2｜A、B 分别检查区的连接数和区对概率；C 只用真实有边的区对比较平均权重；D–F 检查度数—客流、距离关系和分块格局。 来源：原论文 Fig. 2。</p>
-<p>图 2C 的分箱权重相对误差较小（论文所报 RMSRE 为 0.063），但它只比较真实有边的区对，而且用的是多次生成的平均权重。它没有处罚那些本来没有客流、却被模型偶尔连上的区对，也不是某一次生成的单条航线都只差 6.3%。模型没有直接使用距离函数，但输入分块本身来自地理，距离格局的重现不能解释为距离无关。</p>
-<h2 id="全球曲线相近，局部误差却没有消失"><a href="#全球曲线相近，局部误差却没有消失" class="headerlink" title="全球曲线相近，局部误差却没有消失"></a>全球曲线相近，局部误差却没有消失</h2><p>论文用同一套公共卫生传播模拟，分别在经验客流网络和生成网络上运行，以检验替代机场数据后宏观结果会不会改变。这个比较不是对实际大流行的预测：基准是<strong>在真实客流网络上运行的模拟</strong>，而不是现实病例。作者还将同一真实网络上的多次随机运行互相比对，估计模拟自身会波动多大。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/b2d17f90/fig3.png" alt="经验客流网与生成客流网在示例模拟中的比较"></p>
-<p>图 3｜A、B 是同一时间点的两幅模拟地图，C 对照全球感染者占比曲线，D 比较各区患病率相对分布的空间离散程度；这些都不是实测病例。 来源：原论文 Fig. 3。</p>
-<p>整体曲线的一些误差接近真实客流网络上反复运行的波动。但表 1 的分区患病率差异更明显：生成对经验的 RMSE 为 0.050，经验网络模拟彼此为 0.024。于是，两条全球曲线看着近，并不保证每个区的结果都可互换；这一点比示例图看起来多相似更重要。</p>
-<h2 id="换成公开资料，还能保住多少信息？"><a href="#换成公开资料，还能保住多少信息？" class="headerlink" title="换成公开资料，还能保住多少信息？"></a>换成公开资料，还能保住多少信息？</h2><p>论文还用 OpenSky 航段和维基系机场客运量做了对照。前者看得到直飞航段，后者的机场吞吐也会计入中转，二者并不直接提供乘客最终起讫表。受资料可得性限制，公开数据实验只覆盖 739 个子人口区，约为全部区数的四分之一、对应 OAG 总客流的约 45%；而且方法仍把公开数据的连接数量校准到 OAG 的密度，因此不能说完全不依赖商业数据作参照。</p>
-<p>在这个子网络上，概率召回率为 0.58，真实有边区对上的权重 RMSRE 为 4.53，提示单条连接客流更难恢复。这个数字与完整 OAG 实验的 0.063 来自不同节点与输入口径，不能把比值当作只变了一种数据源的干净对照。下游模拟的误差也要和同一节点集上的基准比，不能拿两个规模不同的网络直接比原始 RMSE 大小。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><ul>
-<li>用子人口区到大区的汇总客流和大区间连边数量，可以生成保持稀疏性与空间块结构的合成航空起讫网；在 OAG 完整网络上，真实连边的平均模型概率约为 75%。</li>
-<li>模拟检验中，全球汇总曲线接近经验客流网络的模拟，但分区误差明显更大，不能从宏观吻合推及各地。</li>
-<li>公开资料实验的覆盖和单条流量精度有限，并且用了 OAG 密度作校准；论文没有证明公开航段能够无条件替代商业起讫数据。</li>
-</ul>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这项工作的好处是把问题从“必须拿到整张客流表”变成“有没有几类有用的汇总约束”。有了这些量，就能生成可供整体分析的网络；但只要用途变成某条连接的客流、某个地区的结果，或完全没有商业校准，便要重新核对模型究竟保住了什么。</p>
+<h2 id="航班在这里落了地，有多少旅客会走出机场？"><a href="#航班在这里落了地，有多少旅客会走出机场？" class="headerlink" title="航班在这里落了地，有多少旅客会走出机场？"></a>航班在这里落了地，有多少旅客会走出机场？</h2><p>Fischetti, G., Mancini, A., Cimini, G., Davis, J. T., Leung, A. O. K., Vespignani, A., &amp; Caldarelli, G. (2026). Block-fitness modeling of the global air mobility network. <em>Nature Communications, 17</em>, 11559. <a href="https://doi.org/10.1038/s41467-026-78115-6">论文 DOI</a></p>
+<p>一班飞机在枢纽机场降落。坐在同一排的两位旅客，一位提着行李去市区，另一位沿着中转通道去赶下一班飞机。查航班表，两人都到了这座城市；要安排机场到市区的接驳车，他们却只贡献了一位乘客。把全世界的航段叠在一起，仍然回答不了一个朴素的问题：从某座城市出发的人，最后去了哪里？</p>
+<p>客票资料可以把中转前后的航段串起来，但完整的起讫客流表通常要向商业机构购买。研究者试着把表中大部分格子遮住，只留下几类汇总数字，再看能填回多少。模型抓住了主要客流联系，也保留了整体网络的疏密。它对一条具体联系能恢复多少，取决于输入的汇总量从何而来。</p>
+<h2 id="为什么知道两头各有多少旅客，还填不出中间的表格？"><a href="#为什么知道两头各有多少旅客，还填不出中间的表格？" class="headerlink" title="为什么知道两头各有多少旅客，还填不出中间的表格？"></a>为什么知道两头各有多少旅客，还填不出中间的表格？</h2><p>研究用 OAG 的客票起讫记录作为参照，取 2019 年 9 至 11 月的数据，把机场归入以交通枢纽为中心的地理单元。只要两个单元之间有人从一端出发、在另一端结束航空行程，就记为一条联系。中途可以转机。研究把两个方向的日均旅客数相加，所以一条线的粗细表示往来总量，无法据此判断哪一端出发的人更多。</p>
+<p>客流表里最显眼的特点是空格多。在所有可能的地理单元组合中，约 1.8% 有实际起讫客流。假设两个机场所在地区各有相同的旅客总数，一个主要服务区域内出行，另一个连接多个洲。仅用各自的吞吐量来分配旅客，很容易给大量本来没有往来的地方也填上一小股客流。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/b2d17f90/fig1.png" alt="航空起讫联系的数量、客流、距离和地理分区"></p>
+<p>图 1｜A 中红点表示各地的联系数，蓝点表示旅客总量，两种分布都有很长的尾部。C 的横轴是两地距离（公里），纵轴是该距离段内有联系的地点对比例。按 D 的 11 个大区把地点排进 E 的矩阵，同一大区内部的联系聚在对角线方块里。</p>
+<h2 id="只公开合计数，能给每一个空格多少线索？"><a href="#只公开合计数，能给每一个空格多少线索？" class="headerlink" title="只公开合计数，能给每一个空格多少线索？"></a>只公开合计数，能给每一个空格多少线索？</h2><p>设想要判断某个欧洲地区与某个北美地区之间是否有人往来。知道欧洲这个地区与整个北美之间有多少旅客，比只知道它的全部旅客数多了一层信息。反过来，北美这个地区与整个欧洲的客流也提供了一条线索。最后还有一个大区层面的限制：欧洲和北美之间总共有多少对地点存在联系。</p>
+<p>分块适应度模型（block-fitness model）把这两端各自面向对方大区的客流用作连边的依据，并利用大区之间的联系数调节整体疏密。每一对地点因此得到一个存在往来的概率。模型按这些概率生成许多份可能的客流表，再给有联系的地点对分配客流，使汇总量在多次生成的平均意义上与输入相符。同样的合计数允许多种分配，单次生成的网络也会不同。</p>
+<p>既然 11 个地理分区和各大区之间的联系数已经交给模型，再看它能否画出 11 个色块，说服力有限。更有意义的检验是回到那些没有直接告诉模型的格子，看实际有旅客往来的地点对是否获得了较高概率。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/b2d17f90/fig2.png" alt="客票资料与生成网络在六项比较中的对应关系"></p>
+<p>图 2｜A 对照实际与估计的联系数，C 对照分组后的客流权重。B 的横轴是模型给出的连边概率，纵轴是相应概率组中实际有联系的地点对比例，越靠近虚线，两者越一致。E 中红点为客票数据，蓝点为模型均值，较短距离处仍有明显偏差。</p>
+<p>把所有实际有客流的地点对取出来，模型给它们的连边概率平均约为 75%。如果完全不区分地点，对每一对都按全网密度给出 1.8% 的概率，那么在同一批真实联系上的均值也只有 1.8%。这里的 75% 是概率的平均值，不能拿来当作某一张合成表逐格判对的比例。图 2C 比较的又是按客流分组后的均值，即使点贴近对角线，一组里面仍可能有估高和估低的线路。</p>
+<h2 id="总量相似，能保证每个地方也相似吗？"><a href="#总量相似，能保证每个地方也相似吗？" class="headerlink" title="总量相似，能保证每个地方也相似吗？"></a>总量相似，能保证每个地方也相似吗？</h2><p>论文还把两张网络放进同一套公共卫生模拟，比较换掉客流输入后结果会偏离多少。图 3C 的全球曲线很接近，分地区比较时，经验网络与合成网络之间的差异却更明显。一个地区的高估可以和另一个地区的低估在汇总时抵消。对只用全球总量的分析和要逐地区判断的分析，合成网络能否胜任，要分开验证。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/b2d17f90/fig3.png" alt="使用两种客流网络得到的模拟结果"></p>
+<p>图 3｜A、B 是同一模拟时刻的地区分布，颜色表示模拟中的患病比例；两幅图都来自模拟。C 以时间步为横轴，对照全球患病比例；D 用同一时间轴比较病例在地区间分布的分散程度。红线采用经验客流网络，蓝线采用合成网络。</p>
+<h2 id="航班和吞吐量都有公开数据，精度还能保住多少？"><a href="#航班和吞吐量都有公开数据，精度还能保住多少？" class="headerlink" title="航班和吞吐量都有公开数据，精度还能保住多少？"></a>航班和吞吐量都有公开数据，精度还能保住多少？</h2><p>前面的汇总数字取自商业客票表。为检验更容易取得的数据，研究又用 OpenSky 的飞行记录确定直达航段，用 Wikidata 的机场旅客吞吐量近似地区总客流。能凑齐输入的有 739 个地理单元，约占全部单元的四分之一，却覆盖原客票数据约 45% 的客流。公开资料更容易覆盖繁忙地点。</p>
+<p>在这些地点之间，真实客流联系得到的平均概率为 58%，个别联系的客流权重偏差也更大。直达航段会把中转行程拆开，机场吞吐量又会计入中转旅客。论文还借助 OAG 的网络密度校准公开资料推断的连接数量。两次检验的节点范围和信息来源都变了，75% 与 58% 的差距无法全归给某一种数据源。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>每个地区面向各大区的客流，加上大区之间已有多少对地点发生往来，比单独拿到机场吞吐量更能约束客流去向。用商业客票数据生成这些合计数时，实际存在的联系在模型中获得了较高概率。</p>
+<p>验证结果随用途而变。合成网络在全球汇总模拟中与经验网络接近，具体地区仍可能偏离。用公开航段和吞吐量替代客票汇总后，较大的客流结构仍有迹可循，对单条联系的推断更不稳定。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>研究用 2019 年秋季三个月的客票起讫资料，检验能否从大区汇总量重建旅客的最终去向。在一张只有约 1.8% 地点对有客流的网络上，分块模型给真实联系的平均概率约为 75%。这个结果说明分地区的合计数里保留了相当多的航旅信息。要拿它回答某条线路每天有多少人，或某座城市需要多少服务，还需要更接近当地需求的参照资料。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13748577/">开放正式全文及补充材料入口</a> · <a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41467-026-78115-6">DOI</a>，本文图 1–3 与表 1、2 按正式版核对。原图按论文 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> 保留。</li>
-<li>航空起讫原始数据受 OAG 商业许可限制，公开替代输入的口径与数据入口见论文方法和数据可用性声明。</li>
+<li>论文图 1–3、表 1–2 和方法部分给出两种数据条件下的重建与检验。<a href="https://www.nature.com/articles/s41467-026-78115-6">期刊原文</a></li>
+<li>OAG 商业客票资料提供旅客起讫参照。OpenSky 提供飞行记录，Wikidata 提供机场客流统计。<a href="https://opensky-network.org/">OpenSky Network</a> · <a href="https://www.wikidata.org/">Wikidata</a></li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Giulia Fischetti 与 Anna Mancini 为共同贡献作者；前者署名威尼斯大学及苏黎世应用科学大学，后者署名罗马第二大学与恩里科·费米研究中心。Giulio Cimini 和 Guido Caldarelli 为通讯作者。Jessica T. Davis、Abby O. K. Leung 与 Alessandro Vespignani 署名美国东北大学 MOBS 实验室。机构按正式版列示。</p>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>Giulia Fischetti（威尼斯卡福斯卡里大学、苏黎世应用科学大学）和 Anna Mancini（罗马第二大学物理系与意大利国家核物理研究所、恩里科·费米研究中心）为共同第一作者。Giulio Cimini（罗马第二大学等）与 Guido Caldarelli（威尼斯卡福斯卡里大学等）为通讯作者。Jessica T. Davis、Abby O. K. Leung 和 Alessandro Vespignani 的署名单位均为美国东北大学 MOBS 实验室。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>若区域机场要为转机延误准备客服和地面交通，不能只看合成网还原出多少总客流。可以请数据供应方只提供去标识化的区域总量，再用少量独立的线路或机场统计做抽查：如果模型在区域层面很稳，个别连接却偏离很大，就把它用于规划整体容量，而不是据此调动某一条线路的人手。</p>
+<p>如果一座城市打算延长机场快线的末班车时间，午夜到达的航班旅客数很容易查到，但决定末班车里会坐多少人的，是其中有多少旅客会走出到达厅。一个越来越繁忙的中转枢纽，新增旅客可能多数留在航站楼里；一个航班不多的旅游目的地，每班机却都可能带来一批要进城的人。读机场增长数据时，先弄清楚表里数的是落地、转机还是抵达最终目的地，才知道这个增长和城市里的哪项服务有关。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -606,17 +603,13 @@
                 <a href="/posts/1f6a8c20/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="2026-GAGNN: a geography-aware graph neural network for citywide commuting flows prediction">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="GAGNN: a geography-aware graph neural network for citywide commuting flows prediction">
                         
-                        <span class="card-title">2026-GAGNN: a geography-aware graph neural network for citywide commuting flows prediction</span>
+                        <span class="card-title">GAGNN: a geography-aware graph neural network for citywide commuting flows prediction</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">把道路、公交或地铁接到福州的通勤地图上，哪种信息最能补出缺失的流量？结论还取决于地图上的格子有多大。</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
@@ -666,17 +659,13 @@
                 <a href="/posts/a8c25e64/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="2026-Detecting hidden ping-pong records in mobile phone location data by considering daily activity patterns">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Detecting hidden ping-pong records in mobile phone location data by considering daily activity patterns">
                         
-                        <span class="card-title">2026-Detecting hidden ping-pong records in mobile phone location data by considering daily activity patterns</span>
+                        <span class="card-title">Detecting hidden ping-pong records in mobile phone location data by considering daily activity patterns</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">西宁手机记录里反复出现的短距离折返，会怎样改变我们对居民一日路程和活动范围的判断？</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-11

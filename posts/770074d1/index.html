@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-A manually interpreted geo-dataset of building footprints in complex urban poverty areas across the globe, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="A manually interpreted geo-dataset of building footprints in complex urban poverty areas across the globe, 猴猴猴">
+    <meta name="description" content="在 44 个贫困地区逐个描绘屋顶，地图能告诉我们哪里更密。十个人圈同一栋房时，究竟能画得多一致？">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-A manually interpreted geo-dataset of building footprints in complex urban poverty areas across the globe | 猴猴猴</title>
+    <title>A manually interpreted geo-dataset of building footprints in complex urban poverty areas across the globe | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-A manually interpreted geo-dataset of building footprints in complex urban poverty areas across the globe</h1>
+                    <h1 class="description center-align post-title">A manually interpreted geo-dataset of building footprints in complex urban poverty areas across the globe</h1>
                 </div>
             </div>
         </div>
@@ -440,40 +440,44 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img { display:block; margin:1.25rem auto; max-width:100%; height:auto; } #articleContent img[alt="布加勒斯特、拉各斯和雅典的屋顶勾绘实例"] { width:min(100%,760px); } .post-title { overflow-wrap:anywhere; }</style>
 
-<h2 id="屋顶挤在一起时，一栋楼的边界是谁决定的？"><a href="#屋顶挤在一起时，一栋楼的边界是谁决定的？" class="headerlink" title="屋顶挤在一起时，一栋楼的边界是谁决定的？"></a>屋顶挤在一起时，一栋楼的边界是谁决定的？</h2><p>在卫星影像上，相邻屋顶可能连成一片，一角可能藏在树下，斜视时墙面也会进入画面。自动方法容易把几栋框在一起，人工描绘则要判断哪里应当分开，哪些边界只能推定。两种结果最终都是多边形，整齐的边线却不意味着边界同样确定。</p>
-<p>论文名片｜Nicolas J. Kraff、Michael Wurm、John Friesen、Henri Debray、Hannes Taubenböck，<em>A manually interpreted geo-dataset of building footprints in complex urban poverty areas across the globe</em>，<em>Scientific Data</em> 13，1120，2026 年 8 月 3 日。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-026-07945-2">论文 DOI</a>。这是一篇数据描述论文，发布屋顶多边形、解译规则及不确定性说明。</p>
-<h2 id="这-32-万多个多边形，代表什么样的样本？"><a href="#这-32-万多个多边形，代表什么样的样本？" class="headerlink" title="这 32 万多个多边形，代表什么样的样本？"></a>这 32 万多个多边形，代表什么样的样本？</h2><p>数据覆盖 35 座城市中已有文献记录的 44 个贫困地区，包含 321,075 个建筑多边形和 4,661 个街坊多边形，其中 16 个地区另有第二个影像时相。作者有意选择不同城市形态，也要求有足以识别单栋建筑的影像。这不是全球贫困地区的随机样本。一个地区被纳入，也不意味着范围内每栋建筑具有相同用途、地位或居住条件。</p>
-<p>三个空间层次回答不同问题：感兴趣区是研究覆盖的范围，不一定等于行政区；街坊按道路或形态变化分割；单体层记录屋顶几何。比较街坊覆盖率时，分母是街坊面积，不是人数。建筑层的高度字段是估计层数的分档，也不是精确楼层数或实测高度。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/770074d1/fig1.png" alt="图 1：同一片轮廓上的三个空间层次"></p>
-<p><em>图 1｜同一范围分成地区、街坊和单体屋顶三个层次；不是三张互不关联的地图。</em></p>
-<h2 id="人工描得更细，是否等于每条线都是真值？"><a href="#人工描得更细，是否等于每条线都是真值？" class="headerlink" title="人工描得更细，是否等于每条线都是真值？"></a>人工描得更细，是否等于每条线都是真值？</h2><p>研究使用地面采样距离约 0.5 米的光学影像，单体最小上图单元约 4 平方米。人工解译综合屋顶形状、纹理、阴影和上下文；树冠遮挡处，有些边界只能根据可见部分判断。屋顶形状是建筑足迹的代理，不等同于地籍界线或实测地面轮廓。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/770074d1/fig2.png" alt="图 2：Kibera 手绘屋顶与两套开放建筑数据"></p>
-<p><em>图 2｜内罗毕 Kibera 的手绘、OpenStreetMap 与 Google Open Buildings 对照。原图颜色图例与行内颜色不一致，请按右侧行标读；各数据也并非出自同一时期。</em></p>
-<p>手绘层对应 2006 年，另两套开放数据标注在 2024–2025 年间。图示能让读者看清漏绘、合并和重叠这些差异，却不能给出同一日期下的识别精度，也不能断言可见差异全部来自算法。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/770074d1/fig3.png" alt="图 3：遮挡补全、逐点成面、侧视和街坊"></p>
-<p><em>图 3｜四个面板展示遮挡判断、轮廓绘制、侧视和街坊划分：图上有些边界直接可见，另一些依赖解译。</em></p>
-<h2 id="两期图像能看到变化，却不能解释变化原因"><a href="#两期图像能看到变化，却不能解释变化原因" class="headerlink" title="两期图像能看到变化，却不能解释变化原因"></a>两期图像能看到变化，却不能解释变化原因</h2><p>论文展示的伦敦和布加勒斯特案例，两期保持较相似的肌理；拉各斯案例两期均密集；安卡拉案例由密集不规则变成较疏、几何秩序更明显的布局。它们说明样本里的形态不会都落在同一类型，也提醒读者不要把单一时相当成长期状态。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/770074d1/fig4.png" alt="图 4：四个地点两个时相的建成平面"></p>
-<p><em>图 4｜四地各有两期建筑平面。先比较各地自己的前后变化，再做跨地比较；不同地点的观测年份并不一致。</em></p>
-<p>影像年份与解译工作年份不是同一回事。论文对影像覆盖年段有不同表述，具体比较应查地区和时相记录。仅 16 个地区提供第二时相，不能把这个子样本的变化率推广到全部 44 个地区，或单凭形态推断社会成因。</p>
-<h2 id="换一个人来描，面积和街坊密度会变多少？"><a href="#换一个人来描，面积和街坊密度会变多少？" class="headerlink" title="换一个人来描，面积和街坊密度会变多少？"></a>换一个人来描，面积和街坊密度会变多少？</h2><p>多人解译对照中，按 2 米见方的格子比较覆盖，较不复杂环境的 Fleiss’ κ 约 0.4–0.6，较复杂环境约 0.3–0.4；建筑数量和足迹面积的变异系数常在 20%–30%。这些是解译员之间的一致性和变异，不是相对于独立地籍的精度。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/770074d1/fig5.png" alt="图 5：十位解译员的建筑面积与建筑密度"></p>
-<p><em>图 5｜十位解译员的建筑面积与密度读数大体同向起伏，却不完全重合。颜色对应解译员；图中没有地籍真值。</em></p>
-<p>同一个人使用一致的画法，能减少结果内部变动，却不意味着另一位按规则作业的解译员也会落在同一条边上。对自动方法而言，“与发布多边形重合”首先意味着贴近这套人工参照。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>数据集以同一套规则整理了地区、街坊和单体屋顶的几何，可用于比较建成形态，或为自动识别提供带不确定性的训练和验证参照。样本中的形态与变化不止一种，复杂环境中的人工一致性也更低。数据不含住户收入、人数或居住条件，不能从屋顶形状推出这些信息。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这篇论文的价值是既发布细粒度屋顶几何，也交代这些线是怎么画出来的。地图是否适合比较，不只取决于分辨率，还取决于地区如何入选、哪一年拍摄、什么边界能看见，以及用哪一个空间尺度汇总。人工标注改善了复杂形态的可读性，却并没有消除估计误差，更没有把建成形态变成住户情况的替代指标。</p>
+<h2 id="两个屋顶贴在一起，地图上该画几栋房？"><a href="#两个屋顶贴在一起，地图上该画几栋房？" class="headerlink" title="两个屋顶贴在一起，地图上该画几栋房？"></a>两个屋顶贴在一起，地图上该画几栋房？</h2><p>Kraff, N. J., Wurm, M., Friesen, J., Debray, H., &amp; Taubenböck, H. (2026). A manually interpreted geo-dataset of building footprints in complex urban poverty areas across the globe. <em>Scientific Data, 13</em>, 1120. <a href="https://doi.org/10.1038/s41597-026-07945-2">论文 DOI</a></p>
+<p>把一片密集街区的卫星影像不断放大。先是看清街道，再是屋顶，最后却可能卡在一条很细的暗线上。那里究竟是一条窄巷，把两栋房子分开了，还是同一个屋顶留下的阴影？选错一次，街区图上的楼就多一栋或少一栋。可即便两个人从头到尾都没画出一样的轮廓，他们仍有可能同意哪些街区的房子更密。</p>
+<p>Kraff 等人整理了历时九年的人工解译工作，在 35 座城市的 44 个已有文献记录的贫困地区，绘出约 32.1 万个建筑轮廓。他们还用同一幅影像让不同人各画一遍。结果表明，在六个测试地点，大家画出的建筑面积、密集程度常有相似的高低起伏，但细到一个屋顶占了哪些位置，建筑越密、越难分辨，解译员越容易产生分歧。</p>
+<h2 id="下笔之前，先决定地图要回答什么"><a href="#下笔之前，先决定地图要回答什么" class="headerlink" title="下笔之前，先决定地图要回答什么"></a>下笔之前，先决定地图要回答什么</h2><p>如果问题是一个屋顶有多大，只需沿屋檐描出轮廓，计算轮廓内的面积。如果问题换成一个街坊有多密，还要确定这片街坊到哪里为止，再把街坊里所有屋顶面积相加，除以街坊面积。前一个数字以平方米计，后一个是覆盖比例。一片都是小房子的街区，照样可能几乎没有空地。</p>
+<p>这就是数据集提供三层地图的原因。最外层是选定的研究范围，通常尽量涵盖当地几种主要的建筑形态，和行政边界可能不重合。中间层用道路或巷道划出街坊。巷子难辨时，解译员也参考建筑密度是否突然变化、有没有开阔地。最内层才是一块块代表建筑足迹（building footprint）的屋顶轮廓。公开文件里每个屋顶都能通过编号找到所属街坊，因此同一套线可以从一栋房子一直查回整片研究区。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/770074d1/fig1.png" alt="同一研究区的地区、街坊与单体建筑三层轮廓"></p>
+<p>图 1｜从左到右是同一地点的研究范围（①）、街坊边界（②）和建筑轮廓（③）。中图补上了右图缺少的分母，用它才能比较不同街坊有多大比例被屋顶覆盖。</p>
+<p>研究者先查阅已有文献，再挑选建筑布局、地形和规划条件各异，而且有足够清楚的光学影像的地点。44 处涵盖从密集城区到外围聚居点的多种形态。这种选择便于比较形态差别，不能据各类型出现的次数，推算全球贫困地区中哪一类最常见。</p>
+<h2 id="遇到遮挡，哪些线是看见的，哪些线是补出来的？"><a href="#遇到遮挡，哪些线是看见的，哪些线是补出来的？" class="headerlink" title="遇到遮挡，哪些线是看见的，哪些线是补出来的？"></a>遇到遮挡，哪些线是看见的，哪些线是补出来的？</h2><p>内罗毕的基贝拉提供了一个直观例子。图 2 右侧的放大图里，逐屋描绘的轮廓能分开一长排紧挨的屋顶，另外两套地图有的把相邻几栋圈在一起，有的没有划出边界。要公平地把这些差异都算成识别错误，还缺一个条件。手工轮廓对应 2006 年的影像，另外两组资料标注在 2024–2025 年，期间真实建筑也可能改变。</p>
+<p><img src="/posts/770074d1/fig2.png" alt="基贝拉同一片屋顶在人工解译和两套开放地图中的轮廓"></p>
+<p>图 2｜按右侧行名从上到下看，分别是人工目视解译 MVII、OpenStreetMap 和 Google Open Buildings。沿每一行向右看放大区域，比较相邻屋顶之间那条线有没有被画出来。</p>
+<p>人工目视解译（manual visual image interpretation，MVII）也要有共同的画法。影像中每个像素大约对应地面半米，研究把约 4 平方米设为最小上图面积。看得清屋檐时，解译员在边缘和拐角逐点连线。碰到树冠遮住屋顶一角，就顺着两侧仍然可见的边线推断转角。斜拍时，外墙和阳台也会露出来，沿着最外缘描一圈容易把它们都算进屋顶。若一片屋顶始终无法可靠地分开，允许把这一簇作为一个多边形，并在该区贯穿使用相同规则。</p>
+<p><img src="/posts/770074d1/fig3.png" alt="布加勒斯特、拉各斯和雅典的屋顶勾绘实例"></p>
+<p>图 3｜（a）布加勒斯特的圈内有树木遮挡，（b）拉各斯的连续画面显示怎样逐点围出屋顶，（c）雅典的斜视影像说明为什么要区分屋顶与外凸阳台，（d）拉各斯的红线给许多单体建筑划出了共同的街坊边界。</p>
+<p>多数地区由同一位解译员绘制，少数地区从已有地图或他人初稿开始，最后也由这位解译员对照影像统一修订。这样可以减少中途更换画法带来的跳变。用户取到的是建筑和街坊等矢量轮廓，建筑高度字段也是按影像及辅助资料估出的层数档位。例如数值 5 表示约 3 至 5 层，直接把字段求和会高估能从这批资料读出的精度。</p>
+<h2 id="同样有贫困记录的地区，十年间会长成什么样？"><a href="#同样有贫困记录的地区，十年间会长成什么样？" class="headerlink" title="同样有贫困记录的地区，十年间会长成什么样？"></a>同样有贫困记录的地区，十年间会长成什么样？</h2><p>有 16 个地点提供两个时相。研究者固定同一个外边界，再按同一套规则描绘第二次影像。图 4 里，伦敦塔村区在 2010 年和 2017 年都能找到一排排相近的长条建筑。看右下方的安卡拉，2009 年还能辨认出密集而细碎的屋顶，到 2017 年已经变成较少、较大、间距明显的轮廓。只说两处都属于研究中的贫困地区，会漏掉最醒目的空间变化。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/770074d1/fig4.png" alt="伦敦、布加勒斯特、拉各斯与安卡拉的两期建筑平面"></p>
+<p>图 4｜黑色块是建筑轮廓，白色是其余空间。每个地点先从左向右比两个年份，再跨地点比较。左下的拉各斯在两个年份都很密，右下安卡拉的建筑间距变化最直观。</p>
+<p>从这张图能看出安卡拉建成布局改了模样，无法从黑白块的大小判断旧住户是搬走了还是住进新楼，也看不出伦敦的住户收入是否提高。图形记录了房子之间的关系，居住经历则需要另一类证据。</p>
+<h2 id="换十个人重画，哪些判断还能站住？"><a href="#换十个人重画，哪些判断还能站住？" class="headerlink" title="换十个人重画，哪些判断还能站住？"></a>换十个人重画，哪些判断还能站住？</h2><p>论文整理了团队此前的解译员对照。十个人各自勾画相同地点后，研究者把结果叠在边长 2 米的网格上，逐格比较大家对有无屋顶覆盖的判断。用扣除偶然一致后的 Fleiss’ κ 系数衡量，三个较容易辨认的地点约为 0.4–0.6，三个更复杂的地点约为 0.3–0.4。几个系数也许接近，但画线细节的分歧会逐步累积到建筑数量和面积上，这些指标在不同人之间的变异系数常达 20%–30%。它说的是不同人画出的结果有多分散，不能读成每栋房子的面积都错了两三成。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/770074d1/fig5.png" alt="十位解译员在六个地点估计的建筑面积与覆盖比例"></p>
+<p>图 5｜每条彩色虚线代表一位解译员，横轴依次是雅典、开罗、布加勒斯特、孟买、内罗毕和拉各斯。左图纵轴为建筑面积（平方米），右图为建筑覆盖比例（%）。看同一地点各条线相隔多远，再看不同人的折线在哪些地方一起升降。</p>
+<p>图 5 右侧的布加勒斯特和孟买是一个很好的对照。不同人给出的百分比并不一致，但从第三个地点看到第四个地点，各条线都向上。用这套资料比较两个街区谁更密，和拿它确定某一栋房子的精确边界，对误差的要求很不一样。当地缺少独立的地籍测量，解译员之间达成一致，也只能说明这条线可以被重复画出来。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>同一套规则能把各地的屋顶面积、排列和街坊覆盖比例放在一起比较。两期平面图也表明，有的地点多年保留相似的建筑格局，有的地点在不到十年间就明显重组。一个共同的社会经济标签并不对应一种固定的建筑外形。</p>
+<p>细到单栋建筑，最难的部分是相邻屋顶的分割和被遮挡的边缘。把这些人工轮廓用于检验自动制图时，可以问算法在密集街坊里漏掉了什么，也要记得人工参照本身有分歧。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>Kraff 等人以约半米分辨率的卫星影像为主，在 35 座城市的 44 个地区整理了 321,075 个建筑多边形和 4,661 个街坊多边形。使用同一套规则，才可能在细到屋顶的尺度上比较各地建筑的大小、疏密和变化。十位解译员的对照同时说明，街区疏密的大致顺序有时相当稳定，一条具体的屋檐边线却可能有几种合理画法。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-026-07945-2">正式 DOI</a>、<a target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13434708/">PMC 出版全文</a>及<a target="_blank" rel="noopener" href="https://elib.dlr.de/226015/">德国航空航天中心馆藏 PDF</a>：方法、原图 1–5 和解译校验。</li>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.15489/2wrrj8cpaj88">DLR 数据存档</a>：论文列出的数据标识。开放许可不自动覆盖另行注明权利的第三方影像，复用请核对图下署名。</li>
+<li>Kraff 等人的数据论文给出了解译规则、区域选择、属性表和解译员对照。<a href="https://www.nature.com/articles/s41597-026-07945-2">Scientific Data 正文</a></li>
+<li>德国航空航天中心提供研究范围、街坊和建筑三个层次的矢量资料。原始影像主要来自 QuickBird、GeoEye 和 WorldView，公开数据交付的是据此描绘的轮廓。<a href="https://doi.org/10.15489/2wrrj8cpaj88">数据存档</a></li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>第一作者及通讯作者 Nicolas J. Kraff 与 Michael Wurm 署名德国航空航天中心地球观测中心；John Friesen、Henri Debray 署名维尔茨堡大学地理与地质研究所；Hannes Taubenböck 同时署名两个机构。按论文贡献声明，Kraff 负责数据生成和初稿等工作；Wurm 参与校验和变量定义；Friesen 参与构思与写作；Debray 参与稿件；Taubenböck 指导研究并参与设计和校验。</p>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>Nicolas J. Kraff 和 Michael Wurm（德国航空航天中心地球观测中心）、John Friesen 和 Henri Debray（维尔茨堡大学地理与地质研究所）、Hannes Taubenböck（同时署名上述两家机构）共同完成论文。Kraff 负责收集和生成数据并撰写初稿，Wurm、Taubenböck 与 Kraff 共同完成技术验证。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>若用这些标注评价自动勾绘，可以分别留出整座城市和其他解译员的结果。前者检验模型是否只适应见过的形态，后者检验模型是否过度贴近某种画法。再按遮挡程度或屋顶密集度报告汇总误差，就能看出方法在哪类建成环境最容易失真，无需将屋顶与住户身份或人口特征对应。</p>
+<p>如果社区要在几片建筑密集的街坊里安排一处公共活动场地，图 4 这样的黑白平面很容易让人盯上最大的一块白。可站到地面上，那块白有可能是孩子们已经在用的球场，也可能是被围起的院子。反过来，两排黑色屋顶之间一条几乎看不见的缝，倒可能是居民每天最常走的通路。</p>
+<p>屋顶图能帮助讨论从具体地点开始。让住在这里的人指出从哪边能进、哪些地方早已有了用途，同一块白地就可能得到完全不同的解释。在这个决定里，卫星能把问题定位得很准，给空地命名的还得是地面上的人。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -665,17 +669,13 @@
                 <a href="/posts/d71e88a8/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="2026-An openly available OpenStreetMap-to-Foursquare category benchmark for points of interest">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="An openly available OpenStreetMap-to-Foursquare category benchmark for points of interest">
                         
-                        <span class="card-title">2026-An openly available OpenStreetMap-to-Foursquare category benchmark for points of interest</span>
+                        <span class="card-title">An openly available OpenStreetMap-to-Foursquare category benchmark for points of interest</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">眼镜店在一份地图里算医疗、另一份里算零售。1,205 个 OSM 标签能与 Foursquare 对应到多细？</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-18

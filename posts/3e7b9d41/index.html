@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-Predicting citywide human mobility with a graph-prior-enhanced euclidean convolutional network, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="Predicting citywide human mobility with a graph-prior-enhanced euclidean convolutional network, 猴猴猴">
+    <meta name="description" content="厦门和福州的实验把通行节奏相似的流向排进相邻网格，检验预测下一刻钟人次时，哪些误差能降低、哪些运算能提前做。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-Predicting citywide human mobility with a graph-prior-enhanced euclidean convolutional network | 猴猴猴</title>
+    <title>Predicting citywide human mobility with a graph-prior-enhanced euclidean convolutional network | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-Predicting citywide human mobility with a graph-prior-enhanced euclidean convolutional network</h1>
+                    <h1 class="description center-align post-title">Predicting citywide human mobility with a graph-prior-enhanced euclidean convolutional network</h1>
                 </div>
             </div>
         </div>
@@ -436,54 +436,52 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img{display:block;max-width:100%;height:auto;margin:1.25rem auto}.post-title{overflow-wrap:anywhere}</style>
 
-<h2 id="两条流量曲线很像，能让卷积把它们当成邻居吗？"><a href="#两条流量曲线很像，能让卷积把它们当成邻居吗？" class="headerlink" title="两条流量曲线很像，能让卷积把它们当成邻居吗？"></a>两条流量曲线很像，能让卷积把它们当成邻居吗？</h2><p>连接住宅区与工业区的两条线路可能相隔很远，却都在同一时段迎来高峰。把起讫流量排进普通矩阵时，索引相邻的两格反而可能毫无关系。论文尝试先按流量行为定义近邻，再把近邻摆到卷积容易看到的位置，比较精度与计算代价。</p>
-<p>论文名片｜Sheng Wu、Linbaizhi Wang、Peixiao Wang、Hengcai Zhang、Shifen Cheng、Xin Fu、Junhao Guo、Feng Lu，<em>Predicting citywide human mobility with a graph-prior-enhanced euclidean convolutional network</em>，Sustainable Cities and Society 149，107720（2026）。<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.scs.2026.107720">正式 DOI</a>。</p>
-<h2 id="预测的是什么范围？"><a href="#预测的是什么范围？" class="headerlink" title="预测的是什么范围？"></a>预测的是什么范围？</h2><p>案例是厦门和福州的村级起讫流量。实验并未覆盖两个城市的全部潜在区对，而选日总流量最高的 2,589 和 4,342 对。误差仅在真实值大于零的记录上计算，不能代替对稀少流向或出现新流量的评价。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/3e7b9d41/fig8.png" alt="完整原论文图8"></p>
-<p><em>图 8｜厦门和福州的案例边界及村级空间单位。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/3e7b9d41/fig9.png" alt="完整原论文图9"></p>
-<p><em>图 9｜厦门的流量矩阵高度稀疏，放大排序图才看清实验所用的高流量子集；这不是全量预测。</em></p>
-<h2 id="图的近邻怎样放进规则格子？"><a href="#图的近邻怎样放进规则格子？" class="headerlink" title="图的近邻怎样放进规则格子？"></a>图的近邻怎样放进规则格子？</h2><p>方法先按流量曲线的相似性建立图先验，再重排起讫对，使图中较相似的邻居尽量在卷积窗口内。它不把这些邻居称为现实中的相邻地点，也不把重排后的格子当作地图。相似性与网格位置是为预测构造的表示。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/3e7b9d41/fig1.png" alt="完整原论文图1"></p>
-<p><em>图 1｜示意普通矩阵上的邻居与真实空间、流量结构中的邻居并不相同。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/3e7b9d41/fig2.png" alt="完整原论文图2"></p>
-<p><em>图 2｜框架串起近邻构建、网格重排和卷积预测，三部分作用不同。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/3e7b9d41/fig3.png" alt="完整原论文图3"></p>
-<p><em>图 3｜两条日内曲线在时间与量级上可能不同，距离量决定什么被视作相似。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/3e7b9d41/fig4.png" alt="完整原论文图4"></p>
-<p><em>图 4｜树形结构组织相似节点，是重排的中间表示。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/3e7b9d41/fig5.png" alt="完整原论文图5"></p>
-<p><em>图 5｜重排尝试让相关区对落到彼此附近，不保证每条图边都能等距保留。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/3e7b9d41/fig6.png" alt="完整原论文图6"></p>
-<p><em>图 6｜卷积可见的窗口决定它能包含多少被重排的图邻居。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/3e7b9d41/fig7.png" alt="完整原论文图7"></p>
-<p><em>图 7｜小卷积核逐层扩大可见范围，代替部分图运算；这是模型结构示意。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/3e7b9d41/fig10.png" alt="完整原论文图10"></p>
-<p><em>图 10｜厦门的参数比较帮助选择本次模型设置，不是通用配置。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/3e7b9d41/fig13.png" alt="完整原论文图13"></p>
-<p><em>图 13｜两地最远邻居距离的分布不同，一种窗口大小不会同等覆盖所有节点。</em></p>
-<h2 id="与图模型比更快，与普通卷积比呢？"><a href="#与图模型比更快，与普通卷积比呢？" class="headerlink" title="与图模型比更快，与普通卷积比呢？"></a>与图模型比更快，与普通卷积比呢？</h2><p>单步预测中，厦门 GPECN 与 ST-GDN 的 RMSE 分别约 3.18 和 3.15，未显示可靠差异；福州分别约 2.82 和 2.96，前者较低。厦门特定计时设置下，GPECN 单次约 97 毫秒，快于两个图基线，却慢于普通 ConvLSTM。因而它展示的是精度和计算量之间的一种折中，不是同时取得所有最好成绩。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/3e7b9d41/fig11.png" alt="完整原论文图11"></p>
-<p><em>图 11｜联合比较误差与运行时间，向单一方向移动并不必然改善另一指标。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/3e7b9d41/fig12.png" alt="完整原论文图12"></p>
-<p><em>图 12｜节点规模变化时两类模型的计时走势，读数依赖实验配置。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/3e7b9d41/fig14.png" alt="完整原论文图14"></p>
-<p><em>图 14｜分区及时间层面的误差并不均匀，均值会掩盖波动较大的区对。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/3e7b9d41/fig15.png" alt="完整原论文图15"></p>
-<p><em>图 15｜散点比较真实流量标准差与 MAE，拟合度不是模型解释了多少真实流量。</em></p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>在厦门与福州所选高流量区对中，图先验重排让规则卷积保留了部分行为相似性，并在一些设置中接近或超过图模型的精度，运行速度取决于比较对象。证据限于非零记录及高流量子集，不能视为全城 OD 矩阵恢复或部署结果。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这项研究的价值是先把“谁与谁相似”写进数据排列，再让卷积处理这个排列。对交通预测来说，精度有多大收益、为此要花多少时间、被排除的是哪些流向，应该一起报告。只比较一个测试平均数，容易遗漏流量稀少却需要服务的区域。</p>
+<h2 id="同样多的人出门，下一刻钟哪个方向会更忙？"><a href="#同样多的人出门，下一刻钟哪个方向会更忙？" class="headerlink" title="同样多的人出门，下一刻钟哪个方向会更忙？"></a>同样多的人出门，下一刻钟哪个方向会更忙？</h2><p>Wu, S., Wang, L., Wang, P., Zhang, H., Cheng, S., Fu, X., Guo, J., &amp; Lu, F. (2026). Predicting citywide human mobility with a graph-prior-enhanced euclidean convolutional network. <em>Sustainable Cities and Society, 149</em>, 107720. <a href="https://doi.org/10.1016/j.scs.2026.107720">论文 DOI</a></p>
+<p>假设厦门一个社区今天早上八点出发的人和昨天一样多。昨天大半往集美去，今天却有更多人往海沧去。在社区门口数人，两天是同样忙碌的早晨。从两个目的地看，情形就很不一样。要提前一刻钟判断哪个方向会更忙，记录里得同时留下人从哪里出发、到哪里去。</p>
+<p>把每个地区列为一行起点、一列终点，就得到起讫矩阵（origin–destination matrix，简称 OD 矩阵）。其中一格记录一个时段内从甲地到乙地的出行人次。麻烦在于，只要给目的地换一套编号，这一格旁边就会换成别的流向，城市里的出行联系却丝毫未变。让模型参考旁边几格来预测，究竟该把谁放在旁边？</p>
+<p>厦门和福州的实验给出了一种做法。研究者用多天的出行记录找出节奏相似的流向，提前把它们排到一张新表里。这样，模型每隔一刻钟更新预测时，只需在规则网格上计算。在两市选出的繁忙流向中，这个做法达到了与直接在图上计算的模型相近、部分比较中更好的精度，也缩短了厦门实验中的推算时间。</p>
+<h2 id="厦门有五十多万个起讫组合，哪些进入了预测？"><a href="#厦门有五十多万个起讫组合，哪些进入了预测？" class="headerlink" title="厦门有五十多万个起讫组合，哪些进入了预测？"></a>厦门有五十多万个起讫组合，哪些进入了预测？</h2><p>研究覆盖 2023 年 4 月 1 日至 6 月 30 日，共 91 天。厦门划分为 712 个村级行政单元，福州为 3,164 个。每 15 分钟汇总一次出行量，一天有 96 个时段。单是厦门，把 712 个起点与 712 个终点两两组合，就有 506,944 格，既包括单元内部的出行，也区分从甲到乙和从乙到甲两个方向。</p>
+<p>这些格子的繁忙程度相差很大。厦门早上八点的矩阵里，大片位置没有流量，少数位置却反复有出行。研究者按日总流量给起讫对排序，从厦门的 506,944 个组合中选出 2,589 对，从福州的 10,010,896 个组合中选出 4,342 对。后面的模型比较都以这批高流量起讫对为主，计算预测误差时还要求该时段的实测流量大于零。因而，表里的分数回答的是繁忙方向一旦有人出行，模型能把人次估得多准。原本安静的方向何时开始有人出行，是另一个预测问题。</p>
+<h2 id="怎样从多天的出行记录里找邻居？"><a href="#怎样从多天的出行记录里找邻居？" class="headerlink" title="怎样从多天的出行记录里找邻居？"></a>怎样从多天的出行记录里找邻居？</h2><p>普通卷积（convolution）让一个小窗口扫过网格，用同一套运算合并周围几格的信息。图卷积（graph convolution）则可以沿着指定的连线，为每个对象找到各自的邻居。本文提出的图先验增强欧氏卷积网络（Graph-Prior-Enhanced Euclidean Convolutional Network，GPECN）把两种做法接在一起。图上的一个节点代表一个完整的起讫对。哪些起讫对值得互相参考，先由历史数据决定，再把这份邻居关系交给网格上的卷积，这就是这里的图先验。</p>
+<p>研究者为每条流向做一张表，每行是一天，每列是固定的一刻钟。从每一列的多天记录可以算出那个时段通常有多繁忙。再把一天各时段的流量强度换算为总和等于 1 的份额，总人次相差几倍的两条流向也就可以放在一起比较。</p>
+<p>比较时，可以想象把甲流向各时段的份额重新分配，直到与乙流向的日内分布吻合。例如，把甲在八点的一部分份额配给乙在八点一刻，需要付出多少代价？模型取出这两个时段各自的多日记录，用余弦距离（cosine distance）比较它们在哪些日子偏高、哪些日子偏低。跨日变化越相似，这一次分配的单位代价就越小。所有可行分配中，总代价最低的那个值，就是论文采用的瓦瑟斯坦距离（Wasserstein distance）。每个起讫对选取距离最小的几个起讫对作为邻居，便得到一张虚拟图。图上的连线表示历史流量形态相似。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/3e7b9d41/fig3.png" alt="两条流向的日内分布和跨日相似性"></p>
+<p>图 3｜（a、b）分别是两条流向多天的原始记录。（d）把日内各时段的强度化为份额，决定要移动多少；（c）保留不同日期的变化，用来计算匹配时段的代价。（e）用两组柱子的高度和移动方向画出分布怎样对齐。</p>
+<h2 id="连在图上的两个起讫对，怎样进入同一个卷积窗口？"><a href="#连在图上的两个起讫对，怎样进入同一个卷积窗口？" class="headerlink" title="连在图上的两个起讫对，怎样进入同一个卷积窗口？"></a>连在图上的两个起讫对，怎样进入同一个卷积窗口？</h2><p>一条流向可能跟许多方向都有相似节奏，规则网格里紧邻的位置却只有八个。作者从最相似的两个节点中选一个作起点，按相似程度向外排出一棵树，越靠近起点的关系越早得到安排。</p>
+<p>落格从中心开始。先放树根，再把它的邻居从正上方起顺时针填入周围空格。轮到下一批节点时，优先填在与它相连的节点旁边，近处已满才向外扩一圈。这个排列在线下做一次就能反复使用。以后每过 15 分钟，都把同一个起讫对的新流量填回同一格。于是，连续几张网格既保留了出行量随时间的变化，也保留了大部分预先找出的邻居关系。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/3e7b9d41/fig5.png" alt="相似流向在规则网格中的排列"></p>
+<p>图 5｜从左到右，蓝色根节点先占一格，绿色和黄色节点随后向外填入。下方箭头是现实中的出行方向，上方同色方格是这些流向在模型里的位置。</p>
+<p>这样排好以后，也有一些原本相连的节点没有挤进彼此最近的几格。模型每次看多大一圈，决定它还能找回多少这样的邻居。</p>
+<p>在两座城市，作者都选了半径 7 格。厦门 2,589 个目标节点中，有 2,366 个能在这个范围内找齐自己的图邻居。福州 4,342 个节点中有 3,775 个能找齐。同一个半径在两地保留了不同比例的完整邻居组，再往外扩大窗口仍有收益，只是需要多算几轮。</p>
+<p>预测时，模型用 3 × 3 的小窗口反复做空间卷积。每算一轮，信息就能从更远一圈传过来。模型把这些运算的输出转换为图邻居的权重，据此决定每个邻居对当前预测贡献多少。空间运算前后还有时间卷积，读入每格最近一段时间的流量变化。最后输出的仍是各条起讫流向在未来时段的出行人次。</p>
+<h2 id="预测更准和算得更快，分别是跟谁比？"><a href="#预测更准和算得更快，分别是跟谁比？" class="headerlink" title="预测更准和算得更快，分别是跟谁比？"></a>预测更准和算得更快，分别是跟谁比？</h2><p>研究比较了五个基线，其中两个在规则网格上计算，三个直接利用图结构。先看未来一刻钟。均方根误差（RMSE）和流量一样以出行人次计，较大的预测偏差在这个指标里占更大分量。在厦门所选起讫对的非零记录上，普通网格模型 ConvLSTM 的 RMSE 为 4.98，GPECN 降至 3.18。与图模型 ST-GDN 的 3.15 相比，两者很接近，重复实验的配对检验也未检出显著差异。福州同一项比较中，GPECN 为 2.82，ST-GDN 为 2.96，差异达到统计显著。</p>
+<p>厦门在 2,589 个节点、每批 8 个样本的设置下，GPECN 做一次前向推算平均约用 97 毫秒，ST-GDN 约用 264 毫秒。两者单步误差接近，前者只用了后者约 37% 的推算时间。普通网格模型 ConvLSTM 只用约 12 毫秒，代价是刚才看到的较大误差。这里计时的是排好网格后的一次运算，提前建图和安排格子属于另一阶段。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/3e7b9d41/fig11.png" alt="厦门模型推算时间与误差的比较"></p>
+<p>图 11｜每颗星是一个模型，纵轴是厦门单步预测的 RMSE，横轴单位为毫秒。（a）计一次前向推算，（b）计一次包含前向和反向传播的参数更新。比较 GPECN 与 ST-GDN，两颗星的高度接近，横向距离明显。</p>
+<h2 id="高峰来得准，峰顶的人次也估得准吗？"><a href="#高峰来得准，峰顶的人次也估得准吗？" class="headerlink" title="高峰来得准，峰顶的人次也估得准吗？"></a>高峰来得准，峰顶的人次也估得准吗？</h2><p>2023 年 6 月 19 日 8:15，研究者把入选的村级流向归到对应的行政区组合，查看各方向的平均绝对误差（MAE），也就是预测与实测平均相差多少人次。同一座城市里，有的方向明显更难估。如果只报两市各自的一个平均误差，这些差别就看不见了。</p>
+<p>研究者又从两市各抽取一个起讫对，把 6 月 19 日至 25 日的流量逐小时汇总。两个例子里，预测都能跟上每天早晚的起伏，但在峰顶和午后流量突然下降时，预测点与实测曲线更容易分开。知道高峰大致何时出现，与准确估出最忙那个小时有多少人，是两种精度要求。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/3e7b9d41/fig14.png" alt="厦门和福州的预测误差及一周流量"></p>
+<p>图 14｜上排是厦门，下排是福州。（a、c）两轴对应起终点所在的行政区，着色格越红，平均绝对误差越大。（b、d）横轴是一周内的时间，纵轴是逐小时汇总的出行人次，橙线为实测值，红点为预测值，粉色表示残差。</p>
+<p>厦门把样本从 2,589 对扩至 5,178 对后，单步均方根误差反而从 3.18 降到 1.83。新加入的方向主要是小流量，分数比较的对象已经变了。比如实测只有两人次时，少估一半也只差一人次。因此还不能用这个更低的分数判断模型能不能抓住冷门方向突然变忙的时刻。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>对于两市选出的高流量起讫对，按照出行节奏寻找邻居，再把邻居排进规则网格，能让普通卷积利用原始 OD 行列顺序里看不出来的联系。网格容纳这些关系有上限，但保留下来的部分已足以让模型在厦门达到与 ST-GDN 接近的单步精度，在福州取得更低的单步误差。</p>
+<p>这种安排的计算收益在节点多时更明显。与三个图模型相比，GPECN 在厦门的单次推算都更快。与普通网格模型相比，它花了更多时间，也换得了更低的误差。两市的结果主要适用于历史记录中反复出现的繁忙流向，波动大的方向仍容易出现较大偏差，突发事件改变日常出行规律的情形也有待检验。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这项研究用厦门和福州连续 91 天、按 15 分钟汇总的村级起讫流量，先算出哪些流向在相似的日子、相似的时段变忙，再把这些流向放进同一扇卷积窗口。这样做把一部分寻找邻居的工作提前到了建模阶段。在厦门筛出的 2,589 个繁忙方向上，新模型预测下一刻钟的误差与图模型 ST-GDN 接近，一次推算约用 97 毫秒，对照模型约用 264 毫秒。理解这个收益，需要同时记住预测的对象以及评分时只计实测流量为正的时段。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.scs.2026.107720">期刊正式 DOI</a>：本地正式出版 PDF、图 1–15、性能对照与消融。公开转载前须核适用图权。</li>
+<li>模型设计、两市预测比较与计算实验均见 Wu 等发表于 <em>Sustainable Cities and Society</em> 的原论文。<a href="https://doi.org/10.1016/j.scs.2026.107720">论文 DOI</a></li>
+<li>出行数据为 2023 年 4 至 6 月厦门、福州的村级 OD 聚合流量。论文的数据可用性声明注明，可向作者申请获取。</li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Sheng Wu 为第一作者，Peixiao Wang 为通讯作者；其他作者为 Linbaizhi Wang、Hengcai Zhang、Shifen Cheng、Xin Fu、Junhao Guo、Feng Lu。</p>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><ul>
+<li>Sheng Wu、Linbaizhi Wang、Junhao Guo（福州大学数字中国研究院〔福建〕）。第一作者 Sheng Wu 与 Linbaizhi Wang 参与研究构思、方法设计、数据整理和初稿写作，Linbaizhi Wang 还参与正式分析。Junhao Guo 参与软件开发和方法设计。</li>
+<li>Peixiao Wang、Hengcai Zhang、Shifen Cheng、Feng Lu（中国科学院地理科学与资源研究所地理信息科学与技术全国重点实验室、中国科学院大学资源与环境学院）。通讯作者 Peixiao Wang 参与方法设计、可视化与研究指导。Hengcai Zhang 和 Shifen Cheng 参与方法与写作，Feng Lu 参与方法设计和项目管理。</li>
+<li>Xin Fu（济南大学水利与环境学院）参与写作、修订与经费获取。</li>
+</ul>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>可把夜间小流量与可能出现新连接的区对单列成评估组，并使用一个未见时段比较误报与漏报。若模型只在繁忙流向上保持优势，实际应用就应把这个限制标在结果旁边，而不是说它已经预测了整座城市。</p>
+<p>设想一座换乘站要决定早高峰结束后，什么时候收起备用通道的隔离栏。历史出行预测显示，往这个片区的人通常在八点半以后减少。但对站里仍在排队的人来说，最要紧的是最后一拨人到了没有。即使模型把高峰出现的时间估得很准，低估峰顶的一拨人，也足以让队伍多排一会儿。</p>
+<p>这时可以把两个决定分开做。早班开始前，用各方向通常变忙的时间安排工作人员到岗。到了预计回落的时刻，再到通道口看一眼，队尾是否真的在持续缩短。这样，预测帮人提前准备，现场的那一眼则回答了更具体的问题：现在收起隔离栏，会不会恰好让最后一拨乘客多等一班车？</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -611,17 +609,13 @@
                 <a href="/posts/5c8d0e62/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="2026-Measuring urban bilateral job-housing balance based on big data: A case study of multiple cities in China">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Measuring urban bilateral job-housing balance based on big data: A case study of multiple cities in China">
                         
-                        <span class="card-title">2026-Measuring urban bilateral job-housing balance based on big data: A case study of multiple cities in China</span>
+                        <span class="card-title">Measuring urban bilateral job-housing balance based on big data: A case study of multiple cities in China</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">同一街道的住户可能在附近上班，来这里工作的员工却可能住得很远。七城 653 个街道如何呈现这两种不同的通勤？</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
@@ -671,17 +665,13 @@
                 <a href="/posts/1f6a8c20/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="2026-GAGNN: a geography-aware graph neural network for citywide commuting flows prediction">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="GAGNN: a geography-aware graph neural network for citywide commuting flows prediction">
                         
-                        <span class="card-title">2026-GAGNN: a geography-aware graph neural network for citywide commuting flows prediction</span>
+                        <span class="card-title">GAGNN: a geography-aware graph neural network for citywide commuting flows prediction</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">把道路、公交或地铁接到福州的通勤地图上，哪种信息最能补出缺失的流量？结论还取决于地图上的格子有多大。</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-11

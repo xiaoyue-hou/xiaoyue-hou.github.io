@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-Truck Travel times on freeway facilities and segments in Germany based on FCD from 2019, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="Truck Travel times on freeway facilities and segments in Germany based on FCD from 2019, 猴猴猴">
+    <meta name="description" content="德国高速货车走到前方时，那里的速度可能已经变了。2019 年行程时间表怎样从车辆定位记录重建这段过程？">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-Truck Travel times on freeway facilities and segments in Germany based on FCD from 2019 | 猴猴猴</title>
+    <title>Truck Travel times on freeway facilities and segments in Germany based on FCD from 2019 | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-Truck Travel times on freeway facilities and segments in Germany based on FCD from 2019</h1>
+                    <h1 class="description center-align post-title">Truck Travel times on freeway facilities and segments in Germany based on FCD from 2019</h1>
                 </div>
             </div>
         </div>
@@ -436,65 +436,35 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img {display:block; width:100%; max-width:100%; height:auto; margin:1.25rem auto;} .post-title {overflow-wrap:anywhere;}</style>
 
-<h2 id="同一段德国高速，早上八点和八点十分出发，会差多少时间？"><a href="#同一段德国高速，早上八点和八点十分出发，会差多少时间？" class="headerlink" title="同一段德国高速，早上八点和八点十分出发，会差多少时间？"></a>同一段德国高速，早上八点和八点十分出发，会差多少时间？</h2><p>看一条高速地图，只知道从入口到出口有多远。要研究货运是否准时，还得知道：同一条路，换个时间出发，通常要多走几分钟？如果经过一段慢速区，平均时间够不够说明风险？</p>
-<p><strong>论文名片</strong>｜Marian Schlott、Lateef Abdul、Bert Leerkamp，<em>Truck Travel times on freeway facilities and segments in Germany based on FCD from 2019</em>，<em>Scientific Data</em> 13，588（2026），4 月 8 日发表。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-026-07198-z">DOI</a> · <a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41597-026-07198-z">正式全文</a></p>
-<p>这是一篇<strong>数据描述论文</strong>。作者把 2019 年德国高速公路的车辆速度观测整理成可按路线和出发时间查询的货车行程时间。公开表的每一行是某段道路、某个出发时刻的估计，不是某辆车实际走了多久，也不是今天的路况。</p>
-<h2 id="三张表怎么接成一张有时间的地图？"><a href="#三张表怎么接成一张有时间的地图？" class="headerlink" title="三张表怎么接成一张有时间的地图？"></a>三张表怎么接成一张有时间的地图？</h2><p>路网取自 2019 年 OpenStreetMap。作者把道路分成三级：最小的 <strong>100 米边</strong>用来承接浮动车速度和做插值；若干边构成较长的<strong>路段</strong>，例如分流、合流或交织区；多个路段又构成一条<strong>高速公路设施</strong>。公开的时间表有后两级，不提供逐条车辆轨迹。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/2718c2c2/fig1.png" alt="高速公路设施与路段的层级"></p>
-<p><strong>图 1｜</strong>长箭头跨越多个出入口，表示高速公路设施；短箭头标出其中一段。这张图解释层级关系，不代表实际设施的长度。</p>
-<p>实际下载以 Zenodo v2 的文件列表为准：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>实际文件名</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>network_model_agg.csv</code></td>
-<td>路网及 WGS84 线几何</td>
-</tr>
-<tr>
-<td><code>traveltimes_networksegments.parquet</code></td>
-<td>按 <code>network_segment_id</code> 接回路网的设施级时间</td>
-</tr>
-<tr>
-<td><code>traveltimes_segments.parquet</code></td>
-<td>按 <code>segment_id</code> 接回路网的路段级时间</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>两张时间表的字段 <code>truck_traveltime_minutes</code> 以分钟计。时间戳按 <strong>Europe/Berlin</strong> 解释，覆盖 2019 年周一至周五的 <strong>04:00–20:00，每 10 分钟</strong>；周末和夜间不在发布范围内。正式论文表 2 对文件名另有一种写法，上表采用库里实际可下载的文件名，不把两套名称当成两套数据。</p>
-<h2 id="从两百多亿个速度点里，如何区分货车和小客车？"><a href="#从两百多亿个速度点里，如何区分货车和小客车？" class="headerlink" title="从两百多亿个速度点里，如何区分货车和小客车？"></a>从两百多亿个速度点里，如何区分货车和小客车？</h2><p>数据来自德国汽车俱乐部 ADAC 汇集的浮动车数据：车辆装备间歇报告所在位置、时间和速度，样本总计超过 <strong>250 亿个点</strong>，包括不同车种。作者先把这些观测匹配到高速的道路单元，再根据速度画像做聚类。参与分类的约 3,800 万是会按日更新的短期资产编号，并不等于有那么多辆不同的车；原数据也没有登记的载重标签。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/2718c2c2/fig2.png" alt="速度画像和两类或三类的聚类比较"></p>
-<p><strong>图 2｜</strong>a 展示不同速度统计量的密度，b 对照分两簇，c 给出分三簇的结果。虚线是论文采用的 80 km/h 车辆限速参照，不是判断每辆车身份的硬阈值。</p>
-<p>两类聚类的轮廓系数反而更高（0.553 对 0.489），但作者选择三类，是为了把速度重叠的中间群从货车组里分出来。比如堵车的小客车可能和货车差不多慢；保留一个中间类，比把速度重叠者全算成货车更贴合研究目的。代价是货车样本更小，而且那一类仍只是作者为重型货车选择的速度代理，不等于逐车核实总重超过 7.5 吨。</p>
-<h2 id="为什么每-10-分钟一条，却不是每-10-分钟都有实车走完全程？"><a href="#为什么每-10-分钟一条，却不是每-10-分钟都有实车走完全程？" class="headerlink" title="为什么每 10 分钟一条，却不是每 10 分钟都有实车走完全程？"></a>为什么每 10 分钟一条，却不是每 10 分钟都有实车走完全程？</h2><p>先看稀疏程度。以德国联邦公路研究所检测站的交通量作为分母，作者估计浮动车对货车与小客车交通量的覆盖分别约 <strong>5.7%</strong> 和 <strong>2.3%</strong>，不能把它们当成每一条路都相同的采样率。团队还在北威州两个站点比较不同时间窗的速度质量；10 分钟是数据覆盖与时间分辨率之间的折中。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/2718c2c2/fig3.png" alt="两个检测站按五、十、十五分钟聚合的速度质量"></p>
-<p><strong>图 3｜</strong>上、中、下分别用 5、10、15 分钟聚合，颜色区分两个检测站。图中同一设置下的质量值约为 0.917、0.920、0.923。质量指标反映速度一致性，不是“全国每段有 92% 的行程被正确测到”。</p>
-<p>为补上路段和时间的观测空缺，作者对邻近时空的速度做自适应平滑，再沿一条既定路线把短边上的行程时间累加。当累计时间进入下一档，就使用下一档的速度。如果一辆假想货车 08:00 开始走，过了 08:10 还在这条设施上，下面一段就不再沿用 08:00 的条件。这就是<strong>动态行程时间</strong>，不是拿全段长度除以出发时的一次平均速度。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/2718c2c2/fig4.png" alt="高速公路设施的连续速度场和不同出发档的行程时间"></p>
-<p><strong>图 4｜</strong>a 横轴为钟点、纵轴为沿线里程，按实际图例，紫色和蓝色对应低速；b 横轴改为累计行程分钟，相同里程处更靠右的线耗时更长。线是不同出发档的估计，没有标出造成低速的事故、天气或其他原因。</p>
-<h2 id="中位数接近，为什么仍要留意长尾？"><a href="#中位数接近，为什么仍要留意长尾？" class="headerlink" title="中位数接近，为什么仍要留意长尾？"></a>中位数接近，为什么仍要留意长尾？</h2><p>作者将估计值与同一批浮动车数据中、可在路段两端识别的实际通行作比较。估计与观测的<strong>时间比值中位数为 1.03</strong>，正文和图上一致，意味着比较结果的中心位置接近两者相等。它并不保证每次都在 3% 以内，也不是用另一批独立车辆做的全国验证。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/2718c2c2/fig5.png" alt="动态估计与观测通行的差异分布"></p>
-<p><strong>图 5｜</strong>蓝线标记估计值等于观测值，右侧长尾说明有些比较偏差更大。图内中位秒差为 3.44 秒、平均秒差为 11.42 秒；正文分别写为 3.94 秒和 15.79 秒。原文没有解释差异，不能选其中一套当成确定的全年误差。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>这套数据提供了 2019 年德国高速设施和路段在工作日白天的动态货车行程时间，可在统一路网上比较同一路段不同时段的速度与用时。北威州的两个站点支持速度比较，另有基于同源浮动车实际通行的路段核对。由于车辆类型是通过速度推断的、稀疏处需要平滑，且差异分布存在长尾，数据适合回看拥堵和可靠性，不足以确认每一档都经过独立实测，也不能说明延误成因。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这篇数据论文把 2019 年德国高速公路的稀疏速度观测变成两张货车行程时间表：一张按高速公路设施，一张按内部路段，工作日白天每 10 分钟可查一个出发档。估计会随车辆经过沿线时遇到的速度变化而更新；与同源观测比较的比值中位数为 1.03，但仍有长尾，且正文和图上的秒差不一致。它能支撑历史可靠性分析，不能用来查单车通行、当前路况或周末夜间延误。</p>
+<h2 id="一辆货车八点出发，能用八点整的路况算完全程吗？"><a href="#一辆货车八点出发，能用八点整的路况算完全程吗？" class="headerlink" title="一辆货车八点出发，能用八点整的路况算完全程吗？"></a>一辆货车八点出发，能用八点整的路况算完全程吗？</h2><p>Schlott, M., Abdul, L., &amp; Leerkamp, B. (2026). Truck Travel times on freeway facilities and segments in Germany based on FCD from 2019. <em>Scientific Data, 13</em>, 588. <a href="https://doi.org/10.1038/s41597-026-07198-z">论文 DOI</a></p>
+<p>假设货车八点驶入高速，此时前面畅通，十几公里外的车流却正在慢下来。把整段距离除以八点的平均速度，很可能高估这辆车抵达装卸口的准时程度。司机遇到的是车开到前方时的路况，那时钟表已经走过了一刻钟。</p>
+<p>伍珀塔尔大学团队把德国 2019 年高速公路上的车辆速度整理成一份历史行程时间表。它回答的是某个工作日、某一时刻驶入指定路段的货车，按沿途不断更新的车速估计，要多久才能走完。用同一批数据中确实穿过路段的车辆作对照，计算值与观测用时的比值中位数为 1.03。整体接近的同时，少数行程的偏离相当大。</p>
+<h2 id="车速记录里，哪一批更像货车？"><a href="#车速记录里，哪一批更像货车？" class="headerlink" title="车速记录里，哪一批更像货车？"></a>车速记录里，哪一批更像货车？</h2><p>浮动车数据（floating car data）来自行驶中车辆的车载设备和导航系统。德国汽车俱乐部 ADAC 汇集的资料超过 250 亿条位置、时间与速度记录。道路底图来自 2019 年的 OpenStreetMap；同一辆车的一串定位点会与几条可能的高速路段比对，研究选择整段移动顺序更吻合的一条，再把观测分配到约 100 米长的道路单元。</p>
+<p>这些点没有附车辆登记中的车型。为筛出总重超过 7.5 吨的重型货车，研究利用车辆在一天内的平均速度、中位速度和较高分位速度等特征。这里有一个陷阱：堵车时，小汽车也会开得和货车一样慢。团队让 K 均值聚类（k-means clustering）把速度特征相似的车辆分组，并给两组之间的过渡速度单留一组，以尽量减少被算进货车样本的慢速小汽车。匿名编号只在 24 小时内有效，使用的是车辆当日的速度特征。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/2718c2c2/fig2.png" alt="车辆速度特征的总体分布以及二组和三组划分"></p>
+<p>图 2｜横轴为速度（公里/小时），纵轴为分布密度。（a）展示不同速度统计量的分布，（b）与（c）对照分两组和三组的结果。虚线标出德国货车的 80 公里/小时限速；图（c）将低速峰与中间速度组分开。真实车型没有逐车登记可供核对。</p>
+<h2 id="两个测速点之间没有车报位置，怎么知道那里走多快？"><a href="#两个测速点之间没有车报位置，怎么知道那里走多快？" class="headerlink" title="两个测速点之间没有车报位置，怎么知道那里走多快？"></a>两个测速点之间没有车报位置，怎么知道那里走多快？</h2><p>沿高速路的观测不是时时处处都有。研究先把散落的速度按位置和时刻汇总，再用自适应平滑法（adaptive smoothing method）参考相邻时间与路段的观测，重建沿道路变化的速度。结果好比一张时空地图：在同一里程纵向位置上，向右读是同一段路在一天中怎样变快、变慢。团队还对比了固定交通监测站与浮动车估计的货车速度，作为车型筛选和速度估计的间接检验。</p>
+<p>有了这张图，才能模拟八点出发的一趟行程。计算从第一个约 100 米单元开始，用长度和进入该时段时的速度求出耗时，走过一段再走下一段。当累计时钟越过八点十分，就改读八点十分的速度；直到抵达这条路线的最后一个单元。八点十分才出发的车则单独走一遍。整条高速走廊的计算也按同一时钟前进，若把每一小段都按八点出发的用时直接相加，就可能错过路况的变化。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/2718c2c2/fig4.png" alt="高速路段的时空速度图与沿途累计行程时间"></p>
+<p>图 4｜（a）横轴是一天中的时刻，纵轴为沿线里程（公里），紫色区域对应较低速度。（b）纵轴仍为里程，横轴换成自出发起累计的分钟数。各条曲线到达同一里程时的横坐标不同，显示不同出发时刻的用时差异。</p>
+<h2 id="算出的用时，和实际经过这段路的车差多少？"><a href="#算出的用时，和实际经过这段路的车差多少？" class="headerlink" title="算出的用时，和实际经过这段路的车差多少？"></a>算出的用时，和实际经过这段路的车差多少？</h2><p>研究从同一套浮动车记录里找出先后在路段首尾留下信号的车辆。相邻记录间隔超过十分钟，就另起一趟行程。对同一趟车，用末端记录时刻减去首端时刻得到对照用时。第一条信号可能来自首段中间，最后一条也可能尚未到路段终点，所以对照本身也有位置误差。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/2718c2c2/fig5.png" alt="动态估计时间与首尾时间戳所得用时的比值"></p>
+<p>图 5｜横轴是动态估计用时除以观测用时，纵轴是落在该区间的观测行程数。蓝线为比值 1，表示两种用时相等。最高的柱子靠近蓝线，但向右还有一条长尾，表示一些估计比对照长很多。</p>
+<p>比值中位数 1.03 说明，中间位置的比较只相差约 3%。这个数无法告诉车队“绝大多数货车都能在误差 3% 内到达”。想判断某条路线晚到的可能性，还要看那条路线在关心的时段里分布有多宽，以及当时有多少观测可以支持。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>研究把零散速度记录转成了按出发时刻索引的货车用时。读表时要选对尺度：较短的路段适合查明哪里拖慢行车，多个路段组成的较长走廊适合比较一趟跨段行程。两种尺度都有自己的时间表。</p>
+<p>公开数据覆盖 2019 年周一至周五、柏林当地时间 04:00 至 20:00，以十分钟为出发间隔，用时单位为分钟。车辆类型依速度特征推断，用时由沿线速度动态合成。与路段首尾记录的总体吻合，使它适合研究历史规律；少数大偏差则提醒使用者，具体某趟货车可能经历不同的路况。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>团队以超过 250 亿条车辆记录为起点，先筛选速度特征符合重型货车的观测，再重建 100 米道路单元上每十分钟的速度，让模拟货车按抵达各段时的路况前进。与实际通过首尾的车辆比较，动态用时与观测用时的比值中位数约为 1.03，分布向高值一侧拖尾。这份资料最有解释力的用法，是比较相同路段在不同出发时刻的历史用时变化。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41597-026-07198-z">正式论文与原图</a> · <a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-026-07198-z">论文 DOI</a>。图 1–5 对应正式期刊主图，论文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>。</li>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.5281/zenodo.18978058">Zenodo v2 数据与文件清单</a> · <a target="_blank" rel="noopener" href="https://git.uni-wuppertal.de/schlott/truck-travel-times-on-freeway-facilities-and-segments-in-germany-based-on-fcd-from-2019">论文所列伍珀塔尔大学代码仓库</a>。</li>
+<li>Schlott 等（2026）提供数据说明、速度估计和行程用时检验。德国汽车俱乐部 ADAC 提供浮动车记录，2019 年 OpenStreetMap 提供路网，德国联邦公路研究机构的交通监测站用于校核速度。<a href="https://doi.org/10.1038/s41597-026-07198-z">期刊论文</a></li>
+<li>两级道路的德国高速货车行程时间及路网数据可从作者的存档取得。查询时将时区设为 Europe/Berlin，才能按当地钟点比较出发时刻。<a href="https://doi.org/10.5281/zenodo.18978058">Zenodo 数据集</a></li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Marian Schlott、Lateef Abdul 和 Bert Leerkamp 均署名伍珀塔尔大学。按正式版贡献声明，Schlott 与 Leerkamp 共同构思研究，Schlott 与 Abdul 实现平滑和行程时间计算；Schlott 为通讯作者。</p>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>Marian Schlott、Lateef Abdul 和 Bert Leerkamp 均署名德国伍珀塔尔大学。Schlott 与 Leerkamp 设计研究；Schlott 将定位点匹配到路网并区分车型，与 Abdul 实现时空速度估计和动态行程时间计算。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>如果两段高速在工作日早间的典型用时都为 20 分钟，可以再比较同一路段、同一个出发档在不同工作日的高分位用时。假如一段经常接近 20 分钟，另一段少数日子会超过 35 分钟，二者对运时稳定性的意义就不同。比较时可先将高覆盖与低覆盖的路段分开：若长尾主要出现在样本稀薄处，还需新观测才能分清实际波动与插值误差。</p>
+<p>假如仓库让车队自行挑选卸货时段，调度员可能会偏爱平均耗时最短的那一档。但要是早一班的行程大多数时候很快，碰上拥堵却会耽搁很久，而稍晚一班通常只慢几分钟、变化也小，两班车就适合不同的约定。能随到随卸的货适合争取较短的平均用时，错过预约就得再等几小时的货，更在乎糟糕的日子会迟多久。数据表给出的几十个不同工作日，在这种选择里比一个“平均多少分钟”的答案更有用。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -622,17 +592,13 @@
                 <a href="/posts/48e62126/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="2026-Comprehensive spatiotemporal dataset of shared bicycle operations in Xiamen China">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Comprehensive spatiotemporal dataset of shared bicycle operations in Xiamen China">
                         
-                        <span class="card-title">2026-Comprehensive spatiotemporal dataset of shared bicycle operations in Xiamen China</span>
+                        <span class="card-title">Comprehensive spatiotemporal dataset of shared bicycle operations in Xiamen China</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">厦门同一周里，雨天少了约六成骑行，早高峰却仍在八点附近。能否调对车辆，要看停车区里的借还差额。</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2026-11-18
@@ -682,17 +648,13 @@
                 <a href="/posts/b3e3267b/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="2026-City2Graph: A Python library for Heterogeneous Graph Neural Networks and spatial analysis in urban systems">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="City2Graph: A Python library for Heterogeneous Graph Neural Networks and spatial analysis in urban systems">
                         
-                        <span class="card-title">2026-City2Graph: A Python library for Heterogeneous Graph Neural Networks and spatial analysis in urban systems</span>
+                        <span class="card-title">City2Graph: A Python library for Heterogeneous Graph Neural Networks and spatial analysis in urban systems</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">利物浦 1,624 个普查区里，哪些地方更像市中心？把步行和公交能到的小区分别当作邻居，功能分组会发生什么变化？</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-18

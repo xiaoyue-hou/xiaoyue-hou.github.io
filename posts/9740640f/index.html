@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-The role of spatial scales in assessing urban mobility models, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="The role of spatial scales in assessing urban mobility models, 猴猴猴">
+    <meta name="description" content="新加坡同一批公共交通出行数据，为什么按 3,000 米或 3,800 米合并站点，会让三种模型的排名和成绩都改变？">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-The role of spatial scales in assessing urban mobility models | 猴猴猴</title>
+    <title>The role of spatial scales in assessing urban mobility models | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-The role of spatial scales in assessing urban mobility models</h1>
+                    <h1 class="description center-align post-title">The role of spatial scales in assessing urban mobility models</h1>
                 </div>
             </div>
         </div>
@@ -420,29 +420,30 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img {display:block;margin:1.25rem auto;max-width:100%;height:auto;} .post-title {overflow-wrap:anywhere;}</style>
+<style id="paper-figure-layout">#articleContent img {display:block;margin:1.25rem auto;max-width:100%;height:auto;} .post-title {overflow-wrap:anywhere;}</style>
 
-<h2 id="换一套分区，为什么同一个公交模型会忽然变准或变差？"><a href="#换一套分区，为什么同一个公交模型会忽然变准或变差？" class="headerlink" title="换一套分区，为什么同一个公交模型会忽然变准或变差？"></a>换一套分区，为什么同一个公交模型会忽然变准或变差？</h2><p>用新加坡同一批公交和轨道出行记录做评估，按站点附近的小区划分，三个模型辨认出的格局有明显差别；把附近站点适度合并，差距却收窄。模型没有换，变的是一个地点包含哪些站点。这篇预印本提醒我们，评估移动模型时，评估单元和模型本身一样值得比较。</p>
-<p>论文名片｜Rakhi Manohar Mepparambath、Hoai Nguyen Huynh，<em>The role of spatial scales in assessing urban mobility models</em>，2026 年 3 月 5 日 arXiv v1 预印本。<a target="_blank" rel="noopener" href="https://doi.org/10.48550/arXiv.2603.05227">DOI：10.48550/arXiv.2603.05227</a>。</p>
-<h2 id="先把「哪两个地方之间」定义清楚"><a href="#先把「哪两个地方之间」定义清楚" class="headerlink" title="先把「哪两个地方之间」定义清楚"></a>先把「哪两个地方之间」定义清楚</h2><p>数据记录的是新加坡公共交通站点之间的汇总乘次，不是所有交通方式的出行。作者用两套空间单元重组相同数据。一套沿用规划上的子区、规划区和大区；另一套先按站点将地图划成近邻区域，再用不同距离阈值合并邻近站点。阈值控制的是站点聚合方式，不是每个分区的半径，也不是乘客典型出行距离。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/9740640f/fig1.png" alt="图 1：从交通站点到聚合区"></p>
-<p>图 1｜上图是各公交站和轨道站的近邻单元；下图展示以 3,000 米阈值聚合后得到的单元。颜色区分不同分组，并不表示客流大小。</p>
-<h2 id="三类模型为什么可能各有合适的尺度？"><a href="#三类模型为什么可能各有合适的尺度？" class="headerlink" title="三类模型为什么可能各有合适的尺度？"></a>三类模型为什么可能各有合适的尺度？</h2><p>引力模型用地点规模与距离解释客流，辐射模型关注到达某地前有哪些竞争机会，访问模型则由访问频率与距离的统计关系描述流动。论文在每套分区下随机分半训练和测试并重复 100 次，以测试数据的调整后 R² 做比较。这个量比较模型解释的变异程度，不是个人行程预测准确率。</p>
-<p>访问模型在多个距离尺度较强，但接近约 3,000 米的中等尺度时，三个模型的表现趋近。在约 3,700–3,900 米一带，三条曲线都下滑，访问模型的优势也可能反转。不同尺度混进了不同的真实空间结构，是作者提出的解释，不是独立检验的因果机制。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/9740640f/fig2.png" alt="图 2：距离阈值改变时的模型表现"></p>
-<p>图 2｜横轴是站点合并的距离阈值（米），纵轴是调整后 R²；误差条对应随机拆分后的波动。既看三条线的高低，也看同一个模型换尺度后掉了多少。</p>
-<h2 id="规划区是不是天然的评估单元？"><a href="#规划区是不是天然的评估单元？" class="headerlink" title="规划区是不是天然的评估单元？"></a>规划区是不是天然的评估单元？</h2><p>在三个行政尺度中，规划区总体表现好于更细的子区和更粗的大区，但按距离聚合仍可以得到更高的成绩。行政边界的优势是实际管理和政策口径清楚，而不是保证公交往来会在边界处自然切断。研究也没有证明距离聚类在其它城市、其它出行方式中一定更好。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/9740640f/fig3.png" alt="图 3：三种行政尺度的比较"></p>
-<p>图 3｜横轴依次为子区、规划区和大区，纵轴仍是调整后 R²；比较同一个颜色在三种口径下的变化，不能把行政类别之间的间隔当成公里数。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>在新加坡公共交通样本中，选什么分区会改变拟合与模型排名。中等距尺度的比较让三种模型更接近，较粗分区又可能掩盖局部差异。约 3,000 米是这一数据与测试下的发现，不是可直接移植到各城市的标准。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这篇研究没有给引力、辐射和访问模型排出不变的名次。它表明，模型成绩会同时反映能解释多少客流关系，以及研究者选择怎样把站点拼成区域。在应用中，至少应并列检查几套与任务相关的分区；一个模型只在某套边界上更准，与它在多种尺度上都更可靠，证据力度不同。</p>
-<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2603.05227v1">arXiv v1 预印本</a>，2026 年 3 月 5 日，非正式同行评审版本。</p>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Rakhi Manohar Mepparambath、Hoai Nguyen Huynh 均署名新加坡科技研究局（A*STAR）高性能计算研究所，Huynh 为通讯作者。</p>
+<h2 id="同一批乘客，换张分区图，为什么表现最好的模型会变？"><a href="#同一批乘客，换张分区图，为什么表现最好的模型会变？" class="headerlink" title="同一批乘客，换张分区图，为什么表现最好的模型会变？"></a>同一批乘客，换张分区图，为什么表现最好的模型会变？</h2><p>Mepparambath, R. M., &amp; Huynh, H. N. (2026). The role of spatial scales in assessing urban mobility models. <em>arXiv</em>, 2603.05227v1，预印本。<a href="https://doi.org/10.48550/arXiv.2603.05227">论文 DOI</a></p>
+<p>设想一条街上有三个公交站。如果每个站都单独算，模型要答出有多少乘次从甲站去乙站，又有多少从甲站去丙站。如果把乙站和丙站合成一个目的地，两股客流只需报一个总数。乘客走的还是原来的路，模型要答的题却已经变了。</p>
+<p>新加坡的一项研究发现，换一道分区边界，有时足以让原本领先的出行模型排到末位。更出人意料的是，模型的成绩并没有随分区变大而稳步上升。三种模型在某些尺度上一起表现很好，再把附近站点多合并一点，成绩又会同时下跌。</p>
+<h2 id="三种模型各靠什么判断客流去向？"><a href="#三种模型各靠什么判断客流去向？" class="headerlink" title="三种模型各靠什么判断客流去向？"></a>三种模型各靠什么判断客流去向？</h2><p>研究使用新加坡陆路交通管理局发布的公交站和轨道站之间的乘次。一次比较的对象是各起终点区域之间的汇总客流。引力模型根据两端地区的规模推算出行联系，再按距离折减流量。辐射模型还会看起点附近是否已经有许多可选去处，以起点到目的地之间其他地区的人口代表中间的机会。用这两种方法看同一个远处的目的地，路远和沿路机会多是两种不同的解释。</p>
+<p>第三种是访问模型（visitation model）。它从人们访问近处和远处地点的频率规律出发，把地点的吸引力、到访距离和频率联系起来。研究使用这条规律推导出的区域客流公式，利用分区的人口密度、面积及区间距离估计乘次。改变分区会同时改变几个输入，哪怕每位乘客的实际行程完全相同。</p>
+<h2 id="合并到什么程度，三种模型才看见相似的格局？"><a href="#合并到什么程度，三种模型才看见相似的格局？" class="headerlink" title="合并到什么程度，三种模型才看见相似的格局？"></a>合并到什么程度，三种模型才看见相似的格局？</h2><p>研究者先把每一小块土地分给最近的公交站或轨道站，然后按站点之间的距离聚类。提高合并距离的阈值，就会把更多站点及其周围的土地归入同一个区域。文中说的 3,000 米是合并站点用的参数，拿它作圆的半径来画乘客的活动范围会误读结果。</p>
+<p>每换一套分区，研究都把数据随机分半，用一半做训练、一半做测试，重复 100 次。用来评分的是测试集上的调整后决定系数（调整后 R²），反映模型能解释多少区际客流差异，并顾及待估参数的数量。图 2 记录了分区改变以后，这个指标怎样起落。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/9740640f/fig2.png" alt="三种模型的测试成绩如何随站点合并距离变化"></p>
+<p>图 2｜横轴是合并阈值（米），纵轴是调整后 R²。红、蓝、绿分别是引力、辐射和访问模型，误差条表示 100 次拆分结果的标准差。看约 3,000 米处三条线怎样靠拢，再看约 3,800 米处绿线降到了哪里。</p>
+<p>较细分区下，访问模型往往领先。阈值达到约 3,000 米时，三者的得分都接近 0.9，模型之间的差距已经很小。阈值再升至约 3,700–3,900 米，三者同时下滑，其中访问模型从领先跌至约 0.1。到了约 4,000 米，又回到较高水平。这说明同一个模型的表现会随边界发生剧烈变化。作者提出，一些合并恰好跨过了出行习惯不同的功能区。这是对低谷的可能解释，研究没有逐个识别导致低谷的区对。</p>
+<h2 id="换成规划部门熟悉的边界，还会得到同一名次吗？"><a href="#换成规划部门熟悉的边界，还会得到同一名次吗？" class="headerlink" title="换成规划部门熟悉的边界，还会得到同一名次吗？"></a>换成规划部门熟悉的边界，还会得到同一名次吗？</h2><p>新加坡官方分为五个规划大区，下设 55 个规划区，规划区再细分为子区。按这套分区重算，访问模型的得分在中间一档的规划区约为 0.80，明显高于另两种模型。再把客流汇总到五个大区，引力模型的平均值略高，但三者的波动范围都明显扩大。只看折线端点，容易高估这些名次有多稳。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/9740640f/fig3.png" alt="使用子区、规划区和大区时三种模型的测试成绩"></p>
+<p>图 3｜横轴从左到右依次为子区、规划区和大区，纵轴和颜色与图 2 一致。中间的绿点清楚地高于另两点，最右侧三组误差条大幅重叠。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>同一批公共交通数据可以检验出不同的模型排名。访问模型在多数站点合并尺度表现较好，中等尺度让三种模型的成绩非常接近，另一小段尺度却让访问模型落到最后。按距离合并站点时，各模型达到的最好成绩也高于采用官方边界时的最好成绩。</p>
+<p>结果来自新加坡公交和轨道客流。三种模型采用直线距离描述两地分隔，并大量依靠居住人口表征活动机会。中央商务区可以居民很少、上班的人很多，两站之间也可能直线很近、换乘却很慢。这两类情况都会限制从人口和地图直接估计客流的能力。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>空间分区决定了模型究竟要解释哪一股客流。把去往几个站点的乘次相加，既改变了起终点的规模和距离，也可能掩盖站点之间的差别。新加坡的结果给 3,000 米附近的高分加了一个具体限定，它说明三种模型都擅长解释这套分区上的客流，单凭这张成绩表还不能判断哪一个能预测具体站点的需求。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p>论文说明了三种模型、数据拆分方式与尺度比较。客流来源为新加坡陆路交通管理局 DataMall，官方分区取自市区重建局规划图。<a href="https://arxiv.org/abs/2603.05227v1">作者预印本</a> · <a href="https://datamall.lta.gov.sg/content/datamall/en/dynamic-data.html">DataMall</a> · <a href="https://eservice.ura.gov.sg/maps/">市区重建局规划图</a></p>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Rakhi Manohar Mepparambath、Hoai Nguyen Huynh（新加坡科技研究局高性能计算研究所）。Hoai Nguyen Huynh 为通讯作者。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>比较模型时，可把「分区一换，排名如何」和「线路或时段一换，成绩如何」列成两张表。前者是空间口径的敏感性，后者更接近实际推广问题；两张表比一个总排名更有用。</p>
+<p>如果公交公司准备减少一处站点的班次，按片区汇总得到的高分并不能直接回答乘客能否接受改动。去同一园区的两站可能只隔几百米，一站就在厂门外，另一站却要绕过围墙。在区域客流表里，把人分错到这两站可能完全不影响结果，在乘客的一天里却多出一段步行。排班决策要落实到哪一个站，检验模型时就值得保留到哪一个站的差别。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -554,17 +555,13 @@
                 <a href="/posts/b48a597e/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="2026-Misalignment between infrastructure and mobility patterns constrains effective access to public EV charging">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Misalignment between infrastructure and mobility patterns constrains effective access to public EV charging">
                         
-                        <span class="card-title">2026-Misalignment between infrastructure and mobility patterns constrains effective access to public EV charging</span>
+                        <span class="card-title">Misalignment between infrastructure and mobility patterns constrains effective access to public EV charging</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            #articleContent img {display:block;margin:1.25rem auto;max-width:100%;height:auto;} .post-title {overflow-wrap:anywhere;
-                        
-                    </div>
+                    <div class="summary block-with-text">从住宅看充电站，和跟着居民去买菜、吃饭，收入与充电机会的关系会翻转。美国20个都市区的到访记录解释了两张地图为何不同。</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2026-11-23
@@ -594,17 +591,13 @@
                 <a href="/posts/4899f6e5/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="2026-Unveiling pattern and structure of inter-urban mobility: Integrating flow space and geospatial information">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Unveiling pattern and structure of inter-urban mobility: Integrating flow space and geospatial information">
                         
-                        <span class="card-title">2026-Unveiling pattern and structure of inter-urban mobility: Integrating flow space and geospatial information</span>
+                        <span class="card-title">Unveiling pattern and structure of inter-urban mobility: Integrating flow space and geospatial information</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">2018年腾讯城际记录中的12条主要走廊汇集了过半出行热度。把线路放回地图，能看见单城排名遗漏了什么？</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-23

@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-OpFlow: Learning Opportunity-Conditioned Choice Potentials for Robust OD Flow Prediction, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="OpFlow: Learning Opportunity-Conditioned Choice Potentials for Robust OD Flow Prediction, 猴猴猴">
+    <meta name="description" content="就业机会和交通便利程度往往同时变化，换一座城市后怎样估通勤？OpFlow 用模拟反转和美国县内通勤检验总量与去向分开估计的价值。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-OpFlow: Learning Opportunity-Conditioned Choice Potentials for Robust OD Flow Prediction | 猴猴猴</title>
+    <title>OpFlow: Learning Opportunity-Conditioned Choice Potentials for Robust OD Flow Prediction | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-OpFlow: Learning Opportunity-Conditioned Choice Potentials for Robust OD Flow Prediction</h1>
+                    <h1 class="description center-align post-title">OpFlow: Learning Opportunity-Conditioned Choice Potentials for Robust OD Flow Prediction</h1>
                 </div>
             </div>
         </div>
@@ -436,90 +436,33 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img { display:block; margin:1.25rem auto; max-width:100%; height:auto; } .post-title { overflow-wrap:anywhere; }</style>
 
-<h2 id="搬来一批居民，和搬来一片岗位，通勤流量会变得一样吗？"><a href="#搬来一批居民，和搬来一片岗位，通勤流量会变得一样吗？" class="headerlink" title="搬来一批居民，和搬来一片岗位，通勤流量会变得一样吗？"></a>搬来一批居民，和搬来一片岗位，通勤流量会变得一样吗？</h2><p>一个住宅区新交付了几栋楼，每天出门上班的人变多了。如果他们跟原来的居民去差不多的地方，几条通勤线路可能一起变忙。可要是新开的是近处的产业园，出门的人数未必先变，远处几个就业中心的通勤份额却可能被分走。同一张流量表会把两件事都记作人数变化。模型到了没见过的县，能把它们分开吗？</p>
-<p><strong>论文名片</strong>｜Changjian Liu、Yong Gao、Yuqing Wang、Leyi Su、Honglei Guo、Zhiyang Wang、Xiaoyu Wang、Fan Zhang，<em>OpFlow: Learning Opportunity-Conditioned Choice Potentials for Robust OD Flow Prediction</em>，arXiv:2607.03200v1，2026 年 7 月 3 日。<a target="_blank" rel="noopener" href="https://arxiv.org/html/2607.03200v1">预印本全文</a></p>
-<p><strong>先说结论</strong></p>
-<ul>
-<li>OpFlow 把流量拆成“一个起点总共发出多少”和“这些出行怎么分给目的地”。第二部分跟着新地点的机会、交通阻抗和替代去处变化，不是照搬旧通勤份额。</li>
-<li>在合成实验最强的机会重分布和相关反转条件下，OpFlow 的份额误差 Row-KL 比验证集选出的领域泛化基线分别低 <strong>23.7%</strong> 和 <strong>52.9%</strong>。这两个降幅属于人工设计的压力测试。</li>
-<li>在覆盖 <strong>3,333 个美国县级单元</strong>的县内通勤基准上，三种留出方式的 Row-KL 和 Log-RMSE 都是 OpFlow 最低。但机会结构留出时，按份额重叠衡量的 Row-CPC 并不是它最好。</li>
-</ul>
-<h2 id="一行人数，为什么要拆成两个预测？"><a href="#一行人数，为什么要拆成两个预测？" class="headerlink" title="一行人数，为什么要拆成两个预测？"></a>一行人数，为什么要拆成两个预测？</h2><p>OD 是起点—终点（origin–destination）。一张 OD 表的每一行对应一个起点，每一列对应一个目的地。假如从同一住宅区去三个片区的通勤人数是 60、30、10，那么这一行的总量是 100，去向份额是 60%、30%、10%。人数变成 120、60、20，总量翻倍，但三个去向的份额没动。只看某一格的人数，会把“出门的人变多”和“这个目的地更吸引人”混在一起。</p>
-<p>OpFlow 让两个模块分别预测总量和份额，最后相乘还原期望流量。份额模块先给同行的目的地打相对分数，作者称为<strong>选择势</strong>，再用 softmax 把分数变成和为 1 的份额。给三个分数一起加 10，软归一化后的比例不会变，因此可从份额识别的是同一行内的分数差。模型减去每行的平均分，确定一个共同的零点；在理论上，给定温度且候选份额为正时，这个中心化后的势可由分配确定。确定相对分数不等于识别个人偏好，也不说明输入变量存在因果效应。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/a7c8e9f0/fig1.png" alt="完整原论文图1：从行为暴露到流量、训练捷径与跨环境可迁移对象"></p>
-<p><strong>图 1｜真正要迁移的不是旧比例。</strong> (A) 顺着地图和分数条，看机会等条件如何变成份额，再与规模合并；(B) 分布内低误差既可能来自学到有用关系，也可能依赖会失效的相关；(C) 两个环境的机会条件和份额可以不同，作者希望共享的是从条件到相对分数的规则。来源：arXiv v1 Fig. 1。</p>
-<h2 id="模型怎么把“路上还有别的选择”写进分数？"><a href="#模型怎么把“路上还有别的选择”写进分数？" class="headerlink" title="模型怎么把“路上还有别的选择”写进分数？"></a>模型怎么把“路上还有别的选择”写进分数？</h2><p>如果两个园区大小相近，一处需要绕远才能到，另一处沿途还有几个更近的园区，单看终点岗位就少了信息。OpFlow 把这几件事拆开：目的地机会提高吸引力，交通阻抗压低吸引力，去目标之前更容易抵达的替代地贡献<strong>沿途机会暴露</strong>，目的地邻近机会形成另一项局部效应。这里的“沿途”按阻抗比较，不是说出行者真的开车经过那些点。模型用软排序累计低阻抗选项，用按空间距离衰减的权重汇总目的地附近机会，并允许起点特征调节不同通道的影响。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/a7c8e9f0/fig2.png" alt="完整原论文图2：暴露算子、分配和规模支路、训练与环境留出"></p>
-<p><strong>图 2｜上半部看两个分支怎样在右侧汇合。</strong> (A) 左侧生成暴露，右上把选择势变成份额，右下预测规模；(B) 分配用观测流量构造平滑目标，训练关注表现最差的已见环境和环境间风险差异，再用留出环境选择模型。来源：arXiv v1 Fig. 2。</p>
-<p>训练的关键是规模损失不反向改写选择势，避免为了拟合人数而扭曲份额。模型另用软惩罚鼓励符合空间直觉的方向，例如阻抗更高时对应项降低吸引力。软惩罚不是所有输入下一定单调的保证。论文表 1 还展示了几类受限形式：只保留目的地吸引力与阻抗，是引力式；再加局部场，可表达竞争目的地形式；用沿途机会扣减吸引力，可写出介入机会模型；辐射形式还同时依赖起点侧机会。它们是同一个对数势框架的数学特例，不表示神经网络学到了每个经典模型背后的行为过程。</p>
-<h2 id="把训练时有用的线索故意颠倒，会发生什么？"><a href="#把训练时有用的线索故意颠倒，会发生什么？" class="headerlink" title="把训练时有用的线索故意颠倒，会发生什么？"></a>把训练时有用的线索故意颠倒，会发生什么？</h2><p>合成实验将 80 个单元放进同一片模拟区域，各随机种子生成 14 个环境，8 个用于训练、2 个用于验证、4 个用于测试。每个起点有候选目的地；同一个空间骨架上，机会场、起点规模和真实份额可以变化。计数按泊松分布生成，均值是规模与真实份额的乘积。这样，研究者在测试中知道未经计数噪声扰动的份额，可以直接判断模型分得对不对。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/a7c8e9f0/fig3.png" alt="完整原论文图3：基准条件与三种合成分布偏移"></p>
-<p><strong>图 3｜从左到右依次为基准、起点规模变化、机会重分布、相关反转。</strong> Q1 改圆圈大小；Q2 移动机会热点；Q3 比较右侧训练、测试面板中机会热点与可达性的配合。来源：arXiv v1 Fig. 3。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/a7c8e9f0/fig4.png" alt="完整原论文图4：三种偏移测试及部件消融结果"></p>
-<p><strong>图 4｜四格都看 Row-KL，越低越好。</strong> (a) 看起点规模差异增大时橙线与蓝线的分叉；(b) 看尤其容易失效的固定份额灰线；(c) 从左往右进入更强的相关反转；(d) 看去掉秩前缀的长条。曲线带与误差线按原文为 30 个随机种子的 95% 置信区间。来源：arXiv v1 Fig. 4。</p>
-<ul>
-<li><strong>只改规模。</strong> 直接拟合人数的 RawCountMLP 随起点规模差异增大而变差；以行份额训练的基线和 OpFlow 基本平坦。两类模型的对照支持把份额单独监督，但不是对任何计数模型都必然失效的证明。</li>
-<li><strong>重新摆放机会。</strong> 真实分配本来就应该变化。把旧份额固定下来的基线明显失准；在最强一档，OpFlow 相对验证集选出的 BestDG-AllocMLP 降低 23.7% 的 Row-KL。</li>
-<li><strong>反转机会与可达性的相关。</strong> 训练时机会多的地方也容易到达，测试逐渐打破这层对应关系。基线从 0.265 升到 0.331；最强反转处 OpFlow 为 0.156，比该基线低 52.9%。</li>
-<li><strong>去掉模型部件。</strong> 图 4(d) 中移除沿途机会的秩前缀算子，误差增幅最大。它指向这一组件在作者设计的压力情景中的作用，不是从真实通勤中单独识别出沿途机会的影响。</li>
-</ul>
-<h2 id="换到没见过的县，有哪些优势能保留下来？"><a href="#换到没见过的县，有哪些优势能保留下来？" class="headerlink" title="换到没见过的县，有哪些优势能保留下来？"></a>换到没见过的县，有哪些优势能保留下来？</h2><p>真实实验使用覆盖美国 3,333 个县级单元的通勤基准，每县作为一个环境，预测<strong>同一县内部</strong>人口普查空间单元之间的流量，不含跨县通勤。输入包括人口和社会经济结构、兴趣点数量、路网距离与空间邻接。机会结构划分使用按机会空间分布计算的集中度分数，测试的是分数两端的县，而不是观测到了同一个县在一次政策改变前后的变化。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/a7c8e9f0/fig5.png" alt="完整原论文图5：随机、地理与机会集中度的三种环境划分"></p>
-<p><strong>图 5｜找橙色，看模型遇到了怎样的陌生县。</strong> (A) 随机分县，训练／验证／测试为 70%／10%／20%；(B) 轮换留出普查分区，图中橙色是其中一次；(C) 把机会异常分散和异常集中的县置于测试端，两头的橙色比地图位置更关键。来源：arXiv v1 Fig. 5。</p>
-<p>Row-KL 比较每个起点的观测份额与预测份额，份额被低估很多时会带来较大惩罚。Row-CPC 看两套份额的重叠，越高越好。两者都先逐起点计算再平均。Log-RMSE 则比较各起讫对的 log(1 + 人数)，对数压缩了大流量的影响。三个指标分别看不同的误差，不必给出同一个排名。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>测试方式</th>
-<th style="text-align:right">OpFlow Row-KL ↓</th>
-<th style="text-align:right">OpFlow Row-CPC ↑</th>
-<th style="text-align:right">OpFlow Log-RMSE ↓</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>随机分县</td>
-<td style="text-align:right">0.322</td>
-<td style="text-align:right">0.710</td>
-<td style="text-align:right">1.088</td>
-</tr>
-<tr>
-<td>地理留出</td>
-<td style="text-align:right">0.370</td>
-<td style="text-align:right">0.686</td>
-<td style="text-align:right">1.14</td>
-</tr>
-<tr>
-<td>机会结构留出</td>
-<td style="text-align:right">0.438</td>
-<td style="text-align:right">0.670</td>
-<td style="text-align:right">1.04</td>
-</tr>
-<tr>
-<td>原表报告汇总</td>
-<td style="text-align:right">0.377</td>
-<td style="text-align:right">0.688</td>
-<td style="text-align:right">1.09</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><em>数值摘自 v1 表 2。原表未说明汇总权重；此处不把 Avg. 当作三行等权平均。</em></p>
-<p>地理留出时，最接近的配对份额基线 Pair 的 Row-KL 为 0.392，OpFlow 低 0.022。机会结构留出时，OpFlow 的 KL 和对数人数误差最低，规模感知基线 Scale 的 CPC 却是 <strong>0.693</strong>，高于 OpFlow 的 <strong>0.670</strong>，Pair 也有 0.682。原文总结用 0.410 表示 Pair 的汇总 Row-KL，表 2 则列 0.413，这里以表为准。不同指标的这种分歧，比简单说“所有指标都最好”更能说明模型适合怎样的用法。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>把总量和份额分离，是合成实验中抵抗规模变化的重要因素；再给份额模块加入机会、阻抗和替代选择的结构，能在作者测试的机会重分布与相关反转中进一步降低分配误差。真实证据覆盖不同县的县内通勤，不包括跨县行程、同一地区长期变化或真实政策干预，也不能从汇总数据中读出个体的去向偏好。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p><strong>把“有多少人出门”和“他们各去哪里”分开，才知道模型在新地方到底错在哪。</strong> OpFlow 的优势不是保存旧比例，而是在机会条件变化时重新算份额。要判断是否有效，除了检验总人数，还要看误差是出在份额比值、份额重叠，还是人数本身。</p>
-<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/html/2607.03200v1">arXiv 预印本 v1 全文</a> · <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2607.03200v1">版本记录与 PDF</a>。文章图 1–5 和表 1–2 均按 2026 年 7 月 3 日的 v1 解读；未核实到独立正式发表版本。</li>
-</ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>按 v1 署名，Changjian Liu、Yong Gao、Yuqing Wang、Leyi Su、Zhiyang Wang、Xiaoyu Wang、Fan Zhang 来自北京大学地球与空间科学学院，Honglei Guo 来自浙江大学人工智能学院。Yong Gao 为通讯作者。</p>
+<h2 id="两座城市里，同样多的人去车站旁上班，原因会一样吗？"><a href="#两座城市里，同样多的人去车站旁上班，原因会一样吗？" class="headerlink" title="两座城市里，同样多的人去车站旁上班，原因会一样吗？"></a>两座城市里，同样多的人去车站旁上班，原因会一样吗？</h2><p>Liu, C., Gao, Y., Wang, Y., Su, L., Guo, H., Wang, Z., Wang, X., &amp; Zhang, F. (2026). OpFlow: Learning Opportunity-Conditioned Choice Potentials for Robust OD Flow Prediction. <em>arXiv</em> 预印本，2607.03200v1。<a href="https://doi.org/10.48550/arXiv.2607.03200">论文 DOI</a></p>
+<p>假设一座城市的办公楼大多建在车站旁。训练通勤模型时，岗位多和路好走几乎总是同时出现，只凭客流人数，很难看出模型学会了哪一件事。到了另一座城市，最近的车站旁是住宅，岗位最多的园区又离车站很远。原来预测得挺准的模型，还能把人分到合适的目的地吗？</p>
+<p>OpFlow 将问题拆成两部分。一个街区每天有多少人出门，是通勤规模；其中多少人选哪个工作地，是去向分配。作者用人工设置的城市环境拉开岗位机会和交通条件之间的差异，再到美国县内通勤数据上检验模型。在模拟中，显式考虑其他可选地点，能改善对目的地份额的估计。在真实地区，优势仍在，但取决于怎样衡量误差。</p>
+<h2 id="为什么不能把一条线路少掉的人都算成目的地失去吸引力？"><a href="#为什么不能把一条线路少掉的人都算成目的地失去吸引力？" class="headerlink" title="为什么不能把一条线路少掉的人都算成目的地失去吸引力？"></a>为什么不能把一条线路少掉的人都算成目的地失去吸引力？</h2><p>假设住宅区有 100 人在本县通勤，其中 30 人去东侧园区。搬来一批新住户后，如果有 200 人出门，60 人去那个园区，园区所占份额仍是三成。反过来，如果出门的还是 100 人，园区却只去了 15 人，就应该问问其他工作地点有什么变化。起讫流量表（origin–destination matrix）把每个住宅区列作一行，每一格只记人数。把一行加起来得到总量，再把每格人数除以总量，才能看清从同一处出发的人分到了哪里。</p>
+<p>OpFlow 的一个分支估计这一行的总量。另一个分支根据目的地的设施机会、到达阻力、比该目的地更容易到达的替代机会，以及目的地周边的机会分布，给每个去处打一个相对分数，论文称为选择势（choice potential）。比如在其他条件相近时，要去一家较远的园区，模型还要看从家出发是不是有好几个更易抵达的园区可选。这里的先后按交通阻力排序，不要求通勤者真的经过这些园区。</p>
+<p>同一住宅区面向所有候选地的分数，经换算后成为总和为 1 的份额，再乘以起点总量，得到每个格子的人数。训练时，目的地份额有自己的误差标准，拟合总人数的误差不会反过来改写这些相对分数。模型的目标是在另一座城市重新计算份额，所以改变机会分布后，同一个起点也可以得到一套新比例。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/a7c8e9f0/fig2.png" alt="OpFlow 从片区和区对特征分别估计起点规模和目的地份额"></p>
+<p>图 2｜读 A 的右端，上方分支给出各目的地份额，下方分支给出起点总量，两者相乘还原流量。向左看，分数还取决于更容易到达的替代地点和目的地周围的机会。B 展示怎样用已知环境中的流量训练，并留出环境检验。</p>
+<h2 id="如果把最有机会的地方放到最难到达的位置呢？"><a href="#如果把最有机会的地方放到最难到达的位置呢？" class="headerlink" title="如果把最有机会的地方放到最难到达的位置呢？"></a>如果把最有机会的地方放到最难到达的位置呢？</h2><p>实测数据很少告诉我们，假如把同一座城市的岗位重新摆放，会发生什么。作者在 80 个空间单元上创造模拟环境，自行规定机会怎样吸引出行、距离和其他目的地怎样改变选择。这样就知道某项条件改变后，真实设定的份额是多少，可以比较模型有没有把人分对地方。</p>
+<p>只改变各起点的总量，使有些地方出门的人特别多时，直接拟合通勤人数的对照模型越来越难还原份额；专门学习份额的模型则比较稳定。但当机会热点换了位置，沿用原有通勤比例也很快失准。保持原有空间骨架，只把机会与可达性的关系由同向逐渐反转，是更难的一关。</p>
+<p>作者用逐起点的 KL 散度（Row-KL）衡量份额误差。一个本来承接不少人的目的地，如果被模型分到极低的份额，会受到较大惩罚；误差越小，分配越接近模拟真值。在反转最强的一档，OpFlow 的误差是 0.156，验证集选出的领域泛化对照模型是 0.331。去掉“此前还有多少更容易到达的机会”这一项，在几项删减实验中造成的误差增幅最大。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/a7c8e9f0/fig4.png" alt="起点规模变化、机会转移及相关反转下的份额误差"></p>
+<p>图 4｜a、b、c 的纵轴都是份额误差。横轴分别改变起点规模差异、机会重分布程度、机会与可达性的相关程度。看 c 的右端，两者变为负相关，蓝线仍较低。d 的横轴是误差，橙条对应去掉更易到达的替代机会。</p>
+<p>这组比较揭示了为何只靠相关性预测会出错。它也有一个重要前提：模拟数据本来就按机会、阻力和替代项共同决定份额，接近设定机制的模型占有优势。能否在真实地方看到同样的好处，要换一套验证方式。</p>
+<h2 id="到陌生县预测，结论取决于问的是哪种误差"><a href="#到陌生县预测，结论取决于问的是哪种误差" class="headerlink" title="到陌生县预测，结论取决于问的是哪种误差"></a>到陌生县预测，结论取决于问的是哪种误差</h2><p>真实基准覆盖美国 3,333 个县级单元。每个县各有一张内部通勤表，输入包括片区人口与社会经济特征、各类设施数量、片区间路网距离和相邻关系。研究轮流让模型面对没参加训练的县，包括随机抽出的县、整个普查分区的县，以及机会在空间上特别集中或特别分散的县。每次比较的都是一个县内部的去向。</p>
+<p>三种测试中，OpFlow 的逐起点份额散度都是最低的，按人数取对数后计算的流量误差也都是最低的。但在机会最集中或最分散的县，换成逐起点计算份额重合度，OpFlow 得 0.670，一个也考虑规模的对照模型得 0.693。重合度把各目的地分对的份额加起来；散度对严重低估某个目的地尤其敏感。两把尺子问的问题不同，在这个难例上选出了不同的赢家。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>起点人数差异大时，将总量和份额分开学习，有助于守住去向分配的精度。机会换了位置时，模型还需要根据交通阻力和替代地点重新分配份额。在作者设计的最强相关反转下，OpFlow 比选定对照的份额散度低约 53%。</p>
+<p>美国县内通勤数据表明，这套方法能改善陌生地区的部分预测指标。它衡量的是地区之间的汇总流量，研究没有跟踪个人是否改变了工作地点，也没有观测新园区开业前后的政策效应。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>为何两地间有这么多人通勤，至少有两种可能：起点本来就有很多人出门，或者这个目的地比其他去处更容易被选中。OpFlow 用分开的模型来估计这两件事，把目的地周围和更容易到达的机会也考虑进去。这样能应对部分地区差异，但对一座新城市预测得好不好，仍取决于关心的是人数、目的地份额重合，还是某些目的地被严重低估。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p>论文采用 Rong 等人（2025）的美国通勤流量基准构建县内起讫表，并用已知分配机制的合成数据检验模型。表 2 对照三种分县方式下的结果。<a href="https://arxiv.org/html/2607.03200v1">预印本全文与附录</a></p>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Changjian Liu、Yong Gao、Yuqing Wang、Leyi Su、Zhiyang Wang、Xiaoyu Wang、Fan Zhang（北京大学地球与空间科学学院），Honglei Guo（浙江大学人工智能学院）。Yong Gao 为通讯作者。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>如果公交部门要给一片新区加班次，先得分清是“整个片区多了通勤者”，还是“新园区抢走了原本去老城的那些人”。前者可能要把多条线路同时加密；后者更像在既有班次之间调配。如果只用总客流看预测准不准，就可能在总量没猜错的同时，把车派到了错误的方向。遇到类似调整，我会先问两个问题：从这里出发的人总共多了多少？去各个就业点的比例又变了多少？</p>
+<p>如果工业园决定把接驳车从地铁站开到厂门口，原先坐另一条公交线的人也可能改乘接驳车。新线路开通后人很多，一种解释是园区吸引了更多通勤者，另一种解释是原有通勤者换了走法。论文拆分总量和份额的思路提醒我们，在给项目算成绩前，应先说清想解决的是什么。让既有乘客少换一次车，本身就可以是一项收益；它需要用乘客节省的时间来说明。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -647,17 +590,13 @@
                 <a href="/posts/b8d9e0a1/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="2026-GeoFlow: Geo-Aware Modeling of Inter-Area Relationships in Origin-Destination Flow Prediction and Generation">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="GeoFlow: Geo-Aware Modeling of Inter-Area Relationships in Origin-Destination Flow Prediction and Generation">
                         
-                        <span class="card-title">2026-GeoFlow: Geo-Aware Modeling of Inter-Area Relationships in Origin-Destination Flow Prediction and Generation</span>
+                        <span class="card-title">GeoFlow: Geo-Aware Modeling of Inter-Area Relationships in Origin-Destination Flow Prediction and Generation</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">从同一片区出发，哪些人流容易估准？GeoFlow 在通勤、货运和访客数据中检验地理关系怎样改善起讫流量估计。</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
@@ -707,17 +646,13 @@
                 <a href="/posts/f1a2b3c4/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="2026-DynaOD: Dynamic Origin-Destination Flow Generation with Discrete-to-Continuous Temporal Semantic Modeling">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="DynaOD: Dynamic Origin-Destination Flow Generation with Discrete-to-Continuous Temporal Semantic Modeling">
                         
-                        <span class="card-title">2026-DynaOD: Dynamic Origin-Destination Flow Generation with Discrete-to-Continuous Temporal Semantic Modeling</span>
+                        <span class="card-title">DynaOD: Dynamic Origin-Destination Flow Generation with Discrete-to-Continuous Temporal Semantic Modeling</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">同一片办公区周一和周日会吸引一样多的出行吗？美国 500 个县的一项实验把日历转换为逐日变化的地区特征，检验没有当地历史记录时能还原多少区际流量。</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-11

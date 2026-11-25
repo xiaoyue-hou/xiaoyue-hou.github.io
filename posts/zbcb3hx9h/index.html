@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-Computational models of complex systems meet AI agents, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="Computational models of complex systems meet AI agents, 猴猴猴">
+    <meta name="description" content="一张模拟结果图能否追溯到当时的客流和设置？两位复杂系统研究者提出，让人和智能体能够复查同一次实验的六项要求。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-Computational models of complex systems meet AI agents | 猴猴猴</title>
+    <title>Computational models of complex systems meet AI agents | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-Computational models of complex systems meet AI agents</h1>
+                    <h1 class="description center-align post-title">Computational models of complex systems meet AI agents</h1>
                 </div>
             </div>
         </div>
@@ -436,56 +436,32 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style>#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img { display: block; margin: 1.2rem auto .6rem; max-width: 100%; width: min(100%, 620px); height: auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h1 id="让-AI-跑模拟，为什么还要把接口重新设计一遍？"><a href="#让-AI-跑模拟，为什么还要把接口重新设计一遍？" class="headerlink" title="让 AI 跑模拟，为什么还要把接口重新设计一遍？"></a>让 AI 跑模拟，为什么还要把接口重新设计一遍？</h1><p>Cattuto, C., &amp; Vespignani, A. (2026). Computational models of complex systems meet AI agents. <em>npj Complexity</em>. <a target="_blank" rel="noopener" href="https://doi.org/10.1038/s44260-026-00102-1">DOI: 10.1038/s44260-026-00102-1</a></p>
-<p>设想你在研究家校沟通：同样的模拟场景，把教师介入从冲突后的第三轮提前到第一轮，学生的求助行为会变吗？你让 AI 多跑几轮，最后收到一张漂亮的对比图。可点击曲线追查才发现，系统只记录了结果，没记清两组究竟用了哪套角色配置。图画出来了，最初那个比较却没法核对。</p>
-<p>这就是 Ciro Cattuto 和 Alessandro Vespignani 在这篇观点文章（Perspective）里关心的问题：当大语言模型智能体能够写脚本、跑程序时，科学软件还要提供什么，才能让研究者放心地交出一部分操作？作者的答案是，不能只让智能体把模拟跑起来，还要让它知道哪些设置能改、让每次运行留下可以检查的记录，并让人能接手核对。</p>
-<p>先说这篇文章的三个核心观点：</p>
-<ul>
-<li>智能体在模拟器外工作。它根据上一轮结果决定下一轮怎么跑，而研究者决定什么问题值得追、什么结果足以支持结论。</li>
-<li>接口应当把参数、运行配置与结果公开成机器可读的记录。这样研究者和智能体才能用同一套文件检查一次比较是怎么做出来的。</li>
-<li>给既有模拟器加一层接口，不一定要改写模型。文章用流行病模拟库展示这种改造思路，没有报告智能体比其他方法更准、更快或更可靠的对照结果。</li>
-</ul>
-<h2 id="智能体该在模拟里，还是在模拟器外？"><a href="#智能体该在模拟里，还是在模拟器外？" class="headerlink" title="智能体该在模拟里，还是在模拟器外？"></a>智能体该在模拟里，还是在模拟器外？</h2><p>在多智能体社会模拟里，语言模型可以扮演学生、家长或老师。这篇文章讨论的是另一种角色：语言模型不扮演任何被模拟者，而是坐在控制台前，选择模型、安排运行、检查输出，再据此调整下一轮。</p>
-<p>复杂系统研究常要来回做这几步。模型的规则可以很局部，比如一次接触在什么条件下会产生传播，但研究者关心的是整个群体的变化。即使模型不变，也要决定干预针对谁、何时开始、持续多久、与哪些措施一起实施。固定的参数扫描能回答预先列好的问题；作者设想，智能体可以根据已看到的差异，有选择地继续比较。例如，先比较不同的干预时点，再检查时点差异是否在另一种模型假设下仍然出现。文章论证了这种工作方式为何值得尝试，没有检验它是否比传统搜索方法更有效。</p>
-<h2 id="谁决定下一轮，谁负责最后的结论？"><a href="#谁决定下一轮，谁负责最后的结论？" class="headerlink" title="谁决定下一轮，谁负责最后的结论？"></a>谁决定下一轮，谁负责最后的结论？</h2><p>如果研究者必须告诉智能体每一步该做什么，智能体只是代为执行。如果研究者只在最后拿到一张图，又很难判断比较做得对不对。图 1 给出的做法是分开两件事：智能体在运行循环里安排计算步骤，研究者在循环外设定目标、反馈并审查记录。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/zbcb3hx9h/fig1.png" alt="图 1：研究者设定目标，智能体调用模型并读取文件结果，再进入下一轮"></p>
-<p>图 1｜模拟工作流示意。沿实线看：上方研究者给出目标，中央智能体驱动右下角模型，再读取左下角文件中的配置和结果继续迭代。左侧虚线表示研究者可直接检查这些文件。</p>
-<p>这里的分工不是让人少看几张图。智能体可以在运行中解读输出、寻找下一步线索，但判断模型是否适用、结果是否足以回答原问题，仍是研究者的责任。要让这种审查可行，文件里不能只留下最终报告，还得让人知道那一轮到底跑了什么。</p>
-<h2 id="怎样让一轮模拟事前可查、事后可追？"><a href="#怎样让一轮模拟事前可查、事后可追？" class="headerlink" title="怎样让一轮模拟事前可查、事后可追？"></a>怎样让一轮模拟事前可查、事后可追？</h2><p>先把最容易混淆的时点问题写进配置。比如先定义“介入轮次”按什么计数、允许哪些值，再把两组条件写进独立的配置文件。这样，智能体在跑之前能检查输入，研究者在跑之后能看清两组是否真的只差这一项。沿着一次任务从准备到复查，作者给出了六条接口原则：</p>
-<ol>
-<li>可发现性（discoverability / introspection）：允许智能体直接查询模型能做什么、参数的类型和有效范围是什么，不必从源码里猜。</li>
-<li>声明式控制（declarative control）：用一份可校验的 YAML 或 JSON 配置写明要运行什么，而不是把设定散在一串方法调用里。</li>
-<li>无状态操作（statelessness）：每次调用显式读取所需的输入文件。模拟本身可以有状态，只是不要求智能体记住留在上一次会话里的对象。</li>
-<li>结构化、可查询的输出（structured, queryable output）：保存原始结果，同时允许按需查询统计摘要和情景对比，不必每次把整条模拟轨迹交给语言模型。</li>
-<li>人与智能体共用接口（human–agent parity）：双方能用同样的命令和文件。智能体执行过的操作，研究者能在终端里复查或重跑。</li>
-<li>可组合性（composability）：上一步的结果能交给下一个工具，比如让一个比较工具读取两个模型各自产生的结果，并保留结果从哪一步来的记录。</li>
-</ol>
-<p>参数能通过校验，不代表比较就合理。配置文件可以检查介入轮次是否超出范围，却不能替研究者判断，在这一场景里提早介入是不是有意义的反事实。命令行界面（CLI）在文中受到偏爱，也是因为便于人与智能体共用和复查，并非文章用实验证明它优于模型上下文协议（MCP）或其他接口。</p>
-<h2 id="不改模拟器内核，能做到什么？"><a href="#不改模拟器内核，能做到什么？" class="headerlink" title="不改模拟器内核，能做到什么？"></a>不改模拟器内核，能做到什么？</h2><p>文章用已有的 Python 流行病模拟库 Epydemix 作示例。库原本面向会写代码的研究者：在脚本里创建模型对象、设置参数和干预，再从运行结果里提取感兴趣的量。对智能体来说，困难不在于完全写不出这些代码，而在于每次临时组织代码和会话状态，都增加了追查实际运行步骤的负担。</p>
-<p>外层接口把这条链变成一系列可单独检查的操作：先查参数目录，生成并校验配置文件，再用命令调用原库。每次运行把结果放进独立目录，附一份清单说明产物和来源；接下来的比较工具读取这些输出，就能返回有针对性的摘要。原有模型和笔记本仍可照旧使用。这个例子说明怎么在既有工具上加一层，并不等于已经测清了改造和维护的成本。</p>
-<p>不过，做了接口还得让智能体知道它在哪、有什么限制。作者提出把这些内容写成智能体接口契约（agent contract），示例文件名是 <code>AGENT.md</code>：怎么查参数，能用哪些命令，去哪里找结果，报告结果时要遵守哪些领域约定。可以让一个智能体按契约做任务，再让另一个检查调用记录和输出，以发现哪里没写清楚。这种复查能帮助改接口，不能当成对科学结论的独立验证。碰到接口确实没有覆盖的任务，也可以回到源码或自写脚本；反复出现的临时操作，反而提示下一步值得补什么。</p>
-<h2 id="能复跑，和结论可信，是一回事吗？"><a href="#能复跑，和结论可信，是一回事吗？" class="headerlink" title="能复跑，和结论可信，是一回事吗？"></a>能复跑，和结论可信，是一回事吗？</h2><p>不是。能复跑说明研究者可以追到相同的配置和操作；结论可信还要求模型适合问题、情景之间可比，且结果没有超出模型所能支持的范围。即使每一轮计算都留了记录，智能体也可能围绕一个设定不清的目标，系统地跑出一大批不能回答问题的结果。</p>
-<p>这篇观点文章没有生成或分析数据集，也没有提供不同智能体、接口或传统方法的性能对照。作者建议下一步建立共同的接口约定，并用代表性任务检验：给定自然语言目标和接口契约，智能体是否能提供正确、可复查的结果。这是有待验证的主张，不是论文已经交付的性能证明。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><ul>
-<li>相比让语言模型扮演模拟对象，把它放在模拟器外，讨论的是另一项能力：按研究目标组织连续的计算与比较。是否继续沿某条线索探索，以及如何解释结果，仍由研究者负责。</li>
-<li>接口的价值不只是减少写脚本。把模型能做什么、一次运行用的是什么、结果来自哪一轮变成共同可查的记录，研究者才有可能监督随结果动态调整的模拟流程。</li>
-<li>Epydemix 示范了如何在不改写底层模型的情况下建立这样的接口。它支持架构上的可行性，不证明同样的做法在其他工具中也有效，更不证明智能体产出的结论自动可靠。</li>
-</ul>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这篇观点文章把复杂系统模拟看成一连串由结果推动的比较，并用 Epydemix 说明，智能体若要承担其中的操作，就得把临时写在脚本和会话里的选择，变成可校验的配置、可查询的结果和可追踪的记录。研究者因此有机会从亲手跑每一轮，改为决定哪些比较值得做、核对它们是否做对。至于这种分工能否改善科研表现，还要等针对真实任务的比较来回答。</p>
+<p>Cattuto, C., &amp; Vespignani, A. (2026). Computational models of complex systems meet AI agents. <em>npj Complexity</em>. <a href="https://doi.org/10.1038/s44260-026-00102-1">论文 DOI</a></p>
+<h2 id="让智能体跑完两轮模拟，别人接得了手吗？"><a href="#让智能体跑完两轮模拟，别人接得了手吗？" class="headerlink" title="让智能体跑完两轮模拟，别人接得了手吗？"></a>让智能体跑完两轮模拟，别人接得了手吗？</h2><p>设想要用交通模拟器比较两种公交时刻表。智能体交给你一张图，少等五分钟的方案看起来更好。同事只问了一个问题：两次模拟用的是同一份早高峰客流吗？如果一份客流是前一天加载的，另一份来自刚刚运行的脚本，而图里只留下两条曲线，连负责这个项目的人也很难回答。</p>
+<p>这篇观点文章关心的正是这一刻。Ciro Cattuto 和 Alessandro Vespignani 提议把大语言模型智能体放到模拟器外面。它可以根据第一次计算的结果安排第二次计算，科学问题由研究者提出，结果是否足以回答这个问题也由研究者判断。要这样分工，模拟器得能交出一份让别人接得住、查得清的实验记录。</p>
+<h2 id="在模拟器里开车，和在模拟器外比较时刻表，是两件事"><a href="#在模拟器里开车，和在模拟器外比较时刻表，是两件事" class="headerlink" title="在模拟器里开车，和在模拟器外比较时刻表，是两件事"></a>在模拟器里开车，和在模拟器外比较时刻表，是两件事</h2><p>研究复杂系统经常要从很小的规则推到很大的现象。模型可以规定每辆车何时进站、乘客怎样上车，但这个站的排队会不会一路蔓延到下游，要让这些规则一起运行才看得出来。研究者改变时刻表、保留相同的客流再跑一次，才有条件比较哪个环节可能造成拥堵。</p>
+<p>在一类研究中，可以让语言模型扮演某个乘客，决定他会不会改乘地铁。本文讨论的智能体接手的是另一份工作。它坐在模拟器外，读取研究者给定的目标，选择要运行的比较，查询结果，再根据结果决定下一轮该补算什么。此时乘客的行为规则仍由原来的模型决定。即使智能体能把十轮计算安排得井井有条，乘客规则是否符合现实，仍需单独检验。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/zbcb3hx9h/fig1.png" alt="研究者、智能体、模拟器与保存运行资料的文件系统"></p>
+<p>图 1｜沿箭头看一次提问怎样返回到研究者手中。研究者给出目标，智能体与模拟器多次交互，文件系统保存每次留下的材料。研究者可以沿这些记录回看智能体如何得到结论。</p>
+<h2 id="一次看似合理的比较，会在哪一步失去依据？"><a href="#一次看似合理的比较，会在哪一步失去依据？" class="headerlink" title="一次看似合理的比较，会在哪一步失去依据？"></a>一次看似合理的比较，会在哪一步失去依据？</h2><p>先要知道模型允许改变什么。人熟悉一个模拟器后，可能记得发车间隔的单位是分钟，换一种模型却要填秒。若这些约定只藏在源码、说明书或研究者的记忆里，智能体完全可能给出一个数值合法、实际含义错误的设置。作者把第一个要求称作可发现性（discoverability）：软件自己列出能选的模型、参数含义、单位和取值范围，让调用者在运行前查到。</p>
+<p>知道能调什么，还要留下实际调了什么。文章主张用一份完整配置描述每轮实验，这叫声明式控制（declarative control）。系统可以先检查配置，再运行模拟。与之相连的要求是无状态（statelessness）：需要沿用的客流、上轮输出或其他输入，都应能从保存的文件中找到。这样即使同事从一台刚启动的电脑接手，也不必猜测你之前在交互窗口里点过哪一个选项。</p>
+<p>输出同样有两种读者。研究者往往只想先知道两套时刻表下平均等多久、哪一站排队最严重，而模拟器每步都可能生成大量原始记录。让结果带上字段说明，再提供查询摘要的办法，既能回答一个小问题，也能保留返回原始记录的路。这就是结构化、可查询的输出。作者还要求研究者与智能体能够使用同一入口、查看同一份配置和结果。这样的操作对等让人在对某个答案起疑时能够亲自复跑。</p>
+<p>第六项要求是可组合性（composability）。假如还想用另一种交通模型核对同一现象，一个工具的输出就要能作为另一个工具的输入，并说明它来自哪轮运行。两套模型若得出近似结论，研究者能追查它们究竟独立支持了同一发现，还是共用了同一份有偏的输入。</p>
+<h2 id="已经有人在用的软件，怎样给智能体增加一个入口？"><a href="#已经有人在用的软件，怎样给智能体增加一个入口？" class="headerlink" title="已经有人在用的软件，怎样给智能体增加一个入口？"></a>已经有人在用的软件，怎样给智能体增加一个入口？</h2><p>作者用已有的公共卫生建模软件 Epydemix 作说明。做法是在现有软件外增加操作入口和说明，让人和智能体查到可以设置的量，保存每次运行用到的配置，并找到相应的结果和来源。原本用既有接口工作的研究者仍可照常使用软件。这个例子展示了维护团队可以如何逐步改造一项已有工具。</p>
+<p>作者建议用一份随软件提供的说明集中约定输入、输出、查询方式和领域含义。检验这份说明有个直观办法：把一个有代表性的问题交给智能体，再由另一位检查者顺着运行记录重做比较。如果它反复需要临时写脚本才能弄清同一个字段，说明接口在这一处还说得不清楚。这个案例展示了设计如何落地。文章没有比较多个团队的任务成功率、运行成本或科学结论准确度，也没有证据说明人可以把最终判断交出去。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>智能体可以接手复杂系统模拟中的部分循环工作，包括选择下一轮比较和查询模拟结果。研究者仍要决定问题、审查模型假设，并解释结果能支持什么。</p>
+<p>六项设计要求都落到同一次交接上：接手者能查到可选设置，知道这次实际用了什么，还能从保存的结果追溯输入。既有软件可以通过新增接口逐步具备这些条件。不同软件、不同研究任务能从中获益多少，还需要直接比较。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这篇观点文章把智能体视作模拟器的操作者。复杂系统研究需要从许多次试算中辨认共同规律，因而给智能体留出调整下一轮试算的空间很有意义。科研软件若把潜藏在交互会话中的假设、设置和结果写成可检查的记录，研究者才有条件从一张结果图退回产生它的那次实验，判断这番比较是否成立。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li>Cattuto, C., &amp; Vespignani, A. (2026). <a target="_blank" rel="noopener" href="https://doi.org/10.1038/s44260-026-00102-1">Computational models of complex systems meet AI agents</a>. <em>npj Complexity</em>. 2026 年 11 月 4 日在线发布的录用版（Article in Press），文章类型为 Perspective。<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s44260-026-00102-1_reference.pdf">期刊全文 PDF</a></li>
-<li>Gozzi, N., Cattuto, C., &amp; Vespignani, A. (2026). <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2609.28692">Driving Epidemic Models with AI Agents: the Epydemix Agent Framework</a>. 这是相关框架的独立预印本，其中的比较不属于本篇观点文章。<a target="_blank" rel="noopener" href="https://github.com/epistorm/epydemix/tree/agent-framework">示例代码</a></li>
+<li>Cattuto 与 Vespignani 的观点文章给出六项设计要求、工作示意图及现有软件的改造案例。<a href="https://doi.org/10.1038/s44260-026-00102-1">原论文</a></li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Ciro Cattuto：意大利都灵 ISI Foundation，本篇通讯作者。</p>
-<p>Alessandro Vespignani：意大利都灵 ISI Foundation、美国东北大学生物与社会技术系统建模实验室。两位作者共同构思、发展论点并撰写文章。</p>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>Ciro Cattuto（意大利都灵 ISI Foundation）是论文通讯作者。Alessandro Vespignani 同时署名 ISI Foundation 与美国东北大学生物和社会技术系统建模实验室。两位作者共同提出文中的设计原则及其对复杂系统研究的意义。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>回到家校沟通的例子。设想两位老师看完结果，都认同“提前介入后，模拟学生更常求助”。一位想把值班教师加入聊天，另一位却主张只把原有教师的首次回应提前。两人都在谈“早介入”，实际准备做的是两件事。与其让智能体继续跑十个版本，不如让它先摊开两组配置，说出原本想改什么、实际上改了什么。</p>
-<p>这一设想也改变了我们对智能体主动求助的期待。一个好求助不只是问“我下一步该怎么做”，而是指出：已有结果支持哪种比较，当前还有哪两种解释不能区分，必须请研究者决定哪一项算作干预本身。这样，人接手的不是一堆运行细节，而是那个会改变结论的问题。</p>
+<p>回到开头的两套公交时刻表。设计者看到平均等待时间缩短，可能已经准备推荐新方案；末班车乘客更关心错过一次换乘会多等多久。完整的运行记录使两个人可以拿同一批结果继续问各自的问题。如果计算里原本就没有记录换乘，智能体也应该能告诉他们这一点。对公共决策而言，能认出一张图没有回答谁的问题，和能画出这张图同样重要。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -613,17 +589,13 @@
                 <a href="/posts/z5daj55fj/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="2026-AI-based urban layout generation model">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="AI-based urban layout generation model">
                         
-                        <span class="card-title">2026-AI-based urban layout generation model</span>
+                        <span class="card-title">AI-based urban layout generation model</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">知道全城路网，只测过少量街区，能给风场模型补出怎样的一座城？北美 330 座城市的实验区分了重建、推断和情景设计。</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2026-11-18

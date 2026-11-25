@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-Fusing Urban Structure and Semantics: A Conditional Diffusion Model for Cross-City OD Matrix Generation, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="Fusing Urban Structure and Semantics: A Conditional Diffusion Model for Cross-City OD Matrix Generation, 猴猴猴">
+    <meta name="description" content="根据人口、设施和空间位置，能还原多少通勤联系？美国通勤数据揭示了距离与邻接的作用，也显示两种误差口径会给出不同的模型排名。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-Fusing Urban Structure and Semantics: A Conditional Diffusion Model for Cross-City OD Matrix Generation | 猴猴猴</title>
+    <title>Fusing Urban Structure and Semantics: A Conditional Diffusion Model for Cross-City OD Matrix Generation | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-Fusing Urban Structure and Semantics: A Conditional Diffusion Model for Cross-City OD Matrix Generation</h1>
+                    <h1 class="description center-align post-title">Fusing Urban Structure and Semantics: A Conditional Diffusion Model for Cross-City OD Matrix Generation</h1>
                 </div>
             </div>
         </div>
@@ -436,108 +436,32 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img {display:block;margin:1.25rem auto .5rem;max-width:100%;height:auto;} .post-title {overflow-wrap:anywhere;}</style>
+<style id="paper-figure-layout">#articleContent img { display: block; max-width: 100%; height: auto; margin: 1.25rem auto .5rem; } .post-title { overflow-wrap: anywhere; }</style>
 
-<p>一座城市知道各片区住着多少人、有哪些医院和学校，也知道哪些片区接壤，却缺少一张「从哪里出发、到哪里上班」的人数表。可以从有数据的城市借规律，但不能把别处的就业中心和通勤距离原样搬过来。</p>
-<p>Bin Chen、Zhuoya Meng 等人的 SEDAN 把两类信息放进同一个模型：人口和设施描述地方功能，邻接和距离提供空间线索。相对强扩散基线 WEDAN，它在美国通勤基准上让流量更重合、原始人数误差更低；不过按真实流量的波动归一化后，误差反而略高。这个结果比一句「跨城生成更准」更有用：它提示我们先问，规划究竟看重哪种误差。</p>
-<span id="more"></span>
-<h2 id="城市之间能借什么，不能借什么？"><a href="#城市之间能借什么，不能借什么？" class="headerlink" title="城市之间能借什么，不能借什么？"></a>城市之间能借什么，不能借什么？</h2><p>出发地—目的地矩阵（OD 矩阵）的一行是出发区域，一列是到达区域，一个格子是两区之间的通勤人数，方向不能互换。实验用 LargeCommutingOD 美国数据，论文报告涉及 3,233 个空间单元，含县和普查区；以 2018 年 LODES 居住地—工作地汇总流量为观测，并使用美国社区调查的人口与社会经济属性、OpenStreetMap 兴趣点。目标地即使没有自己的通勤表，仍要提供同口径的区域特征、质心直线距离和边界邻接。</p>
-<p>其中有两条直观线索：在这批数据中，距离与对数流量的相关约为 −0.47；附表的相邻区域对平均流量为 80.00，非相邻为 36.28。相邻对均值更高，不表示大多数通勤者都去了邻区，因为两类区对数量还不一样。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/e2f4a5b6/fig1.png" alt="原图 A.9：距离与平均通勤量"></p>
-<p><em>原图 A.9：按距离看平均通勤量，曲线随距离下降；横轴未标单位。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/e2f4a5b6/fig2.png" alt="原图 A.10：相邻和非相邻区域对的流量分档"></p>
-<p><em>原图 A.10：相邻对更常落在高流量档；柱高是各自组内区对的比例，不是通勤人数份额。图的零流量比例与附表 A.6 非零率换算不符，原文未解释口径差异。</em></p>
-<h2 id="同时填整张表，和逐格猜有什么区别？"><a href="#同时填整张表，和逐格猜有什么区别？" class="headerlink" title="同时填整张表，和逐格猜有什么区别？"></a>同时填整张表，和逐格猜有什么区别？</h2><p>论文把各区域画成节点，把有方向、有强度的通勤流画成边。训练时，先把流量做对数转换，再逐步给各条边加噪声，训练网络识别加入了什么噪声。生成时反过来，从噪声出发，依据目标城市的特征逐步去噪，并一起更新整张 OD 矩阵，而不是分别预测每一格后再拼起来。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/e2f4a5b6/fig3.png" alt="原图 1：城市特征与通勤图"></p>
-<p><em>原图 1：人口和兴趣点描述区域功能，距离和邻接描述区域关系；每条通勤边有方向。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/e2f4a5b6/fig4.png" alt="原图 2：加噪与去噪"></p>
-<p><em>原图 2：训练时逐步加噪，生成时依据城市特征反向还原整张表。</em></p>
-<p>SEDAN 用图 Transformer 做条件去噪。区域特征参与计算节点之间的注意力；邻接作为拓扑偏置进入注意力，直线距离进入边表示。这里的「空间约束」是给模型的软线索，不是禁止远距离通勤的硬规则。论文用典型的四层结构，训练噪声日程为 1,000 步，推理用 DDIM 加速，附录计时使用 100 步采样，两者并非同一个设定。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/e2f4a5b6/fig5.png" alt="原图 3：SEDAN 的特征嵌入、去噪网络与单层结构"></p>
-<p><em>原图 3：a 是输入编码，b 是整体网络，c 展示邻接和距离在每层怎样进入。</em></p>
-<h2 id="数字变好了吗？要看用哪把尺"><a href="#数字变好了吗？要看用哪把尺" class="headerlink" title="数字变好了吗？要看用哪把尺"></a>数字变好了吗？要看用哪把尺</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>指标</th>
-<th style="text-align:right">WEDAN</th>
-<th style="text-align:right">SEDAN</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>通勤流量重合度 CPC ↑</td>
-<td style="text-align:right">0.59</td>
-<td style="text-align:right">0.61</td>
-</tr>
-<tr>
-<td>人数尺度 RMSE ↓</td>
-<td style="text-align:right">68.60</td>
-<td style="text-align:right">63.54</td>
-</tr>
-<tr>
-<td>归一化 RMSE ↓</td>
-<td style="text-align:right">0.88</td>
-<td style="text-align:right">0.93</td>
-</tr>
-<tr>
-<td>流入分布 JSD ↓</td>
-<td style="text-align:right">0.29</td>
-<td style="text-align:right">0.26</td>
-</tr>
-<tr>
-<td>流出分布 JSD ↓</td>
-<td style="text-align:right">0.27</td>
-<td style="text-align:right">0.21</td>
-</tr>
-<tr>
-<td>区对流量分布 JSD ↓</td>
-<td style="text-align:right">0.15</td>
-<td style="text-align:right">0.11</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><em>摘录自原文主结果表。CPC 越高表示整体流量更重合；JSD 越低表示两套分布形状更接近。</em></p>
-<p>CPC 高了 0.02，原始人数 RMSE 相对下降约 7.4%，三种分布差异均缩小，但 NRMSE 从 0.88 升到 0.93。前者评估人数误差，后者还按真实矩阵的波动归一化；不宜把任一个数字当成所有城市都适用的准确率。实验结果是五次独立实验平均，未报告标准差；任务定义要求目标城市未见，但正文只写了 8:1:1，没有交代是否按整座城市留出，跨城测试的证据口径还需确认。</p>
-<p>结构不同也不是处处同样受益。综合结构分类下，多中心城市的 RMSE 从 86.90 降到 38.03；但仅看小城市的比较，流入 JSD 反而由 0.34 变成 0.35。两项结果来自不同分组，不是同一批城市的前后变化。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/e2f4a5b6/fig6.png" alt="原图 4：按四种口径划分城市结构的比较"></p>
-<p><em>原图 4：四组分别按通勤流、距离、人口或综合结构分类；换一种分类，模型优势也会变。</em></p>
-<h2 id="拿掉什么，效果掉得最多？"><a href="#拿掉什么，效果掉得最多？" class="headerlink" title="拿掉什么，效果掉得最多？"></a>拿掉什么，效果掉得最多？</h2><p>消融实验在同一张图里对照各组件。邻接与距离一起去掉时，CPC 从 0.62 降到 0.41，RMSE 从 63.40 升到 81.02；只去掉兴趣点，RMSE 升到 75.29。用同一图内的完整模型作基准是必要的，因为主表完整模型的 CPC 和 RMSE 分别是 0.61 和 63.54。</p>
-<p>去掉扩散、换成图网络直接回归时，RMSE 变为 65.19，仍接近完整模型；流入 JSD 则从 0.26 到 0.29。扩散在这项对照里改善了分布拟合，但人数误差的收益相对有限，也不宜把全部优势归给扩散。把空间先验仅作普通边输入，效果也比完整融合弱，说明怎样使用空间信息会影响结果。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/e2f4a5b6/fig7.png" alt="原图 5：六项指标的组件消融"></p>
-<p><em>原图 5：两项空间线索同时移除时，CPC 和 RMSE 恶化最明显；比较应以图中完整模型为基准。</em></p>
-<h2 id="能看懂模型在用什么，不能据此解释人怎么选工作"><a href="#能看懂模型在用什么，不能据此解释人怎么选工作" class="headerlink" title="能看懂模型在用什么，不能据此解释人怎么选工作"></a>能看懂模型在用什么，不能据此解释人怎么选工作</h2><p>作者用 SHAP 分析预测平均流出时哪些输入影响更大。人口属性中，20–24 岁女性等年龄指标、教育和车辆拥有量都排在较前；兴趣点里，住宿、教育、医疗靠前。区域层面的变量可能互相替代，也可能代理未测量的因素。高贡献不表示这类居民更常通勤，Accommodation 也不能未经核对就等同于住宅用地。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/e2f4a5b6/fig8.png" alt="原图 6：人口属性对预测平均流出的贡献"></p>
-<p><em>原图 6：四幅按年龄、教育、交通资源、经济与家庭分类，条长是平均绝对 SHAP，不是人数。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/e2f4a5b6/fig9.png" alt="原图 7：兴趣点对预测平均流出的贡献"></p>
-<p><em>原图 7：住宿、教育、医疗等在展示的兴趣点中靠前；排序只描述模型。</em></p>
-<p>在一个示例中，第一层注意力与邻接矩阵的相关为 0.70，第四层只剩 0.07。深层有几个目的地区域被多个起点关注。这说明模型可在邻接信号之外组织注意力，不代表作者已经据此识别了真实就业中心。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/e2f4a5b6/fig10.png" alt="原图 8：四层注意力与空间先验"></p>
-<p><em>原图 8：对比邻接、距离相似度和四层注意力；热图颜色不是通勤人数。</em></p>
-<h2 id="整张表一起生成，比直接回归更慢"><a href="#整张表一起生成，比直接回归更慢" class="headerlink" title="整张表一起生成，比直接回归更慢"></a>整张表一起生成，比直接回归更慢</h2><p>附录显示，节点变多后，两种扩散方法的推理时间都比 GMEL 回归基线升得更快。作者测试了不同层数与扩散训练步数，选用四层和 1,000 步，不是堆得更多就一定更好。这些计时和参数对比帮助估算生成成本，不代表任何规划任务都值得支付这笔成本。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/e2f4a5b6/fig11.png" alt="原图 C.11：节点数和推理时间"></p>
-<p><em>原图 C.11：两条扩散曲线随节点增加上升更快；这一计时使用 100 步 DDIM。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/e2f4a5b6/fig12.png" alt="原图 D.12：图 Transformer 层数试验"></p>
-<p><em>原图 D.12：从两层到四层有改善，再加深不再稳定提高。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/e2f4a5b6/fig13.png" alt="原图 D.13：扩散训练步数试验"></p>
-<p><em>原图 D.13：试验中 1,000 步总体最好，1,500 步没有继续改善。</em></p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>在这套美国静态通勤矩阵上，将区域属性与空间线索一起用来生成 OD，有助于复现流量重合、人数误差及流入流出分布。消融显示邻接和距离的联合贡献很明显，但归一化误差、部分城市组指标没有一起改善。现有证据不直接覆盖美国以外、路网通达性差距很大或统计口径不一致的地区，也不能解释单个居民的出行选择。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><ul>
-<li><strong>目标城市不用先给通勤表，但要给条件数据：</strong> 人口、兴趣点、邻接和距离仍不可少。</li>
-<li><strong>最稳妥的结果是多项指标共同进步，不是全面胜出：</strong> CPC、RMSE 和 JSD 改善，NRMSE 变差。</li>
-<li><strong>空间先验和扩散作用不同：</strong> 同时撤掉邻接与距离对结果的伤害明显，扩散相对直接预测的额外收益更多见于分布。</li>
-</ul>
-<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li>Bin Chen、Zhuoya Meng、Fang Yang、Runkang Guo、Jingtao Ding、Yin Zhang、Chuan Ai、Zhengqiu Zhu (2026). <em>Fusing Urban Structure and Semantics: A Conditional Diffusion Model for Cross-City OD Matrix Generation</em>. <a target="_blank" rel="noopener" href="https://arxiv.org/html/2605.00938v1">arXiv v1 全文</a>，2026 年 5 月 1 日提交。本文图号采用此版原编号。</li>
-<li>Can Rong、Jingtao Ding、Yan Liu、Yong Li (2025). <a target="_blank" rel="noopener" href="https://proceedings.iclr.cc/paper_files/paper/2025/hash/efccec15378fba34be92d814a38e89ac-Abstract-Conference.html"><em>A Large-scale Dataset and Benchmark for Commuting Origin-Destination Flow Generation</em></a>，ICLR 2025，通勤基准来源。不要把该出版记录当作 SEDAN 的发表信息。</li>
-</ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>预印本标注 Bin Chen 与 Zhuoya Meng 为共同第一作者，均署名电子科技大学；Chuan Ai 与 Zhengqiu Zhu 为通讯作者，署名国防科技大学系统工程学院。同一署名表还列有国防科技大学的 Fang Yang、Runkang Guo，清华大学的 Jingtao Ding，以及电子科技大学的 Yin Zhang。</p>
+<h2 id="已知人住在哪里，怎样估计他们去哪里上班？"><a href="#已知人住在哪里，怎样估计他们去哪里上班？" class="headerlink" title="已知人住在哪里，怎样估计他们去哪里上班？"></a>已知人住在哪里，怎样估计他们去哪里上班？</h2><p>Chen, B., Meng, Z., Yang, F., Guo, R., Ding, J., Zhang, Y., Ai, C., &amp; Zhu, Z. (2026). Fusing Urban Structure and Semantics: A Conditional Diffusion Model for Cross-City OD Matrix Generation. <em>arXiv</em>, 2605.00938v1，预印本。<a href="https://doi.org/10.48550/arXiv.2605.00938">论文 DOI</a></p>
+<p>住宅区旁边有一座医院，稍远处还有一片办公园区。地图能告诉我们两处都有人上班，却没法直接告诉我们住在这个住宅区的人分别有多少去了医院和园区。一座城市缺少通勤调查时，能从别的城市学到什么，才有希望补出这两个数字？</p>
+<p>这项研究给出了两个相互补充的线索。人口与设施描述一个片区可能产生或吸引什么样的通勤，两地是否相邻、彼此相距多远则帮助判断哪些起点和终点容易发生联系。在美国通勤数据上，把这两类线索放入同一个模型后，估计人数的误差整体下降。换用按照各城市流量波动调整过的误差指标，原有方法仍略占优势。</p>
+<h2 id="为什么地图上要同时标出距离和边界？"><a href="#为什么地图上要同时标出距离和边界？" class="headerlink" title="为什么地图上要同时标出距离和边界？"></a>为什么地图上要同时标出距离和边界？</h2><p>论文使用 2018 年美国雇员居住地与工作地的汇总记录。把居住片区排成行、工作片区排成列，每个格子就填入从前者通勤到后者的人数，构成一张起讫矩阵（OD 矩阵）。美国社区调查提供当地人口和社会经济特征，开放街图上的学校、医疗机构等兴趣点则补充地区的功能。模型还拿到任意两个片区中心之间的直线距离，以及两地是否共用边界。</p>
+<p>邻接和距离各自保留了一部分信息。一个住宅区可以和狭长的产业区接壤，两区中心却相距不近。另一座办公园区可能在地图上很近，中间却隔着第三个片区。论文附表列出，相邻片区对的平均通勤流量约为 80，非相邻片区对约为 36。这是每对片区的平均值。全城究竟有多少人去了邻区，还取决于两类片区对各有多少组。</p>
+<h2 id="没有通勤表的城市，从哪里开始填？"><a href="#没有通勤表的城市，从哪里开始填？" class="headerlink" title="没有通勤表的城市，从哪里开始填？"></a>没有通勤表的城市，从哪里开始填？</h2><p>模型 SEDAN 在有数据的城市里学习。训练时，它在通勤矩阵上逐步加入随机噪声，再练习依据当地的区域特征辨认噪声。换到目标城市，模型从一张随机数表出发，一步步去除估计的噪声，逐渐得到各住宅区通向各工作区的估计人数。同一张表中的各条联系一起更新，模型由此能够利用目的地与其他起点之间的关系。</p>
+<p>空间线索在去噪时有两种用法。更新片区特征时，模型让接壤的片区更容易交换信息，使住宅区能够参考紧邻产业区的特点。更新某个区对的流量时，两个中心之间的距离又直接进入计算，使相似的住宅区和办公区可以随距离不同而得到不同的估计。是否相邻只改变模型参考两地信息的方式，远距离通勤仍然可以出现。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/e2f4a5b6/fig4.png" alt="通勤联系在训练时逐步加噪和生成时逐步去噪"></p>
+<p>图 2｜楼宇图标表示片区，带方向的线表示区际通勤。从左往右看，已知流量逐步混入噪声。从右往左看，模型借助目标城市的区域与空间信息，逐渐生成一张通勤表。</p>
+<h2 id="人数估得更准，是否每种比较都占优？"><a href="#人数估得更准，是否每种比较都占优？" class="headerlink" title="人数估得更准，是否每种比较都占优？"></a>人数估得更准，是否每种比较都占优？</h2><p>研究按 8∶1∶1 划分训练、验证和测试集，报告五次独立实验的平均结果。在主结果表里，与另一种扩散模型 WEDAN 相比，SEDAN 的均方根误差从 68.60 降至 63.54，降低约 7.4%。这个指标逐格比较估计与实际通勤人数，对错得特别多的格子惩罚更大。衡量生成流量与实际流量重合程度的 CPC 也从 0.59 升至 0.61。</p>
+<p>不过，同样几十人的误差，对于流量本来就小、各区对之间差异也小的城市，分量可能更重。论文另在每座城市内用实际流量的标准差去除均方根误差的量纲，再把分数跨城市平均。这项归一化误差中，WEDAN 为 0.88，SEDAN 为 0.93，数值越小越好。两种口径给出不同的排序，所以原始人数的改善不能直接推广到每一种评分标准。</p>
+<p>空间关系到底贡献了多少？研究者保持模型其他部分不变，单独移除邻接、距离，或者把两者一起移除。在这组实验里，两项都保留时流量重叠指标为 0.62，两项都拿掉时降到 0.41。即使保留人口和设施资料，模型也很难仅凭两个地方分别是什么样，把通勤分配到恰当的区对上。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/e2f4a5b6/fig7.png" alt="分别去掉空间信息或设施信息后的六项通勤估计指标"></p>
+<p>图 5｜各面板的第三根柱同时去掉邻接与距离，最右柱保留完整模型。a 的纵轴是流量重叠，越高越好。b、c 是人数误差与归一化误差，d–f 分别是流入、流出、区对流量的分布差异，越低越好。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>在这批美国数据上，片区人口和功能有助于估计通勤规模，邻接和距离有助于把流量分配到相应的区对。移除两种空间线索，估计质量都会受到影响，一起移除时流量重叠下降最明显。</p>
+<p>改善发生在用居住地和工作地记录构建的静态通勤表上。模型只看直线距离和边界邻接，缺少道路、桥梁和公交服务信息。同一片区在外地使用另一套统计分类时，模型还能否正确理解输入，也需要当地数据检验。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>要在缺少通勤记录的城市估计职住联系，既要知道起点和终点分别有什么，也要知道它们在地图上如何相连。SEDAN 让邻接和距离在生成通勤表的每一步参与估计。美国基准上的原始人数误差因此有所降低，归一化误差的结果则提醒读者，判断一张合成通勤表好不好，还要想清楚要用它衡量绝对人数，还是不同规模城市里的相对偏差。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p>原文第 5 节列出数据口径、主要性能比较和移除输入后的对照。<a href="https://arxiv.org/html/2605.00938v1">作者预印本全文</a></p>
+<p>美国人口普查局的 LODES 数据提供居住地与工作地的联系，美国社区调查提供人口和社会经济特征，开放街图提供兴趣点。<a href="https://lehd.ces.census.gov/data/">LODES</a> · <a href="https://www.census.gov/programs-surveys/acs">美国社区调查</a> · <a href="https://www.openstreetmap.org/">开放街图</a></p>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Bin Chen、Zhuoya Meng（电子科技大学智能计算研究院，共同第一作者）。Fang Yang、Runkang Guo、Chuan Ai、Zhengqiu Zhu（国防科技大学系统工程学院，后两位为通讯作者）。Jingtao Ding（清华大学电子工程系、北京信息科学与技术国家研究中心）。Yin Zhang（电子科技大学信息与通信工程学院）。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>我会先做一项整城留出的验证，并把长距离通勤和跨河通勤单独评分。相邻两个区之间如果只有一座桥，地图质心很近不代表上班容易；只看整体 CPC，又可能被大量普通区对稀释。如果用路网通勤时间替换直线距离后，跨河区对变准而普通区对没变，就能具体说清楚：需要改的是空间条件，而不是一味把扩散模型做大。</p>
+<p>设想一条支流两侧紧挨着住宅区和产业园，桥却在上游几公里处。两片区中心的直线距离很短，从家门口到厂门口的实际路程却很长。如果模型估出一条很强的通勤联系，规划者可以把这个反常的区对单独拿出来，查看过桥线路和上下班班次。即使实际客流远低于估计，差距本身也提出了一个值得实地弄清的问题。究竟是这座桥妨碍了通勤，还是园区的岗位主要吸引了别处的居民？</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -725,17 +649,13 @@
                 <a href="/posts/c9e1f2a3/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="2026-Quantifying geographic domain shift to decouple the geospatial transferability of human mobility flow generation models">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Quantifying Geographic Domain Shift to Decouple the Geospatial Transferability of Human Mobility Flow Generations">
                         
-                        <span class="card-title">2026-Quantifying geographic domain shift to decouple the geospatial transferability of human mobility flow generation models</span>
+                        <span class="card-title">Quantifying Geographic Domain Shift to Decouple the Geospatial Transferability of Human Mobility Flow Generations</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">同一种通勤模型只换训练州，在外州的平均流量重叠得分就能相差约0.07。美国2265个县的实验解释了为什么选训练地区也会改变结论。</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-11

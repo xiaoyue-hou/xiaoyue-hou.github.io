@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-Inferring missing locations in human mobility data using memory effects, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="Inferring missing locations in human mobility data using memory effects, 猴猴猴">
+    <meta name="description" content="在 100 万条发帖时间线上，零散地遮住已知日期和遮住连续两周，对方法的考验有多大不同？">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-Inferring missing locations in human mobility data using memory effects | 猴猴猴</title>
+    <title>Inferring missing locations in human mobility data using memory effects | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-Inferring missing locations in human mobility data using memory effects</h1>
+                    <h1 class="description center-align post-title">Inferring missing locations in human mobility data using memory effects</h1>
                 </div>
             </div>
         </div>
@@ -428,29 +428,43 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img {display:block;margin:1.25rem auto;max-width:100%;height:auto;} .post-title {overflow-wrap:anywhere;}</style>
+<style id="paper-figure-layout">#articleContent img { display:block; margin:1.25rem auto; max-width:100%; height:auto; } .post-title { overflow-wrap:anywhere; } #articleContent img[alt="从不连续记录到不同时间权重的示意"] { width:min(86%, 620px); }</style>
 
-<h2 id="出行记录缺了一块，基准分数到底说明什么？"><a href="#出行记录缺了一块，基准分数到底说明什么？" class="headerlink" title="出行记录缺了一块，基准分数到底说明什么？"></a>出行记录缺了一块，基准分数到底说明什么？</h2><p>论文名片｜Inferring missing locations in human mobility data using memory effects｜Pablo Rosillo-Rodes、Antònia Tugores、David Sánchez、José J. Ramasco｜本地 arXiv:2611.01319v1；PDF 标注 2026 年 10 月 31 日，预印本｜<a target="_blank" rel="noopener" href="https://doi.org/10.48550/arXiv.2611.01319">DOI：10.48550/arXiv.2611.01319</a></p>
-<p>出行时间轴上的空白可能来自没有记录，也可能来自设备和平台的采样方式。Rosillo-Rodes 等人的预印本问：在记录本来就不连续的情况下，基准能否辨别不同方法的表现，而不是只奖励最常停留在同一类别的样本？</p>
-<h2 id="把人为遮盖和自然缺失分开"><a href="#把人为遮盖和自然缺失分开" class="headerlink" title="把人为遮盖和自然缺失分开"></a>把人为遮盖和自然缺失分开</h2><p>论文同时比较合成资料和来自社交平台的国家尺度位置类别，未把评测等同于街道或坐标的复原。作者在测试时人为留出已有观测，对比不同模型在这些可验证位置标签上的排序。现实中缺失可能和地区、使用意愿或出行情境相关；因此同一分数不一定适用于原本就没有记录的时刻。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/e950b8da/fig2.png" alt="图 2：实证数据的汇总分布"></p>
-<p>图 2｜实证数据的汇总分布。对照各国家尺度序列的观测量与位置类别变化。</p>
-<h2 id="为什么要单独看活动较多的样本？"><a href="#为什么要单独看活动较多的样本？" class="headerlink" title="为什么要单独看活动较多的样本？"></a>为什么要单独看活动较多的样本？</h2><p>原文报告整体宏平均 AUROC 超过 0.9，活动最多的组超过 0.8；这是指定切分与类别粗粒度下的评测结果，不是坐标精度，也不是对全部空白的命中率。随机测试与连续缺口对预测的挑战不同，应分别解读。作者还按样本活动程度比较不同基线，避免总体结果由活动少的序列主导。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/e950b8da/fig5.png" alt="图 5：按出行活跃程度划分的宏平均 AUROC 与命中比例"></p>
-<p>图 5｜按出行活跃程度划分的宏平均 AUROC 与命中比例。两种指标回答的问题不同。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/e950b8da/fig6.png" alt="图 6：各活动层的模型比较证据"></p>
-<p>图 6｜各活动层的模型比较证据。看组间相对趋势，不从图中反推个体行为。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>预印本表明，不同缺失测试和活动分层会改变比较结论。高排序分数限于所用样本和标签口径。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这篇 arXiv 预印本用合成资料和真实社交平台的国家尺度分类，比较了缺失记录基准的表现。它提示均值容易被稳定序列主导，应该连同连续缺口和高活动组报告；基准主要评价人为留出的已知记录，不能证明现实缺失可被可靠填补，更不代表精确位置被测得。</p>
+<h2 id="记录空了两天，和空了两个星期，有多大区别？"><a href="#记录空了两天，和空了两个星期，有多大区别？" class="headerlink" title="记录空了两天，和空了两个星期，有多大区别？"></a>记录空了两天，和空了两个星期，有多大区别？</h2><p>Rosillo-Rodes, P., Tugores, A., Sánchez, D., &amp; Ramasco, J. J. (2026). Inferring missing locations in human mobility data using memory effects. <em>arXiv</em> 预印本，v1。<a href="https://doi.org/10.48550/arXiv.2611.01319">论文 DOI</a></p>
+<p>翻看自己的旅行相册，假如周一和周三的照片都来自同一座城市，把周二也归在这里似乎很自然。但如果上张照片是两周前拍的，下张照片又隔了两周，这个推断还值多少？用零星的带位置帖文研究跨国出行，也会遇到这个问题。两张看起来一样光滑的出行统计图，背后可能有完全不同长度的空白。</p>
+<p>这项研究在 100 万条账号时间线上做了一个能对答案的试验。先遮住发帖国家已知的一部分日子，再看哪些日子能补回来。给缺口两头的记录都保留一点分量，往往比直接照抄最近一天好。但把零散空白换成成段空白，或把整国缩小为欧洲的行政分区，方法之间的胜负都会改变。</p>
+<h2 id="怎么让近处的记录多说一点，同时听得到远处的记录？"><a href="#怎么让近处的记录多说一点，同时听得到远处的记录？" class="headerlink" title="怎么让近处的记录多说一点，同时听得到远处的记录？"></a>怎么让近处的记录多说一点，同时听得到远处的记录？</h2><p>假设一份记录中经常出现两个国家。给空缺的一天打分，一种简单的办法是，无论缺口在哪里，一律猜出现最多的国家。另一种办法是，只看日历上最近的一条记录。如果最近那条记录恰好来自一次短暂旅行，后一种办法就可能把它的影响延续太久。两个办法各保留了一半线索，一个看往常出现得多不多，一个看前后隔了几天。</p>
+<p>论文把两条线索放进同一笔计算。每条已有记录都给所属国家投一票，离缺口的日期越远，票的分量越小，过去和未来两边都算。某国所得票数占总票数的份额，就是模型分给它的概率。每条时间线有自己的衰减速度，通过遮住另一部分记录，看哪种速度最能解释已知答案来确定。所谓记忆效应（memory effect），说的是隔了多久的记录还有参考价值。</p>
+<p><img src="/posts/e950b8da/fig1.png" alt="从不连续记录到不同时间权重的示意"></p>
+<p>图 1｜a、b 把地点换成日历上的位置标签。c 的横轴是离缺口的天数，纵轴是该条记录的权重。d 的曲线最低点决定采用哪一种衰减速度。最低点落在两端时，模型会接近总猜最常去的地点，或只信最近一条记录。</p>
+<h2 id="要补的是谁的哪一天？"><a href="#要补的是谁的哪一天？" class="headerlink" title="要补的是谁的哪一天？"></a>要补的是谁的哪一天？</h2><p>材料来自 2015–2023 年带位置的 Twitter 帖文。同一账号一天可以在不同地点发帖，论文把当天发帖最多的国家当作这一天的答案。国家尺度分析要求有至少 30 个有记录的日子，并且训练资料里出现过至少两个地点。某个国家从未在训练记录中出现，那里的日子不进入评分。这道题能检验的是，给一个有过记录的国家分配日期的本领。</p>
+<p>样本看起来很大，时间线却很稀疏。每条时间线有记录的日数中位数为 93 天，有记录的日子占整个时间跨度的比例中位数只有 9.4%。而在有记录的日子里，最常出现的国家所占比例中位数高达 94.4%。于是有了一个容易忽略的难题：即使方法几乎辨认不出旅行，只要总猜常住的那个国家，也可能显得很准。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/e950b8da/fig2.png" alt="各时间线的观测天数、国家数与缺口到邻近记录的距离"></p>
+<p>图 2｜a–d 依次展示有记录的天数、出现的国家数、最常出现国家所占比例、相邻两次记录换了国家的比例。e 的横轴是测试日到最近一条训练记录的间隔。紫色代表按 14 天为块留出记录，整体比随机留出的蓝色分布靠右。</p>
+<p>还有一种检验能绕开真实生活里答案未知的问题。研究者生成了四组模拟时间线，让其中一些在两地之间定期交替，一些不规则地切换，还有一些中途搬了家，或在多个地点停留长短不一。随后只把部分记录交给模型。若两个地点之间的切换本来就符合转移模型的假设，一个专门学习从哪一地转往哪一地、并考虑间隔时间的模型往往更占优势。把模拟改成四地且切换频繁，时间加权在部分比较中领先。没有一种办法对四类过程都最准确。</p>
+<p><img src="/posts/e950b8da/fig3.png" alt="四类模拟时间线及模型对噪声的反应"></p>
+<p>图 3｜a–d 用点的高度区分地点，展示四种模拟过程。e–h 与上排一一对应，纵轴越高，模型越善于区分某地出现和未出现的日子。沿横轴向右，模拟过程受到的扰动变强，各列的扰动有不同含义。</p>
+<h2 id="总猜最常去的国家也容易猜中，怎样检验模型真能认出旅行？"><a href="#总猜最常去的国家也容易猜中，怎样检验模型真能认出旅行？" class="headerlink" title="总猜最常去的国家也容易猜中，怎样检验模型真能认出旅行？"></a>总猜最常去的国家也容易猜中，怎样检验模型真能认出旅行？</h2><p>可以单独拿一个较少出现的国家问：在账号确实从这里发帖的日子，模型给这个国家的分数，有没有高过从别处发帖的日子？然后对每个能做这种比较的国家都算一次，等权平均。这叫宏平均 AUROC。0.5 相当于无法区分两类日期，1 表示排序完全正确。始终给同一国家打同一个分数，碰巧猜中再多天，在这道排序题上也只能拿到 0.5。论文最后比较的是各条可评分时间线的分数中位数。</p>
+<p>随机遮住日子时，留出日到最近可用日的典型间隔只有 3 天。让较远记录仍保有少量权重的幂律衰减（power-law decay）得分接近 1。把测试改成按连续 14 天的日历块留出，典型间隔拉长到 14 天，同一方法的得分降至 0.864。此时只用最近记录是 0.750，考虑间隔的连续时间马尔可夫链是 0.924。后一个模型利用不同国家之间的转移规律，遇到这类长缺口时多出了一条线索。</p>
+<p><img src="/posts/e950b8da/fig4.png" alt="随机留出、成块留出和缩短可用记录窗口时的比较"></p>
+<p>图 4｜a、b 分别是两种留出方式，每个箱子描述许多条时间线上的排序分数分布。c 从左到右逐步放宽模型可用的时间窗，上排的排序分数越高越好，下排的对数损失越低越好。只保留缺口附近的记录，幂律模型会损失一部分信息。</p>
+<h2 id="哪些记录最能分出方法的高下？"><a href="#哪些记录最能分出方法的高下？" class="headerlink" title="哪些记录最能分出方法的高下？"></a>哪些记录最能分出方法的高下？</h2><p>两次有记录的日子之间换了国家，论文就记一次切换，即使这两天在日历上隔得很远。按这个比例分组，在几乎从不切换的时间线上，多种方法都接近满分。真正拉开差距的是最频繁切换的一组，约占样本的 3%。在随机留出的比较中，这组的幂律排序分数中位数为 0.816，高于连续时间马尔可夫链的 0.778 和只用最近一天的 0.725。把上面全样本、整块留出的结果搬来给这一组方法排名，就会得出不同答案。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/e950b8da/fig5.png" alt="按切换频率、国家数和记录天数分组的表现"></p>
+<p>图 5｜a 按相邻记录换国家的比例分组，b 按国家数分组，c 按观测日数分组。上排是直接猜中国家的比例，下排是对各国等权的排序分数。看 a 最右一组，上下两排都能看到方法拉开距离。</p>
+<p>这组比较还解释了为什么不能只盯住缺口旁边的几条记录。频繁跨国时，较久以前的观测仍有帮助，保留这些信息的几种权重曲线表现更接近。数据支持给远处记录留一点分量，尚难判定人们的活动只遵循某一种衰减规律。</p>
+<p>把地区划得更细，结论又缩小一层。在欧洲较小的 NUTS 3 统计区上，按 14 天为块留出时，幂律模型的排序分数中位数只有 0.547，连续时间马尔可夫链也只有 0.618。国家标签上很高的分数，不能当作细尺度活动轨迹的精度。更根本的一点是，出门旅行可能让人更想发帖，也可能让人顾不上发帖。人为遮盖已知日子，无法验证那些本来什么也没发的日子究竟在哪。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>在国家尺度、随机留出的测试中，给缺口前后记录按时间远近加权，能较好地把较少出现的国家排到正确的日子上。模型间的差别主要在频繁切换国家的时间线上显现。</p>
+<p>成段留出记录或细分空间单元，都会加大判断难度。转移模型在国家尺度的成段测试中领先，在欧洲细分区的同类测试中，两类模型都丢失了大部分区分能力。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这篇预印本把 100 万条账号时间线中已知的发帖国家遮住一部分，检验多久以前、多久以后的记录仍然有用。从随机留出改成按两周分块，幂律模型的国家排序分数中位数从接近 1 降到 0.864。衡量这种方法时，既要问多久有一次观测，也要问地图被分得多细。模型能估计各个已见国家的概率，原本没有发帖的那一天，仍然没有可供核对的答案。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.48550/arXiv.2611.01319">论文及版本信息</a>。arXiv 本地预印本未见可确认的图件再发布许可；公开复制前核实。</li>
+<li>Rosillo-Rodes 等人的预印本。图 1–6、表 I、III、IV 以及讨论部分给出模拟对照、两种留出方式和欧洲统计区结果。<a href="https://arxiv.org/html/2611.01319v1">arXiv v1 全文</a></li>
+<li>Twitter 的匿名地理标记帖文用于构造按日的国家及地区标签。欧洲尺度比较使用欧盟统计局 NUTS 地域分类。<a href="https://ec.europa.eu/eurostat/web/nuts">Eurostat 地域分类说明</a></li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Pablo Rosillo-Rodes、Antònia Tugores、David Sánchez、José J. Ramasco 均署名西班牙 IFISC（西班牙国家研究委员会与巴利阿里群岛大学联合研究所）。</p>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Pablo Rosillo-Rodes、Antònia Tugores、David Sánchez 和 José J. Ramasco 均署名西班牙跨学科物理与复杂系统研究所（IFISC），由西班牙国家研究委员会与巴利阿里群岛大学共建。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>实际评估可报告假定缺失机制改变时，汇总出行指标能否保持稳定。若不能，就应把不确定区间和覆盖边界一起呈现。</p>
+<p>一座旅游城市如果用公开帖文绘制淡旺季客流，往往希望日历上每天都有一个数。可节假日恰好是游客最爱晒照片的时候，节后又可能连续几天无人发帖。把假期的热闹延续到节后，曲线会比原先平滑，旅客多留了几天的印象也会凭空变强。一张对读者更诚实的图，可以把有帖文支撑的日子画实，把要跨过连续空白才能估计的日子画淡。这样，客流落在什么时候和我们从什么时候起看不清它，读者可以分别判断。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -622,17 +636,13 @@
                 <a href="/posts/4f6e5f78/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="2026-HoWDe: A validated algorithm for Home and Work location Detection">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="HoWDe: A validated algorithm for Home and Work location Detection">
                         
-                        <span class="card-title">2026-HoWDe: A validated algorithm for Home and Work location Detection</span>
+                        <span class="card-title">HoWDe: A validated algorithm for Home and Work location Detection</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">手机偶尔才留下一个停留点，还能找到一个人的住处和单位吗？5,099 人的参照资料揭示，识别得准与多少人能被识别，是两项不同的考验。</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-23

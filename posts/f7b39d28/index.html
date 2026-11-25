@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-A prompt tuning approach based on pre-trained cross-city graph neural networks for zero-shot flow generation, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="A prompt tuning approach based on pre-trained cross-city graph neural networks for zero-shot flow generation, 猴猴猴">
+    <meta name="description" content="训练时看不到新奥尔良的人流，模型怎样借其他美国城市的人口布局画出市中心和西部的联系？">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-A prompt tuning approach based on pre-trained cross-city graph neural networks for zero-shot flow generation | 猴猴猴</title>
+    <title>A prompt tuning approach based on pre-trained cross-city graph neural networks for zero-shot flow generation | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-A prompt tuning approach based on pre-trained cross-city graph neural networks for zero-shot flow generation</h1>
+                    <h1 class="description center-align post-title">A prompt tuning approach based on pre-trained cross-city graph neural networks for zero-shot flow generation</h1>
                 </div>
             </div>
         </div>
@@ -436,47 +436,51 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img { display:block; margin:1.25rem auto; max-width:100%; height:auto; } #articleContent img[alt="新奥尔良观测流量与不同模型估计的空间分布"] { width:min(100%,720px); } .post-title { overflow-wrap:anywhere; }</style>
 
-<h2 id="没有目标城市的流量标签，还能估计区际出行吗？"><a href="#没有目标城市的流量标签，还能估计区际出行吗？" class="headerlink" title="没有目标城市的流量标签，还能估计区际出行吗？"></a>没有目标城市的流量标签，还能估计区际出行吗？</h2><p>新城市有地图和人口数据，却没有完整的区域间流量表。此时能借用其他城市学到的规律吗？这篇论文把问题分成两步：先从多座城市提取人口与空间布局的关系，再用另一些城市的流量标签学习如何把这种关系转成预测。</p>
-<p>论文名片｜Zhipeng Wang、Chenfan Li、Tong Zhang、Yu’ang Zhu、Jing Li，<em>A prompt tuning approach based on pre-trained cross-city graph neural networks for zero-shot flow generation</em>，International Journal of Geographical Information Science（2026 年 3 月 12 日在线发表）。<a target="_blank" rel="noopener" href="https://doi.org/10.1080/13658816.2026.2642382">正式 DOI</a>。</p>
-<h2 id="零样本指的是哪里没有标签？"><a href="#零样本指的是哪里没有标签？" class="headerlink" title="零样本指的是哪里没有标签？"></a>零样本指的是哪里没有标签？</h2><p>预训练的 30 座城市不提供流量标签；学习提示和流量解码时使用另外 15 座城市的观测流量。洛杉矶、旧金山、波特兰、克利夫兰和新奥尔良只在最后用流量数据评价。因此，零样本只限定目标城市，不表示整个训练不用人流数据。任务是生成区际汇总流量，不是判断某个人去哪。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f7b39d28/fig1.png" alt="图 1：从人口和坐标到预训练、提示与流量生成"></p>
-<p><em>图 1｜三段流程分别建立城市表示、调整提示和预测目标城市流量。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f7b39d28/fig2.png" alt="图 2：跨城市预训练的计算流程"></p>
-<p><em>图 2｜跨城预训练用空间图学习可复用的区域表示，不用流量监督。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/f7b39d28/fig3.png" alt="图 3：用消息传递编码人口分布"></p>
-<p><em>图 3｜人口与空间结构进入图编码，邻居信息改变区域表示。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/f7b39d28/fig4.png" alt="图 4：把节点和城市嵌入合在一起聚类"></p>
-<p><em>图 4｜同时参考区域与城市表示进行聚类，聚类并非官方功能分区。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f7b39d28/fig5.png" alt="图 5：用同簇和异簇节点做三元组损失"></p>
-<p><em>图 5｜比较同簇与异簇区域的表示距离，为预训练提供学习信号。</em></p>
-<h2 id="这里的“提示”，不是给大语言模型写问题"><a href="#这里的“提示”，不是给大语言模型写问题" class="headerlink" title="这里的“提示”，不是给大语言模型写问题"></a>这里的“提示”，不是给大语言模型写问题</h2><p>预训练好的表示保持冻结，模型学习一组可训练向量来调整表示，再用源城市已知流量校准预测。提示让表示适应流量任务，但论文的消融中，拿掉预训练比拿掉提示更伤性能，不能把全部收益都归给提示。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/f7b39d28/fig6.png" alt="图 6：在冻结的城市表示上学习图提示"></p>
-<p><em>图 6｜提示在冻结表示上学习，仍需要有标签城市提供流量监督。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/f7b39d28/fig7.png" alt="图 7：由簇中心和节点差异生成提示向量"></p>
-<p><em>图 7｜提示来自簇中心与区域表示，不是自然语言指令。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/f7b39d28/fig8.png" alt="图 8：流量生成作为下游任务"></p>
-<p><em>图 8｜解码端输出区对流量，目标是汇总矩阵而不是个人轨迹。</em></p>
-<h2 id="多出来的收益，主要在哪些流向上？"><a href="#多出来的收益，主要在哪些流向上？" class="headerlink" title="多出来的收益，主要在哪些流向上？"></a>多出来的收益，主要在哪些流向上？</h2><p>作者报告五城汇总行 CPC 0.752、MAE 12.664、RMSE 35.704。CPC 衡量预测和观测流量的重叠，不是个人预测命中率；汇总行也不是简单平均五座城市。按区对距离分组，短距离组绝对 CPC 不及中长距离组，但相比该组最佳基线的增益更大。绝对成绩和相对收益不是一回事。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f7b39d28/fig9.png" alt="图 9：不同距离组上的 CPC"></p>
-<p><em>图 9｜分距离组比较 CPC，较难的短距离组改进较明显。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/f7b39d28/fig10.png" alt="图 10：预训练与提示的消融"></p>
-<p><em>图 10｜去除预训练或提示后分别比较成绩，预训练的贡献更突出。</em></p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/f7b39d28/fig11.png" alt="图 11：新奥尔良各模型的流量地图"></p>
-<p><em>图 11｜新奥尔良的观测及不同模型流量地图；视觉相似不等于逐区对吻合。</em></p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>在五座未见目标城市上，使用源城市标签学习的流量模型能够利用跨城先验，优于所测基线的若干指标。证据限于所选美国城市、数据尺度和基准，不代表没有任何标签也能训练，或适用于所有城市。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这里可复用的是城市的人口与空间表示，而不是把一张现成流量表移植过去。目标城可以没有流量训练标签，但源城监督、区域划分和可比的输入仍重要。评价时还要检查改进来自哪些距离和流量群组，不能只看一个全表平均。</p>
+<h2 id="没有本地出行调查，能不能先画出一张人流图？"><a href="#没有本地出行调查，能不能先画出一张人流图？" class="headerlink" title="没有本地出行调查，能不能先画出一张人流图？"></a>没有本地出行调查，能不能先画出一张人流图？</h2><p>Wang, Z., Li, C., Zhang, T., Zhu, Y., &amp; Li, J. (2026). A prompt tuning approach based on pre-trained cross-city graph neural networks for zero-shot flow generation. <em>International Journal of Geographical Information Science</em>. <a href="https://doi.org/10.1080/13658816.2026.2642382">论文 DOI</a></p>
+<p>假设你拿到新奥尔良的人口地图，要在上面画出哪些街区之间往来频繁。人口密集的两处相隔一公里，大概值得连一条线。但遇到城市西部一片不在市中心的街区，你怎么判断那里也吸引了不少人？照搬另一座城市的客流图，连起终点都对不上。</p>
+<p>Wang 等人把学习分成两次。第一次只给模型看 30 座美国都市区的人口与地理位置，让它辨认不同城市里相似的区域。第二次再用另外 15 座都市区的流量，教它把这种相似性换算成出行量。最后留出五座城市，完全不提供当地流量用于训练。在五城逐一比较时，新方法对区际流量的估计都比论文选取的五个对照模型更接近观测资料。</p>
+<h2 id="知道一对街区的位置，还缺什么？"><a href="#知道一对街区的位置，还缺什么？" class="headerlink" title="知道一对街区的位置，还缺什么？"></a>知道一对街区的位置，还缺什么？</h2><p>这张人流图以美国人口普查小区（census tract）为单位。设想其中有两个小区 A 和 B。从 A 到 B 的流量是表里一个数，从 B 到 A 又是另一个数。这样的起讫流量表（origin–destination matrix，OD 矩阵）描述两地之间的出行总量。论文要估计的是一段时间内的日均流量。</p>
+<p>在纸面上把所有小区两两连起来，每个小区都既能作起点又能作终点，就有了一张有向图。每个小区附上两项信息，分别是人口密度，以及小区中心离全市人口重心的直线距离。每条连线附上两端小区中心之间的直线距离。线画出来仅仅代表允许估计这一方向的流量，此时模型还不知道有没有人真正走过它。</p>
+<p><img src="/posts/f7b39d28/fig1.png" alt="跨城流量生成如何使用三组城市"></p>
+<p>图 1｜（a）把人口与坐标变成一座座城市的图。（b）用没有流量标签的图学习人口布局。（c）用另外一些城市的已知流量学习转换关系。（d）把这套关系用于待估计的城市。雪花标记固定的部分，火焰标记继续训练的部分。</p>
+<h2 id="怎样让不同城市的小区变得可比？"><a href="#怎样让不同城市的小区变得可比？" class="headerlink" title="怎样让不同城市的小区变得可比？"></a>怎样让不同城市的小区变得可比？</h2><p>只知道 A 有多密，还分不出它是被大片人口密集区围绕，还是远离人口重心的一处孤立聚居点。图神经网络（graph neural network，GNN）给 A 的描述加入了邻近和远处其他小区的信息。具体来说，模型先把起点 A、终点 B 各自的特征和两者距离合在一起，得到对 A→B 这条联系的描述。再把 A 指向各个可能终点的这些信息汇总，更新 A 自身的描述。这样得到的一串数同时反映 A 的人口特征，以及它在全城众多可能目的地中的位置。</p>
+<p><img src="/posts/f7b39d28/fig3.png" alt="图网络怎样用终点和连线信息更新一个起点"></p>
+<p>图 3｜（a）用两端小区和连线距离更新每条边。（b）把不同目的地传回的信息取平均。（c）把平均值与起点原有信息合起来，更新对这个起点的描述。</p>
+<p>接下来还要解决城市大小的问题。同样密度的小区，在一座大都市里可能是外围居住区，在另一座城市里可能接近人口最集中的地方。研究把每个小区的数值描述与全城小区的平均描述拼在一起，再把各城市的小区放进同一个池子，按相似程度聚类。分到同一组的小区在模型看来有相似的人口与空间格局。预训练没有用过实际流量，也没有给这些组贴上住宅区或商业区之类的用地标签。</p>
+<p><img src="/posts/f7b39d28/fig4.png" alt="把小区和整座城市的特征放在一起聚类"></p>
+<p>图 4｜中间蓝色部分代表小区特征，紫色部分代表同城小区的平均特征。两者拼在一起，右侧比较不同分组数量，选出组内相近、组间较分明的一种划分。</p>
+<p>如何用自己的分组继续学习？每次选一个小区，另取一个同组小区和一个不同组小区，凑成三元组。训练要求原小区的数值描述更接近同组伙伴，与不同组伙伴保持距离。网络参数更新后，再计算、再分组。经过这一轮预训练，换到一座新城市，模型仍可按同样的算法给当地每个小区算出一组数。</p>
+<h2 id="从人口相似到人流相近，中间还差一步"><a href="#从人口相似到人流相近，中间还差一步" class="headerlink" title="从人口相似到人流相近，中间还差一步"></a>从人口相似到人流相近，中间还差一步</h2><p>到这里模型认识的是人口布局，输出里还没有从 A 去 B 的人数。研究另取 15 座有出行资料的城市，把这些流量当作例题。预训练网络的大部分参数固定下来，在每个小区的特征上加一组可学习的数字，称为图提示（graph prompt）。相当于保留同一张人口底图，借有流量的城市学习应当怎样读它。</p>
+<p>一个小区的提示怎么确定？模型拿它与各组中心逐一比较，把差别换算成一组权重。一个小区可以不同程度地借用多个组的信息。按权重合成的向量加回小区原有描述，于是两个在原始人口密度上相近的小区，仍可能因所处环境不同，得到不同的提示。</p>
+<p><img src="/posts/f7b39d28/fig7.png" alt="比较小区与所有组中心后合成专属于该区的图提示"></p>
+<p>图 7｜中间上方把各组中心变成候选提示，下方根据小区与各中心的差别计算权重。两路合并，得到右端这一个小区的提示向量。</p>
+<p>流量估计器最后把更新后的 A、A→B 这条边和 B 的描述拼起来，输出 A→B 的日均流量。训练时，它一方面要尽量贴近已知城市的流量，一方面仍要保留对小区分组的辨认能力。到了未见过的城市，同样的人口与坐标就能走完这套计算。所谓零样本（zero-shot），指目标城市的流量从未被拿来教学，训练阶段仍然用过其他城市的出行资料。</p>
+<h2 id="在地图上画对多少，又在哪些距离上进步最多？"><a href="#在地图上画对多少，又在哪些距离上进步最多？" class="headerlink" title="在地图上画对多少，又在哪些距离上进步最多？"></a>在地图上画对多少，又在哪些距离上进步最多？</h2><p>作者留出了洛杉矶、旧金山、波特兰、克利夫兰和新奥尔良。用于对照的流量取自手机位置数据推算的跨区移动，取 2020 年 6 月 29 日至 7 月 26 日的 28 天日均值。这样减少了单日波动，同时也把观察窗口限定在美国疫情时期，客流代表性受手机样本和当时的出行条件影响。</p>
+<p>论文用 CPC 指标（Common Part of Commuters）衡量两张表的流量重叠程度。对每个起讫区对，取估计量与观测量中较小的一个，累加后除以两张表总流量的平均值。完全重合时得 1。把流量画到了错误目的地，即使总量猜得准，得分也会下降。表 2 的五城汇总结果中，新模型得到 0.752，最好的对照模型深度引力模型得到 0.712，前者相对高约 5.6%。这是流量的重叠程度，个人去了哪里不在评价范围内。</p>
+<p>按区对之间的直线距离分成数量相当的三组后，一个值得留意的差别出现了。短距离组里，新模型的 CPC 为 0.703，低于自身长距离组的 0.828。但只和其他模型在同一距离组里比，短距离的改进反而最大，该组最好的对照得分只有 0.639。也就是说，近距离流量仍较难估准，借用其他城市的人口布局后，这一部分的重叠指标又提高得最多。</p>
+<p><img src="/posts/f7b39d28/fig9.png" alt="不同距离区对上的估计与观测流量重叠程度"></p>
+<p>图 9｜横轴是模型，纵轴是 CPC，越高表示两张流量表越接近。红、蓝、绿分别是短、中、长距离组，界点约为 7 和 18 公里。比较同色柱可看模型进步，比较同一模型的三根柱则看哪个距离组得分较高。</p>
+<p>图 10 又把两处改动拆开。完全跳过跨城预训练，直接用 15 座城市的流量学习，整体得分最低。保留预训练但去掉图提示，成绩较好。两者都保留时最高。图提示给洛杉矶增加的 CPC 约为 0.003，给新奥尔良增加约 0.030。这些实验支持两步各有贡献，但五座测试城市的增益并不一样。</p>
+<p><img src="/posts/f7b39d28/fig10.png" alt="五座测试城市去掉预训练或提示后的对比"></p>
+<p>图 10｜横轴依次列五座测试城市及汇总结果，纵轴为 CPC。红柱跳过预训练，蓝柱保留预训练但去掉提示，绿柱保留两者。每组蓝柱和绿柱之间的距离是提示带来的增益。</p>
+<p>回到开头的新奥尔良，作者把不同模型画出的线放在同一张底图上。实测资料中，较大流量聚在市中心，西部也有中等和较强的联系。随机森林对市中心与北部之间的联系估得偏强，对西部却估得偏弱。新模型能同时描出中心和西部的一部分联系。不过它输入的是直线距离和人口，哪两地隔着河、实际过桥要多久，并不直接体现在这条边上。</p>
+<p><img src="/posts/f7b39d28/fig11.png" alt="新奥尔良观测流量与不同模型估计的空间分布"></p>
+<p>图 11｜（a）是观测参照，（b）是新模型，（c）至（f）依次是深度引力模型、随机森林、引力模型和辐射模型。线连接起讫小区，颜色分出低、中、高流量。对照（a）、（b）和（d），先找市中心，再找西侧的较强连线。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>跨城学习得到的人口分布特征，有助于在目标城市没有本地流量标签的情况下估计区际出行。五座美国测试城市的流量重叠指标都有改善。去掉预训练或图提示，成绩都会下降。</p>
+<p>进步最多的距离组和估得最准的距离组并不相同。短距离区对相对其他方法的增益最大，绝对重叠程度仍低于中长距离区对。结论的适用范围取决于城市形态、流量资料的来源和观察时期。仅靠人口与直线距离，还很难描述特定岗位、地形障碍或公共交通线路带来的出行联系。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>研究者让图神经网络从 30 座都市区的人口与位置学习相似的空间格局，再用另外 15 座都市区的已知流量学习怎样把这些格局换算成日均区际流量。在训练时没有使用当地流量的五座美国都市区，预测与观测的流量重叠指标达到 0.752，优于对照模型的 0.712。这个结果给缺少出行调查的城市提供了估计总量和方向的起点，具体交通条件造成的局部偏差仍要借当地资料识别。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.1080/13658816.2026.2642382">正式论文</a>：本地出版 PDF、图 1–11。图版公开复用须核出版许可。</li>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.6084/m9.figshare.29878226">随文代码和数据记录</a>。</li>
+<li>Wang 等人的方法、测试城市与模型比较。<a href="https://doi.org/10.1080/13658816.2026.2642382">论文 DOI</a> · <a href="https://doi.org/10.6084/m9.figshare.29878226">随文数据与代码</a></li>
+<li>美国 2020 年人口普查提供小区和人口资料，Kang 等人的手机位置数据产品提供用于拟合和检验的区际移动量。<a href="https://www.census.gov/programs-surveys/decennial-census/decade/2020.html">美国人口普查局</a> · <a href="https://www.nature.com/articles/s41597-020-00734-5">Kang 等数据论文</a></li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Zhipeng Wang 为第一作者；Chenfan Li、Tong Zhang、Yu’ang Zhu 与 Jing Li 为共同作者。</p>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>Zhipeng Wang、Tong Zhang 和 Yu’ang Zhu 署名武汉大学测绘遥感信息工程国家重点实验室。Wang 参与研究设计、软件开发与验证，Zhang 参与设计和指导，Zhu 参与数据整理与分析。Chenfan Li（北京市测绘设计研究院）参与方法和软件开发。Jing Li（丹佛大学地理与环境系）参与研究设计与指导。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>若用于另一地区，可事先留出一座形态差异较大的城市，再分开检查短跨区与长跨区的汇总误差。若改进只发生在某一类网络形态上，应将这一条件随成绩一起公开。</p>
+<p>想象两片住宅隔河相望，从家中窗户就能看见对岸。按两地人口和直线距离，模型可能给这里画出一条不弱的连线。熟悉当地的人却知道，最近的桥在几公里外，过了桥还得折回来。那一条估得偏高的线，其实把一个值得问的问题送到了眼前。</p>
+<p>如果当地打算补做一次小型出行调查，最值得去数的也许正是这样的地方。两岸居民很少来往，究竟是绕路太远，还是两边本来就少有彼此需要的工作和服务？两种答案对一座新桥的意义完全不同。模型越过河面画出的直线，可以帮人找到该往哪里问，答案仍然在人们实际怎样过河、为何过河的经历里。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -604,17 +608,13 @@
                 <a href="/posts/a8c25e64/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="2026-Detecting hidden ping-pong records in mobile phone location data by considering daily activity patterns">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Detecting hidden ping-pong records in mobile phone location data by considering daily activity patterns">
                         
-                        <span class="card-title">2026-Detecting hidden ping-pong records in mobile phone location data by considering daily activity patterns</span>
+                        <span class="card-title">Detecting hidden ping-pong records in mobile phone location data by considering daily activity patterns</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">西宁手机记录里反复出现的短距离折返，会怎样改变我们对居民一日路程和活动范围的判断？</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
@@ -664,17 +664,13 @@
                 <a href="/posts/e4a06c71/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="2026-Optimizing environmental sensing on public transport to cover broader demographics in Amsterdam">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Optimizing environmental sensing on public transport to cover broader demographics in Amsterdam">
                         
-                        <span class="card-title">2026-Optimizing environmental sensing on public transport to cover broader demographics in Amsterdam</span>
+                        <span class="card-title">Optimizing environmental sensing on public transport to cover broader demographics in Amsterdam</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            #articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-ti
-                        
-                    </div>
+                    <div class="summary block-with-text">在阿姆斯特丹，把六台环境传感器装在不同公交和有轨电车上，一天能经过全市 2.6%、17.6% 或 28.5% 居民的住处。哪组六辆车适合哪一种监测任务？</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-11

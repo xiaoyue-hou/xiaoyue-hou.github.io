@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-The traffic concentration effects of urban navigation services, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="The traffic concentration effects of urban navigation services, 猴猴猴">
+    <meta name="description" content="三座意大利城市的模拟显示，采用导航的车越多，车流越集中。道路覆盖的变化相似，罗马与佛罗伦萨的排放却出现不同走向。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-The traffic concentration effects of urban navigation services | 猴猴猴</title>
+    <title>The traffic concentration effects of urban navigation services | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-The traffic concentration effects of urban navigation services</h1>
+                    <h1 class="description center-align post-title">The traffic concentration effects of urban navigation services</h1>
                 </div>
             </div>
         </div>
@@ -440,43 +440,34 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img {display:block;margin:1.25rem auto .5rem;max-width:100%;height:auto;} .post-title {overflow-wrap:anywhere;}</style>
+<style id="paper-figure-layout">#articleContent img { display: block; max-width: 100%; height: auto; margin: 1.25rem auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h2 id="大家都听导航，城市反而只剩几条路在忙？"><a href="#大家都听导航，城市反而只剩几条路在忙？" class="headerlink" title="大家都听导航，城市反而只剩几条路在忙？"></a>大家都听导航，城市反而只剩几条路在忙？</h2><p>论文名片｜Giuliano Cornacchia、Mirco Nanni、Dino Pedreschi、Luca Pappalardo，<em>The traffic concentration effects of urban navigation services</em>，<em>Nature Communications</em> 17, 8548（2026）。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41467-026-75254-8">DOI：10.1038/s41467-026-75254-8</a>。</p>
-<p>在米兰，同一对起终点交给四家导航，有时会得到很相似的路线，换一对地点又可能各走各的。问题在于，一座城若有成千上万辆车同时收到建议，个别查询的差异能不能让车流分散？</p>
-<p>Cornacchia 等人在佛罗伦萨、米兰和罗马模拟了早高峰。让所有车都采用同一服务的推荐，相比完全不采用，至少被走过一次的路段数最多减少约 14%。但排放不是同一个故事：模拟中的佛罗伦萨在高采用率下仍比零采用排得少，罗马的部分服务却反超了零采用。那是同一份需求下变换路线规则的模拟，而不是测到了三城真实司机的导航使用。</p>
-<span id="more"></span>
-<h2 id="用真实轨迹定需求，不等于观测了真实选路"><a href="#用真实轨迹定需求，不等于观测了真实选路" class="headerlink" title="用真实轨迹定需求，不等于观测了真实选路"></a>用真实轨迹定需求，不等于观测了真实选路</h2><p>作者用意大利车载 GPS 估计早高峰的起讫分布，再按这一分布抽取模拟行程，并在 OpenStreetMap 路网上用 SUMO 推演。佛罗伦萨、米兰、罗马的低／高负荷分别设为 1 万／3 万、3 万／6.5 万、2.5 万／7.5 万辆车。这些是投放到仿真的车辆数，不是 GPS 样本车数，也不是现场车流清点。</p>
-<p>商业接口提供六套方案：必应、谷歌、Mapbox，以及 TomTom 的最快、最短和生态选项。作者模拟每一档采用率时随机指定哪些车按某种商业路线走；其余车辆走仿真器的扰动最快路，以模拟司机不掌握全网最优路线。采用率从 0% 到 100% 每隔 10 个百分点取一档，各重复十次。商业推荐用于典型交通条件，进仿真前已固定，不会因模拟中的新拥堵而重新规划。</p>
-<p><img src="/posts/b3d90e17/fig1.png" alt="同一城市两对起终点的四种导航路线"></p>
-<p>图 1｜米兰两次查询的各服务平均路线重叠分别约 48% 和 13%；这是两个示例，不是全城均值。</p>
-<h2 id="先略微分散，后来才明显集中"><a href="#先略微分散，后来才明显集中" class="headerlink" title="先略微分散，后来才明显集中"></a>先略微分散，后来才明显集中</h2><p>这里的「路线多样性」数的是至少有一辆车经过的道路段，而不是导航推荐了多少条完整路线。少数司机开始采用不同的推荐，可能先把车带到原基线很少用的路上。图 2 的插图显示，这一阶段的扩张不到 1.1%；继续提高采用率后，重合的推荐开始主导，走到的路段数转而明显下降。</p>
-<p>以高负荷为例，从零采用到全采用，佛罗伦萨用于通行的路段数下降约 11.8%–14.3%，米兰约 3.8%–6.9%，罗马约 9.7%–14.3%。区间是六种导航方案之间的差别，不是误差区间。补充实验中，四家分占使用者仍得到集中，只是程度较轻；多家共存不能自动保证走廊互不重叠。</p>
-<p><img src="/posts/b3d90e17/fig2.png" alt="三城的道路覆盖与单车排放"></p>
-<p>图 2｜a–c 看高负荷下被用到的路段数，d–f 看单车二氧化碳；实心对应高负荷、空心对应低负荷。</p>
-<h2 id="路省了，二氧化碳为什么未必继续降？"><a href="#路省了，二氧化碳为什么未必继续降？" class="headerlink" title="路省了，二氧化碳为什么未必继续降？"></a>路省了，二氧化碳为什么未必继续降？</h2><p>低负荷时，多数方案使模拟排放下降，但并非所有组合都如此。高负荷下，佛罗伦萨各服务的最大减排出现在约 70%–80% 采用率，全采用时仍比零采用低约 24%–27%。罗马则不同：高负荷全采用时六种方案中有四种高于零采用。TomTom 生态方案仍面临集体分配：按单车选择节油路线，并不保证所有车都走之后还能保持同样收益。</p>
-<p>二氧化碳来自仿真内的汽油欧 4 小客车排放模型，以速度与加速度估算，不是路边测量。每个负荷设定的车数固定，因此该设定中的总排放和单车平均的相对变化可以对应；换城市、负荷、车型或实际动态导航，不宜直接照搬这些百分比。</p>
-<p><img src="/posts/b3d90e17/fig3.png" alt="TomTom 最快方案在三城的车流再分配"></p>
-<p>图 3｜每行一座城，前两列是零与全采用，右列是差值；暖色路段车流增加。这只展示 TomTom 最快方案。</p>
-<p>按道路分类，车流及排放更多集中到高速和干道。佛罗伦萨的这类道路在零采用时约占排放的 18%，全采用约占 36%。这是<strong>总排放里的份额</strong>，不能直接拿来判断干道旁居民实际吸入了多少污染，也不能在不看总量时断言该类道路的排放翻倍。</p>
-<p><img src="/posts/b3d90e17/fig4.png" alt="相邻采用率档位的道路与排放变化"></p>
-<p>图 4｜上排是 TomTom 最快，下排合并六种方案；按采用率逐档比较，越到后段越少见额外减排。</p>
-<p>图 4 比较的是相邻两档的变化：增加一档采用率，有时还省排放，有时已经没有收益甚至反弹。这样的对应关系说明「走的路更少」与「排得更少」并不是同一个结果；它本身不能确定某个真实路口就是导致变化的原因。</p>
-<h2 id="把城市简化成方格，还能看到这个拐点吗？"><a href="#把城市简化成方格，还能看到这个拐点吗？" class="headerlink" title="把城市简化成方格，还能看到这个拐点吗？"></a>把城市简化成方格，还能看到这个拐点吗？</h2><p>在抽象方格实验里，听导航的车被设为走最快路，其他车走扰动后的路线。只有东西向一股车流时，路段虽然更集中，排放仍能下降；加上与它在中心路口交叉的南北车流后，高采用率的排放下降趋缓。这个简化对照显示，<strong>路线共享带来的路口争用</strong>足以在模型里制造类似现象，不证明三座城市中每个拐点都只由这一原因造成。</p>
-<p><img src="/posts/b3d90e17/fig5.png" alt="方格路网中的单股与交叉车流"></p>
-<p>图 5｜a、b 对照单股与交叉车流，c–e 展示交叉时的道路覆盖、单车排放及逐档关系。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>在三座意大利城市的早高峰仿真中，更多车辆采用相似的导航推荐，会让车流集中到更少的道路；减排效果则取决于负荷、城市和服务。高采用率可以仍然减排，也可能把部分好处抵消。研究没有记录真实司机采用了哪家应用，没有动态重算推荐，也没有用道路排放实测验证这些变化。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>在佛罗伦萨、米兰和罗马三个早高峰案例中，从零到全采用，高负荷下至少被走过一次的道路最多减少约 14%；佛罗伦萨全采用仍可模拟出约 24%–27% 的减排，罗马却有四种方案反超零采用。可以从中检验共用路线如何改变全网负荷，不能由此认定现实的导航采用率或减排幅度。</p>
+<h2 id="当整座城市都按导航走，省下来的油还一样多吗？"><a href="#当整座城市都按导航走，省下来的油还一样多吗？" class="headerlink" title="当整座城市都按导航走，省下来的油还一样多吗？"></a>当整座城市都按导航走，省下来的油还一样多吗？</h2><p>Cornacchia, G., Nanni, M., Pedreschi, D., &amp; Pappalardo, L. (2026). The traffic concentration effects of urban navigation services. <em>Nature Communications, 17</em>, 8548. <a href="https://doi.org/10.1038/s41467-026-75254-8">论文 DOI</a></p>
+<p>早上出门，导航把你从七拐八弯的小路引上一条干道。若只有你换路，这趟可能更快；若路口另外几百辆车也收到相近的建议，这条干道还是原来那条好走的路吗？</p>
+<p>研究者把这个问题放进佛罗伦萨、米兰和罗马的早高峰模拟里。随着采用导航的车辆增加，三座城市的车最终都挤到更少的路段上。至于排放，三城却走向了不同的结果：在车多的罗马，有些导航方案让少数车辆采用时可以减排，让全部车辆都采用时反而比起点排得更多。</p>
+<!-- more -->
+<h2 id="怎样比较有导航和没有导航的同一个早晨？"><a href="#怎样比较有导航和没有导航的同一个早晨？" class="headerlink" title="怎样比较有导航和没有导航的同一个早晨？"></a>怎样比较有导航和没有导航的同一个早晨？</h2><p>现实中很难让一座城市的司机明天集体关掉导航，同时保持出发人数、目的地和路况一模一样。研究者先从意大利车载 GPS 记录估计普通周三早高峰车辆从哪些地方出发、各要去哪儿，再按这些起讫需求生成仿真车辆。三座城市的道路来自 OpenStreetMap，车辆在交通仿真器 SUMO 中行驶。</p>
+<p>每一轮选定一种商业导航方案，让一部分车辆走它推荐的路线。剩余车辆按仿真器算出的最快路略作随机调整，以表达司机自行选路的差异。零采用率意味着全部车辆按后一种规则行驶。研究分别比较必应、谷歌、Mapbox，以及 TomTom 的最快、最短和节能三种选项，在同一种交通负荷下逐档提高采用比例。推荐路线在出车前已经给定，没有随仿真里新出现的车龙实时重算。</p>
+<p>这套比较把最要紧的条件固定了：在同一座模拟城市、同一档车流量下，人们仍要去原来那些地方，变化的是多少人听从同一套路由建议。</p>
+<h2 id="越来越多人听导航，哪些路还会有人走？"><a href="#越来越多人听导航，哪些路还会有人走？" class="headerlink" title="越来越多人听导航，哪些路还会有人走？"></a>越来越多人听导航，哪些路还会有人走？</h2><p>研究者数了一个简单的量：整个早高峰里，至少有一辆车走过的路段有多少条。两辆车的完整行程可以不同，只要都从同一段干道经过，这段路就只算一次。</p>
+<p>最初引入少量导航车，有时还会多用上几条原先冷清的路。等到大多数车辆都按推荐路线走，道路覆盖明显收窄。与零采用相比，高负荷下全部车辆采用同一种方案时，佛罗伦萨少用约 12% 至 14% 的路段，米兰少用约 4% 至 7%，罗马少用约 10% 至 14%。每个区间的两端代表不同导航方案。与此同时，更多车流转到高速路和主要干道，许多小路则更少有人经过。</p>
+<p><img src="/posts/b3d90e17/fig2-published.png" alt="三城在不同导航采用率下的道路覆盖与单车二氧化碳排放"></p>
+<p>图 2｜从左到右是佛罗伦萨、米兰、罗马，横轴都是导航采用率。a–c 纵轴是高负荷下至少被走过一次的路段数，小图放大了最初的轻微上升。d–f 纵轴是每辆车平均排放的二氧化碳（千克），实心点表示高负荷，空心点表示低负荷。比较 f 中各条实心曲线与零采用时的虚线，就能看见哪些方案最后反超了起点。</p>
+<h2 id="路线都集中了，为什么排放有升有降？"><a href="#路线都集中了，为什么排放有升有降？" class="headerlink" title="路线都集中了，为什么排放有升有降？"></a>路线都集中了，为什么排放有升有降？</h2><p>在高负荷的佛罗伦萨，各种导航方案的减排收益大约在七八成车辆采用时达到最大。即使所有车都采用，模拟中的单车排放依然低于零采用。罗马的起点不同：推荐路线把车进一步引向原本就忙的干道。在全部车辆采用时，六种方案中有四种的排放高于零采用；其中必应方案约高出 9%。全城少用了多少条路，并不能单独决定排放变化的方向。</p>
+<p>为了看清路口的作用，作者又造了一张规则方格路网。如果所有车都从西边出发、去往东边，越来越多车辆使用最快路，覆盖的路段越来越少，单车排放仍不断下降。再加一股从北向南、在中间路口交叉的车流，推荐路线继续集中，高采用率下的减排收益却渐渐变小。这个对照给出一种解释：道路合并能省去绕路，也可能把更多车同时送进同一个路口。真实城市里出现拐点还与原有车流和路网形状有关。</p>
+<p>这里的二氧化碳由仿真中汽油小客车的速度和加速度估算。研究测量的是这些设定下的集体后果，无法据此认定现实罗马有某个比例的人在用导航，或某家应用改版后实际增加了多少排放。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>三座城市的模拟有一个共同结果：相近的路线建议被大规模采用后，整张路网上仍有人行驶的路段变少了。四家服务分担用户的补充实验中，这种集中现象也仍然存在，程度有所减轻。</p>
+<p>排放取决于集中到了哪里，以及道路原本承载多少车辆。早期换路的车辆能受益，后来者可能遇上前面那些车刚刚造成的拥堵。采用率、城市和导航方案三者都影响最终结果。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>在相同的早高峰出行需求下，让三座意大利城市的车辆按不同规则选路，高负荷时道路覆盖最多缩减约 14%。佛罗伦萨仍能维持减排，罗马有四种方案在全采用时越过了零采用排放基线。评估一项对司机有吸引力的推荐，还得问一个集体问题：许多人接连按下“开始导航”之后，哪些道路会承担他们共同的选择？</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li>Cornacchia、Nanni、Pedreschi 与 Pappalardo（2026），<em>Nature Communications</em>, 17, 8548。2026 年 7 月 11 日在线发布，8 月 18 日为正式版。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41467-026-75254-8">DOI</a> · <a target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13482866/">正式全文</a>。配图沿用原稿保存的录用校样图片，部分可见校样水印；正文以正式版为准。</li>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.5281/zenodo.20001710">仿真输出与路网的归档</a>。</li>
+<li>三城对照、路段覆盖、单车排放及方格路网实验见论文；仿真输出另有公开归档。<a href="https://doi.org/10.1038/s41467-026-75254-8">正式论文</a> · <a href="https://doi.org/10.5281/zenodo.20001710">仿真数据</a></li>
+<li>早高峰出行需求由 OCTO 车载 GPS 记录估计；路网采用 OpenStreetMap，仿真使用 SUMO。<a href="https://www.openstreetmap.org/">OpenStreetMap</a> · <a href="https://sumo.dlr.de/">SUMO</a></li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Giuliano Cornacchia 与 Mirco Nanni 署名意大利国家研究委员会信息科学与技术研究所，Dino Pedreschi 署名比萨大学，Luca Pappalardo 同时署名意大利国家研究委员会与比萨高等师范学校。Cornacchia 和 Pappalardo 为通讯作者。</p>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Giuliano Cornacchia、Mirco Nanni 和 Luca Pappalardo 署名意大利国家研究委员会信息科学与技术研究所。Luca Pappalardo 同时署名比萨高等师范学校，Dino Pedreschi 署名比萨大学计算机科学系。Cornacchia 和 Pappalardo 为通讯作者。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>如果交通部门要检验导航策略，我会保留同一份出行需求，对照固定推荐和按仿真实时车速重算两种方案，再分别看全城排放、干道排放与少数拥堵路口的等待时间。动态推荐如果降低排放却把延误集中到几个路口，就不能只凭全城平均宣布改进；结果还应告诉管理者，改善发生在哪里，代价又落在哪里。</p>
+<p>两款导航都给司机省了两分钟，交通部门对它们的判断却可能不同。一款让不同方向的车分散通过几个出口，另一款把本来错开的车辆同时送到学校门前的路口。乘车人看见的是自己的预计到达时间，站在路口的家长看见的是整排车要等几次绿灯。讨论导航能不能改善早高峰时，把路口上没有使用这款应用的人也算进来，问题就会具体得多。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -608,17 +599,13 @@
                 <a href="/posts/c14f8a62/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="2026-The WorkReach model for urban work location choices through economic complexity and informality">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="The WorkReach model for urban work location choices through economic complexity and informality">
                         
-                        <span class="card-title">2026-The WorkReach model for urban work location choices through economic complexity and informality</span>
+                        <span class="card-title">The WorkReach model for urban work location choices through economic complexity and informality</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">湾区较短的通勤距离为何与较低的就业机会得分并存？四地的通勤流量揭示两种可达性衡量方法的差别。</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2026-11-09
@@ -672,17 +659,13 @@
                 <a href="/posts/e7a21c04/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="2026-Validating urban scaling laws through mobile phone data: analysis of Brazil’s largest cities">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Validating urban scaling laws through mobile phone data: analysis of Brazil’s largest cities">
                         
-                        <span class="card-title">2026-Validating urban scaling laws through mobile phone data: analysis of Brazil’s largest cities</span>
+                        <span class="card-title">Validating urban scaling laws through mobile phone data: analysis of Brazil’s largest cities</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">用手机记录看巴西城市，人口越多，通话和出行会怎样增加？论文对照了样本拟合与全市推算，揭示覆盖率和统计边界如何影响城市标度。</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-09

@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-An openly available OpenStreetMap-to-Foursquare category benchmark for points of interest, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="An openly available OpenStreetMap-to-Foursquare category benchmark for points of interest, 猴猴猴">
+    <meta name="description" content="眼镜店在一份地图里算医疗、另一份里算零售。1,205 个 OSM 标签能与 Foursquare 对应到多细？">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-An openly available OpenStreetMap-to-Foursquare category benchmark for points of interest | 猴猴猴</title>
+    <title>An openly available OpenStreetMap-to-Foursquare category benchmark for points of interest | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-An openly available OpenStreetMap-to-Foursquare category benchmark for points of interest</h1>
+                    <h1 class="description center-align post-title">An openly available OpenStreetMap-to-Foursquare category benchmark for points of interest</h1>
                 </div>
             </div>
         </div>
@@ -436,41 +436,45 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img { display:block; margin:1.25rem auto; max-width:100%; height:auto; }  .post-title { overflow-wrap:anywhere; }</style>
 
-<h2 id="同一座喷泉，两份地图为什么数不成同一种场所？"><a href="#同一座喷泉，两份地图为什么数不成同一种场所？" class="headerlink" title="同一座喷泉，两份地图为什么数不成同一种场所？"></a>同一座喷泉，两份地图为什么数不成同一种场所？</h2><p>博洛尼亚的一座喷泉，在 OpenStreetMap 里可以记成 <code>amenity=fountain</code>，在 Foursquare 里则放在“地标与户外”下的“喷泉”分支。两个系统都知道它是喷泉，但它们整理地点的方式不同。如果要比较地图上有多少公共设施，得先弄清楚同一个标签在另一本字典里对应什么。</p>
-<p><strong>论文名片</strong>｜Lilou Soulas、Lorenzo Lucchini、Maurizio Napolitano、Sebastiano Bontorin、Simone Centellegher、Bruno Lepri、Riccardo Gallotti、Eleonora Andreotti，<em>An openly available OpenStreetMap-to-Foursquare category benchmark for points of interest</em>，<em>Scientific Data</em> 数据描述论文，2026 年 10 月 21 日开放在线。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-026-08476-6">期刊 DOI</a> · <a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41597-026-08476-6_reference.pdf">出版方 Article in Press 全文</a>。依据期刊发布的经同行评审接收版，不把它称为最终排定版本；arXiv v2 的 PDF 内文仍是不同稿本。</p>
-<h2 id="对齐的是类别，不是把两条地点记录合并"><a href="#对齐的是类别，不是把两条地点记录合并" class="headerlink" title="对齐的是类别，不是把两条地点记录合并"></a>对齐的是类别，不是把两条地点记录合并</h2><p>OpenStreetMap（OSM）用社区维护的键值对，一个标签可以兼有本地习惯和历史用法。Foursquare（FS）用从宽到细的类别路径。两套地图既可能重复记录同一个地点，也可能各自记录对方没有的地点。判断两个坐标和名字是否指向同一处，是<strong>地点匹配</strong>；这篇论文解决的是另一件事：即使地点已经对上，类别有没有相同含义？</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/d71e88a8/fig1.png" alt="博洛尼亚地点的标签示例和两套分类的对齐流程"></p>
-<p><strong>图 1｜</strong>a 用博洛尼亚的几个地点对照两套地图，标明某些地点在一边没有相应标签；b 把人工基准和自动更新流程分成两支。这不是该市的兴趣点普查，点的多少也不能代表到访人数。</p>
-<p>作者从 OSM 的 Map Features 文档抽取并清理标签，去掉弃用值、建筑层数一类属性和过于宽泛的值；再整理 Foursquare 已开放的类别路径。最后得到 <strong>1,205 条有文档的 OSM 标签</strong>和 FS <strong>1,244 个类别</strong>。一行基准只给一个 OSM 标签指定一条 FS 路径；许多 OSM 标签可以落到同一路径，不能把两栏的数量作一对一比较。</p>
-<h2 id="人工怎么判断“相同”，什么时候只能落到大类？"><a href="#人工怎么判断“相同”，什么时候只能落到大类？" class="headerlink" title="人工怎么判断“相同”，什么时候只能落到大类？"></a>人工怎么判断“相同”，什么时候只能落到大类？</h2><p>先对名称相近的标签逐一核对，再依据文档含义和层级补上词面不同的对应。最后还找不到相当的细分类，就保留所属的 Foursquare 大类。三类分别为 <strong>157 条词面对应、860 条语义对应、188 条仅到大类</strong>。因此“1,205 条都对上了”不等于“每个标签都找到了同等细的类别”。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/d71e88a8/fig2.png" alt="人工对应按 Foursquare 大类分布"></p>
-<p><strong>图 2｜</strong>柱高是该大类内部的相对比例，柱内数字数的是 OSM 标签，颜色区分三种对应。地标与户外的 OSM 标签很多，其中也有不少只能到大类；不能把柱内的标签条数当成地标总数。</p>
-<p>论文另用 taginfo 核查这些键值在全球 OSM 数据中出现得多不多。按 2026 年 9 月 22 日的快照，基准覆盖了九个主要兴趣点键所记录的 <strong>95.6% 出现次数</strong>，不是覆盖全球 95.6% 的独立地点。单看 <code>healthcare</code>，覆盖约为 12.1%；一个地区如果主要采用未入文档或被清洗掉的用法，实际连表率还可能不同。</p>
-<h2 id="自动匹配，先找得着，再分得清"><a href="#自动匹配，先找得着，再分得清" class="headerlink" title="自动匹配，先找得着，再分得清"></a>自动匹配，先找得着，再分得清</h2><p>作者用文本向量为每条 OSM 标签检索可能的 FS 路径，再请语言模型在候选间选择，有的提示允许退回大类。候选找得对不对，和把正确候选排在第一个，是两道题。给 FS 类别加上简短说明后，八种向量模型的 ROC 曲线下面积有小幅上升，但第一名命中并非都变好。用于后续实验的 all-MiniLM-L6-v2，加说明后第一名命中率由 58.84% 降至 57.18%。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/d71e88a8/fig3.png" alt="开放类别说明加入前后的候选检索比较"></p>
-<p><strong>图 3｜</strong>a 不加类别说明，b 加说明。曲线衡量候选配对的总体区分能力，AUC 小幅增加不保证每条标签的第一候选更准确。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/d71e88a8/fig4.png" alt="不同提示策略下的按类匹配对照"></p>
-<p><strong>图 4｜</strong>a 按 OSM 键、b 按 FS 大类展示四种提示的对齐表现。线条的差距随类变化，不能只从一个总体指标断言每个类别都改善了。</p>
-<p>在文章选定的设置下，模型从 20 个候选中选择，可以退回大类，不给示范例。只看第一级，第一名命中率由 78.59% 升到 <strong>84.40%</strong>；按更深的口径，图 5 与表 10 的第 4 至第 6 层均为 <strong>72.28%</strong>。这是相对人工基准的同意率；人工只判到上层的标签，并不会凭空变成精细分类。按 57.18% 与 72.28% 重算是 <strong>15.10 个百分点</strong>，或相对约 26.4%，与正文写的 27.3% 不完全一致。表 10 另有不同设置得到 72.78%，不应拼接成同一次结果。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/d71e88a8/fig5.png" alt="所选自动匹配配置在六个层级上的第一名命中率"></p>
-<p><strong>图 5｜</strong>蓝色为仅用向量检索，绿色显示重排后新增的命中。由大类深入细类，任务更严格；最后三列相同，不表示三层语义相同。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/d71e88a8/fig6.png" alt="按类别和深度分解自动匹配"></p>
-<p><strong>图 6｜</strong>a 按 OSM 顶层键、b 按 FS 大类；颜色表示核对到的层级。比较同一个轴上的线，可以看出某类标签是连大方向也难定，还是主要在更细的分类里分不清。</p>
-<p>比如 OSM 的 <code>farm</code> 看起来像一个农场，但其文档说的是农庄住宅，人工判定选的是住宅类。也有另一种情况：出售唱片的店，落到“唱片店”或更宽的“音乐商店”都说得通。自动法与基准不一致，一部分来自模型没理解文档，另一部分来自字典本来就有重叠。只看命中率，不能分开这两种情形。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>这篇论文最直接的产出是可复用的类别对照表，而不是新的一批地点或出行记录。它让研究者可以按共同类别比较两份兴趣点数据，同时保留哪些标签只能对到粗类的信息。自动检索和重排能提高对这套人工判定的复现率，但表现随层级、候选和类别而变；标签覆盖率也不能替代地点覆盖或实地验证。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>同一个地方能被两张地图同时收录，却仍可能被放进两套不同的类别。Soulas 等人为 1,205 条有文档的 OpenStreetMap 标签建立了 Foursquare 对照，把词面、语义和仅能落到大类的对应区分开。这个资源便于用同一分类框架比较城市功能；自动方法可辅助更新，遇到语义两可或颗粒度不同的标签时，仍不能把一次人工判定当成唯一正确的答案。</p>
+<h2 id="地图上这家眼镜店，应该算医疗服务还是零售？"><a href="#地图上这家眼镜店，应该算医疗服务还是零售？" class="headerlink" title="地图上这家眼镜店，应该算医疗服务还是零售？"></a>地图上这家眼镜店，应该算医疗服务还是零售？</h2><p>Soulas, L., Lucchini, L., Napolitano, M., Bontorin, S., Centellegher, S., Lepri, B., Gallotti, R., &amp; Andreotti, E. (2026). An openly available OpenStreetMap-to-Foursquare category benchmark for points of interest. <em>Scientific Data</em>. <a href="https://doi.org/10.1038/s41597-026-08476-6">论文 DOI</a></p>
+<p>同一条街上的眼镜店，放进一份地图的医疗名录，另一份地图却可能把它算成零售店。对找门店的人来说，这点区别未必碍事。但如果你想比较两个社区有没有足够的眼健康服务，仅仅把两份名录加起来，就可能把同一个地方算成两种不同的设施。</p>
+<p>Soulas 等人为两套常用的地点分类做了一份公开对照表。他们逐项检查了开放街道地图（OpenStreetMap，OSM）的 1,205 个标签，给每个标签指定一条 Foursquare（FS）分类路径。其中有 188 个只能可靠地归到大类。这个结果指出了合并城市数据时一个容易忽略的决定。有些地点只能比到某一层，再往下分，地图本身给不出统一答案。</p>
+<h2 id="同一座喷泉，为什么要查两本字典？"><a href="#同一座喷泉，为什么要查两本字典？" class="headerlink" title="同一座喷泉，为什么要查两本字典？"></a>同一座喷泉，为什么要查两本字典？</h2><p>图 1 用意大利博洛尼亚的一座喷泉说明了问题。OSM 用键和值描述地点，喷泉可以写作 <code>amenity=fountain</code>。FS 则沿着一棵分类树从宽到窄，把它归为地标与户外，再归入喷泉。要把两份地图里的喷泉按同一种口径计数，第一步是知道这两种写法指的是同类场所。地图上的两个点究竟是不是同一座喷泉，还需要名称、坐标等地点资料另行判断。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/d71e88a8/fig1.png" alt="博洛尼亚地点对照和两套分类体系的映射过程"></p>
+<p>图 1｜（a）用两种颜色区分两个来源的地点记录，喷泉提供了可对照的例子。（b）左支按文档与上下级类别建立人工对照，右支尝试自动寻找对应类别。两支的输入都是分类资料。</p>
+<p>作者从 OSM 的标签文档出发，去掉已弃用的用法、建筑层数之类描述属性的条目，以及难以表示具体功能的笼统值，得到分属 28 个顶层键的 1,205 个标签。FS 一侧则整理出 1,244 个类别，最深有六层。譬如一家点心餐厅，可以从餐饮一路细分到餐馆、亚洲餐馆、中餐馆和点心餐馆。两棵树的层数和分支不同，不能假定每个标签都能在对方字典里找到同样精细的一格。</p>
+<h2 id="哪些标签可以一对一地写进表，哪些只能停在上层？"><a href="#哪些标签可以一对一地写进表，哪些只能停在上层？" class="headerlink" title="哪些标签可以一对一地写进表，哪些只能停在上层？"></a>哪些标签可以一对一地写进表，哪些只能停在上层？</h2><p>即使两个名字一样，也要看它们各自在什么类别下面，查阅文档确认含义。用这个标准核对后，只有 157 个 OSM 标签靠名称匹配就找到了可信的 FS 对应。数量最多的一组有 860 个，依靠的是定义和分类上下文。余下 188 个找不到合适细类，研究者把它们写入合适的 FS 大类，不继续往下猜。一个 OSM 标签在表中只有一个去向，不同标签可以汇入同一个 FS 类别。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/d71e88a8/fig2.png" alt="人工对照在各类 Foursquare 地点中的构成"></p>
+<p>图 2｜横轴为 FS 的各大类。每根柱子内部加到 100%，深绿、浅绿、橙色分别表示名称匹配、含义匹配和仅归到大类。柱内数字是 OSM 标签条数。左侧地标与户外的橙色段就有 85 条。</p>
+<p>这份表能覆盖日常地图中的多少标注？按论文在 2026 年 9 月 22 日查询的 taginfo 使用统计，九个主要兴趣点键之下，表内标签占全球标签出现次数的 95.6%。单看 <code>healthcare</code> 键，比例却只有 12.1%，不少医疗设施还会用 <code>amenity</code> 另作标注。这两个数的分母都是标签用过多少次。一个地点可以带多个标签，因而即便知道使用次数，也不能断言本地有多少独立场所被完整收录。</p>
+<h2 id="新标签不断出现，能让机器先找出可能的去向吗？"><a href="#新标签不断出现，能让机器先找出可能的去向吗？" class="headerlink" title="新标签不断出现，能让机器先找出可能的去向吗？"></a>新标签不断出现，能让机器先找出可能的去向吗？</h2><p>面对新的 OSM 用法，逐项浏览上千个 FS 类别很费力。研究者先把标签和类别名称、说明转成文本向量（text embedding），即用一串数字表示文字含义，再按相似程度给 FS 类别排序。对每个 OSM 标签，模型先找出一小份候选，然后才从中挑最合适的一项。这两步必须分开评价。正确答案进了候选名单，并不代表它恰好排在第一。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/d71e88a8/fig3.png" alt="FS 类别说明对八种文本检索模型的影响"></p>
+<p>图 3｜（a）只用 FS 类别名称，（b）也加入类别说明。横轴是假阳性率，纵轴是真阳性率。每条曲线对应一种向量模型，越靠近左上方，越能把人工匹配对与其他配对区分开。</p>
+<p>拿论文选用的文本模型来说，加入类别说明后，正确选项出现在前 20 名中的比例从约 94% 升至 95%，直接排第一的比例却从约 59% 降至 57%。说明文字仍有价值，它提高了下一步看到正确选项的机会。若只取向量最相近的第一个，反而失去了这部分好处。</p>
+<h2 id="候选里都有道理时，怎样选出最后一个？"><a href="#候选里都有道理时，怎样选出最后一个？" class="headerlink" title="候选里都有道理时，怎样选出最后一个？"></a>候选里都有道理时，怎样选出最后一个？</h2><p>第二步由语言模型 GPT-4o-mini 比较候选的名称、上下级和含义。研究试了两项可以独立改变的要求。实在没有合适细类时，能否退回大类。在给出待判断的标签之前，要不要先提供一个示范。交叉组合后共有四种提示。图 4 让人看到，同一套要求放在不同类别上，收效有所不同。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/d71e88a8/fig4.png" alt="四种选择要求在 OSM 标签和 FS 类别上的命中比例"></p>
+<p>图 4｜（a）每条辐射轴是一类 OSM 键，（b）每条轴是一类 FS 地点。越靠外，与人工对照一致的比例越高。四条线分别对应能否退回大类、是否提供示范的不同组合，输入的候选数都是 20。</p>
+<p>作者选定可以退回大类、不给示范的设置。同一批标签，只问选中的第一项与人工判断在顶层是否一致，命中率从约 79% 升到 84%。若要求在最细的口径上也一致，则从 57.18% 升到 72.28%，提高约 15 个百分点。读这些数字时，要保留人工表原来的分辨率。一个标签只被人工归到大类，模型复现了这一判断，也不会给它凭空增加一种具体用途。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/d71e88a8/fig5.png" alt="候选重排前后各层级第一名命中率"></p>
+<p>图 5｜横轴从大类排到最深层级，纵轴是第一候选与人工判断一致的比例。蓝色为仅用向量检索的成绩，绿色是让语言模型重选后增加的部分。第四至第六层的总命中率都是 72.28%。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/d71e88a8/fig6.png" alt="按 OSM 与 FS 类别分别观察不同深度的匹配表现"></p>
+<p>图 6｜（a）按 OSM 顶层键分，（b）按 FS 大类分。不同线条表示比较到不同深度。沿同一条轴向里看，可见有些大类容易辨认，继续细分时一致性才明显下降。</p>
+<p>回到开头的眼镜店。论文表 12 里，<code>craft=optician</code> 的人工对应是医疗与医学下的验光服务，模型选的却是零售下的眼镜店。类似分歧也出现在唱片店和音乐商店之间。两类都说得通时，一次未命中可能说明分类体系的边界含混。另一些错误则可以靠查定义避免，例如 OSM 文档中的 <code>building=farm</code> 指农场上的住宅建筑，只凭单词 farm 容易让人想到整座农场。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>公开的人工对照表给出了 1,205 个有文档的 OSM 标签通往 FS 分类树的路径，并保留了必须停在大类的情形。它为研究者统一地点类别提供了入口，能做到多细，仍取决于两套分类原先如何定义场所。</p>
+<p>在自动更新实验中，先检索候选再用语言模型复核，提高了对人工答案的复现率。涉及场所兼有多项功能、两套分类切分方式不同或地方用法缺少文档时，仍需要回到原始定义和具体研究问题决定口径。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>Soulas 等人把两套城市地点字典放在同一张表上。1,205 个 OSM 标签中，约七成依靠含义而非同名对应，188 个只能对应 FS 大类。借助人工表检验自动方法后，模型在最细口径上选中人工答案的比例从约 57% 提高到 72%。这让大规模整理标签更可行，也保留了一个决定比较是否公平的问题。两地的场所，究竟被记录到了同样细的一层没有？</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-026-08476-6">期刊 DOI</a> · <a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41597-026-08476-6_reference.pdf">出版方 17 页 Article in Press</a> · <a target="_blank" rel="noopener" href="https://cris.fbk.eu/handle/11582/375067">FBK 机构条目</a>。图 1–6 对应期刊接收公开版；文章为 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>，如有另署权利的素材以其标注为准。arXiv 的元数据虽已关联期刊 DOI，但其 PDF 内文与此版不完全相同。</li>
-<li>论文列出 <a target="_blank" rel="noopener" href="https://doi.org/10.5281/zenodo.22082711">Zenodo 人工基准 DOI</a>（<code>df_oracle.csv</code>）与 <a target="_blank" rel="noopener" href="https://github.com/LilouSoulas/Mapping-of-OSM-and-FS-categories">分类、复现笔记本和代码</a>。地图资料许可依各自来源，不借用文章许可来解释数据库权利。</li>
+<li>Soulas 等人的论文、人工基准与可复现的比较代码。<a href="https://doi.org/10.1038/s41597-026-08476-6">Scientific Data 论文</a> · <a href="https://doi.org/10.5281/zenodo.22082711">Zenodo 人工对照表</a> · <a href="https://github.com/LilouSoulas/Mapping-of-OSM-and-FS-categories">作者代码库</a></li>
+<li>OSM 标签文档提供键值和含义，taginfo 提供实际使用次数，FS 提供层级分类。<a href="https://wiki.openstreetmap.org/wiki/Map_features">OSM Map Features</a> · <a href="https://taginfo.openstreetmap.org/">taginfo</a></li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Lilou Soulas 署名 ENSAE Paris 与巴黎综合理工学院，负责预处理与主要映射分析。Lorenzo Lucchini 署名布鲁诺·凯斯勒基金会（FBK）及博科尼大学；Maurizio Napolitano、Sebastiano Bontorin、Simone Centellegher、Bruno Lepri、Riccardo Gallotti 和 Eleonora Andreotti 署名 FBK。Andreotti 为通讯作者。机构以期刊接收公开版为准。</p>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>Lilou Soulas（法国巴黎国立统计与经济管理学院 ENSAE Paris，巴黎理工学院成员校）完成数据预处理、人工基准和对齐分析。Lorenzo Lucchini（布鲁诺·凯斯勒基金会、博科尼大学）参与文档抓取，Maurizio Napolitano（布鲁诺·凯斯勒基金会）就 OSM 映射方法提供建议。Sebastiano Bontorin、Simone Centellegher、Bruno Lepri 和 Riccardo Gallotti（布鲁诺·凯斯勒基金会）参与研究指导与讨论。通讯作者 Eleonora Andreotti（同基金会）设计研究、撰写文章并复核分析。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>如果两个街区用细类比较时看起来一个更多样，改用大类却难分高下，可以先检查哪一侧有大量标签只能落到大类。把两份名录都限制在有可比粒度的类别，再比较两种口径下的排序，能判断看到的是街区业态的差异，还是字典把同一类场所切得更细。</p>
+<p>假设你在为老人制作一张步行可达的眼健康服务地图。楼下一家店能配眼镜，街对面的门诊能检查眼病，两处都可能在名字里写着视光。对需要修镜架的人来说，第一家已经解决问题。要复查眼底的人在那里走了一趟，却仍要重新找门诊。</p>
+<p>于是地图编制者有了一个比两套标签谁更准确更实际的问题。居民要在这里完成什么事？把两类地点合并，适合回答附近有哪些与眼健康相关的场所。要回答去哪里能完成一次检查，就得补上实际提供的服务。一个分类选择的好坏，最终取决于它会把找服务的人带到哪扇门前。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -598,17 +602,13 @@
                 <a href="/posts/770074d1/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="2026-A manually interpreted geo-dataset of building footprints in complex urban poverty areas across the globe">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="A manually interpreted geo-dataset of building footprints in complex urban poverty areas across the globe">
                         
-                        <span class="card-title">2026-A manually interpreted geo-dataset of building footprints in complex urban poverty areas across the globe</span>
+                        <span class="card-title">A manually interpreted geo-dataset of building footprints in complex urban poverty areas across the globe</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">在 44 个贫困地区逐个描绘屋顶，地图能告诉我们哪里更密。十个人圈同一栋房时，究竟能画得多一致？</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2026-11-18
@@ -662,17 +662,13 @@
                 <a href="/posts/21d9afc6/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="2026-Proxy datasets to identify city boundaries">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Proxy datasets to identify city boundaries">
                         
-                        <span class="card-title">2026-Proxy datasets to identify city boundaries</span>
+                        <span class="card-title">Proxy datasets to identify city boundaries</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            #articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap
-                        
-                    </div>
+                    <div class="summary block-with-text">越南火龙果田夜里亮着，百万人口的基桑加尼却不显眼。八地地图说明，同一座城市会被人口、建筑和夜光各画成什么样。</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-18

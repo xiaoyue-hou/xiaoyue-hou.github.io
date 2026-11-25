@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2025-A dataset of multi-level street-block divisions of 985 cities worldwide, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="A dataset of multi-level street-block divisions of 985 cities worldwide, 猴猴猴">
+    <meta name="description" content="同样沿道路划分街区，纽约的街边能和普查边界对上，悉尼的一个统计区却能装下许多街区。全球 985 个城市的五级街区地图，怎样用于跨城比较？">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2025-A dataset of multi-level street-block divisions of 985 cities worldwide | 猴猴猴</title>
+    <title>A dataset of multi-level street-block divisions of 985 cities worldwide | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2025-A dataset of multi-level street-block divisions of 985 cities worldwide</h1>
+                    <h1 class="description center-align post-title">A dataset of multi-level street-block divisions of 985 cities worldwide</h1>
                 </div>
             </div>
         </div>
@@ -432,86 +432,35 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img {display:block;margin:1.25rem auto .5rem;max-width:100%;height:auto;} .post-title {overflow-wrap:anywhere;}</style>
+<style id="paper-figure-layout">#articleContent img {display:block;margin:1.25rem auto;max-width:100%;height:auto;} .post-title {overflow-wrap:anywhere;}</style>
 
-<h2 id="比较纽约和悉尼，能不能先用同一把刀切街区？"><a href="#比较纽约和悉尼，能不能先用同一把刀切街区？" class="headerlink" title="比较纽约和悉尼，能不能先用同一把刀切街区？"></a>比较纽约和悉尼，能不能先用同一把刀切街区？</h2><p>论文名片｜Jintong Tang、Liyan Xu、Hongbin Yu 等，<em>A dataset of multi-level street-block divisions of 985 cities worldwide</em>，<em>Scientific Data</em> 12, 456（2025 年 3 月 19 日）。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-025-04704-7">DOI：10.1038/s41597-025-04704-7</a>。</p>
-<p>打开纽约和悉尼的官方街区地图，两边都铺满了小多边形。算出平均面积却不一定就能比较城市形态：有的边界沿道路划，有的还要照顾人口规模或统计用途。差异可能来自街道，也可能来自划图的人在用不同规则。</p>
-<p>MSDCW 为 985 个城市区域用同一套道路分层规则生成五级街区，让比较有一个相近的起点。但最细的 L5 也不能凭空补进没有录入的小路。比较两地的街区之前，还得问一句：道路都被记录了吗？</p>
-<span id="more"></span>
-<h2 id="统一的是边界规则，不是城市范围"><a href="#统一的是边界规则，不是城市范围" class="headerlink" title="统一的是边界规则，不是城市范围"></a>统一的是边界规则，不是城市范围</h2><p>数据覆盖 142 个国家或地区的 985 个城市区域，合计约 22.7 亿人，依据 Demographia 2021 年估计人口超过 50 万的城市清单。作者用 GADM 行政区边界匹配清单，并参考建成区影像调整范围。东京–横滨等连片地区沿用清单中的组合；这里的区域不一定等于行政市，也不是所有城市的等比例样本。</p>
-<p>不同地方的官方统计单元服务于本地目的。MSDCW 则统一从 OpenStreetMap（OSM）的道路等级出发，并保留从粗到细的多种结果。数据用的是 2022 年 5 月 27–28 日取得的路网，论文发表于 2025 年，不意味着这套街区反映了 2025 年的每一条新路。</p>
-<p><img src="/posts/e8000016/fig1.webp" alt="纽约和悉尼的官方街区及全球数据覆盖"></p>
-<p>图 1｜a、b 以相同尺度展示纽约与悉尼的官方边界；c 标出 985 个城市区域的位置。</p>
-<h2 id="一条道路中心线，怎样变出街区面？"><a href="#一条道路中心线，怎样变出街区面？" class="headerlink" title="一条道路中心线，怎样变出街区面？"></a>一条道路中心线，怎样变出街区面？</h2><p>道路数据起初是一根根线。直接用线切割，断开的路口、双线道路或匝道可能留下细碎多边形。作者先按道路类别建立有宽度的缓冲带，再把道路带合并、叠加到城市范围内，得到初始街区。后处理移除小碎片、填孔，并用正反缓冲整理缝隙。这些几何操作可减少异常小面，也可能删掉确有其事的微小街区。</p>
-<p><img src="/posts/e8000016/fig2.webp" alt="从道路和行政边界生成街区的流程"></p>
-<p>图 2｜从路网缓冲带生成初步划分，再清理碎片和缝隙；循环箭头表示逐级加入道路。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>层级</th>
-<th>当级新增道路</th>
-<th style="text-align:right">缓冲参数</th>
-<th style="text-align:right">碎片删除阈值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>L1</td>
-<td>高速、干线及相应连接线</td>
-<td style="text-align:right">24 米</td>
-<td style="text-align:right">10,000 平方米</td>
-</tr>
-<tr>
-<td>L2</td>
-<td>一级道路及连接线</td>
-<td style="text-align:right">20 米</td>
-<td style="text-align:right">10,000 平方米</td>
-</tr>
-<tr>
-<td>L3</td>
-<td>二级道路及连接线</td>
-<td style="text-align:right">16 米</td>
-<td style="text-align:right">1,000 平方米</td>
-</tr>
-<tr>
-<td>L4</td>
-<td>三级道路及连接线</td>
-<td style="text-align:right">12 米</td>
-<td style="text-align:right">100 平方米</td>
-</tr>
-<tr>
-<td>L5</td>
-<td>住宅道路</td>
-<td style="text-align:right">8 米</td>
-<td style="text-align:right">100 平方米</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>越往下，纳入的道路越细，既保留前一级道路，也加上本级类型。表里的缓冲是算法参数，不是实际测得的路宽；道路标签相同，也不保证不同国家的实际道路功能完全一致。</p>
-<p><img src="/posts/e8000016/fig3.webp" alt="曼哈顿下城从道路到街区面的五步示例"></p>
-<p>图 3｜a–e 依次看道路、缓冲带、初始街区、去碎片与整理后的结果；五幅都来自曼哈顿下城。</p>
-<h2 id="和官方边界「一致」，到底一致在哪里？"><a href="#和官方边界「一致」，到底一致在哪里？" class="headerlink" title="和官方边界「一致」，到底一致在哪里？"></a>和官方边界「一致」，到底一致在哪里？</h2><p>研究比较了平均面积、面积变异、形状与边界一致性。其中边界一致性（BC）将两份街区图叠加，对每个重叠面看它占两边原多边形的比例，取较大者，再作平均。一个小街区完整落在某个大官方区里，即使两者轮廓不相同，也能给出高分。这个指标既反映位置接近，也认可划分之间的包含。</p>
-<p>原文的 140 组对照里，108 组 BC 超过 0.7，87 组超过 0.8，56 组超过 0.9。这里数的是城市和划分层级的比较组合，不是所有 985 座城市，也不是逐一核对的街区。伦敦平均约 0.632；悉尼则有官方大区包含多个 L5 小街区的高一致性示例。两种结果一起看，才能判断这套边界是适合跨城比较，还是应该改用当地统计单元。</p>
-<p><img src="/posts/e8000016/fig4.webp" alt="不同城市的官方街区与 MSDCW 叠加"></p>
-<p>图 4｜a–i 是九种对照。留意伦敦 c 的错位、纽约 g 的相近，以及悉尼 i 的包含关系。</p>
-<h2 id="最细一级为什么还会出现大街区？"><a href="#最细一级为什么还会出现大街区？" class="headerlink" title="最细一级为什么还会出现大街区？"></a>最细一级为什么还会出现大街区？</h2><p>同一套 L5 规则能切出东京–横滨密集的细小街区、规则的印第安纳波利斯街区，也会在某些地图里留下很大的面。论文举到里约热内卢、拉各斯、内罗毕的一些非正规住区，以及孟买历史中心：如果内部细路没有记入 OSM，算法就缺少把大面切开的线。此时大街区可能是记录缺口，不是道路真的稀疏。</p>
-<p><img src="/posts/e8000016/fig5.webp" alt="十四个城市的 L5 街区与 OSM 底图"></p>
-<p>图 5｜a–n 用同一比例尺展示 L5；蓝色边界叠在 OSM 底图上，不能当成独立测绘验证。</p>
-<p>复用时可把数据按「城市＋层级」识别：每层 shapefile 的 index 是本地编号，不是跨城市主键，也不是已建立的父子关系。面积和周长不要直接按 WGS 84 经纬度计算，可像论文的技术验证那样转到适当的米制投影。最先要核对的仍是目标年份、城市边界和内部细路的记录程度。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>MSDCW 用一致的道路切分和几何处理，为世界多个城市提供了可复用的五级街区。部分结果与官方边界接近或可嵌套，但原始路网、统计边界和数据年份的差异仍会进入比较。适合把它当作跨城形态分析的共同起点，不适合把同一 L 级当作同样面积、人口或测绘质量的保证。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这套数据依据 2022 年 OSM 路网，为 142 个国家或地区的 985 个城市区域生成了 L1–L5 五级街区；140 组官方层级对照里有 108 组边界一致性超过 0.7，但这一得分也承认大小边界的包含关系。真正能跨城对齐的是切分方法，想比较街区大小，还要核对边界用途与细路是否画全。</p>
+<h2 id="一块街区究竟从哪里算起？"><a href="#一块街区究竟从哪里算起？" class="headerlink" title="一块街区究竟从哪里算起？"></a>一块街区究竟从哪里算起？</h2><p>Tang, J., Xu, L., Yu, H., et al. (2025). A dataset of multi-level street-block divisions of 985 cities worldwide. <em>Scientific Data</em>, 12, 456. <a href="https://doi.org/10.1038/s41597-025-04704-7">论文 DOI</a></p>
+<p>假设要比较纽约和悉尼的街区有多大。你找来两座城市的官方地图，在图上量面积、算中位数。麻烦出在量面积之前：一张图把住宅街两侧分开，另一张图可能为统计人口把好几条街合在一起。哪怕城市的模样完全相同，两套画法也能给出不同的答案。</p>
+<p>这项研究把画边界的决定摆到了明面上。对全球 985 个城市区域，只让同一组等级的道路参与切分，再逐级加入更小的道路，便能得到五张粗细不同的地图。拿这些地图和各地官方单元叠在一起，纽约有边线相近的街区，悉尼则有许多细街区完整落在一个大统计区里。这两种情形都可能得到很高的一致性评分，但对应的空间关系不同。</p>
+<!-- more -->
+<h2 id="从主干道看到住宅街，同一座城能画出五张图"><a href="#从主干道看到住宅街，同一座城能画出五张图" class="headerlink" title="从主干道看到住宅街，同一座城能画出五张图"></a>从主干道看到住宅街，同一座城能画出五张图</h2><p>城市的外沿和街区的内部分界是两个问题。研究按 Demographia 的 2021 年估算，选取人口超过 50 万的城市区域，涉及 142 个国家或地区。团队从 GADM 行政区边界起步，参照建成区影像裁去过大的乡村腹地，或纳入越过行政界线的连片城区。广州与佛山、东京与横滨都沿用原清单的组合。因此，在下载目录中选中一个城市名称，实际拿到的可能是几个行政市相连的城区。</p>
+<p>外沿确定后，用什么路切开里面的土地？研究使用 2022 年 5 月取得的开放街图（OpenStreetMap）路网。最粗的 L1 只用高速公路、干线及其连接线。L2 到 L4 依次加入一级、二级、三级道路及相应连接线，L5 再加上住宅道路。一条住宅街可以穿过 L1 街区的内部，到 L5 时，它才成为切分两侧土地的依据。想研究干道隔开的大片城区，或住宅街围出的细小单元，可以从同一套数据中选取相应层级。</p>
+<p>在地图文件里，道路最初只是一根线。图 3 的曼哈顿下城示例说明了处理这根线的用意。团队按道路等级给中心线加上不同宽度的带状区域，把相连的道路带合并，在城市范围内取剩下的土地。路口和匝道间可能残留狭小碎片，还要剔除小面、填孔并整理缝隙，才得到可用于统计面积的街区多边形。这里的带宽是切图参数，实际路宽仍须另行测量。</p>
+<p><img src="/posts/e8000016/fig3.webp" alt="曼哈顿下城的道路缓冲和街区生成"></p>
+<p>图 3｜同一处曼哈顿街区，a 是道路中心线，b 是给道路加宽后的缓冲带。看 c 至 e：彩色区域是留下的街区，清理碎片和缝隙后，小斑块和边缘发生了变化。</p>
+<h2 id="两张图都得高分，为什么仍可能数出不同数量的街区？"><a href="#两张图都得高分，为什么仍可能数出不同数量的街区？" class="headerlink" title="两张图都得高分，为什么仍可能数出不同数量的街区？"></a>两张图都得高分，为什么仍可能数出不同数量的街区？</h2><p>作者用边界一致性（boundary consistency）衡量两套划分能否对上。把地图叠起来，每一块相交区域都有两个面积占比：它占第一张图中那个街区多少，又占第二张图中那个单元多少。每次取较大的占比，再对所有相交区域求平均。设想一块小街区完全落在大统计区内，相交部分就覆盖了小街区的 100%。即便大区中还有十几个街区，这一次相交也能得到满分。</p>
+<p>这个特点在图 4 上看得尤其清楚。纽约的例子里，官方普查街区和 L5 都常沿道路划界，放大后能沿着近似的街边描出同一块地。悉尼的例子里，一条官方大区边线以内可以有许多个 L5 单元，适合把小街区汇总到大区。伦敦的统计区还考虑人口规模和社会构成，一条主路切开的两片土地，在统计图上可能又被合在一起。</p>
+<p><img src="/posts/e8000016/fig4.webp" alt="九种官方边界与道路划分的叠置实例"></p>
+<p>图 4｜九幅图将官方边界与道路划出的街区叠置。对照 g（纽约）与 i（悉尼），前者看两套边线是否贴近，后者看大区包住多少小块。c（伦敦）则能看到两套线穿过不同位置。</p>
+<p>在有官方资料可供验证的城市中，各地官方层级与五级街区共形成 140 组比较，其中 108 组的一致性超过 0.7。这个分母数的是层级组合。读这个结果时，首先要问自己的任务需不需要逐块对齐：若要把人口从一个大区分配给各个小街区，知道它们彼此包含只能解决归属问题，每块住多少人仍要另找依据。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>同样采用道路等级切分，多个城市都能得到与某一级官方划分相近的空间尺度；有些地方还能补上官方没有提供的中间层级。例如，悉尼示例中，L3 就介于当地 SA1 与 SA2 两级统计区之间。遇到人口等其他划界标准时，几何上的偏离也有明确的制度原因。</p>
+<p>越往细处比较，越要留意原始地图画了哪些路。一条漏录的住宅街，可能让两块实际被道路隔开的土地在 L5 仍连成一块。跨城发现某地街区较大，既可能反映城市形态，也可能反映细路资料的差异。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这套数据让研究者能拿着同一个具体问题走进 985 个城市区域：只看干道时，城市被分成多大的片区？把住宅街也放进来，又会细分成什么样？不同城市终于可以按同一条规则重算；解释差异时，则要把道路记录的完整程度、所选层级和当地统计边界的用途一起考虑。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li>Tang、Xu、Yu 等（2025），<em>Scientific Data</em>, 12, 456。<a target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11923264/">正式全文</a> · <a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-025-04704-7">期刊 DOI</a>。文中图 1–5 来自正式版。</li>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.6084/m9.figshare.26021314">MSDCW 数据与代码</a>。</li>
+<li>Tang 等的论文给出道路分类、划分步骤和官方边界验证。<a href="https://doi.org/10.1038/s41597-025-04704-7">原论文</a></li>
+<li>MSDCW 归档提供街区多边形及生成代码。<a href="https://doi.org/10.6084/m9.figshare.26021314">数据与代码</a></li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Jintong Tang、Liyan Xu、Hongbin Yu 在论文中标为同等贡献作者；Xu 为通讯作者。Tang 署名北京大学地球与空间科学学院遥感与地理信息系统研究所，Xu 和 Yu 署名北京大学建筑与景观设计学院，Xu 另署名伦敦大学学院 CASA。作者信息采用正式版。</p>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Jintong Tang、Liyan Xu 和 Hongbin Yu 为共同贡献作者，Liyan Xu 为通讯作者。Tang、Lun Wu 和 Yu Liu 署名北京大学地球与空间科学学院遥感与地理信息系统研究所。Xu、Yu、Tianshu Li、Keyi Liu 和 Shijie Li 署名北京大学建筑与景观设计学院，Xu 同时署名伦敦大学学院高级空间分析中心。</p>
+<p>其他合作者为北京大学前沿交叉学科研究院的 Hezhishi Jiang，北京大学城市与环境学院的 Dejie He 和 Wanchen Xiao，中国科学院地理科学与资源研究所的 Xinying Zheng，宾夕法尼亚大学韦茨曼设计学院的 Yiqin Li，以及华为全球技术服务部门的 Qian Huang、Jun Zhang 和 Yinsheng Zhou。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>要比较两座城市的细街区，我会先从各城选几块建成强度接近的区域，用独立影像核查细路，再分别计算 L3、L4、L5 的面积统计。如果只有 L5 得出某地街区特别大，而补入少量漏画的小路后排序就反转，应把结论写成「对路网覆盖敏感」，而不是说那里本来就有更大的街区。</p>
+<p>如果街道办想给绕路最远的居民补开一处步行通道，一张大街区地图可以指出值得去看的地方。到现场却可能见到两种截然不同的情形：一处院墙很长，行人真要绕到下一个路口；另一处有条人人都走的巷子，只是道路图上没有。两处在图上同样显眼，前者可能需要协商开门，后者只需先把路画上。街区图给出的第一份名单，最适合用来决定到哪里走一趟。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -635,17 +584,13 @@
                 <a href="/posts/4a7d82ec/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="2025-A Large-Scale Residential Load Dataset in a Southern Province of China">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="A Large-Scale Residential Load Dataset in a Southern Province of China">
                         
-                        <span class="card-title">2025-A Large-Scale Residential Load Dataset in a Southern Province of China</span>
+                        <span class="card-title">A Large-Scale Residential Load Dataset in a Southern Province of China</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">八万多户居民的用电记录如何汇成可以研究的数据？这项研究比较了缺测填补方法，并展示了广西住宅负荷随时段和天气的变化。</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2026-10-25

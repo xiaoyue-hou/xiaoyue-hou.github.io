@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-Quantifying geographic domain shift to decouple the geospatial transferability of human mobility flow generation models, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="Quantifying Geographic Domain Shift to Decouple the Geospatial Transferability of Human Mobility Flow Generations, 猴猴猴">
+    <meta name="description" content="同一种通勤模型只换训练州，在外州的平均流量重叠得分就能相差约0.07。美国2265个县的实验解释了为什么选训练地区也会改变结论。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-Quantifying geographic domain shift to decouple the geospatial transferability of human mobility flow generation models | 猴猴猴</title>
+    <title>Quantifying Geographic Domain Shift to Decouple the Geospatial Transferability of Human Mobility Flow Generations | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-Quantifying geographic domain shift to decouple the geospatial transferability of human mobility flow generation models</h1>
+                    <h1 class="description center-align post-title">Quantifying Geographic Domain Shift to Decouple the Geospatial Transferability of Human Mobility Flow Generations</h1>
                 </div>
             </div>
         </div>
@@ -440,49 +440,38 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h2 id="同一个模型换州，为什么成绩能差-0-07？"><a href="#同一个模型换州，为什么成绩能差-0-07？" class="headerlink" title="同一个模型换州，为什么成绩能差 0.07？"></a>同一个模型换州，为什么成绩能差 0.07？</h2><p>假设一个县想知道居民住在哪个普查区、又去了哪个普查区上班，却没有完整的通勤表。手头有其他州的通勤记录，也能拿到本县的人口和设施数据。你会借用数据最多的州，还是借用人口和设施布局更像本县的州？</p>
-<p>Zhiyong Zhou 等人的研究先不改模型，而是轮换训练地区。仅把同一个深度重力模型换到不同源州训练，平均通勤重叠比例就大致从 0.58 变到 0.65。若两种算法的差距小于这 0.07，单报一个平均分，就很难看出赢的是模型，还是训练和测试地区的搭配。</p>
-<h2 id="先分清「跨州迁移」和「跨州通勤」"><a href="#先分清「跨州迁移」和「跨州通勤」" class="headerlink" title="先分清「跨州迁移」和「跨州通勤」"></a>先分清「跨州迁移」和「跨州通勤」</h2><p>作者使用 2018 年 CommutingODGen 基准，分析美国本土 48 个州的 2,265 个县。要生成的每个数，是<strong>同一个县内部两个普查区之间的通勤量</strong>。跨州的是模型训练、应用的地点，不是被统计的通勤路线；数据既没有覆盖跨县通勤，也不是个体轨迹。普查区附有 97 个人口社会特征和 36 类兴趣点特征。</p>
-<p>实验每次选一个州，在其中约七成县训练、三成县验证，再应用到其他州的县；各州轮流作为训练来源。深度重力模型（DeepGravity）使用地理特征、距离和<strong>已知的起点总流出</strong>，所以它更像是在分配已知的通勤总量，而不是从零推断这个县有多少人通勤。研究还用了随机森林、梯度提升回归树和地理情境多任务嵌入模型（GMEL）作对照。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/c9e1f2a3/fig1.png" alt="原论文图 1"></p>
-<p>图 1｜a 显示各县覆盖的普查区数量；b、c 示意两种域偏移。b 比较属性分布，c 比较空间自相关，不是两张通勤流量图。</p>
-<h2 id="方向反过来，迁移也可能变难"><a href="#方向反过来，迁移也可能变难" class="headerlink" title="方向反过来，迁移也可能变难"></a>方向反过来，迁移也可能变难</h2><p>作者用两把尺子看生成结果。<strong>通勤重叠比例 CPC</strong> 比较每条起讫流量能重叠多少，整体在 0 到 1 之间，越高越好。<strong>均方根误差 RMSE</strong> 衡量每条流量的数值偏差，特别大的误差会拉高它。模型可能把大体的通勤去向分对了，却仍在一些大流量起讫对上差很多。</p>
-<p>预印本表 1 报告的是训练州内部未见地区：深度重力模型平均 CPC 为 0.603、平均 RMSE 为 82.533，在四种模型中分别最高和最低。这不是跨州得分。跨州后，同一个架构在一些中西部地区的平均 CPC 超过 0.70，在部分浅色地区只有约 0.33–0.48。来回比较也常不对称：用甲州训练再到乙州测试，未必和用乙州训练再到甲州测试一样好。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/c9e1f2a3/fig2.png" alt="原论文图 2"></p>
-<p>图 2｜a、b 的颜色分别是目标地区平均 CPC 和 RMSE；柱高是换源州后的标准差，两图放大倍数不同。c、d 对比来回迁移的差值，每行是一个源州。</p>
-<h2 id="两地「像不像」，至少要问两个问题"><a href="#两地「像不像」，至少要问两个问题" class="headerlink" title="两地「像不像」，至少要问两个问题"></a>两地「像不像」，至少要问两个问题</h2><p>两个县的人口与设施统计可能相似，但一地的工作和服务集中在相邻几个普查区，另一地却散在许多小中心。也可能空间上都很集中，实际设施类型和人口组成却不同。作者把这两种差异分开量：</p>
-<ul>
-<li><strong>互信息偏移</strong>回答「只看特征，能不能认出这个普查区来自哪里？」作者逐项计算特征与源、目标标签之间的互信息，再取平均。数越大，所测属性越容易区分两边；分数接近零，不等于特征的联合分布完全相同。</li>
-<li><strong>莫兰偏移</strong>回答「按空间邻近关系看，目标地区是不是更聚集？」它用目标县的多变量莫兰指数减去源州的县级指数均值。正值表示目标县整体空间自相关较强，零只表示强度相近，并不意味着热点出现在同样的位置。</li>
-</ul>
-<p>两项指标只用地理特征，不用目标通勤量。它们量的是<strong>输入发生了什么变化</strong>，并没有量化「同样的人口和设施，在两地是否会产生不同通勤行为」这一层变化。图 3 也说明，互信息偏移接近零时，莫兰偏移仍能在很大的范围内变化，没必要把两者合成一个「相似度」。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/c9e1f2a3/fig3.png" alt="原论文图 3"></p>
-<p>图 3｜a 汇总所有源州与目标县配对；b–g 每图固定一个县、轮换源州。横轴的科学计数标度随子图变化，点颜色看 CPC、大小看 RMSE。</p>
-<h2 id="这两把尺子能解释多少成绩？"><a href="#这两把尺子能解释多少成绩？" class="headerlink" title="这两把尺子能解释多少成绩？"></a>这两把尺子能解释多少成绩？</h2><p>同一个目标县会被多个州训练出的模型反复评价，不能把这些分数当作相互独立的样本。作者把训练州放入回归作为固定效应，并允许每个目标县有自己的起点水平，再看两种偏移和成绩的关系。四个模型的结果同向：互信息偏移较大，通常伴随较低 CPC 和较高 RMSE；莫兰偏移越正，通常伴随较高 CPC 和较低 RMSE。</p>
-<p>例如，深度重力模型的互信息系数为 −0.023，莫兰系数为 +0.013，但它们的因变量是 <strong>logit(CPC)</strong>，不是原始 CPC 点数。四模型的相应系数都达到论文报告的显著性水平，并不意味着这些变化可以解释全部来回差异。图 4 的拟合网格也不是观测配对本身，不能把图中的负互信息轴读成真实观测。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/c9e1f2a3/fig4.png" alt="原论文图 4"></p>
-<p>图 4｜a、c 是深度重力模型的拟合曲面；b、d 是源州固定效应。右图颜色是相对参考州的回归系数，不是该州的实测 CPC 或 RMSE。</p>
-<p>作者另外把外州目标县的成绩平均到训练州，再同时考察两种偏移和训练数据规模。到这个尺度，平均互信息仍与 logit 平均 CPC 有负关联，平均莫兰偏移仍与平均 RMSE 有负关联，两项各自 p = 0.018；普查区数量的系数在两列都不显著。这是州平均的观察结果，不是把某个州的数据逐步加量的实验，不能得出「加数据没有用」或「选偏移最小的州就一定更好」。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>2018 年美国县内通勤基准上，模型迁移表现有空间差异，也有方向差异。输入属性分布的改变和空间自相关的改变提供了两种互补的解释，且四个模型的关联方向一致。不过，研究没有直接验证「按这两个分数选训练州」能把未见县的估计提升多少，也没有识别改变空间布局的因果效果。结果不能自动推广到跨县流量、其他年份、其他国家或非通勤出行。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>模型跨地区的分数，既反映模型本身，也反映它是从哪里学的、去哪里考试。比较模型之前，先把「两地的人口和设施分布有多像」与「这些特征在地图上的聚集程度有多像」分开，再分别报告迁移方向、CPC 和 RMSE，比只看一个全国平均更有信息。</p>
+<h2 id="要替一个县估算通勤人数，该向哪里借数据？"><a href="#要替一个县估算通勤人数，该向哪里借数据？" class="headerlink" title="要替一个县估算通勤人数，该向哪里借数据？"></a>要替一个县估算通勤人数，该向哪里借数据？</h2><p>Zhou, Z., Gao, S., Zhang, Q., Zhang, F., &amp; Du, Z. (2026). Quantifying Geographic Domain Shift to Decouple the Geospatial Transferability of Human Mobility Flow Generations. <em>Annals of the American Association of Geographers</em>. <a href="https://doi.org/10.1080/24694452.2026.2733292">期刊 DOI</a></p>
+<p>假设县里要增开通勤接驳车，知道各片区住了多少人、哪里有商店和服务设施，却缺少居民从哪片住宅区去哪里上班的记录。邻州有现成数据，可以先在那里学出一套估算办法，再搬到本县。选哪个州来学，会影响多大？</p>
+<p>在美国本土 48 个州的试验中，同一个深度重力模型只换训练州，到了外州以后，估计流量和真实流量的平均重叠得分就从约 0.58 变到 0.65。两个算法如果只差几百分，研究者得先问清楚，它们是否碰上了同样的训练地区和同样的目标地区。</p>
+<h2 id="怎样安排一场真正的跨地区考试？"><a href="#怎样安排一场真正的跨地区考试？" class="headerlink" title="怎样安排一场真正的跨地区考试？"></a>怎样安排一场真正的跨地区考试？</h2><p>作者用的是 2018 年县内通勤数据。样本包含 2,265 个县，县内以人口普查区为单位，每一条记录对应从一个普查区到另一个普查区上班的人数。这里可以借用外州的数据学方法，但模型需要还原的始终是本县内部的通勤联系。</p>
+<p>每轮取一个州，在约七成县中训练，在余下的约三成县调参，再到其他 47 个州的县测试。每个普查区都有 97 项人口特征和 36 类兴趣点信息。深度重力模型（DeepGravity）根据起点和目的地的特征及距离，估计各个目的地对起点居民的相对吸引力，再按这些权重分配起点已知的外出通勤总量。作者还以随机森林、梯度提升回归树和一个学习地区空间联系的图模型（GMEL）重复比较。</p>
+<p>为判断估计是否准确，研究对每个起讫对取估计人数与记录人数中较小的一个，把这部分可重叠的人数加起来，再按两张流量表的总量归一化。这是通勤共有部分（common part of commuting，CPC），越接近 1，整体重叠越多。均方根误差（RMSE）则看每对地区估计错了多少人，大流量线路上数值很大的偏差会被放大。因此，同一模型可能对准了全县主要通勤方向，却低估了最拥挤的一条线。</p>
+<h2 id="能从甲州借给乙州，为什么未必能反过来借？"><a href="#能从甲州借给乙州，为什么未必能反过来借？" class="headerlink" title="能从甲州借给乙州，为什么未必能反过来借？"></a>能从甲州借给乙州，为什么未必能反过来借？</h2><p>把各州训练的深度重力模型都送往同一批目标县，会发现部分中西部地区的平均 CPC 高于 0.70，有些地区只在 0.33 至 0.48 左右。如果逐对调换训练和测试的州，表现也经常不对称。一个方向的好成绩，不能直接当成另一个方向的成绩。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/c9e1f2a3/fig2.png" alt="训练州、测试地区与双向迁移的通勤估计表现"></p>
+<p>图 2｜a、b 六边形的颜色分别表示目标地区的平均重叠得分和平均误差，柱高表示换训练州后得分波动多大，两图的高度比例不同。c、d 每行对应一个训练州，每列对应一个测试州，颜色显示交换训练和测试方向前后的得分差。</p>
+<h2 id="两个地方的统计表很像，地图也一定很像吗？"><a href="#两个地方的统计表很像，地图也一定很像吗？" class="headerlink" title="两个地方的统计表很像，地图也一定很像吗？"></a>两个地方的统计表很像，地图也一定很像吗？</h2><p>假设两个县都有不少商店和就业设施。一地的设施大多挤在相邻的几个普查区，另一地则分散在好几个小镇。若只看各普查区设施数量的分布，二者可能很像；若看相邻地区是否相似，就能辨出差别。作者把模型从训练地带到新地方时面对的这种变化称为地理域偏移（geographic domain shift），用两种方法分别量它。</p>
+<p>第一种方法问“只看一项特征，能猜出这个普查区来自训练地还是测试地吗？”作者逐个计算人口或设施特征与地区标签之间的互信息，再对特征取平均。分数越高，表示凭这些特征越容易分辨两地。第二种方法问“特征相近的普查区是否聚在一起？”研究以多变量莫兰指数衡量空间自相关，用目标县的指数减去训练州各县的平均指数。正值表示目标县的空间聚集程度高于训练地平均水平。</p>
+<p>两项指标都能在缺少目标县通勤流量表时计算。即便第一项很小，第二项仍可以从明显负值变化到正值。它们也有各自的盲区。两地的莫兰指数相近，只能说明相邻普查区的相似程度相仿，城镇中心具体在哪里仍可能完全不同。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/c9e1f2a3/fig3.png" alt="各县特征分布差异与空间聚集差异的联合分布"></p>
+<p>图 3｜a 横轴是互信息偏移，纵轴是目标县与训练州的莫兰指数差。看左边缘，横轴接近零时，点仍沿纵轴散开。b–g 每图固定一个目标县，轮换外州训练来源。点越深表示 CPC 越高，点越大表示 RMSE 越大。</p>
+<h2 id="两把尺子能解释哪些得分差异？"><a href="#两把尺子能解释哪些得分差异？" class="headerlink" title="两把尺子能解释哪些得分差异？"></a>两把尺子能解释哪些得分差异？</h2><p>每个目标县都会被不同州的模型反复估计，几十个分数共享同一个县的特点。作者在混合效应回归中为每个目标县设置独立的基准水平，同时计入训练州的固定差异，再看地理指标与成绩的关系。四类模型得到相同方向的结果：训练地和测试地的属性越容易区分，通常重叠得分越低、人数误差越大；目标县的空间聚集程度相对更高时，通常重叠得分更高、人数误差更低。</p>
+<p>这个结果提示，选择训练地时不能笼统地说“越像越好”。在数据中，特征取值的分布越接近通常越有利；空间聚集程度这一项却有方向，研究看到的是目标县相对更集中时预测往往更好。在州平均层面把训练样本数一起纳入后，样本数与成绩的关联没有达到显著水平。研究没有在同一地区逐步增加数据，也没有做一次按这些指标选州的前瞻验证。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/c9e1f2a3/fig4.png" alt="两种地理差异与预测成绩的回归关系及训练州差异"></p>
+<p>图 4｜a、c 把互信息偏移放在横轴、莫兰指数差放在纵轴，颜色表示深度重力模型的回归拟合值。b、d 用地图呈现各训练州相对参照州的固定效应。地图颜色表示模型估计的相对差异。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>同一种通勤流量生成模型在不同地方的表现可以相差很大，调换训练和测试地区还可能改变结果。平均分之外，读者需要知道流量方向是否估对、大流量线路错了多少人，以及成绩来自哪些地区。</p>
+<p>属性分布差异和空间自相关差异都与跨地区表现有关。两者共同提供了训练数据适用范围的线索，但这项研究仅考察一个年份的美国县内通勤，其结论仍有待在跨县和其他类型出行中检验。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>对美国 2,265 个县的实验表明，仅改变训练州，深度重力模型在外州的平均通勤流量重叠得分就可相差约 0.07。要知道一个训练好的模型能用在哪里，既要看居民和设施的统计特征，也要看这些特征在当地地图上如何聚集。即使两项都容易取得，它们仍然只能提示风险，真正关心的关键线路还需要当地记录核对。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li>Zhiyong Zhou、Song Gao、Qianheng Zhang、Feng Zhang、Zhenhong Du（2026），<em>Quantifying geographic domain shift to decouple the geospatial transferability of human mobility flow generation models</em>。本文数字和图依据 <a target="_blank" rel="noopener" href="https://arxiv.org/html/2608.21567v2">arXiv:2608.21567v2（2026 年 8 月 26 日）</a>；<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2608.21567v2">版本记录</a>另列 10 月 7 日的 v3。</li>
-<li>正式版 2026 年 10 月 14 日在线发表于 <em>Annals of the American Association of Geographers</em>，题名改为 <em>Quantifying Geographic Domain Shift to Decouple the Geospatial Transferability of Human Mobility Flow Generations</em>。<a target="_blank" rel="noopener" href="https://doi.org/10.1080/24694452.2026.2733292">期刊 DOI</a>。</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/GeoDS/GeoDomainShift-Mobility">作者代码</a>｜<a target="_blank" rel="noopener" href="https://github.com/tsinghua-fib-lab/CommutingODGen-Dataset">CommutingODGen 基准</a>。</li>
+<li>正式论文报告了跨州测试与地理差异分析，作者公开稿提供完整方法与分面图。<a href="https://doi.org/10.1080/24694452.2026.2733292">期刊论文</a> · <a href="https://arxiv.org/html/2608.21567v3">作者公开全文</a></li>
+<li>2018 年县内通勤流量及普查区特征来自公开基准 CommutingODGen，训练与评估实现由作者公开。<a href="https://github.com/tsinghua-fib-lab/CommutingODGen-Dataset">CommutingODGen 数据集</a> · <a href="https://github.com/GeoDS/GeoDomainShift-Mobility">研究代码</a></li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><ul>
-<li><strong>Zhiyong Zhou</strong>：预印本署名威斯康星大学麦迪逊分校地理空间数据科学实验室及浙江大学地球科学学院。</li>
-<li><strong>Song Gao</strong>（通讯作者）、<strong>Qianheng Zhang</strong>：署名威斯康星大学麦迪逊分校地理系地理空间数据科学实验室。</li>
-<li><strong>Feng Zhang</strong>、<strong>Zhenhong Du</strong>：署名浙江大学地球科学学院。</li>
-</ul>
-<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>一个县要借外地数据规划通勤接驳车，人口规模接近是个起点，但不能代替对布局的了解。一个县的岗位围着单一城镇中心，另一个县的岗位沿几个产业园分散。两地即使人口、商店和岗位总数相似，早上最吃紧的线路也未必相似。</p>
-<p>我会拿这些偏移指标筛出几个候选源州，再请本地少量可靠的通勤观测给出第二票，特别核对必须服务的枢纽和大流量通道。若同一模型在不同源州下对一条线路给出很不一样的流量，那条路线正是补调查的优先对象，而不是把几个预测平均后就当成已知客流。</p>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Zhiyong Zhou（美国威斯康星大学麦迪逊分校地理系地理空间数据科学实验室、浙江大学地球科学学院），Song Gao 和 Qianheng Zhang（威斯康星大学麦迪逊分校地理系地理空间数据科学实验室），Feng Zhang 和 Zhenhong Du（浙江大学地球科学学院）。Song Gao 为通讯作者。</p>
+<h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><small>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</small></p>
+<p>回到准备开通勤接驳车的县。两套外州模型也许都能估准全县有多少人去园区，却对园区北门的一条线意见相反。一套模型的训练地把岗位集中在主城，另一套模型的训练地有几个彼此分开的就业中心。此时最值得问园区企业的，可能是“早班员工从哪些镇来”，而不只是“园区一共多少人”。两项调查都要花钱，前者更能分辨两种出行格局，也更能决定车该在哪一侧设站。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -614,17 +603,13 @@
                 <a href="/posts/e2f4a5b6/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="2026-Fusing Urban Structure and Semantics: A Conditional Diffusion Model for Cross-City OD Matrix Generation">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Fusing Urban Structure and Semantics: A Conditional Diffusion Model for Cross-City OD Matrix Generation">
                         
-                        <span class="card-title">2026-Fusing Urban Structure and Semantics: A Conditional Diffusion Model for Cross-City OD Matrix Generation</span>
+                        <span class="card-title">Fusing Urban Structure and Semantics: A Conditional Diffusion Model for Cross-City OD Matrix Generation</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            #articleContent img {display:block;margin:1.25rem auto .5rem;max-width:100%;height:auto;} .post-title {overflow-wrap:any
-                        
-                    </div>
+                    <div class="summary block-with-text">根据人口、设施和空间位置，能还原多少通勤联系？美国通勤数据揭示了距离与邻接的作用，也显示两种误差口径会给出不同的模型排名。</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2026-11-11
@@ -674,17 +659,13 @@
                 <a href="/posts/b8d9e0a1/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="2026-GeoFlow: Geo-Aware Modeling of Inter-Area Relationships in Origin-Destination Flow Prediction and Generation">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="GeoFlow: Geo-Aware Modeling of Inter-Area Relationships in Origin-Destination Flow Prediction and Generation">
                         
-                        <span class="card-title">2026-GeoFlow: Geo-Aware Modeling of Inter-Area Relationships in Origin-Destination Flow Prediction and Generation</span>
+                        <span class="card-title">GeoFlow: Geo-Aware Modeling of Inter-Area Relationships in Origin-Destination Flow Prediction and Generation</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">从同一片区出发，哪些人流容易估准？GeoFlow 在通勤、货运和访客数据中检验地理关系怎样改善起讫流量估计。</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-11

@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2025-A Large-Scale Residential Load Dataset in a Southern Province of China, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="A Large-Scale Residential Load Dataset in a Southern Province of China, 猴猴猴">
+    <meta name="description" content="八万多户居民的用电记录如何汇成可以研究的数据？这项研究比较了缺测填补方法，并展示了广西住宅负荷随时段和天气的变化。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2025-A Large-Scale Residential Load Dataset in a Southern Province of China | 猴猴猴</title>
+    <title>A Large-Scale Residential Load Dataset in a Southern Province of China | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2025-A Large-Scale Residential Load Dataset in a Southern Province of China</h1>
+                    <h1 class="description center-align post-title">A Large-Scale Residential Load Dataset in a Southern Province of China</h1>
                 </div>
             </div>
         </div>
@@ -432,46 +432,38 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img { display:block; margin:1.25rem auto; max-width:100%; height:auto; } .post-title { overflow-wrap:anywhere; }</style>
 
-<p>酷热的一天，很多人下班后打开空调，小区负荷可能在傍晚冲高。假如电表恰好在这时断了记录，用普通日的数值把缺口填平，曲线会更完整，却可能丢掉本来最想研究的峰值。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-025-04766-7">这篇数据论文</a>公开了广西住宅小区的实测负荷与天气资料，也让我们看到：分析极端用电时，缺失和填补本身就是证据的一部分。</p>
-<h2 id="八万多户的样本，电表实际量到了哪一层？"><a href="#八万多户的样本，电表实际量到了哪一层？" class="headerlink" title="八万多户的样本，电表实际量到了哪一层？"></a>八万多户的样本，电表实际量到了哪一层？</h2><p>数据来自广西 10 个城市的 23 个住宅小区，覆盖 423 个变压器电表，时间为 2022 年 1 月至 2023 年 11 月，按小时记录。表 2 合计覆盖 88,309 户，但发布的是变压器聚合负荷，不是八万多条逐户曲线。样本小区与电表数量在城市间不均衡，不能把一个样本小区的总功率写成整座城市的用电需求。</p>
-<p>公开库还配套天气、节假日与极端事件标签。电表编号经处理，小区名与具体表位不公开；这减少了识别具体设施的线索，但不是任意外部信息下的形式化隐私保证。将日尺度气象记录接到小时负荷上，也不会让天气测量本身变成逐小时观测。</p>
-<p><img src="/posts/4a7d82ec/fig1.webp" alt="图1：负荷与天气、节假日的资料结构"></p>
-<p><em>图 1｜从楼栋、变压器到负荷数据库，再把天气、极端事件和节假日放在同一张日历上。</em></p>
-<h2 id="电表少了一段记录，怎样判断该不该补？"><a href="#电表少了一段记录，怎样判断该不该补？" class="headerlink" title="电表少了一段记录，怎样判断该不该补？"></a>电表少了一段记录，怎样判断该不该补？</h2><p>清洗中，研究者先标出缺失和异常，再对缺失严重的电表做排除。对于剩下的缺口，论文展示了线性、前向、后向和前后结合的填补，不同办法会把缺口内部的峰谷补成不同形状。由于缺失处没有独立真值，图上的平滑程度不能当作填补准确率。</p>
-<p><img src="/posts/4a7d82ec/fig2.webp" alt="图2：缺失记录在时间和电表间的分布"></p>
-<p><em>图 2｜横轴是图示电表，纵轴是日期；白色表示缺失。这是缺失分布示例，不是全部 423 台电表。</em></p>
-<p><img src="/posts/4a7d82ec/fig3.webp" alt="图3：不同填补方法的曲线对照"></p>
-<p><em>图 3｜阴影标记缺口，折线比较不同填补办法。重点是缺口内的峰谷能相差多大。</em></p>
-<p>相邻时段或前后同期的记录能提供日常节律，但极端天气本身也可能伴随断测。如果目标是估计最高负荷，应保存实测和填补标记，比较不同填补窗口会怎样影响峰值。实时预测还需避免用当时尚未发生的观测填补过去。</p>
-<h2 id="哪些高峰反复出现，哪些只属于某些小区？"><a href="#哪些高峰反复出现，哪些只属于某些小区？" class="headerlink" title="哪些高峰反复出现，哪些只属于某些小区？"></a>哪些高峰反复出现，哪些只属于某些小区？</h2><p>样本负荷通常在清晨较低，白天或晚间上升；许多小区夏季较高，一些也有冬季高点。工作日与周末并非在每个例子中都朝同一个方向变化。城市面板的纵轴尺度不同，小区之间的户数和设施容量也不同，不能用曲线高度直接比较户均用电。负荷热图能告诉我们哪些时段相对较高，但水平高和波动幅度大是两个问题。</p>
-<p><img src="/posts/4a7d82ec/fig4.webp" alt="图4：十个城市样本的负荷时间序列"></p>
-<p><em>图 4｜(a–j) 十个城市的样本期负荷。各面板纵轴不同，先看季节形态，再比数值。</em></p>
-<p><img src="/posts/4a7d82ec/fig5.webp" alt="图5：日内、周内与月份负荷模式"></p>
-<p><em>图 5｜三组城市样例分别比较日内、周内和月度模式。留意工作日与周末的关系并不一致。</em></p>
-<p><img src="/posts/4a7d82ec/fig6.webp" alt="图6：按日期和小时排列的负荷指标"></p>
-<p><em>图 6｜日期与时刻交叉的负荷热图。深色表示图示的相对指标较高，不直接等于波动幅度更大。</em></p>
-<h2 id="天更热时，能算出天气增加了多少用电吗？"><a href="#天更热时，能算出天气增加了多少用电吗？" class="headerlink" title="天更热时，能算出天气增加了多少用电吗？"></a>天更热时，能算出天气增加了多少用电吗？</h2><p>示例中约 18–25°C 的负荷变化较平缓，较热一侧的上升更明显。图 7 比较温度、露点和功率，但线性相关不能概括两端的变化，也不能用一个舒适区阈值代表所有住宅。这里保留论文图中的 C0、C2 编码，因为正文与表格对 C0 的城市称谓不一致。</p>
-<p><img src="/posts/4a7d82ec/fig7.webp" alt="图7：两个城市代码下的负荷与气象关系"></p>
-<p><em>图 7｜(a–b) C0、C2 的温度、露点与功率。上方是线性相关，下方散点能看出关系并非一条直线。</em></p>
-<p>作者将高温、降水等标签叠到负荷曲线上，再将个别极端日与前一天、上周同日比较。这种对照能指出值得复查的事件，但对照日的季节、工作安排和其他天气因素并未被随机控制，差值不能直接解释成某个事件造成的额外耗电。</p>
-<p><img src="/posts/4a7d82ec/fig8.webp" alt="图8：极端天气标签与年度负荷叠置"></p>
-<p><em>图 8｜两组城市样例的负荷与天气事件标签。标签可以重叠，不能当成彼此独立的干预。</em></p>
-<p><img src="/posts/4a7d82ec/fig9.webp" alt="图9：极端日、前一天与上周同日对照"></p>
-<p><em>图 9｜(a–f) 同一城市的六个事件例子，分别对照前一天和上周同日。看峰值时刻和曲线形状是否一起改变。</em></p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>这份数据把实测的变压器级负荷与气象和日历对齐，适合研究样本小区的日内与季节节律，以及天气变量对预测是否有用。原始实测与填补值应分开，聚合曲线不能拆成单户用电，观察到的天气相关也不是因果效应。覆盖范围限于广西部分住宅小区，不能当成全省或全国住户的代表样本。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>研究极端用电时，不能只问峰值有多高，还要问峰值那一段是否真的被测到。负荷、天气和缺失标记一起使用，才能知道一条曲线反映了什么、又可能漏掉了什么。</p>
+<h2 id="天气预报说要降温，小区晚上的用电高峰会怎样？"><a href="#天气预报说要降温，小区晚上的用电高峰会怎样？" class="headerlink" title="天气预报说要降温，小区晚上的用电高峰会怎样？"></a>天气预报说要降温，小区晚上的用电高峰会怎样？</h2><p>Li, B., Yu, R., Gan, K., Ruan, G., Liu, S., Yang, M., Xie, D., Dai, W., &amp; Zhong, H. (2025). A Large-Scale Residential Load Dataset in a Southern Province of China. <em>Scientific Data, 12</em>, 450. <a href="https://doi.org/10.1038/s41597-025-04766-7">论文 DOI</a></p>
+<p>假设你负责一个小区的配电，想用上周同一天的用电记录估计今晚的负荷。广西桂林的一个低温日说明，这种估法可能漏掉什么。那天清晨，三条曲线都降到了低谷。入夜后，低温日的功率却高过了前一天和上周同日，晚峰的差别远比清晨醒目。在另一个强降水的例子里，晚间最高的一条又换成了对照日。</p>
+<p>要看见这种差别，既要知道居民在哪几个小时集中用电，也要知道用作参照的那一天发生了什么。这篇数据论文把广西住宅小区的电表、天气和日历放到一起，让读者可以回到某一天，核查整条负荷曲线。</p>
+<h2 id="八万多户居民，在数据库里留下了多少条曲线？"><a href="#八万多户居民，在数据库里留下了多少条曲线？" class="headerlink" title="八万多户居民，在数据库里留下了多少条曲线？"></a>八万多户居民，在数据库里留下了多少条曲线？</h2><p>从 2022 年 1 月到 2023 年 11 月，广西 10 座城市的 23 个住宅小区提供了 423 台变压器电表的逐小时记录。多栋楼可以接在同一台变压器上。当几栋楼的空调在同一时段运转，电表记录它们和其他电器合起来需要多少功率，这个量就是负荷（load），以千瓦计。把同一小区几台变压器的记录加起来，就能追踪整个小区一天中什么时候最忙。</p>
+<p>论文表 2 所列住户合计 88,309 户，其中防城港一地就占了 46,837 户。样本所覆盖的住户多寡会影响各地总功率的高低。出于同样的原因，单凭变压器曲线也无法知道某个家庭是否在夜里开了空调。</p>
+<p>配套的气象站资料记录日均温、最高温、最低温和露点等指标。露点是空气冷却到水汽开始凝结时的温度，有助于描述空气里含有多少水汽。电表用北京时间逐小时记录，天气标签按日对应。一场降雨可以把某天列为强降水日，要把傍晚某一小时的用电变化归给当时的雨，还需要更细的天气记录。</p>
+<h2 id="如果电表恰好漏了晚高峰，该填进一个什么数？"><a href="#如果电表恰好漏了晚高峰，该填进一个什么数？" class="headerlink" title="如果电表恰好漏了晚高峰，该填进一个什么数？"></a>如果电表恰好漏了晚高峰，该填进一个什么数？</h2><p>假设周三晚上八点缺了一条记录。沿缺口两端画直线很容易，但缺口越长，这条线越可能抹平原本会出现的起伏。论文处理负荷缺口时，取上周和下周同一时刻的平均值，让周三晚上和另外两个周三晚上相比。气象数据则取相邻两天的平均值。作者把原始记录保存在数据库里，后续分析使用清洗和填补后的数据。</p>
+<p><img src="/posts/4a7d82ec/fig3.webp" alt="四种方法补出的负荷曲线"></p>
+<p>图 3｜横轴为 2022 年 6 月示例时段的日期和小时，纵轴为负荷，灰蓝底色标出缺测时段。蓝线连接缺口两端，橙线和绿线分别参考前一周和后一周，黑线取这两周同期的平均值。</p>
+<p>看图中跨过午夜的长缺口，直线往下走，黑线却在中途形成一个高峰。同一台表、同一个晚上，两种填法给出了不同的峰值。图里缺少那几个小时的真实读数，因此看见黑线恢复了夜间起伏，还不足以判断它恢复了当天的真实峰值。尤其在极端天气期间，电表可能恰好在用电条件最特殊的时候中断。</p>
+<h2 id="气温与负荷的关系，为什么用一个相关系数讲不清？"><a href="#气温与负荷的关系，为什么用一个相关系数讲不清？" class="headerlink" title="气温与负荷的关系，为什么用一个相关系数讲不清？"></a>气温与负荷的关系，为什么用一个相关系数讲不清？</h2><p>把每天的数据放回温度轴上，论文在 C0 样本中指出了一段相对平坦的区间，大致在 18–25 °C。再向炎热一侧看，负荷随温度上升得较快。向寒冷一侧看，气温降低时负荷也有回升。一个线性相关系数把冷端和热端合在一起，容易把两端各自的变化掩盖掉。</p>
+<p><img src="/posts/4a7d82ec/fig7.webp" alt="两个城市样例中温度露点和功率的关系"></p>
+<p>图 7｜（a）和（b）分别为 C0、C2。先看各面板左下角，横轴是温度（°C），纵轴是功率（kW）。再读右上角的温度与功率相关系数，两地分别为 0.62 和 0.29。散点给出了这两个数概括掉的曲线形状。</p>
+<p>这个温度区间来自论文对示例点云形状的判断。每座城市的住宅条件、供电规模和设备构成都可能不同，图上的转弯位置不能直接拿来给其他小区设预警线。论文对 C0 的地名在表 2 和正文中有出入，图 7 沿用原图代码。C2 在表中对应桂林。</p>
+<h2 id="同一个小区遇到不同天气，哪一天适合拿来作比较？"><a href="#同一个小区遇到不同天气，哪一天适合拿来作比较？" class="headerlink" title="同一个小区遇到不同天气，哪一天适合拿来作比较？"></a>同一个小区遇到不同天气，哪一天适合拿来作比较？</h2><p>对桂林样本的六个天气事件，作者把事件当天、前一天和上周同一天的小时功率叠在一起。前一天在时间上最接近，上周同日则保留了星期几这个条件。两条参照线有时相差不少，尤其到了晚间，选择哪一天作比较会影响对峰值差距的判断。</p>
+<p><img src="/posts/4a7d82ec/fig9.webp" alt="桂林六个天气事件与两个参照日的小时负荷"></p>
+<p>图 9｜横轴为一天中的时刻，纵轴为功率（kW）。红线是事件日，灰线是前一天，蓝线是上周同日。（a–f）依次为体感高温警戒、气温偏高、气温偏低、高湿、五级风及降水量达到 100 毫米的例子。</p>
+<p>低温日（c）的红线在白天拉开差距，晚间仍明显高于两条参照线。强降水日（f）的晚峰则低于至少一个参照日。即使天气都被标为极端，曲线也没有一致地向上平移。这六次比较可以帮人定位值得追查的日期，却不足以推算一次降温或暴雨平均会让负荷增加多少。参照日与事件日之间还可能有湿度、居民作息等其他差别。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>广西样本显示，温度和住宅负荷的关系会随温度区间变化。两个城市样例在温和天气下的变化较平缓，炎热一端的上升更陡。桂林的事件对照进一步表明，一天中的差距也不均匀，清晨相近的曲线，到了晚峰可能已经分开。</p>
+<p>判断峰值大小时，参照日期和电表是否完整都很重要。前者决定“比平常高”指的是哪一天，后者决定图上的最高点有多少实测依据。数据库保留原始记录，使这两项判断都可以复查。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这份数据把广西 23 个住宅小区的逐小时变压器负荷与当地天气、节假日对齐。用它研究用电高峰，可以先看不同气温下负荷怎样分布，再回到一个具体事件，对照前一天和上周同日的晚间功率。这样能够找出哪些时段偏离平常，也能辨认哪些峰值落在电表缺测的地方。要继续解释这些偏离为何出现，还需要关于当日天气和居民用电活动的证据。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li>Li, B. et al. (2025). <em>A Large-Scale Residential Load Dataset in a Southern Province of China</em>. Scientific Data, 12, 450. <a target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11920200/">正式全文</a> · <a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-025-04766-7">DOI</a>。图 1–9 来自原文。</li>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.6084/m9.figshare.26333452.v1">论文所列数据库归档 v1</a> · <a target="_blank" rel="noopener" href="https://github.com/yuruotao/District-power">作者代码与修正记录</a>。</li>
+<li>论文说明了采集与填补方法，并给出了按城市、天气和时刻比较的图表。<a href="https://doi.org/10.1038/s41597-025-04766-7">论文全文</a></li>
+<li>研究团队提供 SQLite 格式的变压器、天气和节假日等数据表，以及处理代码。气象站资料来自美国国家海洋和大气管理局（NOAA）。<a href="https://doi.org/10.6084/m9.figshare.26333452.v1">数据归档</a> · <a href="https://github.com/yuruotao/District-power">作者代码</a></li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Bo Li 与 Ruotao Yu 为共同第一作者，发表署名均包括广西大学；Bo Li 还署名清华大学。通讯作者为广西大学的 Wei Dai 和清华大学的 Haiwang Zhong。其他合作者与机构信息见正式论文署名。</p>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>Bo Li（广西大学、清华大学）和 Ruotao Yu（广西大学）为共同第一作者。Kaiye Gan、Mingxia Yang 和通讯作者 Wei Dai 署名广西大学，另一位通讯作者 Haiwang Zhong 署名清华大学。Guangchun Ruan 来自麻省理工学院，Shangwei Liu 来自普林斯顿大学，Daiyu Xie 来自广西电网电力调度控制中心。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>可以在一段确定有真实观测的高温时段，人工遮掉几段长度不同的电表数据，再比较几种填补策略。除了平均误差，还单独报告最高负荷被压低多少、峰值出现时刻被挪动多久。如果一种方法平均误差低、却总把晚高峰填平，它就不适合作为电网峰值风险评估的默认方案。</p>
+<p>假如小区要在寒潮来临前提醒住户错峰用电，通知上写“今天全天用电都会偏高”，居民很难据此作决定。桂林的低温日给出了一个更具体的问题：平常能错开的用电活动，会不会在晚饭后挤到同一个小时？对配电人员而言，即便一天的总耗电量相近，许多住户同时开设备和分别在不同时段开设备，对变压器的要求也很不一样。对照曲线的价值，正在于把这样一个需要留意的时段指出来。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -651,17 +643,13 @@
                 <a href="/posts/e8000016/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="2025-A dataset of multi-level street-block divisions of 985 cities worldwide">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="A dataset of multi-level street-block divisions of 985 cities worldwide">
                         
-                        <span class="card-title">2025-A dataset of multi-level street-block divisions of 985 cities worldwide</span>
+                        <span class="card-title">A dataset of multi-level street-block divisions of 985 cities worldwide</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            #articleContent img {display:block;margin:1.25rem auto .5rem;max-width:100%;height:auto;} .post-title {overflow-wrap:any
-                        
-                    </div>
+                    <div class="summary block-with-text">同样沿道路划分街区，纽约的街边能和普查边界对上，悉尼的一个统计区却能装下许多街区。全球 985 个城市的五级街区地图，怎样用于跨城比较？</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-10-25

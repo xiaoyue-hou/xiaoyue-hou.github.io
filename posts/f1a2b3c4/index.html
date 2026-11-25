@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-DynaOD: Dynamic Origin-Destination Flow Generation with Discrete-to-Continuous Temporal Semantic Modeling, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="DynaOD: Dynamic Origin-Destination Flow Generation with Discrete-to-Continuous Temporal Semantic Modeling, 猴猴猴">
+    <meta name="description" content="同一片办公区周一和周日会吸引一样多的出行吗？美国 500 个县的一项实验把日历转换为逐日变化的地区特征，检验没有当地历史记录时能还原多少区际流量。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-DynaOD: Dynamic Origin-Destination Flow Generation with Discrete-to-Continuous Temporal Semantic Modeling | 猴猴猴</title>
+    <title>DynaOD: Dynamic Origin-Destination Flow Generation with Discrete-to-Continuous Temporal Semantic Modeling | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-DynaOD: Dynamic Origin-Destination Flow Generation with Discrete-to-Continuous Temporal Semantic Modeling</h1>
+                    <h1 class="description center-align post-title">DynaOD: Dynamic Origin-Destination Flow Generation with Discrete-to-Continuous Temporal Semantic Modeling</h1>
                 </div>
             </div>
         </div>
@@ -436,98 +436,32 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display:block; margin:1.25rem auto; max-width:100%; max-height:750px; height:auto; } .post-title { overflow-wrap:anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img { display: block; max-width: 100%; height: auto; margin: 1.25rem auto .5rem; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h2 id="没有这个县的历史流量表，能用地区属性和日历生成一天的人流吗？"><a href="#没有这个县的历史流量表，能用地区属性和日历生成一天的人流吗？" class="headerlink" title="没有这个县的历史流量表，能用地区属性和日历生成一天的人流吗？"></a>没有这个县的历史流量表，能用地区属性和日历生成一天的人流吗？</h2><p>同一个商业区，周一和周末的人流可能完全不同。一个新区没有历史出行表，但我们知道哪里多办公楼、哪里多商店，也知道要估计的是星期几。DynaOD 不直接让语言模型猜“有多少人从甲地去乙地”，而是请它先判断哪类活动信号可能上升或下降，再用真实流量训练另一块模块，学习这些方向该转成多大的变化。</p>
-<p><strong>论文名片</strong>｜Jie Zhao、Xianqi Dai、Jie Feng、Huandong Wang、Yong Li，<em>DynaOD: Dynamic Origin-Destination Flow Generation with Discrete-to-Continuous Temporal Semantic Modeling</em>，IJCAI 2026 主会，3259–3267 页。<a target="_blank" rel="noopener" href="https://www.ijcai.org/proceedings/2026/362">正式会刊</a> · <a target="_blank" rel="noopener" href="https://doi.org/10.24963/ijcai.2026/362">DOI</a></p>
-<p><strong>先说结论</strong></p>
-<ul>
-<li>在 2019 年 1 月美国 500 个县的基准上，报告的测试同时留出县和日期。生成时不读测试县的历史流量，训练仍要用已见县、已见日期的真实矩阵。</li>
-<li>默认配置的流量重叠 CPC 为 <strong>0.492</strong>，同表最强的重叠基线是预训练 NetGAN 的 <strong>0.365</strong>；论文报告的相对提升是 <strong>34.7%</strong>。CPC 衡量矩阵重叠，不是逐人行程正确率。</li>
-<li>换成 15 亿参数的学生模型，微调后 CPC 从 <strong>0.403</strong> 升到 <strong>0.476</strong>，仍低于教师的 <strong>0.492</strong>。这给不在线调用教师提供了一种取舍。</li>
-</ul>
-<h2 id="先把“生成”与“预测”分清"><a href="#先把“生成”与“预测”分清" class="headerlink" title="先把“生成”与“预测”分清"></a>先把“生成”与“预测”分清</h2><p>研究生成的是<strong>一个县内普查区之间一天的起讫流量矩阵</strong>。每个格子是一对起终点的流量，而不是一条个人路径。数据把公开的美国日流量与起讫基准所用的地区属性对齐；每个普查区有 <strong>34 类兴趣点</strong>和 <strong>97 维人口及社会经济属性</strong>，每一天配一个 8 维日历向量：星期编码和是否假日。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f1a2b3c4/fig1.png" alt="原论文完整图1：用历史流量预测和用地区语境生成的对照"></p>
-<p><strong>图 1｜看左右两条路线各自收到什么。</strong> (a) 输入多天历史矩阵来预测当天；(b) 输入地区属性与日历语境来生成当天。输出都是起讫矩阵，差异是生成时要不要读历史流量。来源：原论文 Fig. 1。</p>
-<p>县和日期分别切分；训练只用两者都见过的样本，报告的测试是两者都没见过。实际用真实矩阵优化的是下面的 ShapeNet，流量生成器则保持预训练权重冻结。给基线的日历编码相同，但各方法是否训练了额外模块不同。这是拿少历史信息的<strong>部署输入</strong>来做测试，不是说整个系统不用真实流量学习。</p>
-<h2 id="文本模型只判方向，连续模块再决定幅度"><a href="#文本模型只判方向，连续模块再决定幅度" class="headerlink" title="文本模型只判方向，连续模块再决定幅度"></a>文本模型只判方向，连续模块再决定幅度</h2><p>流程可以分成三步。</p>
-<ol>
-<li><strong>语言模型给方向。</strong> 每个地区、每一天，对兴趣点特征以及人口社会经济特征逐维输出 −1、0 或 +1。人口属性方向还参考前一步的兴趣点方向。这些数是给生成器的控制信号，不是在断言当天真的多出了一批人口或设施。</li>
-<li><strong>ShapeNet 学幅度。</strong> 它把离散控制变成随日期变化的连续形状，用分布参数描述幅度并采样，同时加时间平滑约束。真实起讫流量告诉它怎样调更有利于复现矩阵；没有人工标注每一维该升还是该降。</li>
-<li><strong>冻结的生成器产出矩阵。</strong> 连续幅度与离散方向一起逐维调制静态地区特征。方向为零，对应特征原样送入。默认是预训练 WeDAN，论文也试了 NetGAN。</li>
-</ol>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/f1a2b3c4/fig2.png" alt="原论文完整图2：离散方向、连续形状、流量生成、检索与知识蒸馏"></p>
-<p><strong>图 2｜先沿主路径读前三步，再看两条可选分支。</strong> (1) 语境给离散方向；(2) ShapeNet 把方向展开成连续变化；(3) 调制地区特征后送入静态生成器。右侧的 (4) 检索形状与 (5) 蒸馏方向模型是另外的部署选择，不是每次都必须运行。来源：原论文 Fig. 2。</p>
-<h2 id="到了没见过的县和日期，重叠真的有改善吗？"><a href="#到了没见过的县和日期，重叠真的有改善吗？" class="headerlink" title="到了没见过的县和日期，重叠真的有改善吗？"></a>到了没见过的县和日期，重叠真的有改善吗？</h2><p>CPC 比较生成矩阵与真实矩阵的流量重叠，越高越好；RMSE 与归一化版本 NRMSE 看矩阵逐格误差，越低越好；Jensen–Shannon 散度分别比较流入、流出和整个起讫流量的分布，越低越接近。三类指标不必选出同一个基线。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>原论文表 1 节选</th>
-<th style="text-align:right">CPC ↑</th>
-<th style="text-align:right">RMSE ↓</th>
-<th style="text-align:right">NRMSE ↓</th>
-<th style="text-align:right">流入 JSD ↓</th>
-<th style="text-align:right">流出 JSD ↓</th>
-<th style="text-align:right">整矩阵 JSD ↓</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>预训练 NetGAN</td>
-<td style="text-align:right">0.365</td>
-<td style="text-align:right">293.42</td>
-<td style="text-align:right">1.129</td>
-<td style="text-align:right">0.657</td>
-<td style="text-align:right">0.736</td>
-<td style="text-align:right">0.574</td>
-</tr>
-<tr>
-<td>预训练 WeDAN</td>
-<td style="text-align:right">0.331</td>
-<td style="text-align:right">286.51</td>
-<td style="text-align:right">1.056</td>
-<td style="text-align:right">0.502</td>
-<td style="text-align:right">0.741</td>
-<td style="text-align:right">0.333</td>
-</tr>
-<tr>
-<td>DynaOD</td>
-<td style="text-align:right">0.492</td>
-<td style="text-align:right">253.09</td>
-<td style="text-align:right">0.940</td>
-<td style="text-align:right">0.322</td>
-<td style="text-align:right">0.421</td>
-<td style="text-align:right">0.220</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>DynaOD 在表 1 的六列均优于比较基线。论文报告 CPC 比 NetGAN 高 34.7%，RMSE 比 WeDAN 低 11.7%，流出 JSD 比 NetGAN 低 42.8%。这三个百分比要分别看各自的分母，不能合成一条统一的“准确率提升”。而且 0.492 距完全重叠仍有明显差距，平均分也没有告诉读者，低流量或偏远地区是否同样改善。</p>
-<p>同样的时间调制接上冻结 NetGAN 时，CPC 从 <strong>0.365 到 0.461</strong>；接 WeDAN 则从 <strong>0.331 到 0.492</strong>。两类生成器都获益，但结果不同，说明调制是新增的时间适应能力，不会消除底层生成器本身的差别。</p>
-<h2 id="是语言模型有用，还是分出“升降”这一步就够了？"><a href="#是语言模型有用，还是分出“升降”这一步就够了？" class="headerlink" title="是语言模型有用，还是分出“升降”这一步就够了？"></a>是语言模型有用，还是分出“升降”这一步就够了？</h2><p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/f1a2b3c4/fig3.png" alt="原论文完整图3：移除全部或部分方向控制时的六项指标"></p>
-<p><strong>图 3｜比较完整方向控制，而不是用柱高估百分比。</strong> (a) CPC，(b)、(c) 两种逐格误差，(d–f) 三种分布差异。星标指两个方向控制都保留的版本；各面板的纵轴都没有从 0 起。来源：原论文 Fig. 3。</p>
-<p>两套方向都保留时表现最好，去掉全部后流量重叠和分布拟合都下降。作者还把语言模型换成只用下游流量监督的多层感知机，CPC 从 <strong>0.492 到 0.413</strong>，整矩阵 JSD 由 <strong>0.220 到 0.274</strong>。这支持在该实验里，使用语言模型生成控制比这个特定替代方案更有效；不能据此认定模型识别了星期或假日对真实行为的因果作用。</p>
-<h2 id="新地区借用旧形状，小模型借用教师判断"><a href="#新地区借用旧形状，小模型借用教师判断" class="headerlink" title="新地区借用旧形状，小模型借用教师判断"></a>新地区借用旧形状，小模型借用教师判断</h2><p>如果新县某个普查区的属性与训练地区相似，ShapeMem 可以检索最接近的 5 个普查区，把它们按星期汇总过的形状加权，替代现场运行 ShapeNet。借的是控制幅度的模式，不是把邻居的整张交通矩阵搬过来。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/f1a2b3c4/fig4.png" alt="原论文完整图4：直接使用ShapeNet与检索相似区域形状的六项指标"></p>
-<p><strong>图 4｜橙色检索版对比绿色直接推断版。</strong> 六格指标依次与上图相同。检索版方向上都占优，但纵轴截断、柱顶也没标精确数，不能从柱高推出另一个 34.7% 或精确小数。来源：原论文 Fig. 4。</p>
-<p>另一种替换不动形状模块，而是把教师 GPT-4o-mini 的离散选择当作伪标签，用 LoRA 微调 Qwen2.5-1.5B-Instruct。表 2 中，微调前后的 CPC 是 <strong>0.403 → 0.476</strong>，教师为 <strong>0.492</strong>；整矩阵 JSD 则是 <strong>0.276 → 0.234</strong>，比教师的 <strong>0.220</strong> 仍有差距。学生替代的是在线方向查询，不代表已经超过教师。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/f1a2b3c4/fig5.png" alt="原论文完整图5：未微调学生、微调学生与教师的CPC表现"></p>
-<p><strong>图 5｜蓝箭头表示同一个小模型微调前后。</strong> 横轴是参数规模的对数刻度；教师画成横虚线，没有在横轴给出它的参数量。来源：原论文 Fig. 5。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f1a2b3c4/fig6.png" alt="原论文完整图6：一个普查区一周内的离散方向与连续形状"></p>
-<p><strong>图 6｜同一普查区的七天，左列是方向、右列是形状。</strong> 上排兴趣点、下排人口属性；左侧为避免线条重叠加了显示抖动，右侧按每一维归一化。它展示生成过程，不能读成真实特征的绝对涨幅，也不是 500 个县的平均周节律。来源：原论文 Fig. 6。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>在这套同时留出县和日期的美国基准上，把日历条件分成离散方向和连续幅度，再送入冻结的流量生成器，可以得到比表中基线更接近观测的日流量矩阵。证据范围是 2019 年 1 月的县内普查区流量和星期、假日语境；没有验证暴雨、临时封路、大型活动或更细的小时尺度。实验衡量的是在新环境重新组合已学信号，不是估计改变工作日或设施布局后的因果影响。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p><strong>语言模型不报客流人数，它提出变化方向；真实流量监督决定这些方向怎么变成矩阵。</strong> 部署时不用目标地区的历史表，是这项设置的实际价值，但不意味着训练不需要观测，也不意味着任意新的时间事件都能被生成。</p>
-<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.ijcai.org/proceedings/2026/362">IJCAI 2026 正式会刊全文</a> · <a target="_blank" rel="noopener" href="https://doi.org/10.24963/ijcai.2026/362">DOI</a>。本文核对正式主会论文的图 1–6 与表 1–3。</li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/html/2606.09086v1">作者 arXiv v1 全文</a>（2026 年 6 月 8 日） · <a target="_blank" rel="noopener" href="https://github.com/csjiezhao/DynaOD">作者提供的代码</a>。</li>
-</ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>按论文署名，Jie Zhao、Huandong Wang、Yong Li 来自清华大学电子工程系和北京信息科学与技术国家研究中心（BNRist），Xianqi Dai 来自清华大学深圳国际研究生院，通讯作者 Jie Feng 来自中关村学院。</p>
+<h2 id="同一片办公区，周一和周日会吸引一样多的出行吗？"><a href="#同一片办公区，周一和周日会吸引一样多的出行吗？" class="headerlink" title="同一片办公区，周一和周日会吸引一样多的出行吗？"></a>同一片办公区，周一和周日会吸引一样多的出行吗？</h2><p>Zhao, J., Dai, X., Feng, J., Wang, H., &amp; Li, Y. (2026). DynaOD: Dynamic Origin-Destination Flow Generation with Discrete-to-Continuous Temporal Semantic Modeling. <em>Proceedings of the Thirty-Fifth International Joint Conference on Artificial Intelligence</em>, 3259–3267. <a href="https://doi.org/10.24963/ijcai.2026/362">论文 DOI</a></p>
+<p>假设一张地图标出了附近的办公楼、学校和商店。把日期从周一换成周日，地图上还是这些地方，前往各处的人流却可能重新分布。如果当地没有保留下每天的出行记录，能不能从其他地方学到这种变化，再为这里估一张当天的出行表？</p>
+<p>DynaOD 在美国 500 个县的数据上检验了这个想法。让模型考虑同一类场所在不同日子可能有多活跃，比只给现有方法加上日历信息，更能还原测试县内各片区之间的流量。关键在于怎样把“今天是周日”与“从哪儿到哪儿有多少出行”连起来。</p>
+<h2 id="一张表里，哪些信息可以借来？"><a href="#一张表里，哪些信息可以借来？" class="headerlink" title="一张表里，哪些信息可以借来？"></a>一张表里，哪些信息可以借来？</h2><p>研究把每个县划分为普查区。一天对应一张起讫流量矩阵（origin–destination matrix，OD 矩阵），每一行对应出发地，每一列对应目的地。某个格子记录当天从甲区前往乙区的流量，反向出行另算一个格子。每个普查区另有两组相对稳定的资料，一组描述商店等 34 类兴趣点，另一组用 97 个指标描述当地人口和社会经济状况。</p>
+<p>实验使用 2019 年 1 月的数据。研究分别留出一批县和一批日期。训练时间变化模块时，它可以对照训练县在训练日期的真实流量。测试时给它一个留出的县、一个留出的日期，只提供当地的地区特征和当天的星期、节假日信息。这样，模型既不能照搬这个县上周的流量，也不能直接查到当天其他训练县的答案。</p>
+<h2 id="语言模型判断方向，真实流量校准幅度"><a href="#语言模型判断方向，真实流量校准幅度" class="headerlink" title="语言模型判断方向，真实流量校准幅度"></a>语言模型判断方向，真实流量校准幅度</h2><p>以办公区为例。“周末办公活动可能减弱”只给出了方向。它既没有告诉我们要少估多少出行，也没有告诉我们这些出行原本来自哪些片区。DynaOD 把这两个问题交给不同的模型处理。</p>
+<p>对每个普查区和每一天，语言模型先为各类设施相关的活动给出增强、持平或减弱三个方向，再结合这些判断和当地人口特征，为人口属性所代表的活动信号给出方向。随后，名为 ShapeNet 的模型根据日期和片区特征估计各项信号的变化幅度。方向与幅度共同决定输入特征当天要上调或下调多少，再由已经训练好的流量生成器把所有片区的特征转换为当天的整张出行表。训练过程中，真实出行表为幅度估计提供反馈，流量生成器本身的参数保持固定。</p>
+<p>这里每天变化的是模型赋予各项地区特征的数值。即使模型把某类设施的输入上调，也不能据此推断当地新开了几家店。图 6 把中间过程落实到了一个普查区的一周。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f1a2b3c4/fig6.png" alt="一个普查区一周内的方向判断与连续变化"></p>
+<p>图 6｜横轴是 2019 年 1 月 25 至 31 日，上、下两行分别对应兴趣点和人口属性。左列用轻微错位的线展示各项特征的三个方向，右列把每项特征的模型输出分别缩放到 0 至 1，便于看它在一周内何时升高或降低。</p>
+<h2 id="生成的流量落在了正确的起终点之间吗？"><a href="#生成的流量落在了正确的起终点之间吗？" class="headerlink" title="生成的流量落在了正确的起终点之间吗？"></a>生成的流量落在了正确的起终点之间吗？</h2><p>生成的一天可以有合适的出行总量，却把到办公区的流量分给了别的目的地。论文用流量重叠指标 CPC 检查这种错配。同一格里观察到和生成的流量取较小值，汇总所有格子后，再用两张表总流量的平均值归一化。CPC 越接近 1，两张表在出行量及其去向上越一致。</p>
+<p>在同时留出县和日期的测试中，CPC 表现最好的对照方法是预训练的 NetGAN，得分为 0.365。DynaOD 得到 0.492，相对提高约 35%。如果保持底层生成器相同，预训练 WeDAN 单独使用时为 0.331，加入 DynaOD 的时间变化模块后为 0.492。前一组回答与已有方法相比进步多少，后一组回答同一个生成器能从这种处理里得到什么。</p>
+<p>这项改善也取决于输入的方向信号。把设施和人口两组方向全部去掉，生成表和观测表的流量重叠最低。保留任意一组都有改善，两组同时保留效果最好。比较支持了两组信号在这项任务里的互补作用。至于某个具体场所当天究竟为何人少，实验没有直接观测居民的活动动机。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/f1a2b3c4/fig3.png" alt="保留两类活动方向或分别移除它们时的模型表现"></p>
+<p>图 3｜每个面板从左到右依次是去掉两组方向、去掉设施方向、去掉人口方向、保留两组。a 的纵轴是流量重叠，越高越好。b、c 衡量逐格误差，d–f 衡量流入、流出和区对流量的分布差异，越低越好。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>即使目标县缺少历史流量，训练县里学到的日历节律仍能帮助估计目标县当天的片区间流量。模型还可以用相似普查区在同一星期几学到的变化幅度作参考，进一步改善测试结果。</p>
+<p>检验覆盖一个月，输出以天为单位。CPC 衡量的是地区间流量的重合程度。早高峰几点出现、某个人会去哪儿，以及临时活动会吸引多少访客，都超出了这次检验直接回答的范围。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这项研究为没有逐日出行表的地区提供了一种估算办法。它先从日历和地区资料推断活动变化的方向，再用有记录地区的真实流量学习变化幅度。在美国 500 个县的同月测试中，加入这种时间信息后，静态生成器更能把一天的出行分配到相应的起点和终点。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p>论文使用 Kang 等人发布的美国日尺度移动流量，并与 Rong 等人整理的通勤基准中的普查区资料对齐。实验划分及各项比较见论文第 4 节。<a href="https://www.ijcai.org/proceedings/2026/0362.pdf">IJCAI 正式论文</a> · <a href="https://github.com/csjiezhao/DynaOD">作者代码</a></p>
+<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Jie Zhao、Huandong Wang、Yong Li（清华大学电子工程系、北京信息科学与技术国家研究中心）。Xianqi Dai（清华大学深圳国际研究生院）。Jie Feng（北京中关村学院，通讯作者）。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>假设一个没有客流档案的新商业区，要给普通周末排公交班次。用相似地区的周末规律先做一张流量图，可以帮助找出需要现场调查的走廊。但若这个周末碰上大型演出，日历仍只写着“周六”。一张看起来真实的周六矩阵，恰恰可能漏掉最值得调度的客流。我会用生成结果做普通周末的参照，把演出造成的额外需求作为另一笔账来估，而不让前一张图替后一个问题作答。</p>
+<p>假如周末一座办公园区要办市集，园区负责人可以先问，普通周日有哪些片区的人本来就会来到附近。论文的方法适合为这个问题提供一张参照表。市集散场时如果突然有一批人前往同一座车站，即使当天园区总客流和参照表相近，这座车站也可能需要临时增派车辆。一天的估算有助于找出值得实地观察的片区，散场时刻的需求则要靠分时客流来判断。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -655,17 +589,13 @@
                 <a href="/posts/a7c8e9f0/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="2026-OpFlow: Learning Opportunity-Conditioned Choice Potentials for Robust OD Flow Prediction">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="OpFlow: Learning Opportunity-Conditioned Choice Potentials for Robust OD Flow Prediction">
                         
-                        <span class="card-title">2026-OpFlow: Learning Opportunity-Conditioned Choice Potentials for Robust OD Flow Prediction</span>
+                        <span class="card-title">OpFlow: Learning Opportunity-Conditioned Choice Potentials for Robust OD Flow Prediction</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">就业机会和交通便利程度往往同时变化，换一座城市后怎样估通勤？OpFlow 用模拟反转和美国县内通勤检验总量与去向分开估计的价值。</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2026-11-11

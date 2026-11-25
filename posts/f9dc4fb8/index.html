@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-Rethinking spatial community detection in human mobility: A random walk-based method, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="Rethinking spatial community detection in human mobility: A random walk-based method, 猴猴猴">
+    <meta name="description" content="深圳约141万条共享单车订单可被画成75个骑行片区，也可被分为十来个大片区。怎样判断哪张图更符合短途骑行？">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-Rethinking spatial community detection in human mobility: A random walk-based method | 猴猴猴</title>
+    <title>Rethinking spatial community detection in human mobility: A random walk-based method | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-Rethinking spatial community detection in human mobility: A random walk-based method</h1>
+                    <h1 class="description center-align post-title">Rethinking spatial community detection in human mobility: A random walk-based method</h1>
                 </div>
             </div>
         </div>
@@ -420,55 +420,37 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img {display:block;margin:1.25rem auto;max-width:100%;height:auto;} .post-title {overflow-wrap:anywhere;}</style>
+<style id="paper-figure-layout">#articleContent img{display:block;margin:1.1rem auto .75rem;max-width:100%;height:auto}.post-title{overflow-wrap:anywhere}</style>
 
-<h2 id="深圳骑车的人，真的按行政区活动吗？"><a href="#深圳骑车的人，真的按行政区活动吗？" class="headerlink" title="深圳骑车的人，真的按行政区活动吗？"></a>深圳骑车的人，真的按行政区活动吗？</h2><p>论文名片｜Wenkai Liu、Haonan Cai、Baoju Liu、Hanfa Xing、Linjun Gong，<em>Rethinking spatial community detection in human mobility: A random walk-based method</em>，Cities 170，106674，2026。<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.cities.2025.106674">DOI：10.1016/j.cities.2025.106674</a>。</p>
-<p>有些单车行程从一个行政区跨到另一个，有些虽然没跨界，却被一个很大的统计区域藏起来。与其直接拿行政边界当出行边界，作者问：什么样的分区能保留较多局部的移动联系？</p>
-<span id="more"></span>
-<h2 id="用局部连通性判断哪些地方该在一组"><a href="#用局部连通性判断哪些地方该在一组" class="headerlink" title="用局部连通性判断哪些地方该在一组"></a>用局部连通性判断哪些地方该在一组</h2><p>论文把交通空间单元作为节点、单车起讫量作为连线权重。随机游走衡量网络中一连串移动倾向留在一组内的程度，是刻画图结构的工具，并非观测到居民按随机路线出行。作者同时修改了局部搜索，让边界附近的单元有机会重新归类。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f9dc4fb8/fig1.png" alt="图 1：从空间单元和流量到网络，再由评价函数与移动搜索得到分区。"></p>
-<p>图 1｜从空间单元和流量到网络，再由评价函数与移动搜索得到分区。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/f9dc4fb8/fig2.png" alt="图 2：合成实验预设的真值分区，供算法对照。"></p>
-<p>图 2｜合成实验预设的真值分区，供算法对照。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f9dc4fb8/fig3.png" alt="图 3：（a）与真值吻合度，（b）随机游走评价值"></p>
-<p>图 3｜（a）与真值吻合度，（b）随机游走评价值；二者用途不同。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f9dc4fb8/fig4.png" alt="图 4：在第一组模拟条件下并列读六种分区。"></p>
-<p>图 4｜在第一组模拟条件下并列读六种分区。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/f9dc4fb8/fig5.png" alt="图 5：第二组条件提高了远近差异，关注各方法是否还能保住预设边界。"></p>
-<p>图 5｜第二组条件提高了远近差异，关注各方法是否还能保住预设边界。</p>
-<h2 id="合成真值之外，还需要看深圳实际结构"><a href="#合成真值之外，还需要看深圳实际结构" class="headerlink" title="合成真值之外，还需要看深圳实际结构"></a>合成真值之外，还需要看深圳实际结构</h2><p>合成数据能检验方法能不能找回预设边界，深圳共享单车没有同样的标准答案。论文比较了方法划出的社区、行政区域内外的起讫比例、以及分区尺度。新方法得到较细的局部区块，某些原方法连成大片的旅行联系在新划分里变得更容易区分；这只说明更贴近这类数据的移动结构。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f9dc4fb8/fig6.png" alt="图 6：深圳行政范围与单车起讫研究区域。"></p>
-<p>图 6｜深圳行政范围与单车起讫研究区域。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f9dc4fb8/fig7.png" alt="图 7：新方法的区块与两处放大，颜色代表社区而非流量。"></p>
-<p>图 7｜新方法的区块与两处放大，颜色代表社区而非流量。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/f9dc4fb8/fig8.png" alt="图 8：四种基线分法的空间对照，重点看大片连并处。"></p>
-<p>图 8｜四种基线分法的空间对照，重点看大片连并处。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/f9dc4fb8/fig9.png" alt="图 9：不同区的内部起讫所占比例，为理解行政线提供背景。"></p>
-<p>图 9｜不同区的内部起讫所占比例，为理解行政线提供背景。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/f9dc4fb8/fig10.png" alt="图 10：看旧方法识别的一处大区内部的单车连线，而非个人路线。"></p>
-<p>图 10｜看旧方法识别的一处大区内部的单车连线，而非个人路线。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/f9dc4fb8/fig11.png" alt="图 11：（a–c）比较原有大片被分开的形状。"></p>
-<p>图 11｜（a–c）比较原有大片被分开的形状。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/f9dc4fb8/fig12.png" alt="图 12：对应区域用新方法归并后的结果，和上图同位置比较。"></p>
-<p>图 12｜对应区域用新方法归并后的结果，和上图同位置比较。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f9dc4fb8/fig13.png" alt="图 13：（a）单趟骑行距离，（b）分区对角线，两者都用公里但不是同一个量。"></p>
-<p>图 13｜（a）单趟骑行距离，（b）分区对角线，两者都用公里但不是同一个量。</p>
-<h2 id="功能解释需要另一个来源"><a href="#功能解释需要另一个来源" class="headerlink" title="功能解释需要另一个来源"></a>功能解释需要另一个来源</h2><p>作者又把结果同动态社区、地铁站与兴趣点分布作对照，帮助解释一些区块的功能，但站点或兴趣点共现不能证明原因。骑行服务范围不等于其他交通方式的活动范围。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f9dc4fb8/fig14.png" alt="图 14：不同时段的动态对照，颜色表示分组。"></p>
-<p>图 14｜不同时段的动态对照，颜色表示分组。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f9dc4fb8/fig15.png" alt="图 15：地铁站位置叠加社区类型，不能把重合读成站点的因果效应。"></p>
-<p>图 15｜地铁站位置叠加社区类型，不能把重合读成站点的因果效应。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f9dc4fb8/fig16.png" alt="图 16：四类社区的兴趣点组成，扇区是比例而非绝对设施数。"></p>
-<p>图 16｜四类社区的兴趣点组成，扇区是比例而非绝对设施数。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>随机游走视角在合成对照中更有利于保留一些预设结构，并在深圳呈现较细的骑行联系；真实数据没有唯一真值。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>论文用网络随机游走和局部边界搜索重新划分出行社区，在六种方法参与的合成对照及深圳共享单车实际案例中检验。方法能减少若干过大的社区、凸显局部联系，但输出依赖单车覆盖和空间单元，不能当作全体居民的生活圈或行政区划方案。</p>
-<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p><a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.cities.2025.106674">期刊正式论文</a>。</p>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>五位作者署名机构包括华南师范大学与中南大学；Baoju Liu 为通讯作者。</p>
+<h2 id="深圳的共享单车，到底把哪些街区连在了一起？"><a href="#深圳的共享单车，到底把哪些街区连在了一起？" class="headerlink" title="深圳的共享单车，到底把哪些街区连在了一起？"></a>深圳的共享单车，到底把哪些街区连在了一起？</h2><p>Liu, W., Cai, H., Liu, B., Xing, H., &amp; Gong, L. (2026). Rethinking spatial community detection in human mobility: A random walk-based method. <em>Cities, 170</em>, 106674. <a href="https://doi.org/10.1016/j.cities.2025.106674">论文 DOI</a></p>
+<p>两个地铁站相隔不远，早晨却各自收拢了周边几个小区的共享单车。若这两个站几乎没有人骑车互相来往，应该把它们画进同一个骑行片区吗？这取决于划片时重视什么。将联系总量很大的地方归为一组，和沿着实际骑行方向走、找出走动时经常留在里面的区域，可以在同样的订单上画出两种地图。</p>
+<p>深圳一周约 141 万条共享单车记录给出了鲜明的对照。作者的方法得到 75 个空间连续的片区，四种主要按网络连接密度划分的方法则得到 9 至 11 个。要判断细分有没有道理，需要两种证据：在已知边界的数据上，看它能否找回边界。在没有标准答案的深圳，看这些片区的大小和来往是否符合实际骑行记录。</p>
+<h2 id="用骑行概率划界，和数两地之间的订单有什么区别？"><a href="#用骑行概率划界，和数两地之间的订单有什么区别？" class="headerlink" title="用骑行概率划界，和数两地之间的订单有什么区别？"></a>用骑行概率划界，和数两地之间的订单有什么区别？</h2><p>假设从同一网格出发，绝大多数单车都去附近的地铁站，偶尔才去远处的另一个商圈。如果让一个虚拟骑行者每到一个网格，就按各条出行方向在这个网格里的订单比例选择下一步，那么它会比随机挑方向更常到达那座地铁站。另一条同样繁忙的联系，若只是一个特别热闹地区所有去向中的很小一部分，被选中的概率就会小得多。</p>
+<p>这称为随机游走（random walk）。模型根据各网格的来往强度和从某网格出发的方向概率，估计虚拟骑行者长期在各条连线上经过的份额。把一批相邻网格划成片区后，实际留在片区内部的份额超出随机参照多少，就是随机游走模块度所衡量的量。虚拟骑行者可以把多次独立订单首尾相接。这段模拟路程并不属于某一位真实骑车人。</p>
+<p>怎样画出分数高、地理上又连成一片的边界？作者改进了一种空间划分算法，允许边缘网格在相邻片区之间局部移动，记录近期调整以避免反复打转，并比较移动后整张图的得分。论文把这套搜索方法简称为 STLM。评分规则回答“什么样的片区合适”，搜索方法回答“怎样找到这样的边界”，两者都可能影响最后的图。</p>
+<h2 id="若真的知道边界在哪里，这种办法能找回来吗？"><a href="#若真的知道边界在哪里，这种办法能找回来吗？" class="headerlink" title="若真的知道边界在哪里，这种办法能找回来吗？"></a>若真的知道边界在哪里，这种办法能找回来吗？</h2><p>研究先把 300 个交通分析区划成六个形状不同的片区，再生成以短距离移动为主、偶尔跨较长距离的模拟轨迹。划分方法只看到轨迹形成的网络。最后才拿作者预先画好的六个片区作参照，用调整兰德指数（adjusted Rand index，ARI）检验两套划分是否将同一对单元归在一起。指数越接近 1，越接近预设分区。</p>
+<p>当模拟移动很少跨区，各方法都容易找回六片。随着跨区移动增多，传统模块度方法的边界越来越偏离原设定，而两种按随机游走评分的方法仍保持在约 0.9 的一致性。固定评分，只换搜索方法，STLM 通常比原有 STOCS 方法略好。这种比较支持两个相互独立的判断：改用概率评估片区有帮助，在边界上多试一些局部调整也有帮助。结论先适用于论文生成的网络。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f9dc4fb8/fig3.png" alt="不同跨区流动强度下六种划分与预设边界的一致性"></p>
+<p>图 3｜（a）横轴是调节模拟移动特征的参数 α，纵轴 ARI 衡量与预设分区的一致性，靠上两条曲线都采用随机游走评分。（b）在相同评分下比较两种搜索方法，纵轴为随机游走模块度。</p>
+<h2 id="在深圳，75-个小片区比十来个大片区多揭示了什么？"><a href="#在深圳，75-个小片区比十来个大片区多揭示了什么？" class="headerlink" title="在深圳，75 个小片区比十来个大片区多揭示了什么？"></a>在深圳，75 个小片区比十来个大片区多揭示了什么？</h2><p>研究使用哈啰单车 2021 年 2 月 1 至 7 日的深圳订单，把起讫点归入 500 米见方网格，用网格间的订单数给有方向的连线赋权。现实城市没有唯一正确的社区图，所以作者回到订单和出行尺度查证。常规模块度与 STOCS 搜索组合得到 11 个大片区，其中一些横跨多个行政区。随机游走方法把繁忙地带细分出多个相邻片区。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f9dc4fb8/fig7.png" alt="按随机游走在深圳单车订单中识别的相邻片区"></p>
+<p>图 7｜每种颜色和编号代表一个骑行片区，粗灰线是行政区界，下面两幅放大图展示相邻小片区如何在密集网格中接壤。空白处没有着色的骑行片区。</p>
+<p>一个直接对照是尺寸。记录中约 99% 的行程短于 6 公里。研究用能够框住一个片区的最小外接矩形的对角线表示范围，STLM 的片区近六成不到 6 公里，只有四个略超过 12 公里。常规 STOCS 划出的个别片区对角线却接近 70 公里。行程长度和片区对角线测量的是不同对象，不能要求二者一一对应。不过这能帮助判断，一种分区会否把实际很少直接骑通的地区归并到一起。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/f9dc4fb8/fig13.png" alt="单次骑行长度与两种方法所得片区范围"></p>
+<p>图 13｜（a）横轴是骑行距离（公里），纵轴是订单占比。（b）每个点是一个片区，纵轴是外接矩形的对角线长度（公里），红线标出 12 公里。右列的几个大片区明显超出左图常见的骑行距离。</p>
+<p>把地铁站、住宅、产业和商业设施放回地图后，部分小片区的骑行起讫集中在地铁站所在网格，具有短途接驳的特征，有些则更接近本地日常或休闲活动。订单能告诉我们车在哪里借还，不能逐人确认是上班还是逛街。把这张图用于调度时还要记住，它描述的是一家平台、特定季节里一个星期的骑行。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>在有预设边界的模拟中，随着跨区移动增加，基于随机游走的评分对原有社区划分保持了较高的一致性。允许边界进行局部移动，也改善了搜索结果。</p>
+<p>在深圳共享单车数据中，新的划分辨认出比常规模块度分区更小的连续片区，尺寸更接近短距离骑行的实际分布。这给分析地铁接驳或局部骑行联系提供了另一种尺度。若改用出租车或其他长距离交通，适合的空间范围仍需重新比较。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这项方法把“哪些地方彼此相连”问得更具体：从某地按真实订单比例选择下一个目的地，途中会在哪些相邻街区停留得比随机参照更久？结合深圳一周约 141 万条单车订单，它划出了 75 个骑行片区。已知边界的模拟和实际骑行距离分别提供了验证，但这 75 个片区首先描绘共享单车的使用空间，不能据此确定全体居民的生活边界。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li>原论文给出随机游走评分、模拟实验、深圳片区与骑行距离的比较。<a href="https://doi.org/10.1016/j.cities.2025.106674">Liu 等（2026）</a></li>
+<li>哈啰单车提供记录起讫位置及时间的深圳订单。作者另用高德兴趣点和深圳地铁站点位置辨析不同片区的功能。<a href="https://www.amap.com/">高德地图</a></li>
+</ul>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>Wenkai Liu、Hanfa Xing（华南师范大学北斗研究院、地理科学学院）、Haonan Cai 和 Linjun Gong（华南师范大学北斗研究院）分别参与方法与写作、研究指导、数据整理与验证、可视化。通讯作者 Baoju Liu（中南大学地球科学与信息物理学院地理信息系）参与研究指导及论文修订。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>评价一个片区的单车投放时，可在行政报表旁另放一张骑行社区图。两个尺度得出不一样的繁忙边界，往往是调度单位该调整，不是某张地图需要被判错。</p>
+<p>给一个行政区增加共享单车，数字上可能已经补足总量，早班乘客走到自己常用的地铁口却仍然没车。原因可能很简单：车停在了同区另一座车站周围，那一片骑行者很少把车带回来。若先观察不同站点周围的实际借还范围，再谈该把车从哪里调到哪里，调度员面对的是几组具体的往返需求，而非整块行政区的平均缺口。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -580,17 +562,13 @@
                 <a href="/posts/0d11ffd3/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="2026-The classification and determinants of the 15-minute city across 339 Chinese cities">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="The classification and determinants of the 15-minute city across 339 Chinese cities">
                         
-                        <span class="card-title">2026-The classification and determinants of the 15-minute city across 339 Chinese cities</span>
+                        <span class="card-title">The classification and determinants of the 15-minute city across 339 Chinese cities</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            #articleContent img {display:block;margin:1.25rem auto;max-width:100%;height:auto;} .post-title {overflow-wrap:anywhere;
-                        
-                    </div>
+                    <div class="summary block-with-text">步行十五分钟能到两百多处设施，有的城市以公园、公交见长，有的以购物、休闲见长。339座中国城市的比较区分了供给总量和相对短板。</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2026-11-23
@@ -620,17 +598,13 @@
                 <a href="/posts/f87652dc/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="2026-Revealing urban agglomeration formation through thermodynamics and urban scaling laws">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Revealing urban agglomeration formation through thermodynamics and urban scaling laws">
                         
-                        <span class="card-title">2026-Revealing urban agglomeration formation through thermodynamics and urban scaling laws</span>
+                        <span class="card-title">Revealing urban agglomeration formation through thermodynamics and urban scaling laws</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            #articleContent img {display:block;margin:1.25rem auto;max-width:100%;height:auto;} .post-title {overflow-wrap:anywhere;
-                        
-                    </div>
+                    <div class="summary block-with-text">在京津冀，核心城市和部分外围城市沿着不同方向接近模型的净收益峰值。为什么整个城市群的分数又能超过成员的平均？</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-23

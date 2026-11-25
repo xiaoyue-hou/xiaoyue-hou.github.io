@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-Deep activity model: a generative deep learning approach for human mobility pattern synthesis, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="Deep Activity Model: A Generative Deep Learning Approach for Human Mobility Pattern Synthesis, 猴猴猴">
+    <meta name="description" content="从家庭调查生成一百万份日程，怎样在洛杉矶路网上再现拥堵的时间和方向？">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-Deep activity model: a generative deep learning approach for human mobility pattern synthesis | 猴猴猴</title>
+    <title>Deep Activity Model: A Generative Deep Learning Approach for Human Mobility Pattern Synthesis | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-Deep activity model: a generative deep learning approach for human mobility pattern synthesis</h1>
+                    <h1 class="description center-align post-title">Deep Activity Model: A Generative Deep Learning Approach for Human Mobility Pattern Synthesis</h1>
                 </div>
             </div>
         </div>
@@ -440,52 +440,34 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
 
-<h2 id="造出许多虚拟家庭的一天，能解释路网上的车流吗？"><a href="#造出许多虚拟家庭的一天，能解释路网上的车流吗？" class="headerlink" title="造出许多虚拟家庭的一天，能解释路网上的车流吗？"></a>造出许多虚拟家庭的一天，能解释路网上的车流吗？</h2><p>论文名片｜Xishun Liao、Qinhua Jiang、Brian Yueshuai He、Yifan Liu、Chenchen Kuai、Jiaqi Ma，<em>Deep Activity Model: A Generative Deep Learning Approach for Human Mobility Pattern Synthesis</em>，<em>IEEE Transactions on Intelligent Transportation Systems</em> 27(6)，2026：6519–6536。<a target="_blank" rel="noopener" href="https://doi.org/10.1109/TITS.2026.3678542">DOI：10.1109/TITS.2026.3678542</a>。</p>
-<p>早上出门上班和周末去购物，可能花一样久，但在交通规划里不是同一类需求。作者从家庭出行调查学习活动次序和时间，生成许多合成的日程，再把日程投到区域和路网上评估。关键不是替某位居民写出真实的一天，而是看许多虚拟家庭叠起来以后，能否重现观测到的分布和流量。</p>
-<h2 id="一条活动链要同时说清做什么和何时做"><a href="#一条活动链要同时说清做什么和何时做" class="headerlink" title="一条活动链要同时说清做什么和何时做"></a>一条活动链要同时说清做什么和何时做</h2><p>活动链把一天的活动类型、顺序和时长放在一起。模型看到的是虚拟人口的人口统计类别和家庭构成，一次生成活动序列。家庭信息可以改善多种群体日程的表达，但不代表知道现实家庭的安排，也不能把注意力权重读成家庭成员的因果影响。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/4f90b2d6/fig1.png" alt="完整原论文图1"></p>
-<p><strong>图 1｜</strong> 从出行调查到合成活动链的示例；颜色和连接表示活动类别与衔接，不是特定居民一日的公开记录。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/4f90b2d6/fig2.png" alt="完整原论文图2"></p>
-<p><strong>图 2｜</strong> 图中先生成日程，再安排空间活动位置；这两个环节有各自误差，应分开检验。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/4f90b2d6/fig3.png" alt="完整原论文图3"></p>
-<p><strong>图 3｜</strong> 区分背景输入与时间、类型等输出。相同背景的虚拟人不必得到相同日程。</p>
-<h2 id="先比较群体分布，再讨论模型迁移"><a href="#先比较群体分布，再讨论模型迁移" class="headerlink" title="先比较群体分布，再讨论模型迁移"></a>先比较群体分布，再讨论模型迁移</h2><p>作者比较开始时间、持续时间、活动类型和活动链长度等整体分布，而不是给每个虚拟人找一个真身。工作日、周末及年龄组如果被全体均值掩盖，模型即便总体相似，也可能把同一个高峰放到错误人群里。跨地区实验也需要本地调查适配；模型变好不是无数据迁移的证明。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/4f90b2d6/fig5.png" alt="完整原论文图5"></p>
-<p><strong>图 5｜</strong> 按不同量纲对照生成结果与调查：时间曲线贴合，不代表少见活动和长活动链同样贴合。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/4f90b2d6/fig6.png" alt="完整原论文图6"></p>
-<p><strong>图 6｜</strong> 工作日与周末分别比较，看模型是否保留了日程差异，而非只追求整体形状。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/4f90b2d6/fig7.png" alt="完整原论文图7"></p>
-<p><strong>图 7｜</strong> 分年龄组看活动结束时间和类型分布；每组都要和自己的参照比较。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/4f90b2d6/fig8.png" alt="完整原论文图8"></p>
-<p><strong>图 8｜</strong> 是对虚拟家庭条件的敏感性示例。图内响应不等同于真实家庭发生变化后的因果效果。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/4f90b2d6/fig9.png" alt="完整原论文图9"></p>
-<p><strong>图 9｜</strong> 地区间的参照分布并不相同。即使经过适配，活动定义或调查口径较难对应的部分仍需谨慎解释。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/4f90b2d6/fig10.png" alt="完整原论文图10"></p>
-<p><strong>图 10｜</strong> 墨西哥城的再平衡实验，说明训练分布偏斜会影响少见活动。再平衡不意味着现场这些活动真的更多。</p>
-<h2 id="合成日程怎样变成路网指标？"><a href="#合成日程怎样变成路网指标？" class="headerlink" title="合成日程怎样变成路网指标？"></a>合成日程怎样变成路网指标？</h2><p>给一条日程安排可达地区与活动机会，再把虚拟出行加载到交通网络，模型才产生交通指标。洛杉矶实验里，全网车辆行驶里程的平均绝对百分比误差是 4.97%。走廊上的通过流量、速度和地区活动量另有各自误差。全网里程接近可能部分来自正负误差相抵，不能替代逐走廊、逐时期验证。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/4f90b2d6/fig4.png" alt="完整原论文图4"></p>
-<p><strong>图 4｜</strong> 按活动和地区比较距离与角度分布，呈现位置分配阶段的群体参照。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/4f90b2d6/fig11.png" alt="完整原论文图11"></p>
-<p><strong>图 11｜</strong> 区域、道路和仿真网络是不同层；模型对全网和对具体走廊的误差应分开报告。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/4f90b2d6/fig12.png" alt="完整原论文图12"></p>
-<p><strong>图 12｜</strong> 地区活动量和全网行驶里程分别检验空间与时间表现。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/4f90b2d6/fig13.png" alt="完整原论文图13"></p>
-<p><strong>图 13｜</strong> 同一走廊的流量、速度及两个方向可给出不同误差；局部并非总能复制全网表现。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/4f90b2d6/fig14.png" alt="完整原论文图14"></p>
-<p><strong>图 14｜</strong> 不同模型规模下的多项分布偏差，评价指标并不总是同步改善。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/4f90b2d6/fig15.png" alt="完整原论文图15"></p>
-<p><strong>图 15｜</strong> 不同架构的表现对照。模型复杂度不能替代调查覆盖和外部验证。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>深度生成模型可以在样本条件下保留多项群体日程特征，并在洛杉矶路网实验中较好地重现部分交通统计。该结果依赖调查样本、合成人口、地点分配与路网设定，不是对具体居民的预测，也不能单独保证少见活动、所有走廊或其他城市准确。</p>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这项研究把家庭出行调查中的日程结构学进合成模型，生成虚拟人口的活动链，再将活动分配到交通小区并做道路仿真。群体活动时间、类别与多尺度交通指标可各自检验，洛杉矶全网行驶里程的平均绝对百分比误差达 4.97%。它验证了特定设定下的群体合成可用性，不证明模型能还原任何真实个人，也不意味着跨地区使用不需本地数据。</p>
-<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><p><a target="_blank" rel="noopener" href="https://doi.org/10.1109/TITS.2026.3678542">IEEE 正式出版版</a>，27(6)：6519–6536。原图 1–15 保持原样，权利归原权利人；私人校读不是公开再利用许可。</p>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Xishun Liao、Qinhua Jiang、Brian Yueshuai He、Yifan Liu、Chenchen Kuai 和 Jiaqi Ma 结合家庭出行调查、生成式活动模型与路网仿真，检验群体交通需求合成。</p>
+<h2 id="给一百万个虚拟居民安排日程，能再现高速公路上的早高峰吗？"><a href="#给一百万个虚拟居民安排日程，能再现高速公路上的早高峰吗？" class="headerlink" title="给一百万个虚拟居民安排日程，能再现高速公路上的早高峰吗？"></a>给一百万个虚拟居民安排日程，能再现高速公路上的早高峰吗？</h2><p>Liao, X., Jiang, Q., He, B. Y., Liu, Y., Kuai, C., &amp; Ma, J. (2026). Deep Activity Model: A Generative Deep Learning Approach for Human Mobility Pattern Synthesis. <em>IEEE Transactions on Intelligent Transportation Systems, 27</em>(6), 6519–6536. <a href="https://doi.org/10.1109/TITS.2026.3678542">论文 DOI</a></p>
+<p>假设两位居民每天都从同一片住宅区去同一片办公区。一位直接上班，另一位先送孩子到学校。通勤起点和终点相同，两辆车进入主路的地点和时间却可能不同。模拟一座城市的车流，需要把这类差别也写进虚拟居民的一天。手头只有家庭出行调查，能把日程排得多像，再把车流算得多准？</p>
+<p>在洛杉矶县，研究团队用一百万名虚拟居民试了一次。合成日程保留了工作日和周末不同的活动节奏。把活动分配到交通小区、再把出行放进路网后，模拟也重现了 405 号州际公路南北两个方向在不同时段降速的现象。要理解这种吻合的分量，需要分别看调查里的日程、规划模型里的出行需求和路边传感器测到的车速。</p>
+<h2 id="调查告诉模型，一项活动结束后通常会做什么"><a href="#调查告诉模型，一项活动结束后通常会做什么" class="headerlink" title="调查告诉模型，一项活动结束后通常会做什么"></a>调查告诉模型，一项活动结束后通常会做什么</h2><p>美国 2017 年全国家庭出行调查覆盖逾 12.9 万户家庭，记录受访者在调查日去了哪里、做了什么、何时出发或抵达。研究者把活动归入居家、上班、购物等 15 类，将开始和结束时间按 15 分钟划分。按先后顺序连起来，一个人的一天就成了一条活动链（activity chain）。</p>
+<p>生成一条新日程时，模型读入虚拟居民本人的属性和家庭成员的信息，再依据已经排好的活动，逐项生成下一项活动及其起止时间。比如，同样是上午八点，已经送完孩子和仍在家里，对下一项活动是两种不同的起点。训练让模型学到这些衔接在调查中出现得多不多。单个虚拟家庭的安排仍是抽样生成的。</p>
+<p>把许多人的日程汇总起来，就能和留作检验的调查记录直接比较。工作日早晨的活动开始得更集中，持续约七个半小时的活动也更多；周末的活动开始时间向中午推移，外出吃饭和探访亲友在全天活动中占得更多。模型再现了这些差别。不过，它把上午十点至下午三点结束的活动估得偏多，购物、用餐和办事等时间较灵活的活动尤其难排准。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/4f90b2d6/fig6.png" alt="工作日和周末调查日程与生成日程的对照"></p>
+<p>图 6｜蓝色为工作日，橙色为周末。（a、b）分别按活动开始时刻和持续小时数比较频率，虚线是调查，实线是模拟。（c）按活动类别比较占比，斜线柱为调查，实色柱为模拟。</p>
+<h2 id="换一座城市，还需要知道当地居民的哪些习惯？"><a href="#换一座城市，还需要知道当地居民的哪些习惯？" class="headerlink" title="换一座城市，还需要知道当地居民的哪些习惯？"></a>换一座城市，还需要知道当地居民的哪些习惯？</h2><p>全国调查训练出的模型还在加利福尼亚州、华盛顿州普吉特湾地区和墨西哥城都市区接受了检验。普吉特湾用约 7,800 条当地活动链做微调，样本远少于全国训练用的约 16 万条。墨西哥城的难点不同，调查只区分 10 类活动，提供的人口属性也较少。团队调整了模型读入属性和输出活动类别的部分，再用当地记录训练。三个地区完成适配后，合成日程的活动时间和类型分布都接近各自调查的结果。因此，其他城市可以借用全国调查训练出的模型，但还需要当地资料说明居民怎样安排一天。</p>
+<h2 id="从出门购物到公路车速，中间还隔着一张地图"><a href="#从出门购物到公路车速，中间还隔着一张地图" class="headerlink" title="从出门购物到公路车速，中间还隔着一张地图"></a>从出门购物到公路车速，中间还隔着一张地图</h2><p>一份日程写着下班后购物，却没告诉我们商店在哪里。研究者把洛杉矶县划为八个分区，借用南加州政府协会的活动基础模型（SCAG ABM）中十万名虚拟居民的数据，校准日程和地点分配。家在哪里已有设定，工作或上学地点按当地通勤距离分布和土地用途匹配到交通小区。购物等活动则参考上一站到下一站通常走多远、会朝下一个固定地点的方向偏出多大角度，再选相应的小区。</p>
+<p>用这套办法给一百万名虚拟居民排好日程后，研究者把出行加载到洛杉矶路网。与同一路网上采用 SCAG 出行需求的模拟相比，两种模拟给出的高速公路全网逐小时车辆行驶总里程，平均绝对百分比误差约为 5%。这个数字衡量新方法对既有区域规划模型的复现程度。</p>
+<p>路上实际发生了什么，还要看加州交通部门的 PeMS 传感器。在 405 号公路所选路段，观测曲线显示北向从早晨起就长时间维持低速，南向最慢的时段来得更晚。合成日程产生的车速曲线也呈现这项方向差别。图中标出的百分比误差以 SCAG 模型为参照，实测曲线用于核对拥堵在什么时候出现、持续多久。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/4f90b2d6/fig13.png" alt="405号公路双向逐小时模拟车流与传感器记录"></p>
+<p>图 13｜左栏是北向，右栏是南向。横轴均为一天中的小时，上排看每小时车流量，下排看车速（英里/小时）。绿虚线为传感器实测，橙线为新方法，蓝线为 SCAG 模型。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>家庭出行调查中的活动先后关系、发生时刻和家庭信息，可以用来生成成组的居民日程，保留工作日与周末之间的差异。对时间安排较灵活的活动，模型仍会把结束时刻排得过于集中。</p>
+<p>地点分配让日程能够进入区域交通仿真。洛杉矶的结果支持用这些合成出行近似区域车流的昼夜节奏。调查通常缺少精确到场所的位置，少见日程也可能被漏报，因而某个具体家庭会经过哪条街、去哪家店，超出了这次检验的范围。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这项研究从家庭调查中学习居民一天做什么、每件事做多久，再用当地出行距离和土地用途把每一站落到地图上。洛杉矶百万名虚拟居民的高速公路出行，在全网逐小时车辆行驶里程上与既有规划模型相差约 5%，在一段实际高速公路上也再现了南北向拥堵时段的差别。这样的群体检验，说明合成日程能为哪里、何时出现交通需求提供依据。</p>
+<h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
+<li>Liao 等（2026）报告了活动链生成、区域适配和洛杉矶路网实验。<a href="https://doi.org/10.1109/TITS.2026.3678542">原论文</a></li>
+<li>美国家庭出行调查提供全国训练资料。洛杉矶实验使用南加州政府协会的合成人口与出行模型数据，以及加州交通部 PeMS 监测记录。<a href="https://nhts.ornl.gov/">美国家庭出行调查</a> · <a href="https://pems.dot.ca.gov/">Caltrans PeMS</a></li>
+</ul>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>Xishun Liao、Qinhua Jiang、Yifan Liu 和通讯作者 Jiaqi Ma 来自加州大学洛杉矶分校交通实验室。Brian Yueshuai He 来自路易斯维尔大学土木与环境工程系，Chenchen Kuai 来自得克萨斯农工大学土木与环境工程系。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>若固定日程、只换地点分配方法，再反过来只换日程，可以比较两个环节各自带来多大的走廊偏差。这比只报全网平均误差更能帮助判断下一步该加强本地调查，还是改进空间分配。</p>
+<p>设想一条新公交线路想吸引目前开车上班的家长。只看家与单位，直达快线似乎最合适。可对早晨要先送孩子的人，真正要问的是同一张车票能不能把家、学校和单位顺次连起来。家庭日程给规划者多提供了一种读客流的方式。站点旁住了很多通勤者，客流仍可能很小，因为线路接住了他们的最后一段路，却错过了决定他们要不要开车出门的第一站。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -617,17 +599,13 @@
                 <a href="/posts/e2a84c19/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="2026-Multi-level urban environments and population mobility shape urban epidemic dynamics: A study in Beijing">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Multi-level urban environments and population mobility shape urban epidemic dynamics: A study in Beijing">
                         
-                        <span class="card-title">2026-Multi-level urban environments and population mobility shape urban epidemic dynamics: A study in Beijing</span>
+                        <span class="card-title">Multi-level urban environments and population mobility shape urban epidemic dynamics: A study in Beijing</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">北京 2022 年秋冬的每日高风险地点名单，可以用来问某地是否曾经上榜，也可以问一次上榜延续了多久。两个问题对城市资料提出了不同要求。</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="far fa-clock fa-fw icon-date"></i>2026-11-10
@@ -677,17 +655,13 @@
                 <a href="/posts/c5e17a83/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="2026-Population heterogeneity of the impact caused by temporal sampling intervals on typical human mobility indicators using mobile phone location data">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Population heterogeneity of the impact caused by temporal sampling intervals on typical human mobility indicators using mobile phone location data">
                         
-                        <span class="card-title">2026-Population heterogeneity of the impact caused by temporal sampling intervals on typical human mobility indicators using mobile phone location data</span>
+                        <span class="card-title">Population heterogeneity of the impact caused by temporal sampling intervals on typical human mobility indicators using mobile phone location data</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">手机每隔两小时才留下一个位置，会漏掉奔波者的短停，还是漏掉平时少出门的人偶尔走远的一次？深圳轨迹显示，答案取决于你计算哪个出行指标。</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-10

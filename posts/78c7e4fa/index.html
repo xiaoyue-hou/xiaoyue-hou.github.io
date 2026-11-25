@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2026-China’s Provincial Multi-Regional Input-Output Database for 2018 and 2020, 猴猴猴">
-    <meta name="description" content="">
+    <meta name="keywords" content="China’s Provincial Multi-Regional Input-Output Database for 2018 and 2020, 猴猴猴">
+    <meta name="description" content="2018 和 2020 年各省各部门向谁采购、为谁生产？沿一笔设备订单，读懂全国合计和省际流向各能核实到哪一步。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2026-China’s Provincial Multi-Regional Input-Output Database for 2018 and 2020 | 猴猴猴</title>
+    <title>China’s Provincial Multi-Regional Input-Output Database for 2018 and 2020 | 猴猴猴</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2026-China’s Provincial Multi-Regional Input-Output Database for 2018 and 2020</h1>
+                    <h1 class="description center-align post-title">China’s Provincial Multi-Regional Input-Output Database for 2018 and 2020</h1>
                 </div>
             </div>
         </div>
@@ -436,41 +436,45 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <style id="paper-figure-layout">#articleContent img { display: block; margin: 1.25rem auto; max-width: 100%; max-height: 750px; height: auto; } .post-title { overflow-wrap: anywhere; }</style>
+<style id="paper-figure-layout">#articleContent img { display:block; margin:1.25rem auto; max-width:100%; height:auto; } #articleContent img[alt="省际表汇总值与全国表在国产中间投入上的差别"], #articleContent img[alt="各省三个年份需求端增加值的行业组成"] { width:min(100%,675px); } .post-title { overflow-wrap:anywhere; }</style>
 
-<h2 id="一件产品在哪里买，和它在哪里创造价值，是两张不同的地图"><a href="#一件产品在哪里买，和它在哪里创造价值，是两张不同的地图" class="headerlink" title="一件产品在哪里买，和它在哪里创造价值，是两张不同的地图"></a>一件产品在哪里买，和它在哪里创造价值，是两张不同的地图</h2><p>某省买下一台设备，零部件可能来自其他省，检修服务又可能由第三地提供。只看购买地的总支出，看不出哪些地方和行业参与了供应。Jie Li、Zeyi Zhang、Diling Liang、Qianhong Ouyang、Peipei Tian、Dabo Guan 和 Heran Zheng 的 <a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-025-06543-y">China’s Provincial Multi-Regional Input-Output Database for 2018 and 2020</a> 补出了这两年的中国省级多区域投入产出表（MRIO）。文章是 <em>Scientific Data</em> 2026 年正式发表的数据论文（13，222）；DOI 中的 025 和早期稿上的 2025 不能代替最终出版年份。</p>
-<h2 id="表里是两年、31-个地区和-42-个部门"><a href="#表里是两年、31-个地区和-42-个部门" class="headerlink" title="表里是两年、31 个地区和 42 个部门"></a>表里是两年、31 个地区和 42 个部门</h2><p>两年各自覆盖 31 个省级地区、42 个部门，可与作者此前的 2012、2015 和 2017 年系列按相同分类比较。把省和部门配在一起，中间使用矩阵就是 <strong>1,302×1,302</strong>。对角块记录本地部门间的交易，非对角块表示跨省供给；另外还有最终需求、进口、出口、增加值和产出。这样的账本可以追溯最终需求牵涉到的供应链，但并不意味着每格都有直接调查数据。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/78c7e4fa/fig3.png" alt="完整原论文图3"></p>
-<p>图 3｜MRIO 的表格结构。对角块为省内交易，非对角块为省际交易；字段以发布文件为准。</p>
-<h2 id="省际交易缺口，如何在全国约束下补齐？"><a href="#省际交易缺口，如何在全国约束下补齐？" class="headerlink" title="省际交易缺口，如何在全国约束下补齐？"></a>省际交易缺口，如何在全国约束下补齐？</h2><p>作者先用统计资料和单区域表估计供给与需求，再把它们分为本地、省际和国外部分。交叉熵和 RAS 平衡帮助调整初始估计，使之接近已知的行列合计。省内块利用本地采购的份额，省际块则结合省际调入比例和初始流向：部分货物借助既有运输资料，电力另用输电数据，缺少可运输记录的服务和建筑按供需比例分配。2018 年沿用部分早期结构；2020 年只有少数省份使用本地单区域表，其余多借用全国平均技术系数。因此，全国合计对得上，不等于每条跨省交易都得到了独立验证。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/78c7e4fa/fig1.png" alt="完整原论文图1"></p>
-<p>图 1｜从供需统计构造省级单区域表，再补省内和省际矩阵。底部两个红色步骤名与框内定义对调，读法以正文和公式为准。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/78c7e4fa/fig2.png" alt="完整原论文图2"></p>
-<p>图 2｜用本地供货、外省调出调入和国外进出口，拆开省级供给与需求。</p>
-<h2 id="表能平衡多少，和每格有多准不是一回事"><a href="#表能平衡多少，和每格有多准不是一回事" class="headerlink" title="表能平衡多少，和每格有多准不是一回事"></a>表能平衡多少，和每格有多准不是一回事</h2><p>技术验证先看表内余额。作者将省级部门的剩余产出误差单列，正文称都在 <strong>±5%</strong> 以内。这个检验说明供需在会计口径上大体能合拢，并不能检验某个供应省究竟卖了多少给另一个省。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/78c7e4fa/fig4.png" alt="完整原论文图4"></p>
-<p>图 4｜2018 年和 2020 年的产出平衡误差；横轴为部门、纵轴为省级地区，色标不是预测准确率。</p>
-<p>第二道检查将国内中间投入聚合到全国，与官方全国表对比。多数部门的差异在 <strong>±10%</strong> 以内，但进口依赖较高的部门有明显偏离。论文把部分偏差与中间需求和最终需求使用相同进口比例的假设联系起来。2018 年图 5 的两处正向离群点按坐标粗读与正文点名比例不完全一致，不宜把图上的读值当成精确部门误差。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/78c7e4fa/fig5.png" alt="完整原论文图5"></p>
-<p>图 5｜两年全国国内中间投入的部门差异。虚线标出 ±10%，离群点提醒读者核查拆表假设。</p>
-<h2 id="消费端增加值，能帮我们读出什么？"><a href="#消费端增加值，能帮我们读出什么？" class="headerlink" title="消费端增加值，能帮我们读出什么？"></a>消费端增加值，能帮我们读出什么？</h2><p>论文将 2017、2018、2020 年的消费端增加值调整到统一价格，在 31 个省级地区和 15 个汇总行业之间比较。其用途是沿着最终需求读供应链，而不是只看当地直接生产。一些省份在三年间的结构变化差异很大；这能帮助提出经济结构变化的问题，却不能单从三个年份的投入产出表分离贸易摩擦、公共卫生变化和其他同期因素的因果效应。</p>
-<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/78c7e4fa/fig6.png" alt="完整原论文图6"></p>
-<p>图 6｜各省三个年份的消费端增加值，堆叠色块为 15 个汇总行业，横轴为十亿元人民币。</p>
-<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><ul>
-<li>2018 年和 2020 年的省级 MRIO 填补了已有同一分类数据库中的两个年份，便于做跨省供应链和部门核算。</li>
-<li>会计平衡和全国总量比较支持部分一致性，各省间的具体流向仍混合了直接数据与不同层次的估计。</li>
-<li>用三年账表可以描述省际和部门结构的变化，但不能凭前后对照识别某个冲击的净效应。</li>
-</ul>
-<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>这套表提供了 2018 和 2020 年统一口径的省级供应链账本，让人能把最终需求追溯到不同地区和部门。读表时，最重要的是区分直接观测与为补足数据而使用的规则：表可以在全国层面相当平衡，却仍可能高估或低估某些跨省和高进口行业的交易。用它比较结构比把每个格子当精确实测更稳妥。</p>
+<h2 id="一家工厂买的钢材，钱最后流向了哪个省？"><a href="#一家工厂买的钢材，钱最后流向了哪个省？" class="headerlink" title="一家工厂买的钢材，钱最后流向了哪个省？"></a>一家工厂买的钢材，钱最后流向了哪个省？</h2><p>Li, J., Zhang, Z., Liang, D., Ouyang, Q., Tian, P., Guan, D., &amp; Zheng, H. (2026). China’s Provincial Multi-Regional Input-Output Database for 2018 and 2020. <em>Scientific Data, 13</em>, 222. <a href="https://doi.org/10.1038/s41597-025-06543-y">论文 DOI</a></p>
+<p>假设江苏一家厂买了一批钢材来造设备。工厂账上记着钢材支出，但要问这台设备的订单带动了哪些地方的生产，还要知道钢从哪里来、钢厂又向哪里买了矿石。即便两省都公布了工业总产值，两个总数也不会告诉你它们彼此做了多少生意。</p>
+<p>这篇数据论文把中国 31 个省级地区、42 个部门接进同一张账表，补出了 2018 年和 2020 年两个重要年份。作者能用全国统计和各省账目锁定若干合计数，具体的跨省交易还得估算。他们的检验也显示了这种区别，每省每部门的产出大体能对上账，一旦追问某些高度依赖进口的部门究竟用了多少国产中间品，和全国表的差别就会扩大。</p>
+<h2 id="一笔跨省买卖，要同时过哪两本账？"><a href="#一笔跨省买卖，要同时过哪两本账？" class="headerlink" title="一笔跨省买卖，要同时过哪两本账？"></a>一笔跨省买卖，要同时过哪两本账？</h2><p>多区域投入产出表（multi-regional input-output table，MRIO）同时记买方和卖方。江苏工厂购买钢材，对它是生产投入，对供货省的钢厂则是产品去向。要让两个方向说得通，同一省同一部门卖出去、留给本省用、销往国外的部分，加起来要和该部门能供应的总数相容。按需求端看，从本省、外省和国外采购的部分也要能合起来。</p>
+<p>研究先以国家统计局公布的全国投入产出表作约束，再汇集各省统计年鉴、单区域投入产出表和海关进出口资料。省级表不会逐项告诉我们钢材在哪家工厂消耗。作者给缺项建立初始估计，然后调整它们，使行和列同时接近有统计依据的合计数。最终那张能纵横加总的表，结合了统计记录与模型推算。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/78c7e4fa/fig1.png" alt="由全国与地方资料编制省际投入产出表的步骤"></p>
+<p>图 1｜从顶端的产出、增加值、进出口等资料往下读，中段给出省级供需和单区域表。下方的对角块（diagonal matrix）记录省内关系，非对角块（non-diagonal matrix）记录省际关系。右侧的全国表为调整提供合计约束。</p>
+<p>同一笔钢材采购不能一会儿算作外省供货，一会儿又算作进口。作者采用交叉熵方法，在满足约束的前提下尽量保留初始份额的信息，又用 RAS 平衡法轮流调整行和列，使分配后的金额能与已知合计相符。这个步骤约束了全账，仍允许多种不同的细部分配都满足约束。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/78c7e4fa/fig2.png" alt="省内、省际及国际供给与需求的拆分"></p>
+<p>图 2｜分别读每个省的左右两组。左侧看本省所产去了本省、其他省还是国外，右侧看本省所需来自本省、其他省还是国外。跨省调出在另一端必须是调入，进出口则单独记。</p>
+<h2 id="没有逐笔交易，怎样判断钢材来自哪个省？"><a href="#没有逐笔交易，怎样判断钢材来自哪个省？" class="headerlink" title="没有逐笔交易，怎样判断钢材来自哪个省？"></a>没有逐笔交易，怎样判断钢材来自哪个省？</h2><p>第一个缺口是生产技术。知道当地工厂生产了多少钱的设备，还要估算每单位产出通常消耗多少钢材及其他投入，这个比例称为直接消耗系数。2018 年沿用各省 2017 年的生产投入结构作为起点。2020 年，北京、天津、上海有当年的地方表，其他地区先借全国平均系数，乘上各地真实产出，再用地方账目调整。因此各省的产出规模仍有统计依据，若比较的是两省工厂生产同样产品究竟用了多不一样的配方，这套估计会更受限制。</p>
+<p>第二个缺口是供货方向。知道甲省有货可调出、乙省需要从外省调入，两省也未必彼此成交。对其中 24 个部门，作者借用 11 类货物的铁路运输资料，结合供方可调出量、买方需调入量和两省距离，用引力模型估计流向。电力可以利用省际输电资料，建筑和服务等没有对应货运记录的部门则按区域供需分配。由此，同一张表里钢材、电力和服务的跨省流向并非都有一样多的直接线索。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-02/posts/78c7e4fa/fig3.png" alt="省份和部门同时出现在行与列的正式账表结构"></p>
+<p>图 3｜中间使用矩阵有 1,302 行和 1,302 列，各由 31 个地区乘以 42 个部门得到。沿一行看本地区本部门卖给谁，沿一列看一个地区部门向谁采购。右侧另列各地最终需求与出口，底部列进口和增加值。</p>
+<h2 id="各省都对得上账，还能检查哪一层误差？"><a href="#各省都对得上账，还能检查哪一层误差？" class="headerlink" title="各省都对得上账，还能检查哪一层误差？"></a>各省都对得上账，还能检查哪一层误差？</h2><p>先问最基本的问题，一个省的一个部门，它的总产出与账表列出的各项去向是否相符？图 4 的每一格都对应一个省和一个部门。两年所有格子的产出平衡偏差均在 ±5% 以内。它说明按编表规则加总时没有留下很大的缺口。若把一批货的供货省从甲误分到乙，而两省其他单元格作了相反调整，部分错误仍有可能在合计时抵消。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/78c7e4fa/fig4.png" alt="两个年份各省各部门的产出平衡偏差"></p>
+<p>图 4｜（a）为 2018 年，（b）为 2020 年。横轴为部门编号，纵轴为省级地区编号，颜色表示产出平衡偏差的方向与大小，接近白色表示剩余差额小。</p>
+<p>再把省际表加总到全国，与全国官方表中各部门使用的国产中间品对照。多数部门的差异在 ±10% 以内，少数明显偏离。关键假设之一是进口品在中间使用和最终需求中占同样的比例。现实中，一种进口品可能主要送进工厂做原材料，另一种则大多直接卖给消费者。只掌握总进口额时，给这两类用途分多少，会改变对国产中间品的估计。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-03/posts/78c7e4fa/fig5.png" alt="省际表汇总值与全国表在国产中间投入上的差别"></p>
+<p>图 5｜上下两图分别为 2018、2020 年。每个点代表一个部门，纵轴为省际表汇总值相对全国基准的差异。看两条虚线之间落入多少点，再看哪些点越过 ±10% 的范围。</p>
+<h2 id="从买设备的一方向上游追，能多看见什么？"><a href="#从买设备的一方向上游追，能多看见什么？" class="headerlink" title="从买设备的一方向上游追，能多看见什么？"></a>从买设备的一方向上游追，能多看见什么？</h2><p>买一台设备会牵动钢材、电力、运输等多道环节。把每一环节新创造的价值沿供应链归回最终需求，得到的是需求端核算的增加值（consumption-based value added）。这样既能看到设备本身的制造，也把它带动的上游生产算进去。只把每次买卖的销售额相加，同一批钢材的价值会在多道工序里反复出现。</p>
+<p>作者把 2017、2018 和 2020 年统一到 2020 年价格，再把 42 个部门合并为 15 组展示。江苏等地的需求端增加值在三个时点持续上升，北京的服务业部分则先升后降。三张表给出了可比的结构变化。贸易摩擦、疫情和其他经济变化在这段时间相继出现，仅凭三个时点无法把其中某一项冲击的影响单独算出来。</p>
+<p><img src="https://xiaoyue-hou.github.io/paper-figures-01/posts/78c7e4fa/fig6.png" alt="各省三个年份需求端增加值的行业组成"></p>
+<p>图 6｜纵轴列省份，每省有三个年份，横轴单位为十亿元人民币，统一按 2020 年价格。色块长度表示 15 个汇总行业各自的增加值贡献。比较同省三根条的总长度，再看哪些色块改变了。</p>
+<h2 id="研究结论"><a href="#研究结论" class="headerlink" title="研究结论"></a>研究结论</h2><p>2018 年和 2020 年两张省际投入产出表延续了此前 2012、2015、2017 年系列的地区和行业口径。它们适合追踪一地最终需求牵动了哪些地区与部门，也让研究者可以在统一口径下比较不同时点的产业联系。</p>
+<p>产出平衡检验与全国汇总比较回答了不同问题。省内各项合计能够对账，依然不能保证每个上游供货省都分对了。跨省运输线索少、国产与进口用途难分的部门，需要结合所用假设理解其金额。</p>
+<h2 id="核心总结"><a href="#核心总结" class="headerlink" title="核心总结"></a>核心总结</h2><p>Li 等人将全国统计、地方账表、海关和运输资料结合，估计 31 个省级地区、42 个部门之间在 2018 和 2020 年的交易。各地区部门的产出平衡偏差低于 5%，但一些进口依赖较高的部门，加总后的国产中间投入与官方全国表仍有较大差异。用这套数据看一台设备牵动的上游产业是合理的，把某条省际供货金额当作逐笔实测则会高估资料能提供的精度。</p>
 <h2 id="核心来源"><a href="#核心来源" class="headerlink" title="核心来源"></a>核心来源</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41597-025-06543-y">Scientific Data 正式 DOI</a>、<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41597-025-06543-y.pdf">Nature 正式 PDF</a>和 <a target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12890965/">PubMed Central 全文</a>。原图来自 Li 等，沿用现存原图和面板，不改绘。文章为 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>，不是允许改编的 CC BY。</li>
+<li>Li 等人的编制方法和技术验证，以及可下载的两年数据。<a href="https://doi.org/10.1038/s41597-025-06543-y">Scientific Data 论文</a> · <a href="https://doi.org/10.6084/m9.figshare.29927291">Figshare 数据</a> · <a href="https://github.com/LiJie20230/China_MRIO">作者计算代码</a></li>
+<li>全国表来自国家统计局，省级资料来自统计年鉴和地区投入产出表，进出口来自海关，电力流向参考《中国电力年鉴》。<a href="https://www.stats.gov.cn/">国家统计局</a> · <a href="https://www.ceads.net/">中国碳核算数据库 CEADs</a></li>
 </ul>
-<h2 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h2><p>Jie Li、Zeyi Zhang、Diling Liang、Qianhong Ouyang、Peipei Tian、Dabo Guan 和 Heran Zheng 共同完成这项数据论文，Heran Zheng 为通讯作者。</p>
+<h3 id="作者介绍"><a href="#作者介绍" class="headerlink" title="作者介绍"></a>作者介绍</h3><p>Jie Li、Zeyi Zhang、Peipei Tian（山东大学蓝绿发展研究院），Diling Liang、Heran Zheng（伦敦大学学院巴特利特可持续建造学院），Qianhong Ouyang（北京师范大学统计学院），以及 Dabo Guan（伦敦大学学院、清华大学地球系统科学系）共同撰写论文。Heran Zheng 主持研究，Jie Li 负责编表建模，与 Zeyi Zhang、Heran Zheng 共同收集原始资料。</p>
 <h2 id="延伸思考"><a href="#延伸思考" class="headerlink" title="延伸思考"></a>延伸思考</h2><p><em>以下是 AI 基于论文结果所作的延伸，不属于原论文结论。</em></p>
-<p>如果要用这张表判断某个供应链结论会不会随估算规则改变，我会先分开看有直接地方资料的部门和主要靠全国平均系数补齐的部门，再试两种进口分配规则。若结论在不同填法下都成立，它更适合支撑下一步分析；若某省的排序一换进口份额就变，应先补调查，不宜把排名当作政策绩效。</p>
+<p>假设一座城市准备采购一批电动公交车，想知道这笔投资能为本地创造多少价值。采购合同上的收款人可能是本地整车厂，可整车厂用的电池、电机和钢材可能来自许多地方。只看开票地址，几乎整笔钱都算在本地。顺着供应链去看，才会发现本地获得的是若干生产环节的增加值。</p>
+<p>省际表给了这个问题一个可以起算的平均结构。但如果一家投标企业刚把电池采购转给另一省，这张年度平均账本感知不到它刚刚作的决定。此时最值得追问的一句话或许是，哪些供货关系有合同可查，哪些仍是借同行业的普遍做法估出来的？这比报出一个精确到个位数的本地受益金额更接近决策真正需要的信息。</p>
 
-                
-            </div>
+</div>
             <hr/>
 
             
@@ -662,17 +666,13 @@
                 <a href="/posts/622f5ee3/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="2026-Monthly methane emissions in China from 2018–2024 based on source-level data">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Monthly methane emissions in China from 2018–2024 based on source-level data">
                         
-                        <span class="card-title">2026-Monthly methane emissions in China from 2018–2024 based on source-level data</span>
+                        <span class="card-title">Monthly methane emissions in China from 2018–2024 based on source-level data</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
+                    <div class="summary block-with-text">煤矿在 2024 年占中国人为甲烷排放的一半以上。为什么全国夏季排放的高峰，还要回到稻田和养殖场去看？</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2026-11-18
