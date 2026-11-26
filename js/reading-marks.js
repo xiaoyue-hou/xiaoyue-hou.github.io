@@ -651,7 +651,9 @@
             paint();
             return;
         }
-        fetch('/reading-posts.json')
+        // A new deployment changes the HTML Last-Modified timestamp.
+        var catalogUrl = '/reading-posts.json?revision=' + encodeURIComponent(document.lastModified);
+        fetch(catalogUrl, { cache: 'no-cache' })
             .then(function (response) {
                 if (!response.ok) {
                     throw new Error(response.status);
@@ -677,7 +679,7 @@
 
     window.addEventListener('pageshow', function (event) {
         if (event.persisted) {
-            paint();
+            start();
         }
     });
 })();
