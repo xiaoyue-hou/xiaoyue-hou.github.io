@@ -129,3 +129,69 @@ article .card-image a:hover {
 article .card .card-image .card-title {
     color: #fff !important;
 }
+
+/* Let the full title determine the height of each article cover. */
+article .card .card-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 220px;
+    padding-top: 3.25rem;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+}
+
+article .card .card-image > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .9;
+}
+
+article .card .card-image .card-title {
+    position: relative;
+    isolation: isolate;
+    padding: .55rem 1.25rem 1.1rem;
+    font-size: clamp(1.15rem, 1.05rem + .35vw, 1.4rem);
+    font-weight: 500;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+/* Keep white lettering legible on white-background paper figures. */
+article .card .card-image .card-title::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -1.75rem 0 0;
+    background: linear-gradient(to bottom, transparent, rgba(15, 22, 30, .66) 1.75rem, rgba(15, 22, 30, .86));
+}
+
+article .card .reading-card-actions button[aria-pressed="false"] {
+    background: rgba(15, 22, 30, .78);
+}
+
+/* The header overlaps the top of the cover, and the article overlaps its bottom. */
+.bg-cover.post-cover {
+    height: auto !important;
+    min-height: 40vh;
+    padding: 5.5rem 0;
+}
+
+.post-cover .row {
+    margin-bottom: 0;
+}
+
+.post-cover .post-title {
+    font-size: clamp(1.6rem, 1.15rem + 1.65vw, 2.5rem);
+    line-height: 1.28;
+    overflow-wrap: anywhere;
+    color: #fff;
+}
+
+.post-cover:not([style*="/medias/"])::after {
+    animation: none;
+    background: rgba(15, 22, 30, .6);
+}

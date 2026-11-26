@@ -462,6 +462,8 @@
         image.className = 'card-image';
         if (post.img) {
             var img = document.createElement('img');
+            img.loading = 'lazy';
+            img.decoding = 'async';
             img.src = post.img;
             img.className = 'responsive-img';
             img.alt = '';
@@ -588,11 +590,6 @@
                 itemSelector: '.article',
                 percentPosition: true
             });
-            if (jQuery.fn.imagesLoaded) {
-                $grid.imagesLoaded().progress(function () {
-                    $grid.masonry('layout');
-                });
-            }
         }
         ensureFilter(stats);
         var empty = document.querySelector('.reading-filter-empty');
